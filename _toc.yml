@@ -1,0 +1,9 @@
+root: CONDUCT
+entries:
+- file: CONTRIBUTING
+- file: README
+- file: advanced-geo-python/content
+  entries:
+  - file: advanced-geo-python/intro
+  - file: advanced-geo-python/markdown
+  - file: advanced-geo-python/markdown-notebooks
