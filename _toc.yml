@@ -1,11 +1,16 @@
 format: jb-book
 root: intro
+title: Home
 parts:
   - caption: Introduction
     chapters:
-    - file: lectures/intro
+    - file: lectures/syllabus
+    - file: lectures/team
+    - file: lectures/schedule
+    - file: lectures/assessment
+      title: Assessment
+    - file: lectures/policies
   - caption: Lectures
     numbered: True
     chapters:
-    - file: lectures/markdown_notebooks
-    - file: lectures/markdown.md
+    - file: lectures/unix
