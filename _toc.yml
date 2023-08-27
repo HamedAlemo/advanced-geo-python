@@ -1,12 +1,11 @@
-# Table of contents
-
 format: jb-book
 root: intro
-entries:
-# - file: CONTRIBUTING
-- file: README
-- file: advanced-geo-python/content
-  entries:
-  - file: advanced-geo-python/intro
-  - file: advanced-geo-python/markdown
-  - file: advanced-geo-python/markdown-notebooks
+parts:
+  - caption: Introduction
+    chapters:
+    - file: lectures/intro
+  - caption: Lectures
+    numbered: True
+    chapters:
+    - file: lectures/markdown_notebooks
+    - file: lectures/markdown.md
