@@ -4,12 +4,13 @@ title: Home
 parts:
   - caption: Introduction
     chapters:
-    - file: lectures/syllabus
-    - file: lectures/team
-    - file: lectures/schedule
-    - file: lectures/assessment
+    - file: docs/syllabus
+    - file: docs/team
+    - file: docs/schedule
+    - file: docs/assessment
       title: Assessment
-    - file: lectures/policies
+    - file: docs/resources
+    - file: docs/policies
   - caption: Lectures
     numbered: True
     chapters:
