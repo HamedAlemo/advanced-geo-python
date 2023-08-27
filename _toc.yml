@@ -1,6 +1,9 @@
-root: CONDUCT
+# Table of contents
+
+format: jb-book
+root: intro
 entries:
-- file: CONTRIBUTING
+# - file: CONTRIBUTING
 - file: README
 - file: advanced-geo-python/content
   entries:
