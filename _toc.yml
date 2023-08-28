@@ -18,3 +18,4 @@ parts:
   - caption: Appendices
     chapters:
     - file: docs/license
+    - file: docs/references
