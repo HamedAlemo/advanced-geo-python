@@ -10,7 +10,7 @@ Students will be responsible for and assessed according to the following criteri
     * The _final project repository and report_. The repository will contain all the code and analytical steps used to perform the analysis (including documents of the content and steps to reproduce the results), with the report submitted as a Jupyter notebook providing a summary of the project rationale, analyses undertaken, key results (illustrated with key figures, graphs, and tables), and discussion, including unexpected results, challenges encountered, and suggested improvements. This component will be worth **20% (200-level) to 30% (300-level) of the final grade**. 
 
 
-Assignments and the final project will be assessed against three main metrics: Quality and Accuracy, Clarity; Documentation; and Reproducibility. Numerical grades will be converted to letter grades as follows:
+Assignments and the final project will be assessed against four main metrics: Quality and Accuracy, Clarity; Documentation; and Reproducibility. Numerical grades will be converted to letter grades as follows:
 
 A: 93-100; A-: 90-93
 
