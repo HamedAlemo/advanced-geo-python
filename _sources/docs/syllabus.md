@@ -34,3 +34,5 @@ The following provides an approximate breakdown of the hours of effort required 
 - Write-up for the final project: **27 hrs**
 
 Total: **180 hrs**
+
+<p>&nbsp;</p>
