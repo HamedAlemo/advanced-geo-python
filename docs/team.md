@@ -10,6 +10,4 @@ halemohammad@clarku.edu
 Aiyin Zhang
 PhD Candidate, Graduate School of Geography
 aizhang@clarku.edu
-
-
-
+<p>&nbsp;</p>
