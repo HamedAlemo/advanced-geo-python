@@ -1,13 +1,13 @@
 # Team
 
 ## Instructor
-Prof. Hamed Alemohammad
+Prof. [Hamed Alemohammad](https://hamedalemo.github.io/)
 Associate Professor, Graduate School of Geography
 Director, Center for Geospatial Analytics
-halemohammad@clarku.edu
+(halemohammad [at] clarku [dot] edu)
 
 ## TA
 Aiyin Zhang
 PhD Candidate, Graduate School of Geography
-aizhang@clarku.edu
+(aizhang [at] clarku [dot] edu)
 <p>&nbsp;</p>
