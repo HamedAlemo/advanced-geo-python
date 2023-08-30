@@ -52,3 +52,116 @@ You can open the program called Terminal (or Terminal Emulator) by finding and l
 There are many options for running Bash on Windows. In this course, we recommend using Windows Subsystem for Linux (WSL). WSL is a feature of the Windows operating system that enables you to run a Linux file system, along with Linux command-line tools and GUI apps, directly on Windows, alongside your traditional Windows desktop and apps. You can read more about it [here](https://learn.microsoft.com/en-us/windows/wsl/faq). 
 
 To enable WSL on windows, follow the steps outlined [here](https://learn.microsoft.com/en-us/windows/wsl/install). The default Ubuntu distribution works well with the content of this course, and you do not need to change it. 
+
+
+## Home Directory
+To understand what a “home directory” is, let’s have a look at how the file system as a whole is organized. For the sake of this example, check the following figure that illustrates the file system on Hamed's computer. After this illustration, you’ll be learning commands to explore your own filesystem, which will be constructed in a similar way, but not be exactly identical.
+
+On a Unix computer, the filesystem looks like something this:
+
+```{image} ../lectures/figures/unix_files.png
+:alt: unix
+:class: bg-primary mb-1
+:width: 500px
+:align: center
+```
+
+The filesystem looks like an upside down tree. The topmost directory is the **root directory** that holds everything else. We refer to it using a slash character, `/`, on its own; this character is the leading slash in `/Users/nelle`.
+
+Inside that directory are several other directories: `bin` (which is where some built-in programs are stored), `lib` (for the software “libraries” used by different programs), `users` (where users’ personal directories are located), `tmp` (for temporary files that don’t need to be stored long-term), and so on.
+
+By default, when you open your terminal it lands in your home directory, which in our example is `/Users/hamed`. We know that this directory is stored inside `/Users` because `/Users` is the first part of its name. Similarly, we know that `/Users` is stored inside the root directory `/` because its name begins with `/`.
+
+``` {note}
+There are two meanings for the `/` character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears inside a path, it’s just a separator.
+```
+
+## Bash Commands to Navigate Files and Directories
+
+Now, let's review some of the useful bash commands to navigate and manipulate files and directories in your filesystem.
+
+**Print a List of Files and Subdirectories (`ls`)**
+
+`ls` prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. Here is the output of running `ls` inside the directory of this book on a local computer:
+```
+$ ls
+```
+```
+CONDUCT.md		_config.yml		lectures
+CONTRIBUTING.md		_toc.yml		logo.png
+LICENSE			assignments		references.bib
+README.md		docs			requirements.txt
+_build			intro.md
+```
+We can make its output more comprehensible by using the flag `-F`, which tells `ls` to add a trailing `/` to the names of directories:
+
+```
+$ ls -F
+```
+```
+CONDUCT.md		_config.yml		lectures/
+CONTRIBUTING.md		_toc.yml		logo.png
+LICENSE*		assignments/		references.bib
+README.md		docs/			requirements.txt
+_build/			intro.md
+```
+To print all files and directories, including hidden ones, you can add the `-a` flag:
+```
+$ ls -aF
+```
+```
+./			LICENSE			intro.md
+../			README.md		lectures/
+.DS_Store		_build/			logo.png
+.git/			_config.yml		references.bib
+.gitignore		_toc.yml		requirements.txt
+CONDUCT.md		assignments/
+CONTRIBUTING.md		docs/
+```
+
+**Print Current Working Directory (`pwd`)**
+
+To print the name of the current working directory, use the command `pwd`. This commands prints the full path to the directory (meaning that you can see the parent directory).
+
+```
+$ pwd
+```
+```
+/Users/hamed
+```
+
+**Change Current Working Directory (`cd`)**
+
+
+
+**Create a New Directory (`mkdir`)**
+
+
+
+
+
+**Delete a File (`rm`)**
+
+
+**Delete a Directory (`rm -r`)**
+
+
+**Copy a File (`cp`)**
+
+
+**Copy a Directory and Its Contents (`cp -r`)**
+
+
+**Create a New File Using a Single Command (`touch`)**
+
+## Getting help
+Every command in bash has multiple options that you can pass to change the output. There are two ways to find out what options are available:
+
+1. Pass `--help` to any command:
+```
+$ ls --help
+```
+2. Read the manual using `man`:
+```
+$ man ls
+```
