@@ -59,11 +59,14 @@ To understand what a “home directory” is, let’s have a look at how the fil
 
 On a Unix computer, the filesystem looks like something this:
 
-```{image} ../lectures/figures/unix_files.png
-:alt: unix
-:class: bg-primary mb-1
-:width: 500px
-:align: center
+```{figure} ../lectures/figures/unix_files.png
+---
+name: unix
+class: bg-primary mb-1
+width: 500px
+align: center
+---
+Hamed's file system tree
 ```
 
 The filesystem looks like an upside down tree. The topmost directory is the **root directory** that holds everything else. We refer to it using a slash character, `/`, on its own; this character is the leading slash in `/Users/nelle`.
@@ -72,7 +75,7 @@ Inside that directory are several other directories: `bin` (which is where some 
 
 By default, when you open your terminal it lands in your home directory, which in our example is `/Users/hamed`. We know that this directory is stored inside `/Users` because `/Users` is the first part of its name. Similarly, we know that `/Users` is stored inside the root directory `/` because its name begins with `/`.
 
-``` {note}
+``` {tip}
 There are two meanings for the `/` character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears inside a path, it’s just a separator.
 ```
 
@@ -222,3 +225,5 @@ $ ls --help
 ```
 $ man ls
 ```
+
+<p>&nbsp;</p>
