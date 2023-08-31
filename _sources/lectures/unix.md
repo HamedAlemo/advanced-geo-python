@@ -80,7 +80,7 @@ There are two meanings for the `/` character. When it appears at the front of a 
 
 Now, let's review some of the useful bash commands to navigate and manipulate files and directories in your filesystem.
 
-**Print a List of Files and Subdirectories (`ls`)**
+### Print a List of Files and Subdirectories (`ls`)
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. Here is the output of running `ls` inside the directory of this book on a local computer:
 ```
@@ -119,7 +119,9 @@ CONDUCT.md		assignments/
 CONTRIBUTING.md		docs/
 ```
 
-**Print Current Working Directory (`pwd`)**
+The `../` directory in the output of `ls -aF` is a special directory name meaning "the directory containing this one" or simply the **parent** of the current directory. You will learn in the following how to navigate to the parent directory. 
+
+### Print Current Working Directory (`pwd`)
 
 To print the name of the current working directory, use the command `pwd`. This commands prints the full path to the directory (meaning that you can see the parent directory).
 
@@ -130,29 +132,84 @@ $ pwd
 /Users/hamed
 ```
 
-**Change Current Working Directory (`cd`)**
+### Change Current Working Directory (`cd`)
+The command to change locations is `cd` followed by a directory name to change our working directory. `cd` stands for “change directory”.
+
+Let's say we are inside the directory of this book, and we want to move to the `lectures` directory we saw above. We can use the following command:
+```
+$ cd lectures
+```
+There is no output from this command. But if you are `pwd` you can confirm that you are in `lectures` directory now. 
+
+You can use the same `cd` command to also go to the parent directory of the current directory:
+```
+$ cd ..
+```
+
+``` {tip}
+If you run `cd` without any arguments it will return you to your home directory. This is equivalent to running `cd ~`
+```
+
+So far, when specifying directory names, or even a directory path (as above), we have been using **relative paths**. When you use a relative path with a command like `ls` or `cd`, it tries to find that location from where we are, rather than from the root of the file system.
+
+However, it is possible to specify the **absolute path** to a directory by including its entire path from the root directory, which is indicated by a leading slash. The leading `/` tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.
+
+`````{admonition} A useful shortcut
+:class: tip
+You can use the `-` (dash) character with `cd` to move into the previous directory you were in. This is very helpful instead of having to remember the full path. 
+`````
+
+### Create a New Directory (`mkdir`)
+
+To create a new directory you can use `mkdir` followed by the name you would like to give the new directory. If you only give a name, the new directory will be created in the current directory. You can also give the **absolute path** to `mkdir` to create a new directory anywhere on your file system. The following command will create a new directory in Hamed's home directory named `new-directory`:
+
+```
+$ mkdir /Users/hamed/new-directory/
+```
+### Create a New File Using a Single Command (`touch`)
+
+You can create a new empty file using the single command `touch`. This command was originally created to manage the timestamps of files. However, if a file does not already exist, then the command will make the file.
+
+This is an incredibly useful way to quickly and programmatically create a new empty file that can be populated at a later time. Here is an example:
+```
+$ touch samples.txt
+```
+
+### Copy a File (`cp`)
+
+You can copy a specific file to a new directory using the command `cp` followed by the name of the file you want to copy and the name of the directory to where you want to copy the file. The names can be relative path or absolute path. 
+
+For example, to copy the file  `samples.txt` from the current directory to `/Users/hamed/documents/`
+
+```
+$ cp samples.txt /Users/hamed/documents/
+```
 
 
+### Copy a Directory and Its Contents (`cp -r`)
+To copy a directory and all its content to a new directory, you need to use the flag `-r` (meaning recursive) with `cp`. 
 
-**Create a New Directory (`mkdir`)**
+For example, to copy the directory `documents` (and all its content) from Hamed's home directory to `/Users/hamed/projects/` you can run:
+```
+$ cp -r /Users/hamed/documents/ /Users/hamed/projects/
+``` 
 
+### Delete a File (`rm`)
+To delete a specific file, you can use the command `rm` (abbreviated for remove) followed by the name of the file you want to delete.
 
+For example, you can delete the `samples.txt` file under the current directory:
 
+```
+$ rm samples.txt
+```
 
+### Delete a Directory (`rm -r`)
+To delete a directory and all its content (be careful when using this command as Unix doesn't have a trash bin), you can use the `-r` flag with `rm`.
 
-**Delete a File (`rm`)**
-
-
-**Delete a Directory (`rm -r`)**
-
-
-**Copy a File (`cp`)**
-
-
-**Copy a Directory and Its Contents (`cp -r`)**
-
-
-**Create a New File Using a Single Command (`touch`)**
+For example, the following command will delete the `projects` directory and all its content from the current directory:
+```
+$ rm -r projects/
+```
 
 ## Getting help
 Every command in bash has multiple options that you can pass to change the output. There are two ways to find out what options are available:
