@@ -18,6 +18,9 @@ parts:
       title: Intro to Unix
     - file: lectures/git
       title: Intro to Version Control and Git
+  - caption: Assignments
+    chapters:
+    - file: assignments/a1
   - caption: Appendices
     chapters:
     - file: docs/license
