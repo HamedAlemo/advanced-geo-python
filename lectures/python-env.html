@@ -377,6 +377,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">3.3. Environments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management">3.4. Environment management</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">3.5. Conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-miniconda">3.6. Installing Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">3.7. Creating Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-and-deactivating-environments">3.8. Activating and Deactivating Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages-in-an-environment">3.9. Installing Packages in an Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channels-and-conda-forge">3.10. Channels and Conda-Forge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-environment-dependencies-with-environment-yml">3.11. Managing Environment Dependencies with <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -450,15 +456,135 @@ document.write(`
 <p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Conda vs. Miniconda vs. Anaconda [Source: <a class="reference external" href="https://planemo.readthedocs.io/en/latest/writing_advanced_cwl.html">Planemo Documentation</a>]</span><a class="headerlink" href="#miniconda-anaconda" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<!-- ## Installing Miniconda
+</section>
+<section id="installing-miniconda">
+<h2><span class="section-number">3.6. </span>Installing Miniconda<a class="headerlink" href="#installing-miniconda" title="Permalink to this heading">#</a></h2>
+<p>You can download the installer for Miniconda from <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">this page</a>. Make sure to download the correct version depending on your OS and hardware. Follow the step on <em><a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Quick command line install</a></em> to install Miniconda.</p>
+<p>After finishing the installation, and opening a new terminal (or reloading it) you should see (base) at the start of your prompt in the terminal. This indicates that you are in the “base” Conda environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(base) $
+</pre></div>
+</div>
+<p><em>For simplicity, we avoid including the (base) environment name for any code block in this book.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Conda has a default environment called base that include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment. Additional packages needed for a new project should always be installed into a newly created Conda environment.</p>
+</div>
+</section>
+<section id="creating-environments">
+<h2><span class="section-number">3.7. </span>Creating Environments<a class="headerlink" href="#creating-environments" title="Permalink to this heading">#</a></h2>
+<p>A Conda environment is an isolated workspace where you can install specific versions of Python and packages without affecting your system-wide Python installation. Each environment has its own set of packages, making it possible to have different versions of packages in different environments. This isolation is essential for avoiding conflicts and ensuring the reproducibility of your projects.</p>
+<p>To create a new Conda environment, use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> command. Here’s the basic syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name myenv 
+</pre></div>
+</div>
+<p>Replace <em>myenv</em> with the name you want to give to your environment, and use a name that reflects the project or assignment you will use this environment for.</p>
+<p>If you wish, you can specify a particular version of Python for Conda to install when creating the environment. For example, to create an environment named “g313-a1” with Python 3.8, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name g313-a1 python=3.8
+</pre></div>
+</div>
+</section>
+<section id="activating-and-deactivating-environments">
+<h2><span class="section-number">3.8. </span>Activating and Deactivating Environments<a class="headerlink" href="#activating-and-deactivating-environments" title="Permalink to this heading">#</a></h2>
+<p>Once you’ve created an environment, you can activate it to start working within that isolated space. To activate an environment, use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate g313-a1
+</pre></div>
+</div>
+<p>When the environment is activated, your command prompt will display the environment name to indicate that you are working within it (e.g. <code class="docutils literal notranslate"><span class="pre">(g313-a1)username&#64;hostname</span> <span class="pre">~</span> <span class="pre">$</span></code>).</p>
+<p>To deactivate the current environment and return to the base (system-wide) environment, use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(g313-a1) $ conda deactivate
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To see all the environments on your system:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda info --envs
+</pre></div>
+</div>
+</div>
+<p>If you want to permanently remove an environment and delete all the data associated with it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda env remove --name my_environment --all
+</pre></div>
+</div>
+<p>For extensive documentation on using environments, please see the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/concepts/environments.html">Conda documentation</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can avoid spelling out the full option for <code class="docutils literal notranslate"><span class="pre">conda</span></code> commands and use their first letter with a single <code class="docutils literal notranslate"><span class="pre">-</span></code>.
+For example, the two following commands are the same:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda create --name myenv
 
-
-
-
-
-
-To create a new conda environment, -n sets the name of the environment. The -c denotes a channel, or repository from which to pull compatible package dependencies. conda-forge is a widely used and reliable channel for installations. To add additional packages to your environment, you activate it from anywhere as seen on the second line above. Once activated, you can begin installing packages via conda and pip. For more information on using conda, check out the conda documentation. -->
-<p>&nbsp;</p></section>
+$ conda create -n myenv
+</pre></div>
+</div>
+</div>
+</section>
+<section id="installing-packages-in-an-environment">
+<h2><span class="section-number">3.9. </span>Installing Packages in an Environment<a class="headerlink" href="#installing-packages-in-an-environment" title="Permalink to this heading">#</a></h2>
+<p>After activating an environment, you can use <code class="docutils literal notranslate"><span class="pre">conda</span></code> to install packages specific to that environment. For example, to install the <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> package into your “g313-a1” environment, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install numpy
+</pre></div>
+</div>
+<p>Conda will ensure that the package and its dependencies are installed in the active environment.</p>
+<p>If you list more than one package to be installed, Conda will download the most current, mutually compatible versions of the requested packages.</p>
+<p>In order to make your results more reproducible and to make it easier for research colleagues to recreate your Conda environments on their machines it is a “best practice” to always explicitly specify the version number for each package that you install into an environment. If you are not sure exactly which version of a package you want to use, then you can use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span></code> to see what versions are available. For example, if you wanted to see which versions of <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> were available, you would run the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda search numpy
+</pre></div>
+</div>
+<p>You can then update your <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command as following to install <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> version 1.25.2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install numpy=1.25.2
+</pre></div>
+</div>
+<p>Finally, you can specify multiple packages and their version in the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> command if you wish to install them when creating a new environment. For example, the following command will create a new environment called <code class="docutils literal notranslate"><span class="pre">scipy-env</span></code> and install four packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name scipy-env ipython=7.13 matplotlib=3.1 numpy=1.18 scipy=1.4
+</pre></div>
+</div>
+<p>Another benefit of using Conda for package and environment management is that it allows you to install packages using <code class="docutils literal notranslate"><span class="pre">pip</span></code> too. Outside of the scientific python community, the most common way to install packages is to search for them on the official <a class="reference external" href="https://pypi.org/">PyPI</a> index. Once you’ve found the package you want to install (you may have also just found it on github or elsewhere), you use the pip command from a the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install &lt;package-name&gt;
+</pre></div>
+</div>
+<p>This will fetch the source code, build it, and install it to wherever your <code class="docutils literal notranslate"><span class="pre">$PYTHONPATH</span></code> is set. This works in the vast majority of cases, particularly when the code you’re installing doesn’t have any compiled dependencies.</p>
+<p>If you can’t find a package on either PyPI or <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, you can always install it directly from the source code. If the package is on github, pip already has an alias to do this for you:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/&lt;user&gt;/&lt;package-name&gt;.git
+</pre></div>
+</div>
+</section>
+<section id="channels-and-conda-forge">
+<h2><span class="section-number">3.10. </span>Channels and Conda-Forge<a class="headerlink" href="#channels-and-conda-forge" title="Permalink to this heading">#</a></h2>
+<p>The packages that you install using the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command are hosted on conda <em><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/concepts/channels.html">channels</a></em>. From the conda docs:</p>
+<blockquote>
+<div><p>Conda channels are the locations where packages are stored. They serve as the base for hosting and managing packages. Conda packages are downloaded from remote channels, which are URLs to directories containing conda packages. The <code class="docutils literal notranslate"><span class="pre">conda</span></code> command searches a set of channels. By default, packages are automatically downloaded and updated from the <a class="reference external" href="https://repo.anaconda.com/pkgs/">default channel</a> which may require a paid license, as described in the <a class="reference external" href="https://www.anaconda.com/terms-of-service">repository terms of service</a>. The <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel is free for all to use. You can modify what remote channels are automatically searched. You might want to do this to maintain a private or internal channel. For details, see how to <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#config-channels">modify your channel lists</a>.</p>
+<p>Conda-forge is a community channel made up of thousands of contributors. Conda-forge itself is analogous to PyPI but with a unified, automated build infrastructure and more peer review of recipes.</p>
+</div></blockquote>
+<p>The Anaconda channel terms of service clearly excludes all educational activities and all research activities at non-profit institutions from their definition of commercial usage. Even companies with fewer than 200 employees are excluded. The aim of the commercial paid license for Anaconda is to require large corporations which use the repository heavily to contribute financially to its maintenance and development. Without such contributions, Anaconda might not be able to sustain itself.</p>
+<p>The simple way to specify your preferred channel is to pass the <code class="docutils literal notranslate"><span class="pre">-c</span></code> option when you run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge {package_name}
+</pre></div>
+</div>
+</section>
+<section id="managing-environment-dependencies-with-environment-yml">
+<h2><span class="section-number">3.11. </span>Managing Environment Dependencies with <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code><a class="headerlink" href="#managing-environment-dependencies-with-environment-yml" title="Permalink to this heading">#</a></h2>
+<p>To ensure that your project can be easily reproduced on different systems, you can create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file that lists all the dependencies for your project, including Python version and packages. Here’s an example of an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">g313</span><span class="o">-</span><span class="n">a1</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>
+  <span class="o">-</span> <span class="n">numpy</span><span class="o">=</span><span class="mf">1.25.2</span>
+  <span class="o">-</span> <span class="n">matplotlib</span><span class="o">=</span><span class="mf">3.7.1</span>
+  <span class="o">-</span> <span class="n">pandas</span><span class="o">=</span><span class="mf">2.0.3</span>
+</pre></div>
+</div>
+<p>You can create a Conda environment from this file using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda env create -f environment.yml
+</pre></div>
+</div>
+<p>This command will create an environment named “g313-a1” with the specified dependencies.</p>
+<p><strong>Note</strong>: This command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code> is different from <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>. If you are only passing <code class="docutils literal notranslate"><span class="pre">-f</span></code> to <code class="docutils literal notranslate"><span class="pre">conda</span></code> for creating a new environment, you need to use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check out this Conda <a class="reference external" href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf">cheatsheet</a> to look for some quick answers to your Conda related questions.</p>
+</div>
+<p>&nbsp;</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -533,6 +659,12 @@ To create a new conda environment, -n sets the name of the environment. The -c d
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">3.3. Environments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management">3.4. Environment management</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">3.5. Conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-miniconda">3.6. Installing Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">3.7. Creating Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-and-deactivating-environments">3.8. Activating and Deactivating Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages-in-an-environment">3.9. Installing Packages in an Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channels-and-conda-forge">3.10. Channels and Conda-Forge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-environment-dependencies-with-environment-yml">3.11. Managing Environment Dependencies with <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
 </ul>
   </nav></div>
 
