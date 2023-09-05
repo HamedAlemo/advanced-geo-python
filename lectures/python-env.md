@@ -13,7 +13,7 @@ When working with a programming language, such as Python, that can do almost any
 ```{admonition} Definitions
 **Module**: a collection of functions and variables, as in a script
 
-**Package**: a collection of modules with an init.py file (can be empty), as in a directory with scripts
+**Package**: a collection of modules with an `__init__.py` file (can be empty), as in a directory with scripts
 
 **Library**: a collection of packages with related functionality
 
