@@ -79,14 +79,154 @@ align: center
 ---
 Conda vs. Miniconda vs. Anaconda [Source: [Planemo Documentation](https://planemo.readthedocs.io/en/latest/writing_advanced_cwl.html)] 
 ```
-<!-- ## Installing Miniconda
+## Installing Miniconda
+You can download the installer for Miniconda from [this page](https://docs.conda.io/projects/miniconda/en/latest/). Make sure to download the correct version depending on your OS and hardware. Follow the step on *[Quick command line install](https://docs.conda.io/projects/miniconda/en/latest/)* to install Miniconda. 
+
+After finishing the installation, and opening a new terminal (or reloading it) you should see (base) at the start of your prompt in the terminal. This indicates that you are in the "base" Conda environment:
+```
+(base) $
+```
+*For simplicity, we avoid including the (base) environment name for any code block in this book.*
+
+```{warning}
+Conda has a default environment called base that include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment. Additional packages needed for a new project should always be installed into a newly created Conda environment.
+```
+
+## Creating Environments
+A Conda environment is an isolated workspace where you can install specific versions of Python and packages without affecting your system-wide Python installation. Each environment has its own set of packages, making it possible to have different versions of packages in different environments. This isolation is essential for avoiding conflicts and ensuring the reproducibility of your projects.
+
+To create a new Conda environment, use the `conda create` command. Here's the basic syntax:
+
+```
+$ conda create --name myenv 
+```
+Replace *myenv* with the name you want to give to your environment, and use a name that reflects the project or assignment you will use this environment for. 
+
+If you wish, you can specify a particular version of Python for Conda to install when creating the environment. For example, to create an environment named "g313-a1" with Python 3.8, use the following command:
+
+```
+$ conda create --name g313-a1 python=3.8
+```
+
+## Activating and Deactivating Environments
+Once you've created an environment, you can activate it to start working within that isolated space. To activate an environment, use the `conda activate` command:
+
+```
+$ conda activate g313-a1
+```
+
+When the environment is activated, your command prompt will display the environment name to indicate that you are working within it (e.g. `(g313-a1)username@hostname ~ $`).
+
+To deactivate the current environment and return to the base (system-wide) environment, use the `conda deactivate` command:
+
+```
+(g313-a1) $ conda deactivate
+```
+
+```{tip}
+To see all the environments on your system:
+
+    $ conda info --envs
+
+```
+
+If you want to permanently remove an environment and delete all the data associated with it:
+```
+$ conda env remove --name my_environment --all
+```
+
+For extensive documentation on using environments, please see the [Conda documentation](https://conda.io/projects/conda/en/latest/user-guide/concepts/environments.html). 
+
+```{tip}
+
+You can avoid spelling out the full option for `conda` commands and use their first letter with a single `-`. 
+For example, the two following commands are the same:
+    
+    $ conda create --name myenv
+
+    $ conda create -n myenv
+    
+```
+
+## Installing Packages in an Environment
+After activating an environment, you can use `conda` to install packages specific to that environment. For example, to install the `NumPy` package into your "g313-a1" environment, use the following command:
+
+```
+$ conda install numpy
+```
+Conda will ensure that the package and its dependencies are installed in the active environment.
+
+If you list more than one package to be installed, Conda will download the most current, mutually compatible versions of the requested packages. 
+
+In order to make your results more reproducible and to make it easier for research colleagues to recreate your Conda environments on their machines it is a “best practice” to always explicitly specify the version number for each package that you install into an environment. If you are not sure exactly which version of a package you want to use, then you can use `conda search` to see what versions are available. For example, if you wanted to see which versions of `NumPy` were available, you would run the following.
+```
+$ conda search numpy
+```
+You can then update your `conda install` command as following to install `NumPy` version 1.25.2:
+```
+$ conda install numpy=1.25.2
+```
+
+Finally, you can specify multiple packages and their version in the `conda create` command if you wish to install them when creating a new environment. For example, the following command will create a new environment called `scipy-env` and install four packages:
+```
+$ conda create --name scipy-env ipython=7.13 matplotlib=3.1 numpy=1.18 scipy=1.4
+```
+
+Another benefit of using Conda for package and environment management is that it allows you to install packages using `pip` too. Outside of the scientific python community, the most common way to install packages is to search for them on the official [PyPI](https://pypi.org/) index. Once you’ve found the package you want to install (you may have also just found it on github or elsewhere), you use the pip command from a the command line:
+
+```
+$ pip install <package-name>
+```
+This will fetch the source code, build it, and install it to wherever your `$PYTHONPATH` is set. This works in the vast majority of cases, particularly when the code you’re installing doesn’t have any compiled dependencies.
+
+If you can’t find a package on either PyPI or `conda-forge`, you can always install it directly from the source code. If the package is on github, pip already has an alias to do this for you:
+```
+$ pip install git+https://github.com/<user>/<package-name>.git
+```
+
+## Channels and Conda-Forge
+The packages that you install using the `conda` command are hosted on conda *[channels](https://conda.io/projects/conda/en/latest/user-guide/concepts/channels.html)*. From the conda docs:
+
+> Conda channels are the locations where packages are stored. They serve as the base for hosting and managing packages. Conda packages are downloaded from remote channels, which are URLs to directories containing conda packages. The `conda` command searches a set of channels. By default, packages are automatically downloaded and updated from the [default channel](https://repo.anaconda.com/pkgs/) which may require a paid license, as described in the [repository terms of service](https://www.anaconda.com/terms-of-service). The `conda-forge` channel is free for all to use. You can modify what remote channels are automatically searched. You might want to do this to maintain a private or internal channel. For details, see how to [modify your channel lists](https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#config-channels).
+>
+> Conda-forge is a community channel made up of thousands of contributors. Conda-forge itself is analogous to PyPI but with a unified, automated build infrastructure and more peer review of recipes.
+
+The Anaconda channel terms of service clearly excludes all educational activities and all research activities at non-profit institutions from their definition of commercial usage. Even companies with fewer than 200 employees are excluded. The aim of the commercial paid license for Anaconda is to require large corporations which use the repository heavily to contribute financially to its maintenance and development. Without such contributions, Anaconda might not be able to sustain itself.
+
+The simple way to specify your preferred channel is to pass the `-c` option when you run `conda install`:
+
+```
+$ conda install -c conda-forge {package_name}
+```
 
 
+## Managing Environment Dependencies with `environment.yml`
+To ensure that your project can be easily reproduced on different systems, you can create an `environment.yml` file that lists all the dependencies for your project, including Python version and packages. Here's an example of an `environment.yml` file:
+
+```
+name: g313-a1
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy=1.25.2
+  - matplotlib=3.7.1
+  - pandas=2.0.3
+```
+
+You can create a Conda environment from this file using the following command:
+```
+$ conda env create -f environment.yml
+```
+
+This command will create an environment named "g313-a1" with the specified dependencies.
+
+**Note**: This command `conda env create` is different from `conda create`. If you are only passing `-f` to `conda` for creating a new environment, you need to use `conda env create`.
 
 
-
-
-To create a new conda environment, -n sets the name of the environment. The -c denotes a channel, or repository from which to pull compatible package dependencies. conda-forge is a widely used and reliable channel for installations. To add additional packages to your environment, you activate it from anywhere as seen on the second line above. Once activated, you can begin installing packages via conda and pip. For more information on using conda, check out the conda documentation. -->
+```{tip}
+Check out this Conda [cheatsheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf) to look for some quick answers to your Conda related questions. 
+```
 
 
 <p>&nbsp;</p>
