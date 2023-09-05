@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2. Introduction to Version Control and Git &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>3. Python Environments &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/git';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/python-env';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Python Environments" href="python-env.html" />
-    <link rel="prev" title="1. Introduction to Unix" href="unix.html" />
+    <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
+    <link rel="prev" title="2. Introduction to Version Control and Git" href="git.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="unix.html">1. Intro to Unix</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Intro to Version Control and Git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Python Environments</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -250,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/git.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/python-env.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -280,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lectures/git.md" target="_blank"
+      <li><a href="../_sources/lectures/python-env.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -362,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Version Control and Git</h1>
+    <h1>Python Environments</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -372,13 +372,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-version-control">2.1. What is Version Control?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-version-control">2.2. Why Version Control?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">2.3. Git and GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-on-your-computer">2.4. Configure git on Your Computer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-for-github">2.5. Authentication for GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">3.1. Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">3.2. Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">3.3. Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management">3.4. Environment management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">3.5. Conda</a></li>
 </ul>
             </nav>
         </div>
@@ -390,113 +388,76 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-version-control-and-git">
-<h1><span class="section-number">2. </span>Introduction to Version Control and Git<a class="headerlink" href="#introduction-to-version-control-and-git" title="Permalink to this heading">#</a></h1>
-<p>In this lecture, you will learn what version control is and how to use git and GitHub for version control.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="python-environments">
+<h1><span class="section-number">3. </span>Python Environments<a class="headerlink" href="#python-environments" title="Permalink to this heading">#</a></h1>
+<p>In this lecture, you will learn about Python environments and how best to use them to create reproducible pipelines.</p>
 <p><strong>Attribution</strong>
-<em>The content of this lecture are modified from three excellent sources: <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/">Git and GitHub</a> from Earth Lab CU Boulder; <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_git.html">Intro to Unix</a> from Columbia University; and <a class="reference external" href="https://swcarpentry.github.io/git-novice/">Version Control with Git</a> from Software Carpentry.</em></p>
-<hr class="docutils" />
-<section id="what-is-version-control">
-<h2><span class="section-number">2.1. </span>What is Version Control?<a class="headerlink" href="#what-is-version-control" title="Permalink to this heading">#</a></h2>
-<p>A version control system maintains a record of changes to code and other content. It also allows us to revert changes to a previous point in time.</p>
+<em>The content of this lecture are modified from three excellent sources: <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/">Python Packages for Earth Data Science</a> from Earth Lab CU Boulder; <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/python_environments.html">Managing Python Environments</a> from Columbia University; <a class="reference external" href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/">Introduction to Conda for (Data) Scientists</a> from Software Carpentry; and <a class="reference external" href="https://docs.descarteslabs.com/installation-conda.html">Managing a Development Environment</a> by Descartes Labs.</em></p>
+<section id="background">
+<h2><span class="section-number">3.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p>Python and nearly all of the software packages in the scientific python ecosystem are open-source. They are maintained and developed by a community of scientists and programmers, some of whose work is supported by universities, non-profits, and for-profit corporations. This work mostly happens in the open, via github and other online collaboration platforms.</p>
+<p>When working with a programming language, such as Python, that can do almost anything, one has to wonder how this is possible. You download Python, it has about 25 MB, how can everything be included in this small data package. The answer is - it is not. Python, as well as many other programming languages use external libraries or packages for being able to do almost anything. You can see this already when you start programming. After learning some very basics, you often learn how to <em>import</em> something into your script or session.</p>
+<div class="admonition-definitions admonition">
+<p class="admonition-title">Definitions</p>
+<p><strong>Module</strong>: a collection of functions and variables, as in a script</p>
+<p><strong>Package</strong>: a collection of modules with an <a class="reference external" href="http://init.py">init.py</a> file (can be empty), as in a directory with scripts</p>
+<p><strong>Library</strong>: a collection of packages with related functionality</p>
+<p>Library/Package are often used interchangeably.</p>
+</div>
 </section>
-<section id="why-version-control">
-<h2><span class="section-number">2.2. </span>Why Version Control?<a class="headerlink" href="#why-version-control" title="Permalink to this heading">#</a></h2>
-<p>The following figure is one reason you need version control:</p>
-<figure class="align-center" id="date-version-control">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/final-doc-phd-comics.gif"><img alt="../_images/final-doc-phd-comics.gif" class="bg-primary mb-1" src="../_images/final-doc-phd-comics.gif" style="width: 500px;" /></a>
+<section id="dependencies">
+<h2><span class="section-number">3.2. </span>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">#</a></h2>
+<p>A bit further into your programming career you may notice/have noticed that many packages do not just do everything on their own. Instead, they depend on other packages for their functionality. For example, the <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> package is used for numerical routines. To not reinvent the wheel, the package makes use of other packages, such as <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> (numerical python) and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> (plotting) and many more. So we say that <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> are dependencies of <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>.</p>
+<p>Many packages are being further developed all the time, generating different versions of packages. During development it may happen that a function call changes and/or functionalities are added or removed. If one package can depend on another, this may create issues. Therefore it is not only important to know that e.g. <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> depends on <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, but also that it depends on <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> version &gt;= 1.6 and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> version &gt;= 1.1. <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> version 1.5 in this case would not be sufficient.</p>
+<p>This emphasizes the need for creating and recording environments (in virtual terms!) to run your Python code.</p>
+</section>
+<section id="environments">
+<h2><span class="section-number">3.3. </span>Environments<a class="headerlink" href="#environments" title="Permalink to this heading">#</a></h2>
+<p>When starting with programming we may not use many packages yet and the installation may be straightforward. But for most people, there comes a time when one version of a package or also the programming language is not enough anymore. You may find an older tool that depends on an older version of your programming language (e.g. Pyhton 2.7), but many of your other tools depend on a newer version (e.g. Python 3.6). You could now start up another computer or virtual machine to run the other version of the programming language, but this is not very handy, since you may want to use the tools together in a workflow later on. Here, environments are one solution to the problem. Nowadays there are several environment management systems following a similar idea: Instead of having to use multiple computers or virtual machines to run different versions of the same package, you can install packages in isolated environments.</p>
+<p>However, managing Python development environments can be tricky, especially if you are new to the language or less familiar with computer science concepts. In this course, we introduce tool to make it easy to manage and reproduce your Python environments on any machine (local computer/server/cloud).</p>
+<figure class="align-center" id="xkcd-python-env">
+<a class="bg-primary mb-1 reference internal image-reference" href="https://imgs.xkcd.com/comics/python_environment.png"><img alt="https://imgs.xkcd.com/comics/python_environment.png" class="bg-primary mb-1" src="https://imgs.xkcd.com/comics/python_environment.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Appending a date and number to version control. Source: “Piled Higher and Deeper” by Jorge Cham on <a class="reference external" href="http://phdcomics.com/comics/archive/phd101212s.gif">www.phdcomics.com</a>.</span><a class="headerlink" href="#date-version-control" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Version control is a powerful way to organize, back up, and share your research computing code with collaborators. A Version control system keeps track of a set of files and saves snapshots (i.e. versions, commits) of the files at any point in time. Using version control allows you to confidently make changes to your code (and any other files), with the ability to roll back to any previous state.</p>
-<p>Version control also allows you to share code with collaborators, make simultaneous edits, and merge your changes in a systematic, controlled way. There are different ways that a version control system can help you. Checkout the section on <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/version-control/">“How Version Control Systems Work”</a> on 	Earth Lab’s course.</p>
-</section>
-<section id="git-and-github">
-<h2><span class="section-number">2.3. </span>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this heading">#</a></h2>
-<p>In this course, we will be using <a class="reference external" href="https://git-scm.com/">git</a> for version control. Git is a distributed version control system that you can use locally on your computer, or through <a class="reference external" href="https://github.com/">GitHub</a> and GitLab. In this course, we will also use GitHub for assignments and projects.</p>
-<p>If you do not have a GitHub account, you need a create one <a class="reference external" href="https://github.com/">here</a> (it’s free).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Git is very powerful, and has lots of utility with a steep learning curve. In this course, we will only use a subset of its functionality. You are encouraged to practice with git for your day-to-day research.</p>
-</div>
-<p>First step to get started with git, is to make sure you have git installed on your computer. If you are not sure git is installed on your computer, open terminal and run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git --version
-</pre></div>
-</div>
-<p>If git is installed, you will get an output with the version of git installed. Otherwise, you need to install git following the instructions <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
-</section>
-<section id="configure-git-on-your-computer">
-<h2><span class="section-number">2.4. </span>Configure git on Your Computer<a class="headerlink" href="#configure-git-on-your-computer" title="Permalink to this heading">#</a></h2>
-<p>The first time that you use git on a computer, you will need to configure your <a class="reference external" href="http://GitHub.com">GitHub.com</a> username and email address. This information will be used to document who made changes to files in git. It is important to use the same email address and username that you setup on <a class="reference external" href="http://GitHub.com">GitHub.com</a>.</p>
-<p>You can set your <a class="reference external" href="http://Github.com">Github.com</a> username in the terminal by typing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name &quot;username&quot;
-</pre></div>
-</div>
-<p>Next, you can set the email for your <a class="reference external" href="http://Github.com">Github.com</a> account by typing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.email &quot;email@email.com&quot;
-</pre></div>
-</div>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">--global</span></code> configuration option, you are telling git to use these settings for all git repositories that you work with on your computer. Note that you only have to configure these settings one time on your computer.</p>
-</section>
-<section id="authentication-for-github">
-<h2><span class="section-number">2.5. </span>Authentication for GitHub<a class="headerlink" href="#authentication-for-github" title="Permalink to this heading">#</a></h2>
-<p>GitHub requires authentication for any changes to a repo. The preferred method by GitHub is using a SSH key. Setting up SSH involves two steps:</p>
-<ol class="arabic simple">
-<li><p>Creating the key itself locally on your computer: Follow <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">these step</a> to generate a new SSH key on your computer and add it to ssh-agent.</p></li>
-<li><p>Adding the key to your GitHub account: Follow <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">this step-by-step guide</a> to add your SSH key to your GitHub account.</p></li>
-</ol>
-</section>
-<section id="get-started-with-a-git-repository">
-<h2><span class="section-number">2.6. </span>Get Started with a git repository<a class="headerlink" href="#get-started-with-a-git-repository" title="Permalink to this heading">#</a></h2>
-<p>Create a new directory, use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> to initiate git version control system:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir my_project
-$ cd my_project
-$ git init
-</pre></div>
-</div>
-<p>At anytime, you can run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to see what files have been modified/added/deleted compared to the previous commit, and what files are staged.</p>
-<p>To stage a file for addition to the repository use the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add &lt;filename(s)&gt;
-</pre></div>
-</div>
-<p>Then you need to <em>commit</em> the staged files to be added to the history of your repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -m &quot;a brief and informative commit message&quot;
-</pre></div>
-</div>
-<p>The commit message should be brief but indicative of what changes are being committed. It’s important to stage and commit your changes in a way that it does not contain several unrelated changes to your code. For example, if you are making changes to different modules of your code, make sure to commit them separately, so if you need to revert one of the changes it’s easy to do so.</p>
-<p>The following figure gives you a nice perspective on how staging and committing works:</p>
-<figure class="align-center" id="git-add-commit">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/git-add-commit.png"><img alt="../_images/git-add-commit.png" class="bg-primary mb-1" src="../_images/git-add-commit.png" style="width: 500px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Modified files are staged using git add. Then, following git commit, all files in the staging area are included in snapshot and become part of the repository’s history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014).</span><a class="headerlink" href="#git-add-commit" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">The complexity of Python environments as illustrated by <a class="reference external" href="https://xkcd.com/1987/">xkcd</a>.</span><a class="headerlink" href="#xkcd-python-env" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="push-changed-files-to-github">
-<h2><span class="section-number">2.7. </span>Push Changed Files to GitHub<a class="headerlink" href="#push-changed-files-to-github" title="Permalink to this heading">#</a></h2>
-<p>To push your changes to your GitHub repository, you need to create a new repository on GitHub. You can do this using the following steps:</p>
-<ol class="arabic simple">
-<li><p>In the upper-right corner of any page, use the  drop-down menu, and select New repository.</p></li>
-<li><p>Type a short, informative name for your repository.</p></li>
-<li><p>Click Create repository.</p></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can choose to initialize your repository with a README. While this is recommended, do not do it for this exercise, otherwise the changes you made locally will be out of sync with your GitHub repository.</p>
-</div>
-<p>Now that you have created your repository on GitHub, you need to copy it’s URL and add it to your local git repository. Open your repository on GitHub and click on the green <code class="docutils literal notranslate"><span class="pre">Code</span></code> button and copy the SSH url (see the following figure).</p>
-<figure class="align-center" id="git-url">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/git-url.png"><img alt="../_images/git-url.png" class="bg-primary mb-1" src="../_images/git-url.png" style="width: 500px;" /></a>
+<section id="environment-management">
+<h2><span class="section-number">3.4. </span>Environment management<a class="headerlink" href="#environment-management" title="Permalink to this heading">#</a></h2>
+<p>An environment management system solves a number of problems commonly encountered by (data) scientists.</p>
+<ul class="simple">
+<li><p>An application you need for a research project requires different versions of your base programming language or different versions of various third-party packages from the versions that you are currently using.</p></li>
+<li><p>An application you developed as part of a previous research project that worked fine on your system six months ago now no longer works.</p></li>
+<li><p>Code that was written for a joint research project works on your machine but not on your collaborators’ machines.</p></li>
+<li><p>An application that you are developing on your local machine doesn’t provide the same results when run on your remote cluster.</p></li>
+</ul>
+<p>An environment management system enables you to set up a new, project specific software environment containing specific Python versions as well as the versions of additional packages and required dependencies that are all mutually compatible.</p>
+<ul class="simple">
+<li><p>Environment management systems help resolve dependency issues by allowing you to use different versions of a package for different projects.</p></li>
+<li><p>Make your projects self-contained and reproducible by capturing all package dependencies in a single requirements file.</p></li>
+<li><p>Allow you to install packages on a host on which you do not have admin privileges.</p></li>
+</ul>
+</section>
+<section id="conda">
+<h2><span class="section-number">3.5. </span>Conda<a class="headerlink" href="#conda" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> is an open-source package management system and environment management system that runs on Windows, macOS, and Linux. When you install one module using conda, such as JupyterLab, all of the required modules will also be downloaded and installed with compatible versions. It was created for Python programs but it can package and distribute software for any language (Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN)</p>
+<p>Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager because conda is also an environment manager. With just a few commands, you can set up a totally separate environment to run that different version of Python, while continuing to run your usual version of Python in your normal environment.</p>
+<p>While there are multiple ways to install conda for Python, including <a class="reference external" href="https://www.anaconda.com/download/">Anaconda Distribution</a> and <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda Distribution</a>. <a class="reference internal" href="#miniconda-anaconda"><span class="std std-numref">Fig. 3.2</span></a> shows the difference between Conda, Miniconda and Anaconda. Miniconda combines Conda with Python and a small number of core packages; Anaconda includes Miniconda as well as a large number of the most widely used Python packages (&gt; 150).</p>
+<p>We recommend Miniconda, the most lightweight and bare-minimum approach to using conda. While the Anaconda distribution has a lot of packages pre-installed, they are not used all together in most of the projects. Therefore, it is optimal to install Miniconda and benefit from the Conda package and environment management systems but avoid installing too many unnecessary packages.</p>
+<figure class="align-center" id="miniconda-anaconda">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/miniconda-vs-anaconda.png"><img alt="../_images/miniconda-vs-anaconda.png" class="bg-primary mb-1" src="../_images/miniconda-vs-anaconda.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Accessing the URL of a GitHub repository.</span><a class="headerlink" href="#git-url" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Conda vs. Miniconda vs. Anaconda [Source: <a class="reference external" href="https://planemo.readthedocs.io/en/latest/writing_advanced_cwl.html">Planemo Documentation</a>]</span><a class="headerlink" href="#miniconda-anaconda" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Lastly, you need to add the URL to your local repository and push the changes to GitHub:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add origin &lt;repo url&gt;
-$ git push origin main
-</pre></div>
-</div>
+<!-- ## Installing Miniconda
+
+
+
+
+
+
+To create a new conda environment, -n sets the name of the environment. The -c denotes a channel, or repository from which to pull compatible package dependencies. conda-forge is a widely used and reliable channel for installations. To add additional packages to your environment, you activate it from anywhere as seen on the second line above. Once activated, you can begin installing packages via conda and pip. For more information on using conda, check out the conda documentation. -->
 <p>&nbsp;</p></section>
 </section>
 
@@ -532,20 +493,20 @@ $ git push origin main
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="unix.html"
+       href="git.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to Unix</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Introduction to Version Control and Git</p>
       </div>
     </a>
     <a class="right-next"
-       href="python-env.html"
+       href="../assignments/a1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Python Environments</p>
+        <p class="prev-next-title">Assignment 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -567,13 +528,11 @@ $ git push origin main
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-version-control">2.1. What is Version Control?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-version-control">2.2. Why Version Control?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">2.3. Git and GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-on-your-computer">2.4. Configure git on Your Computer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-for-github">2.5. Authentication for GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">3.1. Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">3.2. Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">3.3. Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management">3.4. Environment management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">3.5. Conda</a></li>
 </ul>
   </nav></div>
 
