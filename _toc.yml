@@ -18,6 +18,7 @@ parts:
       title: Intro to Unix
     - file: lectures/git
       title: Intro to Version Control and Git
+    - file: lectures/python-env.md
   - caption: Assignments
     chapters:
     - file: assignments/a1
