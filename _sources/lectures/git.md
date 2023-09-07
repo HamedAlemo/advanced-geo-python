@@ -122,5 +122,20 @@ Lastly, you need to add the URL to your local repository and push the changes to
 $ git remote add origin <repo url>
 $ git push origin main
 ```
+## Working with an Existing GitHub Repository
+So far, we have talked about initializing a git repository and pushing that to GitHub. But you may need to start working on a project that already has a GitHub repository with content contributed by others. In this case, you can use `git clone` and `git pull` commands as following. 
+
+Use `git clone` to create a *cloned* version of the GitHub repository on your local computer. You don't need to create a directory for it. When you run the following command it will automatically create a directory in your current path, and *pull* the files, branches, and all the git history to your computer:
+
+```
+$ git clone git@github.com:<user>/<repository-name>.git
+```
+You can copy the url for the repo from GitHub as shown in {numref}`git-url`.
+
+You can also use `git pull` to sync changes that might have been committed to the GitHub repository to your local computer. Note, you should have not made any changes to your local copy that is in conflict with changes made on GitHub to be able to use this command. Otherwise, your request will result in conflicts that needs to be resolved. 
+
+```
+$ git pull origin
+```
 
 <p>&nbsp;</p>

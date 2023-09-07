@@ -379,6 +379,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-for-github">2.5. Authentication for GitHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.8. Working with an Existing GitHub Repository</a></li>
 </ul>
             </nav>
         </div>
@@ -497,6 +498,19 @@ $ git init
 $ git push origin main
 </pre></div>
 </div>
+</section>
+<section id="working-with-an-existing-github-repository">
+<h2><span class="section-number">2.8. </span>Working with an Existing GitHub Repository<a class="headerlink" href="#working-with-an-existing-github-repository" title="Permalink to this heading">#</a></h2>
+<p>So far, we have talked about initializing a git repository and pushing that to GitHub. But you may need to start working on a project that already has a GitHub repository with content contributed by others. In this case, you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> commands as following.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> to create a <em>cloned</em> version of the GitHub repository on your local computer. You don’t need to create a directory for it. When you run the following command it will automatically create a directory in your current path, and <em>pull</em> the files, branches, and all the git history to your computer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:&lt;user&gt;/&lt;repository-name&gt;.git
+</pre></div>
+</div>
+<p>You can copy the url for the repo from GitHub as shown in <a class="reference internal" href="#git-url"><span class="std std-numref">Fig. 2.3</span></a>.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> to sync changes that might have been committed to the GitHub repository to your local computer. Note, you should have not made any changes to your local copy that is in conflict with changes made on GitHub to be able to use this command. Otherwise, your request will result in conflicts that needs to be resolved.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull origin
+</pre></div>
+</div>
 <p>&nbsp;</p></section>
 </section>
 
@@ -574,6 +588,7 @@ $ git push origin main
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-for-github">2.5. Authentication for GitHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.8. Working with an Existing GitHub Repository</a></li>
 </ul>
   </nav></div>
 
