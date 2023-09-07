@@ -416,17 +416,22 @@ document.write(`
 </section>
 <section id="launching-jupyterlab">
 <h2><span class="section-number">4.3. </span>Launching JupyterLab<a class="headerlink" href="#launching-jupyterlab" title="Permalink to this heading">#</a></h2>
-<p>Once JupyterLab is installed, you can launch it with the following steps:</p>
-<ol class="arabic">
-<li><p>Open a terminal or command prompt.</p></li>
-<li><p>Navigate to the directory where you want to work or create a new directory using the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command.</p></li>
-<li><p>Type the following command and press Enter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">lab</span>
+<p>You can launch JupyterLab using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter lab
 </pre></div>
 </div>
-</li>
-<li><p>This will open a new tab in your web browser, displaying the JupyterLab interface.</p></li>
-</ol>
+<p>This will open a new tab in your web browser, displaying the JupyterLab interface.</p>
+<p>Let’s look into what’s happening when you run JupyterLab. Behind the scene, JupyterLab runs a Jupyter server that is hosted on your computer and accessible through port <code class="docutils literal notranslate"><span class="pre">8888</span></code> (default) of localhost. After you run <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>, several lines will be printed in your terminal which indicates the path to the Jupyter server on your machine, and the URL to access it. The URL has a format like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8888/lab?token=TOKEN
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> is the IP of your local host, <code class="docutils literal notranslate"><span class="pre">8888</span></code> is the port number, and TOKEN is a randomly generated string that is used to authenticate access to the notebook server. If JupyterLab doesn’t automatically open in your browser, you can copy the link from terminal and paste it in your browser. We will use this later on when we deploy JupyterLab inside a Docker container.</p>
+<figure class="align-center" id="jupyterlab">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/jupyterlab.png"><img alt="../_images/jupyterlab.png" class="bg-primary mb-1" src="../_images/jupyterlab.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">JupyterLab interface (source: <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab Documentation</a>)</span><a class="headerlink" href="#jupyterlab" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="jupyterlab-interface-overview">
 <h2><span class="section-number">4.4. </span>JupyterLab Interface Overview<a class="headerlink" href="#jupyterlab-interface-overview" title="Permalink to this heading">#</a></h2>

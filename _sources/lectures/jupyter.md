@@ -25,23 +25,40 @@ $ conda install jupyterlab
 
 ## Launching JupyterLab
 
-Once JupyterLab is installed, you can launch it with the following steps:
+You can launch JupyterLab using the following command:
 
-1. Open a terminal or command prompt.
+```
+$ jupyter lab
+```
 
-2. Navigate to the directory where you want to work or create a new directory using the `cd` command.
+This will open a new tab in your web browser, displaying the JupyterLab interface. 
 
-3. Type the following command and press Enter:
+Let's look into what's happening when you run JupyterLab. Behind the scene, JupyterLab runs a Jupyter server that is hosted on your computer and accessible through port `8888` (default) of localhost. After you run `jupyter lab`, several lines will be printed in your terminal which indicates the path to the Jupyter server on your machine, and the URL to access it. The URL has a format like this:
+```
+http://127.0.0.1:8888/lab?token=TOKEN
+```
 
-   ```
-   jupyter lab
-   ```
+`127.0.0.1` is the IP of your local host, `8888` is the port number, and TOKEN is a randomly generated string that is used to authenticate access to the notebook server. If JupyterLab doesn't automatically open in your browser, you can copy the link from terminal and paste it in your browser. We will use this later on when we deploy JupyterLab inside a Docker container. 
 
-4. This will open a new tab in your web browser, displaying the JupyterLab interface.
+
+```{figure} ../lectures/figures/jupyterlab.png
+---
+name: jupyterlab
+class: bg-primary mb-1
+width: 500px
+align: center
+---
+JupyterLab interface (source: [JupyterLab Documentation](https://jupyterlab.readthedocs.io/en/stable/))
+```
 
 ## JupyterLab Interface Overview
 
 The JupyterLab interface is designed to facilitate efficient and interactive computing. Here are some key elements of the interface:
+
+
+
+
+
 
 ### Notebook Documents
 
