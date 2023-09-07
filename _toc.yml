@@ -19,6 +19,8 @@ parts:
     - file: lectures/git
       title: Intro to Version Control and Git
     - file: lectures/python-env.md
+    - file: lectures/jupyter.md
+      title: Intro to JupyterLab
   - caption: Assignments
     chapters:
     - file: assignments/a1
