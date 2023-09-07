@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/python-env';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
+    <link rel="next" title="4. JupyterLab Interactive Computing" href="jupyter.html" />
     <link rel="prev" title="2. Introduction to Version Control and Git" href="git.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -170,6 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="unix.html">1. Intro to Unix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">2. Intro to Version Control and Git</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">4. JupyterLab Interactive Computing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -383,6 +384,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages-in-an-environment">3.9. Installing Packages in an Environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channels-and-conda-forge">3.10. Channels and Conda-Forge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-environment-dependencies-with-environment-yml">3.11. Managing Environment Dependencies with <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-pip">3.12. What about <code class="docutils literal notranslate"><span class="pre">pip</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pip-with-conda">3.13. Using <code class="docutils literal notranslate"><span class="pre">pip</span></code> with Conda</a></li>
 </ul>
             </nav>
         </div>
@@ -567,7 +570,7 @@ $ conda create -n myenv
 <span class="n">channels</span><span class="p">:</span>
   <span class="o">-</span> <span class="n">defaults</span>
 <span class="n">dependencies</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span> <span class="c1"># Specify Python version</span>
   <span class="o">-</span> <span class="n">numpy</span><span class="o">=</span><span class="mf">1.25.2</span>
   <span class="o">-</span> <span class="n">matplotlib</span><span class="o">=</span><span class="mf">3.7.1</span>
   <span class="o">-</span> <span class="n">pandas</span><span class="o">=</span><span class="mf">2.0.3</span>
@@ -579,6 +582,39 @@ $ conda create -n myenv
 </div>
 <p>This command will create an environment named “g313-a1” with the specified dependencies.</p>
 <p><strong>Note</strong>: This command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code> is different from <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>. If you are only passing <code class="docutils literal notranslate"><span class="pre">-f</span></code> to <code class="docutils literal notranslate"><span class="pre">conda</span></code> for creating a new environment, you need to use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code>.</p>
+</section>
+<section id="what-about-pip">
+<h2><span class="section-number">3.12. </span>What about <code class="docutils literal notranslate"><span class="pre">pip</span></code>?<a class="headerlink" href="#what-about-pip" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> is a package manager for Python that simplifies the process of installing, upgrading, and managing Python packages and dependencies. Its name is a recursive acronym for “Pip Installs Packages,” emphasizing its primary function: installing packages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> works by connecting to the Python Package Index (<a class="reference external" href="https://pypi.org/">PyPI</a>), a repository that hosts a large collection of Python packages contributed by the open-source community. PyPI serves as the central hub where developers publish their Python packages. In most cases, pip comes pre-installed with Python.</p>
+<p>You can install packages using the <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> command as following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install numpy==1.25.2
+</pre></div>
+</div>
+<p><em>Note the syntax difference for specifying package version in <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> (==) and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> (=).</em></p>
+</section>
+<section id="using-pip-with-conda">
+<h2><span class="section-number">3.13. </span>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code> with Conda<a class="headerlink" href="#using-pip-with-conda" title="Permalink to this heading">#</a></h2>
+<p>To benefit from the strengths of both pip and Conda, you can use them together. Conda is a powerful environment management system that also serves as package management, but there might be cases that a package or a specific version of package is not available on Conda. In that case, you can use <code class="docutils literal notranslate"><span class="pre">pip</span></code> together with conda and install any required packages. By combining Conda and pip, you can create reproducible and isolated Python environments while benefiting from pip’s extensive package ecosystem.</p>
+<p>The simplest way to use <code class="docutils literal notranslate"><span class="pre">pip</span></code> with conda, is creating a new conda environment, and activating it. Then run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> in the new environment. In this case, <code class="docutils literal notranslate"><span class="pre">pip</span></code> will install the package(s) in the conda environment only, and not in your base environment.</p>
+<p>You can also specify <code class="docutils literal notranslate"><span class="pre">pip</span></code> packages in your <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file. Here is an example of such file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">my_env</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>  
+
+  <span class="c1"># Packages from Anaconda defaults channel</span>
+  <span class="o">-</span> <span class="n">numpy</span>
+  <span class="o">-</span> <span class="n">pandas</span>
+  <span class="o">-</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+
+  <span class="c1"># Packages from pip</span>
+  <span class="o">-</span> <span class="n">pip</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">requests</span>
+    <span class="o">-</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Check out this Conda <a class="reference external" href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf">cheatsheet</a> to look for some quick answers to your Conda related questions.</p>
@@ -628,11 +664,11 @@ $ conda create -n myenv
       </div>
     </a>
     <a class="right-next"
-       href="../assignments/a1.html"
+       href="jupyter.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignment 1</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>JupyterLab Interactive Computing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -665,6 +701,8 @@ $ conda create -n myenv
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages-in-an-environment">3.9. Installing Packages in an Environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channels-and-conda-forge">3.10. Channels and Conda-Forge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-environment-dependencies-with-environment-yml">3.11. Managing Environment Dependencies with <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-pip">3.12. What about <code class="docutils literal notranslate"><span class="pre">pip</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pip-with-conda">3.13. Using <code class="docutils literal notranslate"><span class="pre">pip</span></code> with Conda</a></li>
 </ul>
   </nav></div>
 
