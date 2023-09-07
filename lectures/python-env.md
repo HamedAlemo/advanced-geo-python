@@ -208,7 +208,7 @@ name: g313-a1
 channels:
   - defaults
 dependencies:
-  - python=3.10
+  - python=3.10 # Specify Python version
   - numpy=1.25.2
   - matplotlib=3.7.1
   - pandas=2.0.3
@@ -223,10 +223,46 @@ This command will create an environment named "g313-a1" with the specified depen
 
 **Note**: This command `conda env create` is different from `conda create`. If you are only passing `-f` to `conda` for creating a new environment, you need to use `conda env create`.
 
+## What about `pip`?
+`pip` is a package manager for Python that simplifies the process of installing, upgrading, and managing Python packages and dependencies. Its name is a recursive acronym for "Pip Installs Packages," emphasizing its primary function: installing packages.
+
+`pip` works by connecting to the Python Package Index ([PyPI](https://pypi.org/)), a repository that hosts a large collection of Python packages contributed by the open-source community. PyPI serves as the central hub where developers publish their Python packages. In most cases, pip comes pre-installed with Python.
+
+You can install packages using the `pip install` command as following:
+
+```
+$ pip install numpy==1.25.2
+```
+
+*Note the syntax difference for specifying package version in `pip install` (==) and `conda install` (=).*
+
+## Using `pip` with Conda
+To benefit from the strengths of both pip and Conda, you can use them together. Conda is a powerful environment management system that also serves as package management, but there might be cases that a package or a specific version of package is not available on Conda. In that case, you can use `pip` together with conda and install any required packages. By combining Conda and pip, you can create reproducible and isolated Python environments while benefiting from pip's extensive package ecosystem.
+
+The simplest way to use `pip` with conda, is creating a new conda environment, and activating it. Then run `pip install` in the new environment. In this case, `pip` will install the package(s) in the conda environment only, and not in your base environment. 
+
+You can also specify `pip` packages in your `environment.yml` file. Here is an example of such file:
+
+```
+name: my_env
+channels:
+  - defaults
+dependencies:
+  - python=3.10  
+
+  # Packages from Anaconda defaults channel
+  - numpy
+  - pandas
+  - scikit-learn
+
+  # Packages from pip
+  - pip:
+    - requests
+    - matplotlib
+```
 
 ```{tip}
 Check out this Conda [cheatsheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf) to look for some quick answers to your Conda related questions. 
 ```
-
 
 <p>&nbsp;</p>
