@@ -1,10 +1,10 @@
-# JupyterLab Interactive Computing
+# JupyterLab for Interactive Computing
 
 ## Introduction
 
-[JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) is an open-source, web-based integrated development environment (IDE) that provides a powerful environment for interactive computing, data analysis, and scientific computing. It is a part of the larger [Jupyter Project](https://jupyter.org/), which aims to provide a platform-agnostic, interactive computing experience. JupyterLab builds upon the functionality of traditional Jupyter notebooks by offering a more feature-rich environment for data scientists, researchers, and students.
+[JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) is an open-source, web-based integrated development environment ([IDE](https://www.codecademy.com/article/what-is-an-ide)) for notebooks, code, and data. It has a flexible and powerful interface for interactive computing, data analysis, and scientific computing. JupyterLab is a part of the [Jupyter Project](https://jupyter.org/), which aims to provide a platform-agnostic, interactive computing experience. JupyterLab builds upon the functionality of traditional Jupyter notebooks by offering a more feature-rich environment for data scientists, researchers, and students.
 
-In this chapter, we will explore the installation and utilization of JupyterLab for various data science and computational tasks.
+
 
 ## Installing JupyterLab
 
@@ -20,6 +20,8 @@ $ pip install jupyterlab
 ```
 $ conda install jupyterlab
 ```
+
+**Note:** You need to install JupyterLab in each environment that you need to use it. In most scientific projects, JupyterLab is always included in the `environment.yml`. Just make sure you use the latest version to take advantage of all the new features. 
 
 ## Launching JupyterLab
 
