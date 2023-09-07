@@ -376,14 +376,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.1. Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyterlab">4.2. Installing JupyterLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyterlab">4.3. Launching JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-documents">4.4.1. Notebook Documents</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-browser">4.4.2. File Browser</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabs-and-workspaces">4.4.3. Tabs and Workspaces</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">4.4.4. Kernel</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyterlab">4.5. Using JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a></li>
 </ul>
             </nav>
         </div>
@@ -427,7 +420,7 @@ document.write(`
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> is the IP of your local host, <code class="docutils literal notranslate"><span class="pre">8888</span></code> is the port number, and TOKEN is a randomly generated string that is used to authenticate access to the notebook server. If JupyterLab doesn’t automatically open in your browser, you can copy the link from terminal and paste it in your browser. We will use this later on when we deploy JupyterLab inside a Docker container.</p>
 <figure class="align-center" id="jupyterlab">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/jupyterlab.png"><img alt="../_images/jupyterlab.png" class="bg-primary mb-1" src="../_images/jupyterlab.png" style="width: 500px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/jupyterlab.png"><img alt="../_images/jupyterlab.png" class="bg-primary mb-1" src="../_images/jupyterlab.png" style="width: 700px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">JupyterLab interface (source: <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab Documentation</a>)</span><a class="headerlink" href="#jupyterlab" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -435,36 +428,15 @@ document.write(`
 </section>
 <section id="jupyterlab-interface-overview">
 <h2><span class="section-number">4.4. </span>JupyterLab Interface Overview<a class="headerlink" href="#jupyterlab-interface-overview" title="Permalink to this heading">#</a></h2>
-<p>The JupyterLab interface is designed to facilitate efficient and interactive computing. Here are some key elements of the interface:</p>
-<section id="notebook-documents">
-<h3><span class="section-number">4.4.1. </span>Notebook Documents<a class="headerlink" href="#notebook-documents" title="Permalink to this heading">#</a></h3>
-<p>JupyterLab primarily works with notebook documents, which are a combination of code cells and markdown cells. These notebooks can be used for code execution, documentation, and data visualization.</p>
-</section>
-<section id="file-browser">
-<h3><span class="section-number">4.4.2. </span>File Browser<a class="headerlink" href="#file-browser" title="Permalink to this heading">#</a></h3>
-<p>On the left-hand side of the interface, you’ll find the file browser, which allows you to navigate your file system and create, open, and manage notebooks and other files.</p>
-</section>
-<section id="tabs-and-workspaces">
-<h3><span class="section-number">4.4.3. </span>Tabs and Workspaces<a class="headerlink" href="#tabs-and-workspaces" title="Permalink to this heading">#</a></h3>
+<p><a class="reference internal" href="#jupyterlab"><span class="std std-numref">Fig. 4.1</span></a> shows the latest JupyterLab interface at the time of this writing (Sep 2023). The interface has multiple sections:</p>
+<p><strong>Launcher</strong></p>
+<p>Launcher is a tab that contains shortcuts to launch a notebook, terminal, mardown file, python file, etc. You can access launcher under <em>File</em> or by clicking the large blue button on the top left of the screen.</p>
+<p><strong>File Browser</strong></p>
+<p>On the left-hand side of the interface, you’ll find the file browser, which allows you to navigate your file system and create, open, and manage notebooks and other files. The files and directories that you can access here are the ones that are located in the directory you launched JupyterLab from.</p>
+<p><strong>Tabs and Workspaces</strong></p>
 <p>JupyterLab supports multiple tabs, enabling you to work on multiple notebooks or files simultaneously. You can also organize your workspaces by creating customized layouts to suit your workflow.</p>
-</section>
-<section id="kernel">
-<h3><span class="section-number">4.4.4. </span>Kernel<a class="headerlink" href="#kernel" title="Permalink to this heading">#</a></h3>
-<p>The kernel is responsible for executing code within a notebook. You can choose different kernels for different programming languages (e.g., Python, R, Julia) depending on your analysis needs.</p>
-</section>
-</section>
-<section id="using-jupyterlab">
-<h2><span class="section-number">4.5. </span>Using JupyterLab<a class="headerlink" href="#using-jupyterlab" title="Permalink to this heading">#</a></h2>
-<p>Now that you have JupyterLab installed and understand its interface, you can start using it for various data science and computational tasks. In the subsequent sections of this chapter, we will delve deeper into the following topics:</p>
-<ul class="simple">
-<li><p><strong>Creating and Running Notebooks:</strong> Learn how to create and execute code cells in JupyterLab notebooks.</p></li>
-<li><p><strong>Data Visualization:</strong> Explore how to create interactive data visualizations using libraries like Matplotlib and Plotly.</p></li>
-<li><p><strong>Data Analysis:</strong> Perform data analysis, manipulation, and exploration using Pandas and other data science libraries.</p></li>
-<li><p><strong>Markdown Documentation:</strong> Use markdown cells to document your code, experiments, and analysis.</p></li>
-<li><p><strong>Extensions and Customization:</strong> Discover how to enhance JupyterLab’s functionality through extensions and custom configurations.</p></li>
-<li><p><strong>Collaboration and Sharing:</strong> Explore ways to collaborate with others and share your JupyterLab notebooks and workspaces.</p></li>
-</ul>
-<p>JupyterLab is a versatile tool that can greatly enhance your productivity and creativity in data science and computational analysis. As you proceed through this chapter, you’ll gain valuable skills that will empower you in your data-driven endeavors.</p>
+<p><strong>Kernel</strong></p>
+<p>The kernel is responsible for executing code within a notebook. You can choose different kernels for different programming languages (e.g., Python, R, Julia) depending on your analysis needs. You can see all running kernels on the left had side by clicking on the kernels icon.</p>
 </section>
 </section>
 
@@ -538,14 +510,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.1. Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyterlab">4.2. Installing JupyterLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyterlab">4.3. Launching JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-documents">4.4.1. Notebook Documents</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-browser">4.4.2. File Browser</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabs-and-workspaces">4.4.3. Tabs and Workspaces</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">4.4.4. Kernel</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyterlab">4.5. Using JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a></li>
 </ul>
   </nav></div>
 

@@ -45,7 +45,7 @@ http://127.0.0.1:8888/lab?token=TOKEN
 ---
 name: jupyterlab
 class: bg-primary mb-1
-width: 500px
+width: 700px
 align: center
 ---
 JupyterLab interface (source: [JupyterLab Documentation](https://jupyterlab.readthedocs.io/en/stable/))
@@ -53,43 +53,20 @@ JupyterLab interface (source: [JupyterLab Documentation](https://jupyterlab.read
 
 ## JupyterLab Interface Overview
 
-The JupyterLab interface is designed to facilitate efficient and interactive computing. Here are some key elements of the interface:
+{numref}`jupyterlab` shows the latest JupyterLab interface at the time of this writing (Sep 2023). The interface has multiple sections:
 
+**Launcher**
 
+Launcher is a tab that contains shortcuts to launch a notebook, terminal, mardown file, python file, etc. You can access launcher under *File* or by clicking the large blue button on the top left of the screen. 
 
+**File Browser**
 
+On the left-hand side of the interface, you'll find the file browser, which allows you to navigate your file system and create, open, and manage notebooks and other files. The files and directories that you can access here are the ones that are located in the directory you launched JupyterLab from. 
 
-
-### Notebook Documents
-
-JupyterLab primarily works with notebook documents, which are a combination of code cells and markdown cells. These notebooks can be used for code execution, documentation, and data visualization.
-
-### File Browser
-
-On the left-hand side of the interface, you'll find the file browser, which allows you to navigate your file system and create, open, and manage notebooks and other files.
-
-### Tabs and Workspaces
+**Tabs and Workspaces**
 
 JupyterLab supports multiple tabs, enabling you to work on multiple notebooks or files simultaneously. You can also organize your workspaces by creating customized layouts to suit your workflow.
 
-### Kernel
+**Kernel**
 
-The kernel is responsible for executing code within a notebook. You can choose different kernels for different programming languages (e.g., Python, R, Julia) depending on your analysis needs.
-
-## Using JupyterLab
-
-Now that you have JupyterLab installed and understand its interface, you can start using it for various data science and computational tasks. In the subsequent sections of this chapter, we will delve deeper into the following topics:
-
-- **Creating and Running Notebooks:** Learn how to create and execute code cells in JupyterLab notebooks.
-
-- **Data Visualization:** Explore how to create interactive data visualizations using libraries like Matplotlib and Plotly.
-
-- **Data Analysis:** Perform data analysis, manipulation, and exploration using Pandas and other data science libraries.
-
-- **Markdown Documentation:** Use markdown cells to document your code, experiments, and analysis.
-
-- **Extensions and Customization:** Discover how to enhance JupyterLab's functionality through extensions and custom configurations.
-
-- **Collaboration and Sharing:** Explore ways to collaborate with others and share your JupyterLab notebooks and workspaces.
-
-JupyterLab is a versatile tool that can greatly enhance your productivity and creativity in data science and computational analysis. As you proceed through this chapter, you'll gain valuable skills that will empower you in your data-driven endeavors.
+The kernel is responsible for executing code within a notebook. You can choose different kernels for different programming languages (e.g., Python, R, Julia) depending on your analysis needs. You can see all running kernels on the left had side by clicking on the kernels icon. 
