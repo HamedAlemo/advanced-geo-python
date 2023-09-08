@@ -21,7 +21,7 @@ $ pip install jupyterlab
 $ conda install jupyterlab
 ```
 
-**Note:** You need to install JupyterLab in each environment that you need to use it. In most scientific projects, JupyterLab is always included in the `environment.yml`. Just make sure you use the latest version to take advantage of all the new features. 
+**Note:** You need to install JupyterLab in each environment that you need to use it. In most scientific projects, JupyterLab is always included in the `environment.yml`. At the end of this chapter you will learn how to install one instance of JupyterLab and use different conda environments from that instance. Just make sure you use the latest version to take advantage of all the new features. 
 
 ## Launching JupyterLab
 
