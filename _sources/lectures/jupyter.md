@@ -57,7 +57,7 @@ JupyterLab interface (source: [JupyterLab Documentation](https://jupyterlab.read
 
 **Launcher**
 
-Launcher is a tab that contains shortcuts to launch a notebook, terminal, mardown file, python file, etc. You can access launcher under *File* or by clicking the large blue button on the top left of the screen. 
+Launcher is a tab that contains shortcuts to launch a notebook, terminal, markdown file, python file, etc. You can access launcher under *File* or by clicking the large blue button on the top left of the screen. 
 
 **File Browser**
 
@@ -70,3 +70,30 @@ JupyterLab supports multiple tabs, enabling you to work on multiple notebooks or
 **Kernel**
 
 The kernel is responsible for executing code within a notebook. You can choose different kernels for different programming languages (e.g., Python, R, Julia) depending on your analysis needs. You can see all running kernels on the left had side by clicking on the kernels icon. 
+
+The JupyterLab documentation has detailed tutorials for [The JupyterLab Interface](https://jupyterlab.readthedocs.io/en/stable/user/interface.html), [Managing Kernels and Terminals](https://jupyterlab.readthedocs.io/en/stable/user/running.html), [Working with Terminals](https://jupyterlab.readthedocs.io/en/stable/user/terminal.html), [Notebooks](https://jupyterlab.readthedocs.io/en/stable/user/notebook.html), [Text Editor](https://jupyterlab.readthedocs.io/en/stable/user/file_editor.html), and [Working with Files](https://jupyterlab.readthedocs.io/en/stable/user/files.html).
+
+## Accessing Conda Environments from JupyterLab
+
+When you run the `jupyter lab` command in your terminal, JupyterLab server will launch from the conda environment that was active in your terminal. For example, if you are in the `base` environment, the JupyterLab instance will be launched in `base` and all notebook will use the base environment by default. 
+
+In order to use other conda environments in your JupyterLab instance, you have two choices:
+
+1. Launch JupyterLab in the target environment that you are interested in. In this case, you will only be able to access your target environment from your JupyterLab
+1. If you prefer to be able to change your environment inside the JupyterLab instance, you need to do two things:
+  - Decide which environment you want to use to launch JupyterLab from (this can be your `base` environment), and install `nb_conda_kernels` in that environment as following:
+  ```
+  $ conda install nb_conda_kernels
+  ```
+  - Make sure to install `ipykernel` in any other environment that you would like to be able to access inside JupyterLab
+  ```
+  $ conda install ipykernel
+  ```
+
+## JupyterLab Shortcuts
+
+There are several very useful and practical shortcuts for JupyterLab that improves your experience of working with it. You can see all of the default shortcuts after launching your JupyterLab byt navigating to Settings>Advanced Setting Editor>Keyboard Shortcuts. 
+
+We will introduce some of the useful ones in the class. 
+
+<p>&nbsp;</p>

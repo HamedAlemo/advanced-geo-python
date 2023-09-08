@@ -377,6 +377,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyterlab">4.2. Installing JupyterLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyterlab">4.3. Launching JupyterLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-environments-from-jupyterlab">4.5. Accessing Conda Environments from JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-shortcuts">4.6. JupyterLab Shortcuts</a></li>
 </ul>
             </nav>
         </div>
@@ -430,14 +432,41 @@ document.write(`
 <h2><span class="section-number">4.4. </span>JupyterLab Interface Overview<a class="headerlink" href="#jupyterlab-interface-overview" title="Permalink to this heading">#</a></h2>
 <p><a class="reference internal" href="#jupyterlab"><span class="std std-numref">Fig. 4.1</span></a> shows the latest JupyterLab interface at the time of this writing (Sep 2023). The interface has multiple sections:</p>
 <p><strong>Launcher</strong></p>
-<p>Launcher is a tab that contains shortcuts to launch a notebook, terminal, mardown file, python file, etc. You can access launcher under <em>File</em> or by clicking the large blue button on the top left of the screen.</p>
+<p>Launcher is a tab that contains shortcuts to launch a notebook, terminal, markdown file, python file, etc. You can access launcher under <em>File</em> or by clicking the large blue button on the top left of the screen.</p>
 <p><strong>File Browser</strong></p>
 <p>On the left-hand side of the interface, you’ll find the file browser, which allows you to navigate your file system and create, open, and manage notebooks and other files. The files and directories that you can access here are the ones that are located in the directory you launched JupyterLab from.</p>
 <p><strong>Tabs and Workspaces</strong></p>
 <p>JupyterLab supports multiple tabs, enabling you to work on multiple notebooks or files simultaneously. You can also organize your workspaces by creating customized layouts to suit your workflow.</p>
 <p><strong>Kernel</strong></p>
 <p>The kernel is responsible for executing code within a notebook. You can choose different kernels for different programming languages (e.g., Python, R, Julia) depending on your analysis needs. You can see all running kernels on the left had side by clicking on the kernels icon.</p>
+<p>The JupyterLab documentation has detailed tutorials for <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/interface.html">The JupyterLab Interface</a>, <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/running.html">Managing Kernels and Terminals</a>, <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/terminal.html">Working with Terminals</a>, <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/notebook.html">Notebooks</a>, <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/file_editor.html">Text Editor</a>, and <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/files.html">Working with Files</a>.</p>
 </section>
+<section id="accessing-conda-environments-from-jupyterlab">
+<h2><span class="section-number">4.5. </span>Accessing Conda Environments from JupyterLab<a class="headerlink" href="#accessing-conda-environments-from-jupyterlab" title="Permalink to this heading">#</a></h2>
+<p>When you run the <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> command in your terminal, JupyterLab server will launch from the conda environment that was active in your terminal. For example, if you are in the <code class="docutils literal notranslate"><span class="pre">base</span></code> environment, the JupyterLab instance will be launched in <code class="docutils literal notranslate"><span class="pre">base</span></code> and all notebook will use the base environment by default.</p>
+<p>In order to use other conda environments in your JupyterLab instance, you have two choices:</p>
+<ol class="arabic simple">
+<li><p>Launch JupyterLab in the target environment that you are interested in. In this case, you will only be able to access your target environment from your JupyterLab</p></li>
+<li><p>If you prefer to be able to change your environment inside the JupyterLab instance, you need to do two things:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Decide which environment you want to use to launch JupyterLab from (this can be your <code class="docutils literal notranslate"><span class="pre">base</span></code> environment), and install <code class="docutils literal notranslate"><span class="pre">nb_conda_kernels</span></code> in that environment as following:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install nb_conda_kernels
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Make sure to install <code class="docutils literal notranslate"><span class="pre">ipykernel</span></code> in any other environment that you would like to be able to access inside JupyterLab</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install ipykernel
+</pre></div>
+</div>
+</section>
+<section id="jupyterlab-shortcuts">
+<h2><span class="section-number">4.6. </span>JupyterLab Shortcuts<a class="headerlink" href="#jupyterlab-shortcuts" title="Permalink to this heading">#</a></h2>
+<p>There are several very useful and practical shortcuts for JupyterLab that improves your experience of working with it. You can see all of the default shortcuts after launching your JupyterLab byt navigating to Settings&gt;Advanced Setting Editor&gt;Keyboard Shortcuts.</p>
+<p>We will introduce some of the useful ones in the class.</p>
+<p>&nbsp;</p></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -511,6 +540,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyterlab">4.2. Installing JupyterLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyterlab">4.3. Launching JupyterLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-environments-from-jupyterlab">4.5. Accessing Conda Environments from JupyterLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-shortcuts">4.6. JupyterLab Shortcuts</a></li>
 </ul>
   </nav></div>
 
