@@ -21,6 +21,8 @@ parts:
     - file: lectures/python-env.md
     - file: lectures/jupyter.md
       title: Intro to JupyterLab
+    - file: lectures/docker.md
+      title: Intro to Docker
   - caption: Assignments
     chapters:
     - file: assignments/a1
