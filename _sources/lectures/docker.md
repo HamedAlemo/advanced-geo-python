@@ -30,9 +30,9 @@ Docker is a leading containerization platform that has played a major role in po
   - Docker daemon (`dockerd`) which acts as the server and responds to requests from the client. 
   - Docker REST API for communication, and 
   - Docker client which has two alternatives: the command line interface (CLI) names `docker` and the graphical user interface (GUI) application named Docker Desktop. 
-1. **Images:** A snapshot of a file system with the application code and all dependencies needed to run it. Images are used to create containers.
-1. **Containers:** An instance of a Docker image that can run a specific application. Containers are isolated from each other and share the host OS kernel.
-1. **Docker Hub:** A registry of Docker images containing all available Docker images ([link](https://hub.docker.com/)). 
+2. **Images:** A snapshot of a file system with the application code and all dependencies needed to run it. Images are used to create containers.
+3. **Containers:** An instance of a Docker image that can run a specific application. Containers are isolated from each other and share the host OS kernel.
+4. **Docker Hub:** A registry of Docker images containing all available Docker images ([link](https://hub.docker.com/)). 
 
 
 ```{figure} ../lectures/figures/docker-engine.svg
