@@ -19,7 +19,7 @@ Containerization has several benefits:
 1. **Consistency:** Containers ensure that the application runs the same way everywhere, eliminating the "it works on my machine" problem.
 1. **Isolation:** Containers provide process and resource isolation, ensuring that one container cannot interfere with another, improving security and stability.
 1. **Scalability and Speed:** Containers can be easily scaled up or down to meet changing workloads and the speed to deploy them is much higher than VMs. 
-1. **Resource Efficiency:** Containers are lightweight and share the host OS kernel, making them more resource-efficient than traditional virtualization. While containers live on top of a host machine and use its resources, they virtualize the host OS unlike VMS that virtulize the underlying hardware. Meaning containers don’t need to have their own OS, making them much more lightweight than VMs, and consequently quicker to spin up.
+1. **Resource Efficiency:** Containers are lightweight and share the host OS kernel, making them more resource-efficient than traditional virtualization. While containers live on top of a host machine and use its resources, they virtualize the host OS unlike VMS that virtualize the underlying hardware. Meaning containers don’t need to have their own OS, making them much more lightweight than VMs, and consequently quicker to spin up.
 
 ## What is Docker?
 
@@ -172,6 +172,123 @@ Other useful commands inside a Dockerfile are:
 The COPY instruction has the following format: COPY <source> <dest>. It copies files from <source> (in the host) into <dest> (in the container). This is run at the time that the Docker image is being built, and the copied files are stored in the image (which means the files are not needed to be available when running the container.)
 
 
+## Managing Storage in Docker
+
+All files created inside a container are stored on a writable container layer by default. This means that:
+
+- The data won't exist after the container is removed. 
+- It would be difficult to access the data outside the container.
+- You can't easily move the data on the host machine. 
+
+To address these challenges, Docker has a mechanism for containers to store files on the host machine. This means the files can be easily accessed by other processes outside the container, and they will persist after the container is removed. 
+
+The easiest way to do this is to mount a directory on the host machine to the container using the following command:
+```
+$ docker run -v $(pwd):/home/workdir <IMAGE NAME>
+```
+In this example, current directory on host machine (`pwd`) is mounted to `/home/workdir/` inside the container. This means that any file and directory that is available inside the current directory on the host will be accessible at `/home/workdir/` inside the container. If you make changes to these files or directories on either the host or the container, it will be reflected on the other side (practically these are the same files stored on the host, but accessible from two separate places). It's best to only change the files from inside the container then to make sure your changes don't conflict each other. 
+
+You can also mount a directory that doesn't exist on the host to a directory inside the container. For example running the following:
+```
+docker run -v /doesnt/exist:/home/workdir <IMAGE NAME>
+```
+will automatically create `/doesnt/exist` on the host before starting the container. 
+
+
+## Activating Conda Environments in Docker
+
+You can use conda inside Docker to manage packages and environments. To do that, you can use conda in the Dockerfile to create a new environment and install packages. However, if you want to activate the environment before starting the container you need to do some extra steps. 
+
+Try building an image using the following Dockerfile:
+
+```
+FROM continuumio/miniconda3:22.11.1
+
+# Set the working directory to /home/workdir
+RUN mkdir /home/workdir
+WORKDIR /home/workdir
+
+# Create a Conda env named 'myenv' with numpy installed in it
+RUN conda create -n myenv numpy=1.25.0
+
+# Activate the conda environment
+RUN conda activate myenv
+
+CMD ["/bin/bash"]
+```
+
+As you noticed, the Docker build in this case fails. This is because Docker runs each command in a new shell, and the conda activate command needs to be run in the same shell where the environment was created.
+
+There are multiple ways to resolve this issue. One of them, which we recommend, is to add the `conda activate` command to your `.bashrc` file. `.bashrc` is a script file that is executed when a user logs in. In this case, any command included in the `.bashrc` will be executed when the container runs. Try building an image from the following Dockerfile and then run it as a container:  
+
+```
+FROM continuumio/miniconda3:22.11.1
+
+# Set the working directory to /home/workdir
+RUN mkdir /home/workdir
+WORKDIR /home/workdir
+
+# Create a Conda env named 'myenv' with numpy installed in it
+RUN conda create -n myenv numpy=1.25.0
+
+# Activate the conda environment
+RUN echo "conda activate myenv" >> ~/.bashrc
+ENV PATH="$PATH:/opt/conda/envs/myenv/bin"
+
+CMD ["/bin/bash"]
+```
+
+## Running Jupyter Notebooks Inside a Container
+
+You can install and run a Jupyter server inside the container the same way you would do inside a conda environment on your machine. There are a couple of steps you need to follow to make it accessible outside of the container though. 
+
+**First**, you need to create a new user inside the container, and switch to that user. This is generally a good practice as you don't want to run the container as root user. 
+
+**Second**, you need to expose port `8888` that is used by Jupyter server from the container. This allows any processor outside of the container to communicate with processes inside the container through port `8888`. 
+
+**Third**, you need to include Jupyter Lab command at the end of your Dockerfile. For this, you need to pass an extra argument to set the IP of the server to `0.0.0.0` 
+
+The following sample Dockerfile implements these three changes, and runs Jupyter Lab when the container is launched. 
+
+```
+FROM continuumio/miniconda3:22.11.1
+
+# Create a non-root user and switch to that user
+RUN useradd -m jupyter
+USER jupyter
+
+# Set the working directory to /home/workdir
+WORKDIR /home/workdir
+
+# Create a Conda environment with JupyterLab installed
+RUN conda create -n myenv numpy=1.25.0 jupyterlab=3.6.3
+
+# Activate the Conda environment
+RUN echo "conda activate myenv" >> ~/.bashrc
+ENV PATH="$PATH:/opt/conda/envs/myenv/bin"
+
+# Expose the JupyterLab port
+EXPOSE 8888
+
+# Start JupyterLab
+CMD ["jupyter", "lab", "--ip=0.0.0.0"]
+```
+
+Finally, to run the container you should publish container's port `8888` to a port on the host (it can be the same `8888` if it's not being used otherwise):
+```
+$ docker run -it -p 8888:8888 <IMAGE NAME>
+```
+
+Lastly, you can copy the url of the Jupyter server and past it in your browser to access Jupyter Lab. 
+
+
+```{admonition} Cleanup Commands
+It's good practice to remove unwanted Docker images and containers to cleanup your disk space and memory. You can use `prune` to do this as following:
+
+- `docker container prune` removes all stopped containers.
+- `docker image prune` removes all unused or dangling images (images that do not have a tag). 
+- `docker system prune` removes all stopped containers, dangling images, and dangling build caches. 
+```
 
 ```{Tip}
 You can consult this Docker CLI [cheatsheet](https://docs.docker.com/get-started/docker_cheatsheet.pdf) for a quick reference of its most used commands.
