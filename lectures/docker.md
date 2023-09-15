@@ -249,13 +249,8 @@ You can install and run a Jupyter server inside the container the same way you w
 **Third**, you need to include Jupyter Lab command at the end of your Dockerfile. For this, you need to pass an extra argument to set the IP of the server to `0.0.0.0` 
 
 The following sample Dockerfile implements these three changes, and runs Jupyter Lab when the container is launched. 
-
 ```
 FROM continuumio/miniconda3:22.11.1
-
-# Create a non-root user and switch to that user
-RUN useradd -m jupyter
-USER jupyter
 
 # Set the working directory to /home/workdir
 WORKDIR /home/workdir
@@ -266,6 +261,10 @@ RUN conda create -n myenv numpy=1.25.0 jupyterlab=3.6.3
 # Activate the Conda environment
 RUN echo "conda activate myenv" >> ~/.bashrc
 ENV PATH="$PATH:/opt/conda/envs/myenv/bin"
+
+# Create a non-root user and switch to that user
+RUN useradd -m jupyter
+USER jupyter
 
 # Expose the JupyterLab port
 EXPOSE 8888
