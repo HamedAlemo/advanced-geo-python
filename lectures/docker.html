@@ -619,10 +619,6 @@ Here is an example of a Dockerfile:</p>
 <p>The following sample Dockerfile implements these three changes, and runs Jupyter Lab when the container is launched.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">continuumio</span><span class="o">/</span><span class="n">miniconda3</span><span class="p">:</span><span class="mf">22.11.1</span>
 
-<span class="c1"># Create a non-root user and switch to that user</span>
-<span class="n">RUN</span> <span class="n">useradd</span> <span class="o">-</span><span class="n">m</span> <span class="n">jupyter</span>
-<span class="n">USER</span> <span class="n">jupyter</span>
-
 <span class="c1"># Set the working directory to /home/workdir</span>
 <span class="n">WORKDIR</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">workdir</span>
 
@@ -632,6 +628,10 @@ Here is an example of a Dockerfile:</p>
 <span class="c1"># Activate the Conda environment</span>
 <span class="n">RUN</span> <span class="n">echo</span> <span class="s2">&quot;conda activate myenv&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
 <span class="n">ENV</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;$PATH:/opt/conda/envs/myenv/bin&quot;</span>
+
+<span class="c1"># Create a non-root user and switch to that user</span>
+<span class="n">RUN</span> <span class="n">useradd</span> <span class="o">-</span><span class="n">m</span> <span class="n">jupyter</span>
+<span class="n">USER</span> <span class="n">jupyter</span>
 
 <span class="c1"># Expose the JupyterLab port</span>
 <span class="n">EXPOSE</span> <span class="mi">8888</span>
