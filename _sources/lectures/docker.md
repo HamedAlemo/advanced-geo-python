@@ -252,9 +252,6 @@ The following sample Dockerfile implements these three changes, and runs Jupyter
 ```
 FROM continuumio/miniconda3:22.11.1
 
-# Set the working directory to /home/workdir
-WORKDIR /home/workdir
-
 # Create a Conda environment with JupyterLab installed
 RUN conda create -n myenv numpy=1.25.0 jupyterlab=3.6.3
 
@@ -263,8 +260,11 @@ RUN echo "conda activate myenv" >> ~/.bashrc
 ENV PATH="$PATH:/opt/conda/envs/myenv/bin"
 
 # Create a non-root user and switch to that user
-RUN useradd -m jupyter
-USER jupyter
+RUN useradd -m jupyteruser
+USER jupyteruser
+
+# Set the working directory to /home/jupyteruser
+WORKDIR /home/jupyteruser
 
 # Expose the JupyterLab port
 EXPOSE 8888
@@ -272,6 +272,8 @@ EXPOSE 8888
 # Start JupyterLab
 CMD ["jupyter", "lab", "--ip=0.0.0.0"]
 ```
+
+**Note**: The new user you create inside the container, in this case `jupyteruser`, can only access their home directory `/home/jupyteruser`. Therefore, you need to launch Jupyter from this working directory, and when you mount directories at the launch time you should mount them to `jupyteruser`'s home directory or any sub-directory in there. 
 
 Finally, to run the container you should publish container's port `8888` to a port on the host (it can be the same `8888` if it's not being used otherwise):
 ```
