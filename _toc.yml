@@ -23,6 +23,8 @@ parts:
       title: Intro to JupyterLab
     - file: lectures/docker.md
       title: Intro to Docker
+    - file: lectures/landscape.md
+      title: Geospatial Landscape
   - caption: Assignments
     chapters:
     - file: assignments/a1
