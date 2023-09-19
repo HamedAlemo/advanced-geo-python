@@ -10,8 +10,8 @@ There will be 5 programming assignments during the semester, and students can jo
 | 3        |  9/12 & 9/15  | Introduction to Containers and Docker \*                                            |
 | 4        |  9/19 & 9/22  | Introduction to Geospatial Python Landscape                                         |
 | 5        |  9/26 & 9/29  | Geospatial Data on the Cloud                                                        |
-| 6        | 10/3  & 10/6  | Discover Satellite Imagery with Python \*                                           |
-| 7        | 10/13         | Working with Raster Data in Python                                                  |
+| 6        | 10/3          | Discover Satellite Imagery with Python \*                                           |
+| 7        | 10/6  & 10/13 | Working with Raster Data in Python                                                  |
 | 8        | 10/17 & 10/20 | Working with Vector Data in Python \*                                               |
 | 9        | 10/24 & 10/27 | Projections and Transforming Geometries                                             |
 | 10       | 10/31 & 11/3  | Working with Multi-Dimensional Arrays in Python \*                                  |
