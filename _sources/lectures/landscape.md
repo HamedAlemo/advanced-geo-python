@@ -124,7 +124,11 @@ The STAC specification is a common language to describe geospatial information, 
 
 A *spatiotemporal asset* is any file that represents information about the earth captured in a certain space and time.
 
-[STAC Browser](https://radiantearth.github.io/stac-browser/#/)
+STAC is intentionally designed to be simple, flexible, and extensible. STAC is a network of JSON files that reference other JSON files, with each JSON file adhering to a specific core specification depending on which STAC component it is describing. This core JSON format can also be customized to fit differing needs, making the STAC specification highly flexible and adaptable. Check out [this](https://stacspec.org/en/tutorials/intro-to-stac/) Intro to STAC guide to learn more about it. 
+
+In this course, we will interact with STAC data catalogs to search for geospatial data and retrieve them. 
+
+Another simple to use tool for STAC is [STAC Browser](https://radiantearth.github.io/stac-browser/#/). This browser retrieves a static catalog and you can browse it on the web. 
 
 ## Cloud Computing and Platforms
 
@@ -133,6 +137,8 @@ A *spatiotemporal asset* is any file that represents information about the earth
 - Google Earth Engine ([link](https://earthengine.google.com/))
 
 - Pangeo ([link](https://pangeo.io/))
+
+- Sentinel-Hub ([link](https://www.sentinel-hub.com/))
 
 - QGIS ([link](https://www.qgis.org/en/site/))
 
