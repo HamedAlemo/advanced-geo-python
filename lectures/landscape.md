@@ -104,6 +104,7 @@ Similar to rasters, there are multiple formats for storing vector data. Here are
 
 - **GeoJSON**: GeoJSON is a format for encoding a variety of geographic data structures. From its [spec](https://geojson.org/): *GeoJSON supports the following geometry types: `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, and `MultiPolygon`. Geometric objects with additional properties are `Feature` objects. Sets of features are contained by `FeatureCollection` objects.*
 
+    Check out [this tutorial](https://tyson-swetnam.github.io/agic-2022/geojson/) on creating and using GeoJSON. 
 
 
 - **GeoParquet**: GeoParquet is a new evolving data format building on the powerful Apache Parquet format to add interoperable geospatial types (Point, Line and Polygon) to Parquet. You can read more about it [here](https://geoparquet.org/#intro). 
