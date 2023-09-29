@@ -27,6 +27,10 @@ parts:
       title: Geospatial Landscape
     - file: lectures/earth_search_tutorial
       title: Searching a STAC Catalog
+    - file: lectures/dask_intro
+      title: Intro to Dask
+    - file: lectures/stackstac
+      title: Scaling stackstac w Dask
   - caption: Assignments
     chapters:
     - file: assignments/a1
