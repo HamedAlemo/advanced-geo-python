@@ -750,12 +750,12 @@ When we call <code class="docutils literal notranslate"><span class="pre">.compu
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_ones</span><span class="o">.</span><span class="n">nbytes</span> <span class="o">/</span> <span class="mf">1e6</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_ones</span><span class="o">.</span><span class="n">nbytes</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6400.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6103.515625
 </pre></div>
 </div>
 </div>
@@ -776,7 +776,7 @@ When we call <code class="docutils literal notranslate"><span class="pre">.compu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[########################################] | 100% Completed | 1.97 sms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[########################################] | 100% Completed | 1.95 sms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
@@ -874,7 +874,7 @@ You can also apply NumPy function directly to a dask array, and it will stay laz
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f257b0ccd90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f1d0d81fb10&gt;]
 </pre></div>
 </div>
 <img alt="../_images/14d961edcf8f2c1114f9a545d309a67d476a46ea9dc8cf9572efd76840132d24.png" src="../_images/14d961edcf8f2c1114f9a545d309a67d476a46ea9dc8cf9572efd76840132d24.png" />
@@ -910,7 +910,7 @@ However, it’s good to know about.</p>
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-0637f580-5ed3-11ee-842b-6e1c11398774</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-a3b77291-5ee9-11ee-8693-6e1c11398774</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -945,7 +945,7 @@ However, it’s good to know about.</p>
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">f84d7c04</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">906ec967</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -982,11 +982,11 @@ However, it’s good to know about.</p>
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-66babaee-fd84-4524-8606-113a6699110e</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-6032ab8a-bce8-4aad-a8c7-c73352d67495</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:44881
+                        <strong>Comm:</strong> tcp://127.0.0.1:38925
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 4
@@ -1028,7 +1028,7 @@ However, it’s good to know about.</p>
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:33795
+                            <strong>Comm: </strong> tcp://127.0.0.1:46719
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -1036,7 +1036,7 @@ However, it’s good to know about.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="/user/halemohammad@clarku.edu/proxy/33335/status" target="_blank">/user/halemohammad@clarku.edu/proxy/33335/status</a>
+                            <strong>Dashboard: </strong> <a href="/user/halemohammad@clarku.edu/proxy/45657/status" target="_blank">/user/halemohammad@clarku.edu/proxy/45657/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 8.00 GiB
@@ -1044,13 +1044,13 @@ However, it’s good to know about.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:44581
+                            <strong>Nanny: </strong> tcp://127.0.0.1:41921
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-zju8rn68
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-k38gkq3t
                         </td>
                     </tr>
 
@@ -1073,7 +1073,7 @@ However, it’s good to know about.</p>
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:35837
+                            <strong>Comm: </strong> tcp://127.0.0.1:40449
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -1081,7 +1081,7 @@ However, it’s good to know about.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="/user/halemohammad@clarku.edu/proxy/40707/status" target="_blank">/user/halemohammad@clarku.edu/proxy/40707/status</a>
+                            <strong>Dashboard: </strong> <a href="/user/halemohammad@clarku.edu/proxy/37103/status" target="_blank">/user/halemohammad@clarku.edu/proxy/37103/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 8.00 GiB
@@ -1089,13 +1089,13 @@ However, it’s good to know about.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:35841
+                            <strong>Nanny: </strong> tcp://127.0.0.1:35223
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-8_kbizwt
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-3r0py63u
                         </td>
                     </tr>
 
@@ -1118,7 +1118,7 @@ However, it’s good to know about.</p>
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:37503
+                            <strong>Comm: </strong> tcp://127.0.0.1:37551
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -1126,7 +1126,7 @@ However, it’s good to know about.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="/user/halemohammad@clarku.edu/proxy/40813/status" target="_blank">/user/halemohammad@clarku.edu/proxy/40813/status</a>
+                            <strong>Dashboard: </strong> <a href="/user/halemohammad@clarku.edu/proxy/35059/status" target="_blank">/user/halemohammad@clarku.edu/proxy/35059/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 8.00 GiB
@@ -1134,13 +1134,13 @@ However, it’s good to know about.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:41093
+                            <strong>Nanny: </strong> tcp://127.0.0.1:37127
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-_2jc02x5
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-7nyq_av7
                         </td>
                     </tr>
 
@@ -1163,7 +1163,7 @@ However, it’s good to know about.</p>
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:44333
+                            <strong>Comm: </strong> tcp://127.0.0.1:41805
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -1171,7 +1171,7 @@ However, it’s good to know about.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="/user/halemohammad@clarku.edu/proxy/40873/status" target="_blank">/user/halemohammad@clarku.edu/proxy/40873/status</a>
+                            <strong>Dashboard: </strong> <a href="/user/halemohammad@clarku.edu/proxy/40785/status" target="_blank">/user/halemohammad@clarku.edu/proxy/40785/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 8.00 GiB
@@ -1179,13 +1179,13 @@ However, it’s good to know about.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:33679
+                            <strong>Nanny: </strong> tcp://127.0.0.1:44145
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-5ia5e_xw
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-6j58xfm7
                         </td>
                     </tr>
 
@@ -1309,7 +1309,7 @@ However, it’s good to know about.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a9ae624ae479db5e8e36cf384aa0e2f0e55adb804b833a49e9a12ce63319d943.png" src="../_images/a9ae624ae479db5e8e36cf384aa0e2f0e55adb804b833a49e9a12ce63319d943.png" />
+<img alt="../_images/9737005a0da81ca204d668cdfc7229e853a8024afea565902b169d557136fc53.png" src="../_images/9737005a0da81ca204d668cdfc7229e853a8024afea565902b169d557136fc53.png" />
 </div>
 </div>
 </section>
