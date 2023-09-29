@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6. Geospatial Analytics Landscape &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>6. The Landscape of Geospatial Data and Tools &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/landscape';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
+    <link rel="next" title="7. Tutorial for Searching a STAC Catalog" href="earth_search_tutorial.html" />
     <link rel="prev" title="5. Introduction to Docker" href="docker.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,6 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">4. Intro to JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">5. Intro to Docker</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="earth_search_tutorial.html">7. Searching a STAC Catalog</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -366,7 +367,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Geospatial Analytics Landscape</h1>
+    <h1>The Landscape of Geospatial Data and Tools</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,8 +398,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="geospatial-analytics-landscape">
-<h1><span class="section-number">6. </span>Geospatial Analytics Landscape<a class="headerlink" href="#geospatial-analytics-landscape" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-landscape-of-geospatial-data-and-tools">
+<h1><span class="section-number">6. </span>The Landscape of Geospatial Data and Tools<a class="headerlink" href="#the-landscape-of-geospatial-data-and-tools" title="Permalink to this heading">#</a></h1>
 <p>This sections provides an overview of the geospatial analytics landscape including datasets, platforms, cloud repositories, Python packages and so on. The goal of this introductory section is to familiarize you with the rapidly evolving landscape for geospatial analytics.</p>
 <section id="background">
 <h2><span class="section-number">6.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
@@ -473,9 +474,11 @@ document.write(`
 <section id="vector-formats">
 <h3><span class="section-number">6.2.2. </span>Vector Formats<a class="headerlink" href="#vector-formats" title="Permalink to this heading">#</a></h3>
 <p>Similar to rasters, there are multiple formats for storing vector data. Here are a couple of the most popular ones:</p>
-<ul class="simple">
+<ul>
 <li><p><strong>Shapefile</strong>: are a popular geospatial vector data format. Shapefile was defined by ESRI and it’s supported by almost all geospatial software. Shapefile indeed refers to a collection files with the same filename but different extensions. Each shapefile contains four files: a .shp file, a .dbf file, a .shx file and a .prj file. These files store the the data itself, the location of the data, the index to share the data and the coordinate reference system. Such a way of storing the data make it hard to use on cloud object storages as the metadata about the data is stored in separate files and one has to access all of them to be able to query the dataset.</p></li>
-<li><p><strong>GeoJSON</strong>: GeoJSON is a format for encoding a variety of geographic data structures. From its <a class="reference external" href="https://geojson.org/">spec</a>: <em>GeoJSON supports the following geometry types: <code class="docutils literal notranslate"><span class="pre">Point</span></code>, <code class="docutils literal notranslate"><span class="pre">LineString</span></code>, <code class="docutils literal notranslate"><span class="pre">Polygon</span></code>, <code class="docutils literal notranslate"><span class="pre">MultiPoint</span></code>, <code class="docutils literal notranslate"><span class="pre">MultiLineString</span></code>, and <code class="docutils literal notranslate"><span class="pre">MultiPolygon</span></code>. Geometric objects with additional properties are <code class="docutils literal notranslate"><span class="pre">Feature</span></code> objects. Sets of features are contained by <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> objects.</em></p></li>
+<li><p><strong>GeoJSON</strong>: GeoJSON is a format for encoding a variety of geographic data structures. From its <a class="reference external" href="https://geojson.org/">spec</a>: <em>GeoJSON supports the following geometry types: <code class="docutils literal notranslate"><span class="pre">Point</span></code>, <code class="docutils literal notranslate"><span class="pre">LineString</span></code>, <code class="docutils literal notranslate"><span class="pre">Polygon</span></code>, <code class="docutils literal notranslate"><span class="pre">MultiPoint</span></code>, <code class="docutils literal notranslate"><span class="pre">MultiLineString</span></code>, and <code class="docutils literal notranslate"><span class="pre">MultiPolygon</span></code>. Geometric objects with additional properties are <code class="docutils literal notranslate"><span class="pre">Feature</span></code> objects. Sets of features are contained by <code class="docutils literal notranslate"><span class="pre">FeatureCollection</span></code> objects.</em></p>
+<p>Check out <a class="reference external" href="https://tyson-swetnam.github.io/agic-2022/geojson/">this tutorial</a> on creating and using GeoJSON.</p>
+</li>
 <li><p><strong>GeoParquet</strong>: GeoParquet is a new evolving data format building on the powerful Apache Parquet format to add interoperable geospatial types (Point, Line and Polygon) to Parquet. You can read more about it <a class="reference external" href="https://geoparquet.org/#intro">here</a>.</p></li>
 </ul>
 </section>
@@ -562,11 +565,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../assignments/a1.html"
+       href="earth_search_tutorial.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignment 1</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Tutorial for Searching a STAC Catalog</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
