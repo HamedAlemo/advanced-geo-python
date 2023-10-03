@@ -8,15 +8,15 @@ There will be 5 programming assignments during the semester, and students can jo
 | 1        |  8/29 & 9/1   | Workflows for Open Reproducible Science (including Git) <br /> and Introduction to Unix \* |
 | 2        |  9/5  & 9/8   | Basics of Python Environments and JupyterLab                                        |
 | 3        |  9/12 & 9/15  | Introduction to Containers and Docker \*                                            |
-| 4        |  9/19 & 9/22  | Introduction to Geospatial Python Landscape                                         |
-| 5        |  9/26 & 9/29  | Geospatial Data on the Cloud                                                        |
+| 4        |  9/19 & 9/22  | Introduction to Geospatial Python Landscape and STAC                                |
+| 5        |  9/26 & 9/29  | Geospatial Data on the Cloud and Introduction to Dask                               |
 | 6        | 10/3          | Discover Satellite Imagery with Python \*                                           |
 | 7        | 10/6  & 10/13 | Working with Raster Data in Python                                                  |
 | 8        | 10/17 & 10/20 | Working with Vector Data in Python \*                                               |
 | 9        | 10/24 & 10/27 | Projections and Transforming Geometries                                             |
 | 10       | 10/31 & 11/3  | Working with Multi-Dimensional Arrays in Python \*                                  |
 | 11       | 11/7  & 11/10 | Geospatial Data Visualization and Mapping                                           |
-| 12       | 11/14 & 11/17 | Introduction to Dask and Microsoft Planetary Computer Demo \*                       |
+| 12       | 11/14 & 11/17 | and Microsoft Planetary Computer Demo \*                       |
 | 13       | 11/21         | Projects                                                                            |
 | 14       | 11/28 & 12/1  | Projects                                                                            |
 | 15       | 12/5  & 12/8  | Projects                                                                            |
