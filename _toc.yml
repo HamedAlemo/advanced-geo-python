@@ -34,7 +34,8 @@ parts:
   - caption: Assignments
     chapters:
     - file: assignments/a1
-    - file: assignments/a2 
+    - file: assignments/a2
+    - file: assignments/a3 
   - caption: Appendices
     chapters:
     - file: docs/license
