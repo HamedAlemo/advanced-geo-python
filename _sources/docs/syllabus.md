@@ -16,7 +16,7 @@ There will be 5 programming assignments during the semester, and students can jo
 | 9        | 10/24 & 10/27 | Projections and Transforming Geometries                                             |
 | 10       | 10/31 & 11/3  | Working with Multi-Dimensional Arrays in Python \*                                  |
 | 11       | 11/7  & 11/10 | Geospatial Data Visualization and Mapping                                           |
-| 12       | 11/14 & 11/17 | and Microsoft Planetary Computer Demo \*                       |
+| 12       | 11/14 & 11/17 | Microsoft Planetary Computer Demo \*                                                |
 | 13       | 11/21         | Projects                                                                            |
 | 14       | 11/28 & 12/1  | Projects                                                                            |
 | 15       | 12/5  & 12/8  | Projects                                                                            |
