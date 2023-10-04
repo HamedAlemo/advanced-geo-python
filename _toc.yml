@@ -28,9 +28,11 @@ parts:
     - file: lectures/earth_search_tutorial
       title: Searching a STAC Catalog
     - file: lectures/dask_intro
-      title: Intro to Dask
+      title: Intro to Dask & Dask Array
     - file: lectures/stackstac
       title: Scaling stackstac w Dask
+    - file: lectures/dask_dataframe
+      title: Into to Dask DataFrame
   - caption: Assignments
     chapters:
     - file: assignments/a1
