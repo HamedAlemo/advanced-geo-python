@@ -17,7 +17,7 @@ There are numerous great resources to learn more about CRS and projections. You 
 
 ```{figure} ../lectures/figures/what-is-a-crs.png
 ---
-name: orange-peel-crs
+name: crs
 class: bg-primary mb-1
 width: 700px
 align: center

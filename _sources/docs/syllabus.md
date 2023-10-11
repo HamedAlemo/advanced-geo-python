@@ -21,7 +21,7 @@ There will be 5 programming assignments during the semester, and students can jo
 | 14       | 11/28 & 12/1  | Projects                                                                            |
 | 15       | 12/5  & 12/8  | Projects                                                                            |
 
-
+ 
 \* Weeks during which an assignment will be released. The last assignment is not required for 300-level.
 
 Assignments will be released on the Monday of the week, and are due the week after on Thursday. The deadline for submissions are 11:59 pm on Thursday. For example, for the assignment that will be released during the 3rd week of the class the submission deadline is on Thursday at 11:59 pm during the 4th week. 
