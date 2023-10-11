@@ -33,6 +33,10 @@ parts:
       title: Scaling stackstac w Dask
     - file: lectures/dask_dataframe
       title: Into to Dask DataFrame
+    - file: lectures/crs
+      title: Review of CRS
+    - file: lectures/crs_python
+      title: CRS and Projections in Python
   - caption: Assignments
     chapters:
     - file: assignments/a1
