@@ -10,10 +10,10 @@ There will be 5 programming assignments during the semester, and students can jo
 | 3        |  9/12 & 9/15  | Introduction to Containers and Docker \*                                            |
 | 4        |  9/19 & 9/22  | Introduction to Geospatial Python Landscape and STAC                                |
 | 5        |  9/26 & 9/29  | Geospatial Data on the Cloud and Introduction to Dask                               |
-| 6        | 10/3          | Discover Satellite Imagery with Python \*                                           |
-| 7        | 10/6  & 10/13 | Working with Raster Data in Python                                                  |
-| 8        | 10/17 & 10/20 | Working with Vector Data in Python \*                                               |
-| 9        | 10/24 & 10/27 | Projections and Transforming Geometries                                             |
+| 6        | 10/3  & 10/6  | Introduction to Dask DataFrame and CRS \*                                           |
+| 7        | 10/13         | Working with Vector Data in Python                                                  |
+| 8        | 10/17 & 10/20 | Scaling Vector Data Analytics and Working with Raster Data in Python \*              |
+| 9        | 10/24 & 10/27 | Scaling Raster Data Analytics                                             |
 | 10       | 10/31 & 11/3  | Working with Multi-Dimensional Arrays in Python \*                                  |
 | 11       | 11/7  & 11/10 | Geospatial Data Visualization and Mapping                                           |
 | 12       | 11/14 & 11/17 | Microsoft Planetary Computer Demo \*                                                |
@@ -21,7 +21,7 @@ There will be 5 programming assignments during the semester, and students can jo
 | 14       | 11/28 & 12/1  | Projects                                                                            |
 | 15       | 12/5  & 12/8  | Projects                                                                            |
 
-
+ 
 \* Weeks during which an assignment will be released. The last assignment is not required for 300-level.
 
 Assignments will be released on the Monday of the week, and are due the week after on Thursday. The deadline for submissions are 11:59 pm on Thursday. For example, for the assignment that will be released during the 3rd week of the class the submission deadline is on Thursday at 11:59 pm during the 4th week. 
