@@ -37,6 +37,10 @@ parts:
       title: Review of CRS
     - file: lectures/crs_python
       title: CRS and Projections in Python
+    - file: lectures/vector
+      title: Review of Vector Data
+    - file: lectures/vector_analysis
+      title: Vector Data in Python
   - caption: Assignments
     chapters:
     - file: assignments/a1
