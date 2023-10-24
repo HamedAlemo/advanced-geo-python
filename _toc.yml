@@ -45,11 +45,16 @@ parts:
       title: Intro to Dask-GeoPandas
     - file: lectures/scalable_vector_analysis
       title: Scalable Vector Analysis
+    - file: lectures/raster
+      title: Review of Raster Data
+    - file: lectures/raster_analysis
+      title: Raster Data in Python
   - caption: Assignments
     chapters:
     - file: assignments/a1
     - file: assignments/a2
     - file: assignments/a3 
+    # - file: assignments/a4
   - caption: Appendices
     chapters:
     - file: docs/license
