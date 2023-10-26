@@ -422,7 +422,12 @@ document.write(`
 <h2>Load Geoparquet File(s)<a class="headerlink" href="#load-geoparquet-file-s" title="Permalink to this heading">#</a></h2>
 <p>The geoparquet files in this dataset maybe large depending on the country you are working with. So, ideally you would like to benefit from <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code> functionality. To load the data into <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code> you need to first convert the geometries from WKB to geojson. The following function can help you load the data into <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code> DataFrame. (Note: this is not an optimal solution as you have to load the data into <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> DataFrame first, and then convert to <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code>. In the optional section below, you will be asked to rewrite this function).</p>
 <p>Use this function to load building footprints for Haiti.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_geoparquet</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely</span> <span class="kn">import</span> <span class="n">wkb</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">dask_geopandas</span> <span class="k">as</span> <span class="nn">dgpd</span>
+
+<span class="k">def</span> <span class="nf">read_geoparquet</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function receives the path to a geoparquet file from the </span>
 <span class="sd">    Google-Microsoft Building Footprints dataset and returns a </span>
@@ -461,7 +466,7 @@ document.write(`
 <h2>Analyze the Data<a class="headerlink" href="#analyze-the-data" title="Permalink to this heading">#</a></h2>
 <p>In this section, you will analyze the data using the functionality provided by Dask:</p>
 <ul class="simple">
-<li><p>Plot the histogram  of all buildings provided by Microsoft as the source.</p>
+<li><p>Plot the histogram of the area of all buildings provided by Microsoft as the source.</p>
 <ul>
 <li><p>Note: this might have a very skewed distribution. Try passing arguments to your histogram function to create a move even histogram plot, and explain your approach.</p></li>
 </ul>
