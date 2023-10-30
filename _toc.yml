@@ -49,6 +49,8 @@ parts:
       title: Review of Raster Data
     - file: lectures/raster_analysis
       title: Raster Data in Python
+    - file: lectures/raster_processing
+      title: Raster Data Processing
   - caption: Assignments
     chapters:
     - file: assignments/a1
