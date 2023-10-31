@@ -51,6 +51,8 @@ parts:
       title: Raster Data in Python
     - file: lectures/raster_processing
       title: Raster Data Processing
+    - file: lectures/xarray_fundamentals
+      title: Xarray Fundamentals
   - caption: Assignments
     chapters:
     - file: assignments/a1
