@@ -53,6 +53,8 @@ parts:
       title: Raster Data Processing
     - file: lectures/xarray_fundamentals
       title: Xarray Fundamentals
+    - file: lectures/xarray_advanced
+      title: Advanced Xarray Operations
   - caption: Assignments
     chapters:
     - file: assignments/a1
