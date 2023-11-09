@@ -55,6 +55,12 @@ parts:
       title: Xarray Fundamentals
     - file: lectures/xarray_advanced
       title: Advanced Xarray Operations
+    - file: lectures/workflows_intro
+      title: Workflows in Python
+    - file: lectures/workflows_pseudocode
+      title: Writing Pseudocode
+    - file: lectures/workflows_best_practices
+      title: Workflow Best Practices
   - caption: Assignments
     chapters:
     - file: assignments/a1
