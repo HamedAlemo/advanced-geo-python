@@ -12,11 +12,11 @@ There will be 5 programming assignments during the semester, and students can jo
 | 5        |  9/26 & 9/29  | Geospatial Data on the Cloud and Introduction to Dask                               |
 | 6        | 10/3  & 10/6  | Introduction to Dask DataFrame and CRS \*                                           |
 | 7        | 10/13         | Working with Vector Data in Python                                                  |
-| 8        | 10/17 & 10/20 | Scaling Vector Data Analytics and Working with Raster Data in Python \*              |
-| 9        | 10/24 & 10/27 | Scaling Raster Data Analytics                                             |
+| 8        | 10/17 & 10/20 | Scaling Vector Data Analytics and Working with Raster Data in Python \*             |
+| 9        | 10/24 & 10/27 | Scaling Raster Data Analytics                                                       |
 | 10       | 10/31 & 11/3  | Working with Multi-Dimensional Arrays in Python \*                                  |
-| 11       | 11/7  & 11/10 | Geospatial Data Visualization and Mapping                                           |
-| 12       | 11/14 & 11/17 | Microsoft Planetary Computer Demo \*                                                |
+| 11       | 11/7  & 11/10 | Geospatial Workflows                                                                |
+| 12       | 11/14 & 11/17 | Geospatial Workflows and Data Visualization                                         |
 | 13       | 11/21         | Projects                                                                            |
 | 14       | 11/28 & 12/1  | Projects                                                                            |
 | 15       | 12/5  & 12/8  | Projects                                                                            |
@@ -34,8 +34,8 @@ Final projects are due by the end of the day on Dec 21, 2023. There won't be a p
 The following provides an approximate breakdown of the hours of effort required for this class:
 - Class lectures (2 X 1hr 15min per week):  **38 hrs**
 - Required readings, assignments, and coding work: **60 hrs**
-- Analytical work for the final project: **55 hrs**
-- Write-up for the final project: **27 hrs**
+- Analytical work for the final project: **67 hrs**
+- Write-up for the final project: **15 hrs**
 
 Total: **180 hrs**
 
