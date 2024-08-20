@@ -1,6 +1,6 @@
 # Advanced Geospatial Analytics with Python
 
-This book is designed for those interested to learn advanced geospatial analytics with Python along with basics of developing reproducible code. The content is developed as part of the **GEOG 213/313 Advanced Geospatial Analytics with Python** course taught at Clark University by Dr. Hamed Alemohammad. 
+This book is designed for those interested to learn advanced geospatial analytics with Python along with basics of developing reproducible code. The content is developed as part of the **GEOG 213/313 Advanced Geospatial Analytics with Python** course taught at Clark University by Dr. [Hamed Alemohammad](https://hamedalemo.github.io/). 
 
 ## Usage
 
