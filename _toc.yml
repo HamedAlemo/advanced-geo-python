@@ -21,52 +21,52 @@ parts:
     - file: lectures/python-env.md
     - file: lectures/jupyter.md
       title: Intro to JupyterLab
-    - file: lectures/docker.md
-      title: Intro to Docker
-    - file: lectures/landscape.md
-      title: Geospatial Landscape
-    - file: lectures/earth_search_tutorial
-      title: Searching a STAC Catalog
-    - file: lectures/dask_intro
-      title: Intro to Dask & Dask Array
-    - file: lectures/stackstac
-      title: Scaling stackstac w Dask
-    - file: lectures/dask_dataframe
-      title: Into to Dask DataFrame
-    - file: lectures/crs
-      title: Review of CRS
-    - file: lectures/crs_python
-      title: CRS and Projections in Python
-    - file: lectures/vector
-      title: Review of Vector Data
-    - file: lectures/vector_analysis
-      title: Vector Data in Python
-    - file: lectures/dask_geopandas_intro
-      title: Intro to Dask-GeoPandas
-    - file: lectures/scalable_vector_analysis
-      title: Scalable Vector Analysis
-    - file: lectures/raster
-      title: Review of Raster Data
-    - file: lectures/raster_analysis
-      title: Raster Data in Python
-    - file: lectures/raster_processing
-      title: Raster Data Processing
-    - file: lectures/xarray_fundamentals
-      title: Xarray Fundamentals
-    - file: lectures/xarray_advanced
-      title: Advanced Xarray Operations
-    - file: lectures/workflows_intro
-      title: Workflows in Python
-    - file: lectures/workflows_pseudocode
-      title: Writing Pseudocode
-    - file: lectures/workflows_best_practices
-      title: Workflow Best Practices
-  - caption: Assignments
-    chapters:
-    - file: assignments/a1
-    - file: assignments/a2
-    - file: assignments/a3 
-    - file: assignments/a4
+    # - file: lectures/docker.md
+    #   title: Intro to Docker
+    # - file: lectures/landscape.md
+    #   title: Geospatial Landscape
+    # - file: lectures/earth_search_tutorial
+    #   title: Searching a STAC Catalog
+    # - file: lectures/dask_intro
+    #   title: Intro to Dask & Dask Array
+    # - file: lectures/stackstac
+    #   title: Scaling stackstac w Dask
+    # - file: lectures/dask_dataframe
+    #   title: Into to Dask DataFrame
+    # - file: lectures/crs
+    #   title: Review of CRS
+    # - file: lectures/crs_python
+    #   title: CRS and Projections in Python
+    # - file: lectures/vector
+    #   title: Review of Vector Data
+    # - file: lectures/vector_analysis
+    #   title: Vector Data in Python
+    # - file: lectures/dask_geopandas_intro
+    #   title: Intro to Dask-GeoPandas
+    # - file: lectures/scalable_vector_analysis
+    #   title: Scalable Vector Analysis
+    # - file: lectures/raster
+    #   title: Review of Raster Data
+    # - file: lectures/raster_analysis
+    #   title: Raster Data in Python
+    # - file: lectures/raster_processing
+    #   title: Raster Data Processing
+    # - file: lectures/xarray_fundamentals
+    #   title: Xarray Fundamentals
+    # - file: lectures/xarray_advanced
+    #   title: Advanced Xarray Operations
+    # - file: lectures/workflows_intro
+    #   title: Workflows in Python
+    # - file: lectures/workflows_pseudocode
+    #   title: Writing Pseudocode
+    # - file: lectures/workflows_best_practices
+    #   title: Workflow Best Practices
+  # - caption: Assignments
+  #   chapters:
+  #   - file: assignments/a1
+  #   - file: assignments/a2
+  #   - file: assignments/a3 
+  #   - file: assignments/a4
   - caption: Appendices
     chapters:
     - file: docs/license

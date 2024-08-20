@@ -1,8 +1,16 @@
 # Advanced Geospatial Analytics with Python
 
-This book is designed for those interested to learn advanced geospatial analytics with Python along with basics of developing reproducible code.
+This book is designed for those interested to learn advanced geospatial analytics with Python along with basics of developing reproducible code. The content is developed as part of the **GEOG 213/313 Advanced Geospatial Analytics with Python** course taught at Clark University by Dr. Hamed Alemohammad. 
 
 ## Usage
+
+All the content in this book is published under a Creative Commons Attribution 4.0 International (CC BY 4.0) license which in simple terms means you can use the content in any work by citing the source. 
+
+## Contribute
+
+If you use the book content and want to contribute to it, or simply want to report a bug or error please submit an issue in this repo. 
+
+## Note to Developers
 
 ### Building the book
 
@@ -22,10 +30,7 @@ Please see the [Jupyter Book documentation](https://jupyterbook.org/publish/web.
 
 For GitHub and GitLab deployment specifically, the [cookiecutter-jupyter-book](https://github.com/executablebooks/cookiecutter-jupyter-book) includes templates for, and information about, optional continuous integration (CI) workflow files to help easily and automatically deploy books online with GitHub or GitLab. For example, if you chose `github` for the `include_ci` cookiecutter option, your book template was created with a GitHub actions workflow file that, once pushed to GitHub, automatically renders and pushes your book to the `gh-pages` branch of your repo and hosts it on GitHub Pages when a push or pull request is made to the main branch.
 
-## Contributors
-
-We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/hamedalemo/advanced-geo-python/graphs/contributors).
 
 ## Credits
 
-This project is created using the excellent open source [Jupyter Book project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
+This book is created using the excellent open source [Jupyter Book project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
