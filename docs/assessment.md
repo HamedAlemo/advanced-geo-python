@@ -2,7 +2,7 @@
 Students will be responsible for and assessed according to the following criteria:
 
 1. **Participation**: This will be an active, hands-on course in which we learn and develop new packages and methods during the semester. Student contributions to problem solving and to class discussions represent **10% of the final grade (200-300 level)**.  
-2. **Assignments**: There will be a total of 4 practical assignments during the semester for all students and a 5th assignment for 200-level. This will be **40% (300-level) to 50% (200-level) of the final grade**. 
+2. **Assignments**: There will be a total of 10 assignments for 200-level students and 8 assignments for 300-level. This will be **40% (300-level) to 50% (200-level) of the final grade**. 
 3. **Final project**: The final project will be undertaken in teams of up to 2 students, and will consist of two parts:
     
     * A _project proposal_, providing a summary of the proposed work, the datasets and methodology that will be used, the delineation of specific tasks undertaken by each team member, and then expected results. This component will account for **10% of the final grade (200-300 levels)**.
