@@ -2,7 +2,7 @@
 
 ## __Academic integrity__
 
-All students are expected to adhere to Clark’s standards of academic integrity; this means that all work must be entirely your own and entirely unique to this course. Plagiarism and other forms of cheating will not be tolerated or excused. All students are required to complete each assignment individually, and group delivery of assignments is not allowed. If you consult/brainstorm with another student for an assignment, each individual needs to have their own unique submission and you need to report at the time of submission that you have worked together. 
+All students are expected to adhere to Clark’s standards of academic integrity; this means that all work must be entirely your own and entirely unique to this course. Plagiarism and other forms of cheating will not be tolerated or excused. All students are required to complete assignments individually, and group delivery of assignments is not allowed. You are not allowed to share any part of your code/notebook with another classmate. However, you can consult/brainstorm with another classmate for an assignment while each individual needs to have their own unique submission and needs to report at the time of submission that they worked with each other on the assignment. 
 
 For more information, please refer to the university’s policy on this issue, available on [Academic Policies page](https://catalog.clarku.edu/content.php?catoid=32&navoid=2735#academic-integrity) or in the student handbook. If you have any questions about proper citation or other related issues, please don’t hesitate to come see me.  
 
