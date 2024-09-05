@@ -6,6 +6,10 @@ All students are expected to adhere to Clark’s standards of academic integrity
 
 For more information, please refer to the university’s policy on this issue, available on [Academic Policies page](https://catalog.clarku.edu/content.php?catoid=32&navoid=2735#academic-integrity) or in the student handbook. If you have any questions about proper citation or other related issues, please don’t hesitate to come see me.  
 
+## Extension Policy
+
+Each student is allowed to request a **one-time extension** to the deadline for submitting one of their assignment throughout the semester. The extension can be requested for up to one week from the deadline, and should be submitted at least 2 days prior to the deadline. You do not need to provide any reason for requesting this extension. To submit your request, send an email to your instructor and TA. 
+
 ## __Use of Artificial Intelligence (AI)__
 This policy covers any generative AI tool, such as ChatGPT, GitHub Copilot, Elicit, DALL·E, etc. and applies to text and artwork/graphics/video/audio content. 
 1. You are discouraged from using AI tools unless under direct instruction from the instructor to do so. Please contact your instructor if you are unsure or have questions before using AI for any assignment or project. 
