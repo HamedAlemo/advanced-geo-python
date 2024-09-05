@@ -43,4 +43,15 @@ Use this section to learn about existing open-access datasets and projects. Thes
 1. A GUIDEBOOK ON MAPPING POVERTY THROUGH  DATA INTEGRATION AND ARTIFICIAL INTELLIGENCE ([link](https://www.adb.org/sites/default/files/publication/698091/guidebook-mapping-poverty-data-integration-ai.pdf))
 1. Cookiecutter Data Science ([link](https://drivendata.github.io/cookiecutter-data-science/))
 
+<!-- Add:
+https://www.linkedin.com/posts/adedoyin-samuel-ajeyomi_grid3-lonboard-nigeria-activity-7235765078925422592-qq7X/?utm_source=share&utm_medium=member_android 
+
+
+Zenodo:  https://zenodo.org/records/11060871
+Github: https://github.com/agroimpacts/lacunalabels
+AWS Open Data Registry: https://registry.opendata.aws/africa-field-boundary-labels/
+ 
+ 
+
+-->
 <p>&nbsp;</p>
