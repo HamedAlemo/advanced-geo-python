@@ -57,7 +57,7 @@ To enable WSL on windows, follow the steps outlined [here](https://learn.microso
 ## Home Directory
 To understand what a “home directory” is, let’s have a look at how the file system as a whole is organized. For the sake of this example, check the following figure that illustrates the file system on Hamed's computer. After this illustration, you’ll be learning commands to explore your own filesystem, which will be constructed in a similar way, but not be exactly identical.
 
-On a Unix computer, the filesystem looks like something this:
+On most Unix computers, the filesystem looks like something this:
 
 ```{figure} ../lectures/figures/unix_files.png
 ---
@@ -71,9 +71,9 @@ Hamed's file system tree
 
 The filesystem looks like an upside down tree. The top most directory is the **root directory** that holds everything else. We refer to it using a slash character, `/`, on its own; this character is the leading slash in `/Users/hamed`.
 
-Inside that directory are several other directories: `bin` (which is where some built-in programs are stored), `lib` (for the software “libraries” used by different programs), `users` (where users’ personal directories are located), `tmp` (for temporary files that don’t need to be stored long-term), and so on.
+Inside that directory are several other directories: `bin` (which is where some built-in programs are stored), `lib` (for the software “libraries” used by different programs), `Users` (where users’ personal directories are located), `tmp` (for temporary files that don’t need to be stored long-term), and so on.
 
-By default, when you open your terminal it lands in your home directory, which in our example is `/Users/hamed`. We know that this directory is stored inside `/Users` because `/Users` is the first part of its name. Similarly, we know that `/Users` is stored inside the root directory `/` because its name begins with `/`.
+By default, when you open your terminal it lands in your home directory, which in our example is `/Users/hamed` (in WSL the home directory would be `/home/hamed`). We know that this directory is stored inside `/Users` because `/Users` is the first part of its name. Similarly, we know that `/Users` is stored inside the root directory `/` because its name begins with `/`.
 
 ``` {tip}
 There are two meanings for the `/` character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears inside a path, it’s just a separator.
