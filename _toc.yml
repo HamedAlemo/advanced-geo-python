@@ -15,7 +15,7 @@ parts:
     numbered: True
     chapters:
     - file: lectures/unix
-      title: Intro to Unix
+      title: Intro to Unix and Bash
     - file: lectures/git
       title: Intro to Version Control and Git
     - file: lectures/python-env.md
