@@ -1,6 +1,6 @@
-# Introduction to Unix
+# Introduction to Shell and Bash
 
-This lectures covers an introduction to Unix system, commands and the file system. 
+This lectures covers an introduction to Unix file system, and Shell/Bash commands. 
 
 **Attribution**
 *The content of this lecture are modified from three excellent sources: [Introduction to Bash (Shell)](https://www.earthdatascience.org/courses/intro-to-earth-data-science/open-reproducible-science/bash/) from Earth Lab CU Boulder; [Intro to Unix](https://earth-env-data-science.github.io/lectures/environment/intro_to_unix.html) from Columbia University; and [The Unix Shell](https://swcarpentry.github.io/shell-novice/) from Software Carpentry.*
@@ -69,7 +69,7 @@ align: center
 Hamed's file system tree
 ```
 
-The filesystem looks like an upside down tree. The topmost directory is the **root directory** that holds everything else. We refer to it using a slash character, `/`, on its own; this character is the leading slash in `/Users/nelle`.
+The filesystem looks like an upside down tree. The top most directory is the **root directory** that holds everything else. We refer to it using a slash character, `/`, on its own; this character is the leading slash in `/Users/hamed`.
 
 Inside that directory are several other directories: `bin` (which is where some built-in programs are stored), `lib` (for the software “libraries” used by different programs), `users` (where users’ personal directories are located), `tmp` (for temporary files that don’t need to be stored long-term), and so on.
 
@@ -177,6 +177,13 @@ This is an incredibly useful way to quickly and programmatically create a new em
 ```
 $ touch samples.txt
 ```
+
+### Edit a File Using Vim
+
+There are various editors that you can use to edit a file in Bash. These are very useful if you need to edit text in a plain text file, or in HTML, LaTex or other markup languages. While these editors might not seem as easy to use as other standard GUI-based editors initially, they can help you become very productive over the long run. 
+
+In this course, we are going to use Vim as editor. Vim can have a steep learning curve, and you do not need to learn all the commands in the beginning. Start with navigating between the *command mode* and the *insert mode*, edit the text and save it to the file. We will practice these commands in the class. For a complete introduction to Vim commands check out [A Beginner's Guide to Vim](https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim) on Linux Foundation blog. 
+
 
 ### Copy a File (`cp`)
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Introduction to Unix &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>1. Introduction to Shell and Bash &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -167,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Intro to Unix</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Intro to Unix and Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">2. Intro to Version Control and Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-env.html">3. Python Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">4. Intro to JupyterLab</a></li>
@@ -363,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Unix</h1>
+    <h1>Introduction to Shell and Bash</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -383,10 +383,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-current-working-directory-cd">1.5.3. Change Current Working Directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-directory-mkdir">1.5.4. Create a New Directory (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-file-using-a-single-command-touch">1.5.5. Create a New File Using a Single Command (<code class="docutils literal notranslate"><span class="pre">touch</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-file-cp">1.5.6. Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-directory-and-its-contents-cp-r">1.5.7. Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-file-rm">1.5.8. Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-directory-rm-r">1.5.9. Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-file-using-vim">1.5.6. Edit a File Using Vim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-file-cp">1.5.7. Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-directory-and-its-contents-cp-r">1.5.8. Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-file-rm">1.5.9. Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-directory-rm-r">1.5.10. Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">1.6. Getting help</a></li>
@@ -401,9 +402,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-unix">
-<h1><span class="section-number">1. </span>Introduction to Unix<a class="headerlink" href="#introduction-to-unix" title="Permalink to this heading">#</a></h1>
-<p>This lectures covers an introduction to Unix system, commands and the file system.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-shell-and-bash">
+<h1><span class="section-number">1. </span>Introduction to Shell and Bash<a class="headerlink" href="#introduction-to-shell-and-bash" title="Permalink to this heading">#</a></h1>
+<p>This lectures covers an introduction to Unix file system, and Shell/Bash commands.</p>
 <p><strong>Attribution</strong>
 <em>The content of this lecture are modified from three excellent sources: <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/open-reproducible-science/bash/">Introduction to Bash (Shell)</a> from Earth Lab CU Boulder; <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_unix.html">Intro to Unix</a> from Columbia University; and <a class="reference external" href="https://swcarpentry.github.io/shell-novice/">The Unix Shell</a> from Software Carpentry.</em></p>
 <hr class="docutils" />
@@ -449,7 +450,7 @@ document.write(`
 <p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Hamed’s file system tree</span><a class="headerlink" href="#unix" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The filesystem looks like an upside down tree. The topmost directory is the <strong>root directory</strong> that holds everything else. We refer to it using a slash character, <code class="docutils literal notranslate"><span class="pre">/</span></code>, on its own; this character is the leading slash in <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code>.</p>
+<p>The filesystem looks like an upside down tree. The top most directory is the <strong>root directory</strong> that holds everything else. We refer to it using a slash character, <code class="docutils literal notranslate"><span class="pre">/</span></code>, on its own; this character is the leading slash in <code class="docutils literal notranslate"><span class="pre">/Users/hamed</span></code>.</p>
 <p>Inside that directory are several other directories: <code class="docutils literal notranslate"><span class="pre">bin</span></code> (which is where some built-in programs are stored), <code class="docutils literal notranslate"><span class="pre">lib</span></code> (for the software “libraries” used by different programs), <code class="docutils literal notranslate"><span class="pre">users</span></code> (where users’ personal directories are located), <code class="docutils literal notranslate"><span class="pre">tmp</span></code> (for temporary files that don’t need to be stored long-term), and so on.</p>
 <p>By default, when you open your terminal it lands in your home directory, which in our example is <code class="docutils literal notranslate"><span class="pre">/Users/hamed</span></code>. We know that this directory is stored inside <code class="docutils literal notranslate"><span class="pre">/Users</span></code> because <code class="docutils literal notranslate"><span class="pre">/Users</span></code> is the first part of its name. Similarly, we know that <code class="docutils literal notranslate"><span class="pre">/Users</span></code> is stored inside the root directory <code class="docutils literal notranslate"><span class="pre">/</span></code> because its name begins with <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
 <div class="admonition tip">
@@ -547,8 +548,13 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<section id="edit-a-file-using-vim">
+<h3><span class="section-number">1.5.6. </span>Edit a File Using Vim<a class="headerlink" href="#edit-a-file-using-vim" title="Permalink to this heading">#</a></h3>
+<p>There are various editors that you can use to edit a file in Bash. These are very useful if you need to edit text in a plain text file, or in HTML, LaTex or other markup languages. While these editors might not seem as easy to use as other standard GUI-based editors initially, they can help you become very productive over the long run.</p>
+<p>In this course, we are going to use Vim as editor. Vim can have a steep learning curve, and you do not need to learn all the commands in the beginning. Start with navigating between the <em>command mode</em> and the <em>insert mode</em>, edit the text and save it to the file. We will practice these commands in the class. For a complete introduction to Vim commands check out <a class="reference external" href="https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim">A Beginner’s Guide to Vim</a> on Linux Foundation blog.</p>
+</section>
 <section id="copy-a-file-cp">
-<h3><span class="section-number">1.5.6. </span>Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)<a class="headerlink" href="#copy-a-file-cp" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.7. </span>Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)<a class="headerlink" href="#copy-a-file-cp" title="Permalink to this heading">#</a></h3>
 <p>You can copy a specific file to a new directory using the command <code class="docutils literal notranslate"><span class="pre">cp</span></code> followed by the name of the file you want to copy and the name of the directory to where you want to copy the file. The names can be relative path or absolute path.</p>
 <p>For example, to copy the file  <code class="docutils literal notranslate"><span class="pre">samples.txt</span></code> from the current directory to <code class="docutils literal notranslate"><span class="pre">/Users/hamed/documents/</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp samples.txt /Users/hamed/documents/
@@ -556,7 +562,7 @@ document.write(`
 </div>
 </section>
 <section id="copy-a-directory-and-its-contents-cp-r">
-<h3><span class="section-number">1.5.7. </span>Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#copy-a-directory-and-its-contents-cp-r" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.8. </span>Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#copy-a-directory-and-its-contents-cp-r" title="Permalink to this heading">#</a></h3>
 <p>To copy a directory and all its content to a new directory, you need to use the flag <code class="docutils literal notranslate"><span class="pre">-r</span></code> (meaning recursive) with <code class="docutils literal notranslate"><span class="pre">cp</span></code>.</p>
 <p>For example, to copy the directory <code class="docutils literal notranslate"><span class="pre">documents</span></code> (and all its content) from Hamed’s home directory to <code class="docutils literal notranslate"><span class="pre">/Users/hamed/projects/</span></code> you can run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp -r /Users/hamed/documents/ /Users/hamed/projects/
@@ -564,7 +570,7 @@ document.write(`
 </div>
 </section>
 <section id="delete-a-file-rm">
-<h3><span class="section-number">1.5.8. </span>Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)<a class="headerlink" href="#delete-a-file-rm" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.9. </span>Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)<a class="headerlink" href="#delete-a-file-rm" title="Permalink to this heading">#</a></h3>
 <p>To delete a specific file, you can use the command <code class="docutils literal notranslate"><span class="pre">rm</span></code> (abbreviated for remove) followed by the name of the file you want to delete.</p>
 <p>For example, you can delete the <code class="docutils literal notranslate"><span class="pre">samples.txt</span></code> file under the current directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm samples.txt
@@ -572,7 +578,7 @@ document.write(`
 </div>
 </section>
 <section id="delete-a-directory-rm-r">
-<h3><span class="section-number">1.5.9. </span>Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#delete-a-directory-rm-r" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.10. </span>Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#delete-a-directory-rm-r" title="Permalink to this heading">#</a></h3>
 <p>To delete a directory and all its content (be careful when using this command as Unix doesn’t have a trash bin), you can use the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag with <code class="docutils literal notranslate"><span class="pre">rm</span></code>.</p>
 <p>For example, the following command will delete the <code class="docutils literal notranslate"><span class="pre">projects</span></code> directory and all its content from the current directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm -r projects/
@@ -675,10 +681,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-current-working-directory-cd">1.5.3. Change Current Working Directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-directory-mkdir">1.5.4. Create a New Directory (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-file-using-a-single-command-touch">1.5.5. Create a New File Using a Single Command (<code class="docutils literal notranslate"><span class="pre">touch</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-file-cp">1.5.6. Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-directory-and-its-contents-cp-r">1.5.7. Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-file-rm">1.5.8. Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-directory-rm-r">1.5.9. Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-file-using-vim">1.5.6. Edit a File Using Vim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-file-cp">1.5.7. Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-directory-and-its-contents-cp-r">1.5.8. Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-file-rm">1.5.9. Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-directory-rm-r">1.5.10. Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">1.6. Getting help</a></li>
