@@ -138,4 +138,21 @@ You can also use `git pull` to sync changes that might have been committed to th
 $ git pull origin
 ```
 
+## Reverting to a Previous Commit
+Let's say you have made some changes to an existing repository, and committed those to your target branch. Now, you notice a fault or mistake and you would like to revert to an older commit. You can use `git revert` for this purpose. One of the easiest ways to do this is to find the commit number that you would like to revert to and use that in your `git revert` command. 
+
+To get the list of all commits in your repository, you can use the `git log` command. The output of `git log` will be a list of all changes, their commit number and any messages associated with those commits. 
+
+Then you can use the following command:
+
+```
+$ git revert <commit number>
+```
+
+This will, by default, open a file (using *Vim*) to enter a new message for your revert commit. **Note:** `git revert` will create a new commit in the history of your git repository, and it is best practice to include a message to indicate the reason for reverting to an old commit. After entering your message, you can save the message using `:wq`. 
+
+``` {Tip}
+To be able to use `git revert` your working branch should be clean (no modifications). You should also check out `git reset` and `git restore` as alternatives to `git revert`. `git reset` can clean all uncommitted changes in your working directory, and `git restore` can extract specific files from a previous commit. 
+```
+
 <p>&nbsp;</p>
