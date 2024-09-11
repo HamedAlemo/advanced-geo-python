@@ -381,6 +381,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.8. Working with an Existing GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.9. Reverting to a Previous Commit</a></li>
 </ul>
             </nav>
         </div>
@@ -512,6 +513,20 @@ $ git push origin main
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull origin
 </pre></div>
 </div>
+</section>
+<section id="reverting-to-a-previous-commit">
+<h2><span class="section-number">2.9. </span>Reverting to a Previous Commit<a class="headerlink" href="#reverting-to-a-previous-commit" title="Permalink to this heading">#</a></h2>
+<p>Let’s say you have made some changes to an existing repository, and committed those to your target branch. Now, you notice a fault or mistake and you would like to revert to an older commit. You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> for this purpose. One of the easiest ways to do this is to find the commit number that you would like to revert to and use that in your <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> command.</p>
+<p>To get the list of all commits in your repository, you can use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command. The output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> will be a list of all changes, their commit number and any messages associated with those commits.</p>
+<p>Then you can use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git revert &lt;commit number&gt;
+</pre></div>
+</div>
+<p>This will, by default, open a file (using <em>Vim</em>) to enter a new message for your revert commit. <strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> will create a new commit in the history of your git repository, and it is best practice to include a message to indicate the reason for reverting to an old commit. After entering your message, you can save the message using <code class="docutils literal notranslate"><span class="pre">:wq</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To be able to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> your working branch should be clean (no modifications). You should also check out <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code> as alternatives to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code>. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> can clean all uncommitted changes in your working directory, and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code> can extract specific files from a previous commit.</p>
+</div>
 <p>&nbsp;</p></section>
 </section>
 
@@ -590,6 +605,7 @@ $ git push origin main
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.8. Working with an Existing GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.9. Reverting to a Previous Commit</a></li>
 </ul>
   </nav></div>
 
