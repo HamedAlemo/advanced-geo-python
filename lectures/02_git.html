@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Introduction to Version Control and Git &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/02_git';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Python Environments" href="03_python-env.html" />
+    <link rel="prev" title="1. Introduction to Shell and Bash" href="01_unix.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/02_git.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/02_git.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Version Control and Git</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-version-control">2.1. What is Version Control?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-version-control">2.2. Why Version Control?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">2.3. Git and GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-on-your-computer">2.4. Configure git on Your Computer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-for-github">2.5. Authentication for GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.8. Working with an Existing GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.9. Reverting to a Previous Commit</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-version-control-and-git">
+<h1><span class="section-number">2. </span>Introduction to Version Control and Git<a class="headerlink" href="#introduction-to-version-control-and-git" title="Permalink to this heading">#</a></h1>
+<p>In this lecture, you will learn what version control is and how to use git and GitHub for version control.</p>
+<p><strong>Attribution</strong>
+<em>The content of this lecture are modified from three excellent sources: <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/">Git and GitHub</a> from Earth Lab CU Boulder; <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_git.html">Intro to Unix</a> from Columbia University; and <a class="reference external" href="https://swcarpentry.github.io/git-novice/">Version Control with Git</a> from Software Carpentry.</em></p>
+<hr class="docutils" />
+<section id="what-is-version-control">
+<h2><span class="section-number">2.1. </span>What is Version Control?<a class="headerlink" href="#what-is-version-control" title="Permalink to this heading">#</a></h2>
+<p>A version control system maintains a record of changes to code and other content. It also allows us to revert changes to a previous point in time.</p>
+</section>
+<section id="why-version-control">
+<h2><span class="section-number">2.2. </span>Why Version Control?<a class="headerlink" href="#why-version-control" title="Permalink to this heading">#</a></h2>
+<p>The following figure is one reason you need version control:</p>
+<figure class="align-center" id="date-version-control">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/final-doc-phd-comics.gif"><img alt="../_images/final-doc-phd-comics.gif" class="bg-primary mb-1" src="../_images/final-doc-phd-comics.gif" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Appending a date and number to version control. Source: “Piled Higher and Deeper” by Jorge Cham on <a class="reference external" href="http://phdcomics.com/comics/archive/phd101212s.gif">www.phdcomics.com</a>.</span><a class="headerlink" href="#date-version-control" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Version control is a powerful way to organize, back up, and share your research computing code with collaborators. A Version control system keeps track of a set of files and saves snapshots (i.e. versions, commits) of the files at any point in time. Using version control allows you to confidently make changes to your code (and any other files), with the ability to roll back to any previous state.</p>
+<p>Version control also allows you to share code with collaborators, make simultaneous edits, and merge your changes in a systematic, controlled way. There are different ways that a version control system can help you. Checkout the section on <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/version-control/">“How Version Control Systems Work”</a> on 	Earth Lab’s course.</p>
+</section>
+<section id="git-and-github">
+<h2><span class="section-number">2.3. </span>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this heading">#</a></h2>
+<p>In this course, we will be using <a class="reference external" href="https://git-scm.com/">git</a> for version control. Git is a distributed version control system that you can use locally on your computer, or through <a class="reference external" href="https://github.com/">GitHub</a> and GitLab. In this course, we will also use GitHub for assignments and projects.</p>
+<p>If you do not have a GitHub account, you need a create one <a class="reference external" href="https://github.com/">here</a> (it’s free).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Git is very powerful, and has lots of utility with a steep learning curve. In this course, we will only use a subset of its functionality. You are encouraged to practice with git for your day-to-day research.</p>
+</div>
+<p>First step to get started with git, is to make sure you have git installed on your computer. If you are not sure git is installed on your computer, open terminal and run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git --version
+</pre></div>
+</div>
+<p>If git is installed, you will get an output with the version of git installed. Otherwise, you need to install git following the instructions <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
+</section>
+<section id="configure-git-on-your-computer">
+<h2><span class="section-number">2.4. </span>Configure git on Your Computer<a class="headerlink" href="#configure-git-on-your-computer" title="Permalink to this heading">#</a></h2>
+<p>The first time that you use git on a computer, you will need to configure your <a class="reference external" href="http://GitHub.com">GitHub.com</a> username and email address. This information will be used to document who made changes to files in git. It is important to use the same email address and username that you setup on <a class="reference external" href="http://GitHub.com">GitHub.com</a>.</p>
+<p>You can set your <a class="reference external" href="http://Github.com">Github.com</a> username in the terminal by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name &quot;username&quot;
+</pre></div>
+</div>
+<p>Next, you can set the email for your <a class="reference external" href="http://Github.com">Github.com</a> account by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.email &quot;email@email.com&quot;
+</pre></div>
+</div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">--global</span></code> configuration option, you are telling git to use these settings for all git repositories that you work with on your computer. Note that you only have to configure these settings one time on your computer.</p>
+</section>
+<section id="authentication-for-github">
+<h2><span class="section-number">2.5. </span>Authentication for GitHub<a class="headerlink" href="#authentication-for-github" title="Permalink to this heading">#</a></h2>
+<p>GitHub requires authentication for any changes to a repo. The preferred method by GitHub is using a SSH key. Setting up SSH involves two steps:</p>
+<ol class="arabic simple">
+<li><p>Creating the key itself locally on your computer: Follow <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">these step</a> to generate a new SSH key on your computer and add it to ssh-agent.</p></li>
+<li><p>Adding the key to your GitHub account: Follow <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">this step-by-step guide</a> to add your SSH key to your GitHub account.</p></li>
+</ol>
+</section>
+<section id="get-started-with-a-git-repository">
+<h2><span class="section-number">2.6. </span>Get Started with a git repository<a class="headerlink" href="#get-started-with-a-git-repository" title="Permalink to this heading">#</a></h2>
+<p>Create a new directory, use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> to initiate git version control system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir my_project
+$ cd my_project
+$ git init
+</pre></div>
+</div>
+<p>At anytime, you can run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to see what files have been modified/added/deleted compared to the previous commit, and what files are staged.</p>
+<p>To stage a file for addition to the repository use the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add &lt;filename(s)&gt;
+</pre></div>
+</div>
+<p>Then you need to <em>commit</em> the staged files to be added to the history of your repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -m &quot;a brief and informative commit message&quot;
+</pre></div>
+</div>
+<p>The commit message should be brief but indicative of what changes are being committed. It’s important to stage and commit your changes in a way that it does not contain several unrelated changes to your code. For example, if you are making changes to different modules of your code, make sure to commit them separately, so if you need to revert one of the changes it’s easy to do so.</p>
+<p>The following figure gives you a nice perspective on how staging and committing works:</p>
+<figure class="align-center" id="git-add-commit">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/git-add-commit.png"><img alt="../_images/git-add-commit.png" class="bg-primary mb-1" src="../_images/git-add-commit.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Modified files are staged using git add. Then, following git commit, all files in the staging area are included in snapshot and become part of the repository’s history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014).</span><a class="headerlink" href="#git-add-commit" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="push-changed-files-to-github">
+<h2><span class="section-number">2.7. </span>Push Changed Files to GitHub<a class="headerlink" href="#push-changed-files-to-github" title="Permalink to this heading">#</a></h2>
+<p>To push your changes to your GitHub repository, you need to create a new repository on GitHub. You can do this using the following steps:</p>
+<ol class="arabic simple">
+<li><p>In the upper-right corner of any page, use the  drop-down menu, and select New repository.</p></li>
+<li><p>Type a short, informative name for your repository.</p></li>
+<li><p>Click Create repository.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can choose to initialize your repository with a README. While this is recommended, do not do it for this exercise, otherwise the changes you made locally will be out of sync with your GitHub repository.</p>
+</div>
+<p>Now that you have created your repository on GitHub, you need to copy it’s URL and add it to your local git repository. Open your repository on GitHub and click on the green <code class="docutils literal notranslate"><span class="pre">Code</span></code> button and copy the SSH url (see the following figure).</p>
+<figure class="align-center" id="git-url">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/git-url.png"><img alt="../_images/git-url.png" class="bg-primary mb-1" src="../_images/git-url.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Accessing the URL of a GitHub repository.</span><a class="headerlink" href="#git-url" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Lastly, you need to add the URL to your local repository and push the changes to GitHub:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add origin &lt;repo url&gt;
+$ git push origin main
+</pre></div>
+</div>
+</section>
+<section id="working-with-an-existing-github-repository">
+<h2><span class="section-number">2.8. </span>Working with an Existing GitHub Repository<a class="headerlink" href="#working-with-an-existing-github-repository" title="Permalink to this heading">#</a></h2>
+<p>So far, we have talked about initializing a git repository and pushing that to GitHub. But you may need to start working on a project that already has a GitHub repository with content contributed by others. In this case, you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> commands as following.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> to create a <em>cloned</em> version of the GitHub repository on your local computer. You don’t need to create a directory for it. When you run the following command it will automatically create a directory in your current path, and <em>pull</em> the files, branches, and all the git history to your computer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:&lt;user&gt;/&lt;repository-name&gt;.git
+</pre></div>
+</div>
+<p>You can copy the url for the repo from GitHub as shown in <a class="reference internal" href="#git-url"><span class="std std-numref">Fig. 2.3</span></a>.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> to sync changes that might have been committed to the GitHub repository to your local computer. Note, you should have not made any changes to your local copy that is in conflict with changes made on GitHub to be able to use this command. Otherwise, your request will result in conflicts that needs to be resolved.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull origin
+</pre></div>
+</div>
+</section>
+<section id="reverting-to-a-previous-commit">
+<h2><span class="section-number">2.9. </span>Reverting to a Previous Commit<a class="headerlink" href="#reverting-to-a-previous-commit" title="Permalink to this heading">#</a></h2>
+<p>Let’s say you have made some changes to an existing repository, and committed those to your target branch. Now, you notice a fault or mistake and you would like to revert to an older commit. You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> for this purpose. One of the easiest ways to do this is to find the commit number that you would like to revert to and use that in your <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> command.</p>
+<p>To get the list of all commits in your repository, you can use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command. The output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> will be a list of all changes, their commit number and any messages associated with those commits.</p>
+<p>Then you can use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git revert &lt;commit number&gt;
+</pre></div>
+</div>
+<p>This will, by default, open a file (using <em>Vim</em>) to enter a new message for your revert commit. <strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> will create a new commit in the history of your git repository, and it is best practice to include a message to indicate the reason for reverting to an old commit. After entering your message, you can save the message using <code class="docutils literal notranslate"><span class="pre">:wq</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To be able to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> your working branch should be clean (no modifications). You should also check out <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code> as alternatives to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code>. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> can clean all uncommitted changes in your working directory, and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code> can extract specific files from a previous commit.</p>
+</div>
+<p>&nbsp;</p></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_unix.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to Shell and Bash</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_python-env.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Python Environments</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-version-control">2.1. What is Version Control?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-version-control">2.2. Why Version Control?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">2.3. Git and GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-on-your-computer">2.4. Configure git on Your Computer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-for-github">2.5. Authentication for GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.8. Working with an Existing GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.9. Reverting to a Previous Commit</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

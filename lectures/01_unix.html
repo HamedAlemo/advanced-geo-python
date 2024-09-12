@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Introduction to Shell and Bash &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/01_unix';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Introduction to Version Control and Git" href="02_git.html" />
+    <link rel="prev" title="Policies" href="../docs/policies.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/01_unix.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/01_unix.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Shell and Bash</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1.1. Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shell">1.2. The Shell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-sessions-on-your-computer">1.3. Terminal Sessions On Your Computer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-directory">1.4. Home Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-commands-to-navigate-files-and-directories">1.5. Bash Commands to Navigate Files and Directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-a-list-of-files-and-subdirectories-ls">1.5.1. Print a List of Files and Subdirectories (<code class="docutils literal notranslate"><span class="pre">ls</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-current-working-directory-pwd">1.5.2. Print Current Working Directory (<code class="docutils literal notranslate"><span class="pre">pwd</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-current-working-directory-cd">1.5.3. Change Current Working Directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-directory-mkdir">1.5.4. Create a New Directory (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-file-using-a-single-command-touch">1.5.5. Create a New File Using a Single Command (<code class="docutils literal notranslate"><span class="pre">touch</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-file-using-vim">1.5.6. Edit a File Using Vim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-file-cp">1.5.7. Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-directory-and-its-contents-cp-r">1.5.8. Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-file-rm">1.5.9. Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-directory-rm-r">1.5.10. Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">1.6. Getting help</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-shell-and-bash">
+<h1><span class="section-number">1. </span>Introduction to Shell and Bash<a class="headerlink" href="#introduction-to-shell-and-bash" title="Permalink to this heading">#</a></h1>
+<p>This lectures covers an introduction to Unix file system, and Shell/Bash commands.</p>
+<p><strong>Attribution</strong>
+<em>The content of this lecture are modified from three excellent sources: <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/open-reproducible-science/bash/">Introduction to Bash (Shell)</a> from Earth Lab CU Boulder; <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_unix.html">Intro to Unix</a> from Columbia University; and <a class="reference external" href="https://swcarpentry.github.io/shell-novice/">The Unix Shell</a> from Software Carpentry.</em></p>
+<hr class="docutils" />
+<section id="background">
+<h2><span class="section-number">1.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p>We interact with computers in many different ways, such as through a keyboard and mouse, touch screen interfaces, or using speech recognition systems. The most widely used way to interact with personal computers is called a graphical user interface (GUI). With a GUI, we give instructions by clicking a mouse and using menu-driven interactions.</p>
+<p>While the visual aid of a GUI makes it intuitive to learn, this way of delivering instructions to a computer scales very poorly and it is not reproducible. Imagine the following task: for a literature search, you have to copy the third line of one thousand text files in one thousand different directories and paste it into a single file. Using a GUI, you would not only be clicking at your desk for several hours, but you could potentially also commit an error in the process of completing this repetitive task. This is where we take advantage of the Unix shell. The Unix shell is both a command-line interface (CLI) and a scripting language, allowing such repetitive tasks to be done automatically and fast. With the proper commands, the shell can repeat tasks with or without some modification as many times as we want. Using the shell, the task in the literature example can be accomplished in seconds.</p>
+</section>
+<section id="the-shell">
+<h2><span class="section-number">1.2. </span>The Shell<a class="headerlink" href="#the-shell" title="Permalink to this heading">#</a></h2>
+<p>Shell is the primary program that computers use to receive code (i.e. commands) and return information produced by executing these commands (i.e. output). These commands can be entered via a Terminal, which you will work with in this course.</p>
+<p>Using a Shell helps you:</p>
+<ul class="simple">
+<li><p>Navigate your computer to access and manage files and folders (i.e. directories).</p></li>
+<li><p>Efficiently work with many files and directories at once.</p></li>
+<li><p>Run programs that provide more functionality at the command line such as git for version control.</p></li>
+<li><p>Launch programs from specific directories on your computer such as Jupyter Notebook for interactive programming.</p></li>
+<li><p>Use repeatable commands for these tasks across many different operating systems (Windows, Mac, Linux).</p></li>
+</ul>
+<p>Shell is also important if you need to work on remote machines such as a high performance computing cluster (HPC) or the cloud.</p>
+<p>The most popular Unix shell is Bash (the Bourne Again SHell — so-called because it’s derived from a shell written by Stephen Bourne). Bash is the default shell on most modern implementations of Unix and in most packages that provide Unix-like tools for Windows. Note that ‘Git Bash’ is a piece of software that enables Windows users to use a Bash like interface when interacting with Git.</p>
+</section>
+<section id="terminal-sessions-on-your-computer">
+<h2><span class="section-number">1.3. </span>Terminal Sessions On Your Computer<a class="headerlink" href="#terminal-sessions-on-your-computer" title="Permalink to this heading">#</a></h2>
+<p>The terminal program that you use to run <code class="docutils literal notranslate"><span class="pre">Bash</span></code> commands will vary depending upon your computer’s operating system.</p>
+<p><strong>Mac (OS X)</strong></p>
+<p>You can use the program called Terminal, which uses the Bash implementation of Shell and is installed natively on the Mac OS.</p>
+<p>You can open Terminal by finding and launching it from Spotlight (or from /Applications/Utilities).</p>
+<p><strong>Linux</strong></p>
+<p>Many Linux computers use the Bash implementation of Shell, which you will learn to test for in the section below.</p>
+<p>You can open the program called Terminal (or Terminal Emulator) by finding and launching it from your list of programs.</p>
+<p><strong>Windows</strong></p>
+<p>There are many options for running Bash on Windows. In this course, we recommend using Windows Subsystem for Linux (WSL). WSL is a feature of the Windows operating system that enables you to run a Linux file system, along with Linux command-line tools and GUI apps, directly on Windows, alongside your traditional Windows desktop and apps. You can read more about it <a class="reference external" href="https://learn.microsoft.com/en-us/windows/wsl/faq">here</a>.</p>
+<p>To enable WSL on windows, follow the steps outlined <a class="reference external" href="https://learn.microsoft.com/en-us/windows/wsl/install">here</a>. The default Ubuntu distribution works well with the content of this course, and you do not need to change it.</p>
+</section>
+<section id="home-directory">
+<h2><span class="section-number">1.4. </span>Home Directory<a class="headerlink" href="#home-directory" title="Permalink to this heading">#</a></h2>
+<p>To understand what a “home directory” is, let’s have a look at how the file system as a whole is organized. For the sake of this example, check the following figure that illustrates the file system on Hamed’s computer. After this illustration, you’ll be learning commands to explore your own filesystem, which will be constructed in a similar way, but not be exactly identical.</p>
+<p>On most Unix computers, the filesystem looks like something this:</p>
+<figure class="align-center" id="unix">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/unix_files.png"><img alt="../_images/unix_files.png" class="bg-primary mb-1" src="../_images/unix_files.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Hamed’s file system tree</span><a class="headerlink" href="#unix" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The filesystem looks like an upside down tree. The top most directory is the <strong>root directory</strong> that holds everything else. We refer to it using a slash character, <code class="docutils literal notranslate"><span class="pre">/</span></code>, on its own; this character is the leading slash in <code class="docutils literal notranslate"><span class="pre">/Users/hamed</span></code>.</p>
+<p>Inside that directory are several other directories: <code class="docutils literal notranslate"><span class="pre">bin</span></code> (which is where some built-in programs are stored), <code class="docutils literal notranslate"><span class="pre">lib</span></code> (for the software “libraries” used by different programs), <code class="docutils literal notranslate"><span class="pre">Users</span></code> (where users’ personal directories are located), <code class="docutils literal notranslate"><span class="pre">tmp</span></code> (for temporary files that don’t need to be stored long-term), and so on.</p>
+<p>By default, when you open your terminal it lands in your home directory, which in our example is <code class="docutils literal notranslate"><span class="pre">/Users/hamed</span></code> (in WSL the home directory would be <code class="docutils literal notranslate"><span class="pre">/home/hamed</span></code>). We know that this directory is stored inside <code class="docutils literal notranslate"><span class="pre">/Users</span></code> because <code class="docutils literal notranslate"><span class="pre">/Users</span></code> is the first part of its name. Similarly, we know that <code class="docutils literal notranslate"><span class="pre">/Users</span></code> is stored inside the root directory <code class="docutils literal notranslate"><span class="pre">/</span></code> because its name begins with <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are two meanings for the <code class="docutils literal notranslate"><span class="pre">/</span></code> character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears inside a path, it’s just a separator.</p>
+</div>
+</section>
+<section id="bash-commands-to-navigate-files-and-directories">
+<h2><span class="section-number">1.5. </span>Bash Commands to Navigate Files and Directories<a class="headerlink" href="#bash-commands-to-navigate-files-and-directories" title="Permalink to this heading">#</a></h2>
+<p>Now, let’s review some of the useful bash commands to navigate and manipulate files and directories in your filesystem.</p>
+<section id="print-a-list-of-files-and-subdirectories-ls">
+<h3><span class="section-number">1.5.1. </span>Print a List of Files and Subdirectories (<code class="docutils literal notranslate"><span class="pre">ls</span></code>)<a class="headerlink" href="#print-a-list-of-files-and-subdirectories-ls" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span></code> prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. Here is the output of running <code class="docutils literal notranslate"><span class="pre">ls</span></code> inside the directory of this book on a local computer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONDUCT</span><span class="o">.</span><span class="n">md</span>		<span class="n">_config</span><span class="o">.</span><span class="n">yml</span>		<span class="n">lectures</span>
+<span class="n">CONTRIBUTING</span><span class="o">.</span><span class="n">md</span>		<span class="n">_toc</span><span class="o">.</span><span class="n">yml</span>		<span class="n">logo</span><span class="o">.</span><span class="n">png</span>
+<span class="n">LICENSE</span>			<span class="n">assignments</span>		<span class="n">references</span><span class="o">.</span><span class="n">bib</span>
+<span class="n">README</span><span class="o">.</span><span class="n">md</span>		<span class="n">docs</span>			<span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">_build</span>			<span class="n">intro</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+<p>We can make its output more comprehensible by using the flag <code class="docutils literal notranslate"><span class="pre">-F</span></code>, which tells <code class="docutils literal notranslate"><span class="pre">ls</span></code> to add a trailing <code class="docutils literal notranslate"><span class="pre">/</span></code> to the names of directories:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -F
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONDUCT</span><span class="o">.</span><span class="n">md</span>		<span class="n">_config</span><span class="o">.</span><span class="n">yml</span>		<span class="n">lectures</span><span class="o">/</span>
+<span class="n">CONTRIBUTING</span><span class="o">.</span><span class="n">md</span>		<span class="n">_toc</span><span class="o">.</span><span class="n">yml</span>		<span class="n">logo</span><span class="o">.</span><span class="n">png</span>
+<span class="n">LICENSE</span><span class="o">*</span>		<span class="n">assignments</span><span class="o">/</span>		<span class="n">references</span><span class="o">.</span><span class="n">bib</span>
+<span class="n">README</span><span class="o">.</span><span class="n">md</span>		<span class="n">docs</span><span class="o">/</span>			<span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">_build</span><span class="o">/</span>			<span class="n">intro</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+<p>To print all files and directories, including hidden ones, you can add the <code class="docutils literal notranslate"><span class="pre">-a</span></code> flag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -aF
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span>			<span class="n">LICENSE</span>			<span class="n">intro</span><span class="o">.</span><span class="n">md</span>
+<span class="o">../</span>			<span class="n">README</span><span class="o">.</span><span class="n">md</span>		<span class="n">lectures</span><span class="o">/</span>
+<span class="o">.</span><span class="n">DS_Store</span>		<span class="n">_build</span><span class="o">/</span>			<span class="n">logo</span><span class="o">.</span><span class="n">png</span>
+<span class="o">.</span><span class="n">git</span><span class="o">/</span>			<span class="n">_config</span><span class="o">.</span><span class="n">yml</span>		<span class="n">references</span><span class="o">.</span><span class="n">bib</span>
+<span class="o">.</span><span class="n">gitignore</span>		<span class="n">_toc</span><span class="o">.</span><span class="n">yml</span>		<span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">CONDUCT</span><span class="o">.</span><span class="n">md</span>		<span class="n">assignments</span><span class="o">/</span>
+<span class="n">CONTRIBUTING</span><span class="o">.</span><span class="n">md</span>		<span class="n">docs</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">../</span></code> directory in the output of <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-aF</span></code> is a special directory name meaning “the directory containing this one” or simply the <strong>parent</strong> of the current directory. You will learn in the following how to navigate to the parent directory.</p>
+</section>
+<section id="print-current-working-directory-pwd">
+<h3><span class="section-number">1.5.2. </span>Print Current Working Directory (<code class="docutils literal notranslate"><span class="pre">pwd</span></code>)<a class="headerlink" href="#print-current-working-directory-pwd" title="Permalink to this heading">#</a></h3>
+<p>To print the name of the current working directory, use the command <code class="docutils literal notranslate"><span class="pre">pwd</span></code>. This commands prints the full path to the directory (meaning that you can see the parent directory).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">hamed</span>
+</pre></div>
+</div>
+</section>
+<section id="change-current-working-directory-cd">
+<h3><span class="section-number">1.5.3. </span>Change Current Working Directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>)<a class="headerlink" href="#change-current-working-directory-cd" title="Permalink to this heading">#</a></h3>
+<p>The command to change locations is <code class="docutils literal notranslate"><span class="pre">cd</span></code> followed by a directory name to change our working directory. <code class="docutils literal notranslate"><span class="pre">cd</span></code> stands for “change directory”.</p>
+<p>Let’s say we are inside the directory of this book, and we want to move to the <code class="docutils literal notranslate"><span class="pre">lectures</span></code> directory we saw above. We can use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd lectures
+</pre></div>
+</div>
+<p>There is no output from this command. But if you are <code class="docutils literal notranslate"><span class="pre">pwd</span></code> you can confirm that you are in <code class="docutils literal notranslate"><span class="pre">lectures</span></code> directory now.</p>
+<p>You can use the same <code class="docutils literal notranslate"><span class="pre">cd</span></code> command to also go to the parent directory of the current directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ..
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you run <code class="docutils literal notranslate"><span class="pre">cd</span></code> without any arguments it will return you to your home directory. This is equivalent to running <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code></p>
+</div>
+<p>So far, when specifying directory names, or even a directory path (as above), we have been using <strong>relative paths</strong>. When you use a relative path with a command like <code class="docutils literal notranslate"><span class="pre">ls</span></code> or <code class="docutils literal notranslate"><span class="pre">cd</span></code>, it tries to find that location from where we are, rather than from the root of the file system.</p>
+<p>However, it is possible to specify the <strong>absolute path</strong> to a directory by including its entire path from the root directory, which is indicated by a leading slash. The leading <code class="docutils literal notranslate"><span class="pre">/</span></code> tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.</p>
+<div class="tip admonition">
+<p class="admonition-title">A useful shortcut</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">-</span></code> (dash) character with <code class="docutils literal notranslate"><span class="pre">cd</span></code> to move into the previous directory you were in. This is very helpful instead of having to remember the full path.</p>
+</div>
+</section>
+<section id="create-a-new-directory-mkdir">
+<h3><span class="section-number">1.5.4. </span>Create a New Directory (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>)<a class="headerlink" href="#create-a-new-directory-mkdir" title="Permalink to this heading">#</a></h3>
+<p>To create a new directory you can use <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> followed by the name you would like to give the new directory. If you only give a name, the new directory will be created in the current directory. You can also give the <strong>absolute path</strong> to <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> to create a new directory anywhere on your file system. The following command will create a new directory in Hamed’s home directory named <code class="docutils literal notranslate"><span class="pre">new-directory</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir /Users/hamed/new-directory/
+</pre></div>
+</div>
+</section>
+<section id="create-a-new-file-using-a-single-command-touch">
+<h3><span class="section-number">1.5.5. </span>Create a New File Using a Single Command (<code class="docutils literal notranslate"><span class="pre">touch</span></code>)<a class="headerlink" href="#create-a-new-file-using-a-single-command-touch" title="Permalink to this heading">#</a></h3>
+<p>You can create a new empty file using the single command <code class="docutils literal notranslate"><span class="pre">touch</span></code>. This command was originally created to manage the timestamps of files. However, if a file does not already exist, then the command will make the file.</p>
+<p>This is an incredibly useful way to quickly and programmatically create a new empty file that can be populated at a later time. Here is an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ touch samples.txt
+</pre></div>
+</div>
+</section>
+<section id="edit-a-file-using-vim">
+<h3><span class="section-number">1.5.6. </span>Edit a File Using Vim<a class="headerlink" href="#edit-a-file-using-vim" title="Permalink to this heading">#</a></h3>
+<p>There are various editors that you can use to edit a file in Bash. These are very useful if you need to edit text in a plain text file, or in HTML, LaTex or other markup languages. While these editors might not seem as easy to use as other standard GUI-based editors initially, they can help you become very productive over the long run.</p>
+<p>In this course, we are going to use Vim as editor. Vim can have a steep learning curve, and you do not need to learn all the commands in the beginning. Start with navigating between the <em>command mode</em> and the <em>insert mode</em>, edit the text and save it to the file. We will practice these commands in the class. For a complete introduction to Vim commands check out <a class="reference external" href="https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim">A Beginner’s Guide to Vim</a> on Linux Foundation blog.</p>
+</section>
+<section id="copy-a-file-cp">
+<h3><span class="section-number">1.5.7. </span>Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)<a class="headerlink" href="#copy-a-file-cp" title="Permalink to this heading">#</a></h3>
+<p>You can copy a specific file to a new directory using the command <code class="docutils literal notranslate"><span class="pre">cp</span></code> followed by the name of the file you want to copy and the name of the directory to where you want to copy the file. The names can be relative path or absolute path.</p>
+<p>For example, to copy the file  <code class="docutils literal notranslate"><span class="pre">samples.txt</span></code> from the current directory to <code class="docutils literal notranslate"><span class="pre">/Users/hamed/documents/</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp samples.txt /Users/hamed/documents/
+</pre></div>
+</div>
+</section>
+<section id="copy-a-directory-and-its-contents-cp-r">
+<h3><span class="section-number">1.5.8. </span>Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#copy-a-directory-and-its-contents-cp-r" title="Permalink to this heading">#</a></h3>
+<p>To copy a directory and all its content to a new directory, you need to use the flag <code class="docutils literal notranslate"><span class="pre">-r</span></code> (meaning recursive) with <code class="docutils literal notranslate"><span class="pre">cp</span></code>.</p>
+<p>For example, to copy the directory <code class="docutils literal notranslate"><span class="pre">documents</span></code> (and all its content) from Hamed’s home directory to <code class="docutils literal notranslate"><span class="pre">/Users/hamed/projects/</span></code> you can run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp -r /Users/hamed/documents/ /Users/hamed/projects/
+</pre></div>
+</div>
+</section>
+<section id="delete-a-file-rm">
+<h3><span class="section-number">1.5.9. </span>Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)<a class="headerlink" href="#delete-a-file-rm" title="Permalink to this heading">#</a></h3>
+<p>To delete a specific file, you can use the command <code class="docutils literal notranslate"><span class="pre">rm</span></code> (abbreviated for remove) followed by the name of the file you want to delete.</p>
+<p>For example, you can delete the <code class="docutils literal notranslate"><span class="pre">samples.txt</span></code> file under the current directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm samples.txt
+</pre></div>
+</div>
+</section>
+<section id="delete-a-directory-rm-r">
+<h3><span class="section-number">1.5.10. </span>Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#delete-a-directory-rm-r" title="Permalink to this heading">#</a></h3>
+<p>To delete a directory and all its content (be careful when using this command as Unix doesn’t have a trash bin), you can use the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag with <code class="docutils literal notranslate"><span class="pre">rm</span></code>.</p>
+<p>For example, the following command will delete the <code class="docutils literal notranslate"><span class="pre">projects</span></code> directory and all its content from the current directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm -r projects/
+</pre></div>
+</div>
+</section>
+</section>
+<section id="getting-help">
+<h2><span class="section-number">1.6. </span>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this heading">#</a></h2>
+<p>Every command in bash has multiple options that you can pass to change the output. There are two ways to find out what options are available:</p>
+<ol class="arabic simple">
+<li><p>Pass <code class="docutils literal notranslate"><span class="pre">--help</span></code> to any command:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls --help
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Read the manual using <code class="docutils literal notranslate"><span class="pre">man</span></code>:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ man ls
+</pre></div>
+</div>
+<p>&nbsp;</p></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../docs/policies.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Policies</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_git.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Introduction to Version Control and Git</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1.1. Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shell">1.2. The Shell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-sessions-on-your-computer">1.3. Terminal Sessions On Your Computer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-directory">1.4. Home Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-commands-to-navigate-files-and-directories">1.5. Bash Commands to Navigate Files and Directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-a-list-of-files-and-subdirectories-ls">1.5.1. Print a List of Files and Subdirectories (<code class="docutils literal notranslate"><span class="pre">ls</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-current-working-directory-pwd">1.5.2. Print Current Working Directory (<code class="docutils literal notranslate"><span class="pre">pwd</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-current-working-directory-cd">1.5.3. Change Current Working Directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-directory-mkdir">1.5.4. Create a New Directory (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-file-using-a-single-command-touch">1.5.5. Create a New File Using a Single Command (<code class="docutils literal notranslate"><span class="pre">touch</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-file-using-vim">1.5.6. Edit a File Using Vim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-file-cp">1.5.7. Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-directory-and-its-contents-cp-r">1.5.8. Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-file-rm">1.5.9. Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-directory-rm-r">1.5.10. Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">1.6. Getting help</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

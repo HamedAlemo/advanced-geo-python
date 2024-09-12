@@ -1,0 +1,759 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Python Environments &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/03_python-env';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. JupyterLab for Interactive Computing" href="04_jupyter.html" />
+    <link rel="prev" title="2. Introduction to Version Control and Git" href="02_git.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/03_python-env.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/03_python-env.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python Environments</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">3.1. Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">3.2. Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">3.3. Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management">3.4. Environment management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">3.5. Conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-miniconda">3.6. Installing Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">3.7. Creating Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-and-deactivating-environments">3.8. Activating and Deactivating Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages-in-an-environment">3.9. Installing Packages in an Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channels-and-conda-forge">3.10. Channels and Conda-Forge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-environment-dependencies-with-environment-yml">3.11. Managing Environment Dependencies with <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-pip">3.12. What about <code class="docutils literal notranslate"><span class="pre">pip</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pip-with-conda">3.13. Using <code class="docutils literal notranslate"><span class="pre">pip</span></code> with Conda</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-environments">
+<h1><span class="section-number">3. </span>Python Environments<a class="headerlink" href="#python-environments" title="Permalink to this heading">#</a></h1>
+<p>In this lecture, you will learn about Python environments and how best to use them to create reproducible pipelines.</p>
+<p><strong>Attribution</strong>
+<em>The content of this lecture are modified from three excellent sources: <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/">Python Packages for Earth Data Science</a> from Earth Lab CU Boulder; <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/python_environments.html">Managing Python Environments</a> from Columbia University; <a class="reference external" href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/">Introduction to Conda for (Data) Scientists</a> from Software Carpentry; and <a class="reference external" href="https://docs.descarteslabs.com/installation-conda.html">Managing a Development Environment</a> by Descartes Labs.</em></p>
+<section id="background">
+<h2><span class="section-number">3.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p>Python and nearly all of the software packages in the scientific python ecosystem are open-source. They are maintained and developed by a community of scientists and programmers, some of whose work is supported by universities, non-profits, and for-profit corporations. This work mostly happens in the open, via github and other online collaboration platforms.</p>
+<p>When working with a programming language, such as Python, that can do almost anything, one has to wonder how this is possible. You download Python, it has about 25 MB, how can everything be included in this small data package. The answer is - it is not. Python, as well as many other programming languages use external libraries or packages for being able to do almost anything. You can see this already when you start programming. After learning some very basics, you often learn how to <em>import</em> something into your script or session.</p>
+<div class="admonition-definitions admonition">
+<p class="admonition-title">Definitions</p>
+<p><strong>Module</strong>: a collection of functions and variables, as in a script</p>
+<p><strong>Package</strong>: a collection of modules with an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file (can be empty), as in a directory with scripts</p>
+<p><strong>Library</strong>: a collection of packages with related functionality</p>
+<p>Library/Package are often used interchangeably.</p>
+</div>
+</section>
+<section id="dependencies">
+<h2><span class="section-number">3.2. </span>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">#</a></h2>
+<p>A bit further into your programming career you may notice/have noticed that many packages do not just do everything on their own. Instead, they depend on other packages for their functionality. For example, the <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> package is used for numerical routines. To not reinvent the wheel, the package makes use of other packages, such as <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> (numerical python) and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> (plotting) and many more. So we say that <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> are dependencies of <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>.</p>
+<p>Many packages are being further developed all the time, generating different versions of packages. During development it may happen that a function call changes and/or functionalities are added or removed. If one package can depend on another, this may create issues. Therefore it is not only important to know that e.g. <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> depends on <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, but also that it depends on <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> version &gt;= 1.6 and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> version &gt;= 1.1. <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> version 1.5 in this case would not be sufficient.</p>
+<p>This emphasizes the need for creating and recording environments (in virtual terms!) to run your Python code.</p>
+</section>
+<section id="environments">
+<h2><span class="section-number">3.3. </span>Environments<a class="headerlink" href="#environments" title="Permalink to this heading">#</a></h2>
+<p>When starting with programming we may not use many packages yet and the installation may be straightforward. But for most people, there comes a time when one version of a package or also the programming language is not enough anymore. You may find an older tool that depends on an older version of your programming language (e.g. Pyhton 2.7), but many of your other tools depend on a newer version (e.g. Python 3.6). You could now start up another computer or virtual machine to run the other version of the programming language, but this is not very handy, since you may want to use the tools together in a workflow later on. Here, environments are one solution to the problem. Nowadays there are several environment management systems following a similar idea: Instead of having to use multiple computers or virtual machines to run different versions of the same package, you can install packages in isolated environments.</p>
+<p>However, managing Python development environments can be tricky, especially if you are new to the language or less familiar with computer science concepts. In this course, we introduce tool to make it easy to manage and reproduce your Python environments on any machine (local computer/server/cloud).</p>
+<figure class="align-center" id="xkcd-python-env">
+<a class="bg-primary mb-1 reference internal image-reference" href="https://imgs.xkcd.com/comics/python_environment.png"><img alt="https://imgs.xkcd.com/comics/python_environment.png" class="bg-primary mb-1" src="https://imgs.xkcd.com/comics/python_environment.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">The complexity of Python environments as illustrated by <a class="reference external" href="https://xkcd.com/1987/">xkcd</a>.</span><a class="headerlink" href="#xkcd-python-env" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="environment-management">
+<h2><span class="section-number">3.4. </span>Environment management<a class="headerlink" href="#environment-management" title="Permalink to this heading">#</a></h2>
+<p>An environment management system solves a number of problems commonly encountered by (data) scientists.</p>
+<ul class="simple">
+<li><p>An application you need for a research project requires different versions of your base programming language or different versions of various third-party packages from the versions that you are currently using.</p></li>
+<li><p>An application you developed as part of a previous research project that worked fine on your system six months ago now no longer works.</p></li>
+<li><p>Code that was written for a joint research project works on your machine but not on your collaborators’ machines.</p></li>
+<li><p>An application that you are developing on your local machine doesn’t provide the same results when run on your remote cluster.</p></li>
+</ul>
+<p>An environment management system enables you to set up a new, project specific software environment containing specific Python versions as well as the versions of additional packages and required dependencies that are all mutually compatible.</p>
+<ul class="simple">
+<li><p>Environment management systems help resolve dependency issues by allowing you to use different versions of a package for different projects.</p></li>
+<li><p>Make your projects self-contained and reproducible by capturing all package dependencies in a single requirements file.</p></li>
+<li><p>Allow you to install packages on a host on which you do not have admin privileges.</p></li>
+</ul>
+</section>
+<section id="conda">
+<h2><span class="section-number">3.5. </span>Conda<a class="headerlink" href="#conda" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> is an open-source package management system and environment management system that runs on Windows, macOS, and Linux. When you install one module using conda, such as JupyterLab, all of the required modules will also be downloaded and installed with compatible versions. It was created for Python programs but it can package and distribute software for any language (Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN)</p>
+<p>Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager because conda is also an environment manager. With just a few commands, you can set up a totally separate environment to run that different version of Python, while continuing to run your usual version of Python in your normal environment.</p>
+<p>While there are multiple ways to install conda for Python, including <a class="reference external" href="https://www.anaconda.com/download/">Anaconda Distribution</a> and <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda Distribution</a>. <a class="reference internal" href="#miniconda-anaconda"><span class="std std-numref">Fig. 3.2</span></a> shows the difference between Conda, Miniconda and Anaconda. Miniconda combines Conda with Python and a small number of core packages; Anaconda includes Miniconda as well as a large number of the most widely used Python packages (&gt; 150).</p>
+<p>We recommend Miniconda, the most lightweight and bare-minimum approach to using conda. While the Anaconda distribution has a lot of packages pre-installed, they are not used all together in most of the projects. Therefore, it is optimal to install Miniconda and benefit from the Conda package and environment management systems but avoid installing too many unnecessary packages.</p>
+<figure class="align-center" id="miniconda-anaconda">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/miniconda-vs-anaconda.png"><img alt="../_images/miniconda-vs-anaconda.png" class="bg-primary mb-1" src="../_images/miniconda-vs-anaconda.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Conda vs. Miniconda vs. Anaconda [Source: <a class="reference external" href="https://planemo.readthedocs.io/en/latest/writing_advanced_cwl.html">Planemo Documentation</a>]</span><a class="headerlink" href="#miniconda-anaconda" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="installing-miniconda">
+<h2><span class="section-number">3.6. </span>Installing Miniconda<a class="headerlink" href="#installing-miniconda" title="Permalink to this heading">#</a></h2>
+<p>You can download the installer for Miniconda from <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">this page</a>. Make sure to download the correct version depending on your OS and hardware. Follow the step on <em><a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Quick command line install</a></em> to install Miniconda.</p>
+<p>After finishing the installation, and opening a new terminal (or reloading it) you should see (base) at the start of your prompt in the terminal. This indicates that you are in the “base” Conda environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(base) $
+</pre></div>
+</div>
+<p><em>For simplicity, we avoid including the (base) environment name for any code block in this book.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Conda has a default environment called base that include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment. Additional packages needed for a new project should always be installed into a newly created Conda environment.</p>
+</div>
+</section>
+<section id="creating-environments">
+<h2><span class="section-number">3.7. </span>Creating Environments<a class="headerlink" href="#creating-environments" title="Permalink to this heading">#</a></h2>
+<p>A Conda environment is an isolated workspace where you can install specific versions of Python and packages without affecting your system-wide Python installation. Each environment has its own set of packages, making it possible to have different versions of packages in different environments. This isolation is essential for avoiding conflicts and ensuring the reproducibility of your projects.</p>
+<p>To create a new Conda environment, use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> command. Here’s the basic syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name myenv 
+</pre></div>
+</div>
+<p>Replace <em>myenv</em> with the name you want to give to your environment, and use a name that reflects the project or assignment you will use this environment for.</p>
+<p>If you wish, you can specify a particular version of Python for Conda to install when creating the environment. For example, to create an environment named “g313-a1” with Python 3.8, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name g313-a1 python=3.8
+</pre></div>
+</div>
+</section>
+<section id="activating-and-deactivating-environments">
+<h2><span class="section-number">3.8. </span>Activating and Deactivating Environments<a class="headerlink" href="#activating-and-deactivating-environments" title="Permalink to this heading">#</a></h2>
+<p>Once you’ve created an environment, you can activate it to start working within that isolated space. To activate an environment, use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate g313-a1
+</pre></div>
+</div>
+<p>When the environment is activated, your command prompt will display the environment name to indicate that you are working within it (e.g. <code class="docutils literal notranslate"><span class="pre">(g313-a1)username&#64;hostname</span> <span class="pre">~</span> <span class="pre">$</span></code>).</p>
+<p>To deactivate the current environment and return to the base (system-wide) environment, use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(g313-a1) $ conda deactivate
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To see all the environments on your system:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda info --envs
+</pre></div>
+</div>
+</div>
+<p>If you want to permanently remove an environment and delete all the data associated with it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda env remove --name my_environment --all
+</pre></div>
+</div>
+<p>For extensive documentation on using environments, please see the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/concepts/environments.html">Conda documentation</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can avoid spelling out the full option for <code class="docutils literal notranslate"><span class="pre">conda</span></code> commands and use their first letter with a single <code class="docutils literal notranslate"><span class="pre">-</span></code>.
+For example, the two following commands are the same:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda create --name myenv
+
+$ conda create -n myenv
+</pre></div>
+</div>
+</div>
+</section>
+<section id="installing-packages-in-an-environment">
+<h2><span class="section-number">3.9. </span>Installing Packages in an Environment<a class="headerlink" href="#installing-packages-in-an-environment" title="Permalink to this heading">#</a></h2>
+<p>After activating an environment, you can use <code class="docutils literal notranslate"><span class="pre">conda</span></code> to install packages specific to that environment. For example, to install the <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> package into your “g313-a1” environment, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install numpy
+</pre></div>
+</div>
+<p>Conda will ensure that the package and its dependencies are installed in the active environment.</p>
+<p>If you list more than one package to be installed, Conda will download the most current, mutually compatible versions of the requested packages.</p>
+<p>In order to make your results more reproducible and to make it easier for research colleagues to recreate your Conda environments on their machines it is a “best practice” to always explicitly specify the version number for each package that you install into an environment. If you are not sure exactly which version of a package you want to use, then you can use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span></code> to see what versions are available. For example, if you wanted to see which versions of <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> were available, you would run the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda search numpy
+</pre></div>
+</div>
+<p>You can then update your <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command as following to install <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> version 1.25.2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install numpy=1.25.2
+</pre></div>
+</div>
+<p>Finally, you can specify multiple packages and their version in the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> command if you wish to install them when creating a new environment. For example, the following command will create a new environment called <code class="docutils literal notranslate"><span class="pre">scipy-env</span></code> and install four packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name scipy-env ipython=7.13 matplotlib=3.1 numpy=1.18 scipy=1.4
+</pre></div>
+</div>
+<p>Another benefit of using Conda for package and environment management is that it allows you to install packages using <code class="docutils literal notranslate"><span class="pre">pip</span></code> too. Outside of the scientific python community, the most common way to install packages is to search for them on the official <a class="reference external" href="https://pypi.org/">PyPI</a> index. Once you’ve found the package you want to install (you may have also just found it on github or elsewhere), you use the pip command from a the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install &lt;package-name&gt;
+</pre></div>
+</div>
+<p>This will fetch the source code, build it, and install it to wherever your <code class="docutils literal notranslate"><span class="pre">$PYTHONPATH</span></code> is set. This works in the vast majority of cases, particularly when the code you’re installing doesn’t have any compiled dependencies.</p>
+<p>If you can’t find a package on either PyPI or <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, you can always install it directly from the source code. If the package is on github, pip already has an alias to do this for you:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/&lt;user&gt;/&lt;package-name&gt;.git
+</pre></div>
+</div>
+</section>
+<section id="channels-and-conda-forge">
+<h2><span class="section-number">3.10. </span>Channels and Conda-Forge<a class="headerlink" href="#channels-and-conda-forge" title="Permalink to this heading">#</a></h2>
+<p>The packages that you install using the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command are hosted on conda <em><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/concepts/channels.html">channels</a></em>. From the conda docs:</p>
+<blockquote>
+<div><p>Conda channels are the locations where packages are stored. They serve as the base for hosting and managing packages. Conda packages are downloaded from remote channels, which are URLs to directories containing conda packages. The <code class="docutils literal notranslate"><span class="pre">conda</span></code> command searches a set of channels. By default, packages are automatically downloaded and updated from the <a class="reference external" href="https://repo.anaconda.com/pkgs/">default channel</a> which may require a paid license, as described in the <a class="reference external" href="https://www.anaconda.com/terms-of-service">repository terms of service</a>. The <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel is free for all to use. You can modify what remote channels are automatically searched. You might want to do this to maintain a private or internal channel. For details, see how to <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#config-channels">modify your channel lists</a>.</p>
+<p>Conda-forge is a community channel made up of thousands of contributors. Conda-forge itself is analogous to PyPI but with a unified, automated build infrastructure and more peer review of recipes.</p>
+</div></blockquote>
+<p>The Anaconda channel terms of service clearly excludes all educational activities and all research activities at non-profit institutions from their definition of commercial usage. Even companies with fewer than 200 employees are excluded. The aim of the commercial paid license for Anaconda is to require large corporations which use the repository heavily to contribute financially to its maintenance and development. Without such contributions, Anaconda might not be able to sustain itself.</p>
+<p>The simple way to specify your preferred channel is to pass the <code class="docutils literal notranslate"><span class="pre">-c</span></code> option when you run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge {package_name}
+</pre></div>
+</div>
+</section>
+<section id="managing-environment-dependencies-with-environment-yml">
+<h2><span class="section-number">3.11. </span>Managing Environment Dependencies with <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code><a class="headerlink" href="#managing-environment-dependencies-with-environment-yml" title="Permalink to this heading">#</a></h2>
+<p>To ensure that your project can be easily reproduced on different systems, you can create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file that lists all the dependencies for your project, including Python version and packages. Here’s an example of an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">g313</span><span class="o">-</span><span class="n">a1</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span> <span class="c1"># Specify Python version</span>
+  <span class="o">-</span> <span class="n">numpy</span><span class="o">=</span><span class="mf">1.25.2</span>
+  <span class="o">-</span> <span class="n">matplotlib</span><span class="o">=</span><span class="mf">3.7.1</span>
+  <span class="o">-</span> <span class="n">pandas</span><span class="o">=</span><span class="mf">2.0.3</span>
+</pre></div>
+</div>
+<p>You can create a Conda environment from this file using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda env create -f environment.yml
+</pre></div>
+</div>
+<p>This command will create an environment named “g313-a1” with the specified dependencies.</p>
+<p><strong>Note</strong>: This command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code> is different from <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>. If you are only passing <code class="docutils literal notranslate"><span class="pre">-f</span></code> to <code class="docutils literal notranslate"><span class="pre">conda</span></code> for creating a new environment, you need to use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code>.</p>
+</section>
+<section id="what-about-pip">
+<h2><span class="section-number">3.12. </span>What about <code class="docutils literal notranslate"><span class="pre">pip</span></code>?<a class="headerlink" href="#what-about-pip" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> is a package manager for Python that simplifies the process of installing, upgrading, and managing Python packages and dependencies. Its name is a recursive acronym for “Pip Installs Packages,” emphasizing its primary function: installing packages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> works by connecting to the Python Package Index (<a class="reference external" href="https://pypi.org/">PyPI</a>), a repository that hosts a large collection of Python packages contributed by the open-source community. PyPI serves as the central hub where developers publish their Python packages. In most cases, pip comes pre-installed with Python.</p>
+<p>You can install packages using the <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> command as following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install numpy==1.25.2
+</pre></div>
+</div>
+<p><em>Note the syntax difference for specifying package version in <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> (==) and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> (=).</em></p>
+</section>
+<section id="using-pip-with-conda">
+<h2><span class="section-number">3.13. </span>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code> with Conda<a class="headerlink" href="#using-pip-with-conda" title="Permalink to this heading">#</a></h2>
+<p>To benefit from the strengths of both pip and Conda, you can use them together. Conda is a powerful environment management system that also serves as package management, but there might be cases that a package or a specific version of package is not available on Conda. In that case, you can use <code class="docutils literal notranslate"><span class="pre">pip</span></code> together with conda and install any required packages. By combining Conda and pip, you can create reproducible and isolated Python environments while benefiting from pip’s extensive package ecosystem.</p>
+<p>The simplest way to use <code class="docutils literal notranslate"><span class="pre">pip</span></code> with conda, is creating a new conda environment, and activating it. Then run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> in the new environment. In this case, <code class="docutils literal notranslate"><span class="pre">pip</span></code> will install the package(s) in the conda environment only, and not in your base environment.</p>
+<p>You can also specify <code class="docutils literal notranslate"><span class="pre">pip</span></code> packages in your <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file. Here is an example of such file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">my_env</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>  
+
+  <span class="c1"># Packages from Anaconda defaults channel</span>
+  <span class="o">-</span> <span class="n">numpy</span>
+  <span class="o">-</span> <span class="n">pandas</span>
+  <span class="o">-</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+
+  <span class="c1"># Packages from pip</span>
+  <span class="o">-</span> <span class="n">pip</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">requests</span>
+    <span class="o">-</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check out this Conda <a class="reference external" href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf">cheatsheet</a> to look for some quick answers to your Conda related questions.</p>
+</div>
+<p>&nbsp;</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_git.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Introduction to Version Control and Git</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_jupyter.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>JupyterLab for Interactive Computing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">3.1. Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">3.2. Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">3.3. Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management">3.4. Environment management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">3.5. Conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-miniconda">3.6. Installing Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">3.7. Creating Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-and-deactivating-environments">3.8. Activating and Deactivating Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages-in-an-environment">3.9. Installing Packages in an Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channels-and-conda-forge">3.10. Channels and Conda-Forge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-environment-dependencies-with-environment-yml">3.11. Managing Environment Dependencies with <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-pip">3.12. What about <code class="docutils literal notranslate"><span class="pre">pip</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pip-with-conda">3.13. Using <code class="docutils literal notranslate"><span class="pre">pip</span></code> with Conda</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
