@@ -31,7 +31,7 @@ This emphasizes the need for creating and recording environments (in virtual ter
 
 When starting with programming we may not use many packages yet and the installation may be straightforward. But for most people, there comes a time when one version of a package or also the programming language is not enough anymore. You may find an older tool that depends on an older version of your programming language (e.g. Pyhton 2.7), but many of your other tools depend on a newer version (e.g. Python 3.6). You could now start up another computer or virtual machine to run the other version of the programming language, but this is not very handy, since you may want to use the tools together in a workflow later on. Here, environments are one solution to the problem. Nowadays there are several environment management systems following a similar idea: Instead of having to use multiple computers or virtual machines to run different versions of the same package, you can install packages in isolated environments.
 
-However, managing Python development environments can be tricky, especially if you are new to the language or less familiar with computer science concepts. In this course, we introduce tool to make it easy to manage and reproduce your Python environments on any machine (local computer/server/cloud).
+However, managing Python development environments can be tricky, especially if you are new to the language or less familiar with computer science concepts. In this course, we introduce tools to make it easy to manage and reproduce your Python environments on any machine (local computer/server/cloud).
 
 ```{figure} https://imgs.xkcd.com/comics/python_environment.png
 ---
@@ -65,7 +65,7 @@ An environment management system enables you to set up a new, project specific s
 
 Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager because conda is also an environment manager. With just a few commands, you can set up a totally separate environment to run that different version of Python, while continuing to run your usual version of Python in your normal environment.
 
-While there are multiple ways to install conda for Python, including [Anaconda Distribution](https://www.anaconda.com/download/) and [Miniconda Distribution](https://docs.conda.io/projects/miniconda/en/latest/). {numref}`miniconda-anaconda` shows the difference between Conda, Miniconda and Anaconda. Miniconda combines Conda with Python and a small number of core packages; Anaconda includes Miniconda as well as a large number of the most widely used Python packages (> 150).
+There are multiple ways to install conda for Python, including [Anaconda Distribution](https://www.anaconda.com/download/) and [Miniconda Distribution](https://docs.conda.io/projects/miniconda/en/latest/). {numref}`miniconda-anaconda` shows the difference between Conda, Miniconda and Anaconda. Miniconda combines Conda with Python and a small number of core packages; Anaconda includes Miniconda as well as a large number of the most widely used Python packages (> 150).
 
 We recommend Miniconda, the most lightweight and bare-minimum approach to using conda. While the Anaconda distribution has a lot of packages pre-installed, they are not used all together in most of the projects. Therefore, it is optimal to install Miniconda and benefit from the Conda package and environment management systems but avoid installing too many unnecessary packages. 
 
@@ -80,7 +80,7 @@ align: center
 Conda vs. Miniconda vs. Anaconda [Source: [Planemo Documentation](https://planemo.readthedocs.io/en/latest/writing_advanced_cwl.html)] 
 ```
 ## Installing Miniconda
-You can download the installer for Miniconda from [this page](https://docs.conda.io/projects/miniconda/en/latest/). Make sure to download the correct version depending on your OS and hardware. Follow the step on *[Quick command line install](https://docs.conda.io/projects/miniconda/en/latest/)* to install Miniconda. 
+You can download the installer for Miniconda from [this page](https://docs.conda.io/projects/miniconda/en/latest/). Make sure to download the correct version depending on your OS and hardware. Follow the step on *[Quick command line install](https://docs.anaconda.com/miniconda/#quick-command-line-install)* to install Miniconda. 
 
 After finishing the installation, and opening a new terminal (or reloading it) you should see (base) at the start of your prompt in the terminal. This indicates that you are in the "base" Conda environment:
 ```
@@ -132,7 +132,7 @@ To see all the environments on your system:
 
 If you want to permanently remove an environment and delete all the data associated with it:
 ```
-$ conda env remove --name my_environment --all
+$ conda remove --name my_environment --all
 ```
 
 For extensive documentation on using environments, please see the [Conda documentation](https://conda.io/projects/conda/en/latest/user-guide/concepts/environments.html). 
@@ -262,7 +262,7 @@ dependencies:
 ```
 
 ```{tip}
-Check out this Conda [cheatsheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf) to look for some quick answers to your Conda related questions. 
+Check out this Conda [cheatsheet](https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf) to look for some quick answers to your Conda related questions. 
 ```
 
 <p>&nbsp;</p>
