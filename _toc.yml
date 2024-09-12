@@ -14,12 +14,12 @@ parts:
   - caption: Lectures
     numbered: True
     chapters:
-    - file: lectures/unix
+    - file: lectures/01_unix
       title: Intro to Unix and Bash
-    - file: lectures/git
+    - file: lectures/02_git
       title: Intro to Version Control and Git
-    - file: lectures/python-env.md
-    - file: lectures/jupyter.md
+    - file: lectures/03_python-env.md
+    - file: lectures/04_jupyter.md
       title: Intro to JupyterLab
     # - file: lectures/docker.md
     #   title: Intro to Docker
