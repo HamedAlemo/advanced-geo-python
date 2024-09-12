@@ -423,7 +423,7 @@ document.write(`
 <section id="environments">
 <h2><span class="section-number">3.3. </span>Environments<a class="headerlink" href="#environments" title="Permalink to this heading">#</a></h2>
 <p>When starting with programming we may not use many packages yet and the installation may be straightforward. But for most people, there comes a time when one version of a package or also the programming language is not enough anymore. You may find an older tool that depends on an older version of your programming language (e.g. Pyhton 2.7), but many of your other tools depend on a newer version (e.g. Python 3.6). You could now start up another computer or virtual machine to run the other version of the programming language, but this is not very handy, since you may want to use the tools together in a workflow later on. Here, environments are one solution to the problem. Nowadays there are several environment management systems following a similar idea: Instead of having to use multiple computers or virtual machines to run different versions of the same package, you can install packages in isolated environments.</p>
-<p>However, managing Python development environments can be tricky, especially if you are new to the language or less familiar with computer science concepts. In this course, we introduce tool to make it easy to manage and reproduce your Python environments on any machine (local computer/server/cloud).</p>
+<p>However, managing Python development environments can be tricky, especially if you are new to the language or less familiar with computer science concepts. In this course, we introduce tools to make it easy to manage and reproduce your Python environments on any machine (local computer/server/cloud).</p>
 <figure class="align-center" id="xkcd-python-env">
 <a class="bg-primary mb-1 reference internal image-reference" href="https://imgs.xkcd.com/comics/python_environment.png"><img alt="https://imgs.xkcd.com/comics/python_environment.png" class="bg-primary mb-1" src="https://imgs.xkcd.com/comics/python_environment.png" style="width: 500px;" /></a>
 <figcaption>
@@ -451,7 +451,7 @@ document.write(`
 <h2><span class="section-number">3.5. </span>Conda<a class="headerlink" href="#conda" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> is an open-source package management system and environment management system that runs on Windows, macOS, and Linux. When you install one module using conda, such as JupyterLab, all of the required modules will also be downloaded and installed with compatible versions. It was created for Python programs but it can package and distribute software for any language (Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN)</p>
 <p>Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager because conda is also an environment manager. With just a few commands, you can set up a totally separate environment to run that different version of Python, while continuing to run your usual version of Python in your normal environment.</p>
-<p>While there are multiple ways to install conda for Python, including <a class="reference external" href="https://www.anaconda.com/download/">Anaconda Distribution</a> and <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda Distribution</a>. <a class="reference internal" href="#miniconda-anaconda"><span class="std std-numref">Fig. 3.2</span></a> shows the difference between Conda, Miniconda and Anaconda. Miniconda combines Conda with Python and a small number of core packages; Anaconda includes Miniconda as well as a large number of the most widely used Python packages (&gt; 150).</p>
+<p>There are multiple ways to install conda for Python, including <a class="reference external" href="https://www.anaconda.com/download/">Anaconda Distribution</a> and <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda Distribution</a>. <a class="reference internal" href="#miniconda-anaconda"><span class="std std-numref">Fig. 3.2</span></a> shows the difference between Conda, Miniconda and Anaconda. Miniconda combines Conda with Python and a small number of core packages; Anaconda includes Miniconda as well as a large number of the most widely used Python packages (&gt; 150).</p>
 <p>We recommend Miniconda, the most lightweight and bare-minimum approach to using conda. While the Anaconda distribution has a lot of packages pre-installed, they are not used all together in most of the projects. Therefore, it is optimal to install Miniconda and benefit from the Conda package and environment management systems but avoid installing too many unnecessary packages.</p>
 <figure class="align-center" id="miniconda-anaconda">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/miniconda-vs-anaconda.png"><img alt="../_images/miniconda-vs-anaconda.png" class="bg-primary mb-1" src="../_images/miniconda-vs-anaconda.png" style="width: 500px;" /></a>
@@ -462,7 +462,7 @@ document.write(`
 </section>
 <section id="installing-miniconda">
 <h2><span class="section-number">3.6. </span>Installing Miniconda<a class="headerlink" href="#installing-miniconda" title="Permalink to this heading">#</a></h2>
-<p>You can download the installer for Miniconda from <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">this page</a>. Make sure to download the correct version depending on your OS and hardware. Follow the step on <em><a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Quick command line install</a></em> to install Miniconda.</p>
+<p>You can download the installer for Miniconda from <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">this page</a>. Make sure to download the correct version depending on your OS and hardware. Follow the step on <em><a class="reference external" href="https://docs.anaconda.com/miniconda/#quick-command-line-install">Quick command line install</a></em> to install Miniconda.</p>
 <p>After finishing the installation, and opening a new terminal (or reloading it) you should see (base) at the start of your prompt in the terminal. This indicates that you are in the “base” Conda environment:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(base) $
 </pre></div>
@@ -505,7 +505,7 @@ document.write(`
 </div>
 </div>
 <p>If you want to permanently remove an environment and delete all the data associated with it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda env remove --name my_environment --all
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda remove --name my_environment --all
 </pre></div>
 </div>
 <p>For extensive documentation on using environments, please see the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/concepts/environments.html">Conda documentation</a>.</p>
@@ -617,7 +617,7 @@ $ conda create -n myenv
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Check out this Conda <a class="reference external" href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf">cheatsheet</a> to look for some quick answers to your Conda related questions.</p>
+<p>Check out this Conda <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf">cheatsheet</a> to look for some quick answers to your Conda related questions.</p>
 </div>
 <p>&nbsp;</p>
 </section>
