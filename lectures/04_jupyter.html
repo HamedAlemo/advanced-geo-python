@@ -379,6 +379,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-environments-from-jupyterlab">4.5. Accessing Conda Environments from JupyterLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-shortcuts">4.6. JupyterLab Shortcuts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.7. Exercise</a></li>
 </ul>
             </nav>
         </div>
@@ -466,6 +467,23 @@ document.write(`
 <h2><span class="section-number">4.6. </span>JupyterLab Shortcuts<a class="headerlink" href="#jupyterlab-shortcuts" title="Permalink to this heading">#</a></h2>
 <p>There are several very useful and practical shortcuts for JupyterLab that improves your experience of working with it. You can see all of the default shortcuts after launching your JupyterLab byt navigating to Settings&gt;Advanced Setting Editor&gt;Keyboard Shortcuts.</p>
 <p>We will introduce some of the useful ones in the class.</p>
+</section>
+<section id="exercise">
+<h2><span class="section-number">4.7. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
+<p>In this exercise you will be working with a CSV file that contains labels for image chips. An image chip is a small portion of a larger satellite image for which the labels are valid for. A typical image chip is 256px by 256px. Each row in this CSV represents a single image chip’s metadata and contains the chip’s land cover types (as a list) and the datetime for which the label is valid.</p>
+<p>Download the CSV file from <a class="reference download internal" download="" href="../_downloads/ee367188570520ae0594c17f7c7c62c0/landcover_chips.csv"><span class="xref download myst">here</span></a>. The CSV has the following columns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> as Integer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">landcover</span></code> as String Array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> in ISO 8601 Timestamp</p></li>
+</ul>
+<p>You are asked to do the following in a Jupyter Notebook:</p>
+<ul class="simple">
+<li><p>Load the CSV as a dataframe</p></li>
+<li><p>Return the number of chips for chips with a datetime between <code class="docutils literal notranslate"><span class="pre">2017-01-01T00:00:00Z</span></code> and <code class="docutils literal notranslate"><span class="pre">2017-12-31T11:59:59Z</span></code></p></li>
+<li><p>Plot a Bar Chart visualizing the total number of chips for each hour of the day</p></li>
+<li><p>Return a list of unique land cover types present in the CSV</p></li>
+</ul>
 <p>&nbsp;</p></section>
 </section>
 
@@ -542,6 +560,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-environments-from-jupyterlab">4.5. Accessing Conda Environments from JupyterLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-shortcuts">4.6. JupyterLab Shortcuts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.7. Exercise</a></li>
 </ul>
   </nav></div>
 

@@ -96,4 +96,19 @@ There are several very useful and practical shortcuts for JupyterLab that improv
 
 We will introduce some of the useful ones in the class. 
 
+## Exercise
+
+In this exercise you will be working with a CSV file that contains labels for image chips. An image chip is a small portion of a larger satellite image for which the labels are valid for. A typical image chip is 256px by 256px. Each row in this CSV represents a single image chip’s metadata and contains the chip’s land cover types (as a list) and the datetime for which the label is valid.
+
+Download the CSV file from [here](../files/landcover_chips.csv). The CSV has the following columns:
+- `id` as Integer 
+- `landcover` as String Array
+- `datetime` in ISO 8601 Timestamp
+
+You are asked to do the following in a Jupyter Notebook:
+- Load the CSV as a dataframe
+- Return the number of chips for chips with a datetime between `2017-01-01T00:00:00Z` and `2017-12-31T11:59:59Z`
+- Plot a Bar Chart visualizing the total number of chips for each hour of the day 
+- Return a list of unique land cover types present in the CSV
+
 <p>&nbsp;</p>
