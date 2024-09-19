@@ -66,7 +66,7 @@ In the following sections, we will learn more about the geospatial technology la
 
 ## Cloud-native Data Formats
 
-Geospatial data is broadly categorized as vectors and rasters. With the changes that we talked about in the previous section, the file formats to store and access these data have evolved too. Let's look at a similar example: back in the day you would buy/rent a DVD/CD or even cassette to watch a movie on your TV at home. Nowadays, you simply log into a website or app and "stream" the same type of content (with even higher image quality). Geospatial data is going through a similar change. You don't want to download all the satellite images for your application, rather access them where they are stored and only load portions of the data needed for your analysis. Let's deep dive into these concepts for each of raster and vector formats. 
+Geospatial data is broadly categorized as vectors and rasters. With the changes that we talked about in the previous section, the file formats to store and access these data have evolved too. Let's look at a similar example: back in the day you would buy/rent a DVD/CD or even cassette to watch a movie on your TV at home. Nowadays, you simply log into a website or app and "stream" the same type of content (with even higher image quality). Geospatial data is going through a similar change. You don't want to download all the satellite images for your application, rather access them where they are stored and only load portions of the data needed for your analysis. Let's deep dive into these concepts for each of raster and vector formats. {numref}`CNG-formats` shows geospatial data formats for various data types. 
 
 
 ```{figure} https://guide.cloudnativegeo.org/images/cogeo-formats-table.png
