@@ -22,14 +22,14 @@ Drivers of change in geospatial technology.
 
     {numref}`EOSDIS-archive` shows the growing archive of NASA satellite mission data as an example. and {numref}`maxar-umbra` shows collocated SAR and optical imagery. 
 
-    ```{figure} ../lectures/figures/EOSDIS-archive.png
+    ```{figure} ../lectures/figures/EOSDIS-archive-2023.png
     ---
     name: EOSDIS-archive
     class: bg-primary mb-1
     width: 800px
     align: center
     ---
-    Growing archive of NASA satellite mission data [source [NASA Earth Data](https://www.earthdata.nasa.gov/learn/articles/harmony-in-the-cloud)]
+    Growing archive of NASA satellite mission data [source [NASA Earth Data](https://www.earthdata.nasa.gov/technology/open-science)]
     ```
     
     ```{figure} ../lectures/figures/maxar-umbra.png
@@ -44,9 +44,9 @@ Drivers of change in geospatial technology.
 
 2. **Data Access**
 
-    These new modes of data acquisition have resulted in new and innovate ways for storing, sharing and access these data. The traditional way of downloading all your imagery to your local machine (desktop or server) and running analysis on it does not scale anymore. It is more efficient, and in some case it's the only possible solution, to bring the computation next to your data storage. The advancements in cloud technology has been a major help in changing how we access geospatial data these days. 
+    These new modes of data acquisition have resulted in new and innovate ways for storing, sharing and accessing these data. The traditional way of downloading all your imagery to your local machine (desktop or server) and running analysis on it does not scale anymore. It is more efficient, and in some case it's the only possible solution, to bring the computation next to your data storage. The advancements in cloud technology has been a major help in changing how we access geospatial data these days. 
 
-    The new mode of access also requires new data formats that are "cloud-native" and better ways of cataloging the data so users can query and find relevant data. (Read more about [cloud-native geospatial data here](https://cloudnativegeo.org/about/)).
+    The new mode of access also requires new data formats that are "cloud-native" and better ways of cataloging the data so users can query and find relevant data. Read more about cloud-native geospatial data [here](https://guide.cloudnativegeo.org/). You can also follow the Cloud-Native Geospatial Forum ([CNG](https://cloudnativegeo.org/)) to stay up to date with the developments in this community. 
 
     Finally, these changes are accompanied by development of new APIs and data catalog standards that facilitate query and access of the data. 
 
@@ -66,7 +66,18 @@ In the following sections, we will learn more about the geospatial technology la
 
 ## Cloud-native Data Formats
 
-Geospatial data is broadly categorized as vectors and rasters. With the changes that we talked about in the previous section, the file formats to store and access these data has evolved too. Let's look at a similar example: back in the day you would buy/rent a DVD/CD or even cassette to watch a movie on your TV at home. Nowadays, you simply log into a website of app and "stream" the same type of content (with even higher image quality). Geospatial data is going through a similar change. You don't want to download all the satellite images for your application, rather access them where they are stored and only load portions of the data needed for your analysis. Let's deep dive into these concepts for each of raster and vector formats. 
+Geospatial data is broadly categorized as vectors and rasters. With the changes that we talked about in the previous section, the file formats to store and access these data have evolved too. Let's look at a similar example: back in the day you would buy/rent a DVD/CD or even cassette to watch a movie on your TV at home. Nowadays, you simply log into a website or app and "stream" the same type of content (with even higher image quality). Geospatial data is going through a similar change. You don't want to download all the satellite images for your application, rather access them where they are stored and only load portions of the data needed for your analysis. Let's deep dive into these concepts for each of raster and vector formats. 
+
+
+```{figure} https://guide.cloudnativegeo.org/images/cogeo-formats-table.png
+---
+name: CNG-formats
+class: bg-primary mb-1
+width: 800px
+align: center
+---
+Cloud optimized geospatial formats. [source: [CNG Guide](https://guide.cloudnativegeo.org/images/cogeo-formats-table.png)]
+```
 
 ### Raster Formats
 
@@ -131,17 +142,15 @@ In this course, we will interact with STAC data catalogs to search for geospatia
 
 Another simple to use tool for STAC is [STAC Browser](https://radiantearth.github.io/stac-browser/#/). This browser retrieves a static catalog and you can browse it on the web. 
 
-## Cloud Computing and Platforms
+## Cloud Data Repositories
 
 - Microsoft Planetary Computer ([link](https://planetarycomputer.microsoft.com/))
 
+- Earth on AWS ([link](https://aws.amazon.com/earth/))
+
 - Google Earth Engine ([link](https://earthengine.google.com/))
 
-- Pangeo ([link](https://pangeo.io/))
-
 - Sentinel-Hub ([link](https://www.sentinel-hub.com/))
-
-- QGIS ([link](https://www.qgis.org/en/site/))
 
 ## Python Landscape
 
@@ -149,10 +158,14 @@ Another simple to use tool for STAC is [STAC Browser](https://radiantearth.githu
 - GDAL
 - Rasterio
 - GeoPandas
-- Xxarray and rioxarray
+- Xarray and rioxarray
+- sarpy
 - leafmap
 - Fiona
 - PyProj
 - Cartopy
+- SentinelHub-Py
+- satpy
+- geemap
 
 <p>&nbsp;</p>
