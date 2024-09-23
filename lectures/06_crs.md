@@ -82,7 +82,7 @@ The units used to define the grid along the x, y (and z) axis. These will be in 
 Additional parameters are often necessary to create the full coordinate reference system. One common additional parameter is a definition of the center of the map. The number of required additional parameters depends on what is needed by each specific projection.
 
 ```{admonition} Further Reading
-If you like to read more about CRS, and a *problem-based guide* of commons CRS issues, check out the [**I Hate Coordinate Systems!**](https://ihatecoordinatesystems.com/) blog. 
+If you like to read more about CRS, and a *problem-based guide* of common CRS issues, check out the [**I Hate Coordinate Systems!**](https://ihatecoordinatesystems.com/) blog. 
 ```
 
 ## Defining a CRS
@@ -100,7 +100,7 @@ The [Open Geospatial Consortium](https://www.ogc.org/) WKT standard is used by a
 
 ### PROJ
 
-[PROJ](https://proj4.org/) is an open-source library for storing, representing and transforming CRS information. PROJ strings continue to be used, but the format [is deprecated by the PROJ C maintainers](https://proj.org/faq.html#what-is-the-best-format-for-describing-coordinate-reference-systems) due to inaccuracies when converting to the WKT format. The data and python libraries we will be working with in this workshop use different underlying representations of CRSs under the hood for reprojecting. CRS information can still be represented with EPSG, WKT, or PROJ strings without consequence, but **it is best to only use PROJ strings as a format for viewing CRS information, not for reprojecting data**.
+[PROJ](https://proj4.org/) is an open-source library for storing, representing and transforming CRS information. PROJ strings continue to be used, but the format [is deprecated by the PROJ C maintainers](https://proj.org/faq.html#what-is-the-best-format-for-describing-coordinate-reference-systems) due to inaccuracies when converting to the WKT format. The data and python libraries we will be working with in this class use different underlying representations of CRSs under the hood for reprojecting. CRS information can still be represented with EPSG, WKT, or PROJ strings without consequence, but **it is best to only use PROJ strings as a format for viewing CRS information, not for reprojecting data**.
 
 PROJ represents CRS information as a text string of key-value pairs, which makes it easy to read and interpret.
 

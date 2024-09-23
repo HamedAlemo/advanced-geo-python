@@ -23,6 +23,10 @@ parts:
       title: Intro to JupyterLab
     - file: lectures/05_landscape.md
       title: Geospatial Landscape
+    - file: lectures/06_crs
+      title: Review of CRS
+    - file: lectures/07_crs_python
+      title: CRS and Projections in Python
     # - file: lectures/docker.md
     #   title: Intro to Docker
     # - file: lectures/earth_search_tutorial
@@ -33,10 +37,6 @@ parts:
     #   title: Scaling stackstac w Dask
     # - file: lectures/dask_dataframe
     #   title: Into to Dask DataFrame
-    # - file: lectures/crs
-    #   title: Review of CRS
-    # - file: lectures/crs_python
-    #   title: CRS and Projections in Python
     # - file: lectures/vector
     #   title: Review of Vector Data
     # - file: lectures/vector_analysis
