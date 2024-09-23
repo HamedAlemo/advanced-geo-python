@@ -65,7 +65,7 @@ parts:
     chapters:
     - file: assignments/a1
     - file: assignments/a2
-  #   - file: assignments/a3 
+    - file: assignments/a3 
   #   - file: assignments/a4
   - caption: Appendices
     chapters:
