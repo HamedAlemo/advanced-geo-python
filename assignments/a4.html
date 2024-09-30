@@ -167,30 +167,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lectures/unix.html">1. Intro to Unix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/git.html">2. Intro to Version Control and Git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/python-env.html">3. Python Environments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/jupyter.html">4. Intro to JupyterLab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/docker.html">5. Intro to Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/landscape.html">6. Geospatial Landscape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/earth_search_tutorial.html">7. Searching a STAC Catalog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/dask_intro.html">8. Intro to Dask &amp; Dask Array</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/stackstac.html">9. Scaling stackstac w Dask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/dask_dataframe.html">10. Into to Dask DataFrame</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/crs.html">11. Review of CRS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/crs_python.html">12. CRS and Projections in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/vector.html">13. Review of Vector Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/vector_analysis.html">14. Vector Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/dask_geopandas_intro.html">15. Intro to Dask-GeoPandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/scalable_vector_analysis.html">16. Scalable Vector Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/raster.html">17. Review of Raster Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/raster_analysis.html">18. Raster Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/raster_processing.html">19. Raster Data Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/xarray_advanced.html">21. Advanced Xarray Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/workflows_intro.html">22. Workflows in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/workflows_pseudocode.html">23. Writing Pseudocode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/workflows_best_practices.html">24. Workflow Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/04_jupyter.html">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/05_landscape.html">5. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/06_crs.html">6. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/07_crs_python.html">7. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/08_docker.html">8. Intro to Docker</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -396,10 +380,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-building-footprint-data">Download Building Footprint Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-geoparquet-file-s">Load Geoparquet File(s)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-the-data">Analyze the Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-rewrite-the-read-geoparquet-function">[Optional] Rewrite the <code class="docutils literal notranslate"><span class="pre">read_geoparquet</span></code> Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dockerized-conda-environment">Create a Dockerized Conda Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook">Create a Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>
             </nav>
         </div>
@@ -413,85 +396,45 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-4">
 <h1>Assignment 4<a class="headerlink" href="#assignment-4" title="Permalink to this heading">#</a></h1>
-<p>The goal of this assignment is to work with vector data and implement a scalable vector data anlysis.</p>
-<p>You should submit this assignment to your existing <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> GitHub repository under a new directory named <code class="docutils literal notranslate"><span class="pre">assignment-4</span></code>. Your notebooks should be able to run on Microsoft Planetary Computer (PC) Hub. In the instructions for your code, provide guidance on how users should use your notebook within this hub. You can implement all sections of this assignment in one Notebook.</p>
-<p><em>Note</em>: As you know, the Python environment within the PC Hub can change, so you need to note the version of all packages you are using in your notebook in the documentation so anyone can reproduce your results.</p>
-<section id="download-building-footprint-data">
-<h2>Download Building Footprint Data<a class="headerlink" href="#download-building-footprint-data" title="Permalink to this heading">#</a></h2>
-<p>For this assignment you will be working with the <a class="reference external" href="https://beta.source.coop/repositories/vida/google-microsoft-open-buildings/description/">Google-Microsoft Open Buildings Dataset - Combined by VIDA</a> which is available on Source Cooperative. Check out the <a class="reference external" href="https://beta.source.coop/repositories/vida/google-microsoft-open-buildings/description/">Read Me</a> of the dataset to understand the datasets and familiarize yourself with its metadata.</p>
+<p><strong>Due: Monday Oct 7th at 11:59 pm ET</strong></p>
+<p>The goal of this assignment is to work with Conda, Docker and JupyterLab.</p>
+<p>You should submit this assignment to your existing <code class="docutils literal notranslate"><span class="pre">geog213-assignments</span></code> or <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> GitHub repository under a new directory named <code class="docutils literal notranslate"><span class="pre">assignment-4</span></code>.</p>
+<section id="create-a-dockerized-conda-environment">
+<h2>Create a Dockerized Conda Environment<a class="headerlink" href="#create-a-dockerized-conda-environment" title="Permalink to this heading">#</a></h2>
+<p>In this part, you will develop a Dockerfile that creates a conda environment using an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file. Your Dockerfile should:</p>
+<ol class="arabic simple">
+<li><p>Start from a miniconda parent image.</p></li>
+<li><p>Create a new conda environment named <code class="docutils literal notranslate"><span class="pre">a4-env</span></code> using an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file and install the following packages along with Python version <code class="docutils literal notranslate"><span class="pre">3.12.5</span></code>: <code class="docutils literal notranslate"><span class="pre">numpy=1.26.4</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy=1.13.1</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib=3.9.2</span></code>, and <code class="docutils literal notranslate"><span class="pre">jupyterlab=4.2.5</span></code>.</p></li>
+<li><p>Activate the <code class="docutils literal notranslate"><span class="pre">a4-env</span></code>, and launch JupyterLab from <code class="docutils literal notranslate"><span class="pre">/home/assignment/</span></code> when the container is run.</p></li>
+</ol>
+<p>Make a new commit, and push this part of the assignment to your GitHub repository.</p>
+</section>
+<section id="create-a-notebook">
+<h2>Create a Notebook<a class="headerlink" href="#create-a-notebook" title="Permalink to this heading">#</a></h2>
+<p>In this part, you will create a Jupyter notebook that visualizes some data. Your Jupyter notebook should run inside a container based on the Dockerfile from the previous section (the notebook should be accessed using the mount option, and should not be included in the Docker image)</p>
+<ol class="arabic simple">
+<li><p>Create a Jupyter notebook.</p></li>
+<li><p>Write appropriate code in this notebook to do the following:</p></li>
+</ol>
 <ul class="simple">
-<li><p>Write a Python function that receives the ISO code for a country and downloads the corresponding <code class="docutils literal notranslate"><span class="pre">geoparquet</span></code> file or files for that country (Note: you only need to download the data stored under <code class="docutils literal notranslate"><span class="pre">by_country/</span></code>).</p></li>
-<li><p>Use this function to download the data for Haiti.</p></li>
+<li><p>Generate array <code class="docutils literal notranslate"><span class="pre">x</span></code> that contains a sequence of numbers from -100 to 100 (inclusive) with steps of 0.5</p></li>
+<li><p>Generate array <code class="docutils literal notranslate"><span class="pre">y</span></code> that is the <code class="docutils literal notranslate"><span class="pre">cosine</span></code> of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p>Generate array <code class="docutils literal notranslate"><span class="pre">z</span></code> that is the <code class="docutils literal notranslate"><span class="pre">sine</span></code> of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
 </ul>
-</section>
-<section id="load-geoparquet-file-s">
-<h2>Load Geoparquet File(s)<a class="headerlink" href="#load-geoparquet-file-s" title="Permalink to this heading">#</a></h2>
-<p>The geoparquet files in this dataset maybe large depending on the country you are working with. So, ideally you would like to benefit from <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code> functionality. To load the data into <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code> you need to first convert the geometries from WKB to geojson. The following function can help you load the data into <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code> DataFrame. (Note: this is not an optimal solution as you have to load the data into <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> DataFrame first, and then convert to <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code>. In the optional section below, you will be asked to rewrite this function).</p>
-<p>Use this function to load building footprints for Haiti.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely</span> <span class="kn">import</span> <span class="n">wkb</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="kn">import</span> <span class="nn">dask_geopandas</span> <span class="k">as</span> <span class="nn">dgpd</span>
-
-<span class="k">def</span> <span class="nf">read_geoparquet</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function receives the path to a geoparquet file from the </span>
-<span class="sd">    Google-Microsoft Building Footprints dataset and returns a </span>
-<span class="sd">    dask_geopandas DataFrame of the data. </span>
-<span class="sd">    The geometry of each building in the original file is recorded</span>
-<span class="sd">    in WKB format and should be converted to json to be able to </span>
-<span class="sd">    create a geopandas DataFrame. </span>
-<span class="sd">    </span>
-<span class="sd">    Args:</span>
-<span class="sd">      path: string containing the geoparquet file path</span>
-<span class="sd">    </span>
-<span class="sd">    Returns:</span>
-<span class="sd">      ddf: a dask_geopandas DataFrame  </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="c1"># Load Parquet file into a Pandas DataFrame</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    
-    <span class="c1"># Convert WKB geometry</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">wkb</span><span class="o">.</span><span class="n">loads</span><span class="p">)</span>
-    
-    <span class="c1"># Load as GeoPandas dataframe</span>
-    <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">)</span>
-    
-    <span class="c1"># Set the correct CRS</span>
-    <span class="n">gdf</span><span class="o">.</span><span class="n">set_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
-    <span class="c1">#Convert to dask_geopandas df </span>
-    <span class="n">ddf</span> <span class="o">=</span> <span class="n">dgpd</span><span class="o">.</span><span class="n">from_geopandas</span><span class="p">(</span><span class="n">gdf</span><span class="p">,</span> <span class="n">chunksize</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">ddf</span>
-</pre></div>
-</div>
-</section>
-<section id="analyze-the-data">
-<h2>Analyze the Data<a class="headerlink" href="#analyze-the-data" title="Permalink to this heading">#</a></h2>
-<p>In this section, you will analyze the data using the functionality provided by Dask:</p>
+<ol class="arabic simple" start="3">
+<li><p>Create a new plot with the following:</p></li>
+</ol>
 <ul class="simple">
-<li><p>Plot the histogram of the area of all buildings provided by Microsoft as the source.</p>
-<ul>
-<li><p>Note: this might have a very skewed distribution. Try passing arguments to your histogram function to create a move even histogram plot, and explain your approach.</p></li>
+<li><p>Plot both <code class="docutils literal notranslate"><span class="pre">z</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> vs <code class="docutils literal notranslate"><span class="pre">x</span></code> on the same axis</p></li>
+<li><p>Add a legend to the plot to name <code class="docutils literal notranslate"><span class="pre">z</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>Add appropriate x- and y-axes labels</p></li>
 </ul>
-</li>
-<li><p>Count the number of building footprints that <code class="docutils literal notranslate"><span class="pre">intersects</span></code> with each other</p></li>
-<li><p>From the intersecting building footprints, calculate how many:</p>
-<ul>
-<li><p>Google building footprints intersect another Google building footprint</p></li>
-<li><p>Microsoft building footprints intersect another Microsoft building footprint</p></li>
-<li><p>Google building footprints intersect a Microsoft building footprint</p></li>
-</ul>
-</li>
-</ul>
+<p>Make a new commit, and push this part of the assignment to your GitHub repository. Make sure you run all cells in your notebook, and save it before committing it so that the plot is included in your commit and its rendered on GitHub.</p>
 </section>
-<section id="optional-rewrite-the-read-geoparquet-function">
-<h2>[Optional] Rewrite the <code class="docutils literal notranslate"><span class="pre">read_geoparquet</span></code> Function<a class="headerlink" href="#optional-rewrite-the-read-geoparquet-function" title="Permalink to this heading">#</a></h2>
-<p>The function <code class="docutils literal notranslate"><span class="pre">read_geoparquet</span></code> provided above is not optimal as it loads all the data once into memory. Rewrite this function so that it does not load the data before it is needed for computation, and it can output the same <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code> DataFrame.</p>
-<p>Use this function, to load the data from The Philippines, and run the analyses from the previous section.</p>
-</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
+<p>Finally, create a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file inside the <code class="docutils literal notranslate"><span class="pre">assignment-4</span></code> directory that provides a step-by-step guide on how to run a container using your Dockerfile and execute the notebook you created. Commit and push this file to GitHub.</p>
+<p>&nbsp;</p></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -561,10 +504,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-building-footprint-data">Download Building Footprint Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-geoparquet-file-s">Load Geoparquet File(s)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-the-data">Analyze the Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-rewrite-the-read-geoparquet-function">[Optional] Rewrite the <code class="docutils literal notranslate"><span class="pre">read_geoparquet</span></code> Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dockerized-conda-environment">Create a Dockerized Conda Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook">Create a Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
 </ul>
   </nav></div>
 
@@ -588,7 +530,7 @@ By Hamed Alemohammad
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
