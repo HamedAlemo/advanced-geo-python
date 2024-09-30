@@ -27,8 +27,8 @@ parts:
       title: Review of CRS
     - file: lectures/07_crs_python
       title: CRS and Projections in Python
-    # - file: lectures/docker.md
-    #   title: Intro to Docker
+    - file: lectures/08_docker.md
+      title: Intro to Docker
     # - file: lectures/earth_search_tutorial
     #   title: Searching a STAC Catalog
     # - file: lectures/dask_intro
@@ -66,7 +66,7 @@ parts:
     - file: assignments/a1
     - file: assignments/a2
     - file: assignments/a3 
-  #   - file: assignments/a4
+    - file: assignments/a4
   - caption: Appendices
     chapters:
     - file: docs/license

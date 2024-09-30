@@ -19,17 +19,17 @@ Containerization has several benefits:
 1. **Consistency:** Containers ensure that the application runs the same way everywhere, eliminating the "it works on my machine" problem.
 1. **Isolation:** Containers provide process and resource isolation, ensuring that one container cannot interfere with another, improving security and stability.
 1. **Scalability and Speed:** Containers can be easily scaled up or down to meet changing workloads and the speed to deploy them is much higher than VMs. 
-1. **Resource Efficiency:** Containers are lightweight and share the host OS kernel, making them more resource-efficient than traditional virtualization. While containers live on top of a host machine and use its resources, they virtualize the host OS unlike VMS that virtualize the underlying hardware. Meaning containers don’t need to have their own OS, making them much more lightweight than VMs, and consequently quicker to spin up.
+1. **Resource Efficiency:** Containers are lightweight and share the host OS kernel, making them more resource-efficient than traditional virtualization. While containers live on top of a host machine and use its resources, they virtualize the host OS unlike VMs that virtualize the underlying hardware. Meaning containers don’t need to have their own OS, making them much more lightweight than VMs, and consequently quicker to spin up.
 
 ## What is Docker?
 
 Docker is a leading containerization platform that has played a major role in popularizing containers. Docker is open-source and it provides a set of tools and services for creating, deploying, and managing containers.
 
 ## Docker Components
-1. **Docker Engine:** The core component of Docker that acts as a client-server application. It includes 
+1. **Docker Engine:** The core component of Docker that acts as a client-server application. It includes: 
   - Docker daemon (`dockerd`) which acts as the server and responds to requests from the client. 
   - Docker REST API for communication, and 
-  - Docker client which has two alternatives: the command line interface (CLI) names `docker` and the graphical user interface (GUI) application named Docker Desktop. 
+  - Docker client which has two alternatives: the command line interface (CLI) named `docker` and the graphical user interface (GUI) application named Docker Desktop. 
 2. **Images:** A snapshot of a file system with the application code and all dependencies needed to run it. Images are used to create containers.
 3. **Containers:** An instance of a Docker image that can run a specific application. Containers are isolated from each other and share the host OS kernel.
 4. **Docker Hub:** A registry of Docker images containing all available Docker images ([link](https://hub.docker.com/)). 
@@ -134,24 +134,23 @@ A Dockerfile is a text file that contains the instructions we use to build and r
 You can create your own Dockerfile with specific software and packages installed. This is a nice way to create a reproducible and portable runtime environment for your projects. 
 Here is an example of a Dockerfile:
 ```
-FROM continuumio/miniconda3:22.11.1
+FROM continuumio/miniconda3:24.7.1-0
 
 # Set the working directory to /home/workdir
 RUN mkdir /home/workdir
 WORKDIR /home/workdir
 
 # Create a Conda env named 'myenv' with numpy installed in it
-RUN conda create -n myenv numpy=1.25.0
+RUN conda create -n myenv numpy=2.0.1
 
 CMD ["/bin/bash"]
-
 ```
 
 So let's look what each of these commands mean:
 
 **FROM**
 
-Use the FROM command to specify the parent image that you want your image to derive from. Here, we’re using the `continuumio/miniconda3:22.11.1` image.
+Use the FROM command to specify the parent image that you want your image to derive from. Here, we’re using the `continuumio/miniconda3:24.7.1-0` image.
 
 **RUN**
 
@@ -202,14 +201,14 @@ You can use conda inside Docker to manage packages and environments. To do that,
 Try building an image using the following Dockerfile:
 
 ```
-FROM continuumio/miniconda3:22.11.1
+FROM continuumio/miniconda3:24.7.1-0
 
 # Set the working directory to /home/workdir
 RUN mkdir /home/workdir
 WORKDIR /home/workdir
 
 # Create a Conda env named 'myenv' with numpy installed in it
-RUN conda create -n myenv numpy=1.25.0
+RUN conda create -n myenv numpy=2.0.1
 
 # Activate the conda environment
 RUN conda activate myenv
@@ -222,14 +221,14 @@ As you noticed, the Docker build in this case fails. This is because Docker runs
 There are multiple ways to resolve this issue. One of them, which we recommend, is to add the `conda activate` command to your `.bashrc` file. `.bashrc` is a script file that is executed when a user logs in. In this case, any command included in the `.bashrc` will be executed when the container runs. Try building an image from the following Dockerfile and then run it as a container:  
 
 ```
-FROM continuumio/miniconda3:22.11.1
+FROM continuumio/miniconda3:24.7.1-0
 
 # Set the working directory to /home/workdir
 RUN mkdir /home/workdir
 WORKDIR /home/workdir
 
 # Create a Conda env named 'myenv' with numpy installed in it
-RUN conda create -n myenv numpy=1.25.0
+RUN conda create -n myenv numpy=2.0.1
 
 # Activate the conda environment
 RUN echo "conda activate myenv" >> ~/.bashrc
@@ -250,7 +249,7 @@ You can install and run a Jupyter server inside the container the same way you w
 
 The following sample Dockerfile implements these three changes, and runs Jupyter Lab when the container is launched. 
 ```
-FROM continuumio/miniconda3:22.11.1
+FROM continuumio/miniconda3:24.7.1-0
 
 # Create a Conda environment with JupyterLab installed
 RUN conda create -n myenv numpy=1.25.0 jupyterlab=3.6.3
