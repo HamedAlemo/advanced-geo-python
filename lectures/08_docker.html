@@ -391,6 +391,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-storage-in-docker">8.9. Managing Storage in Docker</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-conda-environments-in-docker">8.10. Activating Conda Environments in Docker</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-jupyter-notebooks-inside-a-container">8.11. Running Jupyter Notebooks Inside a Container</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-docker-hub">8.12. Working with Docker Hub</a></li>
 </ul>
             </nav>
         </div>
@@ -571,7 +572,7 @@ Here is an example of a Dockerfile:</p>
 </div>
 <p>In this example, current directory on host machine (<code class="docutils literal notranslate"><span class="pre">pwd</span></code>) is mounted to <code class="docutils literal notranslate"><span class="pre">/home/workdir/</span></code> inside the container. This means that any file and directory that is available inside the current directory on the host will be accessible at <code class="docutils literal notranslate"><span class="pre">/home/workdir/</span></code> inside the container. If you make changes to these files or directories on either the host or the container, it will be reflected on the other side (practically these are the same files stored on the host, but accessible from two separate places). It’s best to only change the files from inside the container then to make sure your changes don’t conflict each other.</p>
 <p>You can also mount a directory that doesn’t exist on the host to a directory inside the container. For example running the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">doesnt</span><span class="o">/</span><span class="n">exist</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">workdir</span> <span class="o">&lt;</span><span class="n">IMAGE</span> <span class="n">NAME</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -v /doesnt/exist:/home/workdir &lt;IMAGE NAME&gt;
 </pre></div>
 </div>
 <p>will automatically create <code class="docutils literal notranslate"><span class="pre">/doesnt/exist</span></code> on the host before starting the container.</p>
@@ -650,6 +651,33 @@ Here is an example of a Dockerfile:</p>
 </pre></div>
 </div>
 <p>Lastly, you can copy the url of the Jupyter server and past it in your browser to access Jupyter Lab.</p>
+</section>
+<section id="working-with-docker-hub">
+<h2><span class="section-number">8.12. </span>Working with Docker Hub<a class="headerlink" href="#working-with-docker-hub" title="Permalink to this heading">#</a></h2>
+<p>So far you have learned how to build Docker images, run Docker containers, and use these to create reproducible work environments. Let’s say you now want to share your Docker image with another colleague, or share it publicly for others to access. For this purpose, you can use a registry. Docker Hub is one of main registries for sharing Docker images. In this section, you will learn to push images to your Docker Hub account.</p>
+<p>Here are the steps to follow:</p>
+<ol class="arabic simple">
+<li><p>Create a Docker account. You can do this by selecting <strong>Sign In</strong> at the top-right corner of Docker Desktop Dashboard.</p></li>
+<li><p>Create a new repository on your Docker Hub account. Open <a class="reference external" href="https://hub.docker.com">Docker Hub</a> and select <strong>Create repository</strong>. Enter a Name and Description, and set the visibility to Public.</p></li>
+<li><p>Now that you have a repository, you can build and push an image to this repository as following:</p></li>
+</ol>
+<ul>
+<li><p>Build your image using the following command and swapping out <code class="docutils literal notranslate"><span class="pre">DOCKER_USERNAME</span></code> with your username and <code class="docutils literal notranslate"><span class="pre">IMAGE_NAME</span></code> with the name of the image/repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker build -t DOCKER_USERNAME/IMAGE_NAME .
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the image has been built locally by running <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">images</span></code> or <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">image</span> <span class="pre">ls</span></code> command.</p></li>
+<li><p>To push the image, use the docker push command (similarly replace <code class="docutils literal notranslate"><span class="pre">DOCKER_USERNAME</span></code> with your username and <code class="docutils literal notranslate"><span class="pre">IMAGE_NAME</span></code> with the name of the image/repository):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker push DOCKER_USERNAME/IMAGE_NAME
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Now that you have published a Docker image on Docker Hub you can use <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span></code> command to download that image into any machine that doesn’t have the image. For this purpose, you need to run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker pull DOCKER_USERNAME/IMAGE_NAME
+</pre></div>
+</div>
 <div class="admonition-cleanup-commands admonition">
 <p class="admonition-title">Cleanup Commands</p>
 <p>It’s good practice to remove unwanted Docker images and containers to cleanup your disk space and memory. You can use <code class="docutils literal notranslate"><span class="pre">prune</span></code> to do this as following:</p>
@@ -744,6 +772,7 @@ Here is an example of a Dockerfile:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-storage-in-docker">8.9. Managing Storage in Docker</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-conda-environments-in-docker">8.10. Activating Conda Environments in Docker</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-jupyter-notebooks-inside-a-container">8.11. Running Jupyter Notebooks Inside a Container</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-docker-hub">8.12. Working with Docker Hub</a></li>
 </ul>
   </nav></div>
 

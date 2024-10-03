@@ -189,7 +189,7 @@ In this example, current directory on host machine (`pwd`) is mounted to `/home/
 
 You can also mount a directory that doesn't exist on the host to a directory inside the container. For example running the following:
 ```
-docker run -v /doesnt/exist:/home/workdir <IMAGE NAME>
+$ docker run -v /doesnt/exist:/home/workdir <IMAGE NAME>
 ```
 will automatically create `/doesnt/exist` on the host before starting the container. 
 
@@ -280,6 +280,32 @@ $ docker run -it -p 8888:8888 <IMAGE NAME>
 ```
 
 Lastly, you can copy the url of the Jupyter server and past it in your browser to access Jupyter Lab. 
+
+## Working with Docker Hub
+
+So far you have learned how to build Docker images, run Docker containers, and use these to create reproducible work environments. Let's say you now want to share your Docker image with another colleague, or share it publicly for others to access. For this purpose, you can use a registry. Docker Hub is one of main registries for sharing Docker images. In this section, you will learn to push images to your Docker Hub account. 
+
+Here are the steps to follow:
+
+1. Create a Docker account. You can do this by selecting **Sign In** at the top-right corner of Docker Desktop Dashboard.
+1. Create a new repository on your Docker Hub account. Open [Docker Hub](https://hub.docker.com) and select **Create repository**. Enter a Name and Description, and set the visibility to Public. 
+1. Now that you have a repository, you can build and push an image to this repository as following:
+  - Build your image using the following command and swapping out `DOCKER_USERNAME` with your username and `IMAGE_NAME` with the name of the image/repository:
+    ```
+    $ docker build -t DOCKER_USERNAME/IMAGE_NAME .
+    ```
+  - Verify that the image has been built locally by running `docker images` or `docker image ls` command.
+  - To push the image, use the docker push command (similarly replace `DOCKER_USERNAME` with your username and `IMAGE_NAME` with the name of the image/repository):
+    ```
+    $ docker push DOCKER_USERNAME/IMAGE_NAME
+    ```
+
+Now that you have published a Docker image on Docker Hub you can use `docker pull` command to download that image into any machine that doesn't have the image. For this purpose, you need to run:
+
+```
+$ docker pull DOCKER_USERNAME/IMAGE_NAME
+```
+
 
 
 ```{admonition} Cleanup Commands
