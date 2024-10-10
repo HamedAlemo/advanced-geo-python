@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>8. Introduction to Dask &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>10. Introduction to Dask &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/dask_intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9. Query and Stack Imagery into a GIF Using stackstac and Dask" href="stackstac.html" />
-    <link rel="prev" title="7. Tutorial for Searching a STAC Catalog" href="earth_search_tutorial.html" />
+    <link rel="next" title="11. Query and Stack Imagery into a GIF Using stackstac and Dask" href="stackstac.html" />
+    <link rel="prev" title="9. Tutorial for Searching a STAC Catalog" href="09_earth_search_tutorial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,30 +167,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="unix.html">1. Intro to Unix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">2. Intro to Version Control and Git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python-env.html">3. Python Environments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">4. Intro to JupyterLab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">5. Intro to Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="landscape.html">6. Geospatial Landscape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="earth_search_tutorial.html">7. Searching a STAC Catalog</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Intro to Dask &amp; Dask Array</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stackstac.html">9. Scaling stackstac w Dask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dask_dataframe.html">10. Into to Dask DataFrame</a></li>
-<li class="toctree-l1"><a class="reference internal" href="crs.html">11. Review of CRS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="crs_python.html">12. CRS and Projections in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector.html">13. Review of Vector Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector_analysis.html">14. Vector Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dask_geopandas_intro.html">15. Intro to Dask-GeoPandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scalable_vector_analysis.html">16. Scalable Vector Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="raster.html">17. Review of Raster Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="raster_analysis.html">18. Raster Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="raster_processing.html">19. Raster Data Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="xarray_advanced.html">21. Advanced Xarray Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflows_intro.html">22. Workflows in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflows_pseudocode.html">23. Writing Pseudocode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflows_best_practices.html">24. Workflow Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_landscape.html">5. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_crs.html">6. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_crs_python.html">7. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_docker.html">8. Intro to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_earth_search_tutorial.html">9. Searching a STAC Catalog</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stackstac.html">11. Scaling stackstac w Dask</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -198,6 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/a2.html">Assignment 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/a3.html">Assignment 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/a4.html">Assignment 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a5.html">Assignment 5</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -396,15 +384,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-dask">8.1. What is Dask?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dask-arrays">8.2. Dask Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-chunks">8.2.1. Specifying Chunks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bigger-calculation">8.2.2. A Bigger Calculation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduction">8.2.3. Reduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-dask">10.1. What is Dask?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dask-arrays">10.2. Dask Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-chunks">10.2.1. Specifying Chunks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bigger-calculation">10.2.2. A Bigger Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduction">10.2.3. Reduction</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributed-clusters">8.3. Distributed Clusters</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-cluster">8.3.1. Local Cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributed-clusters">10.3. Distributed Clusters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-cluster">10.3.1. Local Cluster</a></li>
 </ul>
 </li>
 </ul>
@@ -419,17 +407,17 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-dask">
-<h1><span class="section-number">8. </span>Introduction to Dask<a class="headerlink" href="#introduction-to-dask" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">10. </span>Introduction to Dask<a class="headerlink" href="#introduction-to-dask" title="Permalink to this heading">#</a></h1>
 <p><strong>Attribution</strong>: The following notebook is based on the great notebook created by Ryan Abernathey in the Earth and Environmental Data Science book (<a class="reference external" href="https://earth-env-data-science.github.io/lectures/dask/dask_arrays.html">link</a>)</p>
 <section id="what-is-dask">
-<h2><span class="section-number">8.1. </span>What is Dask?<a class="headerlink" href="#what-is-dask" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1. </span>What is Dask?<a class="headerlink" href="#what-is-dask" title="Permalink to this heading">#</a></h2>
 <p>Dask is a Python library that provides flexible parallel computing and distributed data processing capabilities. It is designed to handle larger-than-memory computations and parallelize tasks across multiple cores and even distributed clusters. Dask’s primary goal is to make it easier for developers to scale their data analysis and processing workflows while maintaining a familiar and Pythonic interface.</p>
 <p>Dask is composed of two components: 1) Task Scheduler, and 2) “Big Data” collections. These collections include parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to larger-than-memory or distributed environments. These parallel collections run on top of dynamic task schedulers.</p>
 <p><img alt="Dask Overview" src="https://docs.dask.org/en/stable/_images/dask-overview.svg" /></p>
 <p>Dask overview (source: <a class="reference external" href="https://docs.dask.org/en/stable/">Dask Documentation</a>)</p>
 </section>
 <section id="dask-arrays">
-<h2><span class="section-number">8.2. </span>Dask Arrays<a class="headerlink" href="#dask-arrays" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.2. </span>Dask Arrays<a class="headerlink" href="#dask-arrays" title="Permalink to this heading">#</a></h2>
 <p>A dask array looks and feels a lot like a NumPy array.
 However, a dask array doesn’t directly hold any data.
 Instead, it symbolically represents the computations needed to generate the data.
@@ -542,7 +530,7 @@ This mode of operation is called “lazy”; it allows one to build up complex, 
 </div>
 <p>The dask array representation reveals the concept of “chunks”. “Chunks” describes how the array is split into sub-arrays. We did not specify any chunks, so Dask just used one single chunk for the array. This is not much different from a NumPy array at this point.</p>
 <section id="specifying-chunks">
-<h3><span class="section-number">8.2.1. </span>Specifying Chunks<a class="headerlink" href="#specifying-chunks" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.1. </span>Specifying Chunks<a class="headerlink" href="#specifying-chunks" title="Permalink to this heading">#</a></h3>
 <p>However, we could have split up the array into many chunks.</p>
 <p>There are <a class="reference external" href="https://dask.pydata.org/en/latest/array-chunks.html">several ways to specify chunks</a>.
 In this lecture, we will use a block shape.</p>
@@ -675,7 +663,7 @@ When we call <code class="docutils literal notranslate"><span class="pre">.compu
 </div>
 </section>
 <section id="a-bigger-calculation">
-<h3><span class="section-number">8.2.2. </span>A Bigger Calculation<a class="headerlink" href="#a-bigger-calculation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.2. </span>A Bigger Calculation<a class="headerlink" href="#a-bigger-calculation" title="Permalink to this heading">#</a></h3>
 <p>The examples above were toy examples; the data (32 MB) is nowhere nearly big enough to warrant the use of dask.</p>
 <p>We can make it a lot bigger!</p>
 <div class="cell docutils container">
@@ -803,7 +791,7 @@ When we call <code class="docutils literal notranslate"><span class="pre">.compu
 </div>
 </section>
 <section id="reduction">
-<h3><span class="section-number">8.2.3. </span>Reduction<a class="headerlink" href="#reduction" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.3. </span>Reduction<a class="headerlink" href="#reduction" title="Permalink to this heading">#</a></h3>
 <p>All the usual NumPy methods work on dask arrays (Check this section on Dask Documentation to learn what NumPy methods work in Dask which ones don’t).
 You can also apply NumPy function directly to a dask array, and it will stay lazy.</p>
 <div class="cell docutils container">
@@ -900,7 +888,7 @@ You can also apply NumPy function directly to a dask array, and it will stay laz
 </section>
 </section>
 <section id="distributed-clusters">
-<h2><span class="section-number">8.3. </span>Distributed Clusters<a class="headerlink" href="#distributed-clusters" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.3. </span>Distributed Clusters<a class="headerlink" href="#distributed-clusters" title="Permalink to this heading">#</a></h2>
 <p>Once we are ready to make a bigger calculation with dask, we can use a Dask <a class="reference external" href="http://distributed.dask.org/en/stable/">Distributed</a> cluster.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -909,7 +897,7 @@ For smaller data, distributed will actually be <em>much slower</em> than the def
 You should only use distributed when your data is much larger than what your computer can handle in memory.</p>
 </div>
 <section id="local-cluster">
-<h3><span class="section-number">8.3.1. </span>Local Cluster<a class="headerlink" href="#local-cluster" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.3.1. </span>Local Cluster<a class="headerlink" href="#local-cluster" title="Permalink to this heading">#</a></h3>
 <p>A local cluster uses all the CPU cores of the machine it is running on.
 For our cloud-based Jupyterlab environments, that is just 2 cores–not very much.
 However, it’s good to know about.</p>
@@ -1365,12 +1353,12 @@ However, it’s good to know about.</p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="earth_search_tutorial.html"
+       href="09_earth_search_tutorial.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Tutorial for Searching a STAC Catalog</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Tutorial for Searching a STAC Catalog</p>
       </div>
     </a>
     <a class="right-next"
@@ -1378,7 +1366,7 @@ However, it’s good to know about.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Query and Stack Imagery into a GIF Using stackstac and Dask</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Query and Stack Imagery into a GIF Using stackstac and Dask</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1400,15 +1388,15 @@ However, it’s good to know about.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-dask">8.1. What is Dask?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dask-arrays">8.2. Dask Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-chunks">8.2.1. Specifying Chunks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bigger-calculation">8.2.2. A Bigger Calculation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduction">8.2.3. Reduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-dask">10.1. What is Dask?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dask-arrays">10.2. Dask Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-chunks">10.2.1. Specifying Chunks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bigger-calculation">10.2.2. A Bigger Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduction">10.2.3. Reduction</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributed-clusters">8.3. Distributed Clusters</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-cluster">8.3.1. Local Cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributed-clusters">10.3. Distributed Clusters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-cluster">10.3.1. Local Cluster</a></li>
 </ul>
 </li>
 </ul>
@@ -1434,7 +1422,7 @@ By Hamed Alemohammad
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

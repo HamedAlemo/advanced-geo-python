@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Query and Stack Imagery into a GIF Using stackstac and Dask &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>11. Query and Stack Imagery into a GIF Using stackstac and Dask &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/stackstac';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. Introduction to Dask DataFrame" href="dask_dataframe.html" />
-    <link rel="prev" title="8. Introduction to Dask" href="dask_intro.html" />
+    <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
+    <link rel="prev" title="10. Introduction to Dask" href="dask_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,30 +167,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="unix.html">1. Intro to Unix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">2. Intro to Version Control and Git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python-env.html">3. Python Environments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">4. Intro to JupyterLab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">5. Intro to Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="landscape.html">6. Geospatial Landscape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="earth_search_tutorial.html">7. Searching a STAC Catalog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dask_intro.html">8. Intro to Dask &amp; Dask Array</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Scaling stackstac w Dask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dask_dataframe.html">10. Into to Dask DataFrame</a></li>
-<li class="toctree-l1"><a class="reference internal" href="crs.html">11. Review of CRS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="crs_python.html">12. CRS and Projections in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector.html">13. Review of Vector Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vector_analysis.html">14. Vector Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dask_geopandas_intro.html">15. Intro to Dask-GeoPandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scalable_vector_analysis.html">16. Scalable Vector Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="raster.html">17. Review of Raster Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="raster_analysis.html">18. Raster Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="raster_processing.html">19. Raster Data Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="xarray_advanced.html">21. Advanced Xarray Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflows_intro.html">22. Workflows in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflows_pseudocode.html">23. Writing Pseudocode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflows_best_practices.html">24. Workflow Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_landscape.html">5. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_crs.html">6. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_crs_python.html">7. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_docker.html">8. Intro to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_earth_search_tutorial.html">9. Searching a STAC Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dask_intro.html">10. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Scaling stackstac w Dask</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -198,6 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/a2.html">Assignment 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/a3.html">Assignment 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/a4.html">Assignment 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a5.html">Assignment 5</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -396,11 +384,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-stac-items">9.1. Search for STAC items</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-xarray-with-stacksatc">9.2. Create an xarray with stacksatc</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-cloudy-pixels-using-the-qa-band">9.3. Mask cloudy pixels using the QA band</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-biannual-median-composites">9.4. Make biannual median composites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-the-gif">9.5. Render the GIF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-stac-items">11.1. Search for STAC items</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-xarray-with-stacksatc">11.2. Create an xarray with stacksatc</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-cloudy-pixels-using-the-qa-band">11.3. Mask cloudy pixels using the QA band</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-biannual-median-composites">11.4. Make biannual median composites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-the-gif">11.5. Render the GIF</a></li>
 </ul>
             </nav>
         </div>
@@ -413,7 +401,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="query-and-stack-imagery-into-a-gif-using-stackstac-and-dask">
-<h1><span class="section-number">9. </span>Query and Stack Imagery into a GIF Using stackstac and Dask<a class="headerlink" href="#query-and-stack-imagery-into-a-gif-using-stackstac-and-dask" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Query and Stack Imagery into a GIF Using stackstac and Dask<a class="headerlink" href="#query-and-stack-imagery-into-a-gif-using-stackstac-and-dask" title="Permalink to this heading">#</a></h1>
 <p><strong>Attribution</strong>: This tutorial is developed based on the <a class="reference external" href="https://stackstac.readthedocs.io/en/latest/examples/gif.html">example</a> provided in the stackstac documentation.</p>
 <p>We’ll load all the <a class="reference external" href="https://planetarycomputer.microsoft.com/dataset/landsat-8-c2-l2">Landsat-8 (Collection 2, Level 2)</a> data that’s available from <a class="reference external" href="https://planetarycomputer.microsoft.com/">Microsoft’s Planetary Computer</a> over a small region on the coast of <a class="reference external" href="https://www.google.com/maps/place/Chatham,+MA/&#64;41.7498076,-70.2026227,10.73z/data=!4m13!1m7!3m6!1s0x89fb15440149e94d:0x1f9c0efa001cb20b!2sCape+Cod!3b1!8m2!3d41.6687897!4d-70.2962408!3m4!1s0x89fb142168afbe53:0x714436ec7d485a53!8m2!3d41.6821432!4d-69.9597359">Cape Cod</a>, Massachusetts, USA.</p>
 <p>Using nothing but standard xarray syntax, we’ll mask cloudy pixels with the Landsat QA band and reduce the data down to biannual median composites. We will use Dask to make this much faster.</p>
@@ -772,7 +760,7 @@ document.write(`
 </div>
 </div>
 <section id="search-for-stac-items">
-<h2><span class="section-number">9.1. </span>Search for STAC items<a class="headerlink" href="#search-for-stac-items" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Search for STAC items<a class="headerlink" href="#search-for-stac-items" title="Permalink to this heading">#</a></h2>
 <p>Use <a class="reference external" href="https://github.com/stac-utils/pystac-client">pystac-client</a> to connect to Microsoft’s STAC API endpoint and search for Landsat-8 scenes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -818,7 +806,7 @@ Wall time: 1.76 s
 </div>
 </section>
 <section id="create-an-xarray-with-stacksatc">
-<h2><span class="section-number">9.2. </span>Create an xarray with stacksatc<a class="headerlink" href="#create-an-xarray-with-stacksatc" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>Create an xarray with stacksatc<a class="headerlink" href="#create-an-xarray-with-stacksatc" title="Permalink to this heading">#</a></h2>
 <p>Set <code class="docutils literal notranslate"><span class="pre">bounds_latlon=bbox</span></code> to automatically clip to our area of interest (instead of using the full footprints of the scenes).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3433,7 +3421,7 @@ Attributes:
 </div>
 </section>
 <section id="mask-cloudy-pixels-using-the-qa-band">
-<h2><span class="section-number">9.3. </span>Mask cloudy pixels using the QA band<a class="headerlink" href="#mask-cloudy-pixels-using-the-qa-band" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Mask cloudy pixels using the QA band<a class="headerlink" href="#mask-cloudy-pixels-using-the-qa-band" title="Permalink to this heading">#</a></h2>
 <p>Use the bit values of the Landsat-8 QA band to mask out bad pixels. We’ll mask pixels labeled as dilated cloud, cirrus, cloud, or cloud shadow. (By “mask”, we mean just replacing those pixels with NaNs).</p>
 <p>See page 14 on <a class="reference external" href="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/files/LSDS-1619_Landsat-8-9-C2-L2-ScienceProductGuide-v4.pdf">this PDF</a> for the data table describing which bit means what.</p>
 <div class="cell docutils container">
@@ -3477,7 +3465,7 @@ Attributes:
 </div>
 </section>
 <section id="make-biannual-median-composites">
-<h2><span class="section-number">9.4. </span>Make biannual median composites<a class="headerlink" href="#make-biannual-median-composites" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Make biannual median composites<a class="headerlink" href="#make-biannual-median-composites" title="Permalink to this heading">#</a></h2>
 <p>The Landsat-8 scenes appear to typically be 5-15 days apart. Let’s composite that down to a 6-month interval.</p>
 <p>Since the cloudy pixels we masked with NaNs will be ignored in the <code class="docutils literal notranslate"><span class="pre">median</span></code>, this should give us a decent cloud-free-ish image for each.</p>
 <div class="cell docutils container">
@@ -4608,7 +4596,7 @@ Attributes:
 </div>
 </section>
 <section id="render-the-gif">
-<h2><span class="section-number">9.5. </span>Render the GIF<a class="headerlink" href="#render-the-gif" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.5. </span>Render the GIF<a class="headerlink" href="#render-the-gif" title="Permalink to this heading">#</a></h2>
 <p>Use <a class="reference external" href="https://geogif.readthedocs.io/en/latest/">GeoGIF</a> to turn the stack into an animation. We’ll use <a class="reference external" href="https://geogif.readthedocs.io/en/latest/api.html#dask-dgif">dgif</a> to render the GIF on the cluster, so there’s less data to send back. (GIFs are a lot smaller than NumPy arrays!)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4681,15 +4669,15 @@ Attributes:
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Introduction to Dask</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Introduction to Dask</p>
       </div>
     </a>
     <a class="right-next"
-       href="dask_dataframe.html"
+       href="../assignments/a1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Introduction to Dask DataFrame</p>
+        <p class="prev-next-title">Assignment 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -4711,11 +4699,11 @@ Attributes:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-stac-items">9.1. Search for STAC items</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-xarray-with-stacksatc">9.2. Create an xarray with stacksatc</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-cloudy-pixels-using-the-qa-band">9.3. Mask cloudy pixels using the QA band</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-biannual-median-composites">9.4. Make biannual median composites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-the-gif">9.5. Render the GIF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-stac-items">11.1. Search for STAC items</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-xarray-with-stacksatc">11.2. Create an xarray with stacksatc</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-cloudy-pixels-using-the-qa-band">11.3. Mask cloudy pixels using the QA band</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-biannual-median-composites">11.4. Make biannual median composites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-the-gif">11.5. Render the GIF</a></li>
 </ul>
   </nav></div>
 
@@ -4739,7 +4727,7 @@ By Hamed Alemohammad
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
