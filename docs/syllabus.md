@@ -14,14 +14,14 @@ There will be 9 assignments during the semester, and students can join office ho
 |	4	|	9/16/24	|	Intro to JupyterLab	|	Assignment 2	|
 |	4	|	9/19/24	|	Introduction to Geospatial Python Landscape	|		|
 |	5	|	9/23/24	|	Review of CRS and Projections in Python	|	Assignment 3	|
-|	5	|	9/26/24	|	Introduction to Containers and Docker	|		|
-|	6	|	9/30/24	|	Introduction to Containers and Docker	|	Assignment 4	|
-|	6	|	10/3/24	|	Introduction to STAC	|		|
-|	7	|	10/7/24	|	Geospatial Data on the Cloud	|	Assignment 5 \**	|
-|	7	|	10/10/24	|	Data Visualization	|		|
-|	8	|	10/14/24	|	**Fall Break (No Classes)**	|		|
-|	8	|	10/17/24	|	Introduction to Dask	|	Assignment 6	|
-|	9	|	10/21/24	|	Introduction to Dask DataFrame	|		|
+|	5	|	9/26/24	|	CGA Collaborative Workshop	|		|
+|	6	|	9/30/24	|	Introduction to Containers and Docker	|		|
+|	6	|	10/3/24	|	Introduction to Containers and Docker	|	Assignment 4	|
+|	7	|	10/7/24	|	Introduction to STAC and Geospatial Data on the Cloud	|		|
+|	7	|	10/10/24	|	Introduction to Dask	|	Assignment 5 \**	|
+|	7	|	10/14/24	|	**Fall Break (No Classes)**	|		|
+|	8	|	10/17/24	|	Introduction to Dask DataFrame	|	Assignment 6	|
+|	9	|	10/21/24	|	Data Visualization	|		|
 |	9	|	10/24/24	|	Working with Vector Data in Python	|		|
 |	10	|	10/28/24	|	Scaling Vector Data Analytics 	|	Assignment 7	|
 |	10	|	10/31/24	|	Working with Raster Data in Python	|		|
