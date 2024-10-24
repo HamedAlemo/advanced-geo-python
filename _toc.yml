@@ -35,8 +35,14 @@ parts:
       title: Intro to Dask & Dask Array
     - file: lectures/11_stackstac
       title: Scaling stackstac w Dask
-    # - file: lectures/dask_dataframe
-    #   title: Into to Dask DataFrame
+    - file: lectures/12_dask_dataframe
+      title: Into to Dask DataFrame
+    - file: lectures/13_raster
+      title: Review of Raster Data
+    - file: lectures/14_raster_analysis
+      title: Raster Data in Python
+    # - file: lectures/raster_processing
+    #   title: Raster Data Processing
     # - file: lectures/vector
     #   title: Review of Vector Data
     # - file: lectures/vector_analysis
@@ -45,12 +51,6 @@ parts:
     #   title: Intro to Dask-GeoPandas
     # - file: lectures/scalable_vector_analysis
     #   title: Scalable Vector Analysis
-    # - file: lectures/raster
-    #   title: Review of Raster Data
-    # - file: lectures/raster_analysis
-    #   title: Raster Data in Python
-    # - file: lectures/raster_processing
-    #   title: Raster Data Processing
     # - file: lectures/xarray_fundamentals
     #   title: Xarray Fundamentals
     # - file: lectures/xarray_advanced
@@ -68,6 +68,7 @@ parts:
     - file: assignments/a3 
     - file: assignments/a4
     - file: assignments/a5
+    - file: assignments/a6
   - caption: Appendices
     chapters:
     - file: docs/license
