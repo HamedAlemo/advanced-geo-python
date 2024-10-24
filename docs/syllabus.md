@@ -20,15 +20,15 @@ There will be 9 assignments during the semester, and students can join office ho
 |	7	|	10/7/24	|	Introduction to STAC and Geospatial Data on the Cloud	|		|
 |	7	|	10/10/24	|	Introduction to Dask	|	Assignment 5 \**	|
 |	7	|	10/14/24	|	**Fall Break (No Classes)**	|		|
-|	8	|	10/17/24	|	Introduction to Dask DataFrame	|	Assignment 6	|
-|	9	|	10/21/24	|	Data Visualization	|		|
-|	9	|	10/24/24	|	Working with Vector Data in Python	|		|
-|	10	|	10/28/24	|	Scaling Vector Data Analytics 	|	Assignment 7	|
-|	10	|	10/31/24	|	Working with Raster Data in Python	|		|
-|	11	|	11/4/24	|	Scaling Raster Data Analytics	|	Assignment 8	|
-|	11	|	11/7/24	|	Scaling Raster Data Analytics	|		|
-|	12	|	11/11/24	|	Working with Multi-Dimensional Arrays in Python	|	Assignment 9 \**	|
-|	12	|	11/14/24	|	Working with Multi-Dimensional Arrays in Python	|		|
+|	8	|	10/17/24	|	Introduction to Dask DataFrame	|		|
+|	9	|	10/21/24	|	Introduction to Dask DataFrame	|		|
+|	9	|	10/24/24	|	Working with Raster Data in Python	|	Assignment 6	|
+|	10	|	10/28/24	|	Scaling Raster Data Analytics	|		|
+|	10	|	10/31/24	|	Working with Vector Data in Python	|	Assignment 7	|
+|	11	|	11/4/24	|	Scaling Vector Data Analytics 	|		|
+|	11	|	11/7/24	|	Working with Multi-Dimensional Arrays in Python	|	Assignment 8	|
+|	12	|	11/11/24	|	Working with Multi-Dimensional Arrays in Python	|		|
+|	12	|	11/14/24	|	Data Visualization	|		|
 |	13	|	11/18/24	|	Geospatial Workflows	|	Project Proposal	|
 |	13	|	11/21/24	|	Projects	|		|
 |	14	|	11/25/24	|	Projects	|		|
