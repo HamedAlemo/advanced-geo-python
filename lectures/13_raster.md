@@ -9,7 +9,7 @@ In this lecture, we will review geospatial raster data structures.
 ---
 ## Geospatial Raster Data
 
-In the lection on Vector Data you learned about different types of vector data. The other primary type of geospatial data is raster. Raster data is stored as a grid of values which are rendered on a map as pixels. Each pixel value represents an area on the Earth’s surface. 
+Raster data are a primary type of data for geospatial assets. Rasters are stored as a grid of values which are rendered on a map as pixels. Each pixel value represents an area on the Earth’s surface. 
 
 ## What is a Raster?
 
@@ -30,7 +30,7 @@ Some examples of continuous rasters include:
 - Maps of tree height derived from LiDAR data.
 - Elevation values for a region.
 
-Some rasters contain categorical data where each pixel represents a discrete class such as a landcover type (e.g., “forest” or “grassland”) rather than a continuous value such as elevation or temperature. Some examples of classified maps include:
+Some rasters contain categorical data where each pixel represents a discrete class such as a land cover type (e.g., “forest” or “grassland”) rather than a continuous value such as elevation or temperature. Some examples of classified maps include:
 
 - Land cover / land use maps.
 - Tree height maps classified as short, medium, and tall trees.
@@ -51,9 +51,9 @@ Rasters can be stored at different resolutions. The resolution simply represents
 
 ## Raster Bands
 
-A raster can contain one or more bands. One type of multi-band raster dataset that is familiar to many of us is a color image. A basic color image consists of three bands: red, green, and blue. Each band represents light reflected from the red, green or blue portions of the electromagnetic spectrum. The pixel brightness for each band, when composited creates the colors that we see in an image.
+A raster can contain one or more bands. One type of multi-band raster dataset that is familiar to many of us is a color image. A basic color image consists of three bands: red, green, and blue. Each band represents light reflected from the red, green or blue portions of the electromagnetic spectrum. The pixel brightness for each band, when composited, creates the colors that we see in an image.
 
-Another type of multi-band raster data is time series in which observations of the same variable (single band) over the same area is stacked together. 
+Another type of multi-band raster data is time series in which observations of the same variable (single band) over the same area are stacked together. 
 
 We can plot each band of a multi-band image individually. Or we can composite all three bands together to make a color image. In a multi-band dataset, the rasters will always have the same extent, resolution, and CRS.
 
