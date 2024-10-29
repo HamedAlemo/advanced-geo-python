@@ -487,16 +487,11 @@ You can read more about the data on Registry of Open Data on AWS <a class="refer
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading csv/by_year/2020.csv to ./data/2020.csv...
-Downloaded: ./data/2020.csv
-Downloading csv/by_year/2021.csv to ./data/2021.csv...
-Downloaded: ./data/2021.csv
-Downloading csv/by_year/2022.csv to ./data/2022.csv...
-Downloaded: ./data/2022.csv
-Downloading csv/by_year/2023.csv to ./data/2023.csv...
-Downloaded: ./data/2023.csv
-Downloading csv/by_year/2024.csv to ./data/2024.csv...
-Downloaded: ./data/2024.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Object csv/by_year/2020.csv exists at ./data/2020.csv. Download skipped.
+Object csv/by_year/2021.csv exists at ./data/2021.csv. Download skipped.
+Object csv/by_year/2022.csv exists at ./data/2022.csv. Download skipped.
+Object csv/by_year/2023.csv exists at ./data/2023.csv. Download skipped.
+Object csv/by_year/2024.csv exists at ./data/2024.csv. Download skipped.
 </pre></div>
 </div>
 </div>
@@ -524,10 +519,20 @@ Downloaded: ./data/2024.csv
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8787/status
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-10-21 15:47:38,592 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 8abbcac8bb534c5df63620fa29fbc810 initialized by task (&#39;shuffle-transfer-8abbcac8bb534c5df63620fa29fbc810&#39;, 190) executed on worker tcp://127.0.0.1:39539
-2024-10-21 15:47:49,517 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 8abbcac8bb534c5df63620fa29fbc810 deactivated due to stimulus &#39;task-finished-1729525669.5162039&#39;
-2024-10-21 15:48:01,550 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle f8cfbf179fd7567be671c5bcff2f3225 initialized by task (&#39;shuffle-transfer-f8cfbf179fd7567be671c5bcff2f3225&#39;, 249) executed on worker tcp://127.0.0.1:33909
-2024-10-21 15:48:13,706 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle f8cfbf179fd7567be671c5bcff2f3225 deactivated due to stimulus &#39;task-finished-1729525693.7046325&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-10-29 03:08:29,631 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle c13f174aa9c7c055892846fcec63e0eb initialized by task (&#39;shuffle-transfer-c13f174aa9c7c055892846fcec63e0eb&#39;, 4) executed on worker tcp://127.0.0.1:37029
+2024-10-29 03:08:40,665 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle c13f174aa9c7c055892846fcec63e0eb deactivated due to stimulus &#39;task-finished-1730171320.6634696&#39;
+2024-10-29 03:09:08,926 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 35cc973c67f92223b02f04c8bfa63774 initialized by task (&#39;shuffle-transfer-35cc973c67f92223b02f04c8bfa63774&#39;, 124) executed on worker tcp://127.0.0.1:41279
+2024-10-29 03:09:21,234 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 35cc973c67f92223b02f04c8bfa63774 deactivated due to stimulus &#39;task-finished-1730171361.2319715&#39;
+2024-10-29 03:12:32,850 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 94) executed on worker tcp://127.0.0.1:44969
+2024-10-29 03:12:47,017 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730171567.0173345&#39;
+2024-10-29 03:14:46,939 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 140) executed on worker tcp://127.0.0.1:41279
+2024-10-29 03:15:01,245 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730171701.2428126&#39;
+2024-10-29 03:19:21,715 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 30) executed on worker tcp://127.0.0.1:38473
+2024-10-29 03:19:36,353 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730171976.3521986&#39;
+2024-10-29 03:19:50,283 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 140) executed on worker tcp://127.0.0.1:41279
+2024-10-29 03:20:04,652 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730172004.6500053&#39;
+2024-10-29 03:20:48,104 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 21) executed on worker tcp://127.0.0.1:38473
+2024-10-29 03:21:02,444 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730172062.443373&#39;
 </pre></div>
 </div>
 </div>
@@ -551,7 +556,7 @@ Downloaded: ./data/2024.csv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
@@ -571,7 +576,7 @@ Downloaded: ./data/2024.csv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>54
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43
 </pre></div>
 </div>
 </div>
@@ -690,62 +695,62 @@ Downloaded: ./data/2024.csv
     </tr>
     <tr>
       <th>96</th>
-      <td>US1MDAA0063</td>
-      <td>20231224</td>
+      <td>USC00424467</td>
+      <td>20231011</td>
       <td>SNWD</td>
       <td>0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>N</td>
-      <td>730.0</td>
+      <td>7</td>
+      <td>1700.0</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>US1MDAA0065</td>
-      <td>20231224</td>
-      <td>PRCP</td>
-      <td>5</td>
+      <td>USC00424508</td>
+      <td>20231011</td>
+      <td>TMAX</td>
+      <td>256</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>N</td>
-      <td>645.0</td>
+      <td>7</td>
+      <td>1700.0</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>US1MDAA0065</td>
-      <td>20231224</td>
-      <td>SNOW</td>
-      <td>0</td>
+      <td>USC00424508</td>
+      <td>20231011</td>
+      <td>TMIN</td>
+      <td>56</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>N</td>
-      <td>645.0</td>
+      <td>7</td>
+      <td>1700.0</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>US1MDAA0065</td>
-      <td>20231224</td>
-      <td>SNWD</td>
-      <td>0</td>
+      <td>USC00424508</td>
+      <td>20231011</td>
+      <td>TOBS</td>
+      <td>194</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>N</td>
-      <td>645.0</td>
+      <td>7</td>
+      <td>1700.0</td>
     </tr>
     <tr>
       <th>100</th>
-      <td>US1MDAA0065</td>
-      <td>20231224</td>
-      <td>WESD</td>
+      <td>USC00424508</td>
+      <td>20231011</td>
+      <td>PRCP</td>
       <td>0</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>N</td>
-      <td>645.0</td>
+      <td>7</td>
+      <td>1700.0</td>
     </tr>
   </tbody>
 </table>
-<p>5454 rows × 8 columns</p>
+<p>4343 rows × 8 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -770,7 +775,7 @@ Downloaded: ./data/2024.csv
       <th>OBS_TIME</th>
     </tr>
     <tr>
-      <th>npartitions=54</th>
+      <th>npartitions=43</th>
       <th></th>
       <th></th>
       <th></th>
@@ -978,7 +983,7 @@ npartitions=1
     float64
         ...
 Dask Name: getitem, 4 expressions
-Expr=((ReadCSV(ffb3976)[[&#39;ELEMENT&#39;, &#39;DATA_VALUE&#39;]]).mean(observed=False, chunk_kwargs={&#39;numeric_only&#39;: False}, aggregate_kwargs={&#39;numeric_only&#39;: False}, _slice=&#39;DATA_VALUE&#39;))[&#39;DATA_VALUE&#39;]
+Expr=((ReadCSV(03735e5)[[&#39;ELEMENT&#39;, &#39;DATA_VALUE&#39;]]).mean(observed=False, chunk_kwargs={&#39;numeric_only&#39;: False}, aggregate_kwargs={&#39;numeric_only&#39;: False}, _slice=&#39;DATA_VALUE&#39;))[&#39;DATA_VALUE&#39;]
 </pre></div>
 </div>
 </div>
@@ -1128,7 +1133,7 @@ npartitions=1
     float64
         ...
 Dask Name: getitem, 8 expressions
-Expr=(((Filter(frame=ReadCSV(ffb3976), predicate=Isin(frame=ReadCSV(ffb3976)[&#39;ID&#39;], values=_DelayedExpr(Delayed(&#39;delayed-1e99729721b067d61cb17db688716cf6&#39;)))))[[&#39;ELEMENT&#39;, &#39;DATA_VALUE&#39;]]).mean(observed=False, chunk_kwargs={&#39;numeric_only&#39;: False}, aggregate_kwargs={&#39;numeric_only&#39;: False}, _slice=&#39;DATA_VALUE&#39;))[&#39;DATA_VALUE&#39;]
+Expr=(((Filter(frame=ReadCSV(03735e5), predicate=Isin(frame=ReadCSV(03735e5)[&#39;ID&#39;], values=_DelayedExpr(Delayed(&#39;delayed-1e99729721b067d61cb17db688716cf6&#39;)))))[[&#39;ELEMENT&#39;, &#39;DATA_VALUE&#39;]]).mean(observed=False, chunk_kwargs={&#39;numeric_only&#39;: False}, aggregate_kwargs={&#39;numeric_only&#39;: False}, _slice=&#39;DATA_VALUE&#39;))[&#39;DATA_VALUE&#39;]
 </pre></div>
 </div>
 </div>
@@ -1162,8 +1167,32 @@ Name: DATA_VALUE, dtype: float64
 </section>
 <section id="exercise-find-the-station-with-the-highest-number-of-snow-days">
 <h3><span class="section-number">12.1.5. </span>Exercise: find the station with the highest number of snow days<a class="headerlink" href="#exercise-find-the-station-with-the-highest-number-of-snow-days" title="Permalink to this heading">#</a></h3>
-<p>Write a function that received the name of a observation (e.g. <code class="docutils literal notranslate"><span class="pre">PRCP</span></code>) from the NOAA GHCN-D dataset, and returns the ID of the station(s) with the highest number of days that the target observation has been more than 0.</p>
+<p>Write a function that receives the name of a observation (e.g. <code class="docutils literal notranslate"><span class="pre">PRCP</span></code>) from the NOAA GHCN-D dataset, and returns the ID of the station(s) with the highest number of days that the target observation has been more than 0.</p>
 <p>Use this function to find the station that has the highest number of snow days across years 2020-2024.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">highest_observation_days</span><span class="p">(</span><span class="n">ddf</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">var_df</span> <span class="o">=</span> <span class="n">ddf</span><span class="p">[</span><span class="n">ddf</span><span class="p">[</span><span class="s2">&quot;ELEMENT&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">var</span><span class="p">])]</span>
+    <span class="n">var_df_positive</span> <span class="o">=</span> <span class="n">var_df</span><span class="p">[</span><span class="n">var_df</span><span class="p">[</span><span class="s2">&quot;DATA_VALUE&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">station_counts</span> <span class="o">=</span> <span class="n">var_df_positive</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Station </span><span class="si">{</span><span class="n">station_counts</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> has the highest number of days with a positive </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2"> value at </span><span class="si">{</span><span class="n">station_counts</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">highest_observation_days</span><span class="p">(</span><span class="n">large_df</span><span class="p">,</span> <span class="s2">&quot;SNOW&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Station USW00014755 has the highest number of days with a positive SNOW value at 663 days
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
