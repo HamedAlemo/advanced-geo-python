@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4. JupyterLab for Interactive Computing &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>17. Learn to Write Pseudocode for Python Programming &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/04_jupyter';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/22_workflows_pseudocode';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. The Landscape of Geospatial Data and Tools" href="05_landscape.html" />
-    <link rel="prev" title="3. Python Environments" href="03_python-env.html" />
+    <link rel="next" title="18. Data Workflow Best Practices" href="23_workflows_best_practices.html" />
+    <link rel="prev" title="16. Designing and Automating Data Workflows in Python" href="21_workflows_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_landscape.html">5. Geospatial Landscape</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_crs.html">6. Review of CRS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_crs_python.html">7. CRS and Projections in Python</a></li>
@@ -183,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="14_raster_analysis.html">14. Raster Data in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_raster_processing.html">15. Raster Data Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="21_workflows_intro.html">16. Workflows in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_workflows_pseudocode.html">17. Writing Pseudocode</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Writing Pseudocode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_workflows_best_practices.html">18. Workflow Best Practices</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
@@ -270,7 +270,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/04_jupyter.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/22_workflows_pseudocode.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +300,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lectures/04_jupyter.md" target="_blank"
+      <li><a href="../_sources/lectures/22_workflows_pseudocode.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -382,7 +382,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>JupyterLab for Interactive Computing</h1>
+    <h1>Learn to Write Pseudocode for Python Programming</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -392,13 +392,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyterlab">4.2. Installing JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyterlab">4.3. Launching JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-environments-from-jupyterlab">4.5. Accessing Conda Environments from JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-shortcuts">4.6. JupyterLab Shortcuts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.7. Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-an-efficient-data-workflow-using-pseudocode">17.1. Design an Efficient Data Workflow Using Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-with-the-workflow-for-one-landsat-scene">17.2. Begin With the Workflow for One Landsat Scene</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site">17.3. Expand Workflow to Include All Landsat Scenes for a Site</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-sites-worth-of-data-to-your-workflow">17.4. Add Multiple Sites Worth of Data to Your Workflow</a></li>
 </ul>
             </nav>
         </div>
@@ -410,99 +407,136 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="jupyterlab-for-interactive-computing">
-<h1><span class="section-number">4. </span>JupyterLab for Interactive Computing<a class="headerlink" href="#jupyterlab-for-interactive-computing" title="Permalink to this heading">#</a></h1>
-<section id="introduction">
-<h2><span class="section-number">4.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> is an open-source, web-based integrated development environment (<a class="reference external" href="https://www.codecademy.com/article/what-is-an-ide">IDE</a>) for notebooks, code, and data. It has a flexible and powerful interface for interactive computing, data analysis, and scientific computing. JupyterLab is a part of the <a class="reference external" href="https://jupyter.org/">Jupyter Project</a>, which aims to provide a platform-agnostic, interactive computing experience. JupyterLab builds upon the functionality of traditional Jupyter notebooks by offering a more feature-rich environment for data scientists, researchers, and students.</p>
-</section>
-<section id="installing-jupyterlab">
-<h2><span class="section-number">4.2. </span>Installing JupyterLab<a class="headerlink" href="#installing-jupyterlab" title="Permalink to this heading">#</a></h2>
-<p>To Install JupyterLab, follow the steps below:</p>
-<p><strong>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code></strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install jupyterlab
-</pre></div>
-</div>
-<p><strong>Using Conda</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install jupyterlab
-</pre></div>
-</div>
-<p><strong>Note:</strong> You need to install JupyterLab in each environment that you need to use it. In most scientific projects, JupyterLab is always included in the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>. At the end of this chapter you will learn how to install one instance of JupyterLab and use different conda environments from that instance. Just make sure you use the latest version to take advantage of all the new features.</p>
-</section>
-<section id="launching-jupyterlab">
-<h2><span class="section-number">4.3. </span>Launching JupyterLab<a class="headerlink" href="#launching-jupyterlab" title="Permalink to this heading">#</a></h2>
-<p>You can launch JupyterLab using the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter lab
-</pre></div>
-</div>
-<p>This will open a new tab in your web browser, displaying the JupyterLab interface.</p>
-<p>Let’s look into what’s happening when you run JupyterLab. Behind the scene, JupyterLab runs a Jupyter server that is hosted on your computer and accessible through port <code class="docutils literal notranslate"><span class="pre">8888</span></code> (default) of localhost. After you run <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>, several lines will be printed in your terminal which indicates the path to the Jupyter server on your machine, and the URL to access it. The URL has a format like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8888/lab?token=TOKEN
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> is the IP of your local host, <code class="docutils literal notranslate"><span class="pre">8888</span></code> is the port number, and TOKEN is a randomly generated string that is used to authenticate access to the notebook server. If JupyterLab doesn’t automatically open in your browser, you can copy the link from terminal and paste it in your browser. We will use this later on when we deploy JupyterLab inside a Docker container.</p>
-<figure class="align-center" id="jupyterlab">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/jupyterlab.png"><img alt="../_images/jupyterlab.png" class="bg-primary mb-1" src="../_images/jupyterlab.png" style="width: 700px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">JupyterLab interface (source: <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab Documentation</a>)</span><a class="headerlink" href="#jupyterlab" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="jupyterlab-interface-overview">
-<h2><span class="section-number">4.4. </span>JupyterLab Interface Overview<a class="headerlink" href="#jupyterlab-interface-overview" title="Permalink to this heading">#</a></h2>
-<p><a class="reference internal" href="#jupyterlab"><span class="std std-numref">Fig. 4.1</span></a> shows the latest JupyterLab interface at the time of this writing (Sep 2023). The interface has multiple sections:</p>
-<p><strong>Launcher</strong></p>
-<p>Launcher is a tab that contains shortcuts to launch a notebook, terminal, markdown file, python file, etc. You can access launcher under <em>File</em> or by clicking the large blue button on the top left of the screen.</p>
-<p><strong>File Browser</strong></p>
-<p>On the left-hand side of the interface, you’ll find the file browser, which allows you to navigate your file system and create, open, and manage notebooks and other files. The files and directories that you can access here are the ones that are located in the directory you launched JupyterLab from.</p>
-<p><strong>Tabs and Workspaces</strong></p>
-<p>JupyterLab supports multiple tabs, enabling you to work on multiple notebooks or files simultaneously. You can also organize your workspaces by creating customized layouts to suit your workflow.</p>
-<p><strong>Kernel</strong></p>
-<p>The kernel is responsible for executing code within a notebook. You can choose different kernels for different programming languages (e.g., Python, R, Julia) depending on your analysis needs. You can see all running kernels on the left had side by clicking on the kernels icon.</p>
-<p>The JupyterLab documentation has detailed tutorials for <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/interface.html">The JupyterLab Interface</a>, <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/running.html">Managing Kernels and Terminals</a>, <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/terminal.html">Working with Terminals</a>, <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/notebook.html">Notebooks</a>, <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/file_editor.html">Text Editor</a>, and <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/files.html">Working with Files</a>.</p>
-</section>
-<section id="accessing-conda-environments-from-jupyterlab">
-<h2><span class="section-number">4.5. </span>Accessing Conda Environments from JupyterLab<a class="headerlink" href="#accessing-conda-environments-from-jupyterlab" title="Permalink to this heading">#</a></h2>
-<p>When you run the <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> command in your terminal, JupyterLab server will launch from the conda environment that was active in your terminal. For example, if you are in the <code class="docutils literal notranslate"><span class="pre">base</span></code> environment, the JupyterLab instance will be launched in <code class="docutils literal notranslate"><span class="pre">base</span></code> and all notebook will use the base environment by default.</p>
-<p>In order to use other conda environments in your JupyterLab instance, you have two choices:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="learn-to-write-pseudocode-for-python-programming">
+<h1><span class="section-number">17. </span>Learn to Write Pseudocode for Python Programming<a class="headerlink" href="#learn-to-write-pseudocode-for-python-programming" title="Permalink to this heading">#</a></h1>
+<p><strong>Attribution</strong>
+<em>This lecture is designed based on great resources available on <a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/earth-data-science-workflows/">Earth Data Science Workflows</a> from Earth Lab CU Boulder.</em></p>
+<p>Pseudcode can help you design data workflows through listing out the individual steps of a workflow in plain language, so the focus is on the overall data process, rather than on the specific code needed.</p>
+<section id="design-an-efficient-data-workflow-using-pseudocode">
+<h2><span class="section-number">17.1. </span>Design an Efficient Data Workflow Using Pseudocode<a class="headerlink" href="#design-an-efficient-data-workflow-using-pseudocode" title="Permalink to this heading">#</a></h2>
+<p>You have now identified your challenge - to calculate and plot average normalized difference vegetation index (NDVI) for every Landsat scene (individually) across one year for two study locations:</p>
 <ol class="arabic simple">
-<li><p>Launch JupyterLab in the target environment that you are interested in. In this case, you will only be able to access your target environment from your JupyterLab</p></li>
-<li><p>If you prefer to be able to change your environment inside the JupyterLab instance, you need to do two things:</p></li>
+<li><p><a href="https://www.neonscience.org/field-sites/field-sites-map/SJER" target="_blank">San Joaquin Experimental Range (SJER) in Southern California, United States</a></p></li>
+<li><p><a href="https://www.neonscience.org/field-sites/field-sites-map/HARV" target="_blank">Harvard Forest (HARV) in the Eastern United States</a></p></li>
 </ol>
-<ul class="simple">
-<li><p>Decide which environment you want to use to launch JupyterLab from (this can be your <code class="docutils literal notranslate"><span class="pre">base</span></code> environment), and install <code class="docutils literal notranslate"><span class="pre">nb_conda_kernels</span></code> in that environment as following:</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install nb_conda_kernels
-</pre></div>
+<p>You have been given a study area boundary for each site. Your next step is to write out the steps that you need to follow to get to your end goal plot and csv file.</p>
+<p>You know you will need to do the following:</p>
+<ol class="arabic simple">
+<li><p>Find Landsat scenes.</p></li>
+<li><p>Access the scenes on the cloud or download them.</p></li>
+<li><p>Read the data.</p></li>
+<li><p>Calculate NDVI.</p></li>
+<li><p>Save NDVI values to pandas dataframe with the associated date and site name</p></li>
+<li><p>Plot NDVI time-series</p></li>
+<li><p>Export NDVI values to a csv file</p></li>
+</ol>
+<p>Begin your process by pseudocoding - or writing out steps in plain English - everything that you will need to do in order to get to your end goal. The steps below will walk you through beginning this process of writing pseudocode.</p>
+</section>
+<section id="begin-with-the-workflow-for-one-landsat-scene">
+<h2><span class="section-number">17.2. </span>Begin With the Workflow for One Landsat Scene<a class="headerlink" href="#begin-with-the-workflow-for-one-landsat-scene" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Search for one Landsat scene across your area of interest (aoi)</p></li>
+<li><p>Get a list of relevant files for the resulting Landsat scene.</p>
+<p>Recall that Landsat data is provided as a series of GeoTIFF files - one for each band (e.g. red, near-infrared) and one with the quality assurance information (e.g. cloud cover and shadows).</p>
+<div class="admonition-steps-required-to-get-data-for-one-landsat-scene-for-a-site admonition">
+<p class="admonition-title">Steps required to get data for one Landsat scene for a site</p>
+<ol class="arabic simple">
+<li><p>Query an API to find the target Landsat scene</p></li>
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+</ol>
 </div>
+</li>
+<li><p>Open and crop the data for one Landsat scene.</p>
+<p>Now that you have the steps to get the data for one Landsat scene, you can expand your pseudocode steps to include opening and cropping the data to the site boundary.</p>
+<div class="admonition-steps-required-to-process-one-landsat-scene-for-a-site admonition">
+<p class="admonition-title">Steps required to process one Landsat scene for a site</p>
+<ol class="arabic simple">
+<li><p>Query an API to find the target Landsat scene</p></li>
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+<li><p>Open and crop the bands needed to calculate NDVI.</p></li>
+</ol>
+</div>
+</li>
+<li><p>Calculate NDVI for one Landsat scene.</p>
+<p>Last, you can expand your pseudocode to include using the bands that you opened and cropped to calculate NDVI.</p>
+<div class="admonition-steps-required-to-process-one-landsat-scene-for-a-site admonition">
+<p class="admonition-title">Steps required to process one Landsat scene for a site</p>
+<ol class="arabic simple">
+<li><p>Query an API to find the target Landsat scene</p></li>
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+<li><p>Open and crop the bands needed to calculate NDVI.</p></li>
+<li><p>Calculate average NDVI for that scene.</p></li>
+</ol>
+</div>
+</li>
+</ol>
+</section>
+<section id="expand-workflow-to-include-all-landsat-scenes-for-a-site">
+<h2><span class="section-number">17.3. </span>Expand Workflow to Include All Landsat Scenes for a Site<a class="headerlink" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site" title="Permalink to this heading">#</a></h2>
+<p>You have now identified the steps required to process a single Landsat scene. Those steps now need to be repeated across all of the scenes for each site for a year.</p>
+<div class="admonition-steps-required-to-process-all-landsat-scenes-for-a-site admonition">
+<p class="admonition-title">Steps required to process all Landsat scenes for a site </p>
+<ol class="arabic simple">
+<li><p>Query an API to find all Landsat scenes for your aoi</p></li>
+<li><p>For each scene, use the steps outlined previously for one scene to calculate NDVI for the data in that scene.</p></li>
+<li><p>Save NDVI values and the date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.</p></li>
+</ol>
+</div>
+<p>OK - now you are ready to put the workflow for a single site together. Of course, remember there are some sub steps that have not been fleshed out just yet, but start with the basics and build from there.</p>
+<div class="admonition-steps-required-to-process-all-landsat-scenes-for-a-site admonition">
+<p class="admonition-title">Steps required to process all Landsat scenes for a site</p>
+<ol class="arabic simple">
+<li><p>Query an API to find all Landsat scenes for your site</p></li>
+<li><p>For each scene, use the steps outlined previously for one site to calculate NDVI:</p>
 <ul class="simple">
-<li><p>Make sure to install <code class="docutils literal notranslate"><span class="pre">ipykernel</span></code> in any other environment that you would like to be able to access inside JupyterLab</p></li>
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+<li><p>Open and crop the bands needed to calculate NDVI.</p></li>
+<li><p>Calculate average NDVI for that scene.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install ipykernel
-</pre></div>
+</li>
+<li><p>Save NDVI values and the date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.</p></li>
+<li><p>Export dataframe with mean NDVI values to csv. (i.e. a “data product” output that you can share with others)</p></li>
+<li><p>Plot the NDVI for each Landsat scene</p></li>
+</ol>
 </div>
 </section>
-<section id="jupyterlab-shortcuts">
-<h2><span class="section-number">4.6. </span>JupyterLab Shortcuts<a class="headerlink" href="#jupyterlab-shortcuts" title="Permalink to this heading">#</a></h2>
-<p>There are several very useful and practical shortcuts for JupyterLab that improves your experience of working with it. You can see all of the default shortcuts after launching your JupyterLab byt navigating to Settings&gt;Advanced Setting Editor&gt;Keyboard Shortcuts.</p>
-<p>We will introduce some of the useful ones in the class.</p>
-</section>
-<section id="exercise">
-<h2><span class="section-number">4.7. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
-<p>In this exercise you will be working with a CSV file that contains labels for image chips. An image chip is a small portion of a larger satellite image for which the labels are valid for. A typical image chip is 256px by 256px. Each row in this CSV represents a single image chip’s metadata and contains the chip’s land cover types (as a list) and the datetime for which the label is valid.</p>
-<p>Download the CSV file from <a class="reference download internal" download="" href="../_downloads/ee367188570520ae0594c17f7c7c62c0/landcover_chips.csv"><span class="xref download myst">here</span></a>. The CSV has the following columns:</p>
+<section id="add-multiple-sites-worth-of-data-to-your-workflow">
+<h2><span class="section-number">17.4. </span>Add Multiple Sites Worth of Data to Your Workflow<a class="headerlink" href="#add-multiple-sites-worth-of-data-to-your-workflow" title="Permalink to this heading">#</a></h2>
+<p>Above you begin to think about the steps associated with creating a workflow for:</p>
+<ol class="arabic simple">
+<li><p>A single Landsat scene.</p></li>
+<li><p>A set of Landsat scenes for a particular site.</p></li>
+</ol>
+<p>But you want to do this for two or more sites. You are not sure if you will have more than two sites but in this case you want to design a workflow that allows for two or more sites. Add an additional layer to your pseudo code.</p>
+<div class="admonition-modular-workflow-for-many-sites admonition">
+<p class="admonition-title">Modular workflow for many sites</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> as Integer</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">landcover</span></code> as String Array</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> in ISO 8601 Timestamp</p></li>
+<li><p>Get list of all sites.</p></li>
+<li><p>For each site, use the steps outlined previously for one site to calculate NDVI:</p>
+<ol class="arabic simple">
+<li><p>Query an API to find all Landsat scenes for that site</p></li>
+<li><p>For each scene, use the steps outlined previously for one scene to calculate NDVI for the data in that scene:</p>
+<ul>
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+<li><p>Open and crop the bands needed to calculate NDVI.</p></li>
+<li><p>Calculate average NDVI for that scene.</p></li>
 </ul>
-<p>You are asked to do the following in a Jupyter Notebook:</p>
-<ul class="simple">
-<li><p>Load the CSV as a dataframe</p></li>
-<li><p>Return the number of chips for chips with a datetime between <code class="docutils literal notranslate"><span class="pre">2017-01-01T00:00:00Z</span></code> and <code class="docutils literal notranslate"><span class="pre">2017-12-31T11:59:59Z</span></code></p></li>
-<li><p>Plot a Bar Chart visualizing the total number of chips for each hour of the day</p></li>
-<li><p>Return a list of unique land cover types present in the CSV</p></li>
+</li>
+<li><p>Save NDVI values and the date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.</p></li>
+<li><p>Export dataframe with mean NDVI values to csv. (i.e. a “data product” output that you can share with others)</p></li>
+<li><p>Plot the NDVI for each Landsat scene</p></li>
+</ol>
+</li>
 </ul>
+</div>
+<p>You have now designed a workflow using pseudocode to process several sites worth of landsat data.</p>
+<p>Of course, the pseudocode above is just beginning. For each of the steps above, you need to flesh out how you can accomplish each task.</p>
+<p>The next lesson in this chapter focuses on data workflow best practices that can help you implement your workflow efficiently and effectively.</p>
 <p>&nbsp;</p></section>
 </section>
 
@@ -538,20 +572,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03_python-env.html"
+       href="21_workflows_intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Python Environments</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Designing and Automating Data Workflows in Python</p>
       </div>
     </a>
     <a class="right-next"
-       href="05_landscape.html"
+       href="23_workflows_best_practices.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>The Landscape of Geospatial Data and Tools</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Data Workflow Best Practices</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -573,13 +607,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyterlab">4.2. Installing JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyterlab">4.3. Launching JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-interface-overview">4.4. JupyterLab Interface Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-conda-environments-from-jupyterlab">4.5. Accessing Conda Environments from JupyterLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-shortcuts">4.6. JupyterLab Shortcuts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.7. Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-an-efficient-data-workflow-using-pseudocode">17.1. Design an Efficient Data Workflow Using Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-with-the-workflow-for-one-landsat-scene">17.2. Begin With the Workflow for One Landsat Scene</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site">17.3. Expand Workflow to Include All Landsat Scenes for a Site</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-sites-worth-of-data-to-your-workflow">17.4. Add Multiple Sites Worth of Data to Your Workflow</a></li>
 </ul>
   </nav></div>
 
