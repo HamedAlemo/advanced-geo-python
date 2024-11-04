@@ -2,6 +2,7 @@
 
 In this lecture, we will review geospatial vector data structures. 
 
+<!-- CHECK OUT https://www.youtube.com/watch?v=wkTTU0LMIsk -->
 
 **Attribution**
 *The content of this lecture are modified from three excellent sources: [Introduction to Spatial Vector Data File Formats in Open Source Python](https://www.earthdatascience.org/courses/intro-to-earth-data-science/file-formats/use-spatial-data/use-vector-data/) from Earth Lab CU Boulder; [Introduction to Vector Data](https://carpentries-incubator.github.io/geospatial-python/02-intro-vector-data.html) from Software Carpentry; and [Overview of GeoJSON](https://tyson-swetnam.github.io/agic-2022/geojson/) from Cloud Native Data Workshop.*
@@ -38,7 +39,7 @@ If we have more than one vector data shape, you can create a `multiple` type. Th
 
 ## GeoJSON Schemas
 
-In this class, we will mostly use GeoJSONs for vector data formats (refer to the lecture on [The Landscape of Geospatial Data and Tools](../lectures/landscape.md) for more information about different formats.) You can represent any vector data type in GeoJSON format as described in the schemas in the following. Based on the latest [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), all coordinates should be recorded using a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) [WGS84] datum, with longitude and latitude units of decimal degrees. 
+In this class, we will mostly use GeoJSONs for vector data formats (refer to the lecture on [The Landscape of Geospatial Data and Tools](../lectures/05_landscape.md) for more information about different formats.) You can represent any vector data type in GeoJSON format as described in the schemas in the following. Based on the latest [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), all coordinates should be recorded using a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) [WGS84] datum, with longitude and latitude units of decimal degrees. 
 
 ```{dropdown} GeoJSON Point Schema
 ``` json
