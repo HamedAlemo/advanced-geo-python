@@ -71,6 +71,6 @@ Thus, your aim should be to write code that is readable, reproducible, and effic
 3. Writing custom functions for repetitive tasks in your workflows.
 4. Including checks (i.e. tests) in your code to ensure that it is doing what you think is! 
 
-We reviewed some of these topics in our lecture on reproducible science, and more programming specific best practices are introduced in [Data Workflow Best Practices](../lectures/workflows_best_practices.ipynb).
+We reviewed some of these topics in our lecture on reproducible science, and more programming specific best practices are introduced in [Data Workflow Best Practices](../lectures/23_workflows_best_practices.ipynb).
 
 <p>&nbsp;</p>
