@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/17_vector_analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="18. Designing and Automating Data Workflows in Python" href="21_workflows_intro.html" />
+    <link rel="next" title="18. Introduction to Dask-GeoPandas" href="18_dask_geopandas_intro.html" />
     <link rel="prev" title="16. Review of Geospatial Vector Data" href="16_vector.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,9 +184,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="15_raster_processing.html">15. Raster Data Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16_vector.html">16. Review of Vector Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Vector Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="21_workflows_intro.html">18. Workflows in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_workflows_pseudocode.html">19. Writing Pseudocode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_workflows_best_practices.html">20. Workflow Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_dask_geopandas_intro.html">18. Intro to Dask-GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_scalable_vector_analysis.html">19. Scalable Vector Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_workflows_intro.html">20. Workflows in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_workflows_pseudocode.html">21. Writing Pseudocode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_workflows_best_practices.html">22. Workflow Best Practices</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -429,6 +431,7 @@ document.write(`
 <p><strong>Attribution</strong>: Parts of this tutorial are developed based on the content from the following great sources: <a class="reference external" href="https://carpentries-incubator.github.io/geospatial-python/07-vector-data-in-python.html">Vector data in Python</a>; and <a class="reference external" href="https://geopandas.org/en/stable/getting_started/introduction.html">Introduction to GeoPandas</a>.</p>
 <p>In this lecture, you will learn how to interact with geospatial vector data in Python. In this lecture, our focus is on smaller datasets, and in the next one we will learn how to handle large datasets for scalable analysis.</p>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">GeoPandas</span></code> package to open, manipulate and write vector datasets.</p>
+<p>You can access this notebook (in a Docker image) on this <a class="reference external" href="https://github.com/HamedAlemo/vector-data-tutorial">GitHub repo</a>.</p>
 <section id="intro-to-geopandas">
 <h2><span class="section-number">17.1. </span>Intro to GeoPandas<a class="headerlink" href="#intro-to-geopandas" title="Permalink to this heading">#</a></h2>
 <div>
@@ -5440,11 +5443,11 @@ Name: geometry, Length: 225, dtype: geometry
       </div>
     </a>
     <a class="right-next"
-       href="21_workflows_intro.html"
+       href="18_dask_geopandas_intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Designing and Automating Data Workflows in Python</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Introduction to Dask-GeoPandas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

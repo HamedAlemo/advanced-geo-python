@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>20. Data Workflow Best Practices &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>22. Data Workflow Best Practices &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
-    <link rel="prev" title="19. Learn to Write Pseudocode for Python Programming" href="22_workflows_pseudocode.html" />
+    <link rel="prev" title="21. Learn to Write Pseudocode for Python Programming" href="22_workflows_pseudocode.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,9 +184,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="15_raster_processing.html">15. Raster Data Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16_vector.html">16. Review of Vector Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_vector_analysis.html">17. Vector Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="21_workflows_intro.html">18. Workflows in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_workflows_pseudocode.html">19. Writing Pseudocode</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Workflow Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_dask_geopandas_intro.html">18. Intro to Dask-GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_scalable_vector_analysis.html">19. Scalable Vector Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_workflows_intro.html">20. Workflows in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_workflows_pseudocode.html">21. Writing Pseudocode</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Workflow Best Practices</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -394,23 +396,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">20.1. Data Workflow Best Practices</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-modify-the-raw-data">20.1.1. Do Not Modify the Raw Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-expressive-intermediate-file-names-and-outputs">20.1.2. Create Expressive Intermediate File Names and Outputs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-modular-code">20.1.3. Write Modular Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-components-of-python-functions">20.1.4. Review of Key Components of Python Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-benefits-of-using-and-writing-functions">20.1.5. Review of Benefits of Using and Writing Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizing-custom-functions">20.1.6. Generalizing Custom Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">22.1. Data Workflow Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-modify-the-raw-data">22.1.1. Do Not Modify the Raw Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-expressive-intermediate-file-names-and-outputs">22.1.2. Create Expressive Intermediate File Names and Outputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-modular-code">22.1.3. Write Modular Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-components-of-python-functions">22.1.4. Review of Key Components of Python Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-benefits-of-using-and-writing-functions">22.1.5. Review of Benefits of Using and Writing Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizing-custom-functions">22.1.6. Generalizing Custom Functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-code-to-add-checks-and-tests">20.2. Expand Code to Add Checks and Tests</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">20.2.1. Conditional Statements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-and-except">20.2.2. <code class="docutils literal notranslate"><span class="pre">Try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exception-handling">20.2.3. Exception Handling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#old-fashioned-trial-and-error">20.2.4. Old Fashioned Trial and Error</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-code-to-add-checks-and-tests">22.2. Expand Code to Add Checks and Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">22.2.1. Conditional Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-and-except">22.2.2. <code class="docutils literal notranslate"><span class="pre">Try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exception-handling">22.2.3. Exception Handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#old-fashioned-trial-and-error">22.2.4. Old Fashioned Trial and Error</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">20.3. Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">22.3. Additional Resources</a></li>
 </ul>
             </nav>
         </div>
@@ -423,18 +425,18 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-workflow-best-practices">
-<h1><span class="section-number">20. </span>Data Workflow Best Practices<a class="headerlink" href="#data-workflow-best-practices" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>Data Workflow Best Practices<a class="headerlink" href="#data-workflow-best-practices" title="Permalink to this heading">#</a></h1>
 <p><strong>Attribution</strong>
 This lecture is designed based on great resources available on <a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/earth-data-science-workflows/">Earth Data Science Workflows</a> from Earth Lab CU Boulder.*</p>
 <p>Identifying aspects of a workflow that can be modularized and tested can help you design efficient and effective data workflows.</p>
 <section id="id1">
-<h2><span class="section-number">20.1. </span>Data Workflow Best Practices<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>Data Workflow Best Practices<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>In the previous lessons, you designed a workflow to process several sites worth of Landsat data, but of course, identifying the workflow is just beginning.</p>
 <p>For each of the steps you identified in your pseudocode, you need to flesh out how you can accomplish each task.</p>
 <p>Before you design your workflow in more detail, there are many things to keep in mind regarding how you will use and name files, how you will modularize code to reduce repetitive code, etc.</p>
 <p>Consider the data workflow best practices discussed below.</p>
 <section id="do-not-modify-the-raw-data">
-<h3><span class="section-number">20.1.1. </span>Do Not Modify the Raw Data<a class="headerlink" href="#do-not-modify-the-raw-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.1.1. </span>Do Not Modify the Raw Data<a class="headerlink" href="#do-not-modify-the-raw-data" title="Permalink to this heading">#</a></h3>
 <p>Typically you do not want to modify the raw data, so that you can always reproduce your output from the same inputs. In some cases, this is less important, e.g., when you are not tasked with curating the raw data. For example you <em>could</em>  redownload the landsat data provided in this class.</p>
 <p>In other cases, this is extremely important - you wouldn’t want to recollect a summers worth of field collected data because you accidentally modified the original spreadsheet.</p>
 <p>A good rule of thumb is to create an “outputs” directory where you store outputs. An outputs directory is helpful because:</p>
@@ -444,7 +446,7 @@ This lecture is designed based on great resources available on <a class="referen
 </ol>
 </section>
 <section id="create-expressive-intermediate-file-names-and-outputs">
-<h3><span class="section-number">20.1.2. </span>Create Expressive Intermediate File Names and Outputs<a class="headerlink" href="#create-expressive-intermediate-file-names-and-outputs" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.1.2. </span>Create Expressive Intermediate File Names and Outputs<a class="headerlink" href="#create-expressive-intermediate-file-names-and-outputs" title="Permalink to this heading">#</a></h3>
 <p>You want to carefully consider how you name your intermediate and end product outputs so that the names reflect your intention and the content. For instance - in this case you are creating an NDVI dataframe which would be exported to a csv.</p>
 <p>Here are some naming options:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Less than ideal name</span>
@@ -458,7 +460,7 @@ This lecture is designed based on great resources available on <a class="referen
 <p>Always use clear, expressive names for objects, files, etc. Ask yourself if someone reading your code could guess what is contained in that object or file based on the name.</p>
 </section>
 <section id="write-modular-code">
-<h3><span class="section-number">20.1.3. </span>Write Modular Code<a class="headerlink" href="#write-modular-code" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.1.3. </span>Write Modular Code<a class="headerlink" href="#write-modular-code" title="Permalink to this heading">#</a></h3>
 <p>As you are working on your pseudo code, consider the parts of your analysis that are well suited for functions.</p>
 <p>Writing custom functions for repetitive tasks in your workflows can help your workflow to be more efficient and easier to follow and implement.</p>
 <p>Ideally, a Python function will have 1-3 inputs and will produce 1-2 outputs.</p>
@@ -467,7 +469,7 @@ This lecture is designed based on great resources available on <a class="referen
 <p>You can use existing functions from commonly used packages (i.e. <code class="docutils literal notranslate"><span class="pre">geopandas.read_file()</span></code> or <code class="docutils literal notranslate"><span class="pre">rasterio.open()</span></code>) or <a href="https://www.earthdatascience.org/courses/earth-analytics-bootcamp/functions/intro-functions/" target="_blank">write your own functions</a> when one does not already exist.</p>
 </section>
 <section id="review-of-key-components-of-python-functions">
-<h3><span class="section-number">20.1.4. </span>Review of Key Components of Python Functions<a class="headerlink" href="#review-of-key-components-of-python-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.1.4. </span>Review of Key Components of Python Functions<a class="headerlink" href="#review-of-key-components-of-python-functions" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> keyword</p></li>
 <li><p>Function name</p></li>
@@ -503,7 +505,7 @@ This lecture is designed based on great resources available on <a class="referen
 <p>This one of the primary benefits of writing and using functions!</p>
 </section>
 <section id="review-of-benefits-of-using-and-writing-functions">
-<h3><span class="section-number">20.1.5. </span>Review of Benefits of Using and Writing Functions<a class="headerlink" href="#review-of-benefits-of-using-and-writing-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.1.5. </span>Review of Benefits of Using and Writing Functions<a class="headerlink" href="#review-of-benefits-of-using-and-writing-functions" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Reusability (e.g. by yourself or others)</p></li>
 <li><p>Fewer variables (e.g. temporary variables not needed outside of the function are not stored)</p></li>
@@ -519,7 +521,7 @@ This lecture is designed based on great resources available on <a class="referen
 </ul>
 </section>
 <section id="generalizing-custom-functions">
-<h3><span class="section-number">20.1.6. </span>Generalizing Custom Functions<a class="headerlink" href="#generalizing-custom-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.1.6. </span>Generalizing Custom Functions<a class="headerlink" href="#generalizing-custom-functions" title="Permalink to this heading">#</a></h3>
 <p>The best functions complete one specific task but are generalizable for more than one application.</p>
 <p>Example: Goal is a function that can be used to calculate Normalized Difference Vegetation Index (NDVI)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Near_Infrared</span> <span class="o">-</span> <span class="n">Red</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Near_Infrared</span> <span class="o">+</span> <span class="n">Red</span><span class="p">)</span>
@@ -569,7 +571,7 @@ This lecture is designed based on great resources available on <a class="referen
 </section>
 </section>
 <section id="expand-code-to-add-checks-and-tests">
-<h2><span class="section-number">20.2. </span>Expand Code to Add Checks and Tests<a class="headerlink" href="#expand-code-to-add-checks-and-tests" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.2. </span>Expand Code to Add Checks and Tests<a class="headerlink" href="#expand-code-to-add-checks-and-tests" title="Permalink to this heading">#</a></h2>
 <p>By including checks (i.e. tests) in your code, you can be more confident that your code is doing what you think is!</p>
 <p><strong>Specific Reasons to Check Your Code</strong></p>
 <ul class="simple">
@@ -582,7 +584,7 @@ This lecture is designed based on great resources available on <a class="referen
 <p><strong>How Can You Check Your Code?</strong></p>
 <p>There are many different ways to start checking your code. You can begin with conditional statements and work toward more complex checks using try/except and exception handling (which are introduced below).</p>
 <section id="conditional-statements">
-<h3><span class="section-number">20.2.1. </span>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.2.1. </span>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h3>
 <p>This is frequently referred to as “asking permission” before code can execute.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition_1</span><span class="p">:</span>
     <span class="n">action_1</span>
@@ -626,7 +628,7 @@ This lecture is designed based on great resources available on <a class="referen
 </div>
 </section>
 <section id="try-and-except">
-<h3><span class="section-number">20.2.2. </span><code class="docutils literal notranslate"><span class="pre">Try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-and-except" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.2.2. </span><code class="docutils literal notranslate"><span class="pre">Try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-and-except" title="Permalink to this heading">#</a></h3>
 <p>These statements allow the a code block to try to execute first, and then do something else if the code is not executed successfully.</p>
 <p>This is often referred to as “asking for forgiveness, rather than permission”.</p>
 <div>
@@ -713,7 +715,7 @@ The Try and Except code block can be used to add tests and checks your code (sou
 <p>Is it possible that something else could cause a new directory to not get created?</p>
 </section>
 <section id="exception-handling">
-<h3><span class="section-number">20.2.3. </span>Exception Handling<a class="headerlink" href="#exception-handling" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.2.3. </span>Exception Handling<a class="headerlink" href="#exception-handling" title="Permalink to this heading">#</a></h3>
 <p>Also commonly referred to as error handling, exceptions are used to check for specific types of errors that can occur when running code.</p>
 <p>Though it is more common to use exception handling when writing code that you want to publish as packages or libraries or when you are writing applications for end users, it is useful to know about these, so that you are familiar with them when you receive exception messages by others’ code.</p>
 <p><strong>Commonly Used Exceptions</strong>:</p>
@@ -819,7 +821,7 @@ The Try and Except code block can be used to add tests and checks your code (sou
 </div>
 </section>
 <section id="old-fashioned-trial-and-error">
-<h3><span class="section-number">20.2.4. </span>Old Fashioned Trial and Error<a class="headerlink" href="#old-fashioned-trial-and-error" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.2.4. </span>Old Fashioned Trial and Error<a class="headerlink" href="#old-fashioned-trial-and-error" title="Permalink to this heading">#</a></h3>
 <p>Maybe the code is executing just fine, but maybe you are not getting the output in the most optimal format.</p>
 <p>It may not be clear to you until you run the function many times with different inputs.</p>
 <div class="cell docutils container">
@@ -918,7 +920,7 @@ The Try and Except code block can be used to add tests and checks your code (sou
 </section>
 </section>
 <section id="additional-resources">
-<h2><span class="section-number">20.3. </span>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.3. </span>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a href="https://www.oreilly.com/library/view/head-first-python/9781491919521/ch04.html" target="_blank">OReilly Review of Functions and Modularization</a>.</p></li>
 <li><p><a href="https://www.youtube.com/watch?v=NIWwJbo-9_8" target="_blank">Video tutorial on try and except by Corey Schafer</a>.</p></li>
@@ -966,7 +968,7 @@ The Try and Except code block can be used to add tests and checks your code (sou
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Learn to Write Pseudocode for Python Programming</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Learn to Write Pseudocode for Python Programming</p>
       </div>
     </a>
     <a class="right-next"
@@ -996,23 +998,23 @@ The Try and Except code block can be used to add tests and checks your code (sou
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">20.1. Data Workflow Best Practices</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-modify-the-raw-data">20.1.1. Do Not Modify the Raw Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-expressive-intermediate-file-names-and-outputs">20.1.2. Create Expressive Intermediate File Names and Outputs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-modular-code">20.1.3. Write Modular Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-components-of-python-functions">20.1.4. Review of Key Components of Python Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-benefits-of-using-and-writing-functions">20.1.5. Review of Benefits of Using and Writing Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizing-custom-functions">20.1.6. Generalizing Custom Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">22.1. Data Workflow Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-modify-the-raw-data">22.1.1. Do Not Modify the Raw Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-expressive-intermediate-file-names-and-outputs">22.1.2. Create Expressive Intermediate File Names and Outputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-modular-code">22.1.3. Write Modular Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-components-of-python-functions">22.1.4. Review of Key Components of Python Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-benefits-of-using-and-writing-functions">22.1.5. Review of Benefits of Using and Writing Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizing-custom-functions">22.1.6. Generalizing Custom Functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-code-to-add-checks-and-tests">20.2. Expand Code to Add Checks and Tests</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">20.2.1. Conditional Statements</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-and-except">20.2.2. <code class="docutils literal notranslate"><span class="pre">Try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exception-handling">20.2.3. Exception Handling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#old-fashioned-trial-and-error">20.2.4. Old Fashioned Trial and Error</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-code-to-add-checks-and-tests">22.2. Expand Code to Add Checks and Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">22.2.1. Conditional Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-and-except">22.2.2. <code class="docutils literal notranslate"><span class="pre">Try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exception-handling">22.2.3. Exception Handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#old-fashioned-trial-and-error">22.2.4. Old Fashioned Trial and Error</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">20.3. Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">22.3. Additional Resources</a></li>
 </ul>
   </nav></div>
 
