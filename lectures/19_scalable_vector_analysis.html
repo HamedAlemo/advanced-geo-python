@@ -421,7 +421,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="scalable-vector-data-analysis">
 <h1><span class="section-number">19. </span>Scalable Vector Data Analysis<a class="headerlink" href="#scalable-vector-data-analysis" title="Permalink to this heading">#</a></h1>
 <p>You can access this notebook (in a Docker image) on this <a class="reference external" href="https://github.com/HamedAlemo/vector-data-tutorial">GitHub repo</a>.</p>
-<p>In this lecture, we are going to use <code class="docutils literal notranslate"><span class="pre">Dask-GeoPandas</span></code> package to read a large vector dataset from <a class="reference external" href="https://source.coop/https://source.coop/">Source Cooperative</a>. Then use Dask parrallel computation to apply a spatial join operation to two geospatial DataFrames.</p>
+<p>In this lecture, we are going to use <code class="docutils literal notranslate"><span class="pre">Dask-GeoPandas</span></code> package to read a large vector dataset from <a class="reference external" href="https://source.coop">Source Cooperative</a>. Then use Dask parrallel computation to apply a spatial join operation to two geospatial DataFrames.</p>
 <p>Our target dataset is the <code class="docutils literal notranslate"><span class="pre">Google-Microsoft</span> <span class="pre">Open</span> <span class="pre">Buildings</span> <span class="pre">-</span> <span class="pre">combined</span> <span class="pre">by</span> <span class="pre">VIDA</span></code> dataset hosted on <a class="reference external" href="https://source.coop/repositories/vida/google-microsoft-open-buildings/description">Source Cooperative</a>. This is a combined version of the <a class="reference external" href="https://sites.research.google/open-buildings/">Google</a> and <a class="reference external" href="https://planetarycomputer.microsoft.com/dataset/ms-buildings">Microsoft</a> Open Buildings datasets and it has files in GeoParquet format hosted on AWS S3 bucket. Read the dataset description to familiarize yourself with the dataset and its structure.</p>
 <p>GeoParquet is a relatively new and open data format for column-oriented geospatial data. This format is build on the existing Apache Parquet format which is a very powerful format replacing CSV. You can check the specification <a class="reference external" href="https://geoparquet.org/">here</a>, and read more about the format on <a class="reference external" href="https://geoparquet.org/">this website</a>. In short, this format is interoperable, compressed and designed to work with large scale datasets.</p>
 <section id="source-cooperative">
@@ -470,21 +470,27 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8787/status
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-11-11 03:01:05,299 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle a215c48042e610b8d29778c08596bc65 initialized by task (&#39;shuffle-transfer-a215c48042e610b8d29778c08596bc65&#39;, 3) executed on worker tcp://127.0.0.1:37825
-2024-11-11 03:01:07,430 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle a215c48042e610b8d29778c08596bc65 deactivated due to stimulus &#39;task-finished-1731294067.4295573&#39;
-2024-11-11 03:01:36,544 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 24eaf346861f8b016c60682590724585 initialized by task (&#39;shuffle-transfer-24eaf346861f8b016c60682590724585&#39;, 3) executed on worker tcp://127.0.0.1:41649
-2024-11-11 03:01:38,505 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 24eaf346861f8b016c60682590724585 deactivated due to stimulus &#39;task-finished-1731294098.5048223&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-11-12 04:21:51,092 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle fdfed24b60e0cb5cbcfe34ef15878a42 initialized by task (&#39;shuffle-transfer-fdfed24b60e0cb5cbcfe34ef15878a42&#39;, 4) executed on worker tcp://127.0.0.1:39441
+2024-11-12 04:22:07,442 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle fdfed24b60e0cb5cbcfe34ef15878a42 deactivated due to stimulus &#39;task-finished-1731385327.4416423&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <p>In this lecture, we are going to access the data from a specific country. As noted in the dataset description, you need the 3-letter country ISO name to access the corresponding file. You can look up the ISO name for your country of choice <a class="reference external" href="https://www.iso.org/obp/ui/#search">here</a>.</p>
-<p>If you want to run the notebook using a limited bandwidth internet, run this for a small country (Jamaica (JAM) is a good choice). Otherwise, you can run it for Rwanda (RWA) as we have in the followings.</p>
 <p>You need to enter the ISO name and the EPSG corresponding to the UTM zone of your country of choice in the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country_code</span> <span class="o">=</span> <span class="s2">&quot;RWA&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Rwanda</span>
+<span class="n">country_code</span> <span class="o">=</span> <span class="s2">&quot;RWA&quot;</span>
 <span class="n">country_epsg</span> <span class="o">=</span> <span class="mi">32736</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Define a path to download the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">local_path</span> <span class="o">=</span> <span class="s2">&quot;./data/&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -497,9 +503,10 @@ document.write(`
 </div>
 </div>
 </div>
+<p>The following cell downloads the geoparquet file from s3 bucket, and loads it into <code class="docutils literal notranslate"><span class="pre">Dask-GeoPandas</span></code> <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>. We are using a default value of 256M for the blocksize in Dask. If you run into memory issue in the rest of the notebook, lower the blocksize and re-run the following cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bldg_ddf</span> <span class="o">=</span> <span class="n">get_google_microsoft_bldgs</span><span class="p">(</span><span class="n">country_code</span><span class="p">,</span> <span class="n">s3_client</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bldg_ddf</span> <span class="o">=</span> <span class="n">get_google_microsoft_bldgs</span><span class="p">(</span><span class="n">country_code</span><span class="p">,</span> <span class="n">s3_client</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">blocksize</span> <span class="o">=</span> <span class="s2">&quot;256M&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -532,7 +539,7 @@ document.write(`
       <th>bbox</th>
     </tr>
     <tr>
-      <th>npartitions=4</th>
+      <th>npartitions=5</th>
       <th></th>
       <th></th>
       <th></th>
@@ -570,7 +577,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th></th>
+      <th>...</th>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -625,7 +632,12 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boundaries</span> <span class="o">=</span> <span class="n">get_gdam_json</span><span class="p">(</span><span class="n">country_code</span> <span class="o">=</span> <span class="n">country_code</span><span class="p">,</span> <span class="n">admin_level</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boundaries</span> <span class="o">=</span> <span class="n">get_gdam_json</span><span class="p">(</span><span class="n">country_code</span> <span class="o">=</span> <span class="n">country_code</span><span class="p">,</span> <span class="n">admin_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/envs/vector_tutorial/share/proj failed
 </pre></div>
 </div>
 </div>
@@ -677,113 +689,95 @@ Datum: World Geodetic System 1984 ensemble
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>GID_4</th>
+      <th>GID_1</th>
       <th>GID_0</th>
       <th>COUNTRY</th>
-      <th>GID_1</th>
-      <th>NAME_1</th>
-      <th>GID_2</th>
-      <th>NAME_2</th>
-      <th>GID_3</th>
-      <th>NAME_3</th>
       <th>Parish</th>
-      <th>VARNAME_4</th>
-      <th>TYPE_4</th>
-      <th>ENGTYPE_4</th>
-      <th>CC_4</th>
+      <th>VARNAME_1</th>
+      <th>NL_NAME_1</th>
+      <th>TYPE_1</th>
+      <th>ENGTYPE_1</th>
+      <th>CC_1</th>
+      <th>HASC_1</th>
+      <th>ISO_1</th>
       <th>geometry</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>RWA.1.1.1.1_1</td>
+      <td>RWA.1_1</td>
       <td>RWA</td>
       <td>Rwanda</td>
-      <td>RWA.1_1</td>
       <td>Amajyaruguru</td>
-      <td>RWA.1.1_1</td>
-      <td>Burera</td>
-      <td>RWA.1.1.1_1</td>
-      <td>Bungwe</td>
-      <td>Bungwe</td>
+      <td>NorthernProvince|ProvinceduNo</td>
       <td>NA</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>440101</td>
-      <td>MULTIPOLYGON (((29.9763 -1.5148, 29.9733 -1.51...</td>
+      <td>Province</td>
+      <td>Province</td>
+      <td>4</td>
+      <td>RW.NO</td>
+      <td>NA</td>
+      <td>MULTIPOLYGON (((29.9924 -1.9076, 29.9828 -1.91...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>RWA.1.1.1.2_1</td>
+      <td>RWA.2_1</td>
       <td>RWA</td>
       <td>Rwanda</td>
-      <td>RWA.1_1</td>
-      <td>Amajyaruguru</td>
-      <td>RWA.1.1_1</td>
-      <td>Burera</td>
-      <td>RWA.1.1.1_1</td>
-      <td>Bungwe</td>
-      <td>Bushenya</td>
+      <td>Amajyepfo</td>
+      <td>SouthernProvince|ProvinceduSu</td>
       <td>NA</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>440102</td>
-      <td>MULTIPOLYGON (((29.9673 -1.4826, 29.9616 -1.48...</td>
+      <td>Province</td>
+      <td>Province</td>
+      <td>2</td>
+      <td>RW.SU</td>
+      <td>NA</td>
+      <td>MULTIPOLYGON (((29.5407 -2.8291, 29.5381 -2.82...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>RWA.1.1.1.3_1</td>
+      <td>RWA.3_1</td>
       <td>RWA</td>
       <td>Rwanda</td>
-      <td>RWA.1_1</td>
-      <td>Amajyaruguru</td>
-      <td>RWA.1.1_1</td>
-      <td>Burera</td>
-      <td>RWA.1.1.1_1</td>
-      <td>Bungwe</td>
-      <td>Mudugari</td>
+      <td>Iburasirazuba</td>
+      <td>EasternProvince|Provincedel'E</td>
       <td>NA</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>440103</td>
-      <td>MULTIPOLYGON (((29.961 -1.4714, 29.9629 -1.473...</td>
+      <td>Province</td>
+      <td>Province</td>
+      <td>5</td>
+      <td>RW.ES</td>
+      <td>NA</td>
+      <td>MULTIPOLYGON (((30.6679 -2.4039, 30.664 -2.405...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>RWA.1.1.1.4_1</td>
+      <td>RWA.4_1</td>
       <td>RWA</td>
       <td>Rwanda</td>
-      <td>RWA.1_1</td>
-      <td>Amajyaruguru</td>
-      <td>RWA.1.1_1</td>
-      <td>Burera</td>
-      <td>RWA.1.1.1_1</td>
-      <td>Bungwe</td>
-      <td>Tumba</td>
+      <td>Iburengerazuba</td>
+      <td>WesternProvince|Provincedel'O</td>
       <td>NA</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>440104</td>
-      <td>MULTIPOLYGON (((29.9713 -1.5133, 29.9811 -1.51...</td>
+      <td>Province</td>
+      <td>Province</td>
+      <td>3</td>
+      <td>RW.OU</td>
+      <td>NA</td>
+      <td>MULTIPOLYGON (((29.0355 -2.7375, 29.0347 -2.73...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>RWA.1.1.2.1_1</td>
+      <td>RWA.5_1</td>
       <td>RWA</td>
       <td>Rwanda</td>
-      <td>RWA.1_1</td>
-      <td>Amajyaruguru</td>
-      <td>RWA.1.1_1</td>
-      <td>Burera</td>
-      <td>RWA.1.1.2_1</td>
-      <td>Butaro</td>
-      <td>Gatsibo</td>
+      <td>UmujyiwaKigali</td>
+      <td>KigaliCity|VilledeKigali</td>
       <td>NA</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>440201</td>
-      <td>MULTIPOLYGON (((29.8394 -1.3918, 29.8387 -1.39...</td>
+      <td>Province</td>
+      <td>Province</td>
+      <td>1</td>
+      <td>RW.KV</td>
+      <td>NA</td>
+      <td>MULTIPOLYGON (((30.0161 -2.0755, 30.0164 -2.07...</td>
     </tr>
   </tbody>
 </table>
@@ -822,26 +816,20 @@ Datum: World Geodetic System 1984 ensemble
       <th>geometry</th>
       <th>bbox</th>
       <th>index_right</th>
-      <th>GID_4</th>
+      <th>GID_1</th>
       <th>GID_0</th>
       <th>COUNTRY</th>
-      <th>GID_1</th>
-      <th>NAME_1</th>
-      <th>GID_2</th>
-      <th>NAME_2</th>
-      <th>GID_3</th>
-      <th>NAME_3</th>
       <th>Parish</th>
-      <th>VARNAME_4</th>
-      <th>TYPE_4</th>
-      <th>ENGTYPE_4</th>
-      <th>CC_4</th>
+      <th>VARNAME_1</th>
+      <th>NL_NAME_1</th>
+      <th>TYPE_1</th>
+      <th>ENGTYPE_1</th>
+      <th>CC_1</th>
+      <th>HASC_1</th>
+      <th>ISO_1</th>
     </tr>
     <tr>
-      <th>npartitions=4</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>npartitions=5</th>
       <th></th>
       <th></th>
       <th></th>
@@ -889,9 +877,6 @@ Datum: World Geodetic System 1984 ensemble
       <td>string</td>
       <td>string</td>
       <td>string</td>
-      <td>string</td>
-      <td>string</td>
-      <td>string</td>
     </tr>
     <tr>
       <th></th>
@@ -916,42 +901,9 @@ Datum: World Geodetic System 1984 ensemble
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th></th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
+      <th>...</th>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -979,6 +931,27 @@ Datum: World Geodetic System 1984 ensemble
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th></th>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1020,18 +993,12 @@ Datum: World Geodetic System 1984 ensemble
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parish
-Akaboti        3428
-Akabuga        4086
-Akagarama      2197
-Akamatamu      5396
-Akanzu         2241
-              ...  
-Ubumwe          577
-Umukamba       2197
-Umunini       15253
-Uwindekezi     1795
-Uwingugu       2420
-Name: count, Length: 1483, dtype: int64[pyarrow]
+Amajyaruguru      1083456
+Amajyepfo         1471584
+Iburengerazuba    1273120
+Iburasirazuba     1703538
+UmujyiwaKigali     770553
+Name: count, dtype: int64[pyarrow]
 </pre></div>
 </div>
 </div>
@@ -1043,7 +1010,7 @@ Name: count, Length: 1483, dtype: int64[pyarrow]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of buildings is 6326876
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of buildings is 6302251
 </pre></div>
 </div>
 </div>
