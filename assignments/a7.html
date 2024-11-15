@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Assignment 1 &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>Assignment 7 &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/a1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/a7';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment 2" href="a2.html" />
-    <link rel="prev" title="22. Data Workflow Best Practices" href="../lectures/23_workflows_best_practices.html" />
+    <link rel="next" title="License" href="../docs/license.html" />
+    <link rel="prev" title="Assignment 6" href="a6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,13 +192,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a1.html">Assignment 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="a2.html">Assignment 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="a3.html">Assignment 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="a4.html">Assignment 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="a5.html">Assignment 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="a6.html">Assignment 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="a7.html">Assignment 7</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -275,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Fassignments/a1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Fassignments/a7.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +305,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/assignments/a1.md" target="_blank"
+      <li><a href="../_sources/assignments/a7.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -374,7 +374,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -385,11 +387,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Assignment 1</h1>
+    <h1>Assignment 7</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-building-footprint-data">Download Building Footprint Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data">Download Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-geoparquet-data">Load Geoparquet Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-the-data">Analyze the Data</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -399,19 +412,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="assignment-1">
-<h1>Assignment 1<a class="headerlink" href="#assignment-1" title="Permalink to this heading">#</a></h1>
-<p><strong>Due: Monday Sep 16th at 11:59 pm ET</strong></p>
-<p>The goal of this assignment is to learn the principles of Open Science. For this purpose, you have to enroll in the NASA TOPS Open Science 101 online course and complete modules 1, 2, and 3. The modules are designed in a way that you have to complete them in sequence. Make sure to complete the <strong>regular modules and NOT the fast track ones</strong>.</p>
-<p>Steps to enroll, complete, and report back:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-7">
+<h1>Assignment 7<a class="headerlink" href="#assignment-7" title="Permalink to this heading">#</a></h1>
+<p><strong>Due: Wednesday Nov 27th at 11:59 pm ET</strong></p>
+<p>The goal of this assignment is to work with Dask-GeoPandas, Source Cooperative and analyze vector datasets.</p>
+<p>You should submit this assignment to your existing <code class="docutils literal notranslate"><span class="pre">geog213-assignments</span></code> or <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> GitHub repository under a new directory named <code class="docutils literal notranslate"><span class="pre">assignment-7</span></code>.</p>
+<p>Create a Dockerfile with all required packages to complete the task, and following best practices covered in the class. Include a <code class="docutils literal notranslate"><span class="pre">README</span></code> in your <code class="docutils literal notranslate"><span class="pre">assignment-7</span></code> directory with all the steps a user needs to follow to reproduce your results.</p>
+<section id="download-building-footprint-data">
+<h2>Download Building Footprint Data<a class="headerlink" href="#download-building-footprint-data" title="Permalink to this heading">#</a></h2>
+<p>For this assignment you will be working with the <a class="reference external" href="https://source.coop/repositories/vida/google-microsoft-open-buildings/description">Google-Microsoft Open Buildings Dataset - Combined by VIDA</a> which is available on Source Cooperative. Check out the <a class="reference external" href="https://source.coop/repositories/vida/google-microsoft-open-buildings/description">Read Me</a> of the dataset to understand the dataset and familiarize yourself with its metadata.</p>
+</section>
+<section id="download-data">
+<h2>Download Data<a class="headerlink" href="#download-data" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Navigate to NASA TOPS Open Science 101 page <a class="reference external" href="https://nasa.github.io/Transform-to-Open-Science/take-os101/">here</a>.</p></li>
-<li><p>Click on “Register Now” under the “SELF-PACED VIRTUAL TRAINING” section.</p></li>
-<li><p>Click on Register</p></li>
-<li><p>Create an account if you don’t have one already. If you have an ORCID account, it’s best to use it for logging in.</p></li>
-<li><p>After registering, make sure to complete your profile by entering your Full Name and Location.</p></li>
-<li><p>After completing the first three modules, you need to submit a screenshot of your profile which shows the badges for these three modules and your full name on Canvas.</p></li>
+<li><p>Write a function that receives the ISO code for a country and downloads the corresponding geoparquet file or files for that country.</p></li>
+<li><p>Use this function to download the data for Haiti.</p></li>
 </ul>
+</section>
+<section id="load-geoparquet-data">
+<h2>Load Geoparquet Data<a class="headerlink" href="#load-geoparquet-data" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Write a function that loads the building footprints for the country of interest from the downloaded geoparquet file(s). The geoparquet file(s) in this dataset might be large depending on the country you are working with. So, ideally you would like to benefit from <code class="docutils literal notranslate"><span class="pre">dask_geopandas</span></code> functionality.</p></li>
+<li><p>Use this function to load building footprints for Haiti.</p></li>
+</ul>
+</section>
+<section id="analyze-the-data">
+<h2>Analyze the Data<a class="headerlink" href="#analyze-the-data" title="Permalink to this heading">#</a></h2>
+<p>In this section, you will analyze the data using the functionality provided by Dask:</p>
+<ul class="simple">
+<li><p>Plot the histogram of the area of all buildings provided by Microsoft as the source.</p>
+<ul>
+<li><p>Note: this might have a very skewed distribution. Try passing arguments to your histogram function to create a more even histogram plot, and explain your approach.</p></li>
+</ul>
+</li>
+<li><p>Count the number of building footprints that <code class="docutils literal notranslate"><span class="pre">intersect</span></code> with each other.</p></li>
+<li><p>From the intersecting building footprints, calculate how many:</p>
+<ul>
+<li><p>Google building footprints intersect another Google building footprint</p></li>
+<li><p>Microsoft building footprints intersect another Microsoft building footprint</p></li>
+<li><p>Google building footprints intersect a Microsoft building footprint</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -446,20 +489,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../lectures/23_workflows_best_practices.html"
+       href="a6.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">22. </span>Data Workflow Best Practices</p>
+        <p class="prev-next-title">Assignment 6</p>
       </div>
     </a>
     <a class="right-next"
-       href="a2.html"
+       href="../docs/license.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignment 2</p>
+        <p class="prev-next-title">License</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -472,6 +515,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-building-footprint-data">Download Building Footprint Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data">Download Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-geoparquet-data">Load Geoparquet Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-the-data">Analyze the Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
