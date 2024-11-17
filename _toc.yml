@@ -51,8 +51,8 @@ parts:
       title: Intro to Dask-GeoPandas
     - file: lectures/19_scalable_vector_analysis
       title: Scalable Vector Analysis
-    # - file: lectures/xarray_fundamentals
-    #   title: Xarray Fundamentals
+    - file: lectures/20_xarray_fundamentals
+      title: Xarray Fundamentals
     # - file: lectures/xarray_advanced
     #   title: Advanced Xarray Operations
     - file: lectures/21_workflows_intro
@@ -69,6 +69,7 @@ parts:
     - file: assignments/a4
     - file: assignments/a5
     - file: assignments/a6
+    - file: assignments/a7
   - caption: Appendices
     chapters:
     - file: docs/license
