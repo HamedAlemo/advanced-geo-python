@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>21. Learn to Write Pseudocode for Python Programming &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>22. Learn to Write Pseudocode for Python Programming &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/22_workflows_pseudocode';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="22. Data Workflow Best Practices" href="23_workflows_best_practices.html" />
-    <link rel="prev" title="20. Designing and Automating Data Workflows in Python" href="21_workflows_intro.html" />
+    <link rel="next" title="23. Data Workflow Best Practices" href="23_workflows_best_practices.html" />
+    <link rel="prev" title="21. Designing and Automating Data Workflows in Python" href="21_workflows_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,9 +186,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="17_vector_analysis.html">17. Vector Data in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_dask_geopandas_intro.html">18. Intro to Dask-GeoPandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="19_scalable_vector_analysis.html">19. Scalable Vector Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="21_workflows_intro.html">20. Workflows in Python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">21. Writing Pseudocode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_workflows_best_practices.html">22. Workflow Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_workflows_intro.html">21. Workflows in Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Writing Pseudocode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_workflows_best_practices.html">23. Workflow Best Practices</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -397,10 +398,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-an-efficient-data-workflow-using-pseudocode">21.1. Design an Efficient Data Workflow Using Pseudocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-with-the-workflow-for-one-landsat-scene">21.2. Begin With the Workflow for One Landsat Scene</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site">21.3. Expand Workflow to Include All Landsat Scenes for a Site</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-sites-worth-of-data-to-your-workflow">21.4. Add Multiple Sites Worth of Data to Your Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-an-efficient-data-workflow-using-pseudocode">22.1. Design an Efficient Data Workflow Using Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-with-the-workflow-for-one-landsat-scene">22.2. Begin With the Workflow for One Landsat Scene</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site">22.3. Expand Workflow to Include All Landsat Scenes for a Site</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-sites-worth-of-data-to-your-workflow">22.4. Add Multiple Sites Worth of Data to Your Workflow</a></li>
 </ul>
             </nav>
         </div>
@@ -413,12 +414,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="learn-to-write-pseudocode-for-python-programming">
-<h1><span class="section-number">21. </span>Learn to Write Pseudocode for Python Programming<a class="headerlink" href="#learn-to-write-pseudocode-for-python-programming" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>Learn to Write Pseudocode for Python Programming<a class="headerlink" href="#learn-to-write-pseudocode-for-python-programming" title="Permalink to this heading">#</a></h1>
 <p><strong>Attribution</strong>
 <em>This lecture is designed based on great resources available on <a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/earth-data-science-workflows/">Earth Data Science Workflows</a> from Earth Lab CU Boulder.</em></p>
 <p>Pseudcode can help you design data workflows through listing out the individual steps of a workflow in plain language, so the focus is on the overall data process, rather than on the specific code needed.</p>
 <section id="design-an-efficient-data-workflow-using-pseudocode">
-<h2><span class="section-number">21.1. </span>Design an Efficient Data Workflow Using Pseudocode<a class="headerlink" href="#design-an-efficient-data-workflow-using-pseudocode" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>Design an Efficient Data Workflow Using Pseudocode<a class="headerlink" href="#design-an-efficient-data-workflow-using-pseudocode" title="Permalink to this heading">#</a></h2>
 <p>You have now identified your challenge - to calculate and plot average normalized difference vegetation index (NDVI) for every Landsat scene (individually) across one year for two study locations:</p>
 <ol class="arabic simple">
 <li><p><a href="https://www.neonscience.org/field-sites/field-sites-map/SJER" target="_blank">San Joaquin Experimental Range (SJER) in Southern California, United States</a></p></li>
@@ -438,7 +439,7 @@ document.write(`
 <p>Begin your process by pseudocoding - or writing out steps in plain English - everything that you will need to do in order to get to your end goal. The steps below will walk you through beginning this process of writing pseudocode.</p>
 </section>
 <section id="begin-with-the-workflow-for-one-landsat-scene">
-<h2><span class="section-number">21.2. </span>Begin With the Workflow for One Landsat Scene<a class="headerlink" href="#begin-with-the-workflow-for-one-landsat-scene" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.2. </span>Begin With the Workflow for One Landsat Scene<a class="headerlink" href="#begin-with-the-workflow-for-one-landsat-scene" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
 <li><p>Search for one Landsat scene across your area of interest (aoi)</p></li>
 <li><p>Get a list of relevant files for the resulting Landsat scene.</p>
@@ -480,7 +481,7 @@ document.write(`
 </ol>
 </section>
 <section id="expand-workflow-to-include-all-landsat-scenes-for-a-site">
-<h2><span class="section-number">21.3. </span>Expand Workflow to Include All Landsat Scenes for a Site<a class="headerlink" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.3. </span>Expand Workflow to Include All Landsat Scenes for a Site<a class="headerlink" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site" title="Permalink to this heading">#</a></h2>
 <p>You have now identified the steps required to process a single Landsat scene. Those steps now need to be repeated across all of the scenes for each site for a year.</p>
 <div class="admonition-steps-required-to-process-all-landsat-scenes-for-a-site admonition">
 <p class="admonition-title">Steps required to process all Landsat scenes for a site </p>
@@ -510,7 +511,7 @@ document.write(`
 </div>
 </section>
 <section id="add-multiple-sites-worth-of-data-to-your-workflow">
-<h2><span class="section-number">21.4. </span>Add Multiple Sites Worth of Data to Your Workflow<a class="headerlink" href="#add-multiple-sites-worth-of-data-to-your-workflow" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.4. </span>Add Multiple Sites Worth of Data to Your Workflow<a class="headerlink" href="#add-multiple-sites-worth-of-data-to-your-workflow" title="Permalink to this heading">#</a></h2>
 <p>Above you begin to think about the steps associated with creating a workflow for:</p>
 <ol class="arabic simple">
 <li><p>A single Landsat scene.</p></li>
@@ -582,7 +583,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">20. </span>Designing and Automating Data Workflows in Python</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Designing and Automating Data Workflows in Python</p>
       </div>
     </a>
     <a class="right-next"
@@ -590,7 +591,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">22. </span>Data Workflow Best Practices</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Data Workflow Best Practices</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -612,10 +613,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-an-efficient-data-workflow-using-pseudocode">21.1. Design an Efficient Data Workflow Using Pseudocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-with-the-workflow-for-one-landsat-scene">21.2. Begin With the Workflow for One Landsat Scene</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site">21.3. Expand Workflow to Include All Landsat Scenes for a Site</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-sites-worth-of-data-to-your-workflow">21.4. Add Multiple Sites Worth of Data to Your Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-an-efficient-data-workflow-using-pseudocode">22.1. Design an Efficient Data Workflow Using Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-with-the-workflow-for-one-landsat-scene">22.2. Begin With the Workflow for One Landsat Scene</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site">22.3. Expand Workflow to Include All Landsat Scenes for a Site</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-sites-worth-of-data-to-your-workflow">22.4. Add Multiple Sites Worth of Data to Your Workflow</a></li>
 </ul>
   </nav></div>
 

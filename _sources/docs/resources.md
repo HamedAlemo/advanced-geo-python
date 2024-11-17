@@ -27,33 +27,24 @@ If you need a refresher on introduction to Python, check out the following resou
 Use this section to learn about existing open-access datasets and projects. These can be helpful in defining your final projects. 
 
 ### Datasets
-1. Source Cooperative ([link](https://source.coop/))
-1. Microsoft Planetary Computer Data Catalog ([link](https://planetarycomputer.microsoft.com/catalog)
-1. Registry of Open Data on AWS ([link](https://registry.opendata.aws/))
-1. Public Data on Google Cloud ([link](https://cloud.google.com/storage/docs/public-datasets))
-1. Umbra Open Data Program ([link](https://umbra.space/open-data))
-1. Maxar Open Data Program ([link](https://www.maxar.com/open-data/))
-1. Planet Education and Research Data ([link](https://www.planet.com/markets/education-and-research/))
-1. Google Earth Engine Data Catalog ([link](https://developers.google.com/earth-engine/datasets))
-1. Global River Widths from Landsat (GRWL) Database ([link](https://zenodo.org/record/1297434))
-1. Open Topography ([link](https://opentopography.org/))
-
+1. Source Cooperative [[link](https://source.coop/)]
+1. Microsoft Planetary Computer Data Catalog [[link](https://planetarycomputer.microsoft.com/catalog)]
+1. Registry of Open Data on AWS [[link](https://registry.opendata.aws/)]
+1. World Terrestrial Ecosystems(WTE) 2015 and 2050 [[link](https://www.arcgis.com/home/item.html?id=e247d15898804e42b9a8f2aa7128b2b6)][[blog](https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/announcements/2050-projections-of-world-terrestrial-ecosystems-are-now-available/)]
+1. Public Data on Google Cloud [[link](https://cloud.google.com/storage/docs/public-datasets)]
+1. Umbra Open Data Program [[link](https://umbra.space/open-data)]
+1. Maxar Open Data Program [[link](https://www.maxar.com/open-data/)]
+1. Planet Education and Research Data [[link](https://www.planet.com/markets/education-and-research/)]
+1. Google Earth Engine Data Catalog [[link](https://developers.google.com/earth-engine/datasets)]
+1. Global River Widths from Landsat (GRWL) Database [[link](https://zenodo.org/record/1297434)]
+1. Open Topography [[link](https://opentopography.org/)]
+1. Nigeria Geodata [[link](https://github.com/jeafreezy/nigeria_geodata)]
+1. A multi-year crop field boundary labels for Africa [[link](https://zenodo.org/records/11060871)]
 ## Projects
-1. World Bank’s Open Night Lights ([link](https://worldbank.github.io/OpenNightLights/welcome.html))
-1. A GUIDEBOOK ON MAPPING POVERTY THROUGH  DATA INTEGRATION AND ARTIFICIAL INTELLIGENCE ([link](https://www.adb.org/sites/default/files/publication/698091/guidebook-mapping-poverty-data-integration-ai.pdf))
-1. Cookiecutter Data Science ([link](https://drivendata.github.io/cookiecutter-data-science/))
-1. Analyze NLCD annual time series
-
-
-<!-- Add:
-https://www.linkedin.com/posts/adedoyin-samuel-ajeyomi_grid3-lonboard-nigeria-activity-7235765078925422592-qq7X/?utm_source=share&utm_medium=member_android 
-
-
-Zenodo:  https://zenodo.org/records/11060871
-Github: https://github.com/agroimpacts/lacunalabels
-AWS Open Data Registry: https://registry.opendata.aws/africa-field-boundary-labels/
+1. Understanding at risk crops in 2050 [[link](https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/analytics/climate-change-threatens-the-worlds-olive-legacy-how-gis-can-help-understand-crops-at-risk-by-2050/)]
+1. World Bank’s Open Night Lights [[link](https://worldbank.github.io/OpenNightLights/welcome.html)]
+1. A GUIDEBOOK ON MAPPING POVERTY THROUGH  DATA INTEGRATION AND ARTIFICIAL INTELLIGENCE [[link](https://www.adb.org/sites/default/files/publication/698091/guidebook-mapping-poverty-data-integration-ai.pdf)]
+1. Cookiecutter Data Science [[link](https://drivendata.github.io/cookiecutter-data-science/)]
+1. Analyze NLCD annual time series [[link](https://www.usgs.gov/centers/eros/science/annual-national-land-cover-database)]
  
- 
-
--->
 <p>&nbsp;</p>

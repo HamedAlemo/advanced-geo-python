@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>20. Designing and Automating Data Workflows in Python &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>21. Designing and Automating Data Workflows in Python &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/21_workflows_intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="21. Learn to Write Pseudocode for Python Programming" href="22_workflows_pseudocode.html" />
-    <link rel="prev" title="19. Scalable Vector Data Analysis" href="19_scalable_vector_analysis.html" />
+    <link rel="next" title="22. Learn to Write Pseudocode for Python Programming" href="22_workflows_pseudocode.html" />
+    <link rel="prev" title="20. Xarray Fundamentals" href="20_xarray_fundamentals.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,9 +186,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="17_vector_analysis.html">17. Vector Data in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_dask_geopandas_intro.html">18. Intro to Dask-GeoPandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="19_scalable_vector_analysis.html">19. Scalable Vector Analysis</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Workflows in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_workflows_pseudocode.html">21. Writing Pseudocode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_workflows_best_practices.html">22. Workflow Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">21. Workflows in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_workflows_pseudocode.html">22. Writing Pseudocode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_workflows_best_practices.html">23. Workflow Best Practices</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -397,10 +398,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-problem-challenge-or-question">20.1. Identify the Problem, Challenge or Question</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-data-needed-to-address-the-question-or-challenge">20.2. Identify the Data Needed to Address the Question or Challenge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-workflow">20.3. Design Your Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-your-workflow">20.4. Implement Your Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-problem-challenge-or-question">21.1. Identify the Problem, Challenge or Question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-data-needed-to-address-the-question-or-challenge">21.2. Identify the Data Needed to Address the Question or Challenge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-workflow">21.3. Design Your Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-your-workflow">21.4. Implement Your Workflow</a></li>
 </ul>
             </nav>
         </div>
@@ -413,14 +414,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="designing-and-automating-data-workflows-in-python">
-<h1><span class="section-number">20. </span>Designing and Automating Data Workflows in Python<a class="headerlink" href="#designing-and-automating-data-workflows-in-python" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">21. </span>Designing and Automating Data Workflows in Python<a class="headerlink" href="#designing-and-automating-data-workflows-in-python" title="Permalink to this heading">#</a></h1>
 <p><strong>Attribution</strong>
 <em>This lecture is designed based on great resources available on <a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/earth-data-science-workflows/">Earth Data Science Workflows</a> from Earth Lab CU Boulder.</em></p>
 <p>Designing workflows to process and create outputs for many large files and datasets is a key skill in Earth Data Analytics. Yet it is something that most scientists and Earth analysts learn on the fly at some point in their careers. Now that you have learned various Python packages for geospatial data processing, we are going to discuss the ways you would go after designing and automating your data workflows.</p>
 <p>In this chapter, you will learn how to identify key steps in designing a data workflow and how to write pseudo code to outline data workflow. You will also learn the ways you can modularize your code and test it. We will use examples of geospatial data workflows to walk through different steps of designing these workflows.</p>
 <p>The outline below identifies several key steps associated with designing a workflow that can help you structure your thinking and develop an effective design.</p>
 <section id="identify-the-problem-challenge-or-question">
-<h2><span class="section-number">20.1. </span>Identify the Problem, Challenge or Question<a class="headerlink" href="#identify-the-problem-challenge-or-question" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">21.1. </span>Identify the Problem, Challenge or Question<a class="headerlink" href="#identify-the-problem-challenge-or-question" title="Permalink to this heading">#</a></h2>
 <p>To begin you need to clarify the question(s) or challenge(s) that you need to address. Knowing the specific problem that you need to solve will help to set bounds on what your workflow does and does not need to do.</p>
 <p>In this chapter, we will use the example of calculating a time series of normalized difference vegetation index (NDVI) to investigate ecological processes and changes.</p>
 <p>NDVI is usually used to study changes due to a disturbance such as a flood or a fire. But NDVI can also be used to understand seasonality - when an area begins to “green-up” or grow after the winter cold period and “brown down” when vegetation in an area begins to die back in an area (usually in the fall and winter).  You can calculate NDVI for each month of the year (or even for several years) to understand seasonality in a particular study area.</p>
@@ -429,7 +430,7 @@ document.write(`
 <p>Changes in seasonality can be important indicators of ecological change. For example, if green-up begins earlier, such that fruit or seed resources become available sooner than average, animals that forage on the fruits in the spring must either migrate earlier to use these resources, or miss out on them if they do not adjust migration behavior. This phenomenon is referred to as a phenological mismatch.</p>
 </section>
 <section id="identify-the-data-needed-to-address-the-question-or-challenge">
-<h2><span class="section-number">20.2. </span>Identify the Data Needed to Address the Question or Challenge<a class="headerlink" href="#identify-the-data-needed-to-address-the-question-or-challenge" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">21.2. </span>Identify the Data Needed to Address the Question or Challenge<a class="headerlink" href="#identify-the-data-needed-to-address-the-question-or-challenge" title="Permalink to this heading">#</a></h2>
 <p>Once you have a question in mind, it is time to figure out your data requirements. Requirements are the qualities that your data need to have in order to address a particular question well.</p>
 <p>For our challenge of calculating a NDVI time series, the goal is to create a time series of NDVI for a study area across a year.</p>
 <p>As you want to explore seasonal patterns of “green-up” and “brown down”, you need data that is at least collected each month.</p>
@@ -439,7 +440,7 @@ document.write(`
 <p>In terms of resolution, MODIS pixels could be too large depending on the size of your study site. Perhaps Landsat has an ideal combination of temporal frequency, resolution and spatial coverage.</p>
 </section>
 <section id="design-your-workflow">
-<h2><span class="section-number">20.3. </span>Design Your Workflow<a class="headerlink" href="#design-your-workflow" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">21.3. </span>Design Your Workflow<a class="headerlink" href="#design-your-workflow" title="Permalink to this heading">#</a></h2>
 <p>Next it is time to design the workflow to create the output(s) that will address your question or challenge.</p>
 <p>To use the NDVI time series to understand seasonality, it can be helpful to create a plot that shows the NDVI values for each month for a site.  In addition, you may want to produce some output files (e.g. CSV files) that you can share with others who may be interested in creating their own visualizations. You need to understand your users needs to better design the requirements for your output.</p>
 <p>For the NDVI time series challenge, you will design a workflow that has two outputs:</p>
@@ -452,7 +453,7 @@ document.write(`
 <p>Next lecture walks you through the pseudocoding process, so that you can use this method to easily design data workflows and more toward automating these workflows.</p>
 </section>
 <section id="implement-your-workflow">
-<h2><span class="section-number">20.4. </span>Implement Your Workflow<a class="headerlink" href="#implement-your-workflow" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">21.4. </span>Implement Your Workflow<a class="headerlink" href="#implement-your-workflow" title="Permalink to this heading">#</a></h2>
 <p>Once you have designed your workflow (using pseudocode first!), it is time to implement. This is where you can put all of your programming skills to the test.</p>
 <p>Try to write code that is clear, efficient, well documented and expressive. Remember that you never know when you may have to re-run or re-use an analysis, and you never know when someone else might need to use your code, too.</p>
 <p>Thus, your aim should be to write code that is readable, reproducible, and efficient. Be sure to:</p>
@@ -498,12 +499,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="19_scalable_vector_analysis.html"
+       href="20_xarray_fundamentals.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Scalable Vector Data Analysis</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Xarray Fundamentals</p>
       </div>
     </a>
     <a class="right-next"
@@ -511,7 +512,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">21. </span>Learn to Write Pseudocode for Python Programming</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Learn to Write Pseudocode for Python Programming</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -533,10 +534,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-problem-challenge-or-question">20.1. Identify the Problem, Challenge or Question</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-data-needed-to-address-the-question-or-challenge">20.2. Identify the Data Needed to Address the Question or Challenge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-workflow">20.3. Design Your Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-your-workflow">20.4. Implement Your Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-problem-challenge-or-question">21.1. Identify the Problem, Challenge or Question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-data-needed-to-address-the-question-or-challenge">21.2. Identify the Data Needed to Address the Question or Challenge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-workflow">21.3. Design Your Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-your-workflow">21.4. Implement Your Workflow</a></li>
 </ul>
   </nav></div>
 
