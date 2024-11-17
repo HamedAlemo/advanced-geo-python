@@ -24,14 +24,14 @@ There will be 9 assignments during the semester, and students can join office ho
 |	9	|	10/21/24	|	Introduction to Dask DataFrame	|		|
 |	9	|	10/24/24	|	Working with Raster Data in Python	|	Assignment 6	|
 |	10	|	10/28/24	|	Scaling Raster Data Analytics	|		|
-|	10	|	10/31/24	|	Working with Vector Data in Python	|	Assignment 7	|
+|	10	|	10/31/24	|	Working with Vector Data in Python	|		|
 |	11	|	11/4/24	|	Scaling Vector Data Analytics 	|		|
-|	11	|	11/7/24	|	Working with Multi-Dimensional Arrays in Python	|	Assignment 8	|
+|	11	|	11/7/24	|	Working with Multi-Dimensional Arrays in Python	|	|
 |	12	|	11/11/24	|	Working with Multi-Dimensional Arrays in Python	|		|
-|	12	|	11/14/24	|	Data Visualization	|		|
-|	13	|	11/18/24	|	Geospatial Workflows	|	Project Proposal	|
-|	13	|	11/21/24	|	Projects	|		|
-|	14	|	11/25/24	|	Projects	|		|
+|	12	|	11/14/24	|	Data Visualization	|	Assignment 7	|
+|	13	|	11/18/24	|	Geospatial Workflows	|		|
+|	13	|	11/21/24	|	Make-up Lecture	|		|
+|	14	|	11/25/24	|	Projects	|	Project Proposal	|
 |	14	|	11/28/24	|	**Thanksgiving Break (No Classes)**	|		|
 |	15	|	12/2/24	|	Projects	|		|
 |	15	|	12/5/24	|	Projects	|		|
