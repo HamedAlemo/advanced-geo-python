@@ -42,7 +42,7 @@ Use this section to learn about existing open-access datasets and projects. Thes
 1. A multi-year crop field boundary labels for Africa [[link](https://zenodo.org/records/11060871)]
 1. Indiana Statewide Digital Aerial Imagery Catalog [[link](https://registry.opendata.aws/in-imagery/)][[Tutorial](https://docs.google.com/document/d/1tVXt4MctYVsz5UJXhlU_FM6_uJt5zR2kPO7AiaHaFvY/edit?usp=sharing)]
 1. U.S. Census Bureau American Community Survey (ACS) Public Use Microdata Sample (PUMS) [[link](https://registry.opendata.aws/census-dataworld-pums/)]
-
+1. US Structures from Oak Ridge National Laboratory [[link](https://source.coop/repositories/wherobots/usa-structures/description)]
 
 ## Projects
 1. Understanding at risk crops in 2050 [[link](https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/analytics/climate-change-threatens-the-worlds-olive-legacy-how-gis-can-help-understand-crops-at-risk-by-2050/)]
