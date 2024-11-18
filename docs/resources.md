@@ -40,11 +40,17 @@ Use this section to learn about existing open-access datasets and projects. Thes
 1. Open Topography [[link](https://opentopography.org/)]
 1. Nigeria Geodata [[link](https://github.com/jeafreezy/nigeria_geodata)]
 1. A multi-year crop field boundary labels for Africa [[link](https://zenodo.org/records/11060871)]
+1. Indiana Statewide Digital Aerial Imagery Catalog [[link](https://registry.opendata.aws/in-imagery/)][[Tutorial](https://docs.google.com/document/d/1tVXt4MctYVsz5UJXhlU_FM6_uJt5zR2kPO7AiaHaFvY/edit?usp=sharing)]
+1. U.S. Census Bureau American Community Survey (ACS) Public Use Microdata Sample (PUMS) [[link](https://registry.opendata.aws/census-dataworld-pums/)]
+
+
 ## Projects
 1. Understanding at risk crops in 2050 [[link](https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/analytics/climate-change-threatens-the-worlds-olive-legacy-how-gis-can-help-understand-crops-at-risk-by-2050/)]
 1. World Bank’s Open Night Lights [[link](https://worldbank.github.io/OpenNightLights/welcome.html)]
-1. A GUIDEBOOK ON MAPPING POVERTY THROUGH  DATA INTEGRATION AND ARTIFICIAL INTELLIGENCE [[link](https://www.adb.org/sites/default/files/publication/698091/guidebook-mapping-poverty-data-integration-ai.pdf)]
+1. A Guidebook on Mapping Poverty through Data Integration and Artificial Intelligence [[link](https://www.adb.org/sites/default/files/publication/698091/guidebook-mapping-poverty-data-integration-ai.pdf)]
 1. Cookiecutter Data Science [[link](https://drivendata.github.io/cookiecutter-data-science/)]
 1. Analyze NLCD annual time series [[link](https://www.usgs.gov/centers/eros/science/annual-national-land-cover-database)]
- 
+1. Climate change threatens the world’s olive legacy: How GIS can help understand crops at risk by 2050 [[link](https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/analytics/climate-change-threatens-the-worlds-olive-legacy-how-gis-can-help-understand-crops-at-risk-by-2050/)]
+
+
 <p>&nbsp;</p>
