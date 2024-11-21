@@ -677,7 +677,7 @@ The Try and Except code block can be used to add tests and checks your code (sou
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">ndvi</span> <span class="o">=</span> <span class="n">calc_indices</span><span class="o">.</span><span class="n">norm_diff</span><span class="p">(</span><span class="n">b1</span><span class="o">=</span><span class="n">nir_band_3d</span><span class="p">,</span> <span class="n">b2</span><span class="o">=</span><span class="n">red_band</span><span class="p">)</span>
+    <span class="n">ndvi</span> <span class="o">=</span> <span class="n">norm_diff</span><span class="p">(</span><span class="n">b1</span><span class="o">=</span><span class="n">nir_band_3d</span><span class="p">,</span> <span class="n">b2</span><span class="o">=</span><span class="n">red_band</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">ndvi</span><span class="p">)</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input arrays are not of same shape&quot;</span><span class="p">)</span>
