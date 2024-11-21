@@ -71,7 +71,7 @@ You have now identified the steps required to process a single Landsat scene. Th
 ```{admonition} Steps required to process all Landsat scenes for a site 
 1. Query an API to find all Landsat scenes for your aoi
 2. For each scene, use the steps outlined previously for one scene to calculate NDVI for the data in that scene.
-3. Save NDVI values and the date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.
+3. Save NDVI value and date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.
 
 ```
 
@@ -92,14 +92,14 @@ OK - now you are ready to put the workflow for a single site together. Of course
 
 ## Add Multiple Sites Worth of Data to Your Workflow
 
-Above you begin to think about the steps associated with creating a workflow for:
+In the previous section, you began to think about the steps associated with creating a workflow for:
 1. A single Landsat scene. 
 2. A set of Landsat scenes for a particular site.
 
-But you want to do this for two or more sites. You are not sure if you will have more than two sites but in this case you want to design a workflow that allows for two or more sites. Add an additional layer to your pseudo code. 
+But you want to do this for two or more sites so you need to design a workflow that allows for two or more sites as input. Add an additional layer to your pseudo code:
 
 ```{admonition} Modular workflow for many sites
-- Get list of all sites.
+- Get a list of all the sites.
 - For each site, use the steps outlined previously for one site to calculate NDVI:
     1. Query an API to find all Landsat scenes for that site
     2. For each scene, use the steps outlined previously for one scene to calculate NDVI for the data in that scene:

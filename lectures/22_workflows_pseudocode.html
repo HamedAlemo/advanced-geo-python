@@ -488,7 +488,7 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Query an API to find all Landsat scenes for your aoi</p></li>
 <li><p>For each scene, use the steps outlined previously for one scene to calculate NDVI for the data in that scene.</p></li>
-<li><p>Save NDVI values and the date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.</p></li>
+<li><p>Save NDVI value and date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.</p></li>
 </ol>
 </div>
 <p>OK - now you are ready to put the workflow for a single site together. Of course, remember there are some sub steps that have not been fleshed out just yet, but start with the basics and build from there.</p>
@@ -512,16 +512,16 @@ document.write(`
 </section>
 <section id="add-multiple-sites-worth-of-data-to-your-workflow">
 <h2><span class="section-number">22.4. </span>Add Multiple Sites Worth of Data to Your Workflow<a class="headerlink" href="#add-multiple-sites-worth-of-data-to-your-workflow" title="Permalink to this heading">#</a></h2>
-<p>Above you begin to think about the steps associated with creating a workflow for:</p>
+<p>In the previous section, you began to think about the steps associated with creating a workflow for:</p>
 <ol class="arabic simple">
 <li><p>A single Landsat scene.</p></li>
 <li><p>A set of Landsat scenes for a particular site.</p></li>
 </ol>
-<p>But you want to do this for two or more sites. You are not sure if you will have more than two sites but in this case you want to design a workflow that allows for two or more sites. Add an additional layer to your pseudo code.</p>
+<p>But you want to do this for two or more sites so you need to design a workflow that allows for two or more sites as input. Add an additional layer to your pseudo code:</p>
 <div class="admonition-modular-workflow-for-many-sites admonition">
 <p class="admonition-title">Modular workflow for many sites</p>
 <ul class="simple">
-<li><p>Get list of all sites.</p></li>
+<li><p>Get a list of all the sites.</p></li>
 <li><p>For each site, use the steps outlined previously for one site to calculate NDVI:</p>
 <ol class="arabic simple">
 <li><p>Query an API to find all Landsat scenes for that site</p></li>
