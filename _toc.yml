@@ -53,13 +53,13 @@ parts:
       title: Scalable Vector Analysis
     - file: lectures/20_xarray_fundamentals
       title: Xarray Fundamentals
-    # - file: lectures/xarray_advanced
-    #   title: Advanced Xarray Operations
-    - file: lectures/21_workflows_intro
+    - file: lectures/21_xarray_advanced
+      title: Advanced Xarray Operations
+    - file: lectures/22_workflows_intro
       title: Workflows in Python
-    - file: lectures/22_workflows_pseudocode
+    - file: lectures/23_workflows_pseudocode
       title: Writing Pseudocode
-    - file: lectures/23_workflows_best_practices
+    - file: lectures/24_workflows_best_practices
       title: Workflow Best Practices
   - caption: Assignments
     chapters:
