@@ -1,0 +1,1074 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>24. Data Workflow Best Practices &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/24_workflows_best_practices';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
+    <link rel="prev" title="23. Learn to Write Pseudocode for Python Programming" href="23_workflows_pseudocode.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_landscape.html">5. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_crs.html">6. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_crs_python.html">7. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_docker.html">8. Intro to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_earth_search_tutorial.html">9. Searching a STAC Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_dask_intro.html">10. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_stackstac.html">11. Scaling stackstac w Dask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_dask_dataframe.html">12. Into to Dask DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_raster.html">13. Review of Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_raster_analysis.html">14. Raster Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_raster_processing.html">15. Raster Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_vector.html">16. Review of Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_vector_analysis.html">17. Vector Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_dask_geopandas_intro.html">18. Intro to Dask-GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_scalable_vector_analysis.html">19. Scalable Vector Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_xarray_advanced.html">21. Advanced Xarray Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_workflows_intro.html">22. Workflows in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_workflows_pseudocode.html">23. Writing Pseudocode</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">24. Workflow Best Practices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a2.html">Assignment 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a3.html">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a4.html">Assignment 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a5.html">Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a6.html">Assignment 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a7.html">Assignment 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/24_workflows_best_practices.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/24_workflows_best_practices.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Workflow Best Practices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">24.1. Data Workflow Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-modify-the-raw-data">24.1.1. Do Not Modify the Raw Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-expressive-intermediate-file-names-and-outputs">24.1.2. Create Expressive Intermediate File Names and Outputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-modular-code">24.1.3. Write Modular Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-components-of-python-functions">24.1.4. Review of Key Components of Python Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-using-and-writing-function-review">24.1.5. Benefits of Using and Writing Function (Review)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizing-custom-functions">24.1.6. Generalizing Custom Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-code-to-add-checks-and-tests">24.2. Expand Code to Add Checks and Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">24.2.1. Conditional Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-and-except">24.2.2. <code class="docutils literal notranslate"><span class="pre">Try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exception-handling">24.2.3. Exception Handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#old-fashioned-trial-and-error">24.2.4. Old Fashioned Trial and Error</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">24.3. Additional Resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-workflow-best-practices">
+<h1><span class="section-number">24. </span>Data Workflow Best Practices<a class="headerlink" href="#data-workflow-best-practices" title="Permalink to this heading">#</a></h1>
+<p><strong>Attribution</strong>
+This lecture is designed based on great resources available on <a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/earth-data-science-workflows/">Earth Data Science Workflows</a> from Earth Lab CU Boulder.*</p>
+<p>Identifying aspects of a workflow that can be modularized and tested can help you design efficient and effective data workflows.</p>
+<section id="id1">
+<h2><span class="section-number">24.1. </span>Data Workflow Best Practices<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>In the previous lessons, you designed a workflow to process several sites worth of Landsat data, but of course, identifying the workflow is just beginning.</p>
+<p>For each of the steps you identified in your pseudocode, you need to flesh out how you can accomplish each task.</p>
+<p>Before you design your workflow in more detail, there are many things to keep in mind regarding how you will use and name files, how you will modularize code to reduce repetitive code, etc.</p>
+<p>Consider the data workflow best practices discussed below.</p>
+<section id="do-not-modify-the-raw-data">
+<h3><span class="section-number">24.1.1. </span>Do Not Modify the Raw Data<a class="headerlink" href="#do-not-modify-the-raw-data" title="Permalink to this heading">#</a></h3>
+<p>Typically you do not want to modify the raw data, so that you can always reproduce your output from the same inputs. In some cases, this is less important, e.g., when you are not tasked with curating the raw data. For example you <em>could</em>  re-download any landsat data.</p>
+<p>In other cases, this is extremely important - you wouldn’t want to recollect a summers worth of field collected data because you accidentally modified the original spreadsheet.</p>
+<p>A good rule of thumb is to create an “outputs” directory where you store outputs. An outputs directory is helpful because:</p>
+<ol class="arabic simple">
+<li><p>You can always delete and recreate the outputs without worrying about deleting your original data.</p></li>
+<li><p>An outputs directory is expressive and reminds anyone looking at your project (including you in the future - i.e. your future self!) where the output products are - they don’t have to dig for the data.</p></li>
+</ol>
+</section>
+<section id="create-expressive-intermediate-file-names-and-outputs">
+<h3><span class="section-number">24.1.2. </span>Create Expressive Intermediate File Names and Outputs<a class="headerlink" href="#create-expressive-intermediate-file-names-and-outputs" title="Permalink to this heading">#</a></h3>
+<p>You want to carefully consider how you name your intermediate and end product outputs so that the names reflect your intention and the content. For instance - in this case you are creating an NDVI dataframe which would be exported to a csv.</p>
+<p>Here are some naming options:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Less than ideal name</span>
+<span class="n">data</span><span class="o">.</span><span class="n">csv</span>
+<span class="c1"># OK Name</span>
+<span class="n">ndvi</span><span class="o">.</span><span class="n">csv</span>
+<span class="c1"># More expressive name</span>
+<span class="nb">all</span><span class="o">-</span><span class="n">sites</span><span class="o">-</span><span class="n">ndvi</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+</div>
+<p>Always use clear, expressive names for objects, files, etc. Ask yourself if someone reading your code could guess what is contained in that object or file based on the name.</p>
+</section>
+<section id="write-modular-code">
+<h3><span class="section-number">24.1.3. </span>Write Modular Code<a class="headerlink" href="#write-modular-code" title="Permalink to this heading">#</a></h3>
+<p>As you are working on your pseudo code, consider the parts of your analysis that are well suited for functions.</p>
+<p>Writing custom functions for repetitive tasks in your workflows can help your workflow to be more efficient and easier to follow and implement.</p>
+<p>Ideally, a Python function will have 1-3 inputs and will produce 1-2 outputs.</p>
+<p>Keep functions small and focused. A function should do one thing well.</p>
+<p>You can then combine many functions into a wrapper function to automate and make for a nicely crafted program.</p>
+<p>You can use existing functions from commonly used packages (i.e. <code class="docutils literal notranslate"><span class="pre">geopandas.read_file()</span></code> or <code class="docutils literal notranslate"><span class="pre">rasterio.open()</span></code>) or <a href="https://www.earthdatascience.org/courses/earth-analytics-bootcamp/functions/intro-functions/" target="_blank">write your own functions</a> when one does not already exist.</p>
+</section>
+<section id="review-of-key-components-of-python-functions">
+<h3><span class="section-number">24.1.4. </span>Review of Key Components of Python Functions<a class="headerlink" href="#review-of-key-components-of-python-functions" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> keyword</p></li>
+<li><p>Function name</p></li>
+<li><p>Input parameters/arguments</p></li>
+<li><p>Docstring (that identifies parameters and returns)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span></code> statement</p></li>
+</ol>
+<p>Example of a simple function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_five</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add the numeric value 5 to an input value.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : int or float</span>
+<span class="sd">            </span>
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    int or float</span>
+<span class="sd">        Input data with value increased by 5.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, check out the more complex <a class="reference external" href="https://github.com/geopandas/geopandas/blob/8f2b4cc1b2cbb62aed716c9a187e800e79df3cd4/geopandas/io/file.py#L181"><code class="docutils literal notranslate"><span class="pre">geopandas.read_file()</span></code></a> function on GitHub and identify each of the key components.</p>
+<p><strong>Do we have to fully understand all of the detailed code in order to use the function?</strong></p>
+<p>Simply put - no. We only need to know the appropriate inputs and outputs, so we can provide the correct file to get back our GeoDataframe.</p>
+<p>This is one of the primary benefits of writing and using functions!</p>
+</section>
+<section id="benefits-of-using-and-writing-function-review">
+<h3><span class="section-number">24.1.5. </span>Benefits of Using and Writing Function (Review)<a class="headerlink" href="#benefits-of-using-and-writing-function-review" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Reusability (e.g. by yourself or others)</p></li>
+<li><p>Fewer variables (e.g. temporary variables not needed outside of the function are not stored)</p></li>
+<li><p>Documentation/Reproducibility (e.g. for yourself or others)</p></li>
+<li><p>Easier updates to code (i.e. update only the function definition)</p></li>
+<li><p>Testing (e.g. include checks and tests on inputs and outputs directly within function)</p></li>
+<li><p>Modularity (i.e. stand-alone units of code that can be executed independently and asynchronously)</p></li>
+</ol>
+<p>Sometimes you may need to write custom functions to:</p>
+<ul class="simple">
+<li><p>complete tasks that do not already have published functions</p></li>
+<li><p>combine existing functions into one function for a specific task</p></li>
+</ul>
+</section>
+<section id="generalizing-custom-functions">
+<h3><span class="section-number">24.1.6. </span>Generalizing Custom Functions<a class="headerlink" href="#generalizing-custom-functions" title="Permalink to this heading">#</a></h3>
+<p>The best functions complete one specific task but are generalizable for more than one application.</p>
+<p>Example: Your goal is to write a function that can be used to calculate Normalized Difference Vegetation Index (NDVI)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">near_infrared</span> <span class="o">-</span> <span class="n">red</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">near_infrared</span> <span class="o">+</span> <span class="n">red</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>How Can We Generalize This For Broader Use?</em></p>
+<p>There are other indices that can be calculated using the same formula such as the Normalized Burn Ratio (NBR):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">near_infrared</span> <span class="o">-</span> <span class="n">shortwave_infrared</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">near_infrared</span> <span class="o">+</span> <span class="n">shortwave_infrared</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or Normalized Difference Water Index (NDWI):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">green</span> <span class="o">-</span> <span class="n">near_infrared</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Green</span> <span class="o">+</span> <span class="n">near_infrared</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So you can have a general function like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">band1</span> <span class="o">-</span> <span class="n">band2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">band1</span> <span class="o">+</span> <span class="n">band2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Even better for conciseness and readability:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalized_diff</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the normalized difference of two arrays of same shape.</span>
+<span class="sd">    Math will be calculated (b1-b2) / (b1+b2). </span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    b1, b2 : numpy arrays</span>
+<span class="sd">        Two numpy arrays of same shape.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_diff : numpy array</span>
+<span class="sd">        The element-wise result of (b1-b2) / (b1+b2) calculation. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">n_diff</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="expand-code-to-add-checks-and-tests">
+<h2><span class="section-number">24.2. </span>Expand Code to Add Checks and Tests<a class="headerlink" href="#expand-code-to-add-checks-and-tests" title="Permalink to this heading">#</a></h2>
+<p>By including checks (i.e. tests) in your code, you can be more confident that your code is doing what you think is!</p>
+<p><strong>Specific Reasons to Check Your Code</strong></p>
+<ul class="simple">
+<li><p>Check that inputs are of correct type/format (e.g. both arrays are two-dimensional)</p></li>
+<li><p>Check that necessary prerequisites have been executed or exist (e.g. a directory named <code class="docutils literal notranslate"><span class="pre">output</span></code>)</p></li>
+<li><p>Test assumptions of code (e.g. is it actually doing what you think it is?)</p></li>
+<li><p>Identify points of failure (e.g. where is the code failing - input data, processing/analysis, writing out data?)</p></li>
+<li><p>Identify something about the function that you did not consider (e.g. function is applicable to additional data types, function needs additional code to handle special circumstances)</p></li>
+</ul>
+<p><strong>How Can You Check Your Code?</strong></p>
+<p>There are many different ways to start checking your code. You can begin with conditional statements and work toward more complex checks using try/except and exception handling (which are introduced below).</p>
+<section id="conditional-statements">
+<h3><span class="section-number">24.2.1. </span>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h3>
+<p>This is frequently referred to as “asking permission” before code can execute.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition_1</span><span class="p">:</span>
+    <span class="n">action_1</span>
+<span class="k">elif</span> <span class="n">condition_2</span><span class="p">:</span>
+    <span class="n">action_2</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">action_3</span>
+</pre></div>
+</div>
+<p>Thinking about the <code class="docutils literal notranslate"><span class="pre">norm_diff</span></code> function: what is a condition that we might want to check for the code to run successfully?</p>
+<p>Take a look at the equation again, and think about what the intended inputs are for b1 and b2 (“arrays of same shape”).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+
+<span class="c1"># Create numpy array inputs for function</span>
+<span class="n">nir_band</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">]])</span>
+<span class="n">red_band</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+
+<span class="c1"># Create three dimensional numpy array for testing</span>
+<span class="n">nir_band_3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">]]])</span>
+
+
+<span class="c1"># Note that the if/else is used when calling the function</span>
+<span class="k">if</span> <span class="n">nir_band_3d</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">red_band</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+    <span class="n">ndvi</span> <span class="o">=</span> <span class="n">normalized_diff</span><span class="p">(</span><span class="n">b1</span><span class="o">=</span><span class="n">nir_band_3d</span><span class="p">,</span> <span class="n">b2</span><span class="o">=</span><span class="n">red_band</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ndvi</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input arrays are not of same shape&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Input arrays are not of same shape
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="try-and-except">
+<h3><span class="section-number">24.2.2. </span><code class="docutils literal notranslate"><span class="pre">Try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-and-except" title="Permalink to this heading">#</a></h3>
+<p>These statements allow a code block to try to execute first, and then do something else if the code is not executed successfully.</p>
+<p>This is often referred to as “asking for forgiveness, rather than permission”.</p>
+<div>
+    <center>
+    <img src="https://files.realpython.com/media/try_except_else_finally.a7fac6c36c55.png" width="500"/>
+</div>
+The Try and Except code block can be used to add tests and checks your code (source: <a href="https://files.realpython.com/media/try_except_else_finally.a7fac6c36c55.png" target="_blank">Real Python</a>.)
+<p>Example of asking for permission:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division by zero not allowed!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Division by zero not allowed!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead, ask for forgiveness:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division by zero not allowed!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Division by zero not allowed!
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> when calling a function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">ndvi</span> <span class="o">=</span> <span class="n">norm_diff</span><span class="p">(</span><span class="n">b1</span><span class="o">=</span><span class="n">nir_band_3d</span><span class="p">,</span> <span class="n">b2</span><span class="o">=</span><span class="n">red_band</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ndvi</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input arrays are not of same shape&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Input arrays are not of same shape
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Caveat: Do you see any potential issues with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> statements?</strong></p>
+<p>Let’s look at another example of <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;exercise&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create folder if it does not exist</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory created!&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory already exists!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Directory already exists!
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Caveat: How would you know that a failure to make a new directory was due to it already existing?</strong></p>
+<p>Is it possible that something else could cause a new directory to not get created?</p>
+</section>
+<section id="exception-handling">
+<h3><span class="section-number">24.2.3. </span>Exception Handling<a class="headerlink" href="#exception-handling" title="Permalink to this heading">#</a></h3>
+<p>Also commonly referred to as error handling, exceptions are used to check for specific types of errors that can occur when running code.</p>
+<p>Though it is more common to use exception handling when writing code that you want to publish as packages or libraries or when you are writing applications for end users, it is useful to know about these, so that you are familiar with them when you receive exception messages by others’ code.</p>
+<p><strong>Commonly Used Exceptions</strong>:</p>
+<p>Here is the list of default Python exceptions with descriptions:</p>
+<ul class="simple">
+<li><p><strong>AssertionError</strong>: raised when the assert statement fails.</p></li>
+<li><p><strong>EOFError</strong>: raised when the input() function meets the end-of-file condition.</p></li>
+<li><p><strong>AttributeError</strong>: raised when the attribute assignment or reference fails.</p></li>
+<li><p><strong>TabError</strong>: raised when the indentations consist of inconsistent tabs or spaces.</p></li>
+<li><p><strong>ImportError</strong>: raised when importing the module fails.</p></li>
+<li><p><strong>IndexError</strong>: occurs when the index of a sequence is out of range</p></li>
+<li><p><strong>KeyboardInterrupt</strong>: raised when the user inputs interrupt keys (Ctrl + C or Delete).</p></li>
+<li><p><strong>RuntimeError</strong>: occurs when an error does not fall into any category.</p></li>
+<li><p><strong>NameError</strong>: raised when a variable is not found in the local or global scope.</p></li>
+<li><p><strong>MemoryError</strong>: raised when programs run out of memory.</p></li>
+<li><p><strong>ValueError</strong>: occurs when the operation or function receives an argument with the right type but the wrong value.</p></li>
+<li><p><strong>ZeroDivisionError</strong>: raised when you divide a value or variable with zero.</p></li>
+<li><p><strong>SyntaxError</strong>: raised by the parser when the Python syntax is wrong.</p></li>
+<li><p><strong>IndentationError</strong>: occurs when there is a wrong indentation.</p></li>
+<li><p><strong>SystemError</strong>: raised when the interpreter detects an internal error.</p></li>
+</ul>
+<p>Also check <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#os-exceptions">here</a> for the list of exceptions that can be raised by OS.</p>
+<p>This is the same <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> with exception <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;exercise&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory created!&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory already exists!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Directory already exists!
+</pre></div>
+</div>
+</div>
+</div>
+<p>You could also explore error handling in your function definitions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of ValueError</span>
+<span class="k">def</span> <span class="nf">normalized_diff</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the normalized difference of two arrays of same shape.</span>
+<span class="sd">    Math will be calculated (b1-b2) / (b1+b2). </span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    b1, b2 : numpy arrays</span>
+<span class="sd">        Two numpy arrays of same shape.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_diff : numpy array</span>
+<span class="sd">        The element-wise result of (b1-b2) / (b1+b2) calculation. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">b1</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">b2</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inputs arrays should have the same dimensions&quot;</span><span class="p">)</span>
+        
+    <span class="n">n_diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">n_diff</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now if you try to run the following code:</p>
+<p><code class="docutils literal notranslate"><span class="pre">ndvi</span> <span class="pre">=</span> <span class="pre">normalized_diff(b1=nir_band_3d,</span> <span class="pre">b2=red_band)</span></code></p>
+<p>You will see the following ValueError that can help you (and others) understand why the function did not execute successfully.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ndvi</span> <span class="o">=</span> <span class="n">normalized_diff</span><span class="p">(</span><span class="n">b1</span><span class="o">=</span><span class="n">nir_band_3d</span><span class="p">,</span> <span class="n">b2</span><span class="o">=</span><span class="n">red_band</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ndvi</span> <span class="o">=</span> <span class="n">normalized_diff</span><span class="p">(</span><span class="n">b1</span><span class="o">=</span><span class="n">nir_band_3d</span><span class="p">,</span> <span class="n">b2</span><span class="o">=</span><span class="n">red_band</span><span class="p">)</span>
+
+<span class="nn">Cell In[9], line 17,</span> in <span class="ni">normalized_diff</span><span class="nt">(b1, b2)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Calculate the normalized difference of two arrays of same shape.</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> Math will be calculated (b1-b2) / (b1+b2). </span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="sd">     The element-wise result of (b1-b2) / (b1+b2) calculation. </span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">b1</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">b2</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">17</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inputs arrays should have the same dimensions&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">n_diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">return</span> <span class="n">n_diff</span>
+
+<span class="ne">ValueError</span>: Inputs arrays should have the same dimensions
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="old-fashioned-trial-and-error">
+<h3><span class="section-number">24.2.4. </span>Old Fashioned Trial and Error<a class="headerlink" href="#old-fashioned-trial-and-error" title="Permalink to this heading">#</a></h3>
+<p>Maybe the code is executing just fine, but maybe you are not getting the output in the most optimal format.</p>
+<p>It may not be clear to you until you run the function many times with different inputs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create numpy array input for function</span>
+<span class="c1"># Note that we are creating a zero in the denominator with -15</span>
+<span class="n">nir_band</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">]])</span>
+<span class="n">red_band</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+
+
+<span class="c1"># Produces infinity values due to divide by zero</span>
+<span class="n">ndvi</span> <span class="o">=</span> <span class="n">normalized_diff</span><span class="p">(</span><span class="n">b1</span><span class="o">=</span><span class="n">nir_band</span><span class="p">,</span> <span class="n">b2</span><span class="o">=</span><span class="n">red_band</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ndvi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.71428571 0.55555556 0.45454545 0.38461538 0.33333333]
+ [0.18518519 0.17241379 0.16129032 0.15151515       -inf]]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_547/807040971.py:19: RuntimeWarning: divide by zero encountered in divide
+  n_diff = (b1 - b2) / (b1 + b2)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What if we would rather have the output be a masked numpy array if there are any infinite values or nan values?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="k">def</span> <span class="nf">normalized_diff</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Take two numpy arrays and calculate the normalized difference.</span>
+<span class="sd">    Math will be calculated (b1-b2) / (b1+b2). The arrays must be of the</span>
+<span class="sd">    same shape.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    b1, b2 : numpy arrays</span>
+<span class="sd">        Two numpy arrays that will be used to calculate the normalized difference.</span>
+<span class="sd">        Math will be calculated (b1-b2) / (b1+b2).</span>
+<span class="sd">   </span>
+<span class="sd">   Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_diff : numpy array</span>
+<span class="sd">        The element-wise result of (b1-b2) / (b1+b2) calculation. Inf values are set</span>
+<span class="sd">        to nan. Array returned as masked if result includes nan values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">b1</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">b2</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both arrays should have the same dimensions&quot;</span><span class="p">)</span>
+
+    <span class="n">n_diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span>
+
+    <span class="c1"># Set inf values to nan and provide custom warning</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">n_diff</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;Divide by zero produced infinity values that will be replaced with nan values&quot;</span><span class="p">,</span>
+            <span class="ne">Warning</span><span class="p">)</span>
+        <span class="n">n_diff</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">n_diff</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="c1"># Mask invalid values</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">n_diff</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">n_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">n_diff</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">n_diff</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, if you try the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ndvi</span> <span class="o">=</span> <span class="n">normalized_diff</span><span class="p">(</span><span class="n">b1</span><span class="o">=</span><span class="n">nir_band</span><span class="p">,</span> <span class="n">b2</span><span class="o">=</span><span class="n">red_band</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ndvi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.7142857142857143 0.5555555555555556 0.45454545454545453
+  0.38461538461538464 0.3333333333333333]
+ [0.18518518518518517 0.1724137931034483 0.16129032258064516
+  0.15151515151515152 --]]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_547/1667987530.py:23: RuntimeWarning: divide by zero encountered in divide
+  n_diff = (b1 - b2) / (b1 + b2)
+/tmp/ipykernel_547/1667987530.py:27: Warning: Divide by zero produced infinity values that will be replaced with nan values
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is now a warning provided by the function to explain that the division by zero resulted in values that are replaced with nan values.</p>
+<p>There are many ways to include tests and checks in your code, so explore the resources below to learn different ways to incorporate them into your workflows.</p>
+</section>
+</section>
+<section id="additional-resources">
+<h2><span class="section-number">24.3. </span>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="https://www.oreilly.com/library/view/head-first-python/9781491919521/ch04.html" target="_blank">OReilly Review of Functions and Modularization</a>.</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=NIWwJbo-9_8" target="_blank">Video tutorial on try and except by Corey Schafer</a>.</p></li>
+<li><p><a href="https://www.geeksforgeeks.org/built-exceptions-python/" target = "_blank">List of Commonly Used Exceptions</a>.</p></li>
+<li><p><a href="https://www.datacamp.com/community/tutorials/exception-handling-python" target = "_blank">Data Camp Tutorial on Exceptions</a>.</p></li>
+<li><p><a href="https://intermediate-and-advanced-software-carpentry.readthedocs.io/en/latest/structuring-python.html" target = "_blank">Advanced Tutorial by Software Carpentry on programming for reusability</a>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="23_workflows_pseudocode.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Learn to Write Pseudocode for Python Programming</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../assignments/a1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">24.1. Data Workflow Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-not-modify-the-raw-data">24.1.1. Do Not Modify the Raw Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-expressive-intermediate-file-names-and-outputs">24.1.2. Create Expressive Intermediate File Names and Outputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-modular-code">24.1.3. Write Modular Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-components-of-python-functions">24.1.4. Review of Key Components of Python Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-using-and-writing-function-review">24.1.5. Benefits of Using and Writing Function (Review)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizing-custom-functions">24.1.6. Generalizing Custom Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-code-to-add-checks-and-tests">24.2. Expand Code to Add Checks and Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">24.2.1. Conditional Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-and-except">24.2.2. <code class="docutils literal notranslate"><span class="pre">Try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exception-handling">24.2.3. Exception Handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#old-fashioned-trial-and-error">24.2.4. Old Fashioned Trial and Error</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">24.3. Additional Resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

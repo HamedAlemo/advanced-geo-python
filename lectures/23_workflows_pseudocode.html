@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>23. Learn to Write Pseudocode for Python Programming &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/23_workflows_pseudocode';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="24. Data Workflow Best Practices" href="24_workflows_best_practices.html" />
+    <link rel="prev" title="22. Designing and Automating Data Workflows in Python" href="22_workflows_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_landscape.html">5. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_crs.html">6. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_crs_python.html">7. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_docker.html">8. Intro to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_earth_search_tutorial.html">9. Searching a STAC Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_dask_intro.html">10. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_stackstac.html">11. Scaling stackstac w Dask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_dask_dataframe.html">12. Into to Dask DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_raster.html">13. Review of Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_raster_analysis.html">14. Raster Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_raster_processing.html">15. Raster Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_vector.html">16. Review of Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_vector_analysis.html">17. Vector Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_dask_geopandas_intro.html">18. Intro to Dask-GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_scalable_vector_analysis.html">19. Scalable Vector Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_xarray_advanced.html">21. Advanced Xarray Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_workflows_intro.html">22. Workflows in Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Writing Pseudocode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_workflows_best_practices.html">24. Workflow Best Practices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a2.html">Assignment 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a3.html">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a4.html">Assignment 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a5.html">Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a6.html">Assignment 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a7.html">Assignment 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/23_workflows_pseudocode.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/23_workflows_pseudocode.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Learn to Write Pseudocode for Python Programming</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-an-efficient-data-workflow-using-pseudocode">23.1. Design an Efficient Data Workflow Using Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-with-the-workflow-for-one-landsat-scene">23.2. Begin With the Workflow for One Landsat Scene</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site">23.3. Expand Workflow to Include All Landsat Scenes for a Site</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-sites-worth-of-data-to-your-workflow">23.4. Add Multiple Sites Worth of Data to Your Workflow</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="learn-to-write-pseudocode-for-python-programming">
+<h1><span class="section-number">23. </span>Learn to Write Pseudocode for Python Programming<a class="headerlink" href="#learn-to-write-pseudocode-for-python-programming" title="Permalink to this heading">#</a></h1>
+<p><strong>Attribution</strong>
+<em>This lecture is designed based on great resources available on <a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/earth-data-science-workflows/">Earth Data Science Workflows</a> from Earth Lab CU Boulder.</em></p>
+<p>Pseudcode can help you design data workflows through listing out the individual steps of a workflow in plain language, so the focus is on the overall data process, rather than on the specific code needed.</p>
+<section id="design-an-efficient-data-workflow-using-pseudocode">
+<h2><span class="section-number">23.1. </span>Design an Efficient Data Workflow Using Pseudocode<a class="headerlink" href="#design-an-efficient-data-workflow-using-pseudocode" title="Permalink to this heading">#</a></h2>
+<p>You have now identified your challenge - to calculate and plot average normalized difference vegetation index (NDVI) for every Landsat scene (individually) across one year for two study locations:</p>
+<ol class="arabic simple">
+<li><p><a href="https://www.neonscience.org/field-sites/field-sites-map/SJER" target="_blank">San Joaquin Experimental Range (SJER) in Southern California, United States</a></p></li>
+<li><p><a href="https://www.neonscience.org/field-sites/field-sites-map/HARV" target="_blank">Harvard Forest (HARV) in the Eastern United States</a></p></li>
+</ol>
+<p>You have been given a study area boundary for each site. Your next step is to write out the steps that you need to follow to get to your end goal plot and csv file.</p>
+<p>You know you will need to do the following:</p>
+<ol class="arabic simple">
+<li><p>Find Landsat scenes.</p></li>
+<li><p>Access the scenes on the cloud or download them.</p></li>
+<li><p>Read the data.</p></li>
+<li><p>Calculate NDVI.</p></li>
+<li><p>Save NDVI values to pandas dataframe with the associated date and site name</p></li>
+<li><p>Plot NDVI time-series</p></li>
+<li><p>Export NDVI values to a csv file</p></li>
+</ol>
+<p>Begin your process by pseudocoding - or writing out steps in plain English - everything that you will need to do in order to get to your end goal. The steps below will walk you through beginning this process of writing pseudocode.</p>
+</section>
+<section id="begin-with-the-workflow-for-one-landsat-scene">
+<h2><span class="section-number">23.2. </span>Begin With the Workflow for One Landsat Scene<a class="headerlink" href="#begin-with-the-workflow-for-one-landsat-scene" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Search for one Landsat scene across your area of interest (aoi)</p></li>
+<li><p>Get a list of relevant files for the resulting Landsat scene.</p>
+<p>Recall that Landsat data is provided as a series of GeoTIFF files - one for each band (e.g. red, near-infrared) and one with the quality assurance information (e.g. cloud cover and shadows).</p>
+<div class="admonition-steps-required-to-get-data-for-one-landsat-scene-for-a-site admonition">
+<p class="admonition-title">Steps required to get data for one Landsat scene for a site</p>
+<ol class="arabic simple">
+<li><p>Query an API to find the target Landsat scene</p></li>
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+</ol>
+</div>
+</li>
+<li><p>Open and crop the data for one Landsat scene.</p>
+<p>Now that you have the steps to get the data for one Landsat scene, you can expand your pseudocode steps to include opening and cropping the data to the site boundary.</p>
+<div class="admonition-steps-required-to-process-one-landsat-scene-for-a-site admonition">
+<p class="admonition-title">Steps required to process one Landsat scene for a site</p>
+<ol class="arabic simple">
+<li><p>Query an API to find the target Landsat scene</p></li>
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+<li><p>Open and crop the bands needed to calculate NDVI.</p></li>
+</ol>
+</div>
+</li>
+<li><p>Calculate NDVI for one Landsat scene.</p>
+<p>Last, you can expand your pseudocode to include using the bands that you opened and cropped to calculate NDVI.</p>
+<div class="admonition-steps-required-to-process-one-landsat-scene-for-a-site admonition">
+<p class="admonition-title">Steps required to process one Landsat scene for a site</p>
+<ol class="arabic simple">
+<li><p>Query an API to find the target Landsat scene</p></li>
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+<li><p>Open and crop the bands needed to calculate NDVI.</p></li>
+<li><p>Calculate average NDVI for that scene.</p></li>
+</ol>
+</div>
+</li>
+</ol>
+</section>
+<section id="expand-workflow-to-include-all-landsat-scenes-for-a-site">
+<h2><span class="section-number">23.3. </span>Expand Workflow to Include All Landsat Scenes for a Site<a class="headerlink" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site" title="Permalink to this heading">#</a></h2>
+<p>You have now identified the steps required to process a single Landsat scene. Those steps now need to be repeated across all of the scenes for each site for a year.</p>
+<div class="admonition-steps-required-to-process-all-landsat-scenes-for-a-site admonition">
+<p class="admonition-title">Steps required to process all Landsat scenes for a site </p>
+<ol class="arabic simple">
+<li><p>Query an API to find all Landsat scenes for your aoi</p></li>
+<li><p>For each scene, use the steps outlined previously for one scene to calculate NDVI for the data in that scene.</p></li>
+<li><p>Save NDVI value and date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.</p></li>
+</ol>
+</div>
+<p>OK - now you are ready to put the workflow for a single site together. Of course, remember there are some sub steps that have not been fleshed out just yet, but start with the basics and build from there.</p>
+<div class="admonition-steps-required-to-process-all-landsat-scenes-for-a-site admonition">
+<p class="admonition-title">Steps required to process all Landsat scenes for a site</p>
+<ol class="arabic simple">
+<li><p>Query an API to find all Landsat scenes for your site</p></li>
+<li><p>For each scene, use the steps outlined previously for one site to calculate NDVI:</p>
+<ul class="simple">
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+<li><p>Open and crop the bands needed to calculate NDVI.</p></li>
+<li><p>Calculate average NDVI for that scene.</p></li>
+</ul>
+</li>
+<li><p>Save NDVI values and the date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.</p></li>
+<li><p>Export dataframe with mean NDVI values to csv. (i.e. a “data product” output that you can share with others)</p></li>
+<li><p>Plot the NDVI for each Landsat scene</p></li>
+</ol>
+</div>
+</section>
+<section id="add-multiple-sites-worth-of-data-to-your-workflow">
+<h2><span class="section-number">23.4. </span>Add Multiple Sites Worth of Data to Your Workflow<a class="headerlink" href="#add-multiple-sites-worth-of-data-to-your-workflow" title="Permalink to this heading">#</a></h2>
+<p>In the previous section, you began to think about the steps associated with creating a workflow for:</p>
+<ol class="arabic simple">
+<li><p>A single Landsat scene.</p></li>
+<li><p>A set of Landsat scenes for a particular site.</p></li>
+</ol>
+<p>But you want to do this for two or more sites so you need to design a workflow that allows for two or more sites as input. Add an additional layer to your pseudo code:</p>
+<div class="admonition-modular-workflow-for-many-sites admonition">
+<p class="admonition-title">Modular workflow for many sites</p>
+<ul class="simple">
+<li><p>Get a list of all the sites.</p></li>
+<li><p>For each site, use the steps outlined previously for one site to calculate NDVI:</p>
+<ol class="arabic simple">
+<li><p>Query an API to find all Landsat scenes for that site</p></li>
+<li><p>For each scene, use the steps outlined previously for one scene to calculate NDVI for the data in that scene:</p>
+<ul>
+<li><p>Get a list of files/assets for that scene.</p></li>
+<li><p>Subset the list to just the files/assets required to calculate NDVI.</p></li>
+<li><p>Open and crop the bands needed to calculate NDVI.</p></li>
+<li><p>Calculate average NDVI for that scene.</p></li>
+</ul>
+</li>
+<li><p>Save NDVI values and the date for that scene (there are some steps here that you need to flesh out as well) to a list or dataframe that contains average NDVI for each scene at this site.</p></li>
+<li><p>Export dataframe with mean NDVI values to csv. (i.e. a “data product” output that you can share with others)</p></li>
+<li><p>Plot the NDVI for each Landsat scene</p></li>
+</ol>
+</li>
+</ul>
+</div>
+<p>You have now designed a workflow using pseudocode to process several sites worth of landsat data.</p>
+<p>Of course, the pseudocode above is just beginning. For each of the steps above, you need to flesh out how you can accomplish each task.</p>
+<p>The next lesson in this chapter focuses on data workflow best practices that can help you implement your workflow efficiently and effectively.</p>
+<p>&nbsp;</p></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="22_workflows_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Designing and Automating Data Workflows in Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="24_workflows_best_practices.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>Data Workflow Best Practices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-an-efficient-data-workflow-using-pseudocode">23.1. Design an Efficient Data Workflow Using Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-with-the-workflow-for-one-landsat-scene">23.2. Begin With the Workflow for One Landsat Scene</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expand-workflow-to-include-all-landsat-scenes-for-a-site">23.3. Expand Workflow to Include All Landsat Scenes for a Site</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-sites-worth-of-data-to-your-workflow">23.4. Add Multiple Sites Worth of Data to Your Workflow</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

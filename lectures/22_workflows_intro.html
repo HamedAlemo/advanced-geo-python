@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>22. Designing and Automating Data Workflows in Python &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/22_workflows_intro';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="23. Learn to Write Pseudocode for Python Programming" href="23_workflows_pseudocode.html" />
+    <link rel="prev" title="21. Xarray Interpolation, Groupby, Resample, Rolling, and Coarsen" href="21_xarray_advanced.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_landscape.html">5. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_crs.html">6. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_crs_python.html">7. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_docker.html">8. Intro to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_earth_search_tutorial.html">9. Searching a STAC Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_dask_intro.html">10. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_stackstac.html">11. Scaling stackstac w Dask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_dask_dataframe.html">12. Into to Dask DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_raster.html">13. Review of Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_raster_analysis.html">14. Raster Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_raster_processing.html">15. Raster Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_vector.html">16. Review of Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_vector_analysis.html">17. Vector Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_dask_geopandas_intro.html">18. Intro to Dask-GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_scalable_vector_analysis.html">19. Scalable Vector Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_xarray_advanced.html">21. Advanced Xarray Operations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Workflows in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_workflows_pseudocode.html">23. Writing Pseudocode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_workflows_best_practices.html">24. Workflow Best Practices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a2.html">Assignment 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a3.html">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a4.html">Assignment 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a5.html">Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a6.html">Assignment 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a7.html">Assignment 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/22_workflows_intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/22_workflows_intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Designing and Automating Data Workflows in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-problem-challenge-or-question">22.1. Identify the Problem, Challenge or Question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-data-needed-to-address-the-question-or-challenge">22.2. Identify the Data Needed to Address the Question or Challenge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-workflow">22.3. Design Your Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-your-workflow">22.4. Implement Your Workflow</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="designing-and-automating-data-workflows-in-python">
+<h1><span class="section-number">22. </span>Designing and Automating Data Workflows in Python<a class="headerlink" href="#designing-and-automating-data-workflows-in-python" title="Permalink to this heading">#</a></h1>
+<p><strong>Attribution</strong>
+<em>This lecture is designed based on great resources available on <a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/earth-data-science-workflows/">Earth Data Science Workflows</a> from Earth Lab CU Boulder.</em></p>
+<p>Designing workflows to process and create outputs for many large files and datasets is a key skill in Earth Data Analytics. Yet it is something that most scientists and Earth analysts learn on the fly at some point in their careers. Now that you have learned various Python packages for geospatial data processing, we are going to discuss the ways you would go after designing and automating your data workflows.</p>
+<p>In this chapter, you will learn how to identify key steps in designing a data workflow and how to write pseudo code to outline data workflow. You will also learn the ways you can modularize your code and test it. We will use examples of geospatial data workflows to walk through different steps of designing these workflows.</p>
+<p>The outline below identifies several key steps associated with designing a workflow that can help you structure your thinking and develop an effective design.</p>
+<section id="identify-the-problem-challenge-or-question">
+<h2><span class="section-number">22.1. </span>Identify the Problem, Challenge or Question<a class="headerlink" href="#identify-the-problem-challenge-or-question" title="Permalink to this heading">#</a></h2>
+<p>To begin you need to clarify the question(s) or challenge(s) that you need to address. Knowing the specific problem that you need to solve will help to set bounds on what your workflow does and does not need to do.</p>
+<p>In this chapter, we will use the example of calculating a time series of normalized difference vegetation index (NDVI) to investigate ecological processes and changes.</p>
+<p>NDVI is usually used to study changes due to a disturbance such as a flood or a fire. But NDVI can also be used to understand seasonality - when an area begins to “green-up” or grow after the winter cold period and “brown down” when vegetation in an area begins to die back in an area (usually in the fall and winter).  You can calculate NDVI for each month of the year (or even for several years) to understand seasonality in a particular study area.</p>
+<p>Different areas in different parts of the world have different seasonal patterns. For example, the NEON <a href="https://www.neonscience.org/field-sites/field-sites-map/SJER" target="_blank">San Joaquin Experimental Range (SJER)</a> in California has an early green-up date on average, a short growing season due to hot temperatures and lack of precipitation and an early brown down. In contrast, the NEON <a href="https://www.neonscience.org/field-sites/field-sites-map/HARV" target="_blank">Harvard Forest (HARV)</a> site in Massachusetts has a longer growing season and a later green-up period.</p>
+<p>These two sites are ideal for comparisons of NDVI to identify differences in seasonality across sites and will be used as the study areas for the data workflow challenge.</p>
+<p>Changes in seasonality can be important indicators of ecological change. For example, if green-up begins earlier, such that fruit or seed resources become available sooner than average, animals that forage on the fruits in the spring must either migrate earlier to use these resources, or miss out on them if they do not adjust migration behavior. This phenomenon is referred to as a phenological mismatch.</p>
+</section>
+<section id="identify-the-data-needed-to-address-the-question-or-challenge">
+<h2><span class="section-number">22.2. </span>Identify the Data Needed to Address the Question or Challenge<a class="headerlink" href="#identify-the-data-needed-to-address-the-question-or-challenge" title="Permalink to this heading">#</a></h2>
+<p>Once you have a question in mind, it is time to figure out your data requirements. Requirements are the qualities that your data need to have in order to address a particular question well.</p>
+<p>For our challenge of calculating a NDVI time series, the goal is to create a time series of NDVI for a study area across a year.</p>
+<p>As you want to explore seasonal patterns of “green-up” and “brown down”, you need data that is at least collected each month.</p>
+<p>What data do you select for your analysis? Consider temporal frequency of data collection and spatial resolution.</p>
+<p>For example, NAIP is collected every other year, so it is unlikely to provide good information on seasonality.</p>
+<p>In contrast, MODIS and Landsat may be more useful, because they are collected on daily and bi-monthly frequencies, respectively.</p>
+<p>In terms of resolution, MODIS pixels could be too large depending on the size of your study site. Perhaps Landsat has an ideal combination of temporal frequency, resolution and spatial coverage.</p>
+</section>
+<section id="design-your-workflow">
+<h2><span class="section-number">22.3. </span>Design Your Workflow<a class="headerlink" href="#design-your-workflow" title="Permalink to this heading">#</a></h2>
+<p>Next it is time to design the workflow to create the output(s) that will address your question or challenge.</p>
+<p>To use the NDVI time series to understand seasonality, it can be helpful to create a plot that shows the NDVI values for each month for a site.  In addition, you may want to produce some output files (e.g. CSV files) that you can share with others who may be interested in creating their own visualizations. You need to understand your users needs to better design the requirements for your output.</p>
+<p>For the NDVI time series challenge, you will design a workflow that has two outputs:</p>
+<ol class="arabic simple">
+<li><p>A plot of average NDVI (for each Landsat image) for 2 sites over a year.</p></li>
+<li><p>A CSV file containing the average NDVI values (for each Landsat image) for both sites.</p></li>
+</ol>
+<p>Once you know your outputs, you can work backwards to determine the data and steps needed to create your final output(s).</p>
+<p>The design process can feel difficult, so it can be helpful to begin the design of the workflow using words (not code), a process known as pseudocoding. With pseudocode, you list out the inputs and outputs of the workflows and then identify the analytical steps needed to create the outputs from the inputs.</p>
+<p>Next lecture walks you through the pseudocoding process, so that you can use this method to easily design data workflows and more toward automating these workflows.</p>
+</section>
+<section id="implement-your-workflow">
+<h2><span class="section-number">22.4. </span>Implement Your Workflow<a class="headerlink" href="#implement-your-workflow" title="Permalink to this heading">#</a></h2>
+<p>Once you have designed your workflow (using pseudocode first!), it is time to implement. This is where you can put all of your programming skills to the test.</p>
+<p>Try to write code that is clear, efficient, well documented and expressive. Remember that you never know when you may have to re-run or re-use an analysis, and you never know when someone else might need to use your code, too.</p>
+<p>Thus, your aim should be to write code that is readable, reproducible, and efficient. Be sure to:</p>
+<ol class="arabic simple">
+<li><p>Use clear, expressive names for objects, files, etc. Ask yourself if someone reading your code could guess what is contained in that object or file based on the name.</p></li>
+<li><p>Use reproducible paths for input data and writing outputs (e.g. use <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> to define paths, include code to create needed directories, etc).</p></li>
+<li><p>Writing custom functions for repetitive tasks in your workflows.</p></li>
+<li><p>Including checks (i.e. tests) in your code to ensure that it is doing what you think is!</p></li>
+</ol>
+<p>We reviewed some of these topics in our lecture on reproducible science, and more programming specific best practices are introduced in <span class="xref myst">Data Workflow Best Practices</span>.</p>
+<p>&nbsp;</p></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="21_xarray_advanced.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Xarray Interpolation, Groupby, Resample, Rolling, and Coarsen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="23_workflows_pseudocode.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Learn to Write Pseudocode for Python Programming</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-problem-challenge-or-question">22.1. Identify the Problem, Challenge or Question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-the-data-needed-to-address-the-question-or-challenge">22.2. Identify the Data Needed to Address the Question or Challenge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-workflow">22.3. Design Your Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-your-workflow">22.4. Implement Your Workflow</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
