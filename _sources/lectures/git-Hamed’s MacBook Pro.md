@@ -149,7 +149,7 @@ Then you can use the following command:
 $ git revert <commit number>
 ```
 
-This will, by default, open a file (using `vim`) to enter a new message for your revert commit. **Note:** `git revert` will create a new commit in the history of your git repository, and it is best practice to include a message to indicate the reason for reverting to an old commit. After entering your message, you can save the message using `:wq`. 
+This will, by default, open a file (using *Vim*) to enter a new message for your revert commit. **Note:** `git revert` will create a new commit in the history of your git repository, and it is best practice to include a message to indicate the reason for reverting to an old commit. After entering your message, you can save the message using `:wq`. 
 
 ``` {Tip}
 To be able to use `git revert` your working branch should be clean (no modifications). You should also check out `git reset` and `git restore` as alternatives to `git revert`. `git reset` can clean all uncommitted changes in your working directory, and `git restore` can extract specific files from a previous commit. 
