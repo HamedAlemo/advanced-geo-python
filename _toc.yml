@@ -4,7 +4,7 @@ title: Home
 parts:
   - caption: Introduction
     chapters:
-    - file: docs/syllabus
+    # - file: docs/syllabus
     - file: docs/team
     - file: docs/schedule
     - file: docs/assessment
@@ -18,58 +18,58 @@ parts:
       title: Intro to Unix and Bash
     - file: lectures/02_git
       title: Intro to Version Control and Git
-    - file: lectures/03_python-env.md
-    - file: lectures/04_jupyter.md
-      title: Intro to JupyterLab
-    - file: lectures/05_landscape.md
-      title: Geospatial Landscape
-    - file: lectures/06_crs
-      title: Review of CRS
-    - file: lectures/07_crs_python
-      title: CRS and Projections in Python
-    - file: lectures/08_docker.md
-      title: Intro to Docker
-    - file: lectures/09_earth_search_tutorial
-      title: Searching a STAC Catalog
-    - file: lectures/10_dask_intro
-      title: Intro to Dask & Dask Array
-    - file: lectures/11_stackstac
-      title: Scaling stackstac w Dask
-    - file: lectures/12_dask_dataframe
-      title: Into to Dask DataFrame
-    - file: lectures/13_raster
-      title: Review of Raster Data
-    - file: lectures/14_raster_analysis
-      title: Raster Data in Python
-    - file: lectures/15_raster_processing
-      title: Raster Data Processing
-    - file: lectures/16_vector
-      title: Review of Vector Data
-    - file: lectures/17_vector_analysis
-      title: Vector Data in Python
-    - file: lectures/18_dask_geopandas_intro
-      title: Intro to Dask-GeoPandas
-    - file: lectures/19_scalable_vector_analysis
-      title: Scalable Vector Analysis
-    - file: lectures/20_xarray_fundamentals
-      title: Xarray Fundamentals
-    - file: lectures/21_xarray_advanced
-      title: Advanced Xarray Operations
-    - file: lectures/22_workflows_intro
-      title: Workflows in Python
-    - file: lectures/23_workflows_pseudocode
-      title: Writing Pseudocode
-    - file: lectures/24_workflows_best_practices
-      title: Workflow Best Practices
-  - caption: Assignments
-    chapters:
-    - file: assignments/a1
-    - file: assignments/a2
-    - file: assignments/a3 
-    - file: assignments/a4
-    - file: assignments/a5
-    - file: assignments/a6
-    - file: assignments/a7
+    # - file: lectures/03_python-env.md
+    # - file: lectures/04_jupyter.md
+    #   title: Intro to JupyterLab
+    # - file: lectures/05_landscape.md
+    #   title: Geospatial Landscape
+    # - file: lectures/06_crs
+    #   title: Review of CRS
+    # - file: lectures/07_crs_python
+    #   title: CRS and Projections in Python
+    # - file: lectures/08_docker.md
+    #   title: Intro to Docker
+    # - file: lectures/09_earth_search_tutorial
+    #   title: Searching a STAC Catalog
+    # - file: lectures/10_dask_intro
+    #   title: Intro to Dask & Dask Array
+    # - file: lectures/11_stackstac
+    #   title: Scaling stackstac w Dask
+    # - file: lectures/12_dask_dataframe
+    #   title: Into to Dask DataFrame
+    # - file: lectures/13_raster
+    #   title: Review of Raster Data
+    # - file: lectures/14_raster_analysis
+    #   title: Raster Data in Python
+    # - file: lectures/15_raster_processing
+    #   title: Raster Data Processing
+    # - file: lectures/16_vector
+    #   title: Review of Vector Data
+    # - file: lectures/17_vector_analysis
+    #   title: Vector Data in Python
+    # - file: lectures/18_dask_geopandas_intro
+    #   title: Intro to Dask-GeoPandas
+    # - file: lectures/19_scalable_vector_analysis
+    #   title: Scalable Vector Analysis
+    # - file: lectures/20_xarray_fundamentals
+    #   title: Xarray Fundamentals
+    # - file: lectures/21_xarray_advanced
+    #   title: Advanced Xarray Operations
+    # - file: lectures/22_workflows_intro
+    #   title: Workflows in Python
+    # - file: lectures/23_workflows_pseudocode
+    #   title: Writing Pseudocode
+    # - file: lectures/24_workflows_best_practices
+    #   title: Workflow Best Practices
+  # - caption: Assignments
+  #   chapters:
+    # - file: assignments/a1
+    # - file: assignments/a2
+    # - file: assignments/a3 
+    # - file: assignments/a4
+    # - file: assignments/a5
+    # - file: assignments/a6
+    # - file: assignments/a7
   - caption: Appendices
     chapters:
     - file: docs/license

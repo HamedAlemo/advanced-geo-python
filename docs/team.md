@@ -3,11 +3,11 @@
 ## Instructor
 Prof. [Hamed Alemohammad](https://hamedalemo.github.io/)<br>
 Associate Professor, Graduate School of Geography<br>
-Director, Center for Geospatial Analytics<br>
+Director, [Clark Center for Geospatial Analytics](https://clarku.edu/cga)<br>
 (halemohammad [at] clarku [dot] edu)
 
 ## TA
-Caleb Kluchman<br>
-MS GIS Student, Graduate School of Geography<br>
-(ckluchman [at] clarku [dot] edu)
+Fatemeh Kordi<br>
+PhD Candidate, Graduate School of Geography<br>
+(fkordi [at] clarku [dot] edu)
 <p>&nbsp;</p>
