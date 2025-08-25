@@ -4,7 +4,7 @@ title: Home
 parts:
   - caption: Introduction
     chapters:
-    # - file: docs/syllabus
+    - file: docs/syllabus
     - file: docs/team
     - file: docs/schedule
     - file: docs/assessment
