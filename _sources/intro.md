@@ -14,3 +14,4 @@ The intended audiences for the course are PhD students in Geography, MSGIS stude
 - Transform, merge, and manipulate geospatial data in Python;
 - Visualize geospatial data in Python;
 - Scalable and parallel computations in Python;
+- Critically evaluate and appropriately use generative AI in scientific coding workflows.
