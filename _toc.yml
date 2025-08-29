@@ -61,9 +61,9 @@ parts:
     #   title: Writing Pseudocode
     # - file: lectures/24_workflows_best_practices
     #   title: Workflow Best Practices
-  # - caption: Assignments
-  #   chapters:
-    # - file: assignments/a1
+  - caption: Assignments
+    chapters:
+    - file: assignments/a1
     # - file: assignments/a2
     # - file: assignments/a3 
     # - file: assignments/a4
