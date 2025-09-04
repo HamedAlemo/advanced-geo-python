@@ -102,10 +102,10 @@ $ conda create --name myenv
 ```
 Replace *myenv* with the name you want to give to your environment, and use a name that reflects the project or assignment you will use this environment for. 
 
-If you wish, you can specify a particular version of Python for Conda to install when creating the environment. For example, to create an environment named "g313-a1" with Python 3.8, use the following command:
+If you wish, you can specify a particular version of Python for Conda to install when creating the environment. For example, to create an environment named "g313-a1" with Python 3.12, use the following command:
 
 ```
-$ conda create --name g313-a1 python=3.8
+$ conda create --name g313-a1 python=3.12
 ```
 
 ## Activating and Deactivating Environments
@@ -162,9 +162,9 @@ In order to make your results more reproducible and to make it easier for resear
 ```
 $ conda search numpy
 ```
-You can then update your `conda install` command as following to install `NumPy` version 1.25.2:
+You can then update your `conda install` command as following to install `NumPy` version 1.26.4:
 ```
-$ conda install numpy=1.25.2
+$ conda install numpy=1.26.4
 ```
 
 Finally, you can specify multiple packages and their version in the `conda create` command if you wish to install them when creating a new environment. For example, the following command will create a new environment called `scipy-env` and install four packages:

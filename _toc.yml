@@ -18,7 +18,7 @@ parts:
       title: Intro to Unix and Bash
     - file: lectures/02_git
       title: Intro to Version Control and Git
-    # - file: lectures/03_python-env.md
+    - file: lectures/03_python-env.md
     # - file: lectures/04_jupyter.md
     #   title: Intro to JupyterLab
     # - file: lectures/05_landscape.md
