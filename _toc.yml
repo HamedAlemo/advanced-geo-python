@@ -19,6 +19,7 @@ parts:
     - file: lectures/02_git
       title: Intro to Version Control and Git
     - file: lectures/03_python-env.md
+      title: Python Environments
     # - file: lectures/04_jupyter.md
     #   title: Intro to JupyterLab
     # - file: lectures/05_landscape.md
@@ -64,7 +65,7 @@ parts:
   - caption: Assignments
     chapters:
     - file: assignments/a1
-    # - file: assignments/a2
+    - file: assignments/a2
     # - file: assignments/a3 
     # - file: assignments/a4
     # - file: assignments/a5
