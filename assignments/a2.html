@@ -375,7 +375,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dummy-resume-repository">Create a Dummy Resume Repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-repository-for-your-assignments">Create a Repository for Your Assignments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-undo-changes-in-a-git-repository">[Optional] Undo Changes in a Git Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#undo-changes-in-a-git-repository">Undo Changes in a Git Repository</a></li>
 </ul>
             </nav>
         </div>
@@ -389,8 +389,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-2">
 <h1>Assignment 2<a class="headerlink" href="#assignment-2" title="Permalink to this heading">#</a></h1>
-<p><strong>Due: Monday Sep 23rd at 11:59 pm ET</strong></p>
-<p>The goal of this assignment is to work with Bash, git, and GitHub. If you finish the main part of the assignment, continue with the optional ones.</p>
+<p><strong>Due: Wednesday Sep 10th at 11:59 pm ET</strong></p>
+<p>The goal of this assignment is to work with Bash, git, and GitHub.</p>
 <section id="create-a-dummy-resume-repository">
 <h2>Create a Dummy Resume Repository<a class="headerlink" href="#create-a-dummy-resume-repository" title="Permalink to this heading">#</a></h2>
 <p>Open your terminal and do the following tasks:</p>
@@ -433,30 +433,34 @@ document.write(`
 <section id="create-a-repository-for-your-assignments">
 <h2>Create a Repository for Your Assignments<a class="headerlink" href="#create-a-repository-for-your-assignments" title="Permalink to this heading">#</a></h2>
 <p>Now that you know how to create a git repository, you should create your assignments repository.</p>
-<ol class="arabic simple">
-<li><p>Create a new directory called <code class="docutils literal notranslate"><span class="pre">geog213-assignments</span></code> (if you are registered in GEOG213) or <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> (if you are registered in GEOG313) in your home directory.</p></li>
+<ol class="arabic">
+<li><p>Create a new directory called <code class="docutils literal notranslate"><span class="pre">geog213-assignments</span></code> (if you are registered in GEOG213) or <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> (if you are registered in GEOG313) on your local machine.</p></li>
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> markdown file that contains your name and a link to your “resume” repo.</p></li>
 <li><p>Initialize a new git repository</p></li>
 <li><p>Add the file and make your first commit</p></li>
 <li><p>Create a new <strong>private</strong> repository on GitHub called <code class="docutils literal notranslate"><span class="pre">geog213-assignments</span></code> or <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code>. (Call it exactly like that. Do not vary the spelling, capitalization, or punctuation.)</p></li>
 <li><p>Push your changes to the GitHub repository</p></li>
-<li><p>Navigate to your repository on GitHub, go to “Settings” -&gt; “Collaborators”  -&gt; “Add People” and add <code class="docutils literal notranslate"><span class="pre">hamedalemo</span></code> and <code class="docutils literal notranslate"><span class="pre">kluchman</span></code> as collaborators.</p></li>
+<li><p>Navigate to your repository on GitHub, go to “Settings” -&gt; “Collaborators”  -&gt; “Add People” and add <code class="docutils literal notranslate"><span class="pre">hamedalemo</span></code> and <code class="docutils literal notranslate"><span class="pre">kordi1372</span></code> as collaborators.</br></p>
+<blockquote>
+<div><p><strong>Note:</strong> the <code class="docutils literal notranslate"><span class="pre">resume</span></code> repository created in the first part of the assignment should be either set to public, or you need to add Hamed and Fatemeh as collaborators to that repository as well.</p>
+</div></blockquote>
+</li>
 <li><p>Push new commits to this repository whenever you are ready to hand in your assignments</p></li>
 </ol>
 </section>
-<section id="optional-undo-changes-in-a-git-repository">
-<h2>[Optional] Undo Changes in a Git Repository<a class="headerlink" href="#optional-undo-changes-in-a-git-repository" title="Permalink to this heading">#</a></h2>
+<section id="undo-changes-in-a-git-repository">
+<h2>Undo Changes in a Git Repository<a class="headerlink" href="#undo-changes-in-a-git-repository" title="Permalink to this heading">#</a></h2>
 <p>It might happen that you commit new changes to your git repository, and later you decide to undo it. There are two options for undoing your changes namely <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code>. In this exercise you will explore their differences.</p>
 <ol class="arabic simple">
-<li><p>Create a new directory called <code class="docutils literal notranslate"><span class="pre">git-explore</span></code> in your home directory</p></li>
-<li><p>Create the following four files in the new directory: <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, <code class="docutils literal notranslate"><span class="pre">cv.md</span></code>, <code class="docutils literal notranslate"><span class="pre">address.md</span></code>, and <code class="docutils literal notranslate"><span class="pre">phone.md</span></code></p></li>
-<li><p>In four different commits, add and commit each of the four files to your Git repository. (e.g. the first one would be for <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, the second for <code class="docutils literal notranslate"><span class="pre">cv.md</span></code>, and so on). Make sure to use a commit message that indicates which file is being added.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reflog</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command to print out the history of your git commands. You can see the ID associated with each commit.</p></li>
+<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">resume</span></code> directory that you created in the first part on your local machine.</p></li>
+<li><p>Create the following three files in the directory: <code class="docutils literal notranslate"><span class="pre">cv.md</span></code>, <code class="docutils literal notranslate"><span class="pre">address.md</span></code>, and <code class="docutils literal notranslate"><span class="pre">phone.md</span></code></p></li>
+<li><p>Add and commit each of the three files to your Git repository separately. (i.e. the first commit would be for <code class="docutils literal notranslate"><span class="pre">cv.md</span></code>, the second for <code class="docutils literal notranslate"><span class="pre">address.md</span></code>, and the third for <code class="docutils literal notranslate"><span class="pre">phone.md</span></code>). Make sure to use a commit message that indicates which file is being added.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command to print out the history of your git commands. You can see the ID associated with each commit.</p></li>
 </ol>
-<p>Now you can try two things:</p>
+<p>Now try two things:</p>
 <ol class="arabic simple" start="5">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span> <span class="pre">&lt;ID&gt;</span></code> to remove the changes associated with a specific commit. This command does not remove any changes commited after the commit ID you are using. Use this command to remove the third commit you used to add a file, and then check the status of files in your repo as well as <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to see what changes are made to your git repository.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">&lt;ID&gt;</span></code> to remove ALL commits after the commit ID cumulatively. Use this to remove all the commits you have made after the first commit to add the first file. Check the status of files in your repo as well <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to see what changes are made to your git repository.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span> <span class="pre">&lt;ID&gt;</span></code> to remove the changes associated with the commit for adding <code class="docutils literal notranslate"><span class="pre">address.md</span></code>. This command does not remove any changes committed after the commit ID you are using. Then check the status of files in your repo as well as <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to see what changes are made to your git repository. Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span></code> to update the changes on your GitHub repository.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">&lt;ID&gt;</span></code> to remove ALL commits after the commit ID cumulatively. Use this to remove all the commits you have made after the first commit to add the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file. Check the status of files in your repo as well <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to see what changes are made to your git repository.  Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span></code> to update the changes on your GitHub repository.</p></li>
 </ol>
 <p>&nbsp;</p></section>
 </section>
@@ -530,7 +534,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dummy-resume-repository">Create a Dummy Resume Repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-repository-for-your-assignments">Create a Repository for Your Assignments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-undo-changes-in-a-git-repository">[Optional] Undo Changes in a Git Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#undo-changes-in-a-git-repository">Undo Changes in a Git Repository</a></li>
 </ul>
   </nav></div>
 
