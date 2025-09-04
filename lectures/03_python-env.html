@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/03_python-env';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. JupyterLab for Interactive Computing" href="04_jupyter.html" />
+    <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
     <link rel="prev" title="2. Introduction to Version Control and Git" href="02_git.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -170,37 +170,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Python Environments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_landscape.html">5. Geospatial Landscape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_crs.html">6. Review of CRS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_crs_python.html">7. CRS and Projections in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_docker.html">8. Intro to Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_earth_search_tutorial.html">9. Searching a STAC Catalog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_dask_intro.html">10. Intro to Dask &amp; Dask Array</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_stackstac.html">11. Scaling stackstac w Dask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_dask_dataframe.html">12. Into to Dask DataFrame</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_raster.html">13. Review of Raster Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_raster_analysis.html">14. Raster Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15_raster_processing.html">15. Raster Data Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="16_vector.html">16. Review of Vector Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="17_vector_analysis.html">17. Vector Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="18_dask_geopandas_intro.html">18. Intro to Dask-GeoPandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="19_scalable_vector_analysis.html">19. Scalable Vector Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="20_xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="21_xarray_advanced.html">21. Advanced Xarray Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_workflows_intro.html">22. Workflows in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="23_workflows_pseudocode.html">23. Writing Pseudocode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="24_workflows_best_practices.html">24. Workflow Best Practices</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/a2.html">Assignment 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/a3.html">Assignment 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/a4.html">Assignment 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/a5.html">Assignment 5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/a6.html">Assignment 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/a7.html">Assignment 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -507,8 +480,8 @@ document.write(`
 </pre></div>
 </div>
 <p>Replace <em>myenv</em> with the name you want to give to your environment, and use a name that reflects the project or assignment you will use this environment for.</p>
-<p>If you wish, you can specify a particular version of Python for Conda to install when creating the environment. For example, to create an environment named “g313-a1” with Python 3.8, use the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name g313-a1 python=3.8
+<p>If you wish, you can specify a particular version of Python for Conda to install when creating the environment. For example, to create an environment named “g313-a1” with Python 3.12, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name g313-a1 python=3.12
 </pre></div>
 </div>
 </section>
@@ -558,8 +531,8 @@ $ conda create -n myenv
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda search numpy
 </pre></div>
 </div>
-<p>You can then update your <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command as following to install <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> version 1.25.2:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install numpy=1.25.2
+<p>You can then update your <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command as following to install <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> version 1.26.4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install numpy=1.26.4
 </pre></div>
 </div>
 <p>Finally, you can specify multiple packages and their version in the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> command if you wish to install them when creating a new environment. For example, the following command will create a new environment called <code class="docutils literal notranslate"><span class="pre">scipy-env</span></code> and install four packages:</p>
@@ -690,11 +663,11 @@ $ conda create -n myenv
       </div>
     </a>
     <a class="right-next"
-       href="04_jupyter.html"
+       href="../assignments/a1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>JupyterLab for Interactive Computing</p>
+        <p class="prev-next-title">Assignment 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
