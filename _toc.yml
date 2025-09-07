@@ -20,8 +20,8 @@ parts:
       title: Intro to Version Control and Git
     - file: lectures/03_python-env.md
       title: Python Environments
-    # - file: lectures/04_jupyter.md
-    #   title: Intro to JupyterLab
+    - file: lectures/04_jupyter.md
+      title: Intro to JupyterLab
     # - file: lectures/05_landscape.md
     #   title: Geospatial Landscape
     # - file: lectures/06_crs
