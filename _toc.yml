@@ -22,6 +22,8 @@ parts:
       title: Python Environments
     - file: lectures/04_jupyter.md
       title: Intro to JupyterLab
+    - file: lectures/05_xarray_fundamentals
+      title: Xarray Fundamentals
     # - file: lectures/05_landscape.md
     #   title: Geospatial Landscape
     # - file: lectures/06_crs
@@ -52,8 +54,6 @@ parts:
     #   title: Intro to Dask-GeoPandas
     # - file: lectures/19_scalable_vector_analysis
     #   title: Scalable Vector Analysis
-    # - file: lectures/20_xarray_fundamentals
-    #   title: Xarray Fundamentals
     # - file: lectures/21_xarray_advanced
     #   title: Advanced Xarray Operations
     # - file: lectures/22_workflows_intro
