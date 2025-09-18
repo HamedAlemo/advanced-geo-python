@@ -24,6 +24,8 @@ parts:
       title: Intro to JupyterLab
     - file: lectures/05_xarray_fundamentals
       title: Xarray Fundamentals
+    - file: lectures/06_xarray_advanced
+      title: Advanced Xarray Operations
     # - file: lectures/05_landscape.md
     #   title: Geospatial Landscape
     # - file: lectures/06_crs
@@ -54,8 +56,7 @@ parts:
     #   title: Intro to Dask-GeoPandas
     # - file: lectures/19_scalable_vector_analysis
     #   title: Scalable Vector Analysis
-    # - file: lectures/21_xarray_advanced
-    #   title: Advanced Xarray Operations
+
     # - file: lectures/22_workflows_intro
     #   title: Workflows in Python
     # - file: lectures/23_workflows_pseudocode
