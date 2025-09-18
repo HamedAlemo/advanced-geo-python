@@ -3,41 +3,41 @@ The course will cover the following topics during the semester. Part of each wee
 
 There will be 9 assignments during the semester, and students can join office hours to ask any questions about the assignment, or general questions about the lecture. 
 
-|	**Week**	|	**Date**	|	**Topic**	|	**Quiz**	|	**Assignment**	|
-|	--------	|	--------	|	----------------------------------------------------------------	|	-----------	|	-----------	|
-|	1	|	8/25/25	|	Workflows for Open Reproducible Science	|		|	Assignment 1	|
-|	1	|	8/28/25	|	Intro to Unix, Version Control and Git	|		|		|
-|	2	|	9/1/25	|	**Labor Day (No Classes)**	|		|		|
-|	2	|	9/4/25	|	Intro to Markdown, and Basics of Python Environments	|	Yes	|	Assignment 2	|
-|	3	|	9/8/25	|	Intro to JupyterLab and Working with Python Functions	|		|		|
-|	3	|	9/11/25	|	Intro to Xarray	|		|	Assignment 3	|
-|	4	|	9/15/25	|	Working with Multi-Dimensional Arrays in Python	|		|		|
-|	4	|	9/18/25	|	Working with GenAI tools	|	Yes	|	Assignment 4	|
-|	5	|	9/22/25	|	Cloud Native Geospatial Ecosystem	|		|		|
-|	5	|	9/25/25	|	Review of CRS and Projections in Python	|		|	Assignment 5 \*	|
-|	6	|	9/29/25	|	Intro to Containers and Docker	|	Yes	|		|
-|	6	|	10/2/25	|	Workign with Docker	|		|	Assignment 6	|
-|	7	|	10/6/25	|	Intro to STAC and Geospatial Data on the Cloud	|	Yes	|		|
-|	7	|	10/9/25	|	Intro to Dask	|		|		|
-|	8	|	10/13/25	|	**Fall Break (No Classes)**	|		|		|
-|	8	|	10/16/25	|	Intro to Dask DataFrame	|		|	Assignment 7	|
-|	9	|	10/20/25	|	Working with Raster Data in Python	|	Yes	|		|
-|	9	|	10/23/25	|	Scaling Raster Data Analytics	|		|	Assignment 8	|
-|	10	|	10/27/25	|	Working with Vector Data in Python	|	Yes	|		|
-|	10	|	10/30/25	|	Scaling Vector Data Analytics 	|		|	Assignment 9	|
-|	11	|	11/3/25	|	Data Visualization	|	Yes	|		|
-|	11	|	11/6/25	|	Geospatial Workflows	|		|		|
-|	12	|	11/10/25	|	Geospatial Workflows	|		|		|
-|	12	|	11/13/25	|	Geospatial Workflows	|		|		|
-|	13	|	11/17/25	|	Projects Proposal Presentation	|		|	*Proposals due*	|
-|	13	|	11/20/25	|	Projects	|		|		|
-|	14	|	11/24/25	|	Projects	|		|		|
-|	14	|	11/27/25	|	**Thanksgiving Break (No Classes)**	|		|		|
-|	15	|	12/1/25	|	Projects	|		|		|
-|	15	|	12/4/25	|	Projects	|		|		|
-|	16	|	12/8/25	|	Projects	|		|		|
+**Week**	|	**Date**	|	**Topic**	|	**Quiz**	|	**Assignment**	|
+--------	|	--------	|	----------------------------------------------------------------	|	-----------	|	-----------	|
+1	|	8/25/25	|	Workflows for Open Reproducible Science	|		|	Assignment 1	|
+1	|	8/28/25	|	Intro to Unix, Version Control and Git	|		|		|
+2	|	9/1/25	|	**Labor Day (No Classes)**	|		|		|
+2	|	9/4/25	|	Intro to Markdown, and Basics of Python Environments	|	Yes	|	Assignment 2	|
+3	|	9/8/25	|	Intro to JupyterLab and Working with Python Functions	|		|		|
+3	|	9/11/25	|	Intro to Xarray	|		|		
+4	|	9/15/25	|	Working with Multi-Dimensional Arrays in Python	|		|		|
+4	|	9/18/25	|	Working with GenAI tools	|	Yes	|	Assignment 3	|
+5	|	9/22/25	|	Cloud Native Geospatial Ecosystem	|		|		|
+5	|	9/25/25	|	Review of CRS and Projections in Python	|		|		
+6	|	9/29/25	|	Intro to Containers and Docker	|	Yes	|		|
+6	|	10/2/25	|	Workign with Docker	|		|	Assignment 4*	|
+7	|	10/6/25	|	Intro to STAC and Geospatial Data on the Cloud	|	Yes	|		|
+7	|	10/9/25	|	Intro to Dask	|		|		|
+7	|	10/13/25	|	**Fall Break (No Classes)**	|		|		|
+8	|	10/16/25	|	Intro to Dask DataFrame	|		|	Assignment 5	|
+9	|	10/20/25	|	Working with Raster Data in Python	|	Yes	|		|
+9	|	10/23/25	|	Scaling Raster Data Analytics	|		|	Assignment 6	|
+10	|	10/27/25	|	Working with Vector Data in Python	|	Yes	|		|
+10	|	10/30/25	|	Scaling Vector Data Analytics 	|		|	Assignment 7	|
+11	|	11/3/25	|	Data Visualization	|	Yes	|		|
+11	|	11/6/25	|	Geospatial Workflows	|		|		|
+12	|	11/10/25	|	Geospatial Workflows	|		|		|
+12	|	11/13/25	|	Geospatial Workflows	|		|		|
+13	|	11/17/25	|	Projects Proposal Presentation	|		|	*Proposals due*	|
+13	|	11/20/25	|	Projects	|		|		|
+14	|	11/24/25	|	Projects	|		|		|
+14	|	11/27/25	|	**Thanksgiving Break (No Classes)**	|		|		|
+15	|	12/1/25	|	Projects	|		|		|
+15	|	12/4/25	|	Projects	|		|		|
+16	|	12/8/25	|	Projects	|		|		|
 
- \* Not required for **300-level** students. 
+ \* This assignment will have an extra section for those registered at **200-level**. 
 
 Assignments will be released on the Thursday of the week (with the exception of Assignment 1), and are due the following week at 11:59pm ET on Wednesday. For example, for the assignment that will be released during the 3rd week of the class the submission deadline is on Wednesday at 11:59 pm during the 4th week. 
 
