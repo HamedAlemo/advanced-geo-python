@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/a3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment 4" href="a4.html" />
+    <link rel="next" title="License" href="../docs/license.html" />
     <link rel="prev" title="Assignment 2" href="a2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -171,36 +171,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/03_python-env.html">3. Python Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/04_jupyter.html">4. Intro to JupyterLab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/05_landscape.html">5. Geospatial Landscape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/06_crs.html">6. Review of CRS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/07_crs_python.html">7. CRS and Projections in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/08_docker.html">8. Intro to Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/09_earth_search_tutorial.html">9. Searching a STAC Catalog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/10_dask_intro.html">10. Intro to Dask &amp; Dask Array</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/11_stackstac.html">11. Scaling stackstac w Dask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/12_dask_dataframe.html">12. Into to Dask DataFrame</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/13_raster.html">13. Review of Raster Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/14_raster_analysis.html">14. Raster Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/15_raster_processing.html">15. Raster Data Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/16_vector.html">16. Review of Vector Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/17_vector_analysis.html">17. Vector Data in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/18_dask_geopandas_intro.html">18. Intro to Dask-GeoPandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/19_scalable_vector_analysis.html">19. Scalable Vector Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/20_xarray_fundamentals.html">20. Xarray Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/21_xarray_advanced.html">21. Advanced Xarray Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/22_workflows_intro.html">22. Workflows in Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/23_workflows_pseudocode.html">23. Writing Pseudocode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/24_workflows_best_practices.html">24. Workflow Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/05_xarray_fundamentals.html">5. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/06_xarray_advanced.html">6. Advanced Xarray Operations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="a1.html">Assignment 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="a2.html">Assignment 2</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="a4.html">Assignment 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="a5.html">Assignment 5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="a6.html">Assignment 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="a7.html">Assignment 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -376,7 +354,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -392,6 +372,27 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-inspect-10-pts">1) Open &amp; Inspect (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacetime-subsetting-units-10-pts">2) Space–Time Subsetting &amp; Units (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#climatology-monthly-means-anomalies-20-pts">3) Climatology, Monthly Means &amp; Anomalies (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-index-event-detection-15-pts">4) Rolling Index &amp; Event Detection (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-composites-15-pts">5) Spatial Composites (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-comparison-coarsen-vs-interpolate-20-pts">6) Grid Comparison: Coarsen vs. Interpolate (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-10-pts-trend-mapping">Optional (+10 pts): Trend Mapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -403,15 +404,119 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-3">
 <h1>Assignment 3<a class="headerlink" href="#assignment-3" title="Permalink to this heading">#</a></h1>
-<p><strong>Due: Monday Sep 30th at 11:59 pm ET</strong></p>
-<p>This assignment is a follow up to Assignment 1, and the goal is to complete the NASA TOPS Open Science 101 online course by finishing modules 4, and 5. The modules are designed in a way that you have to complete them in sequence. Make sure to complete the <strong>regular modules and NOT the fast track ones</strong>. After finishing these 5 modules, you will receive an online certificate from NASA that you can reference in your resume or online profiles like LinkedIn.</p>
-<p>Steps to complete, and report back:</p>
+<p><strong>Due: Wednesday Oct 1st at 11:59 pm ET</strong></p>
+<section id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this heading">#</a></h2>
+<p>Use <em>Xarray</em> to analyze <em>multi‑dimensional weather/climate data</em>. You will work with a dataset, inspect its metadata, subset in <em>space and time</em>, compute <em>monthly means and climatologies</em>, derive <em>anomalies and rolling indices</em>, create <em>composite maps</em>, and compare <em>coarsen vs. interpolation</em>.</p>
+</section>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h2>
+<p>You should submit this assignment to your existing <code class="docutils literal notranslate"><span class="pre">geog213-assignments</span></code> or <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> GitHub repository under a new directory named <code class="docutils literal notranslate"><span class="pre">assignment-3/</span></code>.
+Your repository should follow all the principles of open and reproducible science you learned in Assignment 1 (including a README file with all the instructions to reproduce the results of your work). This will account for 10 pts.</p>
+</section>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
+<p><strong>NOAA ERSST v5</strong> — Extended Reconstructed Sea Surface Temperature (monthly, global; ~2° grid).</p>
 <ul class="simple">
-<li><p>Navigate to NASA TOPS Open Science 101 page <a class="reference external" href="https://nasa.github.io/Transform-to-Open-Science/take-os101/">here</a>.</p></li>
-<li><p>Log in using your existing account from Assignment 1.</p></li>
-<li><p>After completing modules 4 and 5, you need to submit a screenshot of your profile which shows the badges for these modules and your full name on Canvas.</p></li>
+<li><p>OPeNDAP URL :<br />
+<code class="docutils literal notranslate"><span class="pre">http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/noaa.ersst.v5/sst.mnmean.nc</span></code><br />
+<em>(See <a class="reference internal" href="../lectures/06_xarray_advanced.html"><span class="doc std std-doc">Lecture 06</span></a> for usage context and examples.)</em></p></li>
 </ul>
-<p><strong>Optional but highly recommended</strong>: You can connect your account with your ORCID account to display your certificate on your ORCID account. By doing this, you will also have the chance to receive a paper certificate for this course from NASA together with some stickers. Make sure to share your ORCID ID when submitting your assignment on Canvas.</p>
+<p><strong>Access hint (not a skeleton):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="n">ersst_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/noaa.ersst.v5/sst.mnmean.nc&quot;</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">ersst_url</span><span class="p">,</span>
+    <span class="n">drop_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;time_bnds&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h2>
+<section id="open-inspect-10-pts">
+<h3>1) Open &amp; Inspect (10 pts)<a class="headerlink" href="#open-inspect-10-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open the ERSST dataset from OPeNDAP (above).</p></li>
+<li><p>Print a concise summary of the <em>Dataset</em> and the <code class="docutils literal notranslate"><span class="pre">sst</span></code> variable: dimensions, coordinates, and key attributes.</p></li>
+<li><p>In 3–5 sentences, explain how <code class="docutils literal notranslate"><span class="pre">dims</span></code>, <code class="docutils literal notranslate"><span class="pre">coords</span></code>, and <code class="docutils literal notranslate"><span class="pre">attrs</span></code> reflect the Xarray data model.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="spacetime-subsetting-units-10-pts">
+<h3>2) Space–Time Subsetting &amp; Units (10 pts)<a class="headerlink" href="#spacetime-subsetting-units-10-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Subset the dataset to <code class="docutils literal notranslate"><span class="pre">1982‑01</span></code> through <code class="docutils literal notranslate"><span class="pre">2024‑12</span></code>.</p></li>
+<li><p>Subset the <em>Niño‑3.4‑like</em> region: 5°S–5°N, 170°W–120°W.</p></li>
+<li><p>Confirm the SST units and note any relevant CF attributes (e.g., <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>, <code class="docutils literal notranslate"><span class="pre">long_name</span></code>, <code class="docutils literal notranslate"><span class="pre">missing_value</span></code>).</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="climatology-monthly-means-anomalies-20-pts">
+<h3>3) Climatology, Monthly Means &amp; Anomalies (20 pts)<a class="headerlink" href="#climatology-monthly-means-anomalies-20-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Compute a monthly climatology over 1982–2011 using <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>.</p></li>
+<li><p>Compute SST anomalies by subtracting the appropriate monthly climatology from each monthly field.</p></li>
+<li><p>Create two area‑weighted time series (averaged over the <em>Niño‑3.4‑like</em> region) by using cosine of the latitude as weights for each pixel and document your approach, and plot the time series in two separate plots:</p>
+<ul class="simple">
+<li><p>monthly mean SST</p></li>
+<li><p>monthly SST <em>anomalies</em></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="rolling-index-event-detection-15-pts">
+<h3>4) Rolling Index &amp; Event Detection (15 pts)<a class="headerlink" href="#rolling-index-event-detection-15-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Compute a 3‑month centered rolling mean of the area‑averaged anomalies (an ENSO‑style index).</p></li>
+<li><p>Identify contiguous warm events where the index is <code class="docutils literal notranslate"><span class="pre">+0.5 °C</span></code> above the mean for ≥ 3 consecutive months, and cold events where the index is <code class="docutils literal notranslate"><span class="pre">0.5 °C</span></code> below the mean for ≥ 3 consecutive months.</p></li>
+<li><p>Export your area‑averaged <em>monthly anomaly series</em> and <em>3‑month index</em> to <code class="docutils literal notranslate"><span class="pre">results/region_index.csv</span></code> (columns: <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">anomaly</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling_anomaly</span></code>).</p></li>
+<li><p>Report the top three warm (El Niño) and three cold (La Niña) events by peak magnitude, with start/end dates.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="spatial-composites-15-pts">
+<h3>5) Spatial Composites (15 pts)<a class="headerlink" href="#spatial-composites-15-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Build composite anomaly maps: the mean of all anomaly months belonging to warm events and, separately, cold events.</p></li>
+<li><p>Plot both composites using the <em>same color scale</em>, with clear titles and colorbars.</p></li>
+<li><p>Save your warm and cold composite anomaly maps to NetCDF files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">results/composite_warm.nc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">results/composite_cold.nc</span></code></p></li>
+</ul>
+</li>
+<li><p>In 3–4 sentences, interpret the large‑scale patterns you see.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="grid-comparison-coarsen-vs-interpolate-20-pts">
+<h3>6) Grid Comparison: Coarsen vs. Interpolate (20 pts)<a class="headerlink" href="#grid-comparison-coarsen-vs-interpolate-20-pts" title="Permalink to this heading">#</a></h3>
+<p>ERSST is ~2° resolution. Compare two approaches to a coarser global 4° grid:</p>
+<ol class="arabic simple">
+<li><p><strong>Coarsening:</strong> use <code class="docutils literal notranslate"><span class="pre">coarsen(lat=2,</span> <span class="pre">lon=2).mean()</span></code> on your monthly anomaly fields to produce 4° anomalies.</p></li>
+<li><p><strong>Interpolation:</strong> construct a regular 4° target grid and produce a bilinearly interpolated anomaly field via <code class="docutils literal notranslate"><span class="pre">.interp()</span></code>.</p></li>
+<li><p>For a representative month (pick one), plot both maps side‑by‑side.</p></li>
+<li><p>Discuss pros/cons of the two methods, and how they differ.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="optional-10-pts-trend-mapping">
+<h3>Optional (+10 pts): Trend Mapping<a class="headerlink" href="#optional-10-pts-trend-mapping" title="Permalink to this heading">#</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">polyfit(dim='time',</span> <span class="pre">deg=1)</span></code>, estimate a <em>linear trend</em> (°C per decade) of <em>monthly SST anomalies</em> over 1982–2024. Plot the slope map and briefly comment on patterns and caveats.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="deliverables">
+<h2>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<p>Your <code class="docutils literal notranslate"><span class="pre">assignment-3/</span></code> directory should include the following in addition to license file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">notebooks/&lt;your_notebook&gt;.ipynb</span></code> — executed with figures rendered on GitHub</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">results/composite_warm.nc</span></code>, <code class="docutils literal notranslate"><span class="pre">results/composite_cold.nc</span></code>, <code class="docutils literal notranslate"><span class="pre">results/region_index.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">README.md</span></code> — Instructions to reproduce the code</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -455,11 +560,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="a4.html"
+       href="../docs/license.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignment 4</p>
+        <p class="prev-next-title">License</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -472,6 +577,33 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-inspect-10-pts">1) Open &amp; Inspect (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacetime-subsetting-units-10-pts">2) Space–Time Subsetting &amp; Units (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#climatology-monthly-means-anomalies-20-pts">3) Climatology, Monthly Means &amp; Anomalies (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-index-event-detection-15-pts">4) Rolling Index &amp; Event Detection (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-composites-15-pts">5) Spatial Composites (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-comparison-coarsen-vs-interpolate-20-pts">6) Grid Comparison: Coarsen vs. Interpolate (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-10-pts-trend-mapping">Optional (+10 pts): Trend Mapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
