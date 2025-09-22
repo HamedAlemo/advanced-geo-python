@@ -29,7 +29,7 @@ Drivers of change in geospatial technology.
     width: 800px
     align: center
     ---
-    Growing archive of NASA satellite mission data [source [NASA Earth Data](https://www.earthdata.nasa.gov/technology/open-science)]
+    Growing archive of NASA satellite mission data [source NASA Earth Data]
     ```
     
     ```{figure} ../lectures/figures/maxar-umbra.png
