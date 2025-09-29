@@ -82,12 +82,15 @@ A Dockerfile is a text file that contains the instructions we use to build and r
     ```
     The output will be a table similar to the following (this is from Hamed's computer!):
     ```
-    REPOSITORY                  TAG       IMAGE ID       CREATED        SIZE
-    giswqs/segment-geospatial   latest    cd7db75a587c   3 weeks ago    5.34GB
-    gfm-gap                     latest    93ca820ec782   2 months ago   2.73GB
-    cdl                         latest    9f1e0f6b1273   2 months ago   2.73GB
-    hls                         latest    1d3452e331df   2 months ago   9.73GB
-    lc-td                       latest    221b2866cb63   3 months ago   1.82GB
+    REPOSITORY                        TAG       IMAGE ID       CREATED         SIZE
+    xarray-tutorial                   latest    be0710e7b2ed   11 days ago     3.06GB
+    hamedalemo/xarray-tutorial        1.1       be0710e7b2ed   11 days ago     3.06GB
+    postgres                          15        6abe3d4223f0   7 months ago    450MB
+    hackathon-2                       latest    a5943e3e52df   7 months ago    4.37GB
+    hamedalemo/vector-tutorial        1.1       6aee43ba8cb1   10 months ago   4.03GB
+    hamedalemo/raster-tutorial        1.1       794a2992d7fa   11 months ago   3.96GB
+    hamedalemo/dask-tutorial          1.3       93b8405725d7   11 months ago   4.06GB
+    hamedalemo/stac-search-tutorial   1.0       33dd567b6916   2 years ago     2.16GB
     ```
 
 1. **Remove an Image**
