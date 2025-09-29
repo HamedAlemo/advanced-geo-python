@@ -82,12 +82,14 @@ A Dockerfile is a text file that contains the instructions we use to build and r
     ```
     The output will be a table similar to the following (this is from Hamed's computer!):
     ```
-    REPOSITORY                  TAG       IMAGE ID       CREATED        SIZE
-    giswqs/segment-geospatial   latest    cd7db75a587c   3 weeks ago    5.34GB
-    gfm-gap                     latest    93ca820ec782   2 months ago   2.73GB
-    cdl                         latest    9f1e0f6b1273   2 months ago   2.73GB
-    hls                         latest    1d3452e331df   2 months ago   9.73GB
-    lc-td                       latest    221b2866cb63   3 months ago   1.82GB
+    REPOSITORY                        TAG       IMAGE ID       CREATED         SIZE
+    hamedalemo/xarray-tutorial        1.1       be0710e7b2ed   11 days ago     3.06GB
+    postgres                          15        6abe3d4223f0   7 months ago    450MB
+    hackathon-2                       latest    a5943e3e52df   7 months ago    4.37GB
+    hamedalemo/vector-tutorial        1.1       6aee43ba8cb1   10 months ago   4.03GB
+    hamedalemo/raster-tutorial        1.1       794a2992d7fa   11 months ago   3.96GB
+    hamedalemo/dask-tutorial          1.3       93b8405725d7   11 months ago   4.06GB
+    hamedalemo/stac-search-tutorial   1.0       33dd567b6916   2 years ago     2.16GB
     ```
 
 1. **Remove an Image**
@@ -134,7 +136,7 @@ A Dockerfile is a text file that contains the instructions we use to build and r
 You can create your own Dockerfile with specific software and packages installed. This is a nice way to create a reproducible and portable runtime environment for your projects. 
 Here is an example of a Dockerfile:
 ```
-FROM continuumio/miniconda3:24.7.1-0
+FROM continuumio/miniconda3:25.3.1-1
 
 # Set the working directory to /home/workdir
 RUN mkdir /home/workdir
@@ -150,7 +152,7 @@ So let's look what each of these commands mean:
 
 **FROM**
 
-Use the FROM command to specify the parent image that you want your image to derive from. Here, we’re using the `continuumio/miniconda3:24.7.1-0` image.
+Use the FROM command to specify the parent image that you want your image to derive from. Here, we’re using the `continuumio/miniconda3:25.3.1-1` image.
 
 **RUN**
 
@@ -201,7 +203,7 @@ You can use conda inside Docker to manage packages and environments. To do that,
 Try building an image using the following Dockerfile:
 
 ```
-FROM continuumio/miniconda3:24.7.1-0
+FROM continuumio/miniconda3:25.3.1-1
 
 # Set the working directory to /home/workdir
 RUN mkdir /home/workdir
@@ -221,7 +223,7 @@ As you noticed, the Docker build in this case fails. This is because Docker runs
 There are multiple ways to resolve this issue. One of them, which we recommend, is to add the `conda activate` command to your `.bashrc` file. `.bashrc` is a script file that is executed when a user logs in. In this case, any command included in the `.bashrc` will be executed when the container runs. Try building an image from the following Dockerfile and then run it as a container:  
 
 ```
-FROM continuumio/miniconda3:24.7.1-0
+FROM continuumio/miniconda3:25.3.1-1
 
 # Set the working directory to /home/workdir
 RUN mkdir /home/workdir
@@ -249,7 +251,7 @@ You can install and run a Jupyter server inside the container the same way you w
 
 The following sample Dockerfile implements these three changes, and runs Jupyter Lab when the container is launched. 
 ```
-FROM continuumio/miniconda3:24.7.1-0
+FROM continuumio/miniconda3:25.3.1-1
 
 # Create a Conda environment with JupyterLab installed
 RUN conda create -n myenv numpy=1.25.0 jupyterlab=3.6.3
