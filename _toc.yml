@@ -28,10 +28,10 @@ parts:
       title: Advanced Xarray Operations
     - file: lectures/07_landscape.md
       title: Geospatial Landscape
-    # - file: lectures/06_crs
-    #   title: Review of CRS
-    # - file: lectures/07_crs_python
-    #   title: CRS and Projections in Python
+    - file: lectures/08_crs
+      title: Review of CRS
+    - file: lectures/09_crs_python
+      title: CRS and Projections in Python
     # - file: lectures/08_docker.md
     #   title: Intro to Docker
     # - file: lectures/09_earth_search_tutorial
