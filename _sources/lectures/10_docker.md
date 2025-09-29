@@ -83,7 +83,6 @@ A Dockerfile is a text file that contains the instructions we use to build and r
     The output will be a table similar to the following (this is from Hamed's computer!):
     ```
     REPOSITORY                        TAG       IMAGE ID       CREATED         SIZE
-    xarray-tutorial                   latest    be0710e7b2ed   11 days ago     3.06GB
     hamedalemo/xarray-tutorial        1.1       be0710e7b2ed   11 days ago     3.06GB
     postgres                          15        6abe3d4223f0   7 months ago    450MB
     hackathon-2                       latest    a5943e3e52df   7 months ago    4.37GB
