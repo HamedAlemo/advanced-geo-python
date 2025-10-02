@@ -651,10 +651,10 @@ Here is an example of a Dockerfile:</p>
 </div>
 <p><strong>Note</strong>: The new user you create inside the container, in this case <code class="docutils literal notranslate"><span class="pre">jupyteruser</span></code>, can only access their home directory <code class="docutils literal notranslate"><span class="pre">/home/jupyteruser</span></code>. Therefore, you need to launch Jupyter from this working directory, and when you mount directories at the launch time you should mount them to <code class="docutils literal notranslate"><span class="pre">jupyteruser</span></code>’s home directory or any sub-directory in there.</p>
 <p>Finally, to run the container you should publish container’s port <code class="docutils literal notranslate"><span class="pre">8888</span></code> to a port on the host (it can be the same <code class="docutils literal notranslate"><span class="pre">8888</span></code> if it’s not being used otherwise):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -it -p 8888:8888 &lt;IMAGE NAME&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -it -p 8888:8888 -v $(pwd):/home/jupyteruser &lt;IMAGE NAME&gt;
 </pre></div>
 </div>
-<p>Lastly, you can copy the url of the Jupyter server and past it in your browser to access Jupyter Lab.</p>
+<p>Lastly, you can copy the url of the Jupyter server and paste it in your browser to access Jupyter Lab.</p>
 </section>
 <section id="working-with-docker-hub">
 <h2><span class="section-number">10.12. </span>Working with Docker Hub<a class="headerlink" href="#working-with-docker-hub" title="Permalink to this heading">#</a></h2>
