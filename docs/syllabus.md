@@ -16,7 +16,7 @@ There will be 9 assignments during the semester, and students can join office ho
 5	|	9/22/25	|	Cloud Native Geospatial Ecosystem	|		|		|
 5	|	9/25/25	|	Review of CRS and Projections in Python	|		|		
 6	|	9/29/25	|	Intro to Containers and Docker	|	Yes	|		|
-6	|	10/2/25	|	Workign with Docker	|		|	Assignment 4*	|
+6	|	10/2/25	|	Working with Docker	|		|	Assignment 4*	|
 7	|	10/6/25	|	Intro to STAC and Geospatial Data on the Cloud	|	Yes	|		|
 7	|	10/9/25	|	Intro to Dask	|		|		|
 7	|	10/13/25	|	**Fall Break (No Classes)**	|		|		|
