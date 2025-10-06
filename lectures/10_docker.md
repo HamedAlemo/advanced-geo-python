@@ -278,10 +278,10 @@ CMD ["jupyter", "lab", "--ip=0.0.0.0"]
 
 Finally, to run the container you should publish container's port `8888` to a port on the host (it can be the same `8888` if it's not being used otherwise):
 ```
-$ docker run -it -p 8888:8888 <IMAGE NAME>
+$ docker run -it -p 8888:8888 -v $(pwd):/home/jupyteruser <IMAGE NAME>
 ```
 
-Lastly, you can copy the url of the Jupyter server and past it in your browser to access Jupyter Lab. 
+Lastly, you can copy the url of the Jupyter server and paste it in your browser to access Jupyter Lab. 
 
 ## Working with Docker Hub
 
