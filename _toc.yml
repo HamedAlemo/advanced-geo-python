@@ -36,16 +36,16 @@ parts:
       title: Intro to Docker
     - file: lectures/11_earth_search_tutorial
       title: Searching a STAC Catalog
-    # - file: lectures/10_dask_intro
-    #   title: Intro to Dask & Dask Array
-    # - file: lectures/11_stackstac
-    #   title: Scaling stackstac w Dask
-    # - file: lectures/12_dask_dataframe
-    #   title: Into to Dask DataFrame
-    # - file: lectures/13_raster
-    #   title: Review of Raster Data
-    # - file: lectures/14_raster_analysis
-    #   title: Raster Data in Python
+    - file: lectures/12_dask_intro
+      title: Intro to Dask & Dask Array
+    - file: lectures/13_stackstac
+      title: Scaling stackstac w Dask
+    - file: lectures/14_dask_dataframe
+      title: Into to Dask DataFrame
+    - file: lectures/15_raster
+      title: Review of Raster Data
+    - file: lectures/16_raster_analysis
+      title: Raster Data in Python
     # - file: lectures/15_raster_processing
     #   title: Raster Data Processing
     # - file: lectures/16_vector
