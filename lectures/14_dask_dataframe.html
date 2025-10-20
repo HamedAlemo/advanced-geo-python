@@ -1,0 +1,1304 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>14. Introduction to Dask DataFrame &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/14_dask_dataframe';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="15. Review of Raster Data" href="15_raster.html" />
+    <link rel="prev" title="13. Query and Stack Imagery into a GIF Using stackstac and Dask" href="13_stackstac.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_xarray_fundamentals.html">5. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_xarray_advanced.html">6. Advanced Xarray Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_landscape.html">7. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_crs.html">8. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_crs_python.html">9. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_docker.html">10. Intro to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_earth_search_tutorial.html">11. Searching a STAC Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_dask_intro.html">12. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_stackstac.html">13. Scaling stackstac w Dask</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Into to Dask DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_raster.html">15. Review of Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_raster_analysis.html">16. Raster Data in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a2.html">Assignment 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a3.html">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a4.html">Assignment 4</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/14_dask_dataframe.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/14_dask_dataframe.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Dask DataFrame</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-multiple-large-csv-files-using-dask-data-frame">14.1. Analyzing Multiple Large CSV files using Dask Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data-from-aws-s3-bucket">14.1.1. Download Data from AWS S3 bucket</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">14.1.2. Import Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-one-csv-file">14.1.3. Read One CSV file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-multiple-csvs">14.1.4. Read Multiple CSVs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-find-the-station-with-the-highest-number-of-snow-days">14.1.5. Exercise: find the station with the highest number of snow days</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-dask-dataframe">
+<h1><span class="section-number">14. </span>Introduction to Dask DataFrame<a class="headerlink" href="#introduction-to-dask-dataframe" title="Permalink to this heading">#</a></h1>
+<p>Dask DataFrames coordinate many pandas DataFrames/Series arranged along the index. A Dask DataFrame is partitioned row-wise, grouping rows by index value for efficiency.</p>
+<p><img alt="Dask DataFrame" src="https://docs.dask.org/en/stable/_images/dask-dataframe.svg" /></p>
+<p>Many of existing methods from pandas API are available in Dask DataFrame. Checkout <a class="reference external" href="https://docs.dask.org/en/stable/dataframe.html#scope">this section</a> of the documentation to learn more about these. In general, computations that are parallelizable are implemented in Dask DataFrame.</p>
+<p>In this lecture, you will learn to use Dask DataFrame to analyze large tabular climate data.</p>
+<section id="analyzing-multiple-large-csv-files-using-dask-data-frame">
+<h2><span class="section-number">14.1. </span>Analyzing Multiple Large CSV files using Dask Data Frame<a class="headerlink" href="#analyzing-multiple-large-csv-files-using-dask-data-frame" title="Permalink to this heading">#</a></h2>
+<p>For this tutorial, we will use the NOAA Global Historical Climatology Network Daily (GHCN-D) data available on AWS S3.
+You can read more about the data on Registry of Open Data on AWS <a class="reference external" href="https://registry.opendata.aws/noaa-ghcn/">here</a>.</p>
+<p>More information about the dataset, including the metadata descriptions, is available on <a class="reference external" href="https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily">NOAA’s website</a>.</p>
+<p>GHCN-D contains <strong>daily observations</strong> over global land areas. It contains station-based measurements from land-based stations worldwide, about two thirds of which are for precipitation measurement only. Some data are more than <em>175 years</em> old.</p>
+<p>This dataset is very large and to analyze it within Python you need to use Dask Dataframe.</p>
+<section id="download-data-from-aws-s3-bucket">
+<h3><span class="section-number">14.1.1. </span>Download Data from AWS S3 bucket<a class="headerlink" href="#download-data-from-aws-s3-bucket" title="Permalink to this heading">#</a></h3>
+<p>You can download the dataset from AWS S3 bucket using the following commands. This dataset does not require an AWS account (hence the <code class="docutils literal notranslate"><span class="pre">UNSIGNED</span></code> value should be passed to the S3 client should be passed).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">botocore</span> <span class="kn">import</span> <span class="n">UNSIGNED</span>
+<span class="kn">from</span> <span class="nn">botocore.client</span> <span class="kn">import</span> <span class="n">Config</span>
+
+<span class="k">def</span> <span class="nf">download_s3_objects_no_auth</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">download_path</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">substring</span><span class="p">,</span> <span class="n">aws_region</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download all objects from a public S3 bucket (no authentication) that contain a specific prefix and substring in their keys.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bucket_name : str</span>
+<span class="sd">        The name of the S3 bucket.</span>
+<span class="sd">    download_path : str</span>
+<span class="sd">        Local directory where the files will be downloaded.</span>
+<span class="sd">    prefix : str</span>
+<span class="sd">        Characters that are required to be at the beginning of the S3 object keys.</span>
+<span class="sd">    substring : str</span>
+<span class="sd">        The substring to search for in the S3 object keys.</span>
+<span class="sd">    aws_region : str</span>
+<span class="sd">        AWS region where the S3 bucket is located (optional).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Downloads all the files that match the search criteria into the download_path</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Initialize the S3 client with no request signing (public bucket)</span>
+    <span class="n">s3_client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">,</span> <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">signature_version</span><span class="o">=</span><span class="n">UNSIGNED</span><span class="p">),</span> <span class="n">region_name</span> <span class="o">=</span> <span class="n">aws_region</span><span class="p">)</span>
+
+    <span class="c1"># Ensure the download path exists</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">download_path</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">download_path</span><span class="p">)</span>
+
+    <span class="c1"># List all objects in the bucket that contain the prefix</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">s3_client</span><span class="o">.</span><span class="n">list_objects_v2</span><span class="p">(</span><span class="n">Bucket</span> <span class="o">=</span> <span class="n">bucket_name</span><span class="p">,</span> <span class="n">Prefix</span> <span class="o">=</span> <span class="n">prefix</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;Contents&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No objects found in the bucket &#39;</span><span class="si">{</span><span class="n">bucket_name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Loop through objects and download those that contain the substring</span>
+    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;Contents&#39;</span><span class="p">]:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;Key&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">substring</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+            <span class="n">local_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_path</span><span class="p">,</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">local_filename</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">local_filename</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+                <span class="n">s3_client</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">local_filename</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded: </span><span class="si">{</span><span class="n">local_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> exists at </span><span class="si">{</span><span class="n">local_filename</span><span class="si">}</span><span class="s2">. Download skipped.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">download_s3_objects_no_auth</span><span class="p">(</span><span class="n">bucket_name</span><span class="o">=</span><span class="s2">&quot;noaa-ghcn-pds&quot;</span><span class="p">,</span> <span class="n">download_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;csv/by_year/&quot;</span><span class="p">,</span> <span class="n">substring</span><span class="o">=</span><span class="s2">&quot;202&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Object csv/by_year/2020.csv exists at ./data/2020.csv. Download skipped.
+Object csv/by_year/2021.csv exists at ./data/2021.csv. Download skipped.
+Object csv/by_year/2022.csv exists at ./data/2022.csv. Download skipped.
+Object csv/by_year/2023.csv exists at ./data/2023.csv. Download skipped.
+Object csv/by_year/2024.csv exists at ./data/2024.csv. Download skipped.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-packages">
+<h3><span class="section-number">14.1.2. </span>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">LocalCluster</span>
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">LocalCluster</span><span class="p">()</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">dashboard_link</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8787/status
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-10-29 03:08:29,631 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle c13f174aa9c7c055892846fcec63e0eb initialized by task (&#39;shuffle-transfer-c13f174aa9c7c055892846fcec63e0eb&#39;, 4) executed on worker tcp://127.0.0.1:37029
+2024-10-29 03:08:40,665 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle c13f174aa9c7c055892846fcec63e0eb deactivated due to stimulus &#39;task-finished-1730171320.6634696&#39;
+2024-10-29 03:09:08,926 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 35cc973c67f92223b02f04c8bfa63774 initialized by task (&#39;shuffle-transfer-35cc973c67f92223b02f04c8bfa63774&#39;, 124) executed on worker tcp://127.0.0.1:41279
+2024-10-29 03:09:21,234 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 35cc973c67f92223b02f04c8bfa63774 deactivated due to stimulus &#39;task-finished-1730171361.2319715&#39;
+2024-10-29 03:12:32,850 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 94) executed on worker tcp://127.0.0.1:44969
+2024-10-29 03:12:47,017 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730171567.0173345&#39;
+2024-10-29 03:14:46,939 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 140) executed on worker tcp://127.0.0.1:41279
+2024-10-29 03:15:01,245 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730171701.2428126&#39;
+2024-10-29 03:19:21,715 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 30) executed on worker tcp://127.0.0.1:38473
+2024-10-29 03:19:36,353 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730171976.3521986&#39;
+2024-10-29 03:19:50,283 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 140) executed on worker tcp://127.0.0.1:41279
+2024-10-29 03:20:04,652 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730172004.6500053&#39;
+2024-10-29 03:20:48,104 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a initialized by task (&#39;shuffle-transfer-528d292f143ede867c3848e6dd33cc7a&#39;, 21) executed on worker tcp://127.0.0.1:38473
+2024-10-29 03:21:02,444 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 528d292f143ede867c3848e6dd33cc7a deactivated due to stimulus &#39;task-finished-1730172062.443373&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-one-csv-file">
+<h3><span class="section-number">14.1.3. </span>Read One CSV file<a class="headerlink" href="#read-one-csv-file" title="Permalink to this heading">#</a></h3>
+<p>Let’s first load one CSV file and see how Dask Dataframe works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./data/2023.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Q_FLAG&quot;</span> <span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can check the number of partitions that Dask by defualt selects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">npartitions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<p>To change the number of partitions you need to define the <code class="docutils literal notranslate"><span class="pre">blocksize</span></code> in the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./data/2023.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Q_FLAG&quot;</span> <span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">},</span> <span class="n">blocksize</span><span class="o">=</span><span class="mf">25e6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">npartitions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following line is an unnecessary step and you should not run it regularly. This will try to load all the data into memory which can easily go beyond your memory limit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DO NOT RUN</span>
+<span class="c1"># df.compute()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>But if you would like to load a small portion of the data, you can load a few lines of the dataframe as following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">100</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>DATE</th>
+      <th>ELEMENT</th>
+      <th>DATA_VALUE</th>
+      <th>M_FLAG</th>
+      <th>Q_FLAG</th>
+      <th>S_FLAG</th>
+      <th>OBS_TIME</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AGM00060430</td>
+      <td>20230101</td>
+      <td>TMIN</td>
+      <td>101</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AGM00060430</td>
+      <td>20230101</td>
+      <td>PRCP</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AGM00060430</td>
+      <td>20230101</td>
+      <td>TAVG</td>
+      <td>148</td>
+      <td>H</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AGM00060437</td>
+      <td>20230101</td>
+      <td>TMIN</td>
+      <td>87</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AGM00060437</td>
+      <td>20230101</td>
+      <td>PRCP</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>USC00424467</td>
+      <td>20231011</td>
+      <td>SNWD</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>1700.0</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>USC00424508</td>
+      <td>20231011</td>
+      <td>TMAX</td>
+      <td>256</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>1700.0</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>USC00424508</td>
+      <td>20231011</td>
+      <td>TMIN</td>
+      <td>56</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>1700.0</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>USC00424508</td>
+      <td>20231011</td>
+      <td>TOBS</td>
+      <td>194</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>1700.0</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>USC00424508</td>
+      <td>20231011</td>
+      <td>PRCP</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>1700.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>4343 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><strong>Dask DataFrame Structure:</strong></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>DATE</th>
+      <th>ELEMENT</th>
+      <th>DATA_VALUE</th>
+      <th>M_FLAG</th>
+      <th>Q_FLAG</th>
+      <th>S_FLAG</th>
+      <th>OBS_TIME</th>
+    </tr>
+    <tr>
+      <th>npartitions=43</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>string</td>
+      <td>int64</td>
+      <td>string</td>
+      <td>int64</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+<div>Dask Name: read_csv, 1 expression</div></div></div>
+</div>
+<p>As you see, <code class="docutils literal notranslate"><span class="pre">df</span></code> is empty again. This is because Dask does not store the outputs of the <code class="docutils literal notranslate"><span class="pre">df.compute()</span></code> back in <code class="docutils literal notranslate"><span class="pre">df</span></code>. If you need to keep these values, you should instead run <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.compute()</span></code>.</p>
+</section>
+<section id="read-multiple-csvs">
+<h3><span class="section-number">14.1.4. </span>Read Multiple CSVs<a class="headerlink" href="#read-multiple-csvs" title="Permalink to this heading">#</a></h3>
+<p>Here, we will define a new df and load multiple CSV files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./data/*.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Q_FLAG&quot;</span> <span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">},</span> <span class="n">blocksize</span><span class="o">=</span><span class="mf">25e6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_df</span><span class="o">.</span><span class="n">npartitions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>252
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><strong>Dask DataFrame Structure:</strong></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>DATE</th>
+      <th>ELEMENT</th>
+      <th>DATA_VALUE</th>
+      <th>M_FLAG</th>
+      <th>Q_FLAG</th>
+      <th>S_FLAG</th>
+      <th>OBS_TIME</th>
+    </tr>
+    <tr>
+      <th>npartitions=252</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>string</td>
+      <td>int64</td>
+      <td>string</td>
+      <td>int64</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+<div>Dask Name: read_csv, 1 expression</div></div></div>
+</div>
+<p>Let’s calculate the mean of each type of observation in whole dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_values</span> <span class="o">=</span> <span class="n">large_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;ELEMENT&quot;</span><span class="p">)[</span><span class="s2">&quot;DATA_VALUE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dask Series Structure:
+npartitions=1
+    float64
+        ...
+Dask Name: getitem, 4 expressions
+Expr=((ReadCSV(03735e5)[[&#39;ELEMENT&#39;, &#39;DATA_VALUE&#39;]]).mean(observed=False, chunk_kwargs={&#39;numeric_only&#39;: False}, aggregate_kwargs={&#39;numeric_only&#39;: False}, _slice=&#39;DATA_VALUE&#39;))[&#39;DATA_VALUE&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_values</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ELEMENT
+SN56     65.149429
+TAVG    109.644308
+WDF5    200.575220
+SN31    117.909843
+SX53    101.728783
+           ...    
+PSUN     42.392204
+SN32    143.052831
+SN55     80.291063
+SX51    167.196816
+DASF      2.545455
+Name: DATA_VALUE, Length: 75, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we will select a station in Worcester, MA and calculate the mean for each observation.
+You can see the list of all stations on NOAA’s website <a class="reference external" href="https://www.ncei.noaa.gov/pub/data/ghcn/daily/ghcnd-stations.txt">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_df</span> <span class="o">=</span> <span class="n">large_df</span><span class="p">[</span><span class="n">large_df</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;US1MAWR0097&quot;</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><strong>Dask DataFrame Structure:</strong></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>DATE</th>
+      <th>ELEMENT</th>
+      <th>DATA_VALUE</th>
+      <th>M_FLAG</th>
+      <th>Q_FLAG</th>
+      <th>S_FLAG</th>
+      <th>OBS_TIME</th>
+    </tr>
+    <tr>
+      <th>npartitions=252</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>string</td>
+      <td>int64</td>
+      <td>string</td>
+      <td>int64</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+<div>Dask Name: getitem, 5 expressions</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_mean</span> <span class="o">=</span> <span class="n">worcester_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;ELEMENT&quot;</span><span class="p">)[</span><span class="s2">&quot;DATA_VALUE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dask Series Structure:
+npartitions=1
+    float64
+        ...
+Dask Name: getitem, 8 expressions
+Expr=(((Filter(frame=ReadCSV(03735e5), predicate=Isin(frame=ReadCSV(03735e5)[&#39;ID&#39;], values=_DelayedExpr(Delayed(&#39;delayed-1e99729721b067d61cb17db688716cf6&#39;)))))[[&#39;ELEMENT&#39;, &#39;DATA_VALUE&#39;]]).mean(observed=False, chunk_kwargs={&#39;numeric_only&#39;: False}, aggregate_kwargs={&#39;numeric_only&#39;: False}, _slice=&#39;DATA_VALUE&#39;))[&#39;DATA_VALUE&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we want to calculate the mean but we are interested to keep these values in memory. So we will assign the output to a new variable <code class="docutils literal notranslate"><span class="pre">worcester_mean_values</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_mean_values</span> <span class="o">=</span> <span class="n">worcester_mean</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_mean_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ELEMENT
+SNWD    158.750000
+SNOW      2.433884
+PRCP     53.095327
+WESD      0.000000
+WESF      0.000000
+Name: DATA_VALUE, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-find-the-station-with-the-highest-number-of-snow-days">
+<h3><span class="section-number">14.1.5. </span>Exercise: find the station with the highest number of snow days<a class="headerlink" href="#exercise-find-the-station-with-the-highest-number-of-snow-days" title="Permalink to this heading">#</a></h3>
+<p>Write a function that receives the name of a observation (e.g. <code class="docutils literal notranslate"><span class="pre">PRCP</span></code>) from the NOAA GHCN-D dataset, and returns the ID of the station(s) with the highest number of days that the target observation has been more than 0.</p>
+<p>Use this function to find the station that has the highest number of snow days across years 2020-2024.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="13_stackstac.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Query and Stack Imagery into a GIF Using stackstac and Dask</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="15_raster.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Review of Raster Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-multiple-large-csv-files-using-dask-data-frame">14.1. Analyzing Multiple Large CSV files using Dask Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data-from-aws-s3-bucket">14.1.1. Download Data from AWS S3 bucket</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">14.1.2. Import Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-one-csv-file">14.1.3. Read One CSV file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-multiple-csvs">14.1.4. Read Multiple CSVs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-find-the-station-with-the-highest-number-of-snow-days">14.1.5. Exercise: find the station with the highest number of snow days</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
