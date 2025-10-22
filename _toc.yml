@@ -69,7 +69,7 @@ parts:
     - file: assignments/a2
     - file: assignments/a3 
     - file: assignments/a4
-    # - file: assignments/a5
+    - file: assignments/a5
     # - file: assignments/a6
     # - file: assignments/a7
   - caption: Appendices
