@@ -46,8 +46,8 @@ parts:
       title: Review of Raster Data
     - file: lectures/16_raster_analysis
       title: Raster Data in Python
-    # - file: lectures/15_raster_processing
-    #   title: Raster Data Processing
+    - file: lectures/17_raster_processing
+      title: Raster Data Processing
     # - file: lectures/16_vector
     #   title: Review of Vector Data
     # - file: lectures/17_vector_analysis
