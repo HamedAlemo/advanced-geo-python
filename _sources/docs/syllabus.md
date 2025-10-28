@@ -5,27 +5,6 @@ There will be 9 assignments during the semester, and students can join office ho
 
 **Week**	|	**Date**	|	**Topic**	|	**Quiz**	|	**Assignment**	|
 --------	|	--------	|	----------------------------------------------------------------	|	-----------	|	-----------	|
-# Syllabus
-The course will cover the following topics during the semester. Part of each week’s lecture will be interactive programming time during which students will replicate exercises covered in the lecture or execute new ones. 
-
-There will be 9 assignments during the semester, and students can join office hours to ask any questions about the assignment, or general questions about the lecture. 
-
-**Week**	|	**Date**	|	**Topic**	|	**Quiz**	|	**Assignment**	|
---------	|	--------	|	----------------------------------------------------------------	|	-----------	|	-----------	|
-# Syllabus
-The course will cover the following topics during the semester. Part of each week’s lecture will be interactive programming time during which students will replicate exercises covered in the lecture or execute new ones. 
-
-There will be 9 assignments during the semester, and students can join office hours to ask any questions about the assignment, or general questions about the lecture. 
-
-**Week**	|	**Date**	|	**Topic**	|	**Quiz**	|	**Assignment**	|
---------	|	--------	|	----------------------------------------------------------------	|	-----------	|	-----------	|
-# Syllabus
-The course will cover the following topics during the semester. Part of each week’s lecture will be interactive programming time during which students will replicate exercises covered in the lecture or execute new ones. 
-
-There will be 9 assignments during the semester, and students can join office hours to ask any questions about the assignment, or general questions about the lecture. 
-
-**Week**	|	**Date**	|	**Topic**	|	**Quiz**	|	**Assignment**	|
---------	|	--------	|	----------------------------------------------------------------	|	-----------	|	-----------	|
 |	1	|	8/25/25	|	Workflows for Open Reproducible Science	|		|	Assignment 1	|
 |	1	|	8/28/25	|	Intro to Unix, Version Control and Git	|		|		|
 |	2	|	9/1/25	|	**Labor Day (No Classes)**	|		|		|
