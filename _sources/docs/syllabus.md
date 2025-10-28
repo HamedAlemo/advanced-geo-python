@@ -25,8 +25,8 @@ There will be 9 assignments during the semester, and students can join office ho
 |	9	|	10/23/25	|	Scaling Raster Data Analytics	|		|		|
 |	10	|	10/27/25	|	Scaling Raster Data Analytics - Part 2	|		|		|
 |	10	|	10/30/25	|	Working with Vector Data in Python	|		|	Assignment 6*	|
-|	11	|	11/3/25	|	Scaling Vector Data Analytics 	|	Yes	|		|
-|	11	|	11/6/25	|	Data Visualization	|		|		|
+|	11	|	11/3/25	|	Scaling Vector Data Analytics 	|		|		|
+|	11	|	11/6/25	|	Data Visualization	|	Yes	|		|
 |	12	|	11/10/25	|	Geospatial Workflows	|		|		|
 |	12	|	11/13/25	|	Geospatial Workflows	|		|		|
 |	13	|	11/17/25	|	Projects Proposal Presentation	|		|	*Proposals due*	|
