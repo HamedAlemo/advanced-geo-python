@@ -393,9 +393,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geospatial-vector-data">18.1. Geospatial Vector Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geojson-schemas">18.2. GeoJSON Schemas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">18.3. Properties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-to-inspect-and-manipulate-geojson-data">18.4. Tools to Inspect and Manipulate GeoJSON Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geospatial-vector-data-formats">18.2. Geospatial Vector Data Formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geojson-schemas">18.3. GeoJSON Schemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">18.4. Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-to-inspect-and-manipulate-geojson-data">18.5. Tools to Inspect and Manipulate GeoJSON Data</a></li>
 </ul>
             </nav>
         </div>
@@ -430,14 +431,22 @@ document.write(`
 </figure>
 <p>If we have more than one vector data shape, you can create a <code class="docutils literal notranslate"><span class="pre">multiple</span></code> type. There three of these data:</p>
 <ul class="simple">
-<li><p><strong>MultiPoint</strong>: A <code class="docutils literal notranslate"><span class="pre">MultiPoint</span></code> geometry is represented by multiple coordinate point pairs</p></li>
-<li><p><strong>MultiLineString</strong>:</p></li>
-<li><p><strong>MultiPolygon</strong>:</p></li>
+<li><p><strong>MultiPoint</strong>: A geometry consisting of multiple points, each defined by coordinate pairs (or triplets if 3D).
+Example: multiple discrete observation locations.</p></li>
+<li><p><strong>MultiLineString</strong>: A geometry consisting of multiple line strings, each made up of two or more coordinate points.
+Example: multiple river segments or roads.</p></li>
+<li><p><strong>MultiPolygon</strong>: A geometry consisting of multiple polygons, each defined by one exterior boundary and optional interior rings (holes).
+Example: multiple islands or park boundaries.</p></li>
 </ul>
 </section>
+<section id="geospatial-vector-data-formats">
+<h2><span class="section-number">18.2. </span>Geospatial Vector Data Formats<a class="headerlink" href="#geospatial-vector-data-formats" title="Permalink to this heading">#</a></h2>
+<p>Geospatial vector data formats have evolved significantly over the last 3-4 decades. You might be familiar with Shapefile and GeoJSON formats among other ones. While we will only focus on GeoJSON in the course, it is good to know the history of these formats and their evolution.</p>
+<p>For a quick intro to this topic, you can check out <a class="reference external" href="https://www.youtube.com/watch?v=wkTTU0LMIsk">this video</a> by Matt Forrest.</p>
+</section>
 <section id="geojson-schemas">
-<h2><span class="section-number">18.2. </span>GeoJSON Schemas<a class="headerlink" href="#geojson-schemas" title="Permalink to this heading">#</a></h2>
-<p>In this class, we will mostly use GeoJSONs for vector data formats (refer to the lecture on <span class="xref myst">The Landscape of Geospatial Data and Tools</span> for more information about different formats.) You can represent any vector data type in GeoJSON format as described in the schemas in the following. Based on the latest <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7946">GeoJSON specification</a>, all coordinates should be recorded using a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) [WGS84] datum, with longitude and latitude units of decimal degrees.</p>
+<h2><span class="section-number">18.3. </span>GeoJSON Schemas<a class="headerlink" href="#geojson-schemas" title="Permalink to this heading">#</a></h2>
+<p>In this course, we will mostly use GeoJSONs for vector data formats (refer to the lecture on <span class="xref myst">The Landscape of Geospatial Data and Tools</span> for more information about different formats.) You can represent any vector data type in GeoJSON format as described in the schemas in the following. Based on the latest <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7946">GeoJSON specification</a>, all coordinates should be recorded using a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) [WGS84] datum, with longitude and latitude units of decimal degrees.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 GeoJSON Point Schema<div class="sd-summary-down docutils">
@@ -661,7 +670,7 @@ GeoJSON FeatureCollection with multiple attributes<div class="sd-summary-down do
 </div>
 </details></section>
 <section id="properties">
-<h2><span class="section-number">18.3. </span>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.4. </span>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
 <p>Vector data has some important advantages:</p>
 <ul class="simple">
 <li><p>The geometry itself contains information about what the dataset creator thought was important</p></li>
@@ -677,9 +686,10 @@ GeoJSON FeatureCollection with multiple attributes<div class="sd-summary-down do
 </ul>
 </section>
 <section id="tools-to-inspect-and-manipulate-geojson-data">
-<h2><span class="section-number">18.4. </span>Tools to Inspect and Manipulate GeoJSON Data<a class="headerlink" href="#tools-to-inspect-and-manipulate-geojson-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.5. </span>Tools to Inspect and Manipulate GeoJSON Data<a class="headerlink" href="#tools-to-inspect-and-manipulate-geojson-data" title="Permalink to this heading">#</a></h2>
 <p>JSON is a lightweight, text-based, language-independent data interchange format. As a result, you can create and edit GeoJSON files in any text editor software.</p>
-<p>You can open these files in VS Code. There are multiple extensions in VS Code (such as <em>Geo Data Viewer</em>) which you can use to visualize GeoJSON in VS Code. You can certainly open then in QGIS as well.</p>
+<p>You can open these files in VS Code. There are multiple extensions in VS Code (such as <em>Geo Data Viewer</em>) which you can use to visualize GeoJSON in VS Code. You can certainly open them in QGIS as well.</p>
+<p>The website <a class="reference external" href="https://geojson.io/">geojson.io</a> is also a very good and handy tool to create new GeoJSON files, visualize existing ones, or convert to/from GeoJSON format.</p>
 <p>In the next lecture, you will learn how to work with geospatial vector data in Python.</p>
 <p>&nbsp;</p></section>
 </section>
@@ -752,9 +762,10 @@ GeoJSON FeatureCollection with multiple attributes<div class="sd-summary-down do
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geospatial-vector-data">18.1. Geospatial Vector Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geojson-schemas">18.2. GeoJSON Schemas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">18.3. Properties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-to-inspect-and-manipulate-geojson-data">18.4. Tools to Inspect and Manipulate GeoJSON Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geospatial-vector-data-formats">18.2. Geospatial Vector Data Formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geojson-schemas">18.3. GeoJSON Schemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">18.4. Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-to-inspect-and-manipulate-geojson-data">18.5. Tools to Inspect and Manipulate GeoJSON Data</a></li>
 </ul>
   </nav></div>
 
