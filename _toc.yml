@@ -48,10 +48,10 @@ parts:
       title: Raster Data in Python
     - file: lectures/17_raster_processing
       title: Raster Data Processing
-    # - file: lectures/16_vector
-    #   title: Review of Vector Data
-    # - file: lectures/17_vector_analysis
-    #   title: Vector Data in Python
+    - file: lectures/18_vector
+      title: Review of Vector Data
+    - file: lectures/19_vector_analysis
+      title: Vector Data in Python
     # - file: lectures/18_dask_geopandas_intro
     #   title: Intro to Dask-GeoPandas
     # - file: lectures/19_scalable_vector_analysis

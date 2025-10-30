@@ -30,16 +30,23 @@ Types of vector objects (Source: National Ecological Observatory Network ([NEON]
 
 If we have more than one vector data shape, you can create a `multiple` type. There three of these data:
 
-- **MultiPoint**: A `MultiPoint` geometry is represented by multiple coordinate point pairs
+- **MultiPoint**: A geometry consisting of multiple points, each defined by coordinate pairs (or triplets if 3D).
+Example: multiple discrete observation locations.
 
-- **MultiLineString**:
+- **MultiLineString**: A geometry consisting of multiple line strings, each made up of two or more coordinate points.
+Example: multiple river segments or roads.
 
-- **MultiPolygon**:
+- **MultiPolygon**: A geometry consisting of multiple polygons, each defined by one exterior boundary and optional interior rings (holes).
+Example: multiple islands or park boundaries.
 
+## Geospatial Vector Data Formats
+Geospatial vector data formats have evolved significantly over the last 3-4 decades. You might be familiar with Shapefile and GeoJSON formats among other ones. While we will only focus on GeoJSON in the course, it is good to know the history of these formats and their evolution. 
+
+For a quick intro to this topic, you can check out [this video](https://www.youtube.com/watch?v=wkTTU0LMIsk) by Matt Forrest. 
 
 ## GeoJSON Schemas
 
-In this class, we will mostly use GeoJSONs for vector data formats (refer to the lecture on [The Landscape of Geospatial Data and Tools](../lectures/05_landscape.md) for more information about different formats.) You can represent any vector data type in GeoJSON format as described in the schemas in the following. Based on the latest [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), all coordinates should be recorded using a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) [WGS84] datum, with longitude and latitude units of decimal degrees. 
+In this course, we will mostly use GeoJSONs for vector data formats (refer to the lecture on [The Landscape of Geospatial Data and Tools](../lectures/05_landscape.md) for more information about different formats.) You can represent any vector data type in GeoJSON format as described in the schemas in the following. Based on the latest [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), all coordinates should be recorded using a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) [WGS84] datum, with longitude and latitude units of decimal degrees. 
 
 ```{dropdown} GeoJSON Point Schema
 ``` json
@@ -223,7 +230,9 @@ The downsides of vector data include:
 
 JSON is a lightweight, text-based, language-independent data interchange format. As a result, you can create and edit GeoJSON files in any text editor software. 
 
-You can open these files in VS Code. There are multiple extensions in VS Code (such as *Geo Data Viewer*) which you can use to visualize GeoJSON in VS Code. You can certainly open then in QGIS as well. 
+You can open these files in VS Code. There are multiple extensions in VS Code (such as *Geo Data Viewer*) which you can use to visualize GeoJSON in VS Code. You can certainly open them in QGIS as well. 
+
+The website [geojson.io](https://geojson.io/) is also a very good and handy tool to create new GeoJSON files, visualize existing ones, or convert to/from GeoJSON format. 
 
 In the next lecture, you will learn how to work with geospatial vector data in Python. 
 
