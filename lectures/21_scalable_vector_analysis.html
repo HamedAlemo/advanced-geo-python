@@ -1,0 +1,1020 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>21. Scalable Vector Data Analysis &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/21_scalable_vector_analysis';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
+    <link rel="prev" title="20. Introduction to Dask-GeoPandas" href="20_dask_geopandas_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_jupyter.html">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_xarray_fundamentals.html">5. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_xarray_advanced.html">6. Advanced Xarray Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_landscape.html">7. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_crs.html">8. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_crs_python.html">9. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_docker.html">10. Intro to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_earth_search_tutorial.html">11. Searching a STAC Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_dask_intro.html">12. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_stackstac.html">13. Scaling stackstac w Dask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dask_dataframe.html">14. Into to Dask DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_raster.html">15. Review of Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_raster_analysis.html">16. Raster Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_raster_processing.html">17. Raster Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_vector.html">18. Review of Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_vector_analysis.html">19. Vector Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_dask_geopandas_intro.html">20. Intro to Dask-GeoPandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">21. Scalable Vector Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a2.html">Assignment 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a3.html">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a4.html">Assignment 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a5.html">Assignment 5</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/21_scalable_vector_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/21_scalable_vector_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Scalable Vector Data Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-cooperative">21.1. Source Cooperative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-load-buildings-footprint-data-into-dask-geopandas">21.2. Download and Load Buildings Footprint Data into Dask-GeoPandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-adminsitrative-boundaries-dataset">21.3. Read Adminsitrative Boundaries Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-join">21.4. Spatial Join</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-plot-the-number-of-buildings-per-parish-on-the-map">21.4.1. Exercise 1: Plot the number of buildings per Parish on the map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-calculate-percentage-of-the-area-of-each-parish-that-is-covered-by-buildings">21.4.2. Exercise 2: Calculate percentage of the area of each Parish that is covered by buildings</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scalable-vector-data-analysis">
+<h1><span class="section-number">21. </span>Scalable Vector Data Analysis<a class="headerlink" href="#scalable-vector-data-analysis" title="Permalink to this heading">#</a></h1>
+<p>You can access this notebook (in a Docker image) on this <a class="reference external" href="https://github.com/HamedAlemo/vector-data-tutorial">GitHub repo</a>.</p>
+<p>In this lecture, we are going to use <code class="docutils literal notranslate"><span class="pre">Dask-GeoPandas</span></code> package to read a large vector dataset from <a class="reference external" href="https://source.coop">Source Cooperative</a>. Then use Dask parrallel computation to apply a spatial join operation to two geospatial DataFrames.</p>
+<p>Our target dataset is the <code class="docutils literal notranslate"><span class="pre">Google-Microsoft</span> <span class="pre">Open</span> <span class="pre">Buildings</span> <span class="pre">-</span> <span class="pre">combined</span> <span class="pre">by</span> <span class="pre">VIDA</span></code> dataset hosted on <a class="reference external" href="https://source.coop/repositories/vida/google-microsoft-open-buildings/description">Source Cooperative</a>. This is a combined version of the <a class="reference external" href="https://sites.research.google/open-buildings/">Google</a> and <a class="reference external" href="https://planetarycomputer.microsoft.com/dataset/ms-buildings">Microsoft</a> Open Buildings datasets and it has files in GeoParquet format hosted on AWS S3 bucket. Read the dataset description to familiarize yourself with the dataset and its structure.</p>
+<p>GeoParquet is a relatively new and open data format for column-oriented geospatial data. This format is build on the existing Apache Parquet format which is a very powerful format replacing CSV. You can check the specification <a class="reference external" href="https://geoparquet.org/">here</a>, and read more about the format on <a class="reference external" href="https://geoparquet.org/">this website</a>. In short, this format is interoperable, compressed and designed to work with large scale datasets.</p>
+<section id="source-cooperative">
+<h2><span class="section-number">21.1. </span>Source Cooperative<a class="headerlink" href="#source-cooperative" title="Permalink to this heading">#</a></h2>
+<p>Source Cooperative is a neutral, non-profit data-sharing utility that allows trusted organizations to share data without purchasing a data portal SaaS subscription or managing infrastructure. Source Cooperative is managed by Radiant Earth, and hosts 10s of datasets on its repository.</p>
+<p>All data on Source Cooperative, are hosted on AWS S3 bucket. In the following, we will use a set of functions under <code class="docutils literal notranslate"><span class="pre">utils.py</span></code> to download the data and analyze them.</p>
+</section>
+<section id="download-and-load-buildings-footprint-data-into-dask-geopandas">
+<h2><span class="section-number">21.2. </span>Download and Load Buildings Footprint Data into Dask-GeoPandas<a class="headerlink" href="#download-and-load-buildings-footprint-data-into-dask-geopandas" title="Permalink to this heading">#</a></h2>
+<p>First, we start a new Dask cluster:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">LocalCluster</span>
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">LocalCluster</span><span class="p">()</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">dashboard_link</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8787/status
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-11-06 17:42:38,238 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 7639d00889903a61fb4cd1ea1b7316be initialized by task (&#39;shuffle-transfer-7639d00889903a61fb4cd1ea1b7316be&#39;, 0) executed on worker tcp://127.0.0.1:32981
+2025-11-06 17:42:38,260 - distributed.shuffle._scheduler_plugin - WARNING - Shuffle 7639d00889903a61fb4cd1ea1b7316be deactivated due to stimulus &#39;task-finished-1762450958.2596664&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this lecture, we are going to access the data from a specific country. As noted in the dataset description, you need the 3-letter country ISO name to access the corresponding file. You can look up the ISO name for your country of choice <a class="reference external" href="https://www.iso.org/obp/ui/#search">here</a>.</p>
+<p>You need to enter the ISO name and the EPSG corresponding to the UTM zone of your country of choice in the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Jamaica</span>
+<span class="n">country_code</span> <span class="o">=</span> <span class="s2">&quot;JAM&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Define a path to download the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">local_path</span> <span class="o">=</span> <span class="s2">&quot;./data/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s import our function from <code class="docutils literal notranslate"><span class="pre">utils</span></code> module and run it. This function uses Dask-GeoPandas to lazy load the data from GeoParquet format into memory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">get_google_microsoft_bldgs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following cell downloads the geoparquet file from s3 bucket, and loads it into <code class="docutils literal notranslate"><span class="pre">Dask-GeoPandas</span></code> <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>. We are using a default value of 256M for the blocksize in Dask. If you run into memory issue in the rest of the notebook, lower the blocksize and re-run the following cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bldg_ddf</span> <span class="o">=</span> <span class="n">get_google_microsoft_bldgs</span><span class="p">(</span><span class="n">country_code</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">blocksize</span> <span class="o">=</span> <span class="s2">&quot;256M&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File already exists locally. No download needed.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bldg_ddf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><strong>Dask-GeoPandas GeoDataFrame Structure:</strong></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>boundary_id</th>
+      <th>bf_source</th>
+      <th>confidence</th>
+      <th>area_in_meters</th>
+      <th>s2_id</th>
+      <th>country_iso</th>
+      <th>geohash</th>
+      <th>geometry</th>
+      <th>bbox</th>
+    </tr>
+    <tr>
+      <th>npartitions=1</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>int64</td>
+      <td>object</td>
+      <td>float64</td>
+      <td>float64</td>
+      <td>int64</td>
+      <td>object</td>
+      <td>object</td>
+      <td>geometry</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+<div>Dask Name: read_parquet, 1 expression</div></div></div>
+</div>
+</section>
+<section id="read-adminsitrative-boundaries-dataset">
+<h2><span class="section-number">21.3. </span>Read Adminsitrative Boundaries Dataset<a class="headerlink" href="#read-adminsitrative-boundaries-dataset" title="Permalink to this heading">#</a></h2>
+<p>We are also interested to load the adminsitrative boundaries dataset for our country of choice, and assign each building an administrative unit (Parish) name.</p>
+<p>You can download each countries administrative unit json files on GDAM <a class="reference external" href="https://gadm.org/download_country.html">website</a>. Each country has different number of levels for their administrative units (and not all are available on GDAM website).</p>
+<p>Check your country of choice, and find what is the highest level of administrative boundaries that is available.</p>
+<p>In the following, we are interested in level 4 data, and the following function will download it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">get_gdam_json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boundaries</span> <span class="o">=</span> <span class="n">get_gdam_json</span><span class="p">(</span><span class="n">country_code</span> <span class="o">=</span> <span class="n">country_code</span><span class="p">,</span> <span class="n">admin_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boundaries</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Geographic 2D CRS: EPSG:4326&gt;
+Name: WGS 84
+Axis Info [ellipsoidal]:
+- Lat[north]: Geodetic latitude (degree)
+- Lon[east]: Geodetic longitude (degree)
+Area of Use:
+- name: World.
+- bounds: (-180.0, -90.0, 180.0, 90.0)
+Datum: World Geodetic System 1984 ensemble
+- Ellipsoid: WGS 84
+- Prime Meridian: Greenwich
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boundaries</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GID_1</th>
+      <th>GID_0</th>
+      <th>COUNTRY</th>
+      <th>Parish</th>
+      <th>VARNAME_1</th>
+      <th>NL_NAME_1</th>
+      <th>TYPE_1</th>
+      <th>ENGTYPE_1</th>
+      <th>CC_1</th>
+      <th>HASC_1</th>
+      <th>ISO_1</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>JAM.1_1</td>
+      <td>JAM</td>
+      <td>Jamaica</td>
+      <td>Clarendon</td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>Parish</td>
+      <td>Parish</td>
+      <td>NA</td>
+      <td>JM.CL</td>
+      <td>JM-13</td>
+      <td>MULTIPOLYGON (((-77.1357 17.8332, -77.1363 17....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>JAM.2_1</td>
+      <td>JAM</td>
+      <td>Jamaica</td>
+      <td>Hanover</td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>Parish</td>
+      <td>Parish</td>
+      <td>NA</td>
+      <td>JM.HA</td>
+      <td>JM-09</td>
+      <td>MULTIPOLYGON (((-78.3474 18.3393, -78.346 18.3...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>JAM.3_1</td>
+      <td>JAM</td>
+      <td>Jamaica</td>
+      <td>Kingston</td>
+      <td>KingstonandPortRoyal</td>
+      <td>NA</td>
+      <td>Parish</td>
+      <td>Parish</td>
+      <td>NA</td>
+      <td>JM.KI</td>
+      <td>JM-01</td>
+      <td>MULTIPOLYGON (((-76.7213 17.9457, -76.7368 17....</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>JAM.4_1</td>
+      <td>JAM</td>
+      <td>Jamaica</td>
+      <td>Manchester</td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>Parish</td>
+      <td>Parish</td>
+      <td>NA</td>
+      <td>JM.MA</td>
+      <td>JM-12</td>
+      <td>MULTIPOLYGON (((-77.4873 18.2024, -77.3922 18....</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>JAM.5_1</td>
+      <td>JAM</td>
+      <td>Jamaica</td>
+      <td>Portland</td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>Parish</td>
+      <td>Parish</td>
+      <td>NA</td>
+      <td>JM.PO</td>
+      <td>JM-04</td>
+      <td>MULTIPOLYGON (((-76.2634 18.0041, -76.2661 17....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="spatial-join">
+<h2><span class="section-number">21.4. </span>Spatial Join<a class="headerlink" href="#spatial-join" title="Permalink to this heading">#</a></h2>
+<p>Now, we will use the spatial join to add the Parish name (<code class="docutils literal notranslate"><span class="pre">Parish</span></code> column in <code class="docutils literal notranslate"><span class="pre">boundaries</span></code>) to <code class="docutils literal notranslate"><span class="pre">bldg_ddf</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bldg_ddf_w_boundaries</span> <span class="o">=</span> <span class="n">bldg_ddf</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">boundaries</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;intersects&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bldg_ddf_w_boundaries</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><strong>Dask-GeoPandas GeoDataFrame Structure:</strong></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>boundary_id</th>
+      <th>bf_source</th>
+      <th>confidence</th>
+      <th>area_in_meters</th>
+      <th>s2_id</th>
+      <th>country_iso</th>
+      <th>geohash</th>
+      <th>geometry</th>
+      <th>bbox</th>
+      <th>index_right</th>
+      <th>GID_1</th>
+      <th>GID_0</th>
+      <th>COUNTRY</th>
+      <th>Parish</th>
+      <th>VARNAME_1</th>
+      <th>NL_NAME_1</th>
+      <th>TYPE_1</th>
+      <th>ENGTYPE_1</th>
+      <th>CC_1</th>
+      <th>HASC_1</th>
+      <th>ISO_1</th>
+    </tr>
+    <tr>
+      <th>npartitions=1</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>int64</td>
+      <td>object</td>
+      <td>float64</td>
+      <td>float64</td>
+      <td>int64</td>
+      <td>object</td>
+      <td>object</td>
+      <td>geometry</td>
+      <td>object</td>
+      <td>int64</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+<div>Dask Name: sjoin, 1 expression</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buildigs_per_parish</span> <span class="o">=</span> <span class="n">bldg_ddf_w_boundaries</span><span class="p">[</span><span class="s2">&quot;Parish&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buildigs_per_parish</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parish
+Clarendon         161158
+Hanover            56768
+Kingston           32197
+Manchester        133060
+Portland           47859
+SaintAndrew       222104
+SaintAnn          134296
+SaintCatherine    283387
+SaintElizabeth    158357
+SaintJames        138844
+SaintMary          74672
+SaintThomas        57412
+Trelawny           64095
+Westmoreland      137181
+Name: count, dtype: int64[pyarrow]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of buildings is </span><span class="si">{</span><span class="n">buildigs_per_parish</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of buildings is 1701390
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-1-plot-the-number-of-buildings-per-parish-on-the-map">
+<h3><span class="section-number">21.4.1. </span>Exercise 1: Plot the number of buildings per Parish on the map<a class="headerlink" href="#exercise-1-plot-the-number-of-buildings-per-parish-on-the-map" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="exercise-2-calculate-percentage-of-the-area-of-each-parish-that-is-covered-by-buildings">
+<h3><span class="section-number">21.4.2. </span>Exercise 2: Calculate percentage of the area of each Parish that is covered by buildings<a class="headerlink" href="#exercise-2-calculate-percentage-of-the-area-of-each-parish-that-is-covered-by-buildings" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="20_dask_geopandas_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Introduction to Dask-GeoPandas</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../assignments/a1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-cooperative">21.1. Source Cooperative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-load-buildings-footprint-data-into-dask-geopandas">21.2. Download and Load Buildings Footprint Data into Dask-GeoPandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-adminsitrative-boundaries-dataset">21.3. Read Adminsitrative Boundaries Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-join">21.4. Spatial Join</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-plot-the-number-of-buildings-per-parish-on-the-map">21.4.1. Exercise 1: Plot the number of buildings per Parish on the map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-calculate-percentage-of-the-area-of-each-parish-that-is-covered-by-buildings">21.4.2. Exercise 2: Calculate percentage of the area of each Parish that is covered by buildings</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
