@@ -4,7 +4,7 @@ The course will cover the following topics during the semester. Part of each wee
 There will be 9 assignments during the semester, and students can join office hours to ask any questions about the assignment, or general questions about the lecture. 
 
 **Week**	|	**Date**	|	**Topic**	|	**Quiz**	|	**Assignment**	|
---------	|	--------	|	----------------------------------------------------------------	|	-----------	|	-----------	|
+|	--------	|	--------	|	----------------------------------------------------------------	|	-----------	|	-----------	|
 |	1	|	8/25/25	|	Workflows for Open Reproducible Science	|		|	Assignment 1	|
 |	1	|	8/28/25	|	Intro to Unix, Version Control and Git	|		|		|
 |	2	|	9/1/25	|	**Labor Day (No Classes)**	|		|		|
@@ -24,10 +24,10 @@ There will be 9 assignments during the semester, and students can join office ho
 |	9	|	10/20/25	|	Working with Raster Data in Python	|	Yes	|	Assignment 5	|
 |	9	|	10/23/25	|	Scaling Raster Data Analytics	|		|		|
 |	10	|	10/27/25	|	Scaling Raster Data Analytics - Part 2	|		|		|
-|	10	|	10/30/25	|	Working with Vector Data in Python	|		|	Assignment 6*	|
-|	11	|	11/3/25	|	Scaling Vector Data Analytics 	|		|		|
-|	11	|	11/6/25	|	Data Visualization	|	Yes	|		|
-|	12	|	11/10/25	|	Geospatial Workflows	|		|		|
+|	10	|	10/30/25	|	Working with Vector Data in Python	|		|		|
+|	11	|	11/3/25	|	**No Class**	|		|		|
+|	11	|	11/6/25	|	Scaling Vector Data Analytics 	|		|	Assignment 6*	|
+|	12	|	11/10/25	|	Data Visualization	|	Yes	|		|
 |	12	|	11/13/25	|	Geospatial Workflows	|		|		|
 |	13	|	11/17/25	|	Projects Proposal Presentation	|		|	*Proposals due*	|
 |	13	|	11/20/25	|	Projects	|		|		|
@@ -44,7 +44,7 @@ Assignments will be released on the Thursday of the week (with the exception of 
 ## Final Project
 Final projects are due by noon ET on Dec 18, 2024 (this won't be extended due to the grades deadline set by the University). There won't be a presentation needed for your projects. 
 
-## __Engaged Hours__
+## Engaged Hours
 
 The following provides an approximate breakdown of the hours of effort required for this class:
 - Class lectures (2 X 1hr 15min per week):  **35 hrs**
