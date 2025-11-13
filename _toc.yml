@@ -56,13 +56,12 @@ parts:
       title: Intro to Dask-GeoPandas
     - file: lectures/21_scalable_vector_analysis
       title: Scalable Vector Analysis
-
-    # - file: lectures/22_workflows_intro
-    #   title: Workflows in Python
-    # - file: lectures/23_workflows_pseudocode
-    #   title: Writing Pseudocode
-    # - file: lectures/24_workflows_best_practices
-    #   title: Workflow Best Practices
+    - file: lectures/22_workflows_intro
+      title: Workflows in Python
+    - file: lectures/23_workflows_pseudocode
+      title: Writing Pseudocode
+    - file: lectures/24_workflows_best_practices
+      title: Workflow Best Practices
   - caption: Assignments
     chapters:
     - file: assignments/a1
@@ -70,7 +69,7 @@ parts:
     - file: assignments/a3 
     - file: assignments/a4
     - file: assignments/a5
-    # - file: assignments/a6
+    - file: assignments/a6
     # - file: assignments/a7
   - caption: Appendices
     chapters:
