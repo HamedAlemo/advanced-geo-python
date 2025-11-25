@@ -70,7 +70,6 @@ parts:
     - file: assignments/a4
     - file: assignments/a5
     - file: assignments/a6
-    # - file: assignments/a7
   - caption: Appendices
     chapters:
     - file: docs/license
