@@ -46,7 +46,7 @@ For a quick intro to this topic, you can check out [this video](https://www.yout
 
 ## GeoJSON Schemas
 
-In this course, we will mostly use GeoJSONs for vector data formats (refer to the lecture on [The Landscape of Geospatial Data and Tools](../lectures/05_landscape.md) for more information about different formats.) You can represent any vector data type in GeoJSON format as described in the schemas in the following. Based on the latest [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), all coordinates should be recorded using a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) [WGS84] datum, with longitude and latitude units of decimal degrees. 
+In this course, we will mostly use GeoJSONs for vector data formats (refer to the lecture on [The Landscape of Geospatial Data and Tools](../lectures/07_landscape.md) for more information about different formats.) You can represent any vector data type in GeoJSON format as described in the schemas in the following. Based on the latest [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), all coordinates should be recorded using a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) [WGS84] datum, with longitude and latitude units of decimal degrees. 
 
 ```{dropdown} GeoJSON Point Schema
 ``` json
