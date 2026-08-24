@@ -21,7 +21,7 @@ Draft Syllabus for the course:
 |	6	|	10/1/26	|	Workign with Docker	|		|	Assignment 4	|
 |	7	|	10/5/26	|	Intro to STAC and Geospatial Data on the Cloud	|	Yes	|		|
 |	7	|	10/8/26	|	Intro to Dask	|		|		|
-|	7	|	10/12/26	|	**Fall Break (No Classes)**	|		|		|
+|	8	|	10/12/26	|	**Fall Break (No Classes)**	|		|		|
 |	8	|	10/15/26	|	Intro to Dask DataFrame	|		|		|
 |	9	|	10/19/26	|	Working with Raster Data in Python	|	Yes	|	Assignment 5	|
 |	9	|	10/22/26	|	Scaling Raster Data Analytics	|		|		|
