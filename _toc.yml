@@ -4,7 +4,7 @@ title: Home
 parts:
   - caption: Introduction
     chapters:
-    # - file: docs/syllabus
+    - file: docs/syllabus
     - file: docs/team
     - file: docs/schedule
     - file: docs/assessment
@@ -64,12 +64,82 @@ parts:
     #   title: Workflow Best Practices
   - caption: Assignments
     chapters:
-    # - file: assignments/a1
+    - file: assignments/a1
     # - file: assignments/a2
     # - file: assignments/a3 
     # - file: assignments/a4
     # - file: assignments/a5
     # - file: assignments/a6
+  - caption: NASA Open Science 101
+    chapters:
+    - file: files/open-science-101-v-1-0-0/README
+      title: Overview
+      sections:
+      - file: files/open-science-101-v-1-0-0/Module_1/readme
+        title: "OS101 Module 1: The Ethos of Open Science"
+        sections:
+        - file: files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme
+          title: "Lesson 1: What is Open Science?"
+        - file: files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme
+          title: "Lesson 2: Why is Open Science Important?"
+        - file: files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme
+          title: "Lesson 3: How to do Open Science"
+        - file: files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme
+          title: "Lesson 4: When Not to be Open"
+        - file: files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme
+          title: "Lesson 5: Planning for Open Science: From Theory to Practice"
+      - file: files/open-science-101-v-1-0-0/Module_2/readme
+        title: "OS101 Module 2: Open Tools and Resources"
+        sections:
+        - file: files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme
+          title: "Lesson 1: Introduction to the Process of Open Science"
+        - file: files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme
+          title: "Lesson 2: General Tools for Open Science"
+        - file: files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme
+          title: "Lesson 3: Tools for Open Data"
+        - file: files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme
+          title: "Lesson 4: Tools for Open Code"
+        - file: files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme
+          title: "Lesson 5: Tools for Open Results"
+      - file: files/open-science-101-v-1-0-0/Module_3/readme
+        title: "OS101 Module 3: Open Data"
+        sections:
+        - file: files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme
+          title: "Lesson 1: Introduction to Open Data"
+        - file: files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme
+          title: "Lesson 2: Using Open Data"
+        - file: files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme
+          title: "Lesson 3: Making Open Data"
+        - file: files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme
+          title: "Lesson 4: Sharing Open Data"
+        - file: files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme
+          title: "Lesson 5: From Theory to Practice"
+      - file: files/open-science-101-v-1-0-0/Module_4/readme
+        title: "OS101 Module 4: Open Code"
+        sections:
+        - file: files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme
+          title: "Lesson 1: Introduction to Open Code"
+        - file: files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme
+          title: "Lesson 2: Using Open Code"
+        - file: files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme
+          title: "Lesson 3: Making Open Code"
+        - file: files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme
+          title: "Lesson 4: Sharing Open Code"
+        - file: files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme
+          title: "Lesson 5: From Theory to Practice"
+      - file: files/open-science-101-v-1-0-0/Module_5/readme
+        title: "OS101 Module 5: Open Results"
+        sections:
+        - file: files/open-science-101-v-1-0-0/Module_5/Lesson_1/readme
+          title: "Lesson 1: Introduction to Open Results"
+        - file: files/open-science-101-v-1-0-0/Module_5/Lesson_2/readme
+          title: "Lesson 2: Using Open Results"
+        - file: files/open-science-101-v-1-0-0/Module_5/Lesson_3/readme
+          title: "Lesson 3: Making Open Results"
+        - file: files/open-science-101-v-1-0-0/Module_5/Lesson_4/readme
+          title: "Lesson 4: Sharing Open Results"
+        - file: files/open-science-101-v-1-0-0/Module_5/Lesson_5/readme
+          title: "Lesson 5: From Theory to Practice"
   - caption: Appendices
     chapters:
     - file: docs/license

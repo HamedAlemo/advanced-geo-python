@@ -7,7 +7,7 @@
 # Book settings
 title                       : Advanced Geospatial Analytics with Python  # The title of the book. Will be placed in the left navbar.
 author                      : Hamed Alemohammad  # The author of the book
-copyright                   : "2024"  # Copyright year to be placed in the footer
+copyright                   : "2026"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns: [_build, .DS_Store, "**.ipynb_checkpoints"]
@@ -18,6 +18,11 @@ only_build_toc_files: true
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: "off"
+
+parse:
+  myst_enable_extensions:
+    - html_image
+  myst_heading_anchors: 4
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -39,3 +44,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+sphinx:
+  config:
+    suppress_warnings: ["myst.xref_missing"]
