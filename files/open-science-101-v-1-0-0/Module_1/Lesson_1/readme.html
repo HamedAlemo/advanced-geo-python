@@ -1,0 +1,977 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 1: What is Open Science? &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 2: Why is Open Science Important?" href="../Lesson_2/readme.html" />
+    <link rel="prev" title="OS101 Module 1: The Ethos of Open Science" href="../readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 1: The Ethos of Open Science</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 1: What is Open Science?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-for-open-science">Motivation for Open Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-at-nasa">Open Science at NASA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-internet-facilitates-sharing-of-information">The Internet Facilitates Sharing of Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-we-do-open-science-now">Why Should We Do Open Science Now?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-open-science">What is Open Science?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-do-open-science">How Do You Do Open Science?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-1-think-about-the-what-and-how-of-open-science">Activity 1.1: Think About the What and How of Open Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fostering-collaborations-reproducibility-and-equity">Fostering Collaborations, Reproducibility, and Equity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-2-definition-of-open-science">Activity 1.2: Deﬁnition of Open Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#match-the-parts-of-the-ostp-definition-with-the-relevant-idea-respecting-cultural-diversity-concepts">Match the parts of the OSTP definition with the relevant IDEA/Respecting cultural diversity concepts.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-in-the-missing-word-in-the-definition-of-open-science">Fill in the missing word in the definition of open science.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#according-to-the-white-house-office-of-science-and-technology-policy-open-science-fosters">According to the White House Office of Science and Technology Policy, open science fosters…</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-open-science-in-action">Examples of Open Science in Action</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-definition-of-open-science">Key Takeaways: Deﬁnition of Open Science</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-does-open-science">Who Does Open Science?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-2-think-about-open-science">Activity 1.2: Think about Open Science</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-summary">Lesson 1: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-1-what-is-open-science">
+<h1>Lesson 1: What is Open Science?<a class="headerlink" href="#lesson-1-what-is-open-science" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#motivation-for-open-science">Motivation for Open Science</a></p></li>
+<li><p><a href="#what-is-open-science">What is Open Science?</a></p></li>
+<li><p><a href="#who-does-open-science">Who Does Open Science?</a></p></li>
+<li><p><a href="#lesson-1-summary">Lesson 1: Summary</a></p></li>
+<li><p><a href="#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you take a closer look at what open science means, including the intended goals and outcomes of adopting open science as an individual and as part of a larger community. You then review examples of open science in action. Finally, you wrap up the lesson by taking a closer look at why adopting open science is needed.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Explain the motivation to do open science and the goals of open science.</p></li>
+<li><p>Define open science.</p></li>
+<li><p>List different groups that practice open science.</p></li>
+</ul>
+</section>
+<section id="motivation-for-open-science">
+<h2>Motivation for Open Science<a class="headerlink" href="#motivation-for-open-science" title="Permalink to this heading">#</a></h2>
+<p>Welcome to the first module of the TOPS Open Science 101 curriculum! Module 1 has five lessons that present information about the Ethos of Open Science. This incorporates the motivations and best practices for making science more open. This course was made possible thanks to the work of our NASA Transform to Open Science (TOPS) team, open science Subject Matter Experts (SMEs), and the entire TOPS community (3100+)! Please note that all image attributions are given at the end of each module.</p>
+<p>We are really glad you are here!</p>
+<p>This is the first lesson in the module on the Ethos of Open Science. Let’s begin by explaining the word “ethos”.</p>
+<img alt="../../../../_images/merriamwebster.jpg" src="../../../../_images/merriamwebster.jpg" />
+<p>“Ethos is the distinguishing character, sentiment, moral nature, or guiding beliefs of a person, group,”</p>
+<p><strong>Merriam Webster</strong></p>
+<hr class="docutils" />
+<p>This lesson describes and showcases what makes Open Science, as an approach to knowledge production, unique or distinguishable from other scientific approaches.</p>
+<p>Note that “ethos” is not exactly “ethics”, but offers a broad enough term to include the moral attitudes held by the individuals or institutions who practice open science. To clarify the moral element to this discussion, we speak of “responsible open science” going forward.</p>
+<p>The lesson introduces the concept of open science as a whole by explaining its motivation, definition, and operation. The lesson then reviews different components of science and the pillars that make them up. Throughout this module, we have integrated ethics around open science that dictate how you share, give due credit, and work together. “Practice the Golden Rule” - treat others the way you would like to be treated in their situation.</p>
+<p>The curriculum of this course builds upon the work of others from across the globe and fields of research who paved the way to open science. Their recognition of open science as a necessary step to equalize knowledge access and catalyze research inspired NASA’s own pursuit to contribute. Best practices, performance indicators, and core principles established by the global open science community inform our current approach.</p>
+<section id="open-science-at-nasa">
+<h3>Open Science at NASA<a class="headerlink" href="#open-science-at-nasa" title="Permalink to this heading">#</a></h3>
+<p>NASA funds some of the most diverse research of any federal agency and has a history of sharing research and results going back to the Apollo Program in the 1960s. NASA’s Transform to Open Science program shares guidelines and best practices for open science that are applicable and beneficial across its entire range of research efforts.</p>
+<p>NASA funds research in fields from Astrobiology to Physics, and basic science to applied engineering. NASA datasets include biology, chemistry, environmental science, geology, and other fields related to robotic and human planetary exploration, stellar evolution, and the search for extraterrestrial life.</p>
+<img alt="../../../../_images/image238.png" src="../../../../_images/image238.png" />
+<p>The open science practices and principles that play a critical role supporting NASA mission success are equally relevant to other government agencies and institutions. Similar considerations, approaches, and behaviors are needed in a variety of scientific contexts. Tools for open science frameworks and workflows follow generally similar models.</p>
+<p>Open science practices and principles can be applied to all stages of the research process. One early example of NASA’s efforts to involve more people in science is the <a class="reference external" href="https://exoplanets.nasa.gov/citizen-science/"><u>exoplanet citizen science projects</u></a>. The <a class="reference external" href="https://www.zooniverse.org/projects/ianc2/exoplanet-explorers">Exoplanet Explorers</a> project posed the questions:</p>
+<ul class="simple">
+<li><p>Are small planets (like Venus) more common than big ones (like Saturn)?</p></li>
+<li><p>Are short-period planets (like Mercury) more common than those on long orbits (like Mars)?</p></li>
+<li><p>Do planets more commonly occur around stars like the Sun, or around the more numerous, cooler, smaller red dwarfs?</p></li>
+</ul>
+<img alt="../../../../_images/image266.jpg" src="../../../../_images/image266.jpg" />
+<p>“Stargazing Live”, a live television program, took place across three consecutive nights in 2017. The hosts invited viewers to contribute to their research question by classifying solar systems from an open access dataset. Within 48 hours of the program’s
+debut, more than 10,000 people had participated in <a class="reference external" href="https://www.zooniverse.org/projects/ianc2/exoplanet-explorers">Exoplanet Explorers</a> and classified over 2 million systems.</p>
+<p>Following the first night of the program, the researchers watched the results roll in, as citizen scientists helped sift through the data. On the second night, enough people had participated that the researchers were able to share the demographics of the planet candidates that had already been flagged and were undergoing additional analysis: 44 Jupiter-size planets, 72 Neptune-size planets, 44 Earth-size planets and 53 sub-Neptunes (larger than Earth but smaller than Neptune).</p>
+<p>Communities, working together on a problem, can rapidly find new results! Open science enables this and more.</p>
+</section>
+<section id="the-internet-facilitates-sharing-of-information">
+<h3>The Internet Facilitates Sharing of Information<a class="headerlink" href="#the-internet-facilitates-sharing-of-information" title="Permalink to this heading">#</a></h3>
+<p>Historically, factors like time, access to sufficient tools and data, and physical proximity limited who could be involved in science, as well as how easily collaboration could take place within the scientific community. More recently, digital resources like the Internet have increased participation by eliminating barriers to entry and presenting a platform for digital collaboration on a global scale. The internet offered people access to the appropriate infrastructure to conduct open science, while the practices of open science enabled more people to engage with research products. Unfortunately, challenges remain for people who don’t have the right computational tools and/or speak the relevant languages.</p>
+<p>The Internet creates many outlets for public hosting and free access to research and data. These outlets combined with advances in computational power enable nearly anyone to perform complex data analysis. It is now possible to connect participants, stakeholders, and outputs of open science on the Internet to make scientific processes and products easier to discover and access.</p>
+</section>
+<section id="why-should-we-do-open-science-now">
+<h3>Why Should We Do Open Science Now?<a class="headerlink" href="#why-should-we-do-open-science-now" title="Permalink to this heading">#</a></h3>
+<p>Science and science communication increasingly face severe pushback from the public because of inadequacies in the reproducibility of results and the spread of misinformation, respectively, that foster mistrust. The practice of open science counteracts this by involving community feedback to validate results in a more robust manner and combats misinformation by making results available to the public.</p>
+<p><strong>Reproduce Results</strong></p>
+<p>Science becomes more robust and accurate when scientists validate their colleagues’ results. However, the rapidly-growing pool of published research presents an overwhelming challenge to reproduce:</p>
+<p>Source: <a class="reference external" href="https://www.pnas.org/doi/full/10.1073/pnas.1708290115">https://www.pnas.org/doi/full/10.1073/pnas.1708290115</a></p>
+<ul class="simple">
+<li><p>In 2011, the AAAS, publisher of Science, began requiring the authors of computational research reports to share data and software upon request</p></li>
+<li><p>In 2018, a <a class="reference external" href="https://www.pnas.org/doi/full/10.1073/pnas.1708290115">research study</a> was carried out that investigated 204 articles for reproducibility and that were published in the journal Science after 2011. It was found that only 26% of papers were able to be reproduced, with the two primary reasons being the inability to get access to the data and software and the fact that the methods were not described in sufficient detail.</p></li>
+</ul>
+<p><strong>How many studies were reproduced?</strong></p>
+<img alt="../../../../_images/image242.png" src="../../../../_images/image242.png" />
+<p><img alt="../../../../_images/image218.png" src="../../../../_images/image218.png" /> <strong>No <img alt="../../../../_images/image270.png" src="../../../../_images/image270.png" /> Yes</strong></p>
+<p><strong>Open Results Enable Iteration and Improve Error-Detection</strong></p>
+<p>In this section, we will look at an example of how closed science can restrict research impact by <a class="reference external" href="https://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1318&amp;context=usdeptcommercepub">following the outcome</a> of a highly cited journal article to understand how science functions to inform a field’s state of research, the decisions of policy makers, and the actions of society.</p>
+<img alt="../../../../_images/image220.png" src="../../../../_images/image220.png" />
+<p>A 1990 analysis of satellite data on climate temperature concluded that the upper atmosphere experienced no warming, a finding that contradicted early climate models predictions. Policymakers concluded from this result that researchers don’t understand climate models enough to warrant changes in environmental policy. The processed data from this study were made open-access but, as was typical for the time, neither the original data nor the code used for processing and analyzing the data were shared by the original research team. Eight years after the article was published, other scientists noticed that the original authors didn’t account for several important effects. This oversight introduced errors into the dataset and falsely produced artificial cooling to the temperature measurements. It took another five years and additional funding to reproduce the code and conduct a new analysis. Thirteen years after the original paper, it was confirmed that the upper atmosphere was warming and agreed with climate model predictions.</p>
+<p>The inability for the scientific community to access an article’s original data and code slows the pace of discovery, thirteen years in this case, and forces other research teams to repeat the work (code) instead of moving on to new projects. This isn’t the pace that we want to advance science, with one step forward and two steps back to iterate and resolve problems.</p>
+<p>The intentions of the original research group were not to conceal or prevent access to their data and methods; the community norms at the time simply did not include the sharing of data and software openly. This is, in part, because it allows researchers to keep a competitive advantage when seeking funding opportunities. In this case, the research group simply followed this common practice. This culture of closed science needs to be changed because the practice of withholding code (or data or other research artifacts) can stifle scientific progress. In the climate change example, a flawed study could have swiftly been corrected by open peer feedback but it instead undermined the credibility of climate scientists. The cost to progress on climate change research and the prevented benefit to society was enormous. It is imperative to shift the entire science ecosystem, policies, and rewards towards the prioritization of openness if the full and immediate benefits of research are to be realized.</p>
+<p><strong>Traditional Publishing Limits Participation</strong></p>
+<p>Historically, scientific publishers have charged subscription fees to access journals and, often, article processing charges (APCs) to cover the costs of preparing a manuscript for press (even when the peer reviewers were volunteering their time). These practices limit both who could read papers and who could publish results.</p>
+<p>Open access publishing has significantly increased the number of articles that are available as electronic copies online. A growing number of governments and funding agencies are starting to mandate that research funded by taxpayers must be accessible to the public after publication. However, the current hybrid system still does a poor job of allocating costs fairly across the research publication process (more on this in Module 5).</p>
+<p>The issue of who has access to published papers also motivates open science. <a class="reference external" href="https://www.unesco.org/en/articles/can-science-be-more-equitable-so-everyone-enjoys-benefits-open-science-answer">For example</a>, even though more climate research is made available as open access than that from other scientific fields, the majority of climate research articles, including many important ones, remain behind paywalls. Climate misinformation is freely available to anyone online but scientific climate results are mostly hidden from the public behind paywalls. This practice does not increase trust in science.</p>
+<img alt="../../../../_images/image369.png" src="../../../../_images/image369.png" />
+<p>Source: <a class="reference external" href="https://www.unesco.org/en/articles/can-science-be-more-equitable-so-everyone-enjoys-benefits-open-science-answer">https://www.unesco.org/en/articles/can-science-be-more-equitable-so-everyone-enjoys-benefits-open-science-answer</a></p>
+</section>
+</section>
+<section id="what-is-open-science">
+<h2>What is Open Science?<a class="headerlink" href="#what-is-open-science" title="Permalink to this heading">#</a></h2>
+<p>But what is open science exactly? To illustrate, first we’ll present a definition for open science that was developed in 2023 by the U.S. <a class="reference external" href="https://open.science.gov/">federal government</a>.</p>
+<img alt="../../../../_images/whitehouse2022.jpg" src="../../../../_images/whitehouse2022.jpg" />
+<p>“Open Science is the principle and practice of making research products and processes available to all, while respecting diverse cultures, maintaining security and privacy, and fostering collaborations, reproducibility, and equity.”</p>
+<p><strong>The White House Ofﬁce of Science and Technology Policy Memo, 2022 (adapted)</strong></p>
+<hr class="docutils" />
+<p>This definition was developed by a team of U.S. federal agencies. They reviewed many different definitions of open science from both within the U.S. and around the world. These definitions have changed over time as the understanding of open science has matured and become more nuanced. Let’s break down the definition a bit more:</p>
+<ul class="simple">
+<li><p>Research products and processes should be available to all, not just a small subset of experts, particularly if funded with public funds.</p></li>
+<li><p>Research products and processes should be ‘respecting diverse cultures’ – fostering an open dialogue between researchers, indigenous people, and local communities. This also means that research must respect the diversity of laws and customs in different countries and/or as they apply to different kinds of research.</p></li>
+<li><p>While open science is our aim, security and privacy remain important concerns. Therefore, select sensitive information should be protected.</p></li>
+<li><p>Of the stated principles, “Fostering collaborations, reproducibility, and equity”, the first two are research standards, while the latter refers to the inclusion of people who might otherwise get left out.</p></li>
+</ul>
+<p>Open science is a culture intended to promote science and its social impact. Open science creates new opportunities for different stakeholders including researchers, political decision makers, and public participants. Open science increases study transparency, repeatability, reproducibility, and confirmation. We expand what these terms mean and why they matter throughout this module and later in Open Science 101 modules.</p>
+<section id="how-do-you-do-open-science">
+<h3>How Do You Do Open Science?<a class="headerlink" href="#how-do-you-do-open-science" title="Permalink to this heading">#</a></h3>
+<p>The Ethos of Open Science is a broad term that encompasses the moral and ethical attitudes held by individuals and institutions about practicing ‘open’ science. There is an ethical element to sharing both new knowledge and the processes used to obtain said knowledge. It is important to note that there is no one be-all way of practicing or conducting open science.</p>
+<p>Diverse practices, assumptions, and goals are just part of the complexity of open science. There are also divergent moral principles that guide open science communities. Such principles are captured in “codes of conduct”. A code of conduct is a community governance mechanism that outlines the principles and practices expected of a given research community’s members, as well as the process for investigating and reprimanding those in violation of the code.</p>
+<p>In a sense, a code of conduct constitutes the moral backbone of a research community. However, as with the numerous schools of thought, there are similarly many codes of conduct. In other words, there is no one set of universal principles that all open science
+practitioners abide by. For example, consider how <a class="reference external" href="https://openlifesci.org/code-of-conduct">OLS</a>,  <a class="reference external" href="https://osf.io/6gsye">INOSC</a>, <a class="reference external" href="https://allea.org/portfolio-item/the-european-code-of-conduct-for-research-integrity-2/">allea</a>, <a class="reference external" href="https://www.agu.org/Plan-for-a-Meeting/AGUMeetings/Meetings-Resources/Meetings-code-of-conduct">AGU</a> and <a class="reference external" href="https://ethicalsource.dev/community-code-of-conduct/">Ethical Source</a> all have different codes of conducts and guiding principles.</p>
+<p>This great diversity responds to the growing proliferation of open science initiatives and the great use we can make of open science approaches to knowledge.</p>
+<p>The goal of TOPS is to push the community as a whole towards open science as an ethical responsibility to share knowledge.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ethics</p></th>
+<th class="head"><p>Morals</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Community consensus about “proper” behavior.</p></td>
+<td><p>Personal set of standards for “good” behavior.</p></td>
+</tr>
+</tbody>
+</table>
+<img alt="../../../../_images/image258.jpg" src="../../../../_images/image258.jpg" />
+<p>You may or may not have heard the term “Open Science” used before this course. If you have, you likely have some preconception of open science and what it looks like in practice. Let’s collectively look at those various conceptions.</p>
+</section>
+<section id="activity-1-1-think-about-the-what-and-how-of-open-science">
+<h3>Activity 1.1: Think About the What and How of Open Science<a class="headerlink" href="#activity-1-1-think-about-the-what-and-how-of-open-science" title="Permalink to this heading">#</a></h3>
+<p>In this activity, reflect on your answers to the questions and then compare your thoughts to the key takeaways.</p>
+<img alt="../../../../_images/lightbulb.png" src="../../../../_images/lightbulb.png" />
+<ul class="simple">
+<li><p>What does the act of open science look like? Does a scientist use or create something specific that would characterize their research as open? What comes to your mind?</p></li>
+<li><p>Describe how you currently share your materials (data, code, results)?</p></li>
+<li><p>How might you share materials in the future more openly?</p></li>
+<li><p>What stands in the way?</p></li>
+</ul>
+<p><strong>Key Takeaways:</strong></p>
+<p>There are many ways to do open science. One of the best ways to start your open science journey is to think about how you do your science and how you might be able to make your science more open.</p>
+<p><strong>Goals of Open Science</strong></p>
+<p>The nuances of implementing open science take time and experience to develop. This curriculum provides practical steps and insightful examples to make open science happen.</p>
+<p>Goals of open science include:</p>
+<ul class="simple">
+<li><p>Facilitating collective benefit.</p></li>
+<li><p>Achieving inclusive development and innovation.</p></li>
+<li><p>Realizing equitable outcomes.</p></li>
+<li><p>Ensuring appropriate control over the data you use, make, or share throughout your research process, and comply with policy, regulatory, and legal guidance on release.</p></li>
+<li><p>Nurturing respectful relationships with the culturally- diverse communities who might provide or interact with your data, software, and results.</p></li>
+<li><p>Actively engaging with interested communities to increase representation and consultation throughout your research efforts. Members of any communities that provide data must be allowed to determine the benefits, harms, and potential future uses based on their community values and priorities.</p></li>
+</ul>
+</section>
+<section id="fostering-collaborations-reproducibility-and-equity">
+<h3>Fostering Collaborations, Reproducibility, and Equity<a class="headerlink" href="#fostering-collaborations-reproducibility-and-equity" title="Permalink to this heading">#</a></h3>
+<p>The IDEA of Open Science: Inclusive, Diverse, Equitable, and Accessible.</p>
+<img alt="../../../../_images/image256.png" src="../../../../_images/image256.png" />
+<p>Openly using, making, and sharing research analyses, software, or datasets gives everyone credit for their work.</p>
+<p>Sharing is grounded in the belief that access to information and the ability to collaborate is essential for advancing scientific understanding and solving complex problems.</p>
+<p>Open sharing enables greater transparency in the scientific process and facilitates reproducibility; it enables collaboration and inclusion of more diverse perspectives and expertise; and it makes scientific knowledge more accessible to the public.</p>
+<p>Not only does open sharing help society, but it also can benefit each of us as individual researchers. It can lead to greater visibility, impact, and credit of your results, data, and software; it can provide access to new collaborations and ideas, and it can fulfill ethical and social responsibilities.</p>
+</section>
+<section id="activity-1-2-definition-of-open-science">
+<h3>Activity 1.2: Deﬁnition of Open Science<a class="headerlink" href="#activity-1-2-definition-of-open-science" title="Permalink to this heading">#</a></h3>
+<section id="match-the-parts-of-the-ostp-definition-with-the-relevant-idea-respecting-cultural-diversity-concepts">
+<h4>Match the parts of the OSTP definition with the relevant IDEA/Respecting cultural diversity concepts.<a class="headerlink" href="#match-the-parts-of-the-ostp-definition-with-the-relevant-idea-respecting-cultural-diversity-concepts" title="Permalink to this heading">#</a></h4>
+<table>
+  <tr>
+    <td>Engage with interested communities to increase research efforts</td>
+    <td>Respecting cultural diversity representation throughout</td>
+  </tr>
+  <tr>
+    <td>Fosters inclusivity, diversity, equity and accessibility</td>
+    <td>IDEA</td>
+  </tr>
+</table>
+</section>
+<section id="fill-in-the-missing-word-in-the-definition-of-open-science">
+<h4>Fill in the missing word in the definition of open science.<a class="headerlink" href="#fill-in-the-missing-word-in-the-definition-of-open-science" title="Permalink to this heading">#</a></h4>
+<p>“Open Science is the principle and practice of making research products and processes _____ to all, while respecting diverse cultures, maintaining security and privacy, and fostering collaborations, reproducibility, and equity.”</p>
+<p>- The White House Office of Science and
+Technology Policy (OSTP) Policy Memo, 2022</p>
+</section>
+<section id="according-to-the-white-house-office-of-science-and-technology-policy-open-science-fosters">
+<h4>According to the White House Office of Science and Technology Policy, open science fosters…<a class="headerlink" href="#according-to-the-white-house-office-of-science-and-technology-policy-open-science-fosters" title="Permalink to this heading">#</a></h4>
+<p>Select all that apply.</p>
+<ul class="simple">
+<li><p>Collaboration</p></li>
+<li><p>Competition</p></li>
+<li><p>Equity</p></li>
+<li><p>Limited accessibility</p></li>
+<li><p>Reproducibility</p></li>
+</ul>
+</section>
+</section>
+<section id="examples-of-open-science-in-action">
+<h3>Examples of Open Science in Action<a class="headerlink" href="#examples-of-open-science-in-action" title="Permalink to this heading">#</a></h3>
+<table>
+  <thead>
+    <tr>
+        <th>EXAMPLE 1 : CITIZEN SCIENTISTS DRIVE NEW RESEARCH METHODS &#9745;</th>
+        <th>EXAMPLE 2 : RADAR DATA TO KEEP AN EYE ON CLIMATE CHANGE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <p>JunoCam is a camera/telescope aboard the Juno spacecraft that orbits Jupiter. It was added to Juno specifically for citizen scientists and public outreach purposes.</p>
+            <p>The camera’s original purpose wasn’t to perform science, only observe. However, access was given to citizen scientists who processed pictures by stitching JunoCam image bands together. Participation among the citizen science community helped expand the utility of the camera and <a href="https://www.nasa.gov/missions/europa-clipper/citizen-scientists-enhance-new-europa-images-from-nasas-juno/">led to an unforeseen success</a>. Iconic images created by these citizen scientists of Jupiter and Europa have intrigued and inspired people from across the globe.</p>
+            <p>Collected data also benefited traditional science:</p>
+            <p>"Pretty much all of what we are learning about the structures and dynamics of Jupiter's clouds is coming from publicly-edited images," says planetary scientist and JunoCam wrangler Candice Hansen. Hansen explains, "The team is processing a few images itself but with no image processing staff, the researchers are relying on the work of citizen scientists."</p>
+            <p>The Juno spacecraft team made new and unexpected science possible through open and easily accessible data. Public participation brought new perspectives and expanded the team’s capacity to conduct valuable research.</p>
+            <p>Credits:</p>
+            <p>Image data: NASA/JPL-Caltech/SwRI/MSSS</p>
+            <p>Image processing: Navaneeth Krishnan S © CC BY</p>
+            <p><img src="../images/media/image243.jpg" style="width: 100%; height: auto;"/></p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>EXAMPLE 1 : CITIZEN SCIENTISTS DRIVE NEW RESEARCH METHODS</th>
+        <th>EXAMPLE 2 : RADAR DATA TO KEEP AN EYE ON CLIMATE CHANGE &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <p>Have you ever seen weather forecast images for your location? That data comes from NEXRAD radar stations, many of which have been operating for over 30 years. The data has always been made publicly available, but can be difficult to use. It was mostly used for rain information, so stations didn’t see a need to make it readily accessible after 24 hours. Users who wanted the historical data from NEXRAD had to work through the following arduous steps:</p>
+            <ul>
+            <li>Go to a website.</li>
+            <li>Make a request (but not one too large).</li>
+            <li>Wait for a robot to read the data off tape storage and copy it online.</li>
+            <li>Receive an email with instructions on where to download a user's data.</li>
+            <li>Download the data.</li>
+            </ul>
+            <p>The massive size of the dataset, more than 250TB, made it essentially impossible to do large-scale analysis. Nobody had the time to make these requests and download the data bit by bit.</p>
+            <p><strong>However, in 2015, all NEXRAD data were moved to and made freely available in the cloud. Usage of the dataset increased almost immediately!</strong></p>
+            <p>Researchers started using the NEXRAD data for other types of science. For example, they used <a href="https://aws.amazon.com/blogs/publicsector/the-birds-in-the-cloud-how-the-university-of-oklahoma-uses-nexrad-data-to-study-birds/">NEXRAD radar readings of birds to monitor flight patterns.</a> In particular, purple martins! Purple martins form huge roosts of up to 50,000 birds that can be tracked using radar. The purple martins perform stunning aerial performances that can now be tracked with the same technology previously reserved for rain measurements.</p>
+            <p>In another example of new NEXRAD uses, a NASA-led study linked variability in <a href=https://climate.nasa.gov/news/3201/climate-patterns-thousands-of-miles-away-affect-us-bird-migration/?s2=P1382021636_1683417608248277265>bird migration to large-scale climate patterns that originate thousands of miles away</a>. The better land managers understand current migration patterns and foresee behavioral changes in these birds due to climate change, the better they can direct their conservation and habitat restoration efforts. The newly- accessible radar data provides valuable insight needed to achieve their goals. This study was funded by NASA, uses NOAA NEXRAD data, and made fully available for the first time by the AWS Public data program.</p>
+            <p>The science of the future makes data so easy to use that it allows new questions to be asked, and answered, quickly to benefit society and policy.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="key-takeaways-definition-of-open-science">
+<h3>Key Takeaways: Deﬁnition of Open Science<a class="headerlink" href="#key-takeaways-definition-of-open-science" title="Permalink to this heading">#</a></h3>
+<p>Open science is multi-faceted and can mean different things to different people. Some scientists may think of open science as open access publications or as citizen science. In this module and more broadly in this curriculum, we make it clear that open science encompasses all of these various aspects. Right now, you may be more comfortable with some aspects of open science than others - and that’s ok! We hope that you will better understand the scope and nuances of open science by the end of this curriculum, and also understand the benefits of doing open science, as we have begun to discuss in this section. Specifically, the increasing amount of information about scientific processes and products available online enables access for a much wider array of individuals and communities to use, make, and share scientific research and results.</p>
+</section>
+</section>
+<section id="who-does-open-science">
+<h2>Who Does Open Science?<a class="headerlink" href="#who-does-open-science" title="Permalink to this heading">#</a></h2>
+<p>As briefly discussed in previous lessons, open science doesn’t only involve researchers; many other stakeholders are affected by the outcomes of open science. Stakeholders include any individuals who can affect or be affected by open science projects.</p>
+<img alt="../../../../_images/image217.png" src="../../../../_images/image217.png" />
+<p>Scientific research should benefit humanity. Although open science has many stakeholders, the advantageous interaction between science and society takes place among three core groups: scientific researchers, policymakers, and the public. Researchers do science and share their results with policy makers and the general public to inform their decisions and improve their lives. The public helps to fund research through taxes and can provide input to future areas of study. Policymakers help to implement measures that are informed by scientific results to improve the health, environment, and livability of society.</p>
+<p>These three stakeholder groups remain central to the world of open science. However, the inclusive nature of open science demands participation from the broader public. Growth in public participation in science can occur by removing barriers to those historically excluded and by expanding the community of people who support the scientific research itself.</p>
+<p>Here we list some core groups who we envision as taking part in and/or benefitting from open science, while being fully aware that this list is not exhaustive and the categories we choose here have very blurred boundaries.</p>
+<p><em>Select each tab to get more information.</em></p>
+<table>
+  <thead>
+    <tr>
+        <th>RESEARCHERS &#9745;</th>
+        <th>POLICY-MAKERS</th>
+        <th>GENERAL PUBLIC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>Researchers are often thought of as the ones who do open science to benefit others. However, researchers themselves can also greatly benefit from open science. Their work can achieve higher visibility among colleagues and the public, they receive credit for a full range of activities related to their science (including time spent sharing data and code, for instance), and they have more access to datasets.</p>
+            <p>A team of supporters and collaborators enables this research to take place. Open science aims to include these supporting members of the scientific process and ensure they receive credit for their contribution to improve science.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>RESEARCHERS</th>
+        <th>POLICY-MAKERS &#9745;</th>
+        <th>GENERAL PUBLIC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>Policymakers represent another key community in the science environment. Policy makers can reference scientific findings to inform their decisions for the betterment of society. Those who help in the understanding and dissemination of these policies (including educators and science journalists) are crucial to this process. Policy makers can also play important roles in ensuring and facilitating open science by setting data management processes, encouraging open access legislation, and developing ethical guidelines for experiments. Policy makers can benefit from open science by gaining better access to scientific output via the open sharing of research results.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>RESEARCHERS</th>
+        <th>POLICY-MAKERS</th>
+        <th>GENERAL PUBLIC &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>The public plays a crucial role in science today as consumers of scientific results who make decisions based on, and adhere to policies shaped by, scientific results. Open science can make scientific results, data, and workflows more accessible to the public by strengthening routes of access to trustworthy sources of information, which in turn increases trust in science. The public can also take part in open science through community science projects, for example as volunteers to collect or manage data. As a result, participants boost their understanding of science and feel empowered through opportunities to exert influence.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<p>Open science can strengthen the connection between all of these groups. Communication between researchers and both the public and policymakers stands to drastically improve with more transparent and accessible scientific knowledge.</p>
+<section id="activity-1-2-think-about-open-science">
+<h3>Activity 1.2: Think about Open Science<a class="headerlink" href="#activity-1-2-think-about-open-science" title="Permalink to this heading">#</a></h3>
+<p>In this activity reflect on your answers to the questions and then compare your thoughts to the key takeaways.</p>
+<img alt="../../../../_images/lightbulb.png" src="../../../../_images/lightbulb.png" />
+<ul class="simple">
+<li><p>In your field, what steps are being taken to increase openness, and what stands in the way?</p></li>
+<li><p>What could help to increase openness?</p></li>
+<li><p>What stands in the way?</p></li>
+</ul>
+<p><strong>Key Takeaways: How Closed Science Affects You</strong></p>
+<p>Some observational reports are difficult to replicate because of the uniqueness of the observations or ethical considerations (for example, unique astronomical events and long-term ecological observations, or accidental experiments like crashes and inadvertent releases of contaminants).</p>
+<p>Here, we would like you to consider limitations brought about by software, data, or methods that are not fully described or made accessible.</p>
+</section>
+</section>
+<section id="lesson-1-summary">
+<h2>Lesson 1: Summary<a class="headerlink" href="#lesson-1-summary" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you learned:</p>
+<ul class="simple">
+<li><p>The motivation for open science as well as its goals and outcomes.</p></li>
+<li><p>Why we should be doing open science now and how technology has made it more achievable.</p></li>
+<li><p>The definition of open science.</p></li>
+<li><p>Different groups that do open science.</p></li>
+</ul>
+</section>
+<section id="lesson-1-knowledge-check">
+<h2>Lesson 1: Knowledge Check<a class="headerlink" href="#lesson-1-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/04</strong></p>
+<p>What is open science?</p>
+<ul class="simple">
+<li><p>Sharing all information so anyone can access it.</p></li>
+<li><p>A legal definition of free science.</p></li>
+<li><p>A nuanced way of sharing the process and products of science.</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/04</strong></p>
+<p>Why is open science happening now?</p>
+<ul class="simple">
+<li><p>Communicating research results is an integral aspect of science.</p></li>
+<li><p>The internet and increasing availability of computers enables access by a much wider segment of society.</p></li>
+<li><p>Researchers are mandated by law to share all their findings  and raw data immediately after conducting their experiments.</p></li>
+<li><p>Open Science is happening now because of a global  shortage in academic professionals, necessitating widespread public involvement.</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/04</strong></p>
+<p>Select all open science actions that foster collaboration, reproducibility, and equity.</p>
+<ul class="simple">
+<li><p>Open sharing of data, software, and results.</p></li>
+<li><p>Prioritizing the fastest possible publication speed to ensure that results are disseminated quickly.</p></li>
+<li><p>Ensuring that the most resources are allocated to the most popular and widely reported fields of research.</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>04/04</strong></p>
+<p>What societal problems can open science help to address? Select all that apply.</p>
+<ul class="simple">
+<li><p>Scientific reproducibility crisis.</p></li>
+<li><p>Spread of misinformation.</p></li>
+<li><p>The increase in paper usage due to the printing of scientific journals and articles.</p></li>
+<li><p>The overpopulation of certain animal species used in laboratory testing.</p></li>
+<li><p>The issue of decreasing interest in artistic and cultural studies due to the emphasis on scientific research.</p></li>
+<li><p>The rising costs of luxury consumer goods are influenced by technological advancements.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_1/Lesson_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">OS101 Module 1: The Ethos of Open Science</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_2/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 2: Why is Open Science Important?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-for-open-science">Motivation for Open Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-at-nasa">Open Science at NASA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-internet-facilitates-sharing-of-information">The Internet Facilitates Sharing of Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-we-do-open-science-now">Why Should We Do Open Science Now?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-open-science">What is Open Science?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-you-do-open-science">How Do You Do Open Science?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-1-think-about-the-what-and-how-of-open-science">Activity 1.1: Think About the What and How of Open Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fostering-collaborations-reproducibility-and-equity">Fostering Collaborations, Reproducibility, and Equity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-2-definition-of-open-science">Activity 1.2: Deﬁnition of Open Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#match-the-parts-of-the-ostp-definition-with-the-relevant-idea-respecting-cultural-diversity-concepts">Match the parts of the OSTP definition with the relevant IDEA/Respecting cultural diversity concepts.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-in-the-missing-word-in-the-definition-of-open-science">Fill in the missing word in the definition of open science.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#according-to-the-white-house-office-of-science-and-technology-policy-open-science-fosters">According to the White House Office of Science and Technology Policy, open science fosters…</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-open-science-in-action">Examples of Open Science in Action</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-definition-of-open-science">Key Takeaways: Deﬁnition of Open Science</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-does-open-science">Who Does Open Science?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-2-think-about-open-science">Activity 1.2: Think about Open Science</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-summary">Lesson 1: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

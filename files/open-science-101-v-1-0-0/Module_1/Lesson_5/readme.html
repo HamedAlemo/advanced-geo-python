@@ -1,0 +1,1089 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 5: Planning for Open Science: From Theory to Practice &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="OS101 Module 2: Open Tools and Resources" href="../../Module_2/readme.html" />
+    <link rel="prev" title="Lesson 4: When Not to be Open" href="../Lesson_4/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 1: The Ethos of Open Science</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 5: Planning for Open Science: From Theory to Practice</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-for-open-science">Planning for Open Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-and-data-management-plans">Open Science and Data Management Plans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-open-strategy">An Open Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#include-entire-data-workflow-details-in-the-plan">Include Entire Data Workﬂow Details in the Plan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#include-open-terminology-and-concepts">Include Open Terminology and Concepts</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preservation">Preservation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-for-openness">Designing for Openness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-applies-to-the-entire-workflow">Open Science Applies to the Entire Workﬂow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-make-share">Use, Make, Share</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-resources-will-you-use">What Resources Will You Use?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-outputs-will-you-make">What Outputs Will You Make?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-will-you-share">How Will You Share?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-5-1-use-make-share">Activity 5.1: Use, Make, Share</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-the-outcomes-of-an-open-plan">Case Study: The Outcomes of an Open Plan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Planning for Open Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-software">Open-Source Software**</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-access-to-results">Open Access to Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-continue-your-open-science-journey">Steps to Continue Your Open Science Journey</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-go-from-here">Where to Go From Here</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-your-open-science-communities">Identify Your Open Science Communities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-open-repositories">Explore Open Repositories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#four-steps-to-open-science-that-anyone-can-take">Four Steps to Open Science that Anyone Can Take</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-taking-tops-open-science-101">Continue Taking TOPS Open Science 101</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-summary">Lesson 5: Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-have-we-covered-in-this-module">What Have We Covered in this Module?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ethos-of-the-open-science-summary">The Ethos of the Open Science Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-resources">Further Resources</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-5-planning-for-open-science-from-theory-to-practice">
+<h1>Lesson 5: Planning for Open Science: From Theory to Practice<a class="headerlink" href="#lesson-5-planning-for-open-science-from-theory-to-practice" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#planning-for-open-science">Planning for Open Science</a></p></li>
+<li><p><a href="#designing-for-openness">Designing for Openness</a></p></li>
+<li><p><a href="#case-study-the-outcomes-of-an-open-plan">Case Study: The Outcomes of an Open Plan</a></p></li>
+<li><p><a href="#steps-to-continue-your-open-science-journey">Steps to Continue Your Open Science Journey</a></p></li>
+<li><p><a href="#lesson-5-summary">Lesson 5: Summary</a></p></li>
+<li><p><a href="#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></p></li>
+<li><p><a href="#the-ethos-of-the-open-science-summary">The Ethos of the Open Science Summary</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>This module is nearly over, but there’s so much more information available about open science – so our last lesson is for everyone who wants to learn more. In this lesson, you review ways to start your journey with open science including a list of resources that you can use now.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>List considerations to include in a planning for open science and define an open science and data management plan (OSDMP).</p></li>
+<li><p>Describe the different parts of the scientific workflow and how open science can be integrated into it.</p></li>
+<li><p>Differentiate real world examples of how a team can use open science.</p></li>
+<li><p>List four steps that anyone can take to be more open.</p></li>
+</ul>
+</section>
+<section id="planning-for-open-science">
+<h2>Planning for Open Science<a class="headerlink" href="#planning-for-open-science" title="Permalink to this heading">#</a></h2>
+<img alt="../../../../_images/image329.png" src="../../../../_images/image329.png" />
+<p>It is important to think about, discuss, and plan for desired outcomes and processes when you begin your research. Learn about where the best repositories are for your materials; discuss credit and authorship for each separate open science output, and start using open science tools to organize your work. Reach out to repositories in your discipline and institution (usually library) for help. Including this information in your plans will make you more likely to receive funding.</p>
+<p>Planning for outputs in advance includes:</p>
+<ul class="simple">
+<li><p>Speaking about it and organizing with your research team</p></li>
+<li><p>Deciding which tools to use</p></li>
+<li><p>Thinking about authorship and credit</p></li>
+<li><p>Engaging with relevant stakeholders and research partners, for example, industry, around open science</p></li>
+<li><p>Identifying repositories for software and data</p></li>
+<li><p>Identifying journals (or other outlets) for publications</p></li>
+<li><p>Highlighting these approaches in your grant and much more</p></li>
+</ul>
+<p>In reality, there is an exploratory stage where sharing one’s product may not be part of the plan. During active research and data exploration, data, code, and ideas may be created and deleted even daily. It may not be efficient to spend time making these fully open (eg. creating DOIs, documentation) because you are just exploring! Still, one may choose to make their code public through this process (it should be in some version control repository anyway, no harm in making it public). Part of this planning is beginning to think about what would be valuable to science and figuring out how you might share it.</p>
+<p>It is important to discuss open science with your research team, lab, group or partners regularly. Much of responsible open science may seem to be related to outputs – such as data, software, and publications – but preparing and organizing work for these in advance is critical. It is much more difficult to follow leading practices for these at the end of research, in the ‘afterthought’ mode. Open science is both a mindset and culture that starts when you begin a project.</p>
+<section id="open-science-and-data-management-plans">
+<h3>Open Science and Data Management Plans<a class="headerlink" href="#open-science-and-data-management-plans" title="Permalink to this heading">#</a></h3>
+<p>Federal agencies and funders consider data management crucial for open science because it ensures that research data is well- organized, accessible, and preserved. In recent years, many have included a requirement as part of proposals or projects plans for an Open Science and Data Management Plan (OSDMP). The OSDMP includes a description of the resources to be used, the products that will be created, how they will be shared, and who will be responsible. These plans can include the data, software, publications, and project governance.</p>
+<p>Open science and data management plans are essential because they enhance the credibility and reproducibility of research by ensuring that data is well-documented, organized, and preserved over time. Effective OSDMPs can have the following benefits:</p>
+<table>
+<colgroup>
+    <col style="width: 33%" />
+    <col style="width: 66%" />
+</colgroup>
+<tbody>
+    <tr>
+        <td>Transparency</td>
+        <td>Not only builds trust in scientific findings but also allows other researchers to validate and build upon them, fostering a culture of openness and cooperation.</td>
+    </tr>
+    <tr>
+        <td>Effective</td>
+        <td>Data management can lead to more efficient and cost-effective research processes. By reducing the time spent searching for and organizing data, researchers can dedicate more time to analysis and interpretation, potentially accelerating the pace of discovery and innovation.</td>
+    </tr>
+    <tr>
+        <td>Reproducibility</td>
+        <td>A key tenet of the scientific method is reproducibility and a well developed OSDMP helps ensure that others are able to validate your results.</td>
+    </tr>
+    <tr>
+        <td>Preservation</td>
+        <td>The research produced by federal funding represents a significant investment and it is important that research is saved for future generations to access and understand.</td>
+    </tr>
+    <tr>
+        <td>Inclusive</td>
+        <td>OSDMPs can include research tools and processes that can significantly improve research outcomes through collaboration and consultation.</td>
+    </tr>
+</tbody>
+</table>
+<p>Learn more about OSDMPs in Module 2.</p>
+</section>
+<section id="an-open-strategy">
+<h3>An Open Strategy<a class="headerlink" href="#an-open-strategy" title="Permalink to this heading">#</a></h3>
+<p>In today’s world, many foundations and agencies that award research grants increasingly expect proposals to include an open science strategy. By including an open science strategy document in your scientific plan, you ensure accessibility and openness in each step of your workflow. Conclude your comprehensive plan with clearly defined steps to make research outputs easily accessible and openly available. The steps identified in your strategy should be integrated into your everyday scientific processes and practices.</p>
+<section id="requirements">
+<h4>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">#</a></h4>
+<p>Every major research foundation and federal government agency now requires scientists to file a data management plan (DMP) along with their proposed scientific research plan. Some ask for additional details on software/code and publications.</p>
+</section>
+<section id="include-entire-data-workflow-details-in-the-plan">
+<h4>Include Entire Data Workﬂow Details in the Plan<a class="headerlink" href="#include-entire-data-workflow-details-in-the-plan" title="Permalink to this heading">#</a></h4>
+<p>Describe your management workflow for data and related research. Other elements, such as code or a publication, have their own lifecycle and workflow which needs to be in the plan.</p>
+</section>
+<section id="include-open-terminology-and-concepts">
+<h4>Include Open Terminology and Concepts<a class="headerlink" href="#include-open-terminology-and-concepts" title="Permalink to this heading">#</a></h4>
+<p>Plans that are successful typically include clear terminology about how information is made findable, accessible, interoperable, and reusable. This can include licenses, repositories, formats, and governance of the project.</p>
+</section>
+<section id="preservation">
+<h4>Preservation<a class="headerlink" href="#preservation" title="Permalink to this heading">#</a></h4>
+<p>Research materials are valuable and reusable long after the project’s financial support ends. Reuse can extend beyond our own lifetimes. Therefore, researchers must arrange steps for preservation and accessibility to ensure work is not lost after a research interaction ends.</p>
+</section>
+</section>
+</section>
+<section id="designing-for-openness">
+<h2>Designing for Openness<a class="headerlink" href="#designing-for-openness" title="Permalink to this heading">#</a></h2>
+<section id="open-science-applies-to-the-entire-workflow">
+<h3>Open Science Applies to the Entire Workﬂow<a class="headerlink" href="#open-science-applies-to-the-entire-workflow" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image402.jpg" src="../../../../_images/image402.jpg" />
+<p>Open Science Workflow Phases Source: Opensciency</p>
+<hr class="docutils" />
+<p>Regardless of your science discipline or the methodology that you use, the workflow remains relatively the same. It has a planning phase, an implementation phase and a release phase. Within these phases, there are milestones that vary depending on the workflow you follow. For the purpose of our discussion in this lesson, and the other modules in the curriculum, we have adopted the scientific workflow with general milestones described in the <a class="reference external" href="https://opensciency.github.io/sprint-content/">Opensciency</a> curriculum. The details in your workflow may vary, but the overall concepts are the same. What is relevant here is that when adopting open science, it permeates all phases of the workflow. You prepare for it in the planning phase but then continue to integrate the principles of it throughout the implementation and release phases.</p>
+<p>Products created throughout the scientific process are needed to enable others to reproduce the findings. Researchers who wish to make their results reproducible must make key elements of their study openly available for others to test.</p>
+<img alt="../../../../_images/image130.jpg" src="../../../../_images/image130.jpg" />
+<p>Open Science Workflow Products Source: Opensciency</p>
+<hr class="docutils" />
+<p>Continuing through the workflow, this updated diagram now shows the types of scientific products that are created at each milestone. The specialized products that you create may vary or be completely different, but the focus on discovery for the public remains the same. Any type of products you create can be modified to support the principles and concepts of open science. Where and how to integrate open science concepts into your products is the purpose of this Open Science 101 curriculum.</p>
+</section>
+<section id="use-make-share">
+<h3>Use, Make, Share<a class="headerlink" href="#use-make-share" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image165.png" src="../../../../_images/image165.png" />
+<p>The idea that open science can impact your entire scientific workflow may seem overwhelming and unachievable, but remember, open science occurs across a spectrum – even small steps towards openness lead to more accessible, inclusive, and reproducible science. And the Open Science 101 curriculum is here to help lead through this process.</p>
+<p>In this section, we introduce the “Use, Make, Share” framework that can start to gradually increase your adoption of open science depending on the nature and scope of your project. Throughout the course, we will explore how this framework can be used to make your science more open!</p>
+</section>
+<section id="what-resources-will-you-use">
+<h3>What Resources Will You Use?<a class="headerlink" href="#what-resources-will-you-use" title="Permalink to this heading">#</a></h3>
+<p>There are already many open science resources for you to use! Open science already has a long history. For example, the act that created NASA mandated sharing of its discoveries with all of humanity and NASA has been sharing its data openly on the internet since the 1980’s. Now, there are already over 100 Petabytes of openly available NASA data for you to search, download, and use and examples of these services are provided in Module 3. Technology and practices have been developed around code that make it easy to collaborate on building complex solutions, and examples are given in Module 4. A range of services make it easy to share and discover open access publications and these are discussed in Module 5.</p>
+<p>In Module 2, we will introduce you to some of the tools that not only make open science possible, but also easy.</p>
+</section>
+<section id="what-outputs-will-you-make">
+<h3>What Outputs Will You Make?<a class="headerlink" href="#what-outputs-will-you-make" title="Permalink to this heading">#</a></h3>
+<p>Throughout the research process, there will be different products and results produced. These can range from data sets, samples, code, reports, manuscripts, conference proceedings, blog posts, and videos. Each of these have different considerations about how to make them including how they can be made in open and collaborative ways.</p>
+<p>There are also different ways to run a scientific project. Is your project going to be open from inception or open at publication? There are valid reasons for both approaches, but generally the earlier you are open with data, code, and results, the more opportunities there are to grow collaboration networks and build with others (which is quite fun). Often researchers choose to be open within their project teams during development, exchanging data, code, and results, but then only sharing with the world once they feel they have a result they can trust. While this approach has been the cultural ‘norm’ within many communities, this is changing as groups grow more comfortable with openness earlier in projects and experience valuable contributions from others and build new collaboration networks.</p>
+<p>Modules 3, 4, and 5 will discuss how to make your data, code, and results open.</p>
+</section>
+<section id="how-will-you-share">
+<h3>How Will You Share?<a class="headerlink" href="#how-will-you-share" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image257.png" src="../../../../_images/image257.png" />
+<p>Image Credit: Freepik.com</p>
+<p>Where you choose to share your research materials and results will have a large influence on its impact – how easy it is for others to find it, how long it is available, and how easy it is to reuse.</p>
+<p>Will you share data in a file filled with columns of unlabelled numbers without any units or explanations or will it be in an open, standard format and following the  <a class="reference external" href="https://www.go-fair.org/fair-principles/">Findable, Accessible, Interoperable, Reusable (FAIR) principles</a>? Module 3 has more details to help you better understand how to share your data and explains ideas like FAIR and best practices in sharing data. This includes different considerations for where to share your data as well so that it is both accessible and preserved.</p>
+<p>For software, since it is often updated and changed, many researchers first share it on a version control platform like GitHub or GitLab but then archive a version of it in a repository that has long-term preservation capabilities – more on this in Module 4!</p>
+<p>For results, open access publications and preprint servers are common locations to share. Module 5 discusses all these options.</p>
+</section>
+<section id="activity-5-1-use-make-share">
+<h3>Activity 5.1: Use, Make, Share<a class="headerlink" href="#activity-5-1-use-make-share" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/lightbulb.png" src="../../../../_images/lightbulb.png" />
+<p>Take a moment, to answer the following questions on your current research or on research that you would like to do:</p>
+<ul class="simple">
+<li><p>What data, software, or publications do you currently use or would like to use? Are they open or closed?</p></li>
+<li><p>What are the tools and processes that you currently use? Is it easy to include others in collaboration?</p></li>
+<li><p>How is your work shared or planned to be shared? Can anyone access your results?</p></li>
+</ul>
+</section>
+</section>
+<section id="case-study-the-outcomes-of-an-open-plan">
+<h2>Case Study: The Outcomes of an Open Plan<a class="headerlink" href="#case-study-the-outcomes-of-an-open-plan" title="Permalink to this heading">#</a></h2>
+<img alt="../../../../_images/natashaquote.jpg" src="../../../../_images/natashaquote.jpg" />
+<p>“NASA’s open science guiding principles are centered in our Early Release Science work, supporting an inclusive, transparent, and collaborative scientific process.”</p>
+<p><strong>Co-author Dr. Natasha Batalha</strong></p>
+<hr class="docutils" />
+<p>One of the first <a class="reference external" href="https://www.nasa.gov/feature/goddard/2022/nasa-s-webb-detects-carbon-dioxide-in-exoplanet-atmosphere">discoveries from the James Webb Space Telescope
+was the first detection of Carbon Dioxide in the atmosphere of a planet orbiting another star</a>. This discovery was enabled through the open science principles adopted both by the project and the team.</p>
+<img alt="../../../../_images/image255.jpg" src="../../../../_images/image255.jpg" />
+<p>Image Credit: &#64;AdobeStock 2023, dimazel</p>
+<img alt="../../../../_images/atmocomp.jpg" src="../../../../_images/atmocomp.jpg" />
+<p>Figure Credit: NASA, ESA, CSA, Joseph Olmsted (STScI)</p>
+<hr class="docutils" />
+<p>This was conducted as part of the JWST’s Early Release Science (ERS) Program as part of the JWST ERS Exoplanet Transiting Community program (ERS-TRANSIT). This is some of the earliest science data taken with the facility that was made openly available. The team, though, began their work years before the observations and included open science into every step of the process. The team worked in an open format from ideation, to analysis, through to publication and communication.</p>
+<p>Let’s walk through and see what open results were in fact produced. While doing so, let’s take a look at what the advantages of doing so at each stage were.</p>
+<section id="id1">
+<h3>Planning for Open Science<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image193.png" src="../../../../_images/image193.png" />
+<table>
+    <table>
+    <colgroup>
+        <col style="width: 50%" />
+        <col style="width: 50%" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <td>Opportunity</td>
+            <td>Create a Governance Plan: An open code of conduct and publication policy highlights the rules of engagement of the final result.</td>
+        </tr>
+        <tr>
+            <td>Benefit</td>
+            <td>Onboarding of new members and facilitated collaboration.</td>
+        </tr>
+        <tr>
+            <td>Result</td>
+            <td>Code of Conduct and Publication Policy.</td>
+        </tr>
+        <tr>
+            <td>Availability</td>
+            <td>
+                <p>On team webpage and GitHub.</p>
+                <p><img src="../images/media/image219.jpg" style="width: 100%; height: auto;" /></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>One of the most important parts of starting a project is thinking about who is going to be working on it and how they will work together. Before samples are collected, before data is downloaded, before code is written – how will you all work together, what are the roles and responsibilities, and how and when will you share any materials. That was a key part that this JWST project got right.</p>
+<p>The initial team, during the planning phase, developed and openly published information in the form of the <a class="reference external" href="https://ers-transit.github.io/code-of-conduct.html">code of conduct</a> and the <a class="reference external" href="https://ers-transit.github.io/documents/publication-policy-v1.0.pdf">publication policy</a>.</p>
+<p>Basically, you are welcome to work with us, but here are our rules. And then the lead scientists regularly talked about this with the team, especially as it expanded so everyone knew what was expected of them and what they got in return (credit!).</p>
+<p>The outcome and benefit of publishing this information was the addition of new members to the team, and an agreed to and established collaborative and inclusive culture among the team.</p>
+<p>The team grew to almost 400 people, all working together, all knowing what to expect and this created trust.</p>
+<p><strong>Read more about collaboration documents and credit on OpenSciency.</strong></p>
+<p><a class="reference external" href="https://opensciency.github.io/sprint-content/open-results/lesson4-opportunities-and-credits.html">CLICK TO LEARN</a></p>
+</section>
+<section id="open-source-software">
+<h3>Open-Source Software**<a class="headerlink" href="#open-source-software" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image6.jpg" src="../../../../_images/image6.jpg" />
+<table>
+    <table>
+    <colgroup>
+        <col style="width: 50%" />
+        <col style="width: 50%" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <td>Opportunity</td>
+            <td>Collaboration on an open software data-processing pipeline</td>
+        </tr>
+        <tr>
+            <td>Benefit</td>
+            <td>Decreased duplicative efforts, contributors get credit for their work, and accelerated the data wrangling process</td>
+        </tr>
+        <tr>
+            <td>Result</td>
+            <td>Data processing pipeline</td>
+        </tr>
+        <tr>
+            <td>Availability</td>
+            <td>
+                <p>Code on <i>GitHub</i>, released on <i>Zenodo</i>, documents released in <i>Journal of Open Source Software</i> (an open access journal)</p>
+                <p><img src="../images/media/image221.jpg" style="width: 100%; height: auto;" /></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>Like most data, JWST is complicated and it needs processing and data pipelines. The precision needed to achieve this type of detection requires detailed analysis of the observations and a wide range of expertise.</p>
+<p>During the implementation phase, the team collaborated on creating the data processing software together, so that everyone would benefit. Imagine the wasted effort if all 400 people had written the software themselves. The benefit and outcome was that by collaborating on this effort, the team decreased duplicative efforts, contributors got credit for their work, the software was more accurate, and this effort accelerated the data wrangling process. EUREKA!, the software created, was <a class="reference external" href="https://github.com/kevin218/Eureka">created openly</a>
+with <a class="reference external" href="https://eurekadocs.readthedocs.io/en/latest/">documentation</a> and published with <a class="reference external" href="https://joss.theoj.org/papers/10.21105/joss.04503">peer-review of the software package.</a></p>
+<p>But they didn’t have to to start from scratch! The ERS-TRANSIT team was able to build on the work of others. The software built on the <a class="reference external" href="https://github.com/spacetelescope/jwst">JWST pipeline software</a> developed openly by the JWST mission team. Furthermore, they were able to build on a much larger open source software ecosystem using python and Astropy.</p>
+</section>
+<section id="open-access-to-results">
+<h3>Open Access to Results<a class="headerlink" href="#open-access-to-results" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image244.jpg" src="../../../../_images/image244.jpg" />
+<table>
+    <table>
+    <colgroup>
+        <col style="width: 50%" />
+        <col style="width: 50%" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <td>Opportunity</td>
+            <td>Research products recorded in public archives and made openly available</td>
+        </tr>
+        <tr>
+            <td>Benefit</td>
+            <td>Allows collaborators to receive individual credit for their contributions, which provided greater incentive for participation</td>
+        </tr>
+        <tr>
+            <td>Result</td>
+            <td>Intermediate products, models, and final data</td>
+        </tr>
+        <tr>
+            <td>Availability</td>
+            <td>
+                <p>All aggregated into <a href="https://zenodo.org/communities/ers-transit">Zenodo Community</a> with individual contributing authors and DOIs</p>
+                <p><img src="../images/media/zenodojwst.jpg" style="width: 100%; height: auto;" /></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>During the release phase, the team labeled research products adequately for reuse and reproducibility and published in public forums/repositories. The outcome and benefits included collaborators receiving credit for data, software, and other digital research products that benefit the scientific community. Data and software were archived openly on the general data repository <a class="reference external" href="https://zenodo.org/communities/ers-transit">Zenodo</a> and the publication was made available as a <a class="reference external" href="https://arxiv.org/abs/2208.11692">preprint</a> and an <a class="reference external" href="https://www.nature.com/articles/s41586-022-05269-w">open access publication</a>.</p>
+<p>Making your results open also opens you up to clearer ways of receiving credit and can also reduce the risk of scooping (each result can be individually referenced as soon as it is made available). Applying reproducibility practices separately on different parts of the project such as preparation documents, datasets, software, and reporting allows other researchers to test and reuse your work in their research, and your research will be cited more often, thus bringing fair recognition for your work. Collaborators can get more motivated to contribute because they can easily get recognition in terms of authorship for their contributions made for each one of the research outputs generated.</p>
+<p><strong>Read more about making results open throughout the research process on OpenSciency.</strong></p>
+<p><a class="reference external" href="https://opensciency.github.io/sprint-content/open-results/lesson2-results-and-open-science.html#what-are-the-advantages-of-making-results-open-throughout-the-research-process">CLICK TO LEARN</a></p>
+</section>
+</section>
+<section id="steps-to-continue-your-open-science-journey">
+<h2>Steps to Continue Your Open Science Journey<a class="headerlink" href="#steps-to-continue-your-open-science-journey" title="Permalink to this heading">#</a></h2>
+<p>Here we will explore the next steps to open science that everybody can take. The thought that open science can impact your entire scientific workflow may seem overwhelming and unachievable, but this is not the case. You can start slowly and gradually increase your adoption depending on the nature and scope of your project. Here are a few immediate ways that you can start engaging in open science.</p>
+<section id="where-to-go-from-here">
+<h3>Where to Go From Here<a class="headerlink" href="#where-to-go-from-here" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Get involved: Become part of an open science community in your sector.</p></li>
+<li><p>Start using/sharing the open science tools of your community.</p></li>
+<li><p>Learn how to use/archive data in repositories and community tools and resources.</p></li>
+<li><p>Concise statement of the Ethos of Open Science: Find, collaborate, and share!</p></li>
+</ul>
+</section>
+<section id="identify-your-open-science-communities">
+<h3>Identify Your Open Science Communities<a class="headerlink" href="#identify-your-open-science-communities" title="Permalink to this heading">#</a></h3>
+<p>Here are the steps you can take to find your own science community:</p>
+<ul class="simple">
+<li><p>Talk with your colleagues.</p></li>
+<li><p>Read your field’s literature.</p></li>
+<li><p>Run searches, in general and discipline-specific areas.</p></li>
+<li><p>Investigate online communities encouraging open science, such as:</p>
+<ul>
+<li><p>The EU’s ‘<a class="reference external" href="https://www.fosteropenscience.eu/">Foster Open Science</a>’ program</p></li>
+<li><p><a class="reference external" href="https://the-turing-way.netlify.app/index.html">The Turing Way online manual</a></p></li>
+<li><p><a class="reference external" href="https://forrt.org/">FORRT</a></p></li>
+</ul>
+</li>
+</ul>
+<p>Join open science communities. There are generic ones as listed here or you can seek out communities that are not only within your domain but also within your geographical area.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/nasa/Transform-to-Open-Science/discussions">TOPS GitHub discussion board</a></p></li>
+<li><p>Opensciency online open science <a class="reference external" href="https://opensciency.github.io/sprint-content/open-tools-resources/lesson5-open-science-communities.html#communities-of-practice-list">community list</a></p></li>
+</ul>
+</section>
+<section id="explore-open-repositories">
+<h3>Explore Open Repositories<a class="headerlink" href="#explore-open-repositories" title="Permalink to this heading">#</a></h3>
+<p>There are many repositories that host open data, software, and results. We share many of these resources in the later modules, but here are two NASA repositories that allow you to search for existing data collections that might be relevant to your interests.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://science.data.nasa.gov/search">Science Discovery Engine</a></p></li>
+<li><p><a class="reference external" href="https://data.nasa.gov/">https://data.nasa.gov/</a></p></li>
+</ul>
+</section>
+<section id="four-steps-to-open-science-that-anyone-can-take">
+<h3>Four Steps to Open Science that Anyone Can Take<a class="headerlink" href="#four-steps-to-open-science-that-anyone-can-take" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Keep seeking best practices for open science, and develop plans to be more open in your science or research.</p></li>
+<li><p>Think about all the different types of reviews you are involved with, and how to improve them with a goal of openness.</p></li>
+<li><p>Ask colleagues about open science activities, and award credit for them in evaluations.</p></li>
+<li><p>Engage with underrepresented communities to ensure science encourages a more equitable, impactful, and positive future.</p></li>
+</ol>
+</section>
+<section id="continue-taking-tops-open-science-101">
+<h3>Continue Taking TOPS Open Science 101<a class="headerlink" href="#continue-taking-tops-open-science-101" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image368.png" src="../../../../_images/image368.png" />
+<p>The TOPS Open Science 101 curriculum is a good place to go for a more in-depth introduction to the various elements of Open Science – each of the next 4 modules provides details and practical exercises to help participants develop a better understanding of that specific topic.</p>
+<p>But, if you want to also do an in-person or virtual workshop, we got you!</p>
+<table>
+    <table>
+    <colgroup>
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <td><img src="../images/media/image403.jpg" style="width: 98%; height: auto;" /></td>
+            <td><img src="../images/media/image253.jpg" style="width: 98%; height: auto;" /></td>
+            <td><img src="../images/media/image34.jpg" style="width: 98%; height: auto;" /></td>
+        </tr>
+         <tr>
+            <td>Self-Paced Online Course</td>
+            <td>Online Workshops</td>
+            <td>In-person Workshops</td>
+        </tr>
+    </tbody>
+</table>
+<p>Images Credit: freepik.com</p>
+<p>NASA TOPS is coordinating online and in-person open science workshops!</p>
+<p>These events provide an opportunity for you to take Open Science 101 with others and engage with members of the open science community! To learn more go <a class="reference external" href="https://nasa.github.io/Transform-to-Open-Science/">here</a>!</p>
+</section>
+<section id="additional-resources">
+<h3>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h3>
+<p>In addition to the resources listed elsewhere in this training, the below community resources are excellent sources of information about Open Software.</p>
+<p><strong>References and Guides</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://opensciency.github.io/sprint-content/">OpenSciency</a></p></li>
+<li><p>NASA SMD’s <a class="reference external" href="https://smd-cms.nasa.gov/wp-content/uploads/2023/08/smd-open-source-science-guidance-v2-20230407.pdf">Open-Source Science Guidance for researchers</a></p></li>
+<li><p>Turing <a class="reference external" href="https://the-turing-way.netlify.app/index.html">Way handbook to reproducible, ethical and collaborative data science</a></p></li>
+</ul>
+</section>
+</section>
+<section id="lesson-5-summary">
+<h2>Lesson 5: Summary<a class="headerlink" href="#lesson-5-summary" title="Permalink to this heading">#</a></h2>
+<p>There is no one way of doing open science, and any steps you take to make your science more open are extremely valuable, especially as we transition to a more open scientific ecosystem in the future. We want people to be able to identify the most important things they “can” openly share, but with the ultimate goal of complete openness.</p>
+<section id="what-have-we-covered-in-this-module">
+<h3>What Have We Covered in this Module?<a class="headerlink" href="#what-have-we-covered-in-this-module" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Preparing and organizing in advance are crucial components for ensuring the effectiveness of open science work.</p></li>
+<li><p>Open Science and Data Management Plans (OSDMP) provide a plan for how open science is integrated into a project including the sharing of data, software, and results.</p></li>
+<li><p>Designing for openness is a critical aspect of making sure that open science is integrated into the entire scientific workflow from start to finish. This includes resources that can be used, products that will be made, and how the science will be shared.</p></li>
+<li><p>Open Science is already happening - there are already teams conducting their research openly and many resources that can be used to make your research more open.</p></li>
+<li><p>There are more opportunities to participate and learn about Open Science – this is just the start!</p></li>
+</ul>
+</section>
+</section>
+<section id="lesson-5-knowledge-check">
+<h2>Lesson 5: Knowledge Check<a class="headerlink" href="#lesson-5-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/04</strong></p>
+<p>Applying reproducibility practices separately on different parts of the project allows other researchers to do what?</p>
+<p>Select all that apply.</p>
+<ul class="simple">
+<li><p>Expand research focus</p></li>
+<li><p>Consider opportunities for more collaborative advantage</p></li>
+<li><p>Test and reuse your work in their research</p></li>
+<li><p>Cite your research more often to bring fair recognition to your work</p></li>
+<li><p>Understand new discoveries</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/04</strong></p>
+<p>Read the statement and decide whether it’s true or false.</p>
+<p><em>The Open Science and Data Management Plan (OSDMP) describes how the scientific information that will be produced from scientific activities will be managed and made openly available.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/04</strong></p>
+<p>Read the statement and decide whether it’s true or false.</p>
+<p><em>Before starting a project, it is important for researchers to consider how they will collaborate with other researchers, what are the roles and responsibilities, and how and when they will share any materials.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>04/04</strong></p>
+<p>Which item is NOT one of the four steps to open science that anyone can take?</p>
+<p>Select all that apply.</p>
+<ul class="simple">
+<li><p>Engage with underrepresented communities to ensure  science encourages a more equitable, impactful, and
+positive future.</p></li>
+<li><p>Ask colleagues about open science activities, and award credit for them in evaluations.</p></li>
+<li><p>Think about all the different types of reviews you are involved with, and how to improve them with a goal of openness.</p></li>
+<li><p>Create a new journal that requires an expensive subscription to read.</p></li>
+<li><p>Keep seeking best practices for open science, and develop plans to be more open in your science or research.</p></li>
+</ul>
+</section>
+<section id="the-ethos-of-the-open-science-summary">
+<h2>The Ethos of the Open Science Summary<a class="headerlink" href="#the-ethos-of-the-open-science-summary" title="Permalink to this heading">#</a></h2>
+<p>Congratulations! Now you should be able to:</p>
+<ul class="simple">
+<li><p>Explain what open science is, why it’s a good thing to do, and list some of the benefits and challenges of open science adoption.</p></li>
+<li><p>Describe the practice of open science, including considerations when writing a management plan and the tasks in the “Use, Make, Share” framework.</p></li>
+<li><p>Evaluate available options when determining whether research products should or should not be open.</p></li>
+<li><p>List ways to connect with others who are part of the open science community.</p></li>
+</ul>
+<section id="further-resources">
+<h3>Further Resources<a class="headerlink" href="#further-resources" title="Permalink to this heading">#</a></h3>
+<p><strong>Masuzzo and Martens (2017). Do you speak Open Science? Resources and tips to learn the language</strong></p>
+<p><a class="reference external" href="https://peerj.com/preprints/2689v1/">CLICK TO LEARN</a></p>
+<p><strong>Guiding Principles for Findable, Accessible, Interoperable and Re-usable Data. Publishing version B1.0, Force 11</strong></p>
+<p><a class="reference external" href="https://www.force11.org/fairprinciples">CLICK TO LEARN</a></p>
+<p><strong>Fecher and Friesike (2014). Open Science: One Term, Five Schools of Thought</strong></p>
+<p><a class="reference external" href="http://doi.org/10.1007/978-3-319-00026-8_2">CLICK TO LEARN</a></p>
+<p><strong>EC Working Group on Education and Skills under Open Science (2017). Providing researchers with the skills and competencies they need to practise Open Science</strong></p>
+<p><a class="reference external" href="http://ec.europa.eu/">CLICK TO LEARN</a></p>
+<p><strong>“What is Open Science”</strong></p>
+<p><a class="reference external" href="https://blog.f1000.com/2014/11/11/what-is-open-science/">CLICK TO LEARN</a></p>
+<p><strong>Resources for Earth Science</strong></p>
+<p><a class="reference external" href="https://www.earthdatascience.org/">CLICK TO LEARN</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_1/Lesson_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_4/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 4: When Not to be Open</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../Module_2/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">OS101 Module 2: Open Tools and Resources</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-for-open-science">Planning for Open Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-and-data-management-plans">Open Science and Data Management Plans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-open-strategy">An Open Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#include-entire-data-workflow-details-in-the-plan">Include Entire Data Workﬂow Details in the Plan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#include-open-terminology-and-concepts">Include Open Terminology and Concepts</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preservation">Preservation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-for-openness">Designing for Openness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-applies-to-the-entire-workflow">Open Science Applies to the Entire Workﬂow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-make-share">Use, Make, Share</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-resources-will-you-use">What Resources Will You Use?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-outputs-will-you-make">What Outputs Will You Make?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-will-you-share">How Will You Share?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-5-1-use-make-share">Activity 5.1: Use, Make, Share</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-the-outcomes-of-an-open-plan">Case Study: The Outcomes of an Open Plan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Planning for Open Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-software">Open-Source Software**</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-access-to-results">Open Access to Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-continue-your-open-science-journey">Steps to Continue Your Open Science Journey</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-go-from-here">Where to Go From Here</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-your-open-science-communities">Identify Your Open Science Communities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-open-repositories">Explore Open Repositories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#four-steps-to-open-science-that-anyone-can-take">Four Steps to Open Science that Anyone Can Take</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-taking-tops-open-science-101">Continue Taking TOPS Open Science 101</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-summary">Lesson 5: Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-have-we-covered-in-this-module">What Have We Covered in this Module?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ethos-of-the-open-science-summary">The Ethos of the Open Science Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-resources">Further Resources</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

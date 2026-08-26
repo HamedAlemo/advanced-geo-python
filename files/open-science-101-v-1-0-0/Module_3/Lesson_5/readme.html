@@ -1,0 +1,808 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 5: From Theory to Practice &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="OS101 Module 4: Open Code" href="../../Module_4/readme.html" />
+    <link rel="prev" title="Lesson 4: Sharing Open Data" href="../Lesson_4/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 3: Open Data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 5: From Theory to Practice</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-an-open-science-and-data-management-plan">Writing an Open Science and Data Management Plan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-5-1-review-a-data-management-plan">Activity 5.1: Review a data management plan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-communities-and-you">Open Data Communities and You</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-involved-with-open-data-communities">Getting Involved with Open Data Communities</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-for-more-information">Resources for More Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opportunities-for-more-training-about-open-data">Opportunities for More Training About Open Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-summary">Lesson 5: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-summary">Open Data Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-5-from-theory-to-practice">
+<h1>Lesson 5: From Theory to Practice<a class="headerlink" href="#lesson-5-from-theory-to-practice" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#overview">Overview</a></p></li>
+<li><p><a href="#learning-objectives">Learning Objectives</a></p></li>
+<li><p><a href="#writing-an-open-science-and-data-management-plan">Writing an Open Science and Data Management Plan</a></p></li>
+<li><p><a href="#open-data-communities-and-you">Open Data Communities and You</a></p></li>
+<li><p><a href="#additional-resources">Additional Resources</a></p></li>
+<li><p><a href="#lesson-5-summary">Lesson 5: Summary</a></p></li>
+<li><p><a href="#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></p></li>
+<li><p><a href="#open-data-summary">Open Data Summary</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you will get some practice writing a data management plan. You will then learn how you can get involved in open data communities. You will also learn about resources you can start to use and training you can take to start your journey with open data.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Describe the steps toward writing a data management plan.</p></li>
+<li><p>List opportunities for involvement in the open data communities.</p></li>
+<li><p>Identify additional open science resources and list ways to continue training.</p></li>
+</ul>
+</section>
+<section id="writing-an-open-science-and-data-management-plan">
+<h2>Writing an Open Science and Data Management Plan<a class="headerlink" href="#writing-an-open-science-and-data-management-plan" title="Permalink to this heading">#</a></h2>
+<p>The process, responsibilities, and factors to consider when creating an open science and data management plan have been presented throughout this module. Common elements of DMPs relevant to open data include a description of the following:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>What?</p></td>
+<td><p>Data formats and (where relevant) standards</p></td>
+</tr>
+<tr class="row-odd"><td><p>When?</p></td>
+<td><p>When and if to share data</p></td>
+</tr>
+<tr class="row-even"><td><p>Where?</p></td>
+<td><p>The intended repositories for archived data</p></td>
+</tr>
+<tr class="row-odd"><td><p>How?</p></td>
+<td><p>How the plan enables reuse of the data</p></td>
+</tr>
+<tr class="row-even"><td><p>Who?</p></td>
+<td><p>Roles and responsibilities of the team members in implementing the DMP</p></td>
+</tr>
+</tbody>
+</table>
+<p>Two great places to start are <a class="reference external" href="https://dmptool.org/">https://dmptool.org/</a> and <a class="reference external" href="https://dmponline.dcc.ac.uk/">https://dmponline.dcc.ac.uk/</a>. You will need to create a free login to use these tools, but both websites walk researchers through the steps of writing a DMP. There are even some existing DMP templates stored within DMP Tool, such as the NASA Planetary Sciences Division’s <a class="reference external" href="https://science.nasa.gov/researchers/templates-planetary-science-division-appendix-c-roses-proposals/">DMP template</a>.</p>
+<p>There are also public examples of data management plans at</p>
+<p><a class="reference external" href="https://dmptool.org/public_plans">https://dmptool.org/public_plans</a> and</p>
+<p><a class="reference external" href="https://dmponline.dcc.ac.uk/public_plans">https://dmponline.dcc.ac.uk/public_plans</a>.</p>
+<p>If you are applying for funding, it is almost guaranteed that there will be specific requirements detailed in the funding opportunity. For example, the funder may require a certain license or use of a specific repository. Make sure to cross reference your plan with these requirements!</p>
+<section id="activity-5-1-review-a-data-management-plan">
+<h3>Activity 5.1: Review a data management plan<a class="headerlink" href="#activity-5-1-review-a-data-management-plan" title="Permalink to this heading">#</a></h3>
+<p>Take a look at the example of a public data management plan from the <a class="reference external" href="https://dmptool.org/plans/30771/export.pdf?export%5Bquestion_headings%5D=true">ThEBES</a> project.</p>
+<p>In the DMP, answer the following questions:</p>
+<ol class="arabic simple">
+<li><p>What: Data formats and (where relevant) standards.</p></li>
+<li><p>When: When and if to share data.</p></li>
+<li><p>Where: The intended repositories for archived data.</p></li>
+<li><p>How: How the plan enables reuse of the data.</p></li>
+<li><p>Who: Roles and responsibilities of the team members in implementing the DMP.</p></li>
+</ol>
+</section>
+</section>
+<section id="open-data-communities-and-you">
+<h2>Open Data Communities and You<a class="headerlink" href="#open-data-communities-and-you" title="Permalink to this heading">#</a></h2>
+<section id="getting-involved-with-open-data-communities">
+<h3>Getting Involved with Open Data Communities<a class="headerlink" href="#getting-involved-with-open-data-communities" title="Permalink to this heading">#</a></h3>
+<p>There are numerous ways to get involved with and support open data communities, including starting your own community.</p>
+<table>
+  <thead>
+    <tr>
+        <th>REPOSITORIES &#9745;</th>
+        <th>STANDARDS COMMITTEES</th>
+        <th>CONFERENCES , WORKSHOPS AND SPECIAL SESSIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <ul>
+            <li>Contribute to open data repositories</li>
+            <li>Many repositories have user committees to provide them with advice and feedback (and are often looking for volunteers to serve)</li>
+            <li>Subscribe to repository mailing lists and social media accounts</li>
+            </ul>
+            <p><img src="../images/media/image52.png" style="width:350px;height:auto" /></p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>REPOSITORIES</th>
+        <th>STANDARDS COMMITTEES &#9745;</th>
+        <th>CONFERENCES , WORKSHOPS AND SPECIAL SESSIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <ul>
+            <li>Volunteer to serve on a standards committee</li>
+            <li>Provide input to the standards committee</li>
+            <li>Subscribe to the mailing lists focused on standards</li>
+            </ul>
+            <p><img src="../images/media/image53.png" style="width:350px;height:auto" /></p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>REPOSITORIES</th>
+        <th>STANDARDS COMMITTEES</th>
+        <th>CONFERENCES , WORKSHOPS AND SPECIAL SESSIONS &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <ul>
+            <li>Organize a gathering around open data</li>
+            <li>Participate in a gathering around open data</li>
+            </ul>
+            <p><img src="../images/media/image54.png" style="width:350px;height:auto" /></p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h2>
+<section id="resources-for-more-information">
+<h3>Resources for More Information<a class="headerlink" href="#resources-for-more-information" title="Permalink to this heading">#</a></h3>
+<p>In addition to the resources listed elsewhere in this training, the below community resources are excellent sources of information about Open Data.</p>
+<p>References and Guides:</p>
+<p><strong>NASA Science Mission Directorate’s Open-Source Science Guidance for researchers</strong></p>
+<p><a class="reference external" href="http://science.nasa.gov/oss-guidance">CLICK TO LEARN</a></p>
+<p><strong>Open Data Module from OpenSciency</strong></p>
+<p><a class="reference external" href="https://github.com/opensciency/sprint-content/tree/main/open-data">CLICK TO LEARN</a></p>
+<p><strong>Resources for open data through the US federal government</strong></p>
+<p><a class="reference external" href="https://resources.data.gov/">CLICK TO LEARN</a></p>
+<p><strong>The FAIR Principles from FAIRsharing.org</strong></p>
+<p><a class="reference external" href="https://fairsharing.org/FAIRsharing.WWI10U">CLICK TO LEARN</a></p>
+<p><strong>The Open Data Handbook</strong></p>
+<p><a class="reference external" href="http://opendatahandbook.org/guide/en/">CLICK TO LEARN</a></p>
+<p><strong>Reproducible Research and Data Analysis from FOSTER Open Science</strong></p>
+<p><a class="reference external" href="https://github.com/Open-Science-Training-Handbook/Open-Science-Training-Handbook_EN/blob/master/02OpenScienceBasics/04ReproducibleResearchAndDataAnalysis.md">CLICK TO LEARN</a></p>
+<p><strong>Data publishing guidelines from the Data Management Expert Guide</strong></p>
+<p><a class="reference external" href="https://www.cessda.eu/Training/Training-Resources/Library/Data-Management-Expert-Guide/6.-Archive-Publish/Data-publishing-routes">CLICK TO LEARN</a></p>
+<p><strong>DataTags: A Harvard University Privacy Tools project to help researchers use and share sensitive data</strong></p>
+<p><a class="reference external" href="https://privacytools.seas.harvard.edu/datatags">CLICK TO LEARN</a></p>
+<p><strong>Best Practices for Data Publication in the Astronomical Literature by Chen et al.</strong></p>
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/link_gateway/2022ApJS2605C/doi:10.3847/1538-4365/ac6268">CLICK TO LEARN</a></p>
+</section>
+<section id="opportunities-for-more-training-about-open-data">
+<h3>Opportunities for More Training About Open Data<a class="headerlink" href="#opportunities-for-more-training-about-open-data" title="Permalink to this heading">#</a></h3>
+<p>In addition to the resources listed elsewhere in this training, the community resources listed below provide excellent information on Open Data.</p>
+<p>Additional training:</p>
+<p><strong>GODAN MOOC about how to use, make, and share open data</strong></p>
+<p><a class="reference external" href="https://aims.gitbook.io/open-data-mooc/">CLICK TO LEARN</a></p>
+<p><strong>Data literacy lessons for an array of disciplines from the Carpentries</strong></p>
+<p><a class="reference external" href="https://datacarpentry.org/lessons/">CLICK TO LEARN</a></p>
+<p><strong>MOOC on Data Management, Sharing and Services for Agriculture Development</strong></p>
+<p><a class="reference external" href="https://aims.gitbook.io/farm-data-mooc/">CLICK TO LEARN</a></p>
+</section>
+</section>
+<section id="lesson-5-summary">
+<h2>Lesson 5: Summary<a class="headerlink" href="#lesson-5-summary" title="Permalink to this heading">#</a></h2>
+<p>Now that you have completed the lesson, you should be able to start your journey with open data:</p>
+<ul class="simple">
+<li><p>You now know the steps and have practice writing a sample data management plan.</p></li>
+<li><p>There are a variety of ways to get involved in the open data community.</p></li>
+<li><p>There are numerous resources available to get more information and take more training about open data.</p></li>
+</ul>
+</section>
+<section id="lesson-5-knowledge-check">
+<h2>Lesson 5: Knowledge Check<a class="headerlink" href="#lesson-5-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p><em>Question</em></p>
+<p><strong>01/02</strong></p>
+<p>Which of the following are steps to include in a data management plan (DMP)? Select all that apply.</p>
+<ul class="simple">
+<li><p>What: Data formats and (where relevant) standards</p></li>
+<li><p>When: When and if to share data</p></li>
+<li><p>Why: Why you used an online DMP template</p></li>
+<li><p>Where: The intended repositories for archived data</p></li>
+<li><p>Which: Which data communities you are involved in</p></li>
+<li><p>How: How the plan enables reuse of the data</p></li>
+<li><p>Who: Roles and responsibilities of the team members in implementing the DMP</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/02</strong></p>
+<p>What are the three broad categories of getting involved with open data communities discussed in this lesson? Select all that apply.</p>
+<ul class="simple">
+<li><p>Engage with repositories</p></li>
+<li><p>Join standards committees</p></li>
+<li><p>Write a data management plan (DMP)</p></li>
+<li><p>Volunteer and participate in conferences, workshops, and special sessions</p></li>
+<li><p>Identify data sharing roles and responsibilities on your team</p></li>
+</ul>
+</section>
+<section id="open-data-summary">
+<h2>Open Data Summary<a class="headerlink" href="#open-data-summary" title="Permalink to this heading">#</a></h2>
+<p>Congratulations! Now that you have completed the module, you should be able to do the following:</p>
+<ul class="simple">
+<li><p>Explain what open data means, its benefits, and how FAIR principles are used.</p></li>
+<li><p>Discover open data, assess the data for reuse by evaluating provided documentation, and cite the data as instructed.</p></li>
+<li><p>Create an open data management plan, select open data formats, add the needed documentation, including metadata, readme files and version control, to make the data reusable and findable.</p></li>
+<li><p>Evaluate whether your data should and can be shared, and use the data accessibility process, including adding a DOI and citation instructions to enable it to be findable and citable.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_3/Lesson_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_4/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 4: Sharing Open Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../Module_4/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">OS101 Module 4: Open Code</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-an-open-science-and-data-management-plan">Writing an Open Science and Data Management Plan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-5-1-review-a-data-management-plan">Activity 5.1: Review a data management plan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-communities-and-you">Open Data Communities and You</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-involved-with-open-data-communities">Getting Involved with Open Data Communities</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-for-more-information">Resources for More Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opportunities-for-more-training-about-open-data">Opportunities for More Training About Open Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-summary">Lesson 5: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-summary">Open Data Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

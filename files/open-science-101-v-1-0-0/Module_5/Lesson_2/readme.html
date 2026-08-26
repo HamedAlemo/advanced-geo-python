@@ -1,0 +1,1031 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 2: Using Open Results &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_5/Lesson_2/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 3: Making Open Results" href="../Lesson_3/readme.html" />
+    <link rel="prev" title="Lesson 1: Introduction to Open Results" href="../Lesson_1/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_5/Lesson_2/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_5/Lesson_2/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 2: Using Open Results</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-discover-open-results">How to Discover Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-exoplanets">Example: Exoplanets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-assess-open-results">How to Assess Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes-of-reputable-material">Attributes of Reputable Material</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-open-results">How to Use Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute-and-provide-constructive-feedback">How to Contribute and Provide Constructive Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-responsibilities-as-an-open-results-user">Your Responsibilities as an Open Results User</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#different-ways-to-provide-feedback">Different Ways to Provide Feedback</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-github-issues">Use Github Issues</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#email-authors">Email authors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-credit-for-providing-feedback">Getting Credit for Providing Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-results-user-responsibilities">Open Results User Responsibilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoid-plagiarism-when-using-open-results">Avoid Plagiarism When Using Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#factsheet-plagiarism">FACTSHEET: Plagiarism</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-cite-open-results">How to Cite Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-guidelines-for-published-versus-unpublished-results">Citation Guidelines for Published Versus Unpublished Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-giving-credit">Examples of Giving Credit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-summary">Lesson 2: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-2-using-open-results">
+<h1>Lesson 2: Using Open Results<a class="headerlink" href="#lesson-2-using-open-results" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#how-to-discover-open-results">How to Discover Open Results</a></p></li>
+<li><p><a href="#how-to-assess-open-results">How to Assess Open Results</a></p></li>
+<li><p><a href="#how-to-use-open-results">How to Use Open Results</a></p></li>
+<li><p><a href="#how-to-cite-open-results">How to Cite Open Results</a></p></li>
+<li><p><a href="#lesson-2-summary">Lesson 2: Summary</a></p></li>
+<li><p><a href="#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>By the end of this lesson, you will be familiar with resources for open results utilization, how and when to cite the sources of the open results that you use, how to provide feedback to open results providers, and how to determine when it is appropriate to invite authors of the open results materials to be formal collaborators versus simply citing those resources in your work.</p>
+<p>Published articles, blog posts, and forums can lead to new ideas for your own research. A technique learned from social media can be applied to a use-case that you are trying to solve. There are many different ways to discover results.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Identify a variety of open results sources including both published science research and non-traditional sources.</p></li>
+<li><p>Evaluate the reliability and quality of open results sources based on key characteristics.</p></li>
+<li><p>List the responsibilities of an open results user, including providing feedback to open results developers.</p></li>
+<li><p>List the ways to cite open results into your own research process.</p></li>
+</ul>
+</section>
+<section id="how-to-discover-open-results">
+<h2>How to Discover Open Results<a class="headerlink" href="#how-to-discover-open-results" title="Permalink to this heading">#</a></h2>
+<p>How do I learn about the state of research for a particular field? How do you engage in the current conversation? Researchers often begin with a search of peer-reviewed articles. This review tells you how much research has been done in a field and what conclusions have recently been reached. In most fields, going through the peer-review process can take up to a year. The ability to find pre-prints can help reduce this delay because they offer the latest findings before a publication date. However, researchers who choose to share their results before publication typically do so in the ways listed as best practices above. As you start research on a topic, how do you find all these different types of results and engage in the most relevant research?</p>
+<section id="example-exoplanets">
+<h3>Example: Exoplanets<a class="headerlink" href="#example-exoplanets" title="Permalink to this heading">#</a></h3>
+<p>The various stages of research, from conceptualization to dissemination of results, produce products that can be put into the public domain as “Open Results”. Where these results are archived, and to what degree, depends on the discipline author. However, some general guidelines on where to start a search on open results include:</p>
+<ol class="arabic simple">
+<li><p>Scholarly Search Portals</p></li>
+<li><p>Web Searches</p></li>
+</ol>
+<p><strong>Scholarly Search Portals</strong></p>
+<p>Search engines like Google and Bing have radically changed how we look up information. For research results, specialized academic search engines and portals curate scientific results from researchers based on topic and field. These engines are useful for finding peer-reviewed articles.</p>
+<table>
+  <thead>
+    <tr>
+        <th>GENERIC &#9745;</th>
+        <th>DISCIPLINE-SPECIFIC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <ul>
+                <li><a href="https://scholar.google.com/">Google Scholar</a></li>
+                <li><a href="https://ui.adsabs.harvard.edu/">ADS</a></li>
+                <li><a href="https://www.scopus.com/">Scopus</a></li>
+                <li>Web of Knowledge</li>
+                <li><a href="https://openknowledgemaps.org/">Open knowledge map</a> - facilitates exploration of interconnected topics</li>
+                <li><a href="https://www.jstor.org/">JSTOR</a> - a wide range of scholarly content</li>
+                <li><a href="https://www.researchgate.net/search">ResearchGate</a></li>
+                <li><a href="https://sciencecast.org/">ScienceCast</a></li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>GENERIC</th>
+        <th>DISCIPLINE-SPECIFIC &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <ul>
+                <li><a href="https://europepmc.org/">EuropePMC Life sciences</a></li>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/">Pubmed biomedical literature</a></li>
+                <li><a href="https://arxiv.org/">arXiv</a> - for scholarly pre-prints in STEM, economics and computer science fields</li> 
+                <li><a href="https://www.biorxiv.org/">Biorxiv Preprint</a> - server for biology</li>
+                <li><a href="https://eartharxiv.org/">EarthArXiv</a> and <a href="https://essoar.org/">Earth and Space Science Open Archive</a></li>
+                <li><a href="https://asapbio.org/preprint-servers">ASAPbio</a> - catalogs of preprint servers</li>
+                <li>and others...</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<p>Publications that provide some levels of open access are tracked in the <a class="reference external" href="https://doaj.org/">Directory of Open Access Journals (DOAJ).</a></p>
+<p><strong>Web Searches</strong></p>
+<p>Open results include much more than open-access peer-reviewed publications. How do you find these alternative types of research objects?</p>
+<p>Open communities and forums offer the best way to find research objects other than complete publications. How do you even find out whether these exist and where they are?</p>
+<p>Once you have found a few peer-reviewed articles that are highly relevant, to find additional research objects, you can follow the authors on social media for links to their posts, blogs, and activities. There are open communities in almost every area of research - find yours! Here are different platforms to locate these conversations and resources:</p>
+<ul class="simple">
+<li><p>GitHub</p></li>
+<li><p>LinkedIn</p></li>
+<li><p>YouTube</p></li>
+<li><p>Google/Bing</p></li>
+<li><p>Conference websites</p></li>
+<li><p>X, formally known as Twitter</p></li>
+<li><p>Facebook</p></li>
+<li><p>Medium</p></li>
+<li><p>Substack</p></li>
+<li><p>Stack Overflow</p></li>
+<li><p>Reddit</p></li>
+<li><p>Mastodon</p></li>
+</ul>
+<p>Various research objects, including datasets and software, are frequently attached to scholarly publications in the form of supplemental material. At other times, the source is referenced in the paper, which could be a GitHub repository, personal/institutional website, or other storage site. This can be another starting point, by engaging in discussions on the GitHub repository.</p>
+<p><strong>Kerchunk Example:</strong> In lesson 1, a blog post about a software library ‘kerchunk’ was presented. Let’s look at a <a class="reference external" href="https://discourse.pangeo.io/t/trick-for-improving-kerchunk-performance-for-large-numbers-of-chunks-files/3090">post</a> on the <a class="reference external" href="https://discourse.pangeo.io/">Pangeo Discourse Forum</a> of Kerchunk with a large number of views. The open science <a class="reference external" href="https://pangeo.io/">Pangeo project</a> worked completely in the open. The <a class="reference external" href="https://pangeo.io/">project website</a> (run off of GitHub) has links to blog posts, a discussion forum, and a calendar to all their meetings which anyone was welcome to join. This has resulted in an engaged and dynamic community. An example of this comes from the post linked to above, where one person asks for help, others reply, and the conversation is documented in the open. The post’s 636 views indicate that this question, or one similar, has occurred to others. Imagine if this had been done over private email? By working in the open, they are improving science and helping everyone become faster and more accurate.</p>
+</section>
+</section>
+<section id="how-to-assess-open-results">
+<h2>How to Assess Open Results<a class="headerlink" href="#how-to-assess-open-results" title="Permalink to this heading">#</a></h2>
+<p>“Garbage in, garbage out” – your own research products are only as good as the data used in your investigation.</p>
+<p>If you use poor quality data or materials from unreliable and unvetted sources as critical components of your research, you run the risk of producing flawed, or low-quality science that may harm your reputation as a scientist. Therefore, it is critical to assess the quality and reliability of open-results sources before you include them in your own work.</p>
+<p>What are best practices for assessing the quality of alternative sources of data to research articles such as blog posts, youtube videos, and other research objects?</p>
+<section id="attributes-of-reputable-material">
+<h3>Attributes of Reputable Material<a class="headerlink" href="#attributes-of-reputable-material" title="Permalink to this heading">#</a></h3>
+<p>Let’s take a look at the questions you might consider asking yourself when determining the reliability of any type of open results source.</p>
+<p>Here, we list questions under two categories: the open results material themselves, and the server they are downloaded from. The more questions here that can be answered in the affirmative, the lower the risk in utilizing the open results materials for your own research.</p>
+<table>
+  <thead>
+    <tr>
+        <th>THE MATERIAL ITSELF &#9745;</th>
+        <th>THE ASSOCIATED WEBSITE / SERVER</th>
+        <th>SOURCE RELIABILITY INDICATORS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <ul>
+                <li>Is the material associated with a peer-reviewed publication?</li>
+                <li>Are the primary data associated with the results also open-source?</li>
+                <li>Is code used to generate the Open Results materials also open-source?</li>
+                <li>Are all fields and parameters clearly defined?</li>
+                <li>Is the derivation of measurement uncertainties clearly described?</li>
+                <li>Were any data or results excluded, and if so, were criteria provided?</li>
+                <li>Are authoring teams also members of the field?</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>THE MATERIAL ITSELF</th>
+        <th>THE ASSOCIATED WEBSITE / SERVER &#9745;</th>
+        <th>SOURCE RELIABILITY INDICATORS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <ul>
+                <li>Does the host website's URL end in .edu, .gov or (if managed by a non-profit organization) in .org?</li>
+                <li>Does the host website provide contact information of the author and/or organization?</li>
+                <li>Is the host website updated on a frequent basis?</li>
+                <li>Is the host website free of advertisements and/or sponsored content, the presence of which could indicate bias?</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>THE MATERIAL ITSELF</th>
+        <th>THE ASSOCIATED WEBSITE / SERVER</th>
+        <th>SOURCE RELIABILITY INDICATORS &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <ul>
+                <li>Is the result reproducible? Can you interact with the data and results? Have others reported being able to reproduce the results?</li>
+                <li>Is the author reliable? Have you seen them publish or share results in other forums?</li>
+                <li>Is the result from only a single author/voice or includes contributions from a broader community?</li>
+                <li>Does the post have a significant amount of likes/views and public comments? The value of a blog post with no comments or responses can be difficult to assess. Conversely, a thorough github discussion forum with multiple views shared indicated a robust post.</li>
+                <li>Is the result part of an active conversation? (Is the information still relevant and current?)</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<p>Adapted from <a class="reference external" href="https://www.scribbr.com/working-with-sources/credible-sources/">https://www.scribbr.com/working-with-sources/credible-sources/</a></p>
+<p>Note that failure to meet one or many of the criteria does not automatically mean that the open results are of poor quality, but rather that more caution should be exercised if incorporated into your own research. It also means that you will have to invest more personal vetting of the material to ensure its quality is sufficient for your purposes.</p>
+<p>Reliable Example: Qiusheng Wu YouTube videos (as mentioned in the previous lesson). Professor Wu is an expert in his field. He presents results along with notebooks that demonstrate reproducibility. Comments on his YouTube tutorial videos represent meaningful interactions between users reproducing results and the author.</p>
+</section>
+</section>
+<section id="how-to-use-open-results">
+<h2>How to Use Open Results<a class="headerlink" href="#how-to-use-open-results" title="Permalink to this heading">#</a></h2>
+<p>While open results benefit science and have already provided valuable societal benefits, the misuse and incautious sharing of open materials can have far-reaching harmful effects. The end-user of open results bears the responsibility to ensure that the data they reference are used in a responsible manner and that any relevant guidelines for the use of the data are followed.</p>
+<section id="how-to-contribute-and-provide-constructive-feedback">
+<h3>How to Contribute and Provide Constructive Feedback<a class="headerlink" href="#how-to-contribute-and-provide-constructive-feedback" title="Permalink to this heading">#</a></h3>
+<p>Contributing to and providing constructive feedback are vital components for a healthy open access ecosystem, ensuring long-term sustainability of the open resources by providing continual improvements and capability expansions.</p>
+<p>In our current system, there are results creators and consumers. This scenario presents a one way street with no feedback loop, no sharing of data back to publishers, and no sharing between intermediaries.</p>
+<p>The practice of producing open results aims to foster a system where feedback loops exist between users and makers. Users share their cleaned, integrated, or improved work to the maker. This feedback creates a symbiotic and sustainable process where everyone benefits.</p>
+</section>
+<section id="your-responsibilities-as-an-open-results-user">
+<h3>Your Responsibilities as an Open Results User<a class="headerlink" href="#your-responsibilities-as-an-open-results-user" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Users should familiarize themselves with contributor guidelines posted to open result repositories and follow the associated policies. What if there aren’t contributor guidelines? Contact the creators!</p></li>
+<li><p>Always provide feedback in a respectful and supportive manner.</p></li>
+<li><p>If you discover an error in Open Results materials, the ethical action to take is to contact the author (or repository, depending on the nature of the issue) and give them the opportunity to correct the problem, rather than ignoring the issue or (worse!) taking advantage of a fixable issue to elevate your own research.</p></li>
+</ul>
+</section>
+<section id="different-ways-to-provide-feedback">
+<h3>Different Ways to Provide Feedback<a class="headerlink" href="#different-ways-to-provide-feedback" title="Permalink to this heading">#</a></h3>
+<section id="use-github-issues">
+<h4>Use Github Issues<a class="headerlink" href="#use-github-issues" title="Permalink to this heading">#</a></h4>
+<table>
+<colgroup>
+    <col style="width: 50%" />
+    <col style="width: 50%" />
+</colgroup>
+<tbody>
+    <tr>
+        <td>
+            <img src="../images/media/image29.png" style="width:100%;height:auto;"/>
+        </td>
+        <td>Pro: The feedback is open and other community members can see ongoing issues that are being addressed.</td>
+    </tr>
+    <tr>
+        <td>
+            <img src="../images/media/image29.png" style="width:100%;height:auto;"/>
+        </td>
+        <td>Pro: Contribution is archived and logged on GitHub.</td>
+    </tr>
+</tbody>
+</table>
+<p><strong>Working with GitHub Issues</strong></p>
+<p>See this blog for general issue etiquette</p>
+<p><a class="reference external" href="https://www.w3.org/International/i18n-activity/guidelines/issues.html">OPEN</a></p>
+</section>
+<section id="email-authors">
+<h4>Email authors<a class="headerlink" href="#email-authors" title="Permalink to this heading">#</a></h4>
+<table>
+<colgroup>
+    <col style="width: 50%" />
+    <col style="width: 50%" />
+</colgroup>
+<tbody>
+    <tr>
+        <td>
+            <img src="../images/media/image29.png" style="width:100%;height:auto;"/>
+        </td>
+        <td>Con: the feedback is closed. The information is generally not propagated back to the community unless the creator creates a new version.</td>
+    </tr>
+    <tr>
+        <td>
+            <img src="../images/media/image29.png" style="width:100%;height:auto;"/>
+        </td>
+        <td>Con: No way of tracking credit.</td>
+    </tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="getting-credit-for-providing-feedback">
+<h3>Getting Credit for Providing Feedback<a class="headerlink" href="#getting-credit-for-providing-feedback" title="Permalink to this heading">#</a></h3>
+<p>If your feedback results in a substantial intellectual contribution to the work, it is reasonable for you to expect an opportunity for co-authorship in a future version of the open result. The associated contribution guidelines should address this possibility and manage expectations prior to your providing feedback.</p>
+<p>Sadly, many times contributor guidelines do not exist and it is not clear what is “substantial”.</p>
+</section>
+<section id="open-results-user-responsibilities">
+<h3>Open Results User Responsibilities<a class="headerlink" href="#open-results-user-responsibilities" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Institutional Security Compliance:</strong> Always download code from an authoritative source and be familiar with / follow your institution’s IT security policies.</p></li>
+<li><p><strong>Licensing Policies:</strong> Understand and abide by the license(s) associated with the open results materials being used.</p></li>
+<li><p><strong>Attribution and Contribution:</strong> Provide appropriate attribution for the open results used and contribute to the open results community.</p></li>
+</ul>
+<p>Additionally, give credit to repositories that provide open source materials in the acknowledgement section of your paper. If the repository provides an acknowledgments template in their “About” link, follow that suggestion. Otherwise, a generic “This research has made use of &lt;insert repository name&gt;.” will be sufficient.</p>
+</section>
+<section id="avoid-plagiarism-when-using-open-results">
+<h3>Avoid Plagiarism When Using Open Results<a class="headerlink" href="#avoid-plagiarism-when-using-open-results" title="Permalink to this heading">#</a></h3>
+<p>Standard guidelines that you’ve been using in your research all along for providing appropriate attribution and citations of closed access publications also apply to open access published works.</p>
+<p>Examples of plagiarism include:</p>
+<ul class="simple">
+<li><p>Word-for-word copying without permission and source acknowledgement.</p></li>
+<li><p>Copying components (tables, processes, equipment) without source attribution.</p></li>
+<li><p>Paraphrasing an idea without proper source referencing.</p></li>
+<li><p>Recycling one’s own past work and presenting as a new paper.</p></li>
+</ul>
+<section id="factsheet-plagiarism">
+<h4>FACTSHEET: Plagiarism<a class="headerlink" href="#factsheet-plagiarism" title="Permalink to this heading">#</a></h4>
+<p><strong>Here is a useful guide regarding the different forms of plagiarism</strong></p>
+<p><a class="reference external" href="https://www.elsevier.com/editor/perk/plagiarism-complaints#0-introduction">CLICK TO LEARN</a></p>
+</section>
+</section>
+</section>
+<section id="how-to-cite-open-results">
+<h2>How to Cite Open Results<a class="headerlink" href="#how-to-cite-open-results" title="Permalink to this heading">#</a></h2>
+<p>Giving proper attribution to open results is an important and ethical responsibility for using open a source materials. The process for citation is specific to the nature of the material.</p>
+<section id="citation-guidelines-for-published-versus-unpublished-results">
+<h3>Citation Guidelines for Published Versus Unpublished Results<a class="headerlink" href="#citation-guidelines-for-published-versus-unpublished-results" title="Permalink to this heading">#</a></h3>
+<p>If a paper has been formally published in a journal, then your citation should point to the published version rather than to a preprint server.</p>
+<p>Take the time to locate the originating journal to provide an accurate citation.</p>
+<img alt="../../../../_images/image311.png" src="../../../../_images/image311.png" />
+<p>Preprint Server (Cite only if journal publication not available)</p>
+<hr class="docutils" />
+<img alt="../../../../_images/image32.png" src="../../../../_images/image32.png" />
+<p>Source Publication (Always cite)</p>
+<hr class="docutils" />
+<p>If a paper that you wish to cite is not yet accepted for publication, you should follow the guidelines of the journal to which you are submitting your paper. A preprint reference citation typically includes author name(s), date of the most recent version posted, paper title, name of the preprint server, object type (“preprint”), and the DOI.</p>
+<img alt="../../../../_images/image331.png" src="../../../../_images/image331.png" />
+<p>At the time of the Lesson preparation, the following paper did not yet appear as a journal publication.</p>
+<p>Jin, H., et al. 2023, “Optical color of Type Ib and Ic supernovae and implications for their progenitors,” ApJ, preprint, arXiv:2304.10670.</p>
+<hr class="docutils" />
+<table>
+  <thead>
+    <tr>
+        <th>FOR MATERIAL THAT HAS A DOI &#9745;</th>
+        <th>FOR MATERIAL THAT DOES NOT HAVE A DOI</th>
+        <th>FOR OTHER MATERIALS OR INTERACTIONS THAT WERE HELPFUL FOR YOUR RESEARCH</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>To cite all of the following, follow existing guidelines and community best practices:</p>
+            <ul>
+                <li>Cite publications</li>
+                <li>Cite data</li>
+                <li>Cite software</li>
+                <li>Cite any other object with a DOI. Since many journals will only allow authors to cite material that has a DOI, what do you do with other types of open results?</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>FOR MATERIAL THAT HAS A DOI</th>
+        <th>FOR MATERIAL THAT DOES NOT HAVE A DOI &#9745;</th>
+        <th>FOR OTHER MATERIALS OR INTERACTIONS THAT WERE HELPFUL FOR YOUR RESEARCH</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>Examples include blog posts, videos, and notebooks.</p>
+            <ul>
+                <li>You could also contact the author and ask them to obtain a DOI.</li>
+                <li>Leave a comment in the comments section or on the forum letting the author know about your publication.</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>FOR MATERIAL THAT HAS A DOI</th>
+        <th>FOR MATERIAL THAT DOES NOT HAVE A DOI</th>
+        <th>FOR OTHER MATERIALS OR INTERACTIONS THAT WERE HELPFUL FOR YOUR RESEARCH &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <ul>
+                <li>Acknowledge communities and forums that helped you advance your research in the Acknowledgements Section. Not only does this give them credit, but it helps others find those communities.</li>
+                <li>Citing open research results advances science by giving appropriate credit for all parts of the research process. This is essential for the cultural shift to open science; we must give credit for all types of contributions, and expect them in return. Participatory science allows more people, from more places, with different voices and experiences to participate in science.</li>
+                <li>Contributing and collaborating this way lowers the barriers (like conference fees) to participating in science and broadens who can participate.</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="examples-of-giving-credit">
+<h3>Examples of Giving Credit<a class="headerlink" href="#examples-of-giving-credit" title="Permalink to this heading">#</a></h3>
+<p>In the Lesson 1 blog post <a class="reference external" href="https://medium.com/pangeo/fake-it-until-you-make-it-reading-goes-netcdf4-data-on-aws-s3-as-zarr-for-rapid-data-access-61e33f8fe685">example</a>, researchers acknowledged people they worked with in an article they wrote that they found helpful, and two different communities, as well as the computational environment they worked on. This is a great example of giving credit: “I would like to thank Rich Signell (USGS) and Martin Durant (Anaconda) for their help in learning this process. If you’re interested in seeing more detail on how this works, I recommend Rich’s article from 2020 on the topic. I would also like to recognize <a class="reference external" href="https://pangeo.io/">Pangeo</a> and <a class="reference external" href="https://pangeo-forge.org/">Pangeo-forge</a> who work hard to make working with big data in geoscience as easy as possible. Work on this project was done on the Pangeo AWS deployment.”</p>
+<p>In Lesson 1, the JWST case study was presented. The peer-reviewed <a class="reference external" href="https://www.nature.com/articles/s41586-022-05269-w#Ack1">publication</a> that reported the first discovery of CO2 on another planet has been accessed 18,000+ times. Notice is that the authorship is attributed to the entire team. The Acknowledgements section duly explains the contributions of their collaborators and partners, “The results reported herein benefited during the design phase from collaborations and/or information exchange within NASA’s Nexus for Exoplanet System Science (NExSS) research coordination network sponsored by NASA’s Science Mission Directorate.” Also, “All the data and models presented in this publication can be found at <a class="reference external" href="https://doi.org/10.5281/zenodo.6959427">https://doi.org/10.5281/zenodo.6959427</a>”. And finally, they cite all the software! “The codes used in this publication to extract, reduce and analyze the data are as follows..”</p>
+</section>
+</section>
+<section id="lesson-2-summary">
+<h2>Lesson 2: Summary<a class="headerlink" href="#lesson-2-summary" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you learned:</p>
+<ul class="simple">
+<li><p>Open results can be found using both Scholarly Search Portals and Web searches.</p></li>
+<li><p>The reliability of a post can generally be evaluated by the trustworthiness of the website from which they originated from, the engagement of community members, and the scientific rigor of its content.</p></li>
+<li><p>Users of open results, as inherent stewards of the open a source community, informally carry some responsibility to contribute to the community’s sustainability. This participation includes providing feedback to open results providers and developers.</p></li>
+<li><p>Giving proper attribution to open results is an important and ethical responsibility for using open source materials. The process for citation is specific to the nature of the material.</p></li>
+</ul>
+</section>
+<section id="lesson-2-knowledge-check">
+<h2>Lesson 2: Knowledge Check<a class="headerlink" href="#lesson-2-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/02</strong></p>
+<p>Which of the following could be a source of open results? Select all that apply.</p>
+<ul class="simple">
+<li><p>Web searches</p></li>
+<li><p>Papers accessed through a paid subscription</p></li>
+<li><p>Materials made public after a 1-year exclusive-use/paid-subscription-only period</p></li>
+<li><p>Repositories</p></li>
+<li><p>Open access papers</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/02</strong></p>
+<p>Which of the following characteristics suggest that a particular paper / data set is more likely to be a credible Open Result? Select all that apply.</p>
+<ul class="simple">
+<li><p>The website lists its source of funding</p></li>
+<li><p>The results are described in an associated peer-reviewer publication</p></li>
+<li><p>Detailed documentation accompanies the data, including defined fields and parameters</p></li>
+<li><p>Organization contact information is listed</p></li>
+<li><p>The website was last updated in 2015</p></li>
+<li><p>The webpage advertises open job positions with the funder</p></li>
+<li><p>The author is an expert in the field</p></li>
+<li><p>The webpage’s URL ends in ‘.com’</p></li>
+<li><p>The accompanying documentation states that “on inspection, data that were obvious outliers were excluded from the following analysis”</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_5/Lesson_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_1/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 1: Introduction to Open Results</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_3/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 3: Making Open Results</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-discover-open-results">How to Discover Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-exoplanets">Example: Exoplanets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-assess-open-results">How to Assess Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes-of-reputable-material">Attributes of Reputable Material</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-open-results">How to Use Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute-and-provide-constructive-feedback">How to Contribute and Provide Constructive Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-responsibilities-as-an-open-results-user">Your Responsibilities as an Open Results User</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#different-ways-to-provide-feedback">Different Ways to Provide Feedback</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-github-issues">Use Github Issues</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#email-authors">Email authors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-credit-for-providing-feedback">Getting Credit for Providing Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-results-user-responsibilities">Open Results User Responsibilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoid-plagiarism-when-using-open-results">Avoid Plagiarism When Using Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#factsheet-plagiarism">FACTSHEET: Plagiarism</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-cite-open-results">How to Cite Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citation-guidelines-for-published-versus-unpublished-results">Citation Guidelines for Published Versus Unpublished Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-giving-credit">Examples of Giving Credit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-summary">Lesson 2: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

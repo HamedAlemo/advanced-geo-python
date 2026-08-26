@@ -1,0 +1,830 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 1: Introduction to Open Results &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_5/Lesson_1/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 2: Using Open Results" href="../Lesson_2/readme.html" />
+    <link rel="prev" title="OS101 Module 5: Open Results" href="../readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_5/Lesson_1/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_5/Lesson_1/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 1: Introduction to Open Results</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-research-objects-are-created-throughout-the-research-cycle">What Research Objects are Created Throughout the Research Cycle?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-traditional-depiction-of-a-scientific-result-has-changed-over-time">The Traditional Depiction of a “Scientiﬁc Result” Has Changed Over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#but-results-have-always-been-far-more-than-just-the-publication">But Results Have Always Been Far More Than Just the Publication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-practice-of-open">The Practice of ‘Open’</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-open-results">Examples of Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reaching-new-audiences">Reaching New Audiences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-media-for-science-products">New Media for Science Products</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-products-for-increasing-impact">New Products for Increasing Impact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-visualizations-to-share-results">New Visualizations to Share Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jwst-case-study-reporting-and-publication">JWST Case Study: Reporting and Publication</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-reproducibility-crisis">What is the Reproducibility Crisis?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-cause-of-this-reproducibility-crisis">What is the Cause of This Reproducibility Crisis?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combating-the-reproducibility-crisis">Combating the Reproducibility Crisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-1-what-could-you-do">Activity 1.1: What Could You Do?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-what-could-you-do">Key Takeaways: What Could You Do?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-summary">Lesson 1: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-1-introduction-to-open-results">
+<h1>Lesson 1: Introduction to Open Results<a class="headerlink" href="#lesson-1-introduction-to-open-results" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#what-research-objects-are-created-throughout-the-research-cycle">What Research Objects are Created Throughout the Research Cycle?</a></p></li>
+<li><p><a href="#examples-of-open-results">Examples of Open Results</a></p></li>
+<li><p><a href="#what-is-the-reproducibility-crisis">What is the Reproducibility Crisis?</a></p></li>
+<li><p><a href="#lesson-1-summary">Lesson 1: Summary</a></p></li>
+<li><p><a href="#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>This lesson aims to broaden your perspective regarding what shareable research outputs are produced throughout the research lifecycle. We will first consider what constitutes an open result. To do so, we will read an example of a forward-thinking research project that utilizes open result best practices. The perspectives gained from this example will ultimately get us thinking about how we can work towards creating reproducible research.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Describe what constitutes open results and list the research objects that can be created throughout a research cycle.</p></li>
+<li><p>Describe how sharing open results can advance science and your career.</p></li>
+<li><p>Explain what the reproducibility crisis is and how open science can help combat it.</p></li>
+</ul>
+</section>
+<section id="what-research-objects-are-created-throughout-the-research-cycle">
+<h2>What Research Objects are Created Throughout the Research Cycle?<a class="headerlink" href="#what-research-objects-are-created-throughout-the-research-cycle" title="Permalink to this heading">#</a></h2>
+<section id="the-traditional-depiction-of-a-scientific-result-has-changed-over-time">
+<h3>The Traditional Depiction of a “Scientiﬁc Result” Has Changed Over Time<a class="headerlink" href="#the-traditional-depiction-of-a-scientific-result-has-changed-over-time" title="Permalink to this heading">#</a></h3>
+<p>When we think of results, most people think of just the final publication.</p>
+<p><strong>1665</strong></p>
+<img alt="../../../../_images/image4.jpeg" src="../../../../_images/image4.jpeg" />
+<p>This publication dates back to 1665 when the first scientific journal Philosophical Transactions was established to publish letters about scientific observations and experimentations.</p>
+<p><strong>1940s</strong></p>
+<img alt="../../../../_images/image51.png" src="../../../../_images/image51.png" />
+<p>Later in the 1940s, publishing became commercialized and took over as the mechanism for releasing journals, conference proceedings, and books. This new business model normalized publication paywalls.</p>
+<p><strong>21st century</strong></p>
+<img alt="../../../../_images/image61.png" src="../../../../_images/image61.png" />
+<p>Only by the 21st century did the scientific community expand the meaning of open results. The evolution of this definition was driven by technological advances, such as the internet, and advances in modes to share information. The open access movement was established by the <a class="reference external" href="https://www.budapestopenaccessinitiative.org/">Budapest Open Access Initiative</a> in 2002 and the <a class="reference external" href="https://openaccess.mpg.de/Berlin-Declaration">Berlin Declaration on Open Access</a> in 2003, both of which formalized the idea that, with regards to new knowledge, there should be “free availability on the public internet, permitting any users to read, download, copy, distribute, print, search, or link to the full texts of these articles” (Budapest Open Access Initiative).</p>
+</section>
+<section id="but-results-have-always-been-far-more-than-just-the-publication">
+<h3>But Results Have Always Been Far More Than Just the Publication<a class="headerlink" href="#but-results-have-always-been-far-more-than-just-the-publication" title="Permalink to this heading">#</a></h3>
+<p>You might be familiar with the research life cycle, but may not have considered what results could be shared openly throughout its process. This lesson adopts a definition of the research life cycle based on <a class="reference external" href="https://the-turing-way.netlify.app/index.html">The Turing Way</a> and breaks it down into nine phases based, pictured in the figure below.</p>
+<p>Although the phases are presented in a linear fashion, we acknowledge that the research lifecycle is rarely ever linear! Products are created throughout the scientific process that are needed to enable others to reproduce the findings. The products of research include data, code, analysis pipelines, papers, and more!</p>
+<p>Following <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0167739X18314638">Garcia-Silva et al. 2019</a>, we define a Research object (RO) as a method for the identification, aggregation and exchange of scholarly information on the Web. Research objects can be composed of both research data and digital research objects that are defined as follows by the Organization for Economic Co-Operation and Development (<a class="reference external" href="https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0347">OECD Legal Instruments</a>).</p>
+<img alt="../../../../_images/image7.jpeg" src="../../../../_images/image7.jpeg" />
+<p>The term ‘Open Results’ comprehensively includes all these research products and more.</p>
+<p>Open results can include both data and code. Since data and code were covered in previous modules, in this lesson, we focus on sharing science outcomes as open results. Examples of open results can include:</p>
+<ul class="simple">
+<li><p>Open access peer-reviewed articles</p></li>
+<li><p>Technical reports</p></li>
+<li><p>Computational notebooks</p></li>
+<li><p>Code of conduct, contributor guidelines, publication policies</p></li>
+<li><p>Blog posts</p></li>
+<li><p>Short form videos and podcasts</p></li>
+<li><p>Social media posts</p></li>
+<li><p>Conference abstracts and presentations</p></li>
+<li><p>Forum discussions</p></li>
+</ul>
+<p>Open access peer-reviewed articles are archived for long-term preservation and represent a more formal discussion of scientific ideas, interpretations, and conclusions. These discussions inform the method that researchers share results. In the following lesson section, we will discuss different types of sharing and methods to build and adapt them for use in your research.</p>
+<p>Scientists can share their incremental progress throughout the research process and invite community feedback. Sharing more parts of the research process creates more interactions between researchers and can improve the end result (which may be a peer-reviewed article).</p>
+<p>Throughout this module we will show you how to use, make, and share open results.</p>
+</section>
+<section id="the-practice-of-open">
+<h3>The Practice of ‘Open’<a class="headerlink" href="#the-practice-of-open" title="Permalink to this heading">#</a></h3>
+<p>Specifically, the “Use, Make, Share” format has been naturally embedded throughout the curriculum and should be a familiar format by now. Lesson 2 will cover “Using”. Lesson 3 will cover “Making”. Lesson 4 will cover “Sharing”. Throughout this module, we will pay particular attention to manuscripts and other research products as examples because the previous modules covered “Use, Make, Share” in the context of components with data and software.</p>
+<img alt="../../../../_images/thepracticeofopen.jpg" src="../../../../_images/thepracticeofopen.jpg" />
+</section>
+</section>
+<section id="examples-of-open-results">
+<h2>Examples of Open Results<a class="headerlink" href="#examples-of-open-results" title="Permalink to this heading">#</a></h2>
+<p>Let’s broaden our perspectives on the types of <strong>research objects</strong> that are produced throughout the research process. Let’s take a look at some examples from different projects.</p>
+<section id="reaching-new-audiences">
+<h3>Reaching New Audiences<a class="headerlink" href="#reaching-new-audiences" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image9.jpeg" src="../../../../_images/image9.jpeg" />
+<p>Qiusheng Wu is an associate professor at University of Tennessee. He has published 500+ video tutorials on <a class="reference external" href="https://www.youtube.com/%40giswqs">YouTube</a>, which have gained 25K+ subscribers, and 1.1M+ views (as of 8/2023).</p>
+<p>Professor Qiusheng Wu created a <a class="reference external" href="https://youtube.com/%40giswqs">YouTube channel</a> in April 2020 for the purpose of sharing video tutorials on the <a class="reference external" href="https://geemap.org/">geemap Python package</a> that he was developing. Since then, Wu has published over 500 video tutorials on open-source geospatial topics. The channel has gained over 25K subscribers, with more than 1 million views and 60K watch hours in total. On average, it receives 70 watch hours per day.</p>
+<p>The YouTube channel has allowed Wu to reach a much larger audience beyond the confines of a traditional classroom. It has made cutting-edge geospatial research more accessible to the general public and has led to collaborations with individuals from around the world. This has been particularly beneficial for Wu’s tenure promotion as it has resulted in increased funding opportunities, publications, and public engagement through the YouTube channel, social media, and GitHub.</p>
+<p>Overall, the YouTube channel serves as an important tool for Wu to disseminate research, inspire others, and contribute to the advancement of science. It has also played a significant role in advancing Wu’s professional career.</p>
+</section>
+<section id="new-media-for-science-products">
+<h3>New Media for Science Products<a class="headerlink" href="#new-media-for-science-products" title="Permalink to this heading">#</a></h3>
+<p>“A new method reduced the compute time for this image from ~30 minutes to &lt;1 minute”. In 2021, Lucas Sterzinger spent one summer of his PhD on an internship. During that summer, he wrote a blog post to explain and demonstrate a game-changing technology called Kerchunk – a software package that makes accessing scientific data in the cloud much faster.</p>
+<img alt="../../../../_images/image102.jpeg" src="../../../../_images/image102.jpeg" />
+<p>Source: <a class="reference external" href="https://medium.com/pangeo/fake-it-until-you-make-it-reading-goes-netcdf4-data-on-aws-s3-as-zarr-for-rapid-data-access-61e33f8fe685">https://medium.com/pangeo/fake-it-until-you-make-it-reading-goes-netcdf4-data-on-aws-s3-as-zarr-for-rapid-data-access-61e33f8fe685</a></p>
+<hr class="docutils" />
+<p>Alongside the blog post, he also created a tutorial as a Jupyter Notebook – both of these resources and associated code are freely accessible to the public, allowing for rapid adoption and iteration by other developers and scientists. He posted the blog on Medium and posted about it to Twitter. The blog got a lot of attention on a newly developed technology as it was being developed! This is starkly different from the slow and complicated world of academic publishing where this result would not have been shared for about a year (writing it up, the review process, publication process). He said, “Working on Kerchunk and sharing it widely using open science principles greatly expanded my professional connections and introduced me to the field of research software engineering. The connections I made from this led me directly to my current role as a Scientific Software Developer at NASA.”</p>
+</section>
+<section id="new-products-for-increasing-impact">
+<h3>New Products for Increasing Impact<a class="headerlink" href="#new-products-for-increasing-impact" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image111.png" src="../../../../_images/image111.png" />
+<p>Image credit: OpenStreetMap 2011, Ken Vermette. CC BY-SA 3.0</p>
+<hr class="docutils" />
+<p>From ‘2003: let’s map the UK to 2023:&gt;1.5M contributors, 100M+ edits, using the data to map the world with applications ranging from Uber to mapping UN Sustainable Development Goals.” <a class="reference external" href="https://welcome.openstreetmap.org/about-osm-community/consumers/">OpenStreetMaps is being used for GIS analysis</a>, such as planning or logistics for humanitarian groups, utilities, governments and more. This was only possible because it was set up and shared openly and built by a community devoted to improving it. You never know where your personal project might go or who might be interested in collaborating!</p>
+</section>
+<section id="new-visualizations-to-share-results">
+<h3>New Visualizations to Share Results<a class="headerlink" href="#new-visualizations-to-share-results" title="Permalink to this heading">#</a></h3>
+<p>Matplotlib was developed around 2002 by post-doc John Hunter to visualize some neurobiology data he was working on. He wasn’t a software developer, he was a neurobiologist! He could have just published the paper in a peer-reviewed journal, and maybe shared his code to create the figures, but instead he started an open project on GitHub and thought, ‘well if this is useful to me, maybe it will be useful to others…’.</p>
+<img alt="../../../../_images/image121.jpeg" src="../../../../_images/image121.jpeg" />
+<p>Source: <a class="reference external" href="https://medium.com/dataseries/mastering-matplotlib-part-1-a480109171e3">https://medium.com/dataseries/mastering-matplotlib-part-1-a480109171e3</a></p>
+<hr class="docutils" />
+<p>Matplotlib is now the most widely used plotting library for the Python programming language and a core component of the scientific Python stack, along with NumPy, SciPy and IPython. Matplotlib was used for data visualization during the 2008 landing of the Phoenix spacecraft on Mars and for the creation of the first image of a black hole.</p>
+</section>
+<section id="jwst-case-study-reporting-and-publication">
+<h3>JWST Case Study: Reporting and Publication<a class="headerlink" href="#jwst-case-study-reporting-and-publication" title="Permalink to this heading">#</a></h3>
+<p>And last but not least, we have the example for the JWST Early Release Science team from Module 1 on how they reported their results. This came in various forms from publishing a peer review paper, preprints, blog posts, and social media. Their peer-reviewed publication was published open access in Nature along with a preprint through arXiv.</p>
+<p>Open communication platforms furthered the reach and audience of results.</p>
+<img alt="../../../../_images/image131.jpeg" src="../../../../_images/image131.jpeg" />
+<p>Figure Credit: https://arxiv.org/abs/2208.11692</p>
+<hr class="docutils" />
+<p>The public is interested in what you are doing, and reaching them can involve communication through traditional and new platforms. Publishing results on platforms such as Twitter/X, Youtube, TikTok, blogs, websites, and other social media platforms is becoming more common. Awareness through social media drastically increases the reach and audience of your work. There have been studies on how this impacts citation rates. For example, The Journal of Medical Internet Research (JMIR) conducted a three-year <a class="reference external" href="https://www.jmir.org/">study</a> of the relative success of JMIR articles in both Twitter and academic worlds. They found that highly tweeted articles were 11 times more likely to be highly cited than less tweeted articles.</p>
+<p>Open communication platforms noticeably furthered the reach and audience of results.</p>
+<img alt="../../../../_images/image14.jpeg" src="../../../../_images/image14.jpeg" />
+<p>Twitter #1: https://twitter.com/cornerof_thesky/status/1595086671275589632?s=20</p>
+<p>Twitter #2: https://twitter.com/V_Parmentier/status/1595127493199302656?s=20</p>
+<p>TikTok: https://www.tiktok.com/&#64;astrojaket/video/7168878696906886405</p>
+<p>YouTube: https://www.youtube.com/watch?v=cI-kM_wPbbQ</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="what-is-the-reproducibility-crisis">
+<h2>What is the Reproducibility Crisis?<a class="headerlink" href="#what-is-the-reproducibility-crisis" title="Permalink to this heading">#</a></h2>
+<p>A 2016 <a class="reference external" href="https://www.nature.com/articles/533452a">Nature survey</a> on reproducibility found that of 1,576 researchers, “More than 70% of researchers have tried and failed to reproduce another scientist’s experiments, and more than half have failed to reproduce their own experiments. “The ‘reproducibility crisis’ in science is a growing concern over several reproducibility studies where previous positive results were not reproduced.</p>
+<p>We must consider the full research workflow if we are to solve the reproducibility crisis. The fact that 70% of researchers could not reproduce other scientists’ results is shocking, especially considering that the reproducibility of science is the cornerstone of the scientific method.</p>
+<img alt="../../../../_images/image15.png" src="../../../../_images/image15.png" />
+<p>By now, it should be obvious that there are many personal incentives to implement open science principles throughout all stages of the research process. By making results open throughout, you increase your ability to reproduce your own results.</p>
+<p>Although reproducibility of one’s own results might sound like a trivial achievement, a <a class="reference external" href="https://www.nature.com/articles/533452a">2016 Nature study</a> found that 50% of researchers are unable to reproduce their own experiments. This highlights the critical nature of the reproducibility crisis. This also has implications for research beyond the ability to improve your research.</p>
+<section id="what-is-the-cause-of-this-reproducibility-crisis">
+<h3>What is the Cause of This Reproducibility Crisis?<a class="headerlink" href="#what-is-the-cause-of-this-reproducibility-crisis" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image16.jpeg" src="../../../../_images/image16.jpeg" />
+<p>The three main causes of the reproducibility crisis are:</p>
+<ol class="arabic simple">
+<li><p>Intermediate methods of research are often described informally or not at all.</p></li>
+<li><p>Intermediate data are often omitted entirely.</p></li>
+<li><p>We often only think about results at the time of publication.</p></li>
+</ol>
+<p>We need to think of the entire research process as a result. As an example, scientific articles describe computational methods informally which demands significant effort from others to understand and to reuse.</p>
+<p>Articles often lack sufficient information needed for other researchers to reproduce results, even when data sets are published, according to two studies in <a class="reference external" href="https://www.nature.com/articles/ng.295">Nature Genetics</a> and <a class="reference external" href="https://www.nature.com/articles/nmeth.1333">Nature Methods</a>. Raw and/or intermediate data products and relevant software are often not provided alongside the final manuscript, limiting the reader’s ability to attempt replication.</p>
+<p>Without access to the source codes for the papers, reproducibility has been shown to be elusive, according to two other studies in <a class="reference external" href="https://academic.oup.com/bib/article/12/3/288/258098">Briefings in Bioinformatics</a> and <a class="reference external" href="https://www.nature.com/articles/nphys3313">Nature Physics</a>.</p>
+</section>
+<section id="combating-the-reproducibility-crisis">
+<h3>Combating the Reproducibility Crisis<a class="headerlink" href="#combating-the-reproducibility-crisis" title="Permalink to this heading">#</a></h3>
+<p>If your research workflow uses principles of open results, as showcased in the example, this will help you to combat the reproducibility crisis.</p>
+<p>We can create reproducible workﬂows and combat this crisis by considering open results at each stage of the research lifecycle. An Open Science and Data Management Plan (OSDMP) helps researchers think and plan for all aspects of sharing by determining how they will make software and data available. This plan can be shared publicly early on through a practice called pre-registering, where researchers determine their analysis plan and data collection procedure before a study begins (discussed previously in Lesson 2 of Module 2).</p>
+</section>
+<section id="activity-1-1-what-could-you-do">
+<h3>Activity 1.1: What Could You Do?<a class="headerlink" href="#activity-1-1-what-could-you-do" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image211.png" src="../../../../_images/image211.png" />
+<p>Let’s rethink your research workflow. Identify the research objects that could be (or could have been) shared as open results of a project you are/were involved in. What are high priority items for combatting the reproducibility crisis in each area of the research workflow?</p>
+<ul class="simple">
+<li><p>Ideation</p></li>
+<li><p>Planning</p></li>
+<li><p>Project Design</p></li>
+<li><p>Engagement &amp; Training</p></li>
+<li><p>Data Collection</p></li>
+<li><p>Data Wrangling</p></li>
+<li><p>Data Exploration</p></li>
+<li><p>Preservation</p></li>
+<li><p>Reporting &amp; Publication</p></li>
+</ul>
+<p><strong>There are many personal advantages of implementing open science principles across all stages of a research process</strong></p>
+<img alt="../../../../_images/image23.jpeg" src="../../../../_images/image23.jpeg" />
+<section id="key-takeaways-what-could-you-do">
+<h4>Key Takeaways: What Could You Do?<a class="headerlink" href="#key-takeaways-what-could-you-do" title="Permalink to this heading">#</a></h4>
+<p>The OpenSciency team created a large table that describes all the different kinds of shareable research objects that are possible to create throughout the research lifecycle.</p>
+<p><strong>A full table is available here</strong></p>
+<p><a class="reference external" href="https://opensciency.github.io/sprint-content/open-results/lesson1-research-process-and-results.html#research-stages-and-open-result-table">CLICK TO LEARN</a></p>
+<p>Thinking about sharing everything all at once can be overwhelming when you are getting started. To move forward, just focus on how you might pick the most important item. Here we have pared down the list to only a couple items per category. Furthermore, you could think about shortening the list even further when you are getting started. For example, maybe it is the case that, for your work, sharing the code used to wrangle the data is the most critical element to reproducibility. Therefore, code-sharing would be a good place to start your open science journey. The small steps we make are what move us towards sustainable open science.</p>
+<ul class="simple">
+<li><p><strong>Ideation:</strong> Proposals can be shared on Zenodo and open grant platforms such as <a class="reference external" href="https://www.ogrants.org/">ogrants.org</a>.</p></li>
+<li><p><strong>Planning:</strong> Projects can be pre-registered before they begin.</p></li>
+<li><p><strong>Project Design:</strong> Contributor guidelines or a code of conduct can be posted on Zenodo, GitHub, or team Web Pages.</p></li>
+<li><p><strong>Engagement &amp; Training:</strong> Workflow computational notebooks can be shared with the team via GitHub and released on Zenodo.</p></li>
+<li><p><strong>Data Collection:</strong> Raw data can be shared through data repositories.</p></li>
+<li><p><strong>Data Wrangling:</strong> Code can be shared through software repositories.</p></li>
+<li><p><strong>Data Exploration:</strong> Computational notebooks can be shared via GitHub and released on Zenodo.</p></li>
+<li><p><strong>Preservation:</strong> Data management plans for archiving can be posted on Zenodo.</p></li>
+<li><p><strong>Reporting &amp; Publication:</strong></p>
+<ul>
+<li><p>Open access peer-reviewed articles</p></li>
+<li><p>Computational notebooks</p></li>
+<li><p>Code of conduct, contributor guidelines, publication policies</p></li>
+<li><p>Blog posts</p></li>
+<li><p>Short form videos and podcasts</p></li>
+<li><p>Social media posts</p></li>
+<li><p>Conference abstracts, posters, and presentations (when made openly available)</p></li>
+<li><p>Forum discussions</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="lesson-1-summary">
+<h2>Lesson 1: Summary<a class="headerlink" href="#lesson-1-summary" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you learned that:</p>
+<ul class="simple">
+<li><p>The contemporary scientific workflow involves being open about processes and products. Research products (results) include far more than just the final manuscript, which is a drastic change from the historical notion of a scientific result.</p></li>
+<li><p>At every stage of the research lifecycle, there are research objects produced that we can consider results.</p></li>
+<li><p>We can combat the reproducibility crisis by sharing these research objects at each stage of our research workflow.</p></li>
+<li><p>There are amazing examples of research groups sharing different types of open results!</p></li>
+</ul>
+<p>Let’s start thinking about what we can do immediately to work towards an open research workflow.</p>
+</section>
+<section id="lesson-1-knowledge-check">
+<h2>Lesson 1: Knowledge Check<a class="headerlink" href="#lesson-1-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/02</strong></p>
+<p>Which of the following may fit the definition of a “research object”?</p>
+<ul class="simple">
+<li><p>Raw data</p></li>
+<li><p>Blog</p></li>
+<li><p>Proposal</p></li>
+<li><p>Code of Conduct</p></li>
+<li><p>All of the above</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/02</strong></p>
+<p>What are some of the key causes of the reproducibility crisis?</p>
+<ul class="simple">
+<li><p>Intermediate methods of research are often described informally or not at all.</p></li>
+<li><p>Intermediate data are often omitted entirely.</p></li>
+<li><p>We often only think about results at the time of publication.</p></li>
+<li><p>All of the above</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_5/Lesson_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">OS101 Module 5: Open Results</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_2/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 2: Using Open Results</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-research-objects-are-created-throughout-the-research-cycle">What Research Objects are Created Throughout the Research Cycle?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-traditional-depiction-of-a-scientific-result-has-changed-over-time">The Traditional Depiction of a “Scientiﬁc Result” Has Changed Over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#but-results-have-always-been-far-more-than-just-the-publication">But Results Have Always Been Far More Than Just the Publication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-practice-of-open">The Practice of ‘Open’</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-open-results">Examples of Open Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reaching-new-audiences">Reaching New Audiences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-media-for-science-products">New Media for Science Products</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-products-for-increasing-impact">New Products for Increasing Impact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-visualizations-to-share-results">New Visualizations to Share Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jwst-case-study-reporting-and-publication">JWST Case Study: Reporting and Publication</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-reproducibility-crisis">What is the Reproducibility Crisis?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-cause-of-this-reproducibility-crisis">What is the Cause of This Reproducibility Crisis?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combating-the-reproducibility-crisis">Combating the Reproducibility Crisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-1-what-could-you-do">Activity 1.1: What Could You Do?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-what-could-you-do">Key Takeaways: What Could You Do?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-summary">Lesson 1: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,888 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 5: From Theory to Practice &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_5/Lesson_5/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="License" href="../../../../docs/license.html" />
+    <link rel="prev" title="Lesson 4: Sharing Open Results" href="../Lesson_4/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_5/Lesson_5/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_5/Lesson_5/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 5: From Theory to Practice</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-an-osdmp-what-to-include-in-the-osdmp-for-sharing-results-openly">Writing an OSDMP: What to Include in the OSDMP for Sharing Results Openly</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-5-1-pen-to-paper">Activity 5.1: Pen to Paper</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-steps-toward-more-open-results">Example Steps Toward More Open Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-emerging-technology-like-ai-is-changing-how-we-do-science">How Emerging Technology Like AI is Changing How We Do Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ai">Using AI:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-with-ai">Making with AI:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-with-ai">Sharing with AI:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cautions-about-use-of-ai-tools">Cautions About Use of AI Tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-summary">Lesson 5: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-results-summary">Open Results Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-toward-an-open-collaborative-and-inclusive-scientific-future">Moving Toward an Open, Collaborative, and Inclusive Scientiﬁc Future</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-101-summary">Open Science 101 Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more-about-and-engage-with-tops">Learn more about and engage with TOPS!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more-through-online-courses">Learn more through online courses:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-your-coding-and-data-science-skills-to-the-next-level">Take your coding and data science skills to the next level!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-online-guides-and-learn-about-ongoing-open-science-community-initiatives">Read online guides and learn about ongoing open science community initiatives:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-5-from-theory-to-practice">
+<h1>Lesson 5: From Theory to Practice<a class="headerlink" href="#lesson-5-from-theory-to-practice" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#writing-an-osdmp-what-to-include-in-the-osdmp-for-sharing-results-openly">Writing an OSDMP: What to Include in the OSDMP for Sharing Results Openly</a></p></li>
+<li><p><a href="#example-steps-toward-more-open-results">Example Steps Toward More Open Results</a></p></li>
+<li><p><a href="#how-emerging-technology-like-ai-is-changing-how-we-do-science">How Emerging Technology Like AI is Changing How We Do Science</a></p></li>
+<li><p><a href="#lesson-5-summary">Lesson 5: Summary</a></p></li>
+<li><p><a href="#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></p></li>
+<li><p><a href="#open-results-summary">Open Results Summary</a></p></li>
+<li><p><a href="#open-science-101-summary">Open Science 101 Summary</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>In the previous lessons, we learned about various ways to share our science, and what steps we should think about when sharing. In this lesson, we tie the concepts from previous lessons together with some specific guidance for writing the Sharing Results section of an Open Science and Data Management Plans (OSDMP). We will also reflect on how our society and technology constantly evolve, as does the way we do science. A new technology with the potential to radically alter the way we do and share science is artificial intelligence (AI), particularly when it comes to language learning models. These AI tools are already changing how we interact with written text. In this lesson, we discuss some of the ways that AI is and will affect how we do and share our science.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>List what to include in an OSDMP for sharing results openly.</p></li>
+<li><p>List some concrete steps toward sharing results openly.</p></li>
+<li><p>Describe how emerging technology like AI is currently impacting how we use, make, and share our science.</p></li>
+</ul>
+</section>
+<section id="writing-an-osdmp-what-to-include-in-the-osdmp-for-sharing-results-openly">
+<h2>Writing an OSDMP: What to Include in the OSDMP for Sharing Results Openly<a class="headerlink" href="#writing-an-osdmp-what-to-include-in-the-osdmp-for-sharing-results-openly" title="Permalink to this heading">#</a></h2>
+<p>The process within an Open Science and Data Management Plans (OSDMP) to share data and software is covered in other modules, so here we will discuss how to share the other type of research outputs. Most proposals require that you include plans for publications such as peer reviewed manuscripts, technical reports, books, and conference materials.</p>
+<p>Though not required, it can be a good idea to include plans for making your results publicly accessible in ways other than traditional publishing, e.g. online blog posts, tutorials, or other materials. After all, writing an OSDMP is often required for funding requests, and this can be a way to show proposal reviewers that you are thinking about how to best share your science.</p>
+<section id="activity-5-1-pen-to-paper">
+<h3>Activity 5.1: Pen to Paper<a class="headerlink" href="#activity-5-1-pen-to-paper" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image211.png" src="../../../../_images/image211.png" />
+<p>Write a sample results section of an OSDMP that details how you would plan to make your results open. Think about an example from your research and what details you would need to include to convince reviewers that you will share open access results.</p>
+<p><strong>Example 1:</strong> This activity will result in 2 peer-reviewed publications that will be published green open- access. Pre-prints will be archived in PubSpace.</p>
+<p><strong>Example 2:</strong> This activity will result in the creation of computational notebooks, 4 conference abstracts and posters, 2 peer reviewed manuscripts, and 2 online plain-language articles, summarizing our results. Peer-reviewed publications will be published green open-access and pre-prints will be archived in PubSpace or the journals open-access preprint server. All other materials will be archived at Zenodo, assigned a DOI, and assigned a CC-BY license or permissive software license.</p>
+<p>For these examples, what other information or details could be added? If you were planning to write a tutorial about your science, what would you include?</p>
+</section>
+</section>
+<section id="example-steps-toward-more-open-results">
+<h2>Example Steps Toward More Open Results<a class="headerlink" href="#example-steps-toward-more-open-results" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.nasa.gov/news-release/nasa-announces-summer-2023-hottest-on-record/"><strong>NASA Announces Summer 2023 Hottest on Record</strong></a></p>
+<img alt="../../../../_images/image75.jpeg" src="../../../../_images/image75.jpeg" />
+<p>Image credit: NASA Earth Observatory/Lauren Dauphin.</p>
+<hr class="docutils" />
+<p>When results and research objects are published openly, anyone can reproduce the scientific result. For topics like climate change, the transparency of results helps reduce misinformation and increases public trust in results.</p>
+<p>Here is a GitHub <a class="reference external" href="https://github.com/jmunroe/OpenScienceExample_GISTEMPv4/tree/main">repository</a> with an example of a <a class="reference external" href="https://gist.github.com/jmunroe/74a1eda18d1473040ed91f2a1f02b1b5">result</a> made available as open access. This visualization is not perfect but provides a snapshot of a work in progress that can be shared with the community for feedback and refinement. This could be further refined, or perhaps serve as the start of a new effort that will extend the initial results. The results are more accessible, inclusive, and reproducible by being published openly.</p>
+<p>There are lots of ways that open science can extend the span or scope of projects. Here are some steps you can take to share your open results in a way that makes your work more usable, reproducible, and inclusive:</p>
+<ul class="simple">
+<li><p>Add a Code of Conduct via the CODE_OF_CONDUCT file and link to other policies that apply to your work.</p></li>
+<li><p>Add contributors and authorship guidelines via a CONTRIBUTING file.</p></li>
+<li><p>Add your collaborators and team members’ names with their permission.</p></li>
+<li><p>Add your proposal but remove any sensitive information.</p></li>
+<li><p>Create a preliminary roadmap and what goals the project is trying to achieve.</p></li>
+<li><p>Create a project management, code and data folders where you can upload appropriate information as your project develops.</p></li>
+<li><p>Create a resource list that your project requires.</p></li>
+<li><p>Provide links to training materials that your collaborators and contributors may benefit from.</p></li>
+<li><p>Use issues and project boards to communicate what is happening in the project.</p></li>
+<li><p>Use Pull Request to invite reviews to new development of code and content.</p></li>
+<li><p>Add user manual and executable notebooks to allow code testing.</p></li>
+<li><p>Create and share executable notebooks that document how data is processed and the result obtained.</p></li>
+<li><p>Create tutorials or short form videos demonstrating how a step in your research workflow was accomplished.</p></li>
+<li><p>Write a blog post about your experience wrestling with a particular research challenge and how you solved it.</p></li>
+<li><p>Contribute to documentation to improve the open-source tools based on your own experience.</p></li>
+<li><p>Connect your repository to Binder to allow online testing of your code and executable notebooks.</p></li>
+<li><p>Link all the outputs that are generated outside this repository (like blog, video, forum post and podcast among others as discussed above).</p></li>
+<li><p>Some advanced steps that should be applied as the project develops include continuous integration, containerisation, Citation CFF file and the creation of a simple web page to link all information.</p></li>
+</ul>
+</section>
+<section id="how-emerging-technology-like-ai-is-changing-how-we-do-science">
+<h2>How Emerging Technology Like AI is Changing How We Do Science<a class="headerlink" href="#how-emerging-technology-like-ai-is-changing-how-we-do-science" title="Permalink to this heading">#</a></h2>
+<p>Throughout these modules, the internet has been identified as a fundamental disruptive technology that changed how almost all of science is accomplished. Scientists rarely go to libraries to read the latest journal articles. Data is no longer mailed around the world on tape drives. Software isn’t shared via floppy disks. The internet helped create the modern scientific workflow and made science more interactive and accessible. Now AI tools are starting to disrupt science in a similar manner. AI is not only revolutionizing many aspects of our lives, it is also changing how we do science. As companies race to create and integrate new generative AI tools into every aspect of our lives, many scientists, institutions, journal publishers, and agencies are looking to see how to use these tools effectively, understand their reliability, accuracy, biases, and how to also use these cutting edge tools ethically. An additional concern is how any information shared with AI tools may be used to intentionally or unintentionally disclose confidential data, leading to privacy concerns.</p>
+<p>AI can help us use and share research. It can act as an accelerant, taking care of tedious tasks while leaving scientits free for more creative thought. These tools are better than humans at processing vast amounts of data, but humans are better at creative and nuanced thought. This is important to consider when determining whether or not to use AI. As an example, many people already use AI tools to help with their inbox management and writing emails with AI generated suggested content. Within science, there are many potential tasks that could potentially be expedited using AI, according to three studies published in Nature:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nature.com/articles/d41586-023-01273-w">AI science search engines are exploding in number — are they any good?</a></p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/d41586-018-06617-5">How AI technology can tame the scientific literature</a></p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/d41586-023-02980-0">AI and science: what 1,600 researchers think</a></p></li>
+</ul>
+<section id="using-ai">
+<h3>Using AI:<a class="headerlink" href="#using-ai" title="Permalink to this heading">#</a></h3>
+<table>
+  <thead>
+    <tr>
+        <th>LITERATURE REVIEWS &#9745;</th>
+        <th>SEARCHING FOR RELEVANT DATASETS AND SOFTWARE TOOLS</th>
+        <th>LANGUAGE BARRIERS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>The ever-increasing volume of scientific literature has made it challenging for researchers to stay abreast of recent articles and find relevant older ones. AI tools can be used to create personalized recommendations for relevant articles as well as create summaries of them in various formats. Some examples of these tools include <a href="https://scisummary.com/dashboard">SciSummary</a>, <a href="https://www.summarizebot.com/">SummarizeBot</a>, <a href="https://www.scholarcy.com/">Scholarcy</a>, <a href="https://www.paperdigest.org/">Paper Digest</a>, <a href="https://www.scilynk.com/">Lynx AI</a>, <a href="https://www.tldrthis.com/">TLDR This.</a></p>
+            <p>Possible drawbacks when using these tools include:</p>
+            <ul>
+                <li>Potential introduction of biases</li>
+                <li>Insufficient contextual understanding or interpretation</li>
+                <li>Possible inability to handle complex technical language</li>
+                <li>Incorrectly identifying key points</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>LITERATURE REVIEWS</th>
+        <th>SEARCHING FOR RELEVANT DATASETS AND SOFTWARE TOOLS &#9745;</th>
+        <th>LANGUAGE BARRIERS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>AI tools can be used to discover different datasets that may be relevant to a scientific query and recommend relevant software libraries.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>LITERATURE REVIEWS</th>
+        <th>SEARCHING FOR RELEVANT DATASETS AND SOFTWARE TOOLS</th>
+        <th>LANGUAGE BARRIERS &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>AI tools can be used to create automatic translations into different languages. Several of the tools above also offer translation.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="making-with-ai">
+<h3>Making with AI:<a class="headerlink" href="#making-with-ai" title="Permalink to this heading">#</a></h3>
+<table>
+  <thead>
+    <tr>
+        <th>CODE &#9745;</th>
+        <th>RESULTS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <p>AI tools can be used to generate code to perform analysis tasks and translate between programming languages. Some examples of these tools include <a href="https://github.com/features/copilot">Co-Pilot</a>, <a href="https://openai.com/blog/openai-codex">Codex</a>, <a href="https://chat.openai.com/auth/login">ChatGPT</a>, and <a href="https://alphacode.deepmind.com/">AlphaCode</a>.</p>
+            <p><strong>Usage tip:</strong> Popular large language models can be used to generate code, but it has been noted by many that breaking down tasks and using careful prompts helps generate better results.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>CODE</th>
+        <th>RESULTS &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <p>AI tools can be used to generate text, summarize background materials, develop key points, develop images and figures, and conclusions. Using these tools may help non-native speakers communicate science in different languages more clearly. Additionally, they could be helpful to develop plain-language summaries, blog posts, and social media posts.</p>
+            <p>Some possible drawbacks when using these tools:</p>
+            <ul>
+            <li>See the list above for a literature review.</li>
+            <li>Factual and commonsense reasoning mistakes because they do not (at this time) have the type of cognition or perception needed to understand language and its relationship to the external physical, biological, and social world (cite: <a href="https://www.tandfonline.com/doi/full/10.1080/08989621.2023.2168535">https://www.tandfonline.com/doi/full/10.1080/08989621.2023.2168535)</a>.</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="sharing-with-ai">
+<h3>Sharing with AI:<a class="headerlink" href="#sharing-with-ai" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Results - AI/ML models are increasingly being used in research. When sharing results, follow best practices as outlined in the <a class="reference external" href="https://essopenarchive.org/users/536571/articles/635008-ethical-and-responsible-use-of-ai-ml-in-the-earth-space-and-environmental-sciences">Ethical and Responsible Use of AI/ML in the Earth, Space, and Environmental Sciences</a> article.</p></li>
+<li><p>Incremental prompting can help create an outline for your research article. An example can be found on <a class="reference external" href="https://twitter.com/MushtaqBilalPhD/status/1640243808851075072?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1640243808851075072%7Ctwgr%5E86f4269a3a6f05f7927bdb57e4f45654f827dc44%7Ctwcon%5Es1_&amp;ref_url=https%3A%2F%2Fwww.euronews.com%2Fnext%2F2023%2F08%2F07%2Fbest-ai-tools-academic-research-chatgpt-consensus-chatpdf-elicit-research-rabbit-scite">X</a>.</p></li>
+<li><p>AI tools can help identify where to share results and help write social media or other short posts based on your article.</p></li>
+</ul>
+</section>
+<section id="cautions-about-use-of-ai-tools">
+<h3>Cautions About Use of AI Tools<a class="headerlink" href="#cautions-about-use-of-ai-tools" title="Permalink to this heading">#</a></h3>
+<p>Journals are increasingly implementing guidelines and requirements concerning the usage of AI tools during the writing process. Many require that the use of AI tools for writing, images creation, or other elements must be disclosed and their method of use identified. As is the case with all other material within an article, authors are fully responsible for ensuring that content is correct. Examples of this policy can be read in the AI guidelines of <a class="reference external" href="https://www.nature.com/nature-portfolio/editorial-policies/ai">Nature</a> and <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10318315/">NCBI</a>.</p>
+<p>Furthermore, there are numerous examples of generative AI (for both code and content) delivering plagiarized information in violation of licenses, as well as fabricateding material including citations. Using these AI tools may lead to findings of academic and research misconduct should fabrication, falsification or plagiarism be contained within AI generated materials. So BE CAREFUL. Learn more about possible issues with AI in a <a class="reference external" href="https://www.nature.com/nature-index/news/artificial-intelligence-writing-tools-promise-faster-manuscripts-for-researchers">Nature example</a> here.</p>
+<p>At this time, and for these reasons, AI tools are generally not allowed in grant applications or in peer- review or proposal review activities.</p>
+<p>The National Institutes of Health (NIH) has prohibited “scientific peer reviewers from using natural language processors, large language models, or other generative Artificial Intelligence (AI) technologies for analyzing and formulating peer review critiques for grant applications and R&amp;D contract proposals.” Utilizing AI in the peer review process is a breach of confidentiality because these tools “have no guarantee of where data is being sent, saved, viewed or used in the future.” Using AI tools to help draft a critique or to assist with improving the grammar and syntax of a critique draft are both considered breaches of confidentiality. Read <a class="reference external" href="https://grants.nih.gov/grants/guide/notice-files/NOT-OD-23-149.html">NIH’s AI policy</a> here.</p>
+<p>AI tools for science are developing rapidly. The science community’s understanding of how to ethically and safely use AI is just developing as its use in research expands rapidly. The guidelines above offer a snapshot in time and will likely continue to evolve. If you choose to use these tools for scientific research, carefully consider how much to rely on them and how their biases may impact results, as cautioned in <a class="reference external" href="https://www.nature.com/articles/d41586-023-02980-0">this Nature article</a>. The internet has transformed the world and AI tools are likely to do the same. As with any tool, it is important they are used for the appropriate purpose and in an ethical manner.</p>
+</section>
+</section>
+<section id="lesson-5-summary">
+<h2>Lesson 5: Summary<a class="headerlink" href="#lesson-5-summary" title="Permalink to this heading">#</a></h2>
+<p>The steps that we highlight to make your research more reproducible and open will advance science and the impact of your research. In fact, the steps we have highlighted are things we can do immediately to ensure we make open and reproducible results.</p>
+<p>In this lesson, you learned:</p>
+<ul class="simple">
+<li><p>How to include open results in the OSDMP.</p></li>
+<li><p>An example of how results can be shared openly.</p></li>
+<li><p>That developing AI tools are being used in all parts of the scientific workflow, they are changing rapidly, and there are still many open questions about how and when to use them.</p></li>
+</ul>
+</section>
+<section id="lesson-5-knowledge-check">
+<h2>Lesson 5: Knowledge Check<a class="headerlink" href="#lesson-5-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/03</strong></p>
+<p>Read the statement below and decide whether it’s true or false.</p>
+<p><em>It is a good idea to include plans in your OSDMP for making your results available in ways outside of traditional publishing, e.g. online blog posts or tutorials.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/03</strong></p>
+<p>Which of the following aspects of AI are considered as benefits? Select all that apply.</p>
+<ul class="simple">
+<li><p>Personalized journal article recommendations based on your discipline and interests</p></li>
+<li><p>Recommendations for data and software relevant to your science project</p></li>
+<li><p>Potential introduction of bias</p></li>
+<li><p>Factual mistakes</p></li>
+<li><p>Translation between languages</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/03</strong></p>
+<p>Which of the following are steps you can take to share your open results online? Let’s assume that, like the activity, you are sharing an interactive visualization.</p>
+<ul class="simple">
+<li><p>Host your project in a public GitHub repository</p></li>
+<li><p>Assign an open license</p></li>
+<li><p>Add a code of conduct to the GitHub repository</p></li>
+<li><p>Add a user manual</p></li>
+<li><p>Release your project on public repositories that assign DOIs</p></li>
+<li><p>All of the above</p></li>
+</ul>
+</section>
+<section id="open-results-summary">
+<h2>Open Results Summary<a class="headerlink" href="#open-results-summary" title="Permalink to this heading">#</a></h2>
+<section id="moving-toward-an-open-collaborative-and-inclusive-scientific-future">
+<h3>Moving Toward an Open, Collaborative, and Inclusive Scientiﬁc Future<a class="headerlink" href="#moving-toward-an-open-collaborative-and-inclusive-scientific-future" title="Permalink to this heading">#</a></h3>
+<p>Science is meant to benefit society. Sharing our science helps ensure that it benefits society and informs the decisions of the public and policymakers, especially when funded by public agencies or governments. Going back to the ‘Ethos of Open Science’ module:</p>
+<img alt="../../../../_images/opensciencequote.jpg" src="../../../../_images/opensciencequote.jpg" />
+<p>“Open Science is the principle and practice of making research products and
+processes available to all, while respecting diverse cultures, maintaining security and privacy, and fostering collaborations, reproducibility, and equity”</p>
+<p><strong>https://open.science.gov/</strong></p>
+<hr class="docutils" />
+<p>Throughout this curriculum, we have focused on skills needed to make research products and processes available to all. The traditional practice of only sharing results limits insight into how science is done and may act to limit who can participate in science. By sharing your scientific process and working openly, you advance all of science in a more rapid and inclusive way. This curriculum will continue to evolve as science evolves and we welcome your contributions!</p>
+<p><strong>Learn more about NASA’s transformation to open science and join conversations following the link.</strong></p>
+<p><a class="reference external" href="https://nasa.github.io/Transform-to-Open-Science/">CLICK TO LEARN</a></p>
+</section>
+</section>
+<section id="open-science-101-summary">
+<h2>Open Science 101 Summary<a class="headerlink" href="#open-science-101-summary" title="Permalink to this heading">#</a></h2>
+<p>Congratulations! You have successfully completed Open Science 101! Thank you for taking the time to learn about open science - you are part of a broader movement to improve science and make our world better!</p>
+<p>Ready to learn more? Here are some great next steps:</p>
+<section id="learn-more-about-and-engage-with-tops">
+<h3>Learn more about and engage with TOPS!<a class="headerlink" href="#learn-more-about-and-engage-with-tops" title="Permalink to this heading">#</a></h3>
+<p><strong>TOPS website</strong></p>
+<p><a class="reference external" href="https://nasa.github.io/Transform-to-Open-Science/">CLICK TO LEARN</a></p>
+<p><strong>TOPS GitHub Discussion Forum</strong></p>
+<p><a class="reference external" href="https://github.com/nasa/Transform-to-Open-Science/discussions">CLICK TO LEARN</a></p>
+</section>
+<section id="learn-more-through-online-courses">
+<h3>Learn more through online courses:<a class="headerlink" href="#learn-more-through-online-courses" title="Permalink to this heading">#</a></h3>
+<p><strong>OpenSciency</strong></p>
+<p><a class="reference external" href="https://opensciency.github.io/sprint-content/">CLICK TO LEARN</a></p>
+<p><strong>Open Science MOOC</strong></p>
+<p><a class="reference external" href="https://opensciencemooc.eu/">CLICK TO LEARN</a></p>
+</section>
+<section id="take-your-coding-and-data-science-skills-to-the-next-level">
+<h3>Take your coding and data science skills to the next level!<a class="headerlink" href="#take-your-coding-and-data-science-skills-to-the-next-level" title="Permalink to this heading">#</a></h3>
+<p><strong>Carpentries</strong></p>
+<p><a class="reference external" href="https://carpentries.org/">CLICK TO LEARN</a></p>
+</section>
+<section id="read-online-guides-and-learn-about-ongoing-open-science-community-initiatives">
+<h3>Read online guides and learn about ongoing open science community initiatives:<a class="headerlink" href="#read-online-guides-and-learn-about-ongoing-open-science-community-initiatives" title="Permalink to this heading">#</a></h3>
+<p><strong>The Turing Way</strong></p>
+<p><a class="reference external" href="https://the-turing-way.netlify.app/index.html">CLICK TO LEARN</a></p>
+<p><strong>Center for Open Science</strong></p>
+<p><a class="reference external" href="https://www.cos.io/">CLICK TO LEARN</a></p>
+<p><strong>Open Science NL</strong></p>
+<p><a class="reference external" href="https://www.openscience.nl/en">CLICK TO LEARN</a></p>
+<p>These are just a start - there are a lot more fantastic open science resources online! Keep your eye out for discipline-specific learning content that is currently being developed by NASA ScienceCore grantees, and that will be linked here once available!</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_5/Lesson_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_4/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 4: Sharing Open Results</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../../docs/license.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">License</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-an-osdmp-what-to-include-in-the-osdmp-for-sharing-results-openly">Writing an OSDMP: What to Include in the OSDMP for Sharing Results Openly</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-5-1-pen-to-paper">Activity 5.1: Pen to Paper</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-steps-toward-more-open-results">Example Steps Toward More Open Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-emerging-technology-like-ai-is-changing-how-we-do-science">How Emerging Technology Like AI is Changing How We Do Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ai">Using AI:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-with-ai">Making with AI:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-with-ai">Sharing with AI:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cautions-about-use-of-ai-tools">Cautions About Use of AI Tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-summary">Lesson 5: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-results-summary">Open Results Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-toward-an-open-collaborative-and-inclusive-scientific-future">Moving Toward an Open, Collaborative, and Inclusive Scientiﬁc Future</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-101-summary">Open Science 101 Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more-about-and-engage-with-tops">Learn more about and engage with TOPS!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more-through-online-courses">Learn more through online courses:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#take-your-coding-and-data-science-skills-to-the-next-level">Take your coding and data science skills to the next level!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-online-guides-and-learn-about-ongoing-open-science-community-initiatives">Read online guides and learn about ongoing open science community initiatives:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

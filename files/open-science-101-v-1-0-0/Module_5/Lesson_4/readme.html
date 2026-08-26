@@ -1,0 +1,965 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 4: Sharing Open Results &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_5/Lesson_4/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 5: From Theory to Practice" href="../Lesson_5/readme.html" />
+    <link rel="prev" title="Lesson 3: Making Open Results" href="../Lesson_3/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_5/Lesson_4/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_5/Lesson_4/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 4: Sharing Open Results</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-share">When to Share</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#at-workshops-and-conferences">At Workshops and Conferences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-forms-of-interactive-feedback">Other Forms of Interactive Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-reproducible-reports-and-publications">Publishing Reproducible Reports and Publications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-1-read-the-open-access-policies-of-publishers-that-you-use">Activity 4.1: Read the Open Access Policies of Publishers That You Use</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-key-takeaways-read-the-open-access-policies-of-publishers-that-you-use">Activity Key Takeaways: Read the Open Access Policies of Publishers That You Use</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-share">How to Share</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licenses">Licenses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#routes-for-open-access-publishing">Routes for Open Access Publishing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-preprints">Pros and Cons of Preprints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-consider-when-making-preprints">What to Consider When Making Preprints</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-considerations-when-sharing">Other Considerations When Sharing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#who-is-sharing">Who is Sharing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predatory-publishers">Predatory Publishers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-questions-about-sharing-results">Common Questions About Sharing Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-summary">Lesson 4: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-4-sharing-open-results">
+<h1>Lesson 4: Sharing Open Results<a class="headerlink" href="#lesson-4-sharing-open-results" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#when-to-share">When to Share</a></p></li>
+<li><p><a href="#how-to-share">How to Share</a></p></li>
+<li><p><a href="#other-considerations-when-sharing">Other Considerations When Sharing</a></p></li>
+<li><p><a href="#lesson-4-summary">Lesson 4: Summary</a></p></li>
+<li><p><a href="#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>In lesson 3 you learned about how to make reproducible results. Now, we can finally think about how to best share those results. In this lesson we will place emphasis on publishing manuscripts as open access. You will learn what subtleties to consider when determining what journal to publish in, including how to make sense of a journal’s policies on self-archiving. Finally, we discuss some commonly held concerns about sharing open access publications, and how to overcome them. Ultimately, we want to ensure that you have confidence in your decision to publish as open access.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>List ways that you can share open results to become a more collaborative, effective, scientist.</p></li>
+<li><p>List different types of open access publications and considerations when sharing like licenses.</p></li>
+<li><p>List some of the concerns around open access publishing, including responsibilities for authors, the threat of predatory publishers, and the fear of being wrong.</p></li>
+</ul>
+</section>
+<section id="when-to-share">
+<h2>When to Share<a class="headerlink" href="#when-to-share" title="Permalink to this heading">#</a></h2>
+<img alt="../../../../_images/image7.jpeg" src="../../../../_images/image7.jpeg" />
+<p>Part of doing open science is enabling collaborative, interactive results. Sharing different types of research objects earlier in your research process helps increase visibility to your work and accelerates your efforts by drawing from the collective knowledge of others. The internet has fundamentally changed the timing of and manner in which scientists communicate results.</p>
+<p>Planning to share your intermediate results at the beginning of your project makes sharing final results easier. The figure above illustrates many of the different objects that can be shared before the ‘final’ report or publication. Sharing and talking about your research as you are doing it, as well as engaging with other scientists, will increase the robustness of your work.</p>
+<p>Ask questions. Share what you are working on. You will find that many involved in the scientific community want to help. The more you engage, the larger the audience and the more impact you will have when that ‘final’ publication is published.</p>
+<p>In the past few decades, scientists have made new connections and sought collaborators through letters and at conferences. However, this way of doing science tended to restrict who could participate. Today, most of these discussions take place on the internet, which has enabled new avenues for participatory science, open to all.</p>
+<p>The platforms where you share research depends on what you want to share. Reference the figure above and think about where you might share different types of information. How will this influence who you have an ability to engage with?</p>
+<p>Let’s start with sharing in smaller groups (workshops and conferences) and move to larger audiences. There are distinct reasons for communicating results to different sizes of groups, as explored in the following sections.</p>
+<section id="at-workshops-and-conferences">
+<h3>At Workshops and Conferences<a class="headerlink" href="#at-workshops-and-conferences" title="Permalink to this heading">#</a></h3>
+<p>Many of us attend scientific conferences, workshops, and other gatherings to discuss our science with peers. The costs associated with attendance and travel to these events may limit who has access to the material presented there. At these events, scientists often give talks or present posters that are not yet peer reviewed to invite feedback from the community and potentially recruit collaborators. These interactions are important for improving research projects, and are often done when a project is still ongoing so that researchers can gather feedback early in their scientific process.</p>
+<p>It is important to think about what audience you will be reaching at an event. Conferences have different policies about open access to materials presented at an event. Consider what you are sharing and who you want to share it with. For example, not all events provide long-term open access to workshop materials after the event. If you want to reach a larger audience or preserve the materials long-term, as a scientist, you have options to license and publish presented materials yourself (for example using Zenodo with a DOI) if an event doesn’t do so.</p>
+</section>
+<section id="other-forms-of-interactive-feedback">
+<h3>Other Forms of Interactive Feedback<a class="headerlink" href="#other-forms-of-interactive-feedback" title="Permalink to this heading">#</a></h3>
+<p>Other forms of sharing can serve a similar purpose to share and document your results and/or software packages, and also allow for additional flexibility and openness! There are a number of additional resources that you can use</p>
+<ul class="simple">
+<li><p>Blog posts and online articles</p></li>
+<li><p>Short form videos and podcasts</p></li>
+<li><p>Computational notebooks</p></li>
+<li><p>Social media posts</p></li>
+<li><p>Forum discussions</p></li>
+</ul>
+<p>These different pathways allow for the dissemination of null results, intermediate science updates and/or software improvements. These alternative ways of sharing your work can benefit your research by facilitating extended dialogue between you and collaborators, and even the general public. Additionally, the public has easier access to these forms than they do to conferences.</p>
+<p>Here are some specific examples of engagement across contemporary platforms for scientific collaboration:</p>
+<ul class="simple">
+<li><p>Blog posts such as the <a class="reference external" href="https://medium.com/pangeo">Pangeo blog</a> - see examples of how to use different software tools for different science questions!</p></li>
+<li><p>Computational notebooks as a way to demo software techniques (e.g. the <a class="reference external" href="https://cookbooks.projectpythia.org/">Project Pythia Cookbook Gallery</a> showcasing computational science workflows in the Earth sciences).</p></li>
+<li><p>Non-peer reviewed publications, such as <a class="reference external" href="https://journals.aas.org/research-notes/">Research Notes of the AAS</a>.</p></li>
+<li><p>Team and/or Mission Science Pages, such as the <a class="reference external" href="https://asd.gsfc.nasa.gov/luvoir/">LUVOIR team’s page</a> or the Juno <a class="reference external" href="https://www.missionjuno.swri.edu/">mission’s page.</a></p></li>
+<li><p>Conference proceedings, such as from the <a class="reference external" href="https://spie.org/publications/conference-proceedings">Society of Photo-Optical Instrumentation Engineers.</a></p></li>
+<li><p>Social media posts: <a class="reference external" href="https://twitter.com/MartianColonist/status/1706824699349488036">https://twitter.com/MartianColonist/status/1706824699349488036</a></p></li>
+</ul>
+<p><img alt="../../../../_images/image57.png" src="../../../../_images/image57.png" /> <strong>Over the course of a 3 year study, the Journal of Medical Internet Research found that highly tweeted articles were 11 times more likely to be highly cited than less tweeted articles.</strong></p>
+</section>
+<section id="publishing-reproducible-reports-and-publications">
+<h3>Publishing Reproducible Reports and Publications<a class="headerlink" href="#publishing-reproducible-reports-and-publications" title="Permalink to this heading">#</a></h3>
+<p>An open access report and paper can be reproducible when its data, software, and content are made available to the readers following best practices. There is a growing list of resources documenting how to make open results reproducible (such as <a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/reproducible-research">The Turing Way</a> and <a class="reference external" href="https://forrt.org/">FORRT</a>).</p>
+<p>There are several examples (discussed in these lessons) that demonstrate how we can integrate technical and collaborative solutions to enable reproducibility. For example, executable notebooks allow interactivity and testing, training workshops invite feedback for improvement and GitHub/GitLab enable community based open review.</p>
+<p><strong>Scholarly Journals</strong></p>
+<p>Publishing work in a peer-reviewed journal forms the traditionally written basis of how we share our science, and is important for communicating scientific detail and rigor to colleagues. Academic journals also act as a long-term archive of scientific research papers. For many scientists, publishing in peer-reviewed journals and receiving citations are key factors in how they are evaluated for career advancement, positions appointments, committee memberships, and honors.</p>
+<p>Traditionally, authors pay an Article Processing Charge (APC) that can range from $200-$12000 USD. Higher profile journals often charge higher fees to authors. Accessing articles has traditionally been restricted by pay-walls that require a subscription or charge per article. Journals have different options for making your published work accessible to various communities.</p>
+<p><strong>Who Has Access to Journal Subscriptions?</strong></p>
+<p>Paywalls limit who can access scientific research. This barrier acts to limit who can participate in science and erodes public trust in results. Part of open science is ensuring worldwide access to research.</p>
+<p><strong>Open Access Journals</strong></p>
+<p>Open access journals are peer-reviewed journals that are more accessible because they don’t require readers to have a subscription or pay to access the content. However, open access journals often require additional fees for the author. Open access peer-reviewed articles are archived by a more formal discussion of scientific ideas, interpretations, and conclusions. They form the basis of how researchers share results.</p>
+</section>
+<section id="activity-4-1-read-the-open-access-policies-of-publishers-that-you-use">
+<h3>Activity 4.1: Read the Open Access Policies of Publishers That You Use<a class="headerlink" href="#activity-4-1-read-the-open-access-policies-of-publishers-that-you-use" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image211.png" src="../../../../_images/image211.png" />
+<p>In this activity, you will learn how to access information about a journal’s data archive policies. The Directory of Open Access Journals (DOAJ) provides an extensive index of open access journals around the globe. The DOAJ can be used to look up information, including data archiving policies, for journals that publish research. Let’s open up this website and look up the policies specific to your most-used journals.</p>
+<ol class="arabic simple">
+<li><p>First, navigate to the <a class="reference external" href="https://doaj.org/">DOAJ website</a>.</p></li>
+<li><p>Type in the name of one of the following journals in the search box, and then click on the yellow “SEARCH” button.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Atmospheric and Oceanic Science Letters</p></li>
+<li><p>Swiss Journal of Geosciences</p></li>
+<li><p>History of Geo-and Space Sciences <br><br>Note: You may input any journal desired but for this exercise use one of those listed to see the Sherpa/Romeo link that is listed in Step 5.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>The search results may show more than one match. Select the desired journal within the search results by clicking on the journal name.<br><br>A dashboard appears, giving information regarding publication fees, waiver policies, the type of open license used, and other information on multiple displayed titles.</p></li>
+<li><p>Click on the “archiving policy” link appearing in one of the displayed boxes as seen here. This will provide links to extensive information regarding the journal’s open access policies for the manuscript itself: <br><img alt="../../../../_images/image59.png" src="../../../../_images/image59.png" /><br>An extensive amount of information will be presented, including details on the publishing policies specific to the selected journal.</p></li>
+<li><p>Alternatively, to get a more condensed view of the journal’s policies, return to the DOAJ dashboard on the About page with the multiple boxes displayed, and click on the “Sherpa/Romeo” link as shown here.<br><img alt="../../../../_images/image60.jpeg" src="../../../../_images/image60.jpeg" /></p></li>
+<li><p>On the Sherpa Romeo page, click on the journal name that is displayed in the list (the only journal displayed).<br><img alt="../../../../_images/image63.jpeg" src="../../../../_images/image63.jpeg" /></p></li>
+<li><p>When you view the page, you see that it consolidates and summarizes the open access policies for that journal and associated materials. The published version is likely to be the most relevant (see red box in figure).<br><img alt="../../../../_images/image64.jpeg" src="../../../../_images/image64.jpeg" /></p></li>
+<li><p>Review the page and determine which license the journal you selected has defined for reusability for manuscripts.</p></li>
+</ol>
+<section id="activity-key-takeaways-read-the-open-access-policies-of-publishers-that-you-use">
+<h4>Activity Key Takeaways: Read the Open Access Policies of Publishers That You Use<a class="headerlink" href="#activity-key-takeaways-read-the-open-access-policies-of-publishers-that-you-use" title="Permalink to this heading">#</a></h4>
+<p>This is an example of a site that you can use to determine if a journal’s policy is consistent with how you wish to publish your open access results. Journal policies should always be reviewed and considered during the early planning phase of your project and well before submitting your manuscript for publication.</p>
+</section>
+</section>
+</section>
+<section id="how-to-share">
+<h2>How to Share<a class="headerlink" href="#how-to-share" title="Permalink to this heading">#</a></h2>
+<p>Perhaps the single most important step to make your results open is to assign them a globally unique and persistent identifier. This will give you a single code, URL, or number that you can use to uniquely refer to a research object. Any derived research object can use this identifier to link to it and create a traceable and rich history of use and development. Crucially, this identifier can be used by others to cite and credit your work (<a class="reference external" href="https://opensciency.github.io/sprint-content/open-results/lesson3-apply-open-results.html">source</a>).</p>
+<p>The identifier must also be persistent. This guarantees that the identifier points to the same research object for a long period of time. What counts as “persistent” is, of course, a matter of degree since even the most stable identifier probably won’t survive the Sun engulfing the Earth in a few billion years. In this context, “persistent” implies that it is registered in a database managed by an organization or system that is committed to maintaining it as stable and backwards compatible for the foreseeable future.</p>
+<p>For example, URLs (for example, a personal website, GitHub repository, or cloud storage) are notoriously not persistent since they can change their contents frequently or become invalid without maintenance. On the other hand, Journal publications have a Digital Object Identifier (DOI) whose persistence is guaranteed by the International DOI Foundation.</p>
+<p>As well as uniquely identifying each research object, it is important to be able to uniquely identify and cite all the authors and contributors. For this, it is recommended to get the permanent digital ID of each of the authors and contributors. <a class="reference external" href="https://orcid.org/">ORCID</a> (Open Researcher and Contributor ID) is an online service where you can get a permanent digital identifier.</p>
+<p>There are examples of globally unique and persistent identifiers:</p>
+<table style="width:100%;">
+  <thead>
+    <tr>
+        <th>DIGITAL OBJECT IDENTIFIER<br>10.1371/JOURNAL.PONE.0230416 &#9745;</th>
+        <th>ISBN-13: 978-0735619678</th>
+        <th>THE INTERNET ARCHIVE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>The Digital Object Identifier is provided by the International DOI Foundation, which ensures that each ID is unique and ensures that a DOI link always links to the correct object.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table style="width:100%;">
+  <thead>
+    <tr>
+        <th>DIGITAL OBJECT IDENTIFIER<br>10.1371/JOURNAL.PONE.0230416</th>
+        <th>ISBN-13: 978-0735619678 &#9745;</th>
+        <th>THE INTERNET ARCHIVE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>This is an International Standard Book Number, which has to be purchased by publishers by the International ISBN Agency.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table style="width:100%;">
+  <thead>
+    <tr>
+        <th>DIGITAL OBJECT IDENTIFIER<br>10.1371/JOURNAL.PONE.0230416</th>
+        <th>ISBN-13: 978-0735619678</th>
+        <th>THE INTERNET ARCHIVE &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p><a href="https://web.archive.org/web/20220121051903/https://www.go-fair.org/">The Internet Archive</a> captures snapshots of websites and their links are really stable. Even if not ideal, it’s a handy tool for creating identifiers of websites easily.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<section id="licenses">
+<h3>Licenses<a class="headerlink" href="#licenses" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image67.png" src="../../../../_images/image67.png" />
+<p>By applying a license to your work, you make clear what others can do with the things you’re sharing, as well as the conditions under which you’re providing them (like the requirement to cite you). Another very important element to include with your research objects is clear rules for reuse (as is and for creating derivative work), which are often and most easily codified by the use of licenses.</p>
+<p>Without a license, all rights are with the author of the research result. That means nobody else can use, copy, distribute, or modify the work without consent. A license gives this consent. If you do not have a license for each of the research objects that constitute your research result, it is effectively unusable by the whole research community.</p>
+<p>Creative Commons licenses are usually used for written content (see Lesson 3 for a full description!). The benefit of a license, as opposed to the public domain, is that most require attribution to the original creators. The Creative Commons Attribution License, <a class="reference external" href="https://wellcome.org/grant-funding/guidance/open-access-guidance/creative-commons-attribution-licence-cc">CC-BY</a>, is the most common open access license for sharing publications as it requires attribution. There are other Creative Commons licenses used that may have different limitations on whether or not they can be commercially used, whether or not they can be modified and copied, and whether or not the licenses can be changed in further adaptations of code.</p>
+<p>Your institutions, funding agency, or research proposal may require use of a specific license depending on the type of material that you produce from your research. For public agencies, CC-0 or CC-BY are generally recommended (or required) to maximize their return on investment and ensure widest possible re-use. Choosing a CC license that has additional restrictions (eg. -ND, -SA, -NC) can result in less reuse of data. As you share results on different platforms, look carefully to see what license is being applied!</p>
+</section>
+<section id="routes-for-open-access-publishing">
+<h3>Routes for Open Access Publishing<a class="headerlink" href="#routes-for-open-access-publishing" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image68.jpeg" src="../../../../_images/image68.jpeg" />
+<p>Routes to publishing openly. The Turing Way project illustration by Scriberia. Used under a CC-BY 4.0 license. Original version on Zenodo. <a class="reference external" href="http://doi.org/10.5281/zenodo.5706310">http://doi.org/10.5281/zenodo.5706310</a></p>
+<hr class="docutils" />
+<p>The most common types of open access publishing are Green, Gold, and Diamond.</p>
+<table style="width:100%;">
+  <thead>
+    <tr>
+        <th>GOLD OPEN ACCESS PUBLISHING &#9745;</th>
+        <th>GREEN OPEN ACCESS PUBLISHING</th>
+        <th>DIAMOND OPEN ACCESS PUBLISHING</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>In Gold Open Access Publishing, authors pay an Article Processing Charge (APC) to a journal so that they publish the final version of your article under an open access license, which is then permanently and freely available online for anyone. The author will retain the copyright of their article, usually via a Creative Commons license of their choice, which dictates what others can do with the article. A criticism around gold Open Access publishing is the cost.</p>
+            <p>APCs can generally be around 2000 USD or in some cases more, which can therefore be prohibitive for authors across the globe. Some publishers offer discounts or waivers to authors from countries classified by the World Bank as low-income economies or APCs may be covered by your funder as part of your grant.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table style="width:100%;">
+  <thead>
+    <tr>
+        <th>GOLD OPEN ACCESS PUBLISHING</th>
+        <th>GREEN OPEN ACCESS PUBLISHING &#9745;</th>
+        <th>DIAMOND OPEN ACCESS PUBLISHING</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>Green Open Access is the process of self-archiving. The self-archiving movement aims to provide tools and assistance to scholars to deposit and disseminate their refereed journal articles in open institutional or subject-based repositories. You may choose to self-archive your work to make it more discoverable and/or after you’ve published it in a subscription journal to ensure there is an open version of your paper.</p>
+            <p>The Registry of Open Access Repositories contains a list of repositories that are available for researchers to self-archive. At the beginning of 2019, there were more than 4000 repositories. It is important to find yourself-archive community!</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table style="width:100%;">
+  <thead>
+    <tr>
+        <th>GOLD OPEN ACCESS PUBLISHING</th>
+        <th>GREEN OPEN ACCESS PUBLISHING</th>
+        <th>DIAMOND OPEN ACCESS PUBLISHING &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>Diamond Open Access are publications where there is neither a cost for reading the article or publishing an article. Diamond Open Access journals either have very low costs due to building on existing infrastructure and volunteer efforts, or are supported directly by foundations or institutions. For authors, Diamond Open Access publications typically allow the author to retain copyright and the final version of their article as it is published under an open access license.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="pros-and-cons-of-preprints">
+<h3>Pros and Cons of Preprints<a class="headerlink" href="#pros-and-cons-of-preprints" title="Permalink to this heading">#</a></h3>
+<p>When publishing in a peer-reviewed journal, you can decide to share a pre-print. A preprint is a version of a paper prior to its publication in a journal*. This can be the author’s version of the accepted manuscript after peer review or a version prior to submission to a journal.</p>
+<p><img alt="../../../../_images/image57.png" src="../../../../_images/image57.png" /> <strong>The accepted manuscript is the final, peer-reviewed version of the article that has been accepted for publication by a publisher. The accepted manuscript includes all changes made during the peer review process and contains the same content as the ﬁnal published article, but it does not include the publisher’s copyediting, stylistic, or formatting edits that will appear in the ﬁnal journal publication (i.e., the version of record).</strong></p>
+<p><strong>Source: https://science.nasa.gov/researchers/sara/faqs/osdmp.</strong></p>
+<p>Many journals provide preprint services. If they don’t, there are many public preprint servers available. Often the funding agency will have a preferred public preprint server.</p>
+<p>Preprints come with many advantages as well as perceived or potential disadvantages.</p>
+<table style="width:100%;">
+  <thead>
+    <tr>
+        <th>ADVANTAGES TO PUBLISHING WORK AS A PRE-PRINT &#9745;</th>
+        <th>POTENTIAL DISADVANTAGES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <ul>
+            <li>Quickly disseminate findings to communities in a timely manner.</li>
+            <li>Many field-specific preprint servers (e.g. arxiv.org, biorxiv.org, essoar.org) are free to both upload and read.</li>
+            <li>Community feedback on your work as it's being done.</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table style="width:100%;">
+  <thead>
+    <tr>
+        <th>ADVANTAGES TO PUBLISHING WORK AS A PRE-PRINT</th>
+        <th>POTENTIAL DISADVANTAGES &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <ul>
+            <li>Work may be shared with critical errors that may have been caught in peer review.</li>
+            <li>In some fields, there is a perception of lessened reliability or quality of research published as a peer print.</li>
+            <li>Some journals do not allow or accept articles if they have been submitted to a preprint server.</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="what-to-consider-when-making-preprints">
+<h3>What to Consider When Making Preprints<a class="headerlink" href="#what-to-consider-when-making-preprints" title="Permalink to this heading">#</a></h3>
+<p>When deciding to preprint your work, you will need to check:</p>
+<ol class="arabic simple">
+<li><p>The copyright policy of the journal with which you aim to publish.</p></li>
+<li><p>The version of the paper that can be deposited.</p></li>
+<li><p>When the paper is allowed to be made publicly available.</p></li>
+</ol>
+<section id="additional-reading">
+<h4>Additional Reading:<a class="headerlink" href="#additional-reading" title="Permalink to this heading">#</a></h4>
+<p>Read the <a class="reference external" href="https://pubs.aip.org/physicstoday/Online/29310/Joanne-Cohn-and-the-email-list-that-led-to-arXiv">story</a> about how Joanne Cohn’s email list for preprints led to Paul Ginsparg’s development of <a class="reference external" href="https://arxiv.org/">arXiv</a>.</p>
+</section>
+</section>
+</section>
+<section id="other-considerations-when-sharing">
+<h2>Other Considerations When Sharing<a class="headerlink" href="#other-considerations-when-sharing" title="Permalink to this heading">#</a></h2>
+<section id="who-is-sharing">
+<h3>Who is Sharing?<a class="headerlink" href="#who-is-sharing" title="Permalink to this heading">#</a></h3>
+<p>When writing an OSDMP, it’s important to include a plan for the roles and responsibilities needed to share your results. As discussed in lesson 3, your community will consist of members in different roles – some actively engaged, some with only a passing interest. Having a clear plan for sharing open results and how credit will be given will help everyone understand their contributions and roles and minimize conflict.</p>
+<p>Lesson 3 describes in detail the different roles that people may play in sharing results. This should be clearly described In the OSDMP.</p>
+</section>
+<section id="predatory-publishers">
+<h3>Predatory Publishers<a class="headerlink" href="#predatory-publishers" title="Permalink to this heading">#</a></h3>
+<p>Predatory Publishers are generally for-profit publishers that charge a publishing fee but provide few quality checks on the quality of the publication that would be expected from scholarly publications. They sometimes use the benefit of open access to entice authors to publish with them. If you are unsure if a publisher may be predatory, checking with your library staff is a good place to start.</p>
+<p>There are many red flags in these requests for predatory publishers:</p>
+<ul class="simple">
+<li><p>There is an urgency and request for an extremely quick turnaround. A very fast publication time might indicate a less rigorous peer-review process.</p></li>
+<li><p>Written English in correspondence is often poor quality with many grammatical errors. (Though it’s important to remember that this alone does not indicate predatory behavior, as grammatical mistakes can be made for innocent reasons, such as being a non-native speaker.)</p></li>
+<li><p>The journal subject is nonspecific.</p></li>
+<li><p>The solicitation is inaccurate or generic.</p></li>
+<li><p>The email is often unsolicited, even if they claim that they’re referring to a previous paper of yours. This might start with an inaccurate or generic solicitation such as “professor”.</p></li>
+<li><p>They emphasize ISSN indexing and/or impact factors, although this particular journal doesn’t have one. Consider Journal Citation Indicator (JCI) in addition to Journal Impact Factor (JIF).</p></li>
+<li><p>The publisher/journal sends multiple emails soliciting manuscripts, special issues, and editorial roles.</p></li>
+<li><p>They have a high number of special issues, such that the majority of the papers published appear in special issues.</p></li>
+<li><p>Their name resembles the name of a prestigious journal.</p></li>
+<li><p>They have a high self-citation rate, such as over 20%.</p></li>
+<li><p>They have a very high acceptance rate of submitted papers.</p></li>
+<li><p>They send frequent requests to submit/serve as editor.</p></li>
+</ul>
+<p>Below are some final thoughts on what or what not to consider when deciding where to publish. As with many considerations you will encounter in academia, sometimes deciding the best place to publish will be determined by word of mouth conversations with peers. Read more on NOAA’s <a class="reference external" href="https://libguides.library.noaa.gov/predatorypublishing">guidance on predatory publishing</a>.</p>
+</section>
+<section id="common-questions-about-sharing-results">
+<h3>Common Questions About Sharing Results<a class="headerlink" href="#common-questions-about-sharing-results" title="Permalink to this heading">#</a></h3>
+<p>Sharing in different ways, especially without peer-review, can be intimidating. Maybe you have worried about the following questions:</p>
+<ul class="simple">
+<li><p><strong>What if an open result is wrong?</strong><br>A tweet, post, or video is only a snapshot in time of a research result. It is understood by all working professional scientists that we are constantly learning and discovering new things. Making reproducible results will necessarily include different versions and revisions of an idea as it develops.</p></li>
+<li><p><strong>I have already published my science as an open result, so do I need to respond to community feedback forever?</strong><br>As long as you have done everything to make your work reproducible - you don’t need to worry. Open science can’t be carried solely by a single person. Open science communities can continue to update, refine, and develop your open science result if your work has been shared and openly licensed.<br><br>If you are able to address a question or a concern about your prior research, that’s great. It is also an ethical response to acknowledge that this is research that you are no longer actively involved with, but allow others to continue the work that you began.</p></li>
+<li><p><strong>What if I can’t do everything? Am I a bad open scientist?</strong><br>The short answer is no! You have only a limited amount of time. Even with collaborators, you can’t possibly do everything.<br><br><img alt="../../../../_images/image69.png" src="../../../../_images/image69.png" /> <img alt="../../../../_images/image70.png" src="../../../../_images/image70.png" /></p></li>
+</ul>
+<p>Sharing open results improves science - it is faster, more accessible, and more collaborative. In this lesson you have learned about all the different ways you can share open results. Think about how you might share something you are working on now!</p>
+</section>
+</section>
+<section id="lesson-4-summary">
+<h2>Lesson 4: Summary<a class="headerlink" href="#lesson-4-summary" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you learned:</p>
+<ul class="simple">
+<li><p>When to share open results and the different ways in which they can be shared. This includes: peer reviewed publications, conference proceedings, blog posts, videos, notebooks, and social media.</p></li>
+<li><p>How to share open results including considerations around the license for the publication, routes for open access publications (Green, Gold, Diamond), and preprints as part of the publication process.</p></li>
+<li><p>Considerations around sharing, including considerations around predatory publishers and common concerns around openly sharing of results.</p></li>
+</ul>
+</section>
+<section id="lesson-4-knowledge-check">
+<h2>Lesson 4: Knowledge Check<a class="headerlink" href="#lesson-4-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/03</strong></p>
+<p>Which of the following Creative Commons licenses is most commonly used for open access publications?</p>
+<ul class="simple">
+<li><p>CC BY-NC-SA</p></li>
+<li><p>Copyright</p></li>
+<li><p>CC-BY</p></li>
+<li><p>Apache 2.0</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/03</strong></p>
+<p>Read the statement below and decide whether it’s true or false.</p>
+<p><em>Diamond open access is both free to publish and to read scientific articles.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/03</strong></p>
+<p>Take a close look at the request for journal submission below. Does this request for journal submission seem reliable?</p>
+<img alt="../../../../_images/image74.jpeg" src="../../../../_images/image74.jpeg" />
+<ul class="simple">
+<li><p>Yes</p></li>
+<li><p>No</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_5/Lesson_4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_3/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 3: Making Open Results</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_5/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 5: From Theory to Practice</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-share">When to Share</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#at-workshops-and-conferences">At Workshops and Conferences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-forms-of-interactive-feedback">Other Forms of Interactive Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-reproducible-reports-and-publications">Publishing Reproducible Reports and Publications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-1-read-the-open-access-policies-of-publishers-that-you-use">Activity 4.1: Read the Open Access Policies of Publishers That You Use</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-key-takeaways-read-the-open-access-policies-of-publishers-that-you-use">Activity Key Takeaways: Read the Open Access Policies of Publishers That You Use</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-share">How to Share</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licenses">Licenses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#routes-for-open-access-publishing">Routes for Open Access Publishing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-preprints">Pros and Cons of Preprints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-consider-when-making-preprints">What to Consider When Making Preprints</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-considerations-when-sharing">Other Considerations When Sharing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#who-is-sharing">Who is Sharing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predatory-publishers">Predatory Publishers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-questions-about-sharing-results">Common Questions About Sharing Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-summary">Lesson 4: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,833 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 2: Why is Open Science Important? &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 3: How to do Open Science" href="../Lesson_3/readme.html" />
+    <link rel="prev" title="Lesson 1: What is Open Science?" href="../Lesson_1/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 1: The Ethos of Open Science</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 2: Why is Open Science Important?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-breaks-down-stovepipes-and-increases-innovation">Open Science Breaks Down Stovepipes and Increases Innovation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-to-you">Benefits to You</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#you-are-your-best-future-collaborator">You are Your Best Future Collaborator!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#give-and-get-credit-when-using-results-of-others">Give and Get Credit When Using Results of Others</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-visibility-and-impact">More Visibility and Impact</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#emerging-evidence-that-some-aspects-of-open-science-can-increase-your-citations">Emerging evidence that some aspects of open science can increase your citations.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-collaborations">More Collaborations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-2-1-benefits-to-you">Activity 2.1: Benefits to You</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-to-science">Benefits to Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transparent-science-is-reproducible-science">Transparent Science is Reproducible Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-can-improve-accuracy">Open Science Can Improve Accuracy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-leads-to-more-discoveries">Open Science Leads to More Discoveries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-and-diversity-of-scholarly-communications">Quality and Diversity of Scholarly Communications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-benefits-to-science">Key Takeaways: Beneﬁts to Science</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-to-society">Benefits to Society</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-can-accelerate-the-pace-of-science">Open Science Can Accelerate the Pace of Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-is-efficient-science">Open Science is Efﬁcient Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-attracts-a-diverse-set-of-participant">Open Science Attracts a Diverse Set of Participant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-benefits-to-society">Key Takeaways: Beneﬁts to Society</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-summary">Lesson 2: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-2-why-is-open-science-important">
+<h1>Lesson 2: Why is Open Science Important?<a class="headerlink" href="#lesson-2-why-is-open-science-important" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#open-science-breaks-down-stovepipes-and-increases-innovation">Open Science Breaks Down Stovepipes and Increases Innovation</a></p></li>
+<li><p><a href="#benefits-to-you">Benefits to You</a></p></li>
+<li><p><a href="#benefits-to-science">Benefits to Science</a></p></li>
+<li><p><a href="#benefits-to-society">Benefits to Society</a></p></li>
+<li><p><a href="#lesson-2-summary">Lesson 2: Summary</a></p></li>
+<li><p><a href="#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you learn how adopting open science benefits you as a researcher and society. You also learn about some of the challenges and hurdles with using open science principles and how to navigate them.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Describe the ways in which open science benefits your career with attribution, reach, and more collaborations.</p></li>
+<li><p>Describe the ways in which open science can advance science.</p></li>
+<li><p>List the benefits society receives when open science principles are adopted.</p></li>
+</ul>
+</section>
+<section id="open-science-breaks-down-stovepipes-and-increases-innovation">
+<h2>Open Science Breaks Down Stovepipes and Increases Innovation<a class="headerlink" href="#open-science-breaks-down-stovepipes-and-increases-innovation" title="Permalink to this heading">#</a></h2>
+<p>“We need more WE science rather than ME science.”</p>
+<p><strong>Harlan Krumholz,</strong></p>
+<p><strong>Yale School of Medicine at 2022 CZI Meeting</strong></p>
+<img alt="../../../../_images/harlanquote.jpg" src="../../../../_images/harlanquote.jpg" />
+<hr class="docutils" />
+<p>As NASA looks outward, we face both known and unforeseen challenges. These dynamic challenges will demand a new approach to science that achieves success through a responsive and inclusive scientific ecosystem. This requires more diverse teams - teams with more hands, eyes, and brains that have diverse experiences to participate.</p>
+<p>In the previous lesson, we learned about foundational concepts that define open science – its importance, its purpose, and its proven successes. In this lesson, we address key benefits and challenges of implementing open science principles in research activities.</p>
+<p>This lesson presents a perspective on the development of science that focuses on the intersection of scientific results, the process of creation, and the stakeholders that constitute the community.</p>
+<p>This lesson highlights the benefits of open science to a wide range of stakeholder groups, along with examples that invite readers to investigate further. Additionally, this lesson explores common challenges to adopting open science practices.</p>
+<img alt="../../../../_images/image377.jpg" src="../../../../_images/image377.jpg" />
+<p>Figure: There are many benefits of open science. <a class="reference external" href="https://blogs.uef.fi/ueflibrary-bors/benefits-and-challenges-of-open-science/">CC-BY Danny Kingsley &amp; Sarah Brown</a>.</p>
+</section>
+<section id="benefits-to-you">
+<h2>Benefits to You<a class="headerlink" href="#benefits-to-you" title="Permalink to this heading">#</a></h2>
+<section id="you-are-your-best-future-collaborator">
+<h3>You are Your Best Future Collaborator!<a class="headerlink" href="#you-are-your-best-future-collaborator" title="Permalink to this heading">#</a></h3>
+<p>Doing open science not only lets other people understand and reproduce your results, but lets you do so as well! Implementing open science principles such as good documentation and version control helps you, potential collaborators, and anyone else to understand your results.</p>
+<p>If your work is shared publicly, you will never lose access even if you move institutes or change jobs. Many researchers move around institutions and organizations. By having your data and software and results in repositories, you will always have access to them.</p>
+<img alt="../../../../_images/image261.png" src="../../../../_images/image261.png" />
+<p>Implementing best practices for open science in your work not only helps you document, it could strengthen your funding proposals. Funding agencies have begun to realize that openly sharing research products can increase their citations received and uptake, resulting in a better return on investment.</p>
+<p>Well-documented research products also demonstrate the quality of your work, which helps with public communication efforts and can also attract better collaborators. Reliability and a strong work ethic motivate others to want to work with you.</p>
+</section>
+<section id="give-and-get-credit-when-using-results-of-others">
+<h3>Give and Get Credit When Using Results of Others<a class="headerlink" href="#give-and-get-credit-when-using-results-of-others" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image262.png" src="../../../../_images/image262.png" />
+<p>In addition to documenting your own research, the practice of giving credit to everyone who has contributed will strengthen your scientific community reputation and actualize the shared values of open science. As people gain confidence in the benefits of cooperative research, they will also start giving credit to more contributions that might previously have gone unacknowledged. Different work performed as part of a paper can be given in an author contribution statement like the example shared here.</p>
+<img alt="../../../../_images/image260.jpg" src="../../../../_images/image260.jpg" />
+<p>The Turing Way project illustration by Scriberia. Used under a CC-BY 4.0 license. DOI: 10.5281/zenodo.3332807.</p>
+</section>
+<hr class="docutils" />
+<section id="more-visibility-and-impact">
+<h3>More Visibility and Impact<a class="headerlink" href="#more-visibility-and-impact" title="Permalink to this heading">#</a></h3>
+<p>In addition to improved scientific accuracy, adhering to open science practices potentially offers personal career benefits to researchers. Openly published research has significantly more visibility and impact potential with large audiences across the internet, which can lead to more citations, like-minded collaborators, and career/funding opportunities, according to a 2016 <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/27387362/">study</a>.</p>
+<img alt="../../../../_images/image263.png" src="../../../../_images/image263.png" />
+<section id="emerging-evidence-that-some-aspects-of-open-science-can-increase-your-citations">
+<h4>Emerging evidence that some aspects of open science can increase your citations.<a class="headerlink" href="#emerging-evidence-that-some-aspects-of-open-science-can-increase-your-citations" title="Permalink to this heading">#</a></h4>
+<p>Publishing open access increases citation count by 18%, according to a 2018 <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7176083/">study</a>.</p>
+<p>Articles that make their data openly accessible via a direct link to a repository see ~25% higher citation impact, according to a 2020 study.</p>
+<p>Publishing as open access may have prohibitive costs for some researchers depending on the venue. There are often other options that allow authors to share their work freely and openly. In Module 5 on Open Results, we discuss some of these other options including preprints and diamond open access.</p>
+<p>There are many different research outputs that can be openly shared and made citable:</p>
+<ul class="simple">
+<li><p>Code</p></li>
+<li><p>Data</p></li>
+<li><p>Research talk slides</p></li>
+<li><p>Lectures</p></li>
+<li><p>Blog posts</p></li>
+<li><p>And more!</p></li>
+</ul>
+<p>All of these are tangible, scientific outputs! Much of our time as researchers is spent writing code, collecting data, putting together lectures and not *just* publications. Publicly sharing materials publicly makes receiving a citation more likely.</p>
+<img alt="../../../../_images/image269.png" src="../../../../_images/image269.png" />
+</section>
+</section>
+<section id="more-collaborations">
+<h3>More Collaborations<a class="headerlink" href="#more-collaborations" title="Permalink to this heading">#</a></h3>
+<p>Open science practices can also enable stronger collaborations, both within and between disciplines, as evidenced by a 2016 <a class="reference external" href="https://liberquarterly.eu/article/view/10819"><u>study</u></a>. The ease of access to open data brings new agents to the landscape that allow for broader and more diverse participation. Through open science practices, such as pre-registration where researchers document their research plan at the start of a study, one allows for a stronger research design because feedback from various collaborators and stakeholders can be solicited before data collection begins. Similarly, preprints allow for swifter feedback on conclusions drawn from data once it is collected.</p>
+</section>
+<section id="activity-2-1-benefits-to-you">
+<h3>Activity 2.1: Benefits to You<a class="headerlink" href="#activity-2-1-benefits-to-you" title="Permalink to this heading">#</a></h3>
+<p>In this activity, reflect on your answers to the questions and then compare your thoughts to the key takeaways.</p>
+<img alt="../../../../_images/lightbulb.png" src="../../../../_images/lightbulb.png" />
+<ul class="simple">
+<li><p>Can you find your own previous work, post-publication and/or pre-publication? Can you bring your research materials (data, code, results) with you if you change institutions?</p></li>
+<li><p>Can you find the work of your collaborators? Of scientists in other fields that you find interesting? Have you reached out to others to collaborate with them after finding interesting results?</p></li>
+<li><p>Are people in your field giving and getting credit for work done?</p></li>
+</ul>
+<p><strong>Key Takeaways: Beneﬁts to You</strong></p>
+<ul class="simple">
+<li><p>Being more open encourages best research practices and makes it easier for you to build on your work.</p></li>
+<li><p>Open results have more visibility and impact.</p></li>
+<li><p>Open science encourages more collaborative science.</p></li>
+</ul>
+</section>
+</section>
+<section id="benefits-to-science">
+<h2>Benefits to Science<a class="headerlink" href="#benefits-to-science" title="Permalink to this heading">#</a></h2>
+<section id="transparent-science-is-reproducible-science">
+<h3>Transparent Science is Reproducible Science<a class="headerlink" href="#transparent-science-is-reproducible-science" title="Permalink to this heading">#</a></h3>
+<p>When computers are used to produce scientific research, the code is considered a “method”. Much like a lab research setting, a set of instructions for working with cells or agar plates can be considered a method. Peer-reviewed methods are an essential step in the scientific process. When these steps are not shared, no-one else can reproduce the work or build upon it for future scientific endeavors. Open methods allow people to judge whether or not the methods are trustworthy. In Lesson 1, the story of the Global Cooling Error presented a poignant example of science that was not reproducible because of a lack of data transparency.</p>
+</section>
+<section id="open-science-can-improve-accuracy">
+<h3>Open Science Can Improve Accuracy<a class="headerlink" href="#open-science-can-improve-accuracy" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image267.png" src="../../../../_images/image267.png" />
+<p>A <a class="reference external" href="https://www.nature.com/articles/s41562-021-01193-7">study</a> from 2022 found that researchers who practice transparency and promote verifiability benefit from readers and stakeholders who judge whether results presented are accurate and, according to a related <a class="reference external" href="https://www.cmu.edu/dietrich/sds/docs/loewenstein/MeasPrevalQuestTruthTelling.pdf">study</a>, that the results are not produced by questionable research practices that lead to misleading or unreliable results.</p>
+<p>Open science also allows others to scrutinize the analytic decisions of researchers, such as whether the analysis was planned before or after observing the data, according to a 2018 <a class="reference external" href="https://www.pnas.org/doi/full/10.1073/pnas.1708274114">study</a>.</p>
+<p>This allows others to check if they can arrive at the same conclusion as the original research team, and facilitates stronger public trust and support, according to a 2021 UNESCO <a class="reference external" href="https://unesdoc.unesco.org/ark:/48223/pf0000379949">report</a>.</p>
+<img alt="../../../../_images/image216.jpg" src="../../../../_images/image216.jpg" />
+<p>Here is an example of open science that was able to correct errors in a healthcare study quickly, saving lives! In 2021, a <a class="reference external" href="https://www.nature.com/articles/s41598-021-84092-1">study</a> was published that found that Covid stay-at-home policies did not stop transmission of the virus. The study was highlighted by prominent lockdown skeptics and news sites – swiftly gaining the attention of many people right at a critical time in the pandemic. Here was a scientific research article that said lockdowns don’t work! The authors of the study published source code and data with their paper. This allowed others to quickly look at how they arrived at their conclusion. Almost immediately, questions were raised about the paper and within nine months, two papers <a class="reference external" href="https://www.nature.com/articles/s41598-021-02461-2">here</a> and <a class="reference external" href="https://www.nature.com/articles/s41598-021-02096-3">here</a> pointed out major analysis method errors. The original paper was retracted. We all make mistakes. In this case, the paper had major policy implications and because the original authors had practiced open science, the error was rapidly corrected!</p>
+</section>
+<section id="open-science-leads-to-more-discoveries">
+<h3>Open Science Leads to More Discoveries<a class="headerlink" href="#open-science-leads-to-more-discoveries" title="Permalink to this heading">#</a></h3>
+<p>The Solar and Heliospheric Observatory (SOHO) has been sending home images of our dynamic sun, opening up a new era of solar observation. It was designed for heliophysics. However, planetary scientists found SOHO useful for its ability to spot comets that pass extremely close to the sun, known as sungrazers. To this day, SOHO is one of the best sources for views of the giant surface explosions regularly produced by the sun called coronal mass ejections, or CMEs, which can hurl a million tons of solar particles off into space. This field of view is large enough to see a sungrazing comet as it sling shots around the sun.</p>
+<p>SOHO’s great success as a comet finder is, of course, dependent on the people who sift through SOHO’s data – a task made open to the world through real-time publicly available data.</p>
+<img alt="../../../../_images/image268.jpg" src="../../../../_images/image268.jpg" />
+<p>A cadre of volunteer amateur astronomers dedicate themselves to searching this data via the NASA-funded Sungrazer Project. While scientists often search the imagery for very specific events, various members of the astronomy community choose to comb through all available imagery in fine detail. Over 2,300 comets have been found, 75% by citizen scientists. This created a great training dataset for algorithms. NASA scientists had algorithms to find comets that they felt that were sufficiently accurate.</p>
+<p>In 2022 though, NASA decided to fund a challenge open to the public to develop new algorithms and guess what? New algorithms were discovered along with two new comets!</p>
+</section>
+<section id="quality-and-diversity-of-scholarly-communications">
+<h3>Quality and Diversity of Scholarly Communications<a class="headerlink" href="#quality-and-diversity-of-scholarly-communications" title="Permalink to this heading">#</a></h3>
+<p>Furthermore, open science improves the state of scientific literature. Scientific journals have traditionally faced the severe issue of publication bias, where journal articles overwhelmingly feature novel and positive results, according to a 2018 <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/30523135/">study</a>. This results in a state where scientific results in certain disciplines published scientific results may have a number of exaggerated effects, or even be “false positives” (wrongly claiming that an effect exists), making it difficult to evaluate the trustworthiness of published results, according to a 2011 and 2016 study. Open science practices, such as registered reports, mitigate publication bias and improve the trustworthiness of the scientific literature. Registered reports are journal publication formats that peer-review and accept articles before data collection is undertaken, eliminating the pressure to distort results, according to a 2022 <a class="reference external" href="https://www.nature.com/articles/s41562-021-01193-7">study</a>. Other open science practices, such as pre-registration, also allows a partial look into projects that for various reasons (such as lack of funding, logistical issues or shifts in organizational priorities) have not been completed or disseminated, according to a 2023 <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/34396837/">study</a>, giving these projects a publicly available output that can help inform about the current state research.</p>
+<img alt="../../../../_images/image254.png" src="../../../../_images/image254.png" />
+<p>By using openly available tools and making our scientific process and products more openly available, we can ensure that all who wish to involve themselves can take part in the global scientific community.</p>
+</section>
+<section id="key-takeaways-benefits-to-science">
+<h3>Key Takeaways: Beneﬁts to Science<a class="headerlink" href="#key-takeaways-benefits-to-science" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Open science can accelerate scientific discovery. Collective knowledge is not only faster, but more effective than individual efforts.</p></li>
+<li><p>Open science allows for errors to be quickly corrected, making science more accurate.</p></li>
+<li><p>Open science practices, such as registered reports, mitigate publication bias and improve the trustworthiness of scientific literature.</p></li>
+</ul>
+</section>
+</section>
+<section id="benefits-to-society">
+<h2>Benefits to Society<a class="headerlink" href="#benefits-to-society" title="Permalink to this heading">#</a></h2>
+<p>The mainstream adoption of open science began relatively recently. The potential benefits of open science extend beyond research through contributions to society and policy.</p>
+<p>Collaboration, innovation, education, technology advancement, and science-based public policy are all improved by the open availability of research products. Sharing all research products (eg. data, code, results) makes the scientific process more transparent which may help increase public trust in science. Also, open science encourages IDEA (Inclusion, Diversity, Equity, Accessibility), and increases involvement of citizen-scientists and non-experts in the research process. The inclusion of diverse perspectives from an open community invites unique perspectives that contribute to a more robust and often more accurate scientific outcome.</p>
+<img alt="../../../../_images/image264.png" src="../../../../_images/image264.png" />
+<p>Scientists study issues that affect every aspect of life. Yet, public interest in science remains low due to a lack of trust, understanding, and sociocultural factors. How can scientists expect the public to trust science about complex and often contentious issues, whether it is vaccine development or landing on the moon, if they don’t allow the public to see the process and results? Building trust in science is essential to a well-informed society. Open science provides a pathway to do this.</p>
+<p>The public who funds government research through taxes should be entitled to its results and data, as long as safety and security are not an issue. Science should be more open to ensure its insights benefit the public who enables it.</p>
+<p>Open science introduces more scrutiny into research that helps ensure accuracy and encourages efficiency through open discourse. This approach accelerates the pace of discovery and subsequently the dissemination of results to the public and policymakers.</p>
+<section id="open-science-can-accelerate-the-pace-of-science">
+<h3>Open Science Can Accelerate the Pace of Science<a class="headerlink" href="#open-science-can-accelerate-the-pace-of-science" title="Permalink to this heading">#</a></h3>
+<p>Open science practices accelerate the pace of scientific discovery by involving ideas and labor from the broader community. The rapid response to the
+<a class="reference external" href="https://www.nejm.org/doi/full/10.1056/NEJMp2034518">Covid-19 Pandemic showed Open Science in action to accelerate discovery.</a></p>
+<img alt="../../../../_images/image41.png" src="../../../../_images/image41.png" />
+<p>Researchers uploaded the initial genome sequence of SARS-CoV-2 into an open-access database in January 2020, creating a data-sharing precedent and metadata that would later enable insights about new Covid-19 variants. The NIH developed a dedicated platform for sharing research tools for Covid-19 and encouraged investigators to expedite reporting to ClinicalTrials.gov ahead of requirements. Open-science publishing agreements that support evidence dissemination have complemented these practices and policies. One day after the World Health Organization declared Covid-19 a public health emergency, more than 50 academic publishers issued a joint statement committing to open-access policies for Covid-19 research. Support for preprint servers has promoted awareness of research successes and failures, and journals have helped accelerate the distribution of actionable information, including by means of dedicated Covid-19 web pages, endorsement of preprints, and an emphasis on sharing data with public health authorities.</p>
+</section>
+<section id="open-science-is-efficient-science">
+<h3>Open Science is Efﬁcient Science<a class="headerlink" href="#open-science-is-efficient-science" title="Permalink to this heading">#</a></h3>
+<p>Open science reciprocates the benefits it provides to researchers onto the communities that scientists hope to serve. Data from one observation or science experiment can have unanticipated uses. In Lesson 1, we discussed an example where the use of radar data for tracking the effect of climate change was used to track bird migration.</p>
+<p>Through open science practices, research waste can be avoided, such as unintentional and costly repetition of previous studies, according to a 2020 European Commission <a class="reference external" href="https://op.europa.eu/en/publication-detail/-/publication/6bc538ad-344f-11eb-b27b-01aa75ed71a1">report</a>. In the human sciences, this also reduces participant fatigue in the long term. By maximizing what is learned from publicly available data, one does not need to test repeatedly, especially on already vulnerable communities. By “giving away” science, individuals, communities and organizations can more easily adopt research results to inform interventions for their own needs without the knowledge being gatekept by the original researchers and organizations involved. In this way, open science can strengthen the social and economic impacts of scientific results.</p>
+</section>
+<section id="open-science-attracts-a-diverse-set-of-participant">
+<h3>Open Science Attracts a Diverse Set of Participant<a class="headerlink" href="#open-science-attracts-a-diverse-set-of-participant" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image265.jpg" src="../../../../_images/image265.jpg" />
+<p>Image credit: Andy Brunning/Compound Interest. <strong>CC BY-NC-ND 4.0 DEED</strong></p>
+<hr class="docutils" />
+<p>The open sharing of scientific products and processes makes science accessible to everyone. This allows full participation from everyone, and also maximizes the number of people who can benefit from the work.</p>
+<p>The best ways to include a diverse group of open science practitioners and stakeholders are to remove existing barriers and design for inclusion. Beyond this, it is important to learn how to communicate effectively with diverse collaborators, people at different skill levels, career levels, backgrounds, and areas of expertise. The ability to build diverse teams is a skill that everyone can learn.</p>
+</section>
+<section id="key-takeaways-benefits-to-society">
+<h3>Key Takeaways: Beneﬁts to Society<a class="headerlink" href="#key-takeaways-benefits-to-society" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The public who funds government research through taxes should be entitled to its results and data, as long as safety and security are not an issue.</p></li>
+<li><p>Open science allows for errors to be quickly corrected and accurate results to be built upon by others, impacting policies.</p></li>
+<li><p>Open science decreases the unintentional and costly repetition of previous studies, accelerating science that benefits society.</p></li>
+</ul>
+</section>
+</section>
+<section id="lesson-2-summary">
+<h2>Lesson 2: Summary<a class="headerlink" href="#lesson-2-summary" title="Permalink to this heading">#</a></h2>
+<p>The following are the key takeaways from this lesson:</p>
+<ul class="simple">
+<li><p>Citing the work of other scientists whose work you build upon or reuse supports the community-minded open science practice of using, making, and sharing.</p></li>
+<li><p>Doing science openly can boost the visibility of research and lead to more meaningful collaborations.</p></li>
+<li><p>Science quality and efficiency is improved when open science best practices are followed.</p></li>
+<li><p>Open science helps society by allowing more people to participate in science, which increases the accuracy and impact of results.</p></li>
+</ul>
+</section>
+<section id="lesson-2-knowledge-check">
+<h2>Lesson 2: Knowledge Check<a class="headerlink" href="#lesson-2-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/03</strong></p>
+<p>What benefits do the individual researchers gain when practicing open science?</p>
+<p>Select all that apply.</p>
+<ul class="simple">
+<li><p>Documenting work</p></li>
+<li><p>Receiving credit</p></li>
+<li><p>Finding collaborators</p></li>
+<li><p>Priority access to international scientific conferences</p></li>
+<li><p>Securing a higher position in the academic hierarchy irrespective of their publication record</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/03</strong></p>
+<p>How does openness improve science?</p>
+<p>Select all that apply.</p>
+<ul class="simple">
+<li><p>Accelerated pace of science</p></li>
+<li><p>Improved accuracy</p></li>
+<li><p>Reduced publication bias</p></li>
+<li><p>Fewer discoveries</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/03</strong></p>
+<p>What benefits to society does open science bring?</p>
+<p>Select all that apply.</p>
+<ul class="simple">
+<li><p>Wider use of results increases return on investments in science.</p></li>
+<li><p>Open distribution of accurate results reduces misinformation.</p></li>
+<li><p>Open Science facilitates a greater understanding and acceptance of pseudoscientific theories.</p></li>
+<li><p>It creates more job opportunities in science-related fields, irrespective of the relevance or quality of the research.</p></li>
+<li><p>Promotes the commercialization of academic research, leading to increased product advertisements in scientific literature.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_1/Lesson_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_1/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 1: What is Open Science?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_3/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 3: How to do Open Science</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-breaks-down-stovepipes-and-increases-innovation">Open Science Breaks Down Stovepipes and Increases Innovation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-to-you">Benefits to You</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#you-are-your-best-future-collaborator">You are Your Best Future Collaborator!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#give-and-get-credit-when-using-results-of-others">Give and Get Credit When Using Results of Others</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-visibility-and-impact">More Visibility and Impact</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#emerging-evidence-that-some-aspects-of-open-science-can-increase-your-citations">Emerging evidence that some aspects of open science can increase your citations.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-collaborations">More Collaborations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-2-1-benefits-to-you">Activity 2.1: Benefits to You</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-to-science">Benefits to Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transparent-science-is-reproducible-science">Transparent Science is Reproducible Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-can-improve-accuracy">Open Science Can Improve Accuracy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-leads-to-more-discoveries">Open Science Leads to More Discoveries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-and-diversity-of-scholarly-communications">Quality and Diversity of Scholarly Communications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-benefits-to-science">Key Takeaways: Beneﬁts to Science</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-to-society">Benefits to Society</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-can-accelerate-the-pace-of-science">Open Science Can Accelerate the Pace of Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-is-efficient-science">Open Science is Efﬁcient Science</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-attracts-a-diverse-set-of-participant">Open Science Attracts a Diverse Set of Participant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-benefits-to-society">Key Takeaways: Beneﬁts to Society</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-summary">Lesson 2: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

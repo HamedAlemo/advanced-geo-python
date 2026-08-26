@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>OS101 Module 4: Open Code &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_4/readme';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Lesson 1: Introduction to Open Code" href="Lesson_1/readme.html" />
+    <link rel="prev" title="Lesson 5: From Theory to Practice" href="../Module_3/Lesson_5/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">OS101 Module 4: Open Code</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_4/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/files/open-science-101-v-1-0-0/Module_4/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>OS101 Module 4: Open Code</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-module">About This Module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-learning-objectives">Module Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms">Key Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-introduction-to-open-code"><span class="xref myst">Lesson 1: Introduction to Open Code</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-using-open-code"><span class="xref myst">Lesson 2: Using Open Code</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-3-making-open-code"><span class="xref myst">Lesson 3: Making Open Code</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-sharing-open-code"><span class="xref myst">Lesson 4: Sharing Open Code</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-from-theory-to-practice"><span class="xref myst">Lesson 5: From Theory to Practice</span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="os101-module-4-open-code">
+<h1>OS101 Module 4: Open Code<a class="headerlink" href="#os101-module-4-open-code" title="Permalink to this heading">#</a></h1>
+<p><strong>Welcome to Open Science 101: Open Code</strong></p>
+<section id="about-this-module">
+<h2>About This Module<a class="headerlink" href="#about-this-module" title="Permalink to this heading">#</a></h2>
+<p>This module focuses on the practice and application of open code as part of the open science workflow. It provides a ‘how to’ process that follows the code development lifecycle and “Use, Make, Share” framework. Some of the key topics discussed include: benefits and limitations of open code, how to discover and assess code, considerations and methods for programming following open principles, and finally when and how to share your code.</p>
+<section id="module-learning-objectives">
+<h3>Module Learning Objectives<a class="headerlink" href="#module-learning-objectives" title="Permalink to this heading">#</a></h3>
+<p>After completing this module, you should be able to:</p>
+<ul class="simple">
+<li><p>Explain what open-source software means, including the software development cycle, the benefits, some common limitations, and how they are addressed.</p></li>
+<li><p>Assess open-source software for reuse by evaluating provided documentation, including README files and licensing details, and then cite the software appropriately.</p></li>
+<li><p>Create an open-source software management plan that includes the strategy for selecting open software dependencies and open repositories, and how open elements including metadata, README files and version control, will be included to make the software reusable and findable.</p></li>
+<li><p>Evaluate whether your open-source software can be shared and the best options for sharing to increase visibility.</p></li>
+<li><p>List the responsibilities a software developer has once the open-source software is shared including managing legal requirements and ensuring the software is maintained.</p></li>
+</ul>
+</section>
+</section>
+<section id="key-terms">
+<h2>Key Terms<a class="headerlink" href="#key-terms" title="Permalink to this heading">#</a></h2>
+<p>Select the term to see the description.</p>
+<p><strong>Source Code</strong> – Human-readable set of statements written in a programming language that together compose software. Programmers write software in source code, often saved as a text file on a computer. The terms code and source code are often used interchangeably.</p>
+<p><strong>Software</strong> – This general term is used for computer programs and applications that provide users some degree of utility or produce a result or service. Software can be distributed in executable form, as source code, or as a service via the internet.</p>
+<p><strong>Software License</strong> – A document that states the rights of the developer and user of a piece of software.</p>
+<p><strong>Open-Source License</strong> – A software license, approved by the Open Source Initiative (OSI) as compliant with the Open Source Definition, granting permissions for anyone to inspect, use, modify, and distribute the software’s source code for any purpose. Similar standards may be promulgated by other organizations.</p>
+<p><strong>Open-Source Software</strong> – Software whose source code is under an open source license, by which the copyright holder grants to anyone the rights to inspect, modify, and distribute the source. Synonymous with open code.</p>
+<p><strong>Closed-Source Software</strong> – Proprietary software with source code that is not publicly available. Only the original authors, not the users, have rights to copy, modify, update, and edit the source code. Users don’t have access to code.</p>
+<p><strong>Derivative Work</strong> – A creative work that is derived from or based upon a preexisting creative work and in which the preexisting work is translated, altered, arranged, or transformed in a manner that requires permission from the copyright owner of the original work or are from works in the public domain.</p>
+<p><strong>Version Control</strong> – A system to automatically manage changing versions of a computer file, especially one that contains source code. In software development, version control preserves a complete history of changes to the source code and enables a developer to roll back to an earlier version if needed.</p>
+<p><strong>Code Repository</strong> – A central storage location for the source code. Code repositories may contain source code in one or more programming languages. Repositories may provide tools for merging inputs from developers, automated testing to verify the proper functioning of source code, version control to track changes over time, and project management features. These sites may not promise long-term retention.</p>
+<p><strong>Software Repository</strong> – Online collections of stand-alone applications or software packages. Repositories typically control access and track the deployments and downloads of packages. These may include source code or executables.</p>
+<p><strong>Long-Term Repository</strong> – A service for long-term retention and referencing historical and contemporary software. Repositories facilitate sustainable citation of code.</p>
+<p>Definitions credit: National Academies of Sciences, Engineering, and Medicine. 2018. Open-source Software Policy Options for NASA Earth and Space Sciences. Washington, DC: The National Academies Press. <a class="reference external" href="https://doi.org/10.17226/25217">https://doi.org/10.17226/25217</a> and other resources.</p>
+</section>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<section id="lesson-1-introduction-to-open-code">
+<h3><a class="reference internal" href="Lesson_1/readme.html"><span class="doc std std-doc">Lesson 1: Introduction to Open Code</span></a><a class="headerlink" href="#lesson-1-introduction-to-open-code" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a href="./Lesson_1/readme.html#overview">Overview</a></p></li>
+<li><p><a href="./Lesson_1/readme.html#learning-objectives">Learning Objectives</a></p></li>
+<li><p><a href="./Lesson_1/readme.html#success-stories">Success Stories</a></p></li>
+<li><p><a href="./Lesson_1/readme.html#definitions-and-considerations-of-open-code">Definitions and Considerations of Open Code</a></p></li>
+<li><p><a href="./Lesson_1/readme.html#principles-benefits-and-challenges">Principles, Benefits, and Challenges</a></p></li>
+<li><p><a href="./Lesson_1/readme.html#when-not-to-share">When Not to Share</a></p></li>
+<li><p><a href="./Lesson_1/readme.html#software-management-plans-smp">Software Management Plans (SMP)</a></p></li>
+<li><p><a href="./Lesson_1/readme.html#lesson-1-summary">Lesson 1: Summary</a></p></li>
+<li><p><a href="./Lesson_1/readme.html#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="lesson-2-using-open-code">
+<h3><a class="reference internal" href="Lesson_2/readme.html"><span class="doc std std-doc">Lesson 2: Using Open Code</span></a><a class="headerlink" href="#lesson-2-using-open-code" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a href="./Lesson_2/readme.html#overview">Overview</a></p></li>
+<li><p><a href="./Lesson_2/readme.html#learning-objectives">Learning Objectives</a></p></li>
+<li><p><a href="./Lesson_2/readme.html#discovering-open-code-and-software">Discovering Open Code and Software</a></p></li>
+<li><p><a href="./Lesson_2/readme.html#assessing-open-code-and-software">Assessing Open Code and Software</a></p></li>
+<li><p><a href="./Lesson_2/readme.html#reusing-open-code">Reusing Open Code</a></p></li>
+<li><p><a href="./Lesson_2/readme.html#citing-and-acknowledging-open-code-use">Citing and Acknowledging Open Code Use</a></p></li>
+<li><p><a href="./Lesson_2/readme.html#lesson-2-summary">Lesson 2: Summary</a></p></li>
+<li><p><a href="./Lesson_2/readme.html#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="lesson-3-making-open-code">
+<h3><a class="reference internal" href="Lesson_3/readme.html"><span class="doc std std-doc">Lesson 3: Making Open Code</span></a><a class="headerlink" href="#lesson-3-making-open-code" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a href="./Lesson_3/readme.html#overview">Overview</a></p></li>
+<li><p><a href="./Lesson_3/readme.html#learning-objectives">Learning Objectives</a></p></li>
+<li><p><a href="./Lesson_3/readme.html#how-do-we-plan-for-making-code">How do We Plan for Making Code?</a></p></li>
+<li><p><a href="./Lesson_3/readme.html#importance-of-version-control">Importance of Version Control</a></p></li>
+<li><p><a href="./Lesson_3/readme.html#describing-our-code-to-others">Describing Our Code to Others</a></p></li>
+<li><p><a href="./Lesson_3/readme.html#what-license-should-we-choose-for-our-code">What License Should We Choose for Our Code?</a></p></li>
+<li><p><a href="./Lesson_3/readme.html#programming-best-practices">Programming Best Practices</a></p></li>
+<li><p><a href="./Lesson_3/readme.html#lesson-3-summary">Lesson 3: Summary</a></p></li>
+<li><p><a href="./Lesson_3/readme.html#lesson-3-knowledge-check">Lesson 3: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="lesson-4-sharing-open-code">
+<h3><a class="reference internal" href="Lesson_4/readme.html"><span class="doc std std-doc">Lesson 4: Sharing Open Code</span></a><a class="headerlink" href="#lesson-4-sharing-open-code" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a href="./Lesson_4/readme.html#overview">Overview</a></p></li>
+<li><p><a href="./Lesson_4/readme.html#learning-objectives">Learning Objectives</a></p></li>
+<li><p><a href="./Lesson_4/readme.html#planning-to-share-your-code">Planning to Share Your Code</a></p></li>
+<li><p><a href="./Lesson_4/readme.html#legal-and-security-concerns">Legal and Security Concerns</a></p></li>
+<li><p><a href="./Lesson_4/readme.html#when-the-schedule-for-code-archiving-and-sharing">When: The Schedule for Code Archiving and Sharing</a></p></li>
+<li><p><a href="./Lesson_4/readme.html#where-to-share-open-code">Where: Where To Share Open Code</a></p></li>
+<li><p><a href="./Lesson_4/readme.html#how-how-to-enable-reuse-of-code">How: How to Enable Reuse of Code</a></p></li>
+<li><p><a href="./Lesson_4/readme.html#who-roles-and-responsibilities-of-the-team-members-in-implementing-the-smp">Who: Roles and Responsibilities of the Team Members in Implementing the SMP</a></p></li>
+<li><p><a href="./Lesson_4/readme.html#lesson-4-summary">Lesson 4: Summary</a></p></li>
+<li><p><a href="./Lesson_4/readme.html#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="lesson-5-from-theory-to-practice">
+<h3><a class="reference internal" href="Lesson_5/readme.html"><span class="doc std std-doc">Lesson 5: From Theory to Practice</span></a><a class="headerlink" href="#lesson-5-from-theory-to-practice" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a href="./Lesson_5/readme.html#overview">Overview</a></p></li>
+<li><p><a href="./Lesson_5/readme.html#learning-objectives">Learning Objectives</a></p></li>
+<li><p><a href="./Lesson_5/readme.html#open-science-and-data-management-plans">Open Science and Data Management Plans</a></p></li>
+<li><p><a href="./Lesson_5/readme.html#how-do-we-plan-for-making-our-code-open">How Do We Plan for Making our Code Open?</a></p></li>
+<li><p><a href="./Lesson_5/readme.html#engage-and-build-communities">Engage and Build Communities</a></p></li>
+<li><p><a href="./Lesson_5/readme.html#contribute-to-open-source-software">Contribute to Open-Source Software</a></p></li>
+<li><p><a href="./Lesson_5/readme.html#additional-resources">Additional Resources</a></p></li>
+<li><p><a href="./Lesson_5/readme.html#lesson-5-summary">Lesson 5: Summary</a></p></li>
+<li><p><a href="./Lesson_5/readme.html#lesson-5-knowledge-check">Lesson 5: Knowledge Check</a></p></li>
+<li><p><a href="./Lesson_5/readme.html#open-code-summary">Open Code Summary</a></p></li>
+</ul>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Module_3/Lesson_5/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 5: From Theory to Practice</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lesson_1/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 1: Introduction to Open Code</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-module">About This Module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-learning-objectives">Module Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms">Key Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-introduction-to-open-code"><span class="xref myst">Lesson 1: Introduction to Open Code</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-using-open-code"><span class="xref myst">Lesson 2: Using Open Code</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-3-making-open-code"><span class="xref myst">Lesson 3: Making Open Code</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-sharing-open-code"><span class="xref myst">Lesson 4: Sharing Open Code</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-5-from-theory-to-practice"><span class="xref myst">Lesson 5: From Theory to Practice</span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1017 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 1: Introduction to Open Code &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 2: Using Open Code" href="../Lesson_2/readme.html" />
+    <link rel="prev" title="OS101 Module 4: Open Code" href="../readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 4: Open Code</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 1: Introduction to Open Code</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#success-stories">Success Stories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions-and-considerations-of-open-code">Definitions and Considerations of Open Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-code-vs-software">What is Code vs Software?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-open-source-software">What is Open Source Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-software">Types of Software</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-benefits-and-challenges">Principles, Benefits, and Challenges</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-open-code">Principles of Open Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-moving-to-open-software">Benefits of Moving to Open Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-of-moving-to-open-software">Challenges of Moving to Open Software</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ultimately-you-are-free-to-deploy-the-open-software-principles-and-resources-in-your-research-to-maximize-its-impact-and-meet-the-expectations-of-your-sponsors-and-community-while-managing-costs">Ultimately, you are free to deploy the open software principles and resources in your research to maximize its impact and meet the expectations of your sponsors and community while managing costs.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-1-relating-principles-to-benefits-and-challenges">Activity 1.1: Relating Principles to Benefits and Challenges</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-not-to-share">When Not to Share</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licensing-code">Licensing Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-for-openness-using-the-use-make-share-framework-for-open-code">Planning for Openness: Using the Use, Make, Share Framework for Open Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-software-developed-using-research-opportunities-in-space-and-earth-sciences-roses-funding-in-support-of-a-peer-reviewed-publication-shall-be-made-publicly-available-at-the-time-of-publication">“Data and software developed using Research Opportunities in Space and Earth Sciences (ROSES) funding in support of a peer-reviewed publication shall be made publicly available at the time of publication”</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-management-plans-smp">Software Management Plans (SMP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-code-is-a-spectrum">Open Code is a Spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-practice-of-open">The Practice of ‘Open’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-2-how-can-you-use-open-software-in-your-work-to-advance-open-science">Activity 1.2: How Can You Use Open Software in Your Work to Advance Open Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-how-can-you-use-open-software-in-your-work-to-advance-open-science">Key Takeaways: How Can You Use Open Software in Your Work to Advance Open Science</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-summary">Lesson 1: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-1-introduction-to-open-code">
+<h1>Lesson 1: Introduction to Open Code<a class="headerlink" href="#lesson-1-introduction-to-open-code" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#overview">Overview</a></p></li>
+<li><p><a href="#learning-objectives">Learning Objectives</a></p></li>
+<li><p><a href="#success-stories">Success Stories</a></p></li>
+<li><p><a href="#definitions-and-considerations-of-open-code">Definitions and Considerations of Open Code</a></p></li>
+<li><p><a href="#principles-benefits-and-challenges">Principles, Benefits, and Challenges</a></p></li>
+<li><p><a href="#when-not-to-share">When Not to Share</a></p></li>
+<li><p><a href="#software-management-plans-smp">Software Management Plans (SMP)</a></p></li>
+<li><p><a href="#lesson-1-summary">Lesson 1: Summary</a></p></li>
+<li><p><a href="#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>This lesson defines the key terms, core principles, benefits, and challenges of open code. The practice of making code openly available to the public occurs within a spectrum from more to less protected. Ethical and legal conditions can limit the degree of openness that researchers can permit. This lesson will introduce the critical questions to consider when determining the appropriate accessibility of code to external users along with best practices to overcome common constraints to maximize availability. The lesson concludes with a discussion on the software lifecycle and how it fits with the “Use, Make, Share” framework and its relationship to a management plan.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Define open-source software and distinguish it from closed-source software.</p></li>
+<li><p>List common benefits and challenges to the production of open code and describe how researchers can respond to some of the challenges while maximizing openness when appropriate.</p></li>
+<li><p>Describe the function and purpose of a Software Management Plan, as its utility as a guidebook for everyone involved in a scientific project.</p></li>
+</ul>
+</section>
+<section id="success-stories">
+<h2>Success Stories<a class="headerlink" href="#success-stories" title="Permalink to this heading">#</a></h2>
+<p>Why does good science demand that researchers make their code open-access? Sharing your code (and data) makes it easier for others to reproduce your results, helping to validate findings and reduce resources required to duplicate experiments. As a bonus, this decision can lead to new collaborations made possible through a shared dataset and common understanding of scientific material.</p>
+<p>Many journals and funding agencies require that you share your code at the time of publication. However, the prospect of opening code up to criticism, not receiving attribution, or missing out on a result that external researchers discover can deter scientists from making their code open-access. What if people find an error? What if they criticize your coding style? What if they take your code and publish a new result without including you? This module will help you gain confidence in sharing your code by walking you through the basic details to consider when practicing open-science.</p>
+<p>Let’s review some well-known examples of groups that shared their code and what the impacts were:</p>
+<p>Use buttons to navigate between the examples.</p>
+<img alt="../../../../_images/image394.jpg" src="../../../../_images/image394.jpg" />
+<p>The first image of a black hole would not have been possible in this decade if all the required code had to be written solely by the scientists involved. These scientists were able to use well-tested, community accepted open-source software to conduct their analysis and create this now famous image. Dr. Katie Bouman and her team commended the critical role that open-source contributors played in her team’s effort to image the first black hole. This breakthrough was made possible by open-source libraries that provided robust and freely available code. The code used to capture this image was crafted by 21,485 contributors. Sophisticated iterative data processing pipelines and algorithms used by Dr. Bouman’s team were community developed and tested, making robust and reproducible science possible without having to rewrite every piece of software needed.</p>
+<img alt="../../../../_images/image553.png" src="../../../../_images/image553.png" />
+<p>This is the Ingenuity helicopter, or as the engineers call her, Ginny. She got to Mars by hitching a ride on the Perseverance rover, landing in the Jezero Crater in 2021.</p>
+<p>This is a video of Ginny’s first flight. She took off, got about ten feet off the ground, did a spin and landed. This groundbreaking flight proved that powered flight on Mars is achievable, opening up the door for an entirely new era of exploration.</p>
+<p>But Ginny’s achievements also reflect another new era; one of truly open and inclusive science.</p>
+<p>Behind that 4-pound helicopter are more than 12,000 people who contributed code, documentation, design, and more thanks to the open-source software which was used to power her. Everyone who contributed to the open-source software libraries that Ginny used received a badge on their GitHub page that showed they helped fly the first helicopter on Mars.</p>
+<p>In addition, Ginny’s final software developed at the Jet Propulsion Lab, called F prime, was itself open-source and has been used since in flight research, drones, and CubeSats. In fact, F prime had been copied to other people’s repositories more than 1,200 times.</p>
+<img alt="../../../../_images/image408.jpg" src="../../../../_images/image408.jpg" />
+<p>Most space telescope data is embargoed for 12 months with only the lead scientist and their selected team allowed to work with the data. In a unique case, a small portion of data from NASA’s new James Webb Space Telescope (JWST) offered an early-release program. This JWST data was made available immediately.</p>
+<p>How scary is that? To know that everyone you know is going to have access at the exact same time. The anxiety and stress of feeling as if you don’t publish first, you might not have a job, or you might not have the next job that you want.</p>
+<p>In one case, a team decided to work fully in the open and collaborate with this early- release data. The result? 20+ planned papers and the first discovery of carbon dioxide on another planet - hinting at the possibility of discovering new life.</p>
+<p>Co-author Dr. Natasha Batalha employed open science principles to enable this rapid discovery using the new JWST data. In the years leading up to the JWST release, Dr. Batalha’s team formed a collaborative group of 341 members. Once JWST data was made public, the data reduction and scientific interpretation could be reproduced through open software then archived. The research team’s first article was made available as open- access on an archived preprint server and published in Nature.</p>
+<p>Notably, Dr. Batalha’s team published the first identification of CO2 in an exoplanet’s atmosphere from spectra taken with JWST. This was conducted with JWST’s Early Release Science Program data, the first science data taken by the facility. The team worked in an open-format from ideation, to analysis, through to publication and communication.</p>
+<p>This example illustrates the benefits of applying open science principles to rapidly produce meaningful research. The team worked in an open format from ideation, to analysis, through to publication and communication.</p>
+<img alt="../../../../_images/image168.jpg" src="../../../../_images/image168.jpg" />
+<p>New open-source sets of climate models incorporate features that aim to make climate research more collaborative, efficient and reliable.</p>
+<p>Scientists have published an open-source framework of climate models (Isca) which contains models that are easy to obtain, completely free, documented, and come with software to make installation and operation easier. All changes are documented and can be reverted. Therefore, anyone can easily use the same models.</p>
+<p>Although the Isca model was initially used to examine the tropical upper atmosphere, researchers from other fields of science have used it to study the life cycle of weather systems, the Indian monsoon, and the effect of volcanic eruptions on climate.</p>
+<p>New research across all of these fields was possible within only one year of the Isca’s first publication. This is how we want all of science to work!</p>
+<p>Credit:</p>
+<p><a class="reference external" href="https://theconversation.com/making-climate-models-open-source-makes-them-even-more-useful-90929">https://theconversation.com/making-climate-models-open-source-makes-them-even-more-useful-90929</a></p>
+</section>
+<section id="definitions-and-considerations-of-open-code">
+<h2>Definitions and Considerations of Open Code<a class="headerlink" href="#definitions-and-considerations-of-open-code" title="Permalink to this heading">#</a></h2>
+<p>All science builds on what has already been accomplished. Code is no different. Many scientists use code to do data analysis. This process begins with the acquisition of data, either by running an experiment or model that generates data or by identifying observational data that may be useful to test a hypothesis. Next, the data is analyzed. It is very likely that the code required to read or analyze a new data set was already created by someone. The existing code might require some degree of modification to meet a researcher’s unique parameters. Even the development of a new model can incorporate specific elements of existing code from different sources.</p>
+<p>Understanding how to find and use others’ code, create your own, and share it is an important part of advancing open science. Just like good data management practices, knowing some of the details about how to share it will not only help you use it later, but also help others understand how to use and cite it so you get credit!</p>
+<img alt="../../../../_images/image247.jpg" src="../../../../_images/image247.jpg" />
+<p>Code example from <a class="github reference external" href="https://github.com/UCB-stat-159-s23/site/blob/main/lectures/climate-data.ipynb">UCB-stat-159-s23/site</a></p>
+<section id="what-is-code-vs-software">
+<h3>What is Code vs Software?<a class="headerlink" href="#what-is-code-vs-software" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image109.png" src="../../../../_images/image109.png" />
+<p>When we write “software,” we are actually writing text code and using an interpreter or compiler to translate it into a program that the machine can run. Code is a language that humans can type and understand. Software is often a collection of programs, data, and other information that a computer system uses to perform specific tasks. An example is a software library, which is a suite of data and programming code that is used to develop software programs and applications.</p>
+<p>Often, scientists write and publish code that helps others reproduce their results rather than creating software packages. But many scientists aren’t starting their code from scratch. There are large open- source software libraries that scientists use and contribute to, such as scipy, astropy, matplotlib, and others. These libraries let everyone do science faster and better because they have been written, tested, and are used by thousands if not hundreds of thousands of people. These libraries have been widely adopted because they are open-source – which makes it easier to collaborate with anyone, anywhere.</p>
+</section>
+<section id="what-is-open-source-software">
+<h3>What is Open Source Software<a class="headerlink" href="#what-is-open-source-software" title="Permalink to this heading">#</a></h3>
+<p><strong>Open-source software</strong> is distributed with its source code without cost, making it available for others to use, modify, and distribute with its original rights and permissions.</p>
+<p>Often, open-source software is transparently shared in a public repository, and sometimes maintained through collaboration. Open-source software development is the basis for a vast range of research software packages.</p>
+<p>There are a variety of license choices that can be made for open software which can allow the creator to retain various levels of ownership and rights. The choice of license impacts reuse by others. But first, let’s break down the main types of software scientists use based on their purpose by showing examples of each type.</p>
+</section>
+<section id="types-of-software">
+<h3>Types of Software<a class="headerlink" href="#types-of-software" title="Permalink to this heading">#</a></h3>
+<p>Scientists use and produce a wide variety of different types of software during projects. While many researchers might just use equations in a spreadsheet, others may use open source libraries for advanced machine learning model development and plotting results, while others may contribute to open-source libraries in their field and grow their reputation and impact that way. Here are some examples of different types of software that you might encounter.</p>
+<p><strong>General Purpose Software</strong> – General purpose software is produced for wide use and not specialized scientific purposes. This includes both commercial software and open-source software. Many widely used productivity software packages are open- source success stories:</p>
+<ul class="simple">
+<li><p>Linux kernel, GNU userspace, and various Linux and UNIX distributions</p></li>
+<li><p>PostgreSQL – open source enterprise-grade database</p></li>
+<li><p>WordPress and Apache web hosting tools</p></li>
+<li><p>Firefox and Chrome</p>
+<ul>
+<li><p>Chrome’s engine is Chromium which is forked from WebKit which was forked KHTML. This was possible because it had a license that allowed for this type of reuse. All major browsers today except Firefox can be traced back to KHTML.</p></li>
+</ul>
+</li>
+<li><p>Android operating system among others</p>
+<ul>
+<li><p>You can look at the Android source code, but you can’t modify it and install it on a device. And even if you could, you couldn’t use any of the standard services (e.g. Google Store) with that. So it’s “open” in the same sense that last night’s lottery numbers are “open”.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Operational Software</strong> – Operational software is used by data centers and large information technology facilities to provide data services. For example:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nasa.github.io/fprime/">Fprime</a> – Space mission flight software</p></li>
+</ul>
+<p><strong>Infrastructure Software</strong> – Infrastructure software is used by data centers and large information technology facilities to provide data services. Examples include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nasa.github.io/fprime/">Fprime</a> – Space mission flight software</p></li>
+<li><p><a class="reference external" href="https://github.com/podaac">PODAAC</a> – Distributed archiving and processing software</p></li>
+<li><p><a class="reference external" href="https://github.com/ufs-community">UFS</a> – Operational weather forecasting model software</p></li>
+<li><p>Metadata Compliance Checker, APIs, Web apps, <a class="reference external" href="https://www.earthdata.nasa.gov/technology/giovanni">Giovanni</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/McIDAS">McIDAS</a></p></li>
+</ul>
+<p><strong>Libraries</strong> – Libraries are generic tools for implementing well-known algorithms, providing statistical analysis, or visualization which are incorporated in other software categories. Examples include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/numpy">NumPy</a> – Scientific computing with python</p></li>
+<li><p><a class="reference external" href="https://github.com/scikit-image/">scikit-image</a> – Image processing algorithms in python</p></li>
+<li><p><a class="reference external" href="https://github.com/dealii/dealii">deal.II</a> – Library of algorithms to solve partial differential equations with finite elements</p></li>
+</ul>
+<p><strong>Modeling and Simulation Software</strong> – Modeling and Simulation Software either implements solutions to mathematical equations given input data and boundary conditions, or infers models from data. They often use libraries.
+Examples include: first-principles models, data-assimilation tools, empirical models, machine learning, mission planning and engineering tools, among others.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/OpenFOAM">OpenFOAM</a> – Computational fluid dynamics software</p></li>
+<li><p><a class="reference external" href="https://github.com/mom-ocean/MOM6">MOM6</a> – General ocean circulation model</p></li>
+<li><p><a class="reference external" href="https://github.com/geodynamics/aspect">ASPECT</a> – Planetary convection software</p></li>
+<li><p>Atmospheric radiative transfer, stellar evolution, upper ocean turbulence, solar wind predictions, orbit
+propagation (e.g., OpenGGCM, MESA)</p></li>
+</ul>
+<p><strong>Analysis Software</strong> - Analysis software is developed to manipulate measurements or model results to visualize or gain understanding. This software often evolves from single-use utility software and may incorporate libraries.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://photutils.readthedocs.io/en/stable/index.html">Photutils</a> – tools for detecting and performing photometry of astronomical sources</p></li>
+</ul>
+<p><strong>Single-Use Utility Software</strong> – Single-use utility software is written for use in unique instances, such as making a plot for a paper, or manipulating data in a specific way. This code often uses libraries for analysis, plotting, or reading data. This software is the most common type that gets included into Open Science and Data Management Plans (OSDMP), which we will talk about shortly. Examples include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019AJ....158..173A/abstract">Angus et al. 2019</a> – <a class="reference external" href="https://github.com/RuthAngus/stardate/blob/master/paper/code/Fitting_Praesepe.ipynb">Fitting a gyro relation to Praesepe</a></p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/d41586-022-02350-2">Webb telescope spots CO2 on exoplanet for the first time: what it means for finding alien life</a>. All the data and models presented in this publication can be found <a class="reference external" href="https://doi.org/10.5281/zenodo.6959427">here</a>.</p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/s41558-022-01329-1">Constraining the increased frequency of global precipitation extremes under warming</a></p></li>
+<li><p>Code at: <a class="reference external" href="https://doi.org/10.5281/zenodo.6288035">https://doi.org/10.5281/zenodo.6288035</a> (2022)</p></li>
+</ul>
+</section>
+</section>
+<section id="principles-benefits-and-challenges">
+<h2>Principles, Benefits, and Challenges<a class="headerlink" href="#principles-benefits-and-challenges" title="Permalink to this heading">#</a></h2>
+<section id="principles-of-open-code">
+<h3>Principles of Open Code<a class="headerlink" href="#principles-of-open-code" title="Permalink to this heading">#</a></h3>
+<p>Open software principles are derived from open-source software best practices. They establish guidelines that advance open science and aim to enhance the value and impact of research.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Transparency</p></td>
+<td><p>Whether you are developing software or solving a business problem, we all have access to the information and materials necessary for doing our best work. When these materials are accessible, we can build upon each other’s ideas and discoveries. We can make more effective decisions and understand how those decisions affect us.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Collaboration</p></td>
+<td><p>When we’re free to participate, we can enhance each other’s work in unanticipated ways. When we can modify what others have shared, we unlock new possibilities. By initiating new projects together, we can solve problems that no one can solve alone. And when we implement open standards, we enable others to contribute in the future.</p></td>
+</tr>
+<tr class="row-even"><td><p>Share early and often</p></td>
+<td><p>Rapid prototypes can lead to rapid discoveries. An iterative approach leads to better solutions faster. When you’re free to experiment, you can look at problems in new ways and seek answers in new places. You can learn by doing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Inclusive</p></td>
+<td><p>Good ideas can come from anywhere, and the best ideas should win. Only by including diverse perspectives in our conversations can we be certain we’ve identified the best ideas, and good decision-makers continually seek those perspectives. We may not operate by consensus, but successful work determines which projects gather support and effort from the community.</p></td>
+</tr>
+<tr class="row-even"><td><p>Community</p></td>
+<td><p>Communities form when different people unite around a common purpose. Shared values guide decision making, and community goals supersede individual interests and agendas.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Credit: <a class="reference external" href="https://opensource.com/open-source-way">The open source way | Opensource.com</a></p>
+<img alt="../../../../_images/image530.png" src="../../../../_images/image530.png" />
+<p>Sharing code enhances science because it enables reproducibility, reusability, and replicability. The decision to share code benefits the scientific community because it increases transparency, participation, and collaboration. Sharing code at any point in the research process can be valuable.</p>
+<p>In most cases, the source code used to generate results in peer-reviewed papers should be published, cited, and accessible.</p>
+</section>
+<section id="benefits-of-moving-to-open-software">
+<h3>Benefits of Moving to Open Software<a class="headerlink" href="#benefits-of-moving-to-open-software" title="Permalink to this heading">#</a></h3>
+<p>Science moves faster when researchers are able to work together, help correct errors, build on each other’s results, and share resources. Sharing software is a key part of open science that:</p>
+<ul class="simple">
+<li><p>Accelerates science by making it easier to use and build on software developed in previous work.</p></li>
+<li><p>Minimizes the time and cost of repeated development of similar software and the reproduction of scientific computations.</p></li>
+<li><p>Increases the potential number of users and developers and thus helps improve quality and trust in the software.</p></li>
+<li><p>Increases the likelihood that developers gain visibility, sustainability, software quality, and advance their employability.</p></li>
+</ul>
+</section>
+<section id="challenges-of-moving-to-open-software">
+<h3>Challenges of Moving to Open Software<a class="headerlink" href="#challenges-of-moving-to-open-software" title="Permalink to this heading">#</a></h3>
+<p>It is not uncommon for research groups to spend years developing code, writing papers with the results, and gaining scientific influence by not sharing the code. Anyone new who wants to work on a similar project is at a huge disadvantage because they would have to start from scratch. Also, anyone wanting to work in that area is forced to collaborate with the group. This group retains a very real competitive advantage by keeping it closed source. However, this approach stifles innovation and hurts scientific progress. Many funding agencies are now requiring that code is shared at the time of publication, if not before. But challenges and fears remain:</p>
+<ul class="simple">
+<li><p>Openness has costs: time spent documenting, publishing, responding to users/maintenance and cleaning up/enhancing quality.</p></li>
+<li><p>Effort is required to learn how to leverage the new tools and knowledge (resources are available to ease this effort).</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fear</p></th>
+<th class="head"><p>Discussion/Mitigation:</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Scooping: What if someone re-uses my code to publish a result I was working on?</p></td>
+<td><p>Yes, this can happen. But, in many fields, if it is clear that someone is actively working on a problem, the decision by another scoop may have a short term gain but long-term loss. In the scientific community, reputations serve as a cultural currency and being collaborative generally leads to increased career successes. If you are sharing your code, ensure it has a digital object identifier (DOI) so you get credit. This does not prevent anyone from using it or extending your analysis, but it does ensure you will get credit for your contribution. There is a nice article about this here.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Misinterpretation or misuse</p></td>
+<td><p>Provide sufficient contextual information (documentation) to allow others to understand your code fully to reduce this risk.</p></td>
+</tr>
+<tr class="row-even"><td><p>My code will be used, but not cited</p></td>
+<td><p>While it is not common for researchers to cite code, data, or other non-published articles, science ethics dictates that you should be cited if your work is used. Remember to appropriately cite the material of others so that you’re not adding to the problem.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code is too sensitive to share</p></td>
+<td><p>User controlled access to help maintain sensitivity and security.</p></td>
+</tr>
+<tr class="row-even"><td><p>It won’t be useful to anyone else</p></td>
+<td><p>You never know how materials might be used. Individuals who contributed a wide variety of seemingly unrelated software projects ended up helping NASA land a rover on Mars!</p></td>
+</tr>
+</tbody>
+</table>
+<section id="ultimately-you-are-free-to-deploy-the-open-software-principles-and-resources-in-your-research-to-maximize-its-impact-and-meet-the-expectations-of-your-sponsors-and-community-while-managing-costs">
+<h4>Ultimately, you are free to deploy the open software principles and resources in your research to maximize its impact and meet the expectations of your sponsors and community while managing costs.<a class="headerlink" href="#ultimately-you-are-free-to-deploy-the-open-software-principles-and-resources-in-your-research-to-maximize-its-impact-and-meet-the-expectations-of-your-sponsors-and-community-while-managing-costs" title="Permalink to this heading">#</a></h4>
+</section>
+</section>
+<section id="activity-1-1-relating-principles-to-benefits-and-challenges">
+<h3>Activity 1.1: Relating Principles to Benefits and Challenges<a class="headerlink" href="#activity-1-1-relating-principles-to-benefits-and-challenges" title="Permalink to this heading">#</a></h3>
+<p>Determine whether a statement is a benefit or challenge by dragging each to the correct box.</p>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">Benefits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Makes it easier to use and build on software developed in previous work.</td>
+      <td>Users are free to use and modify Open Software minimizing duplicated effort.</td>
+    </tr>
+    <tr>
+      <td>Can increase usage of the software, which can help improve software quality.</td>
+      <td>Open Software developers can gain visibility & sustainability of their software.</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">Challenges</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Requires extra time for activities like documenting, publishing, & maintenance.</td>
+      <td>Effort is required to learn how to leverage the new tools and knowledge.</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Key Takeaways: Relating Principles to Benefits and Challenges</strong></p>
+<ul class="simple">
+<li><p>Making software more open by following the principles has benefits and challenges, which are related.</p></li>
+<li><p>Greater benefits typically come with greater challenges.</p></li>
+<li><p>In most cases, individual scientists and society will both benefit from more open software.</p></li>
+</ul>
+</section>
+</section>
+<section id="when-not-to-share">
+<h2>When Not to Share<a class="headerlink" href="#when-not-to-share" title="Permalink to this heading">#</a></h2>
+<p>There are valid reasons that restrict a researcher’s ability to share their complete code or software packages. Some of these reasons may include:</p>
+<ul class="simple">
+<li><p>The code incorporates a country’s military secrets or its dissemination violates national interests or security concerns.</p></li>
+<li><p>The code incorporates intellectual property or patented data and information.</p></li>
+<li><p>Institutional policies or organizational regulations do not permit the sharing of code.</p></li>
+<li><p>Think about what you are sharing and the implications of sharing it (for example - do you have permission from everyone involved?).</p></li>
+</ul>
+<section id="licensing-code">
+<h3>Licensing Code<a class="headerlink" href="#licensing-code" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/licensing">collaborative data science handbook by The Turing Way</a> says of restrictions to open source sharing, “As with anything else in society, some of what you can and cannot do in software (or hardware) development is determined by the law. Licensing is therefore an important aspect of sharing/publishing open source projects as it provides clarity for anyone looking to reuse an open source project. Without licenses in place, anyone who wants to reuse it will be left with legal ambiguity as to the status of using your intellectual property.”</p>
+<p>To be considered open source, software requires a license that complies with the Open Source Definition. One criteria of this definition demands that open source licenses “<a class="reference external" href="https://opensource.org/licenses/">must allow modifications and derived works, and must allow them to be distributed under the same terms as the license of the original software</a>.”</p>
+<p>In the next lessons, licenses will be discussed in more detail. As you are working on a project, you may want to use code developed by others, develop your own code, and then share it. Licenses affect all aspects of this process and it is important to understand how different licenses may affect your ability to share your code at the time of publication. It is also important to consider any requirements from your funder or institution about how you license your software.</p>
+</section>
+<section id="planning-for-openness-using-the-use-make-share-framework-for-open-code">
+<h3>Planning for Openness: Using the Use, Make, Share Framework for Open Code<a class="headerlink" href="#planning-for-openness-using-the-use-make-share-framework-for-open-code" title="Permalink to this heading">#</a></h3>
+<p>Funding agencies and journals are increasingly requiring researchers to share software.</p>
+<p>For example, NASA’s ROSES, which solicits Earth science research proposals, requires researchers to make their software publicly available:</p>
+<section id="data-and-software-developed-using-research-opportunities-in-space-and-earth-sciences-roses-funding-in-support-of-a-peer-reviewed-publication-shall-be-made-publicly-available-at-the-time-of-publication">
+<h4>“Data and software developed using Research Opportunities in Space and Earth Sciences (ROSES) funding in support of a peer-reviewed publication shall be made publicly available at the time of publication”<a class="headerlink" href="#data-and-software-developed-using-research-opportunities-in-space-and-earth-sciences-roses-funding-in-support-of-a-peer-reviewed-publication-shall-be-made-publicly-available-at-the-time-of-publication" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://science.nasa.gov/researchers/sara/faqs/osdmp">https://science.nasa.gov/researchers/sara/faqs/osdmp</a></p>
+<p>Planning for a research project requires researchers to determine their mode of collaboration and method of sharing code. This step is often documented in a Software Management Plan (SMP) within a research proposal. An SMP details the what, when, where, how, and who will be sharing the code or software.</p>
+</section>
+</section>
+</section>
+<section id="software-management-plans-smp">
+<h2>Software Management Plans (SMP)<a class="headerlink" href="#software-management-plans-smp" title="Permalink to this heading">#</a></h2>
+<p>Software management plans encompass both code and software.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>What?</p></td>
+<td><p>Description of types, management, preservation, and release of software.</p></td>
+</tr>
+<tr class="row-odd"><td><p>When?</p></td>
+<td><p>The schedule for software archiving and sharing.</p></td>
+</tr>
+<tr class="row-even"><td><p>Where?</p></td>
+<td><p>Location where software will be shared and archived over the long term.</p></td>
+</tr>
+<tr class="row-odd"><td><p>How?</p></td>
+<td><p>Enable reuse of software through assigning a DOI, license, contribution guidelines, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p>Who?</p></td>
+<td><p>Roles and responsibilities of the team members.</p></td>
+</tr>
+</tbody>
+</table>
+<p>As your research starts using, creating, and sharing code, the SMP provides a guidebook for everyone on the project that establishes a common understanding.</p>
+<p>Is your project sharing all code publicly or just code that goes into a publication? Will your team be contributing back to open-source projects or just writing code that builds on them to produce results? Considering these questions early will influence how much time and energy you may want to spend on documentation and how you plan to share the code.</p>
+<section id="open-code-is-a-spectrum">
+<h3>Open Code is a Spectrum<a class="headerlink" href="#open-code-is-a-spectrum" title="Permalink to this heading">#</a></h3>
+<p>Just like data, code can be shared in many different ways to increase reusability. Code can be shared without any documentation, purely as a reproducibility artifact, or code can be well-written, documented, and openly-licensed to maximize re-use. Both of these approaches have value and depend on the time, energy, and funding that researchers have available.</p>
+<ul class="simple">
+<li><p>There is a spectrum of openness when it comes to open software that ranges from open- source software to closed source software.</p></li>
+<li><p>An example of something “in between” could be an executable file with documentation on how the code works.</p></li>
+<li><p>Some projects may be open from inception and continuously share all code throughout development. Others may share some of the code at the time of publication. Other projects may only make code available once funding ends. A variety of valid reasons factor into a project’s approach to sharing.</p></li>
+<li><p>While some factors restrict the degree of openness that software can be, each step towards sharing advances the open science movement.</p></li>
+<li><p>By sharing more ideas and software, communities have driven creative, scientific, and technological advancement faster than the restricted pace of closed science. Peer production and mass collaboration creates more sustainable software development.</p></li>
+</ul>
+<p>While researchers and institutions may not be able to share all their code, they can make efforts to shift on the openness spectrum from closed code to open-source code and software.</p>
+<p><em>In the activity below, drag each slider to explore the spectrum of openness.</em></p>
+<img alt="../../../../_images/image110.jpg" src="../../../../_images/image110.jpg" />
+</section>
+<section id="the-practice-of-open">
+<h3>The Practice of ‘Open’<a class="headerlink" href="#the-practice-of-open" title="Permalink to this heading">#</a></h3>
+<p>Review how the key tasks in the software development life cycle are covered in the “Use, Make, Share” framework flow.</p>
+<img alt="../../../../_images/image290.png" src="../../../../_images/image290.png" />
+<p>As with open data, different aspects of open software are described in terms of Using, Making, and Sharing of open software.</p>
+<p>A key difference with software is that the process is typically more cyclical and repetitive than with data or results. Typically, software constantly evolves. Thus, the boundaries between “Use-Make- Share” are less rigid and the process is typically more dynamic and circular than pre-planned/fixed and sequential.</p>
+</section>
+<section id="activity-1-2-how-can-you-use-open-software-in-your-work-to-advance-open-science">
+<h3>Activity 1.2: How Can You Use Open Software in Your Work to Advance Open Science<a class="headerlink" href="#activity-1-2-how-can-you-use-open-software-in-your-work-to-advance-open-science" title="Permalink to this heading">#</a></h3>
+<p>In this activity, you are asked to reflect on how you have used and can use the open software principles to advance your work.</p>
+<p>Consider the following questions:</p>
+<ol class="arabic simple">
+<li><p>Have you used open software principles 1 in your work?</p></li>
+<li><p>What are some of the successes and challenges you have encountered?</p></li>
+<li><p>What resources did you find useful for advancing open software in your work?</p></li>
+</ol>
+<section id="key-takeaways-how-can-you-use-open-software-in-your-work-to-advance-open-science">
+<h4>Key Takeaways: How Can You Use Open Software in Your Work to Advance Open Science<a class="headerlink" href="#key-takeaways-how-can-you-use-open-software-in-your-work-to-advance-open-science" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Open software is a collaborative activity.</p></li>
+<li><p>We can all learn and benefit from each other in making our scientific software more open.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="lesson-1-summary">
+<h2>Lesson 1: Summary<a class="headerlink" href="#lesson-1-summary" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you learned that:</p>
+<ul class="simple">
+<li><p>In open-source software, anyone can see the underlying source-code.</p></li>
+<li><p>Open-source principles promote transparency, collaboration, sharing, inclusiveness, and communities.</p></li>
+<li><p>Open-source software accelerates science, minimizes time and cost of repeated development of similar software and reproducing scientific computations, and can improve quality and trust in science.</p></li>
+<li><p>Licenses for open-source software dictate its shareability and reusability to developers and prospective contributors. Funding entities and affiliated institutions may impose restrictions on how developers license their software.</p></li>
+<li><p>A software management plan (SMP) is a project guidebook with a common understanding of data management practices that a research team can work from.</p></li>
+</ul>
+</section>
+<section id="lesson-1-knowledge-check">
+<h2>Lesson 1: Knowledge Check<a class="headerlink" href="#lesson-1-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/03</strong></p>
+<p>Read the statement below and decide whether it’s true or false:</p>
+<p><em>Software is referred to as open source when it is publicly accessible; anyone can see, modify, and distribute the code as they see fit.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/03</strong></p>
+<p>Which of the following are valid reasons why scientists keep their source code closed? Select all that apply.</p>
+<ul class="simple">
+<li><p>National security concerns</p></li>
+<li><p>Institutional policies</p></li>
+<li><p>Data privacy concerns</p></li>
+<li><p>Attribution concerns</p></li>
+<li><p>Quality concerns</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/03</strong></p>
+<p>What are the main sections in a software management plan?</p>
+<ul class="simple">
+<li><p>Types of code and software</p></li>
+<li><p>Schedule for sharing software</p></li>
+<li><p>Where software will be shared and archived</p></li>
+<li><p>What license it will be assigned</p></li>
+<li><p>Roles and responsibilities of team members</p></li>
+<li><p>All of the above</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_4/Lesson_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">OS101 Module 4: Open Code</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_2/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 2: Using Open Code</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#success-stories">Success Stories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions-and-considerations-of-open-code">Definitions and Considerations of Open Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-code-vs-software">What is Code vs Software?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-open-source-software">What is Open Source Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-software">Types of Software</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-benefits-and-challenges">Principles, Benefits, and Challenges</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-open-code">Principles of Open Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-moving-to-open-software">Benefits of Moving to Open Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-of-moving-to-open-software">Challenges of Moving to Open Software</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ultimately-you-are-free-to-deploy-the-open-software-principles-and-resources-in-your-research-to-maximize-its-impact-and-meet-the-expectations-of-your-sponsors-and-community-while-managing-costs">Ultimately, you are free to deploy the open software principles and resources in your research to maximize its impact and meet the expectations of your sponsors and community while managing costs.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-1-relating-principles-to-benefits-and-challenges">Activity 1.1: Relating Principles to Benefits and Challenges</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-not-to-share">When Not to Share</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#licensing-code">Licensing Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-for-openness-using-the-use-make-share-framework-for-open-code">Planning for Openness: Using the Use, Make, Share Framework for Open Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-software-developed-using-research-opportunities-in-space-and-earth-sciences-roses-funding-in-support-of-a-peer-reviewed-publication-shall-be-made-publicly-available-at-the-time-of-publication">“Data and software developed using Research Opportunities in Space and Earth Sciences (ROSES) funding in support of a peer-reviewed publication shall be made publicly available at the time of publication”</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-management-plans-smp">Software Management Plans (SMP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-code-is-a-spectrum">Open Code is a Spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-practice-of-open">The Practice of ‘Open’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-1-2-how-can-you-use-open-software-in-your-work-to-advance-open-science">Activity 1.2: How Can You Use Open Software in Your Work to Advance Open Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-how-can-you-use-open-software-in-your-work-to-advance-open-science">Key Takeaways: How Can You Use Open Software in Your Work to Advance Open Science</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-summary">Lesson 1: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-1-knowledge-check">Lesson 1: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

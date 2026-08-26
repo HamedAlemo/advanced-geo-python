@@ -1,0 +1,1163 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 4: Tools for Open Code &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 5: Tools for Open Results" href="../Lesson_5/readme.html" />
+    <link rel="prev" title="Lesson 3: Tools for Open Data" href="../Lesson_3/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 2: Open Tools and Resources</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 4: Tools for Open Code</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-open-code">Introduction to Open Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-precedent-for-making-code-open-linux-operating-system">Historical Precedent for Making Code Open: Linux Operating System</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#context-development-of-linux-os">Context: Development of Linux OS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-version-control">Tools for Version Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-software-version-control">Types of Software Version Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control-platforms">Version Control Platforms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-benefits-to-using-version-control-and-version-control-platforms">Summary of Benefits to Using Version Control and Version Control Platforms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-editing-code">Tools for Editing Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrated-development-environment-ides">Integrated Development Environment (IDEs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-text-editors-for-coding">Plain Text Editors for Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-notebooks">Computational Notebooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-more-information-on-jupyter-products-and-its-community-check-out-their-website">For more information on Jupyter products and its community, check out their website.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-1-run-a-jupyter-notebook-yourself-from-the-browser">Activity 4.1: Run a Jupyter Notebook Yourself from the Browser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-platforms">Computing Platforms</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#personal-computer-e-g-a-laptop">Personal Computer (e.g. a laptop)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#high-performance-computing-hpc">High Performance Computing (HPC)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-computing">Cloud Computing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-tools">Additional Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-repository-vs-archive">Software Repository vs Archive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-2-match-tools">Activity 4.2: Match Tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-summary">Lesson 4: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-4-tools-for-open-code">
+<h1>Lesson 4: Tools for Open Code<a class="headerlink" href="#lesson-4-tools-for-open-code" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#introduction-to-open-code">Introduction to Open Code</a></p></li>
+<li><p><a href="#tools-for-version-control">Tools for Version Control</a></p></li>
+<li><p><a href="#tools-for-editing-code">Tools for Editing Code</a></p></li>
+<li><p><a href="#additional-tools">Additional Tools</a></p></li>
+<li><p><a href="#lesson-4-summary">Lesson 4: Summary</a></p></li>
+<li><p><a href="#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>This lesson introduces you to some useful tools for working with open code. You will learn the various tools available to develop, store, and share open code, from version control to code editing software to containers.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Explain the benefits of using tools for open code development.</p></li>
+<li><p>Define version control and understand how it supports collaboration in the development and management of code.</p></li>
+<li><p>List a few tools for editing software and some of their features.</p></li>
+<li><p>Distinguish between software repositories and software archives.</p></li>
+</ul>
+</section>
+<section id="introduction-to-open-code">
+<h2>Introduction to Open Code<a class="headerlink" href="#introduction-to-open-code" title="Permalink to this heading">#</a></h2>
+<p>In Lesson 3, we learned about useful tools for working with scientific data. Now, we will provide an overview of commonly used tools that help us write and run computer code to explore, analyze, and visualize our scientific data. Later in Module 4 – Open Code, we will discuss in greater detail what it means to make our code open, and walk through the steps of how to find, create, and share open code.</p>
+<p>Understanding how to work with scientific code is essential in the modern landscape of data-driven research. The tools presented in this lesson encompass a diverse array of resources designed to streamline, enhance, and optimize the process of developing, maintaining, and collaborating on code development for scientific research. They enable the creation of robust and efficient code, often leveraging the collective wisdom of the open-source community. In the pursuit of reproducibility and transparency, these tools can also facilitate the sharing and dissemination of scientific code, fostering collaboration and ensuring that the foundations of scientific research remain open and accessible to all.</p>
+<section id="historical-precedent-for-making-code-open-linux-operating-system">
+<h3>Historical Precedent for Making Code Open: Linux Operating System<a class="headerlink" href="#historical-precedent-for-making-code-open-linux-operating-system" title="Permalink to this heading">#</a></h3>
+<p>Is the idea of writing code openly a new concept? No!</p>
+<section id="context-development-of-linux-os">
+<h4>Context: Development of Linux OS<a class="headerlink" href="#context-development-of-linux-os" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/History_of_Linux">CLICK TO LEARN</a></p>
+<ul class="simple">
+<li><p>Started in 1991 by Linus Torvalds.</p></li>
+<li><p>Almost immediately released for scrutiny.</p></li>
+<li><p>Many eyes → Many bugs found → Many fixes.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="tools-for-version-control">
+<h2>Tools for Version Control<a class="headerlink" href="#tools-for-version-control" title="Permalink to this heading">#</a></h2>
+<section id="version-control">
+<h3>Version Control<a class="headerlink" href="#version-control" title="Permalink to this heading">#</a></h3>
+<p>Version control is the practice of tracking and managing changes made to code or other types of files. You may be familiar with “Track changes” in software like Microsoft Word. This is a form of version control, though not one well-suited to working with code. Version control is considered standard practice in the software development community, and simplifies management of code through time.</p>
+<p>The general way we use version control starts by initializing a folder on your computing platform with the version control system you are using. A version control system automatically tracks all changes made by contributors and allows you to work offline and return later with updates. You write code as you usually do in your code editor of choice. After you have written some code or made some updates to existing code, you then commit those changes to the version control system to create a sort of “checkpoint” that you can then revert back to later if necessary. Then you add or update more code, and commit changes again. Each commit requires you to add a short message which lets you briefly describe what changes were made. These messages serve as metadata that ensures collaborators, future users, and future you understand your development process at a point in time.</p>
+<p>This may sound like a simple process, and in many ways it is! So why is it so important? Especially when it comes to coding, the ability to create a snapshot in time of a piece of code can be very helpful. For instance, you may have a piece of code that yields the intended result, but then you want to add a new function. You may choose to copy that code file so you don’t lose the current state, and then work in a new file. This can become cumbersome pretty quickly when you have multiple files that are different versions of the same piece of code. Or instead of creating a new file, you may write code for the new function directly in the original file, but now the code throws errors when you try to run it, and you can’t remember which lines you added since the last time the code ran without errors. By using version control, these problems are solved because we can revert back to the checkpoint when the code ran cleanly, and thereby avoid the need to create multiple copies to save the original piece of code.</p>
+<p>There are many other features of version control systems, such as the concept of creating “branches” that allow you to work on new updates to a piece of code independently from and in parallel to the original piece of code. A branch is a deviation from the original code, but can be merged back into the original code when desired. All of these concepts are even more useful when collaborating with others using version control platforms, a collaborative practice that will be discussed later in this lesson.</p>
+</section>
+<section id="types-of-software-version-control">
+<h3>Types of Software Version Control<a class="headerlink" href="#types-of-software-version-control" title="Permalink to this heading">#</a></h3>
+<p>There are two main styles of software version control systems:</p>
+<table>
+  <thead>
+    <tr>
+        <th>CENTRALIZED &#9745;</th>
+        <th>DISTRIBUTED (MORE POPULAR)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <ul>
+              <li>Singular "main" copy of the codebase</li>
+              <li>Must interact with specific server</li>
+              <li>Example: Subversion (SVN)</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>CENTRALIZED</th>
+        <th>DISTRIBUTED (MORE POPULAR) &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <p>Control:</p>
+            <p>Each developer’s system can retain a copy of the codebase<br>
+            Examples:</p>
+            <ul>
+              <li>Git</li>
+              <li>Mercurial</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<p>Using a distributed version control system like Git gives you more flexibility.</p>
+<p><strong>Example: Git</strong></p>
+<p>The most popular version control system for software development is Git. Git is open-source and is commonly used in conjunction with web-based software hosting sites like GitHub and GitLab (more on these in the next section), which allow for collaboration and sharing of code. You can also use it on your local computer when writing your own code. Git is often run at the command line, but there are other interfaces for using Git as well, including GitHub Desktop and some code editors that have Git integration included (more on this later).</p>
+<img alt="../../../../_images/image33.png" src="../../../../_images/image33.png" />
+<p><a class="reference external" href="https://xkcd.com/1597/">https://xkcd.com/1597/</a></p>
+<hr class="docutils" />
+<p>Git is very powerful and widely used (according to a Stack Overflow <a class="reference external" href="https://survey.stackoverflow.co/2022"> developer survey</a>, over 87% of developers use Git), but that doesn’t mean it is straightforward to learn. There are many good resources for learning Git (see below). If you find Git confusing at first, know that you are not alone! (There’s even an XKCD comic about it!). For in-depth training on Git, please see the Software Carpentry lesson, listed below: <a class="reference external" href="https://swcarpentry.github.io/git-novice/"> Version Control with Git: Summary and Setup (swcarpentry.github.io)</a></p>
+</section>
+<section id="version-control-platforms">
+<h3>Version Control Platforms<a class="headerlink" href="#version-control-platforms" title="Permalink to this heading">#</a></h3>
+<p>Version control platforms, typically web-based software hosting platforms, expand the usefulness of version control by allowing for a centralized location to store and collaborate on code, along with many other helpful features for code development and sharing.</p>
+<p>Some examples of version control platforms:</p>
+<ul class="simple">
+<li><p>GitHub: a Git-based platform that allows collaboration and code history tracking. Owned by Microsoft.</p></li>
+<li><p>GitLab: a Git-based platform that also offers DevOps and CI/CD functionalities.</p></li>
+<li><p>BitBucket: a platform that can host Git and Mercurial repositories. Owned by Atlassian.</p></li>
+</ul>
+<p>GitHub is one of the most popular platforms, and so we will provide examples of how to use GitHub in the rest of this section. It is important to note that GitHub is where most open-source software packages are housed, and so if you are interested in getting more involved with the open source software community, GitHub is an essential tool to learn how to use!</p>
+<p><strong>Example: GitHub</strong></p>
+<p>GitHub is an online, cloud-based software repository hosting site that integrates with Git and offers many other features that help with code development, collaboration, testing, and releases. Before we dive into some of these features, it’s important to understand how GitHub acts as a remote repository when using version control systems like Git.</p>
+<p>If we go back to the general idea of using version control systems, GitHub can be added into the picture as a remote repository that hosts code. After creating a “checkpoint” in Git, you can then upload a copy of the current snapshot of your code to GitHub. There are a few reasons you might want to do this, including:</p>
+<ul class="simple">
+<li><p>To serve as a backup for your work (it is now stored on a remote server that you can access even if your computer dies).</p></li>
+<li><p>To share your code with others (more on this later in this course).</p></li>
+<li><p>To collaborate with others on your code. By uploading to GitHub, your code can be made accessible to others who might want to add features.</p></li>
+</ul>
+<p>Let’s expand on some of GitHub’s collaboration tools. Some of these features include:</p>
+<table>
+  <colgroup>
+    <col style="width: 49%" />
+    <col style="width: 49%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th>Term</th>
+      <th>Description/Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd">
+      <td>Issue Tracking</td>
+      <td>
+        Keep track of feature requests, bugs, and other types of updates via GitHub Issues. GitHub also allows the use of labels and assigning people to tasks to help organize tasks.
+      </td>
+    </tr>
+    <tr class="odd">
+      <td>Project Discussion Forums</td>
+      <td>
+        GitHub allows for an online discussion forum where you can ask and answer questions, and hold community discussions.
+      </td>
+    </tr>
+    <tr class="odd">
+      <td>Contribution Tracking</td>
+      <td>
+        GitHub has a straightforward way to keep track of suggested code contributions (called “Pull Requests”) from different people.
+      </td>
+    </tr>
+    <tr class="odd">
+      <td>Code Review Tools</td>
+      <td>
+        GitHub has a rich set of tools for reviewing and accepting (or denying) contributions from others (or yourself), such as in-line comments and easily viewable tracked changes to individual files.
+      </td>
+    </tr>
+    <tr class="odd">
+      <td>Tailored Permissions</td>
+      <td>
+        Choose who has the ability to update the code. This helps you feel confident that only those with permission can update code that you shared in GitHub, and also others feel safe to suggest updates without worrying that they might accidentally overwrite existing code.
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>All of these features excel at enabling asynchronous collaboration across teams. Most scientific open- source packages use GitHub for their primary code development. Note that there are many more GitHub features that we don’t go into here that support collaboration, as well as automated workflows and so much more. To learn more about GitHub, take a look at these references:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.freecodecamp.org/news/introduction-to-git-and-github/">How to Use Git and GitHub – Introduction for Beginners (freecodecamp.org)</a></p></li>
+<li><p><a class="reference external" href="https://foundations.projectpythia.org/foundations/getting-started-github.html">Getting Started with GitHub — Pythia Foundations (projectpythia.org)</a></p></li>
+</ul>
+<p>[Cite Project Pythia: <a class="reference external" href="https://foundations.projectpythia.org/preamble/how-to-cite.html">https://foundations.projectpythia.org/preamble/how-to-cite.html</a>]</p>
+</section>
+<section id="summary-of-benefits-to-using-version-control-and-version-control-platforms">
+<h3>Summary of Benefits to Using Version Control and Version Control Platforms<a class="headerlink" href="#summary-of-benefits-to-using-version-control-and-version-control-platforms" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Features the ability to rewind changes back to any committed point</p></li>
+<li><p>Eases collaboration with others</p></li>
+<li><p>Keeps a directory clean from clutter, with no need for multiple copies of files</p></li>
+<li><p>Provides a targeted backup system for your work</p></li>
+</ul>
+</section>
+</section>
+<section id="tools-for-editing-code">
+<h2>Tools for Editing Code<a class="headerlink" href="#tools-for-editing-code" title="Permalink to this heading">#</a></h2>
+<section id="integrated-development-environment-ides">
+<h3>Integrated Development Environment (IDEs)<a class="headerlink" href="#integrated-development-environment-ides" title="Permalink to this heading">#</a></h3>
+<p>An Integrated Development Environment (IDE) plays an important role in open code development by offering a comprehensive toolkit to researchers, scientists, and developers for editing code. It is a software application that streamlines the entire process of creating, testing, and managing code for scientific research and data analysis. By providing an all-in-one platform, an IDE allows researchers to write, debug, and optimize code more efficiently, fostering collaboration and reproducibility in open code science projects.</p>
+<p>In open science, where transparency and accessibility are paramount, IDEs often incorporate version control systems like Git to facilitate collaboration and ensure that a research codebase is readily available for others to use and improve. Additionally, many IDEs integrate with data analysis and visualization tools. This makes it easier for scientists to analyze and interpret their data, ultimately contributing to the advancement of open code science practices.</p>
+<p>If you were in a room with 10 developers and asked them each what their favorite code editor is, you would get many different responses. In this lesson, we will go over a few of the more popular varieties.</p>
+<p><strong>Source-Code Editing &amp; Kernels – The Value of IDEs and Kernels</strong></p>
+<p>IDEs can bring a lot of good tools to your efforts. It’s not just about editing code any more. Modern, robust IDEs can do most of the things listed here, if not more. One can use an IDE without executing in a kernel; one can use a kernel without having developed code in an IDE. However, they can work hand-in-hand.</p>
+<table>
+  <thead>
+    <tr>
+        <th>Integrated Development Environment (IDE) &#9745;</th>
+        <th>Kernel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <p>Source code editing:</p>
+            <ul>
+              <li>Syntax highlighting</li>
+              <li>Error/bug warnings</li>
+            </ul>
+            <p>Plugins</p>
+            <ul>
+              <li>Debuggers</li>
+              <li>Memory management</li>
+              <li>Version control</li>
+              <li>Build automation</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>Integrated Development Environment (IDE)</th>
+        <th>Kernel &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <ul>
+              <li>Execution environment</li>
+              <li>Like a virtual machine</li>
+              <li>Isolates work area</li>
+              <ul>
+                  <li>Tailor settings</li>
+                  <li>Easily replicable</li>
+              </ul>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>IDE Example: Visual Studio Code</strong></p>
+<p>The most popular IDE these days, Microsoft’s Visual Studio Code (or VS Code) is feature-rich without being clunky.</p>
+<img alt="../../../../_images/image34.png" src="../../../../_images/image34.png" />
+<ul class="simple">
+<li><p>It has a “dark mode” option which is easier on the eyes for long coding sessions.</p></li>
+<li><p>It provides the basics such as syntax highlighting and an integrated terminal window.</p></li>
+<li><p>It also has a wealth of plugins for connecting to servers, version control systems, and troubleshooting. It has several linter plugins, which can analyze your code for bugs, errors, and to help your team code in a consistent “style”. This eases code maintenance down the road.</p></li>
+<li><p>If your line of code has an obvious error in it, the IDE will produce a red squiggle, just as if you’ve spelled something wrong in a Word Document.</p></li>
+</ul>
+<p>Below is an example of a developer who accidentally typed an equal sign when they should have typed a colon. VS Code caught the error, and when the developer hovered over the red squiggle, VS Code explained what the error was and offered to take them to further documentation.</p>
+<img alt="../../../../_images/image35.png" src="../../../../_images/image35.png" />
+<p>Another useful feature in VS Code (as well as many other code editors) is Git Integration. Instead of using a Terminal window, you can just make a few clicks and easily integrate Git into your workflow!</p>
+<p>From VS Code you can:</p>
+<ul class="simple">
+<li><p>Easily see modifications to your code.</p></li>
+<li><p>Create a branch.</p></li>
+<li><p>Upload your changes directly to GitHub.</p></li>
+<li><p>Download changes from other team members to your local system.</p></li>
+</ul>
+<p><strong>IDE Example: Rstudio – IDE</strong></p>
+<p>While Visual Studio Code is a more generic IDE where you can use plugins to specialize it, there are also IDEs, such as RStudio, that have specialized features for specific languages right out of the gate.</p>
+<p>Researchers conducting statistical analysis tend to use the coding languages of R and Python. RStudio has built-in tools for that very purpose, including data visualization.</p>
+<img alt="../../../../_images/image36.jpeg" src="../../../../_images/image36.jpeg" />
+<p>Source:  https://en.wikipedia.org/wiki/File:RStudio_IDE_screenshot.png</p>
+</section>
+<section id="plain-text-editors-for-coding">
+<h3>Plain Text Editors for Coding<a class="headerlink" href="#plain-text-editors-for-coding" title="Permalink to this heading">#</a></h3>
+<p>Most laptop or desktop computers that run standard operating systems (Windows, MacOS, Linux) have multiple pre-installed plain-text editors that can be used for coding. It is beneficial to know how to use at least one, because it makes editing scripts and files a quick process.</p>
+<table>
+  <colgroup>
+    <col style="width: 49%" />
+    <col style="width: 50%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th><strong>PROS</strong></th>
+      <th><strong>CONS</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd">
+      <td>
+        <ul>
+        <li>Lightweight</li>
+        <li>Many distributed natively with OS</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+        <li>No plugins to help find bugs, errors, etc.</li>
+        <li>May not have syntax-highlighting</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="computational-notebooks">
+<h3>Computational Notebooks<a class="headerlink" href="#computational-notebooks" title="Permalink to this heading">#</a></h3>
+<p>A computational notebook refers to a virtual, interactive computing environment that combines code execution, documentation, and data visualization in a single interface. These notebooks are widely used in data science and coding fields. Popular examples include Jupyter Notebooks and R Notebooks. They allow users to write and run code in a step-by-step manner, providing an efficient platform for data analysis, research, and collaborative coding, with the added benefit of integrating rich text (including equations), images, and charts for clear documentation and communication.</p>
+<p><strong>Example: Jupyter Notebook and JupyterLab</strong></p>
+<img alt="../../../../_images/jupyterlogo.jpg" src="../../../../_images/jupyterlogo.jpg" />
+<p>Jupyter notebooks are open-source web applications that are widely used for creating computational documents. But before we dive into Jupyter Notebooks, we want to make it clear that Jupyter Notebooks are one of many platforms in the Jupyter ecosystem:</p>
+<ul class="simple">
+<li><p>Jupyter Notebook – contained language shell for interactive programming, displaying output inline with inputs</p></li>
+<li><p>JupyterLab – an in-browser user interface showing multiple windows for notebooks, terminals, and code editing</p></li>
+<li><p>JupyterHub – middleware for running shared interactive computing environments, including JupyterLab and Jupyter Notebook, on shared computing infrastructure (such as the Cloud)</p></li>
+</ul>
+<p>We will use Jupyter Notebook as an example of a computational notebook and discuss how JupyterLab is related to Jupyter Notebook. The following section on computing platforms will discuss JupyterHub.</p>
+<p>This screenshot shows an example of a Jupyter Notebook that integrates rich text (with headers and links), equations, code, and the interactive output from those lines of code, including a plot. This screenshot makes it clear why this is called a computational notebook - it resembles a lab notebook that you may have written out by hand in school.</p>
+<img alt="../../../../_images/image38.png" src="../../../../_images/image38.png" />
+<p><a class="reference external" href="https://jupyter.org/">Project Jupyter | Home</a></p>
+<hr class="docutils" />
+<p>Many programming languages are supported by Jupyter. Fun fact: the name “Jupyter” refers to the three core languages supported by Jupyter: Julia, Python, and R.</p>
+<p>JupyterLab is a browser-based interactive development environment that supports Jupyter Notebooks, and is designed in a more flexible environment that allows for many useful features. One of these features is Git integration, as we saw for other IDEs like Visual Studio Code.</p>
+<p>Since Jupyter Notebooks allow for integration of code with visualizations and text, they can serve as a tool to carry out research projects and create easily shareable computational documents for education, collaboration, or science communication. With rich text capabilities, such as the use of headers, italics, links, and many more, you can create a readable document that contains runnable code. These are just some of the reasons why JupyterLab and Jupyter Notebooks are widely used across many disciplines, including computational research and data science.</p>
+<section id="for-more-information-on-jupyter-products-and-its-community-check-out-their-website">
+<h4>For more information on Jupyter products and its community, check out their website.<a class="headerlink" href="#for-more-information-on-jupyter-products-and-its-community-check-out-their-website" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://jupyter.org/">CLICK TO LEARN</a></p>
+<p>If you want to dive in, check out Project Pythia’s “Getting Started with Jupyter” lesson, geared toward scientists without assumption of programming background.</p>
+</section>
+</section>
+<section id="activity-4-1-run-a-jupyter-notebook-yourself-from-the-browser">
+<h3>Activity 4.1: Run a Jupyter Notebook Yourself from the Browser<a class="headerlink" href="#activity-4-1-run-a-jupyter-notebook-yourself-from-the-browser" title="Permalink to this heading">#</a></h3>
+<p>Let’s use an example from Project Pythia to showcase how computational notebooks can be used in science. Project Pythia is an education Hub for the geoscientific community. They have some great learning resources and example research notebooks that are developed and maintained by the community, and are freely available.</p>
+<p>In this activity, you will run pre-written Python code in a Jupyter Notebook from your browser to make plots related to the El-Niño Southern Oscillation (or ENSO). You will use the open-source software package called Xarray to read in sea surface temperature data from a global climate model (the Community Earth System Model - CESM), and create some visualizations of ENSO events across the last 20 or so years. The goal is to recreate the plot below for the last ~20 years. This figure shows the years and magnitude of the El Niño events in red and of the La Niña events in blue.</p>
+<p><img alt="" src="../../../../_images/image39.jpeg" /></p>
+<p>Source:  <a class="reference external" href="https://climatedataguide.ucar.edu/climate-data/nino-sst-indices-nino-12-3-34-4-oni-and-tni">https://climatedataguide.ucar.edu/climate-data/nino-sst-indices-nino-12-3-34-4-oni-and-tni</a></p>
+<hr class="docutils" />
+<p>Follow These Steps:</p>
+<ol class="arabic simple">
+<li><p>Navigate to the “<a class="reference external" href="https://foundations.projectpythia.org/core/xarray/enso-xarray.html">Calculating ENSO with Xarray</a>” lesson</p></li>
+<li><p>In the top right corner, hover your mouse over the rocket icon, and click on “Binder”. This will open the lesson as an executable Jupyter Notebook that runs on the Cloud. Note that it may take several minutes for the Notebook to get set up.
+<img alt="" src="../../../../_images/calculatingenso.jpg" /></p></li>
+<li><p>After the Notebook loads, you should see something like the following. Note – this actually uses the JupyterLab view!
+<img alt="" src="../../../../_images/calculatingenso2.jpg" /></p></li>
+<li><p>You can take a little time to breeze through the text and code in the Notebook, but keep in mind that this lesson assumes a lot of prior knowledge, so it’s ok if you don’t understand everything. You can still appreciate the nice plots you’re about to make!</p></li>
+<li><p>You are now ready to run the notebook yourself! To do that, you can go to the “Run” menu in the upper left of the JupyterLab window and choose “Run All Cells”:
+<img alt="" src="../../../../_images/calculatingenso3.jpg" /></p></li>
+<li><p>This should only take a few seconds, and if you scroll down, you can view a couple nice visualizations that you just created:<br><em>Use the “&lt;” and “&gt;” buttons to navigate between the images.</em></p></li>
+</ol>
+<p><img alt="" src="../../../../_images/calculatingenso4.jpg" /></p>
+<p><img alt="" src="../../../../_images/image44.jpeg" /></p>
+<ol class="arabic simple" start="7">
+<li><p>Take some time to look through the Notebook a bit more closely. You will see that there is text (including headers, links, and even a table right at the start!), code, and figures integrated together. This is just one example of how scientists use computational notebooks for their research.</p></li>
+</ol>
+<p>You can peruse more of the Project Pythia Python learning resources via their <a class="reference external" href="https://foundations.projectpythia.org/landing-page.html">Foundations Book</a>, and you can view more advanced example research workflows in the geosciences that use computational notebooks (which they call “<a class="reference external" href="https://cookbooks.projectpythia.org/">Cookbooks</a>”) to see more examples of how notebooks are used in science. If you are interested in the geosciences, you can even contribute your own notebook if you have a notebook you’d like to share!</p>
+</section>
+<section id="computing-platforms">
+<h3>Computing Platforms<a class="headerlink" href="#computing-platforms" title="Permalink to this heading">#</a></h3>
+<p>We use the term “computing platform” to refer to the computational machine used to run code. There are many different computing platforms that you can choose, each having their own pros and cons. Here is an overview of three computing options:</p>
+<section id="personal-computer-e-g-a-laptop">
+<h4>Personal Computer (e.g. a laptop)<a class="headerlink" href="#personal-computer-e-g-a-laptop" title="Permalink to this heading">#</a></h4>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>Convenient - Can run computations when and where you choose</p></li>
+<li><p>Can tailor the software environment to be exactly what you need</p></li>
+<li><p>Don’t have to share your computing resources</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Has limited computational power</p></li>
+<li><p>Requires downloading data and software</p></li>
+</ul>
+</section>
+<section id="high-performance-computing-hpc">
+<h4>High Performance Computing (HPC)<a class="headerlink" href="#high-performance-computing-hpc" title="Permalink to this heading">#</a></h4>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>High computational power</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Typically owned and run by a particular institution - may need to be affiliated with that institution to gain access to their HPC</p></li>
+<li><p>May have to wait significant amounts of time to run your code, since they are typically shared across many people and groups</p></li>
+<li><p>Need significant funds to build an HPC</p></li>
+</ul>
+</section>
+<section id="cloud-computing">
+<h4>Cloud Computing<a class="headerlink" href="#cloud-computing" title="Permalink to this heading">#</a></h4>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>Extremely high computational power</p></li>
+<li><p>Minimal wait times to run code</p></li>
+<li><p>Typically accessible to anyone with an internet connection</p></li>
+<li><p>On-demand pricing options - You only have to pay for what you use</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>High cost per computation</p></li>
+<li><p>Lack of transparency in costs - E.g. it can cost significant amounts to read in data from different Cloud regions, but may not always be clear which region your data and compute are in</p></li>
+<li><p>May require some extra knowledge in how Cloud computing works</p></li>
+</ul>
+<p>Examples of Cloud providers:</p>
+<ul class="simple">
+<li><p>Amazon Web Services (AWS)</p></li>
+<li><p>Google Cloud</p></li>
+<li><p>Microsoft Azure</p></li>
+</ul>
+<p>Many data providers, especially of large datasets, are migrating their data to the Cloud to increase accessibility and to make use of the large storage capacity that the Cloud provides. For instance, NASA Earthdata (which houses all NASA Earth science data) is now using AWS to store the majority of its data. Many Cloud providers also have a number of publicly available datasets, including  <a class="reference external" href="https://cloud.google.com/storage/docs/public-datasets/#%3A~%3Atext%3DAvailable%20public%20datasets%20on%20Cloud%20Storage%201%20ERA5%3A%2Cfrom%202015%20through%20the%20present.%20...%20More%20items">Google Cloud</a> and <a class="reference external" href="https://registry.opendata.aws/">AWS</a><a class="reference external" href="https://cloud.google.com/storage/docs/public-datasets/#%3A~%3Atext%3DAvailable%20public%20datasets%20on%20Cloud%20Storage%201%20ERA5%3A%2Cfrom%202015%20through%20the%20present.%20...%20More%20items">.</a></p>
+<p>When choosing a computing platform, it is important to consider where your datasets are saved and how big the datasets are. For instance, when working with small datasets, it is often preferable to use a personal computer since data download will take minimal time and large computing resources likely aren’t needed. When working with large datasets, however, it is best to minimize the amount of downloading and uploading data that is needed, as this can take significant amounts of time and internet bandwidth. If your large datasets are stored on the Cloud already, it is typically best to use Cloud resources for the computation as well, and likewise for HPC use.</p>
+</section>
+</section>
+</section>
+<section id="additional-tools">
+<h2>Additional Tools<a class="headerlink" href="#additional-tools" title="Permalink to this heading">#</a></h2>
+<section id="software-repository-vs-archive">
+<h3>Software Repository vs Archive<a class="headerlink" href="#software-repository-vs-archive" title="Permalink to this heading">#</a></h3>
+<p>Software repositories and archives provide centralized locations to store and share software, but there are some important key differences between them that we will discuss in this section.</p>
+<p>A software repository is a dynamic and collaborative space where developers work on the latest code, making it the heart of ongoing software development and version control. It houses actively maintained codebases, which encourages collaboration and continuous, often community-driven, improvement.</p>
+<p>Conversely, a software archive is static storage where stable and thoroughly tested software releases are kept. Users access these archives to obtain reliable versions of software, ensuring stability and reliability in their applications. Understanding the difference between these two is crucial for effective software development and distribution.</p>
+<img alt="../../../../_images/image45.png" src="../../../../_images/image45.png" />
+<p>Git/GitHub and Bitbucket are popular choices for software repositories.</p>
+<table>
+  <thead>
+    <tr>
+        <th>Repository &#9745;</th>
+        <th>Archive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <ul>
+              <li>Is a location for sharing code.</li>
+              <li>Often use version control systems like Git, Mercurial, and Subversion to track changes</li>
+              <li>Typically contains the latest development version (sometimes called the "master" or "trunk") of a software project, which can be actively worked on by developers.</li>
+              <li>Used for collaborative software development and code sharing among a team or a community of developers.</li>
+            </ul>
+            <p><strong>Important note:</strong> A repository is nothing more than a place for hosting code. These days, a version control system and a repository are often one and the same thing. It is important to understand the distinction. However, some websites are purely dropboxes for code executables or zip files of source code.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>Repository</th>
+        <th>Archive &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <ul>
+              <li>Often used for distribution and long-term preservation of software.</li>
+              <li>A storage system that contains specific, stable releases or versions of software, compiled binary packages, or source code releases.</li>
+              <li>Users typically download software from an archive to install and use it on their systems.</li>
+            </ul>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Containers</strong></p>
+<p>A software container is a standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, system tools, environment settings, and libraries. Containers are isolated environments that hold the application as well as anything needed to run the application, ensuring consistency and portability across different computing environments. A container is a helpful tool that can provide efficiency, scalability, and ease of deployment. Some examples of widely utilized container tools are Kubernetes, Docker, and Apache Mesos.</p>
+</section>
+<section id="activity-4-2-match-tools">
+<h3>Activity 4.2: Match Tools<a class="headerlink" href="#activity-4-2-match-tools" title="Permalink to this heading">#</a></h3>
+<p>Match each item to their description:</p>
+<table>
+  <colgroup>
+    <col style="width: 50%" />
+    <col style="width: 50%" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>
+        Integrated development environment (IDE)
+      </td>
+      <td>
+        Enhanced text editor for code. Assists with identifying syntax and constructs of code
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Software archive
+      </td>
+      <td>
+        Static storage where stable and thoroughly test software releases are kept.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Version control platform
+      </td>
+      <td>
+        Tool that helps software developers manage and track changes in
+      </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+</section>
+<section id="lesson-4-summary">
+<h2>Lesson 4: Summary<a class="headerlink" href="#lesson-4-summary" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you learned:</p>
+<ul class="simple">
+<li><p>The usefulness of digital tools that manage, foster collaboration, and house open code.</p></li>
+<li><p>How version control systems like Git and platforms like GitHub can increase collaboration and management of code.</p></li>
+<li><p>Some common tools for editing open code, including integrated development environments (IDEs) like Visual Studio Code and Jupyter Notebooks.</p></li>
+<li><p>The difference between software repositories and archives, and also how software containers can help with the sharing and reproducibility of code.</p></li>
+</ul>
+</section>
+<section id="lesson-4-knowledge-check">
+<h2>Lesson 4: Knowledge Check<a class="headerlink" href="#lesson-4-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/03</strong></p>
+<p>Which is NOT a benefit to using version control and version control platforms?</p>
+<ul class="simple">
+<li><p>Ability to track changes that have been made</p></li>
+<li><p>You cannot go back to make changes</p></li>
+<li><p>Ease of code collaboration with others</p></li>
+<li><p>Directory clean from clutter - no need for multiple copies of files</p></li>
+<li><p>A very targeted backup system for your work</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/03</strong></p>
+<p>An interactive computing environment that combines code execution, documentation, and data visualization in a single interface is known as a:</p>
+<ul class="simple">
+<li><p>Version Control Platform</p></li>
+<li><p>Software Repository</p></li>
+<li><p>Computational Notebook</p></li>
+<li><p>Container</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/03</strong></p>
+<p>A software repository and a software archive are the same thing.</p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_2/Lesson_4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_3/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 3: Tools for Open Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_5/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 5: Tools for Open Results</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-open-code">Introduction to Open Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-precedent-for-making-code-open-linux-operating-system">Historical Precedent for Making Code Open: Linux Operating System</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#context-development-of-linux-os">Context: Development of Linux OS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-version-control">Tools for Version Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-software-version-control">Types of Software Version Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control-platforms">Version Control Platforms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-benefits-to-using-version-control-and-version-control-platforms">Summary of Benefits to Using Version Control and Version Control Platforms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-editing-code">Tools for Editing Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrated-development-environment-ides">Integrated Development Environment (IDEs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-text-editors-for-coding">Plain Text Editors for Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-notebooks">Computational Notebooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-more-information-on-jupyter-products-and-its-community-check-out-their-website">For more information on Jupyter products and its community, check out their website.</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-1-run-a-jupyter-notebook-yourself-from-the-browser">Activity 4.1: Run a Jupyter Notebook Yourself from the Browser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-platforms">Computing Platforms</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#personal-computer-e-g-a-laptop">Personal Computer (e.g. a laptop)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#high-performance-computing-hpc">High Performance Computing (HPC)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-computing">Cloud Computing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-tools">Additional Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-repository-vs-archive">Software Repository vs Archive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-2-match-tools">Activity 4.2: Match Tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-summary">Lesson 4: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

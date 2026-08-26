@@ -1,0 +1,999 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 4: Sharing Open Code &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 5: From Theory to Practice" href="../Lesson_5/readme.html" />
+    <link rel="prev" title="Lesson 3: Making Open Code" href="../Lesson_3/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 4: Open Code</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 4: Sharing Open Code</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-to-share-your-code">Planning to Share Your Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-it-mean-to-share-your-code">What Does it Mean to “Share” Your Code?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-code-development">Open Source Code Development</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archiving-open-code">Archiving Open Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#should-you-share-your-software">Should You Share Your Software?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-dive-software-management-plans-smp">Deep dive: Software Management Plans (SMP)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legal-and-security-concerns">Legal and Security Concerns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-software-created-with-us-agency-funding">Sharing Software Created with US Agency Funding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-1-find-your-organizations-software-release-policies">Activity 4.1: Find Your Organization’s Software Release Policies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-find-your-organizations-software-release-policies">Key Takeaways: Find Your Organization’s Software Release Policies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-the-schedule-for-code-archiving-and-sharing">When: The Schedule for Code Archiving and Sharing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-where-to-share-open-code">Where: Where To Share Open Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-considerations">General Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-some-good-options-and-best-practices-for-archiving-your-code">What are some good options and best practices for archiving your code?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#is-your-code-a-substantial-software-package-and-of-interest-to-a-significant-number-of-users-from-various-disciplines-where-else-can-your-open-code-be-shared">Is your code a substantial software package and of interest to a signiﬁcant number of users from various disciplines? Where else can your open code be shared?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#to-share-my-code-i-can-just-add-it-to-github-right">To share my code, I can just add it to github, right?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-how-to-enable-reuse-of-code">How: How to Enable Reuse of Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-a-license">Assigning a License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-code-citable">Making the Code Citable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-2-create-a-doi-for-a-test-code-file">Activity 4.2: Create a DOI for a Test Code File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-it-easy-to-cite-your-code">Making it Easy to Cite Your Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-citation-files">Why use CITATION files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-contributor-guidelines">Adding Contributor Guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-roles-and-responsibilities-of-the-team-members-in-implementing-the-smp">Who: Roles and Responsibilities of the Team Members in Implementing the SMP</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#responsibilities-after-sharing">Responsibilities after Sharing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-summary">Lesson 4: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-4-sharing-open-code">
+<h1>Lesson 4: Sharing Open Code<a class="headerlink" href="#lesson-4-sharing-open-code" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#overview">Overview</a></p></li>
+<li><p><a href="#learning-objectives">Learning Objectives</a></p></li>
+<li><p><a href="#planning-to-share-your-code">Planning to Share Your Code</a></p></li>
+<li><p><a href="#legal-and-security-concerns">Legal and Security Concerns</a></p></li>
+<li><p><a href="#when-the-schedule-for-code-archiving-and-sharing">When: The Schedule for Code Archiving and Sharing</a></p></li>
+<li><p><a href="#where-to-share-open-code">Where: Where To Share Open Code</a></p></li>
+<li><p><a href="#how-how-to-enable-reuse-of-code">How: How to Enable Reuse of Code</a></p></li>
+<li><p><a href="#who-roles-and-responsibilities-of-the-team-members-in-implementing-the-smp">Who: Roles and Responsibilities of the Team Members in Implementing the SMP</a></p></li>
+<li><p><a href="#lesson-4-summary">Lesson 4: Summary</a></p></li>
+<li><p><a href="#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>In this lesson you learn the steps for sharing the software that you developed. These steps include determining if, when, and where software should be shared, which roles are needed, and how to enable others to use the code.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Describe what it means to share code: for archiving or for code development.</p></li>
+<li><p>Evaluate whether you should share your code and list important security considerations.</p></li>
+<li><p>Describe best practices for when and where to share code.</p></li>
+<li><p>Recall commonly used practices to help others reuse your code.</p></li>
+<li><p>List the roles and responsibilities for sharing and maintaining shared code.</p></li>
+</ul>
+</section>
+<section id="planning-to-share-your-code">
+<h2>Planning to Share Your Code<a class="headerlink" href="#planning-to-share-your-code" title="Permalink to this heading">#</a></h2>
+<img alt="../../../../_images/image540.png" src="../../../../_images/image540.png" />
+<p>“I’ve been working on code, and now a new collaborator wants to use the code. Awesome! What is the best way to share the code? By email? When should I share the code, and what should I include to ensure the colleague can easily use it?”</p>
+<section id="what-does-it-mean-to-share-your-code">
+<h3>What Does it Mean to “Share” Your Code?<a class="headerlink" href="#what-does-it-mean-to-share-your-code" title="Permalink to this heading">#</a></h3>
+<p>There are two major categories of sharing: sharing for development and providing a long-term record.</p>
+</section>
+<section id="open-source-code-development">
+<h3>Open Source Code Development<a class="headerlink" href="#open-source-code-development" title="Permalink to this heading">#</a></h3>
+<p>Writing scientific code is often a dynamic and collaborative process in which multiple people contribute and the code evolves over time. In such projects, it is beneficial to develop open code within a public repository hosting platform such as Github, Bitbucket, GitLab etc. from the beginning of a project. This ensures that all updates are shared openly on the web and can reach potentially interested collaborators and users in near real time.</p>
+</section>
+<section id="archiving-open-code">
+<h3>Archiving Open Code<a class="headerlink" href="#archiving-open-code" title="Permalink to this heading">#</a></h3>
+<p>Archiving ensures your scientific code is accessible for the long-term, and may satisfy archiving requirements from funding agencies and organizations. Long-term accessibility helps others to reproduce your results long after publication. Archiving alone does not promote continued development or collaboration. Archiving is a static and long-term preservation of your software, not an evolution of it.</p>
+</section>
+<section id="should-you-share-your-software">
+<h3>Should You Share Your Software?<a class="headerlink" href="#should-you-share-your-software" title="Permalink to this heading">#</a></h3>
+<p>There are several legal and security concerns to keep in mind when creating or using open software.</p>
+<ul class="simple">
+<li><p>Any software you create is usually considered intellectual property and might be controlled by your organization’s policies.</p></li>
+<li><p>Such policies may influence how openly the software can be shared, and therefore, its license.</p></li>
+<li><p>Downloading and contributing to open software projects can be regulated by your organization’s IT security policies.</p></li>
+</ul>
+<p>In contrast, if the software was created with external (government) funding, some funding agencies may require the software be openly shared.</p>
+</section>
+<section id="deep-dive-software-management-plans-smp">
+<h3>Deep dive: Software Management Plans (SMP)<a class="headerlink" href="#deep-dive-software-management-plans-smp" title="Permalink to this heading">#</a></h3>
+<p>Remember the parts of the Software Management Plan? What do we need to consider when it comes to sharing?</p>
+<ul class="simple">
+<li><p><strong>What:</strong> Description of management, preservation, and release of software.</p></li>
+<li><p><strong>When:</strong> The schedule for code archiving and sharing.</p></li>
+<li><p><strong>Where:</strong> Location where software will be shared and archived over the long-term.</p></li>
+<li><p><strong>How:</strong> Enable reuse of software through assigning a DOI, license, contribution guidelines, etc.</p></li>
+<li><p><strong>Who:</strong> Roles and responsibilities of the team members.</p></li>
+</ul>
+</section>
+</section>
+<section id="legal-and-security-concerns">
+<h2>Legal and Security Concerns<a class="headerlink" href="#legal-and-security-concerns" title="Permalink to this heading">#</a></h2>
+<table>
+  <thead>
+    <tr>
+        <th>LEGAL CONCERNS &#9745;</th>
+        <th>SECURITY CONCERNS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <p>Anyone writing research code and software should familiarize themselves with their organization's policies on sharing and publishing software. Funding agencies, government or private, may have strict software openness requirements. In other cases, sharing software may not be allowed by the organization.</p>
+            <p>Legal concerns can include questions such as:</p>
+            <ul>
+                <li>Does a developer or institution own the software?</li>
+                <li>Does sharing (or not sharing) the software violate the funding agency’s policies?</li>
+                <li>Are there any local laws or regulations in your area that govern the sharing of intellectual property?</li>
+                <li>What software license is required?</li>
+            </ul>
+            <p><strong>Once you decide to participate in or begin a new open software project, familiarize yourself with your organization’s policies and practices.</strong></p>
+            <p>Find out more about the legal concerns <a href="https://opensource.guide/legal/">here</a>.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>LEGAL CONCERNS</th>
+        <th>SECURITY CONCERNS &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2">
+            <p>Security is a concern when sharing software. Bad actors can attach malicious code to software in an attempt to infiltrate computer systems through security vulnerabilities, potentially exposing sensitive and proprietary information that can lead to great financial loss for users. Security risks must be considered when sharing software.</p>
+            <p>Security concerns can include:</p>
+            <ul>
+                <li>Does your organization’s Information Technology (IT) policy allow you to checkout the code you want to use on your machine?</li>
+                <li>Is the repository you want to contribute to reputable?</li>
+                <li>Are there any open security-related issues with the code?</li>
+            </ul>
+            <p><strong>Once you decide to participate in or begin a new open software project, familiarize yourself with your organization's IT policies.</strong></p>
+            <p>Find out more about the security concerns <a href="https://opensciency.github.io/sprint-content/open-software/lesson2-pros-cons.html#security-concerns">here</a>.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<section id="sharing-software-created-with-us-agency-funding">
+<h3>Sharing Software Created with US Agency Funding<a class="headerlink" href="#sharing-software-created-with-us-agency-funding" title="Permalink to this heading">#</a></h3>
+<p>Many federal agencies are now allowing (if not requiring) the sharing of code created under their grant programs. For example:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nasa.gov/open/open-source-development.html">NASA</a> “…we are actively reaching out to projects within NASA to make use of …resources for publishing open source.”</p></li>
+<li><p><a class="reference external" href="https://www.commerce.gov/about/policies/source-code">US Department of Commerce</a> “…requires agencies to develop plans to release at least 20 percent of new custom-developed source code as Open Source Software (OSS) when commissioning new custom software.”</p></li>
+<li><p><a class="reference external" href="https://www.usgs.gov/survey-manual/im-osqi-2019-01-review-and-approval-scientific-software-release">USGS</a> “…software releases are considered to be public domain assets and are generally made available free of restrictions.”</p></li>
+</ul>
+<p>Are you funded by a grant? Read the original grant call to see if publishing your code is allowed/required and check whether it has any language about software management and any conditions to publish your code. When in doubt, contact your organization for additional information.</p>
+</section>
+<section id="activity-4-1-find-your-organizations-software-release-policies">
+<h3>Activity 4.1: Find Your Organization’s Software Release Policies<a class="headerlink" href="#activity-4-1-find-your-organizations-software-release-policies" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/lightbulb1.png" src="../../../../_images/lightbulb1.png" />
+<p>Assume you want to start a new open-source project:</p>
+<ul class="simple">
+<li><p>Find your organization’s policies on software releases.</p></li>
+<li><p>What is the process for releasing your software?</p></li>
+<li><p>Does anybody in your organization have to approve this release?</p></li>
+<li><p>Are there any policies regarding external contributors?</p></li>
+<li><p>Does your organization require a specific attribution or credit?</p></li>
+</ul>
+<section id="key-takeaways-find-your-organizations-software-release-policies">
+<h4>Key Takeaways: Find Your Organization’s Software Release Policies<a class="headerlink" href="#key-takeaways-find-your-organizations-software-release-policies" title="Permalink to this heading">#</a></h4>
+<p>Software release policies differ by organization and each piece of software is different. Therefore, it is important that we do not make assumptions about the software release policies based on previous experience.</p>
+</section>
+</section>
+</section>
+<section id="when-the-schedule-for-code-archiving-and-sharing">
+<h2>When: The Schedule for Code Archiving and Sharing<a class="headerlink" href="#when-the-schedule-for-code-archiving-and-sharing" title="Permalink to this heading">#</a></h2>
+<p>Planning to share your code at the beginning of your project makes sharing easier to do when you are ready. Exactly when in your workflow you decide to publicly share your code depends on your work and the requirements of the funding agency, organization, or publisher.</p>
+<p>As an example, what does NASA say?</p>
+<p>If you are writing scientific software for a project funded by the NASA Science Mission Directorate then:</p>
+<p>“Scientific software needed to validate the scientific conclusions of peer-reviewed manuscripts resulting from SMD-funded scientific activities shall become publicly available no later than the publication date of the corresponding peer-reviewed article. This includes software required to derive the findings communicated in figures, maps, and tables, as well as scientifically useful software from models and simulations.”</p>
+<p>- <a class="reference external" href="https://smd-cms.nasa.gov/wp-content/uploads/2023/07/smd-open-source-science-guidance-v2-20230407.pdf"><strong>Open-Source Science Guidance</strong></a></p>
+<p>Other organizations may have different guidance, so it is always best to check what the funding agency or organization requires.</p>
+</section>
+<section id="where-where-to-share-open-code">
+<h2>Where: Where To Share Open Code<a class="headerlink" href="#where-where-to-share-open-code" title="Permalink to this heading">#</a></h2>
+<section id="general-considerations">
+<h3>General Considerations<a class="headerlink" href="#general-considerations" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image197.png" src="../../../../_images/image197.png" />
+<p>Like data, code can be shared in many ways, for example over email or on a personal website, but these methods are not recommended. So, where should you share your Open Code?</p>
+<p>First, consider your institutional or funding agency policies that may dictate where you must share and where you can share. For example, some funding agencies specify long-term repositories where your code must be archived, and they may restrict you from sharing in other forms of repositories. Your scientific discipline may have a specific repository for open code.</p>
+<section id="what-are-some-good-options-and-best-practices-for-archiving-your-code">
+<h4>What are some good options and best practices for archiving your code?<a class="headerlink" href="#what-are-some-good-options-and-best-practices-for-archiving-your-code" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Archive open code with an open access journal article.</p></li>
+<li><p>If the open code is in an active online development repository such as Github, then create a version and archive the code at a long-term repository with a DOI such as Zenodo, which can be integrated with Github (more details on this process later).</p></li>
+<li><p>Archive the code in other long-term public repositories, such as Software Heritage.</p></li>
+</ul>
+</section>
+<section id="is-your-code-a-substantial-software-package-and-of-interest-to-a-significant-number-of-users-from-various-disciplines-where-else-can-your-open-code-be-shared">
+<h4>Is your code a substantial software package and of interest to a signiﬁcant number of users from various disciplines? Where else can your open code be shared?<a class="headerlink" href="#is-your-code-a-substantial-software-package-and-of-interest-to-a-significant-number-of-users-from-various-disciplines-where-else-can-your-open-code-be-shared" title="Permalink to this heading">#</a></h4>
+<img alt="../../../../_images/image332.png" src="../../../../_images/image332.png" />
+<ul class="simple">
+<li><p>Develop your software on a public repository such as GitHub.</p></li>
+<li><p>Publish to a software repository used by common package managers to make the software easy for users to install (ex. Anaconda, CRAN, PyPI).</p></li>
+<li><p>Present the software at conferences.</p></li>
+<li><p>Publish the software in a Journal dedicated to open software (ex. JOSS).</p></li>
+<li><p>Get your software peer reviewed through communities like PyOpenSci.</p></li>
+</ul>
+</section>
+<section id="to-share-my-code-i-can-just-add-it-to-github-right">
+<h4>To share my code, I can just add it to github, right?<a class="headerlink" href="#to-share-my-code-i-can-just-add-it-to-github-right" title="Permalink to this heading">#</a></h4>
+<p>Not necessarily. Sharing on a repository is encouraged, but a researcher’s funding organization may require a DOI from an archival repository, such as Zenodo, for long-term preservation of your code at the time of publication or version releases.</p>
+<img alt="../../../../_images/image425.png" src="../../../../_images/image425.png" />
+</section>
+</section>
+</section>
+<section id="how-how-to-enable-reuse-of-code">
+<h2>How: How to Enable Reuse of Code<a class="headerlink" href="#how-how-to-enable-reuse-of-code" title="Permalink to this heading">#</a></h2>
+<p>Now that you have shared your code in the appropriate way, it’s important to consider if you’ve made it easy for others (or your future self) to reuse your code.</p>
+<section id="assigning-a-license">
+<h3>Assigning a License<a class="headerlink" href="#assigning-a-license" title="Permalink to this heading">#</a></h3>
+<p>As you may recall from the previous lesson, assigning an appropriate license is necessary for others to know how to use your code.</p>
+<p>As an example, here’s how you’d assign a license to a GitHub repository:</p>
+<p>Choose the appropriate software sharing license that meets your organization requirements. To create a license template in GitHub, add a new file and type “LICENSE” in the name field, then the “Choose a license template” option will appear.</p>
+<img alt="../../../../_images/image78.jpg" src="../../../../_images/image78.jpg" />
+<p>Make sure that your GitHub repository is public, making it searchable by anyone.</p>
+</section>
+<section id="making-the-code-citable">
+<h3>Making the Code Citable<a class="headerlink" href="#making-the-code-citable" title="Permalink to this heading">#</a></h3>
+<p>Not all code needs to be citable. When released on its own however, there are a few best practices for how to make your code citable.</p>
+<p>Adding code to a GitHub repository is not sufficient for archiving code. To archive, we must assign a persistent identifier.</p>
+<p>Producing a persistent identifier for your code is the best way to make it citable. This could take form through a peer reviewed publication that describes the software or by archiving the software with a long term repository that produces a DOI or similar identifier. For code shared on GitHub, a <a class="reference external" href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content#issuing-a-persistent-identifier-for-your-repository-with-zenodo">DOI can be easily produced for each release of the software from Zenodo.</a></p>
+</section>
+<section id="activity-4-2-create-a-doi-for-a-test-code-file">
+<h3>Activity 4.2: Create a DOI for a Test Code File<a class="headerlink" href="#activity-4-2-create-a-doi-for-a-test-code-file" title="Permalink to this heading">#</a></h3>
+<p>You can create Digital Object Identifiers (DOIs) for your code that makes it citable. You do this by archiving a GitHub code repository at Zenodo and issue a DOI for the record.</p>
+<p>Steps for this activity:</p>
+<p><strong>Part 1: Create a test public GitHub repository.</strong></p>
+<ol class="arabic simple">
+<li><p>Navigate to the login page for <a class="reference external" href="https://github.com/">GitHub</a> and login. If you haven’t already, create a free user account.</p></li>
+<li><p>Create a new repository with this <a class="reference external" href="https://github.com/new">link</a>.</p></li>
+<li><p>Type a short, memorable name for your repository. For example, “os-test”.</p></li>
+<li><p>Set the repository visibility ‘Public’ by selecting this option below the repository description.</p></li>
+<li><p>In the following section ‘Initialize this repository with:’ select ‘Add a README file’.</p></li>
+<li><p>Select any license.</p></li>
+<li><p>Click ‘Create repository’.</p></li>
+<li><p>You will be automatically directed to your new repository webpage.</p></li>
+<li><p>Now we will get a DOI from the Zenodo application. Note that we are going to use <a class="reference external" href="https://sandbox.zenodo.org/">https://sandbox.zenodo.org/</a> to do this. This offers all the same capabilities as <a class="reference external" href="https://zenodo.org/">https://zenodo.org</a> but is a testing site! Create a free account if you have not already.</p></li>
+</ol>
+<p><strong>Part 2: Create an archived repository and afﬁliated DOI.</strong></p>
+<ol class="arabic simple">
+<li><p>Navigate to the <a class="reference external" href="https://sandbox.zenodo.org/account/settings/github/">Zenodo GitHub page</a>. Click on the button ‘Connect’ to allow Zenodo to access your GitHub repositories.</p></li>
+</ol>
+<img alt="../../../../_images/zenododoi1.jpg" src="../../../../_images/zenododoi1.jpg" />
+<ol class="arabic simple" start="2">
+<li><p>Review the information about access permissions, then click ‘Authorize Zenodo’.</p></li>
+<li><p>Sync your GitHub with Zenodo by clicking ‘Sync now’ in the upper right corner.</p></li>
+</ol>
+<img alt="../../../../_images/zenododoi3.jpg" src="../../../../_images/zenododoi3.jpg" />
+<ol class="arabic simple" start="4">
+<li><p>To the right of the name of the repository you want to archive (‘os-test’), toggle the button to On.</p></li>
+<li><p>Click on the name of the repository.</p></li>
+<li><p>Click the big green button that has ‘username/os-test’</p></li>
+</ol>
+<img alt="../../../../_images/zenododoi6.jpg" src="../../../../_images/zenododoi6.jpg" />
+<ol class="arabic simple" start="7">
+<li><p>Add a tag ‘test’. You may have to create a new tag for ‘test’ if prompted.</p></li>
+<li><p>Scroll down and click the green ‘publish release’ button</p></li>
+</ol>
+<img alt="../../../../_images/zenododoi8.jpg" src="../../../../_images/zenododoi8.jpg" />
+<ol class="arabic simple" start="9">
+<li><p>Navigate to the <a class="reference external" href="https://sandbox.zenodo.org/account/settings/github/">Zenodo GitHub page</a> and see the DOI for ‘os-test’</p></li>
+<li><p>Share your DOI below.</p></li>
+</ol>
+<img alt="../../../../_images/zenododoi10.jpg" src="../../../../_images/zenododoi10.jpg" />
+<p>Zenodo archives your repository and issues a new DOI each time you create a new GitHub <a class="reference external" href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">release</a>. Follow the steps at “<a class="reference external" href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">Managing releases in a repository</a>” to create a new one.</p>
+</section>
+<section id="making-it-easy-to-cite-your-code">
+<h3>Making it Easy to Cite Your Code<a class="headerlink" href="#making-it-easy-to-cite-your-code" title="Permalink to this heading">#</a></h3>
+<p>Information about how to cite the software can then be added to your README or other documentation in your repository. Another useful step for making your repository citation information accessible is to add a CITATION file to the repository.</p>
+</section>
+<section id="why-use-citation-files">
+<h3>Why use CITATION files?<a class="headerlink" href="#why-use-citation-files" title="Permalink to this heading">#</a></h3>
+<p>CITATION files are a means to make citation information easily accessible in open source software repositories. A <a class="reference external" href="https://citation-file-format.github.io/">citation file format (CFF)</a> is a human and machine-readable standard format that has been developed for CITATION files.</p>
+</section>
+<section id="adding-contributor-guidelines">
+<h3>Adding Contributor Guidelines<a class="headerlink" href="#adding-contributor-guidelines" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image419.png" src="../../../../_images/image419.png" />
+<p>If you are hoping for community input on your software, it is a best practice to include CONTRIBUTING and CODE_OF_CONDUCT files in your repository that outline expectations for member interactions.</p>
+<p>We won’t go into these in detail here, but you can check out the <a class="reference external" href="https://github.com/pydata/xarray/tree/main">Xarray package’s github repository</a> for a good example.</p>
+</section>
+</section>
+<section id="who-roles-and-responsibilities-of-the-team-members-in-implementing-the-smp">
+<h2>Who: Roles and Responsibilities of the Team Members in Implementing the SMP<a class="headerlink" href="#who-roles-and-responsibilities-of-the-team-members-in-implementing-the-smp" title="Permalink to this heading">#</a></h2>
+<p>When writing a SMP, it’s important to include a plan for the roles and responsibilities needed to share and (if applicable) maintain your code. Your community will consist of members in different roles – some actively engaged, some with only a passing interest. Sometimes, multiple roles can easily be done by one person (e.g. if you are just archiving a piece of code).</p>
+<p>Some roles might include:</p>
+<p><strong>Who will add the code to a public repository?</strong></p>
+<ul class="simple">
+<li><p>Uploading the code</p></li>
+<li><p>Assigning a license</p></li>
+</ul>
+<p><strong>Who will take care of code documentation</strong></p>
+<ul class="simple">
+<li><p>Writing a README</p></li>
+<li><p>Adding explanatory comments to the code</p></li>
+</ul>
+<p><strong>Who will help with code reuse?</strong></p>
+<p>Adding CITATION, CONTRIBUTING, and CODE_OF_CONDUCT files</p>
+<p><strong>Who will maintain the software (if applicable)?</strong></p>
+<ul class="simple">
+<li><p>Who will respond to community input (e.g. via GitHub issues)?</p></li>
+<li><p>Who will be responsible for making decisions about which code to add/update from other contributors? (e.g. via GitHub pull requests)</p></li>
+</ul>
+<hr class="docutils" />
+<p>All of these roles may or may not be needed, depending on the size of your project. Have a transparent process for assigning any roles to community members.</p>
+<section id="responsibilities-after-sharing">
+<h3>Responsibilities after Sharing<a class="headerlink" href="#responsibilities-after-sharing" title="Permalink to this heading">#</a></h3>
+<p>If the software is meant for others to use, then the developer should maintain the software.</p>
+<ul class="simple">
+<li><p>It is polite for the developer to let users know whether or not they intend to maintain the software/code.</p></li>
+<li><p>Do this in the documentation where you discuss the development status of the project.</p></li>
+<li><p>This will help users know if it will continue to be supported in the future and allow them to make choices about basing ongoing work off your project.</p></li>
+<li><p>In the case that a developer/researcher may not have the time or continued funding to keep up with a project but others are interested in keeping it maintained, consider handing ownership of the software to another researcher/developer, involved user or entity invested in its continued use.</p></li>
+<li><p>Users of software that is no longer maintained may consider contacting the owner/developer and volunteering either as a maintainer or to take over ownership of the project.</p></li>
+<li><p>If you decide to maintain your software, you should respond to requests for features and fixes as you are able.</p></li>
+</ul>
+</section>
+</section>
+<section id="lesson-4-summary">
+<h2>Lesson 4: Summary<a class="headerlink" href="#lesson-4-summary" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you learned the key steps in sharing open software:</p>
+<ul class="simple">
+<li><p>Should you share? When sharing software, the policies of your institution and funding agency must be followed. These may limit the openness of the software. Software sharing policies also vary by organization.</p></li>
+<li><p>When to share? Follow guidance from your organization, funding agency, or publisher.</p></li>
+<li><p>Where to share? It depends on whether you are archiving or sharing for community input. Use domain-specific repositories where appropriate.</p></li>
+<li><p>How to enable reuse? Enable reuse through assigning a DOI, and include a license, citation information, and contributor guidelines.</p></li>
+<li><p>Who helps share? Plan for the roles and responsibilities when sharing and (if applicable) for maintaining software.</p></li>
+</ul>
+</section>
+<section id="lesson-4-knowledge-check">
+<h2>Lesson 4: Knowledge Check<a class="headerlink" href="#lesson-4-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/06</strong></p>
+<p>Read the statement and decide whether it’s true or false:</p>
+<p><em>I don’t need to share my code if I don’t plan to continue developing it.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/06</strong></p>
+<p>Read the statement and decide whether it’s true or false:</p>
+<p><em>Adding code to a GitHub repository is sufficient for archiving my code.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/06</strong></p>
+<p>Read the statement and decide whether it’s true or false:</p>
+<p><em>Organization and government software-sharing policies follow a standard practice.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>04/06</strong></p>
+<p>Read the statement and decide whether it’s true or false:</p>
+<p><em>Publishing your software to a software repository used by common package managers makes it easier for users to install your software.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>05/06</strong></p>
+<p>Which, if any, of the following are ways you can help others to reuse your code? Select all that apply.</p>
+<ul class="simple">
+<li><p>Assign an appropriate license</p></li>
+<li><p>Add a file named “CONTRIBUTING” with contributor guidelines</p></li>
+<li><p>Add a “CITATION” file with citation information</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>06/06</strong></p>
+<p>Which of the following are roles that you should plan for when writing a SMP? Select all that apply.</p>
+<ul class="simple">
+<li><p>Who will help maintain the software</p></li>
+<li><p>Who will create the repository and add the necessary files</p></li>
+<li><p>Who will contribute to the software after it is shared</p></li>
+<li><p>Who will add documentation to the software</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_4/Lesson_4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_3/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 3: Making Open Code</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_5/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 5: From Theory to Practice</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-to-share-your-code">Planning to Share Your Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-it-mean-to-share-your-code">What Does it Mean to “Share” Your Code?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-code-development">Open Source Code Development</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archiving-open-code">Archiving Open Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#should-you-share-your-software">Should You Share Your Software?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-dive-software-management-plans-smp">Deep dive: Software Management Plans (SMP)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legal-and-security-concerns">Legal and Security Concerns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-software-created-with-us-agency-funding">Sharing Software Created with US Agency Funding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-1-find-your-organizations-software-release-policies">Activity 4.1: Find Your Organization’s Software Release Policies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways-find-your-organizations-software-release-policies">Key Takeaways: Find Your Organization’s Software Release Policies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-the-schedule-for-code-archiving-and-sharing">When: The Schedule for Code Archiving and Sharing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-where-to-share-open-code">Where: Where To Share Open Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-considerations">General Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-some-good-options-and-best-practices-for-archiving-your-code">What are some good options and best practices for archiving your code?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#is-your-code-a-substantial-software-package-and-of-interest-to-a-significant-number-of-users-from-various-disciplines-where-else-can-your-open-code-be-shared">Is your code a substantial software package and of interest to a signiﬁcant number of users from various disciplines? Where else can your open code be shared?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#to-share-my-code-i-can-just-add-it-to-github-right">To share my code, I can just add it to github, right?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-how-to-enable-reuse-of-code">How: How to Enable Reuse of Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-a-license">Assigning a License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-code-citable">Making the Code Citable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-4-2-create-a-doi-for-a-test-code-file">Activity 4.2: Create a DOI for a Test Code File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-it-easy-to-cite-your-code">Making it Easy to Cite Your Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-citation-files">Why use CITATION files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-contributor-guidelines">Adding Contributor Guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-roles-and-responsibilities-of-the-team-members-in-implementing-the-smp">Who: Roles and Responsibilities of the Team Members in Implementing the SMP</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#responsibilities-after-sharing">Responsibilities after Sharing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-summary">Lesson 4: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-4-knowledge-check">Lesson 4: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

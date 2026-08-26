@@ -1,0 +1,880 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 3: Making Open Data &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 4: Sharing Open Data" href="../Lesson_4/readme.html" />
+    <link rel="prev" title="Lesson 2: Using Open Data" href="../Lesson_2/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 3: Open Data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 3: Making Open Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-for-open-data">Planning for Open Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-data-formats-and-tools-for-interoperability">Selecting Data Formats and Tools for Interoperability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-format-considerations">Data Format Considerations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-open-data-formats">Non-Open Data Formats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-format-examples">Open Data Format Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-data-reusable-through-documentation">Making the Data Reusable Through Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-documentation-and-metadata-for-reusability">Adding Documentation and Metadata for Reusability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-for-humans-and-machines">Metadata: for Humans and Machines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-add-metadata">Why Add Metadata?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-tagging-best-practices">Metadata Tagging Best Practices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accompanying-documentation">Accompanying Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-versioning-guidelines">Data Versioning Guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-data-reusable-through-licensing">Making the Data Reusable Through Licensing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-licenses-and-reuse">Example Data Licenses and Reuse</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-3-summary">Lesson 3: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-3-knowledge-check">Lesson 3: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-3-making-open-data">
+<h1>Lesson 3: Making Open Data<a class="headerlink" href="#lesson-3-making-open-data" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#overview">Overview</a></p></li>
+<li><p><a href="#learning-objectives">Learning Objectives</a></p></li>
+<li><p><a href="#planning-for-open-data">Planning for Open Data</a></p></li>
+<li><p><a href="#selecting-data-formats-and-tools-for-interoperability">Selecting Data Formats and Tools for Interoperability</a></p></li>
+<li><p><a href="#making-the-data-reusable-through-documentation">Making the Data Reusable Through Documentation</a></p></li>
+<li><p><a href="#making-the-data-reusable-through-licensing">Making the Data Reusable Through Licensing</a></p></li>
+<li><p><a href="#lesson-3-summary">Lesson 3: Summary</a></p></li>
+<li><p><a href="#lesson-3-knowledge-check">Lesson 3: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, you learn the criteria and tasks needed to ensure that the datasets you make are open and reusable. The lesson starts with a discussion on creating a data management plan and then continues with topics on selecting open data formats and how to include metadata, readme files, and version control for your data. It wraps up with a discussion on open licenses for data.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Evaluate and select open data formats.</p></li>
+<li><p>Add documentation that enables other researchers to assess the relevance of the data. This includes metadata, README files, and version control.</p></li>
+<li><p>List two common open licenses used for datasets.</p></li>
+</ul>
+</section>
+<section id="planning-for-open-data">
+<h2>Planning for Open Data<a class="headerlink" href="#planning-for-open-data" title="Permalink to this heading">#</a></h2>
+<p>A best practice when beginning your open data journey is to create a Data Management Plan (DMP). This describes how you will manage, preserve, and release your data during and after a research project. Common elements of DMPs relevant to open data include a description of the following:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>What?</p></td>
+<td><p>Data formats and (where relevant) standards</p></td>
+</tr>
+<tr class="row-odd"><td><p>When?</p></td>
+<td><p>When and if to share data</p></td>
+</tr>
+<tr class="row-even"><td><p>Where?</p></td>
+<td><p>The intended repositories for archived data</p></td>
+</tr>
+<tr class="row-odd"><td><p>How?</p></td>
+<td><p>How the plan enables reuse of the data</p></td>
+</tr>
+<tr class="row-even"><td><p>Who?</p></td>
+<td><p>Roles and responsibilities of the team members in implementing the DMP</p></td>
+</tr>
+</tbody>
+</table>
+<p>In this lesson, we will cover some commonly practiced steps to make data. Specifically, we will focus on the “what” of making data. This covers what data formats you should use and what standards to follow to make the data as open and as readily usable as possible.</p>
+<p>As a first step, check if your home institution or funding source has guidance, standards, or templates for DMPs.</p>
+</section>
+<section id="selecting-data-formats-and-tools-for-interoperability">
+<h2>Selecting Data Formats and Tools for Interoperability<a class="headerlink" href="#selecting-data-formats-and-tools-for-interoperability" title="Permalink to this heading">#</a></h2>
+<section id="data-format-considerations">
+<h3>Data Format Considerations<a class="headerlink" href="#data-format-considerations" title="Permalink to this heading">#</a></h3>
+<p>Preferred data formats are community supported, machine-readable, non- proprietary, modifiable, and open. It might seem like there are as many data formats as there are different types of data. When you think about selecting a data format, consider the following:</p>
+<ul class="simple">
+<li><p>Is the format compatible with your data type, shape, and size?</p></li>
+<li><p>Does the data format have adequate metadata support?</p></li>
+<li><p>Are there tools readily available or any specialized tools are required for reading the data format?</p></li>
+<li><p>Is the data format routinely used in your field? Community standards ensure compatibility, interoperability, and ease of use when exchanging or sharing data among researchers or organizations of the same community.</p></li>
+</ul>
+<img alt="../../../../_images/image31.png" src="../../../../_images/image31.png" />
+<p>Investigate if your funding agency, institutions, and/or data repository has additional requirements for or guidance on data formats.</p>
+</section>
+<section id="non-open-data-formats">
+<h3>Non-Open Data Formats<a class="headerlink" href="#non-open-data-formats" title="Permalink to this heading">#</a></h3>
+<p>A non-open (unsupported and closed/proprietary) data format refers to a file format that is not freely accessible, standardized, or widely supported by different software applications. Here are some examples of closed/proprietary data formats:</p>
+<ul class="simple">
+<li><p><strong>Adobe Photoshop (.psd):</strong> The default proprietary file format for Adobe Photoshop, a popular image editing software.</p></li>
+<li><p><strong>Microsoft Word (.doc/.docx):</strong> A proprietary file format used to store word processing data.</p></li>
+<li><p><strong>AutoCAD Drawing (.dwg):</strong> A proprietary data format used for computer-aided design (CAD).</p></li>
+</ul>
+<p>Software applications that can read but not create DOC, PSD, or DWG formatted data usually do not fully support all the features, layers, specifications, and inner workings of the original file.</p>
+<p>Some challenges of using data in non-open formats include:</p>
+<ul class="simple">
+<li><p>Trouble opening the file due to compatibility issues.</p></li>
+<li><p>The need to install additional software or converters, leading to frustration and inconvenience.</p></li>
+<li><p>Initial setback dampens the enthusiasm for using your data.</p></li>
+<li><p>Converting the data to a universal format can lead to unique formatting or features that do not translate well, making the data lose part of its value.</p></li>
+<li><p>New open-data policies can limit the sharing of proprietary data as it is often non-compatible with the concept of easy distribution.</p></li>
+</ul>
+</section>
+<section id="open-data-format-examples">
+<h3>Open Data Format Examples<a class="headerlink" href="#open-data-format-examples" title="Permalink to this heading">#</a></h3>
+<p>Some examples of open data formats include:</p>
+<p><em>Select each card to find out more information.</em></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Comma Separated Values (CSV)</p></td>
+<td><p>For simplicity, readability, compatibility, easy data exchange.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hierarchical Data Format (HDF)</p></td>
+<td><p>For efﬁcient storing and retrieving data, compression, multi-dimensional support.</p></td>
+</tr>
+<tr class="row-even"><td><p>Network Common Data Form (NetCDF)</p></td>
+<td><p>For self-describing and portability, efﬁcient data subsetting (extract speciﬁc portions of large datasets), standardization and interoperability.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Investigation-Study- Assay (ISA) model for life science studies</p></td>
+<td><p>For structured data organization, data integration and interoperability among experiments, reproducibility and transparency.</p></td>
+</tr>
+<tr class="row-even"><td><p>Flexible Image Transport System (FITS)</p></td>
+<td><p>As a standard for astronomical data, ﬂexible and extensible metadata and image headers, efﬁcient data compression and archiving of large datasets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Common Data Format (CDF)</p></td>
+<td><p>For self-describing format readable across multiple operating systems, programming languages, and software environments, multidimensional data, and metadata inclusion.</p></td>
+</tr>
+</tbody>
+</table>
+<p>By embracing open standards, authors can avoid unnecessary barriers and maximize their chances of making data useful to their communities.</p>
+</section>
+</section>
+<section id="making-the-data-reusable-through-documentation">
+<h2>Making the Data Reusable Through Documentation<a class="headerlink" href="#making-the-data-reusable-through-documentation" title="Permalink to this heading">#</a></h2>
+<section id="adding-documentation-and-metadata-for-reusability">
+<h3>Adding Documentation and Metadata for Reusability<a class="headerlink" href="#adding-documentation-and-metadata-for-reusability" title="Permalink to this heading">#</a></h3>
+<p>Metadata and data documentation describe data so that we and others can use and better understand data. While metadata and documentation are related, there is an important distinction. Metadata are structured, standardized, and machine readable. Documentation is unstructured and can be any format (often a text file that accompanies the data).</p>
+<p>To better understand documentation and metadata, let’s take an example of an online recipe. Many online recipes start with a long description and history of the recipe, and perhaps cooking or baking tips for the dish, before listing ingredients and step-by-step cooking instructions.</p>
+<ul class="simple">
+<li><p>The ingredients and instructions are like metadata. They can be indexed and searched via Google and other search engines.</p></li>
+<li><p>The descriptive text that includes background and context for the recipe are like documentation. They are more free-form, and not standardized.</p></li>
+</ul>
+<p>We already discussed metadata earlier in this module, but it’s important enough that we will repeat ourselves a little bit! We will also discuss other types of documentation, like README files.</p>
+</section>
+<section id="metadata-for-humans-and-machines">
+<h3>Metadata: for Humans and Machines<a class="headerlink" href="#metadata-for-humans-and-machines" title="Permalink to this heading">#</a></h3>
+<p>Metadata can facilitate the assessment of dataset quality and data sharing by answering key questions. It is also the primary way users will find information about your dataset. It includes key information on topics, such as:</p>
+<ul class="simple">
+<li><p>How data were collected and processed</p></li>
+<li><p>What variables/parameters are included in the dataset</p></li>
+<li><p>What variables are included and what variables are related to</p></li>
+<li><p>Who collected the data (science team, organization, etc.)</p></li>
+<li><p>How and where to find the data (e.g., DOI)</p></li>
+<li><p>How to cite the data</p></li>
+<li><p>Which spatio-temporal region/time the data covers</p></li>
+<li><p>Any legal, guideline, or standard information about the data</p></li>
+</ul>
+</section>
+<section id="why-add-metadata">
+<h3>Why Add Metadata?<a class="headerlink" href="#why-add-metadata" title="Permalink to this heading">#</a></h3>
+<p>Metadata enhances searchability and findability of the data by potentially allowing both humans and machines to read and interpret datasets. Benefits to creating metadata about your data include:</p>
+<ul class="simple">
+<li><p>Helps users understand what the data are and if/how they can use/cite it.</p></li>
+<li><p>Helps users find the data, particularly when metadata is machine- readable and standardized.</p></li>
+<li><p>Can make analysis easier with software tools that interpret standardized metadata (e.g. Xarray).</p></li>
+</ul>
+<p>To be machine readable, the metadata needs to be standardized. See an example of a community-accepted standard for labeling climate datasets with the <a class="reference external" href="http://cfconventions.org/">CF Conventions</a>.</p>
+<p>There are also software packages that can read metadata and enhance the user experience significantly as a result. For instance, <a class="reference external" href="https://docs.xarray.dev/en/stable/index.html">Xarray</a> is an open-source, community developed software package that is widely used in the climate and biomedical fields, among many others. According to their website, “Xarray makes working with labeled multi-dimensional arrays in Python simple, efficient, and fun!”. It’s the “labeled” part where standardized metadata comes in! Xarray can interpret variable and dimension names without user input, making the workflow easier and less prone to making mistakes (e.g. users don’t have to remember which axis is “time” - they just need to call the axis with the label “time”).</p>
+<p>Many standards exist for metadata fields and structure to describe general data information. Use a standard from your domain when applicable, or one that is requested by your data repository.</p>
+</section>
+<section id="metadata-tagging-best-practices">
+<h3>Metadata Tagging Best Practices<a class="headerlink" href="#metadata-tagging-best-practices" title="Permalink to this heading">#</a></h3>
+<p>Useful and informative metadata:</p>
+<ul class="simple">
+<li><p>Uses standards that are commonly used in your field.</p></li>
+<li><p>Complies with FAIR Principles.</p></li>
+<li><p>Is as descriptive as possible.</p></li>
+<li><p>Is self-describing.</p></li>
+</ul>
+<p>Remember, the more metadata you add, the easier it will be for users of your data to use it effectively. When in doubt:</p>
+<ul class="simple">
+<li><p>Seek and comply with repository/community standards.</p></li>
+<li><p>Investigate open science online resources for metadata, e.g., <a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/rdm/rdm-metadata.html">Turing Way.</a></p></li>
+</ul>
+<p><strong>NASA Metadata Tagging Addendum</strong></p>
+<p>SPD-41a requires metadata fields that validate the scientific conclusions of publications. Metadata should:</p>
+<ul class="simple">
+<li><p>Be robust, meet standards, and clearly and explicitly describe the data.</p></li>
+<li><p>Have replicability and/or can be combined in different settings.</p></li>
+<li><p>Include information on how the data were collected (e.g. which equipment/instruments were used).</p></li>
+<li><p>Include information on which variables/parameters were included in this dataset.</p></li>
+</ul>
+</section>
+<section id="accompanying-documentation">
+<h3>Accompanying Documentation<a class="headerlink" href="#accompanying-documentation" title="Permalink to this heading">#</a></h3>
+<p>When creating your data, in addition to adding metadata, it is a best practice to create a document that users can refer to. The document can be done as a README file, a user guide, or even a quick start (or all three).</p>
+<p>README and other documentation files can include information such as:</p>
+<ul class="simple">
+<li><p>Contact information</p></li>
+<li><p>Information about variables</p></li>
+<li><p>Information about uncertainty</p></li>
+<li><p>Data collection methods</p></li>
+<li><p>Versioning and license references</p></li>
+<li><p>Information about the structure and file naming of the data</p></li>
+<li><p>References to publications that describe the dataset and/or it’s processing</p></li>
+</ul>
+<p>The intent is to help users quickly understand how they might use the data and to answer any commonly asked questions about your data. You can read more information and view a README template along with an example (particularly relevant for the medical sciences) at <a class="reference external" href="https://datamanagement.hms.harvard.edu/collect-analyze/documentation-metadata/readme-files">this Harvard Medical School website.</a></p>
+</section>
+<section id="data-versioning-guidelines">
+<h3>Data Versioning Guidelines<a class="headerlink" href="#data-versioning-guidelines" title="Permalink to this heading">#</a></h3>
+<p>Establish a versioning schema for your data. This is a method for keeping track of iterations of data that features track changes and the ability to revert to a previous revision.</p>
+<p>Proper versioning generates a changed copy of a data object that is uniquely labeled with a version number. This enables users to track changes and correct errors.</p>
+<p>Proper versioning preserves data quality and provenance (the origin, history, and processing steps that lead to the dataset) by:</p>
+<ul class="simple">
+<li><p>Providing a record of traceability from the data’s source through all aspects of its transmission, storage, and processing to its final form.</p></li>
+<li><p>Saving data files at key steps along the way.</p></li>
+<li><p>Aiming for downstream verification/validation of original findings.</p></li>
+</ul>
+</section>
+</section>
+<section id="making-the-data-reusable-through-licensing">
+<h2>Making the Data Reusable Through Licensing<a class="headerlink" href="#making-the-data-reusable-through-licensing" title="Permalink to this heading">#</a></h2>
+<img alt="../../../../_images/image32.jpeg" src="../../../../_images/image32.jpeg" />
+<p>Image source: <a class="reference external" href="https://www.explainxkcd.com/wiki/index.php/File:copyright.jpg">xkcd.com</a></p>
+<hr class="docutils" />
+<p>Data is the intellectual property of the researcher(s), or possibly of their funder(s) or supporting institution(s). Data is intellectual property, but that does not mean it cannot be used by other researchers (with appropriate attribution).</p>
+<img alt="../../../../_images/applylicensetoyourwork.jpg" src="../../../../_images/applylicensetoyourwork.jpg" />
+<p>“By applying a license to your work, you make clear what others can do with the things you’re sharing, and also the conditions under which you’re providing them (like cite you). You can also require others who copy your work to do things in return.”</p>
+<p><strong><a class="reference external" href="https://www.cos.io/">Open Science Knowledge Base</a></strong></p>
+<hr class="docutils" />
+<p>If you don’t license your work, others can’t/shouldn’t re-use it - even if you want them to. As mentioned previously in this module, a license is a legal document that tells users how they can use the dataset. It is important to understand the licensing conditions of a dataset before data reuse to avoid any copyright infringement or other intellectual property issues.</p>
+<p>A dataset without a license does not mean that the data is open; using a licenseless dataset is not ethical. Contacting the data creator and getting explicit permission, while suggesting they apply a license, is the best path forward.</p>
+<p>Understanding when and where the license applies is crucial. For example, data created using US Government public research funds is, by default, in the public domain. However, that only applies to the jurisdiction of the United States. In order for this to apply internationally, data creators need to select an open license.</p>
+<img alt="../../../../_images/image34.jpeg" src="../../../../_images/image34.jpeg" />
+<p>There are several different types of licenses that build on each other. Creative Commons (CC) licenses are often used for datasets. CC0 (also known as “public domain”) is the license that allows for the most reuse because it has the least restrictions on what users can do with it. Although the CC0 license does not explicitly require citation, you should still follow community best practices and cite the data source. CC-BY is another common license used for scientific data that requires citation. From there, you can add restrictions around commercial use, ability to adapt or modify the data, or requirements to share with the same license. These other flavors all reduce usability by adding restrictions, such that other scientists may be unable to use the data because of institutional or legal restrictions. Funding agencies may require use of a specific license. For public agencies, this is often CC-0 or CC-BY, to maximize their return on investment and ensure widest possible re-use.</p>
+<section id="example-data-licenses-and-reuse">
+<h3>Example Data Licenses and Reuse<a class="headerlink" href="#example-data-licenses-and-reuse" title="Permalink to this heading">#</a></h3>
+<p>Here is an example of how a data license can affect reuse. Coupled Model Intercomparison Project Phase 6 (CMIP6) consists of the “runs” from around 100 distinct climate models being produced across 49 different modeling groups. This is the data that is used to understand what our future climate might look like. You have probably seen images that use this data in articles about Earth’s changing climate and how it may impact our lives. Previous versions of these data were licensed CC-BY-NC-SA (cite-noncommercial- sharealike).</p>
+<img alt="../../../../_images/image35.jpeg" src="../../../../_images/image35.jpeg" />
+<p>Figure citation: IPCC “<a class="reference external" href="https://www.researchgate.net/publication/369301788_Framing_and_Context_in_In_Global_warming_of_15C_An_IPCC_Special_Report?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ">Framing and Context in : In: Global warming of 1.5°C. An IPCC Special Report</a>” 2020</p>
+<hr class="docutils" />
+<p>This meant that any commercial use was restricted. Insurance companies, global corporations, and any type of organization that wanted to use them for commercial use - were having to do their own modeling or just deciding to not develop resources related to climate projections (such as fire risk, flooding risk, and how that may affect transportation, commerce, and where we live). This directly impacted the reuse of this data and created additional work. The <a class="reference external" href="https://pcmdi.llnl.gov/CMIP6/TermsOfUse/TermsOfUse6-2.html">latest version of CMIP data is moving to CC-BY</a> because of the negative impacts from the -NC-SA restrictions.</p>
+</section>
+</section>
+<section id="lesson-3-summary">
+<h2>Lesson 3: Summary<a class="headerlink" href="#lesson-3-summary" title="Permalink to this heading">#</a></h2>
+<p>Following are the key takeaways from this lesson:</p>
+<ul class="simple">
+<li><p>It is best practice to create an open data management plan that includes open-related topics.</p></li>
+<li><p>A critical step to making open data is evaluating and selecting open data formats.</p></li>
+<li><p>Always add documentation that enables other researchers to assess the relevance and reusability of your product. This includes metadata, README files, and version control details.</p></li>
+<li><p>It is important to assign an open license to your data to enable reuse.</p></li>
+</ul>
+</section>
+<section id="lesson-3-knowledge-check">
+<h2>Lesson 3: Knowledge Check<a class="headerlink" href="#lesson-3-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/04</strong></p>
+<p>Which of the following are steps you should take when making a Data Management Plan?</p>
+<ul class="simple">
+<li><p>Evaluate different data formats</p></li>
+<li><p>Test your metadata for compliance</p></li>
+<li><p>Create a small collection of test data</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/04</strong></p>
+<p>Which of the following are considerations when choosing a file format?</p>
+<ul class="simple">
+<li><p>The format has adequate metadata support</p></li>
+<li><p>Tools are readily available to read the data format</p></li>
+<li><p>The data format is widely used in your community</p></li>
+<li><p>All of the above</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/04</strong></p>
+<p>Read the statement below and decide whether it’s true or false.</p>
+<p><em>Metadata is only useful for using data in interoperable tools and does not enhance searchability and findability of data.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>04/04</strong></p>
+<p>Read the statement below and decide whether it’s true or false.</p>
+<p><em>When a dataset does not explicitly require citation, such as the CC0 license, it is still recommended that you cite the data source.</em></p>
+<ul class="simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_3/Lesson_3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_2/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 2: Using Open Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_4/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 4: Sharing Open Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-for-open-data">Planning for Open Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-data-formats-and-tools-for-interoperability">Selecting Data Formats and Tools for Interoperability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-format-considerations">Data Format Considerations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-open-data-formats">Non-Open Data Formats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-format-examples">Open Data Format Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-data-reusable-through-documentation">Making the Data Reusable Through Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-documentation-and-metadata-for-reusability">Adding Documentation and Metadata for Reusability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-for-humans-and-machines">Metadata: for Humans and Machines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-add-metadata">Why Add Metadata?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-tagging-best-practices">Metadata Tagging Best Practices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accompanying-documentation">Accompanying Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-versioning-guidelines">Data Versioning Guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-data-reusable-through-licensing">Making the Data Reusable Through Licensing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-licenses-and-reuse">Example Data Licenses and Reuse</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-3-summary">Lesson 3: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-3-knowledge-check">Lesson 3: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

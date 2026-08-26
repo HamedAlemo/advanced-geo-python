@@ -1,0 +1,1234 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesson 2: General Tools for Open Science &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Lesson 3: Tools for Open Data" href="../Lesson_3/readme.html" />
+    <link rel="prev" title="Lesson 1: Introduction to the Process of Open Science" href="../Lesson_1/readme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../assignments/a1.html">Assignment 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 2: Open Tools and Resources</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Ffiles/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 2: General Tools for Open Science</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-open-science-tools">Introduction to Open Science Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifiers">Persistent Identifiers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orcid">ORCID</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-object-identifiers-doi">Digital Object Identifiers (DOI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citations-using-dois">Citations Using DOIs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-2-1-find-and-resolve-a-doi">Activity 2.1: Find and Resolve a DOI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-pids-in-action">Examples of PIDs in Action</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-open-science-tools">Useful Open Science Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-metadata">Purpose of Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-metadata">Types of Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repositories">Repositories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-registration">Pre-registration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-pre-registration-important">Why is Pre-Registration Important?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-can-should-one-pre-register-their-research">When Can/Should One Pre-Register Their Research?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-and-data-management-plans">Open Science and Data Management Plans</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-science-to-be-open">Design Your Science to be Open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-management-plan">Data Management Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-management-plan">Software Management Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-plan">Open Science Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publications-plan">Publications Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-requirements-for-open-science-management-plans">Examples of Requirements for Open Science Management Plans</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-summary">Lesson 2: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="lesson-2-general-tools-for-open-science">
+<h1>Lesson 2: General Tools for Open Science<a class="headerlink" href="#lesson-2-general-tools-for-open-science" title="Permalink to this heading">#</a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a href="#introduction-to-open-science-tools">Introduction to Open Science Tools</a></p></li>
+<li><p><a href="#persistent-identifiers">Persistent Identifiers</a></p></li>
+<li><p><a href="#useful-open-science-tools">Useful Open Science Tools</a></p></li>
+<li><p><a href="#open-science-and-data-management-plans">Open Science and Data Management Plans</a></p></li>
+<li><p><a href="#lesson-2-summary">Lesson 2: Summary</a></p></li>
+<li><p><a href="#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>This lesson introduces you to the commonly used tools in open science. It starts out by providing a brief introduction to open science tools and describes persistent identifiers - one of the most common open science tools in use that ensures reproducibility, accessibility, and recognition of scientific products. This is followed by descriptions of other common open science tools that are applicable regardless of your field of study. The lesson wraps up with a description of open science and data management plans that is a key component to sharing your science throughout the research process.</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Recall the definition of open science tools.</p></li>
+<li><p>Describe what a persistent identifier is and state an example.</p></li>
+<li><p>List a few commonly used open science tools that support research.</p></li>
+<li><p>List the components of an Open Science and Data Management Plan and what they include.</p></li>
+</ul>
+</section>
+<section id="introduction-to-open-science-tools">
+<h2>Introduction to Open Science Tools<a class="headerlink" href="#introduction-to-open-science-tools" title="Permalink to this heading">#</a></h2>
+<p>The word “tools” refers to any type of resource or instrument that can be used to support your research. In this sense, tools can be a collection of useful resources that you might consult during your research, software that you could use to create and manage your data, or even human infrastructure such as a community network that you join to get more guidance and support on specific matters.</p>
+<p>In this context, open science tools are any tools that enable and facilitate openness in research, and support responsible open science practices. It is important to note that open science tools are often open source and/or free to use, but not always.</p>
+<p>Open science tools can be used for:</p>
+<ul class="simple">
+<li><p><strong>Discovery</strong> - Tools for finding content to use in your research.</p></li>
+<li><p><strong>Analysis</strong> - Tools to process your research output, e.g. tools for data analysis and visualization.</p></li>
+<li><p><strong>Writing</strong> - Tools to produce content, such as Data Management Plans, presentations, and preprints.</p></li>
+<li><p><strong>Publications</strong> - Tools to use for sharing and/or archiving research.</p></li>
+<li><p><strong>Outreach</strong> - Tools to promote your research.</p></li>
+</ul>
+<p>In this lesson, we introduce you to some of the most general open science tools such as persistent identifiers, metadata, documentation, and open science and data management plans. Regardless of the field of study, these tools and practices are some of the things that you will encounter as you use, make, or share your research. Read more about open science tools on <a class="reference external" href="https://opensciency.github.io/sprint-content/open-tools-resources/lesson1-intro-open-science-tools.html">OpenSciency</a>.</p>
+</section>
+<section id="persistent-identifiers">
+<h2>Persistent Identifiers<a class="headerlink" href="#persistent-identifiers" title="Permalink to this heading">#</a></h2>
+<p>A digital persistent identifier (or “PID”) is a “long-lasting reference to a digital resource” that is machine-readable and uniquely points to a digital entity, according to <a class="reference external" href="https://support.orcid.org/hc/en-us/articles/360006971013-What-are-persistent-identifiers-PIDs-">ORCID</a> examples of persistent identifiers used in science are described below.</p>
+<section id="orcid">
+<h3>ORCID<a class="headerlink" href="#orcid" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/m2orcidlogo.jpg" src="../../../../_images/m2orcidlogo.jpg" />
+<p>An “Open Researcher and Contributor Identifier” (ORCID) provides valid information about a person. Following are some key details about ORCIDs.</p>
+<p>A free, nonproprietary numeric code that is:</p>
+<ul class="simple">
+<li><p>Uniquely and persistently identifies authors and contributors of scholarly communication.</p></li>
+<li><p>Similar to tax ID numbers for tax purposes.</p></li>
+</ul>
+<p>ORCIDs are used to link Used to link researchers to their research and research-related outputs. It is a 16-digit number that uniquely identifies researchers and is integrated with certain organizations (like some publishers) that will add research products (such as a published paper) to an individual’s ORCID profile. ORCIDs are meant to last throughout ones career, and helps to avoid confusion when information about a researcher changes over time (e.g. career change or name change). (cite: <a class="reference external" href="https://orcid.org/">https://orcid.org/</a>)</p>
+<p>Many publishers, academic institutes, and government bodies support ORCID. In 2023, ORCID reported over 1,300 member organizations and over 9 million yearly live accounts. You can connect it with your professional information (affiliations, grants, publications, peer review, and more).</p>
+</section>
+<section id="digital-object-identifiers-doi">
+<h3>Digital Object Identifiers (DOI)<a class="headerlink" href="#digital-object-identifiers-doi" title="Permalink to this heading">#</a></h3>
+<p>A DOI is a persistent identifier used to cite data, software, journal articles, and other types of media (including presentation slides, blog posts, videos, logos, etc.).</p>
+<p>Unlike dynamic transient URLs, DOIs are static pointers to documents on the internet. Since a DOI is static, each new version of data or software that you want to cite will need a new DOI. Some DOI providers allow for one DOI to point to “all versions” and a series of individual DOIs for each specific version. Individuals cannot typically request a DOI themselves, but rather have to go through an authorized organization that can submit the request.</p>
+<p>Making a DOI for your product ensures its longevity! This means, if you cite a DOI in a research paper, you can be confident that future readers will be able to follow that citation to its source, even if websites have completely changed in the meantime.</p>
+<p>For example, the DOI: <a class="reference external" href="https://doi.org/10.5067/TERRA-AQUA/CERES/EBAF-TOA_L3B004.1">10.5067/TERRA-AQUA/CERES/EBAF-TOA_L3B004.1</a> will always resolve to a web page that explains what the CERES_EBAF-TOA_Edition4.1 data set is and how to download it. (See the screenshot below if you’re curious what this dataset actually is!)</p>
+<p>DOIs are provided and maintained by the International Organization for Standardization (<a class="reference external" href="https://www.iso.org/home.html">I SO</a>): <a class="reference external" href="https://www.doi.org/">https://www.doi.org/</a>.</p>
+<img alt="../../../../_images/image18.png" src="../../../../_images/image18.png" />
+</section>
+<section id="citations-using-dois">
+<h3>Citations Using DOIs<a class="headerlink" href="#citations-using-dois" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image19.jpeg" src="../../../../_images/image19.jpeg" />
+<p>DOIs make citing research products easier and more useful.</p>
+<p>Data repositories will typically instruct you on the exact way to cite their data, which includes the correct DOI. For example, let’s take a look at the CERES_EBAF-TOA_Edition4.1 data set mentioned above. This is an <a class="reference external" href="https://asdc.larc.nasa.gov/project/CERES/CERES_EBAF-TOA_Edition4.1/citation">example from the Atmospheric Science Data Center’s (ASDC) website</a>.</p>
+</section>
+<section id="activity-2-1-find-and-resolve-a-doi">
+<h3>Activity 2.1: Find and Resolve a DOI<a class="headerlink" href="#activity-2-1-find-and-resolve-a-doi" title="Permalink to this heading">#</a></h3>
+<p>In this activity, you will search for a DOI for a data set or piece of software that you use, and you will then use the DOI website to “resolve” the DOI name. By “resolving”, this means that you will be taken to the information about the product designated by that particular DOI.</p>
+<ol class="arabic simple">
+<li><p>Find the DOI for a dataset or software you use often.</p>
+<ol class="arabic simple">
+<li><p>This should be listed either in the citation file, or in the website where that data/software is published.</p></li>
+<li><p>If you can’t find a DOI, you can instead locate the DOI listed on this page: https://asdc.larc.nasa.gov/project/CERES/CERES_EBAF-TOA_Edition4.1</p></li>
+</ol>
+</li>
+<li><p>Go to https://www.doi.org/ and scroll down to the bottom of the page to “TRY
+RESOLVING A DOI NAME”.</p></li>
+<li><p>Copy and paste the DOI you found into the form called “TRY RESOLVING A DOI
+NAME”.</p></li>
+<li><p>Click Submit.</p></li>
+<li><p>The page should automatically redirect you to a page that explains and contains the cited data.</p></li>
+</ol>
+<p><strong>Activity Takeaways: Find and Resolve a DOI</strong></p>
+<p>This activity will vary depending on which DOI you choose to use. However, if you used the example presented, you should find the DOI: 10.5067/TERRA-AQUA/CERES/EBAF-TOA_L3B004.1</p>
+<p>And after step 5, you should end up back on the page https://asdc.larc.nasa.gov/project/CERES/CERES_EBAF-TOA_Edition4.1</p>
+<p>This is how easy it should be for your readers to find and use your citation information.</p>
+</section>
+<section id="examples-of-pids-in-action">
+<h3>Examples of PIDs in Action<a class="headerlink" href="#examples-of-pids-in-action" title="Permalink to this heading">#</a></h3>
+<img alt="../../../../_images/image22.jpeg" src="../../../../_images/image22.jpeg" />
+<table>
+  <thead>
+    <tr>
+        <th>Example 1 &#9745;</th>
+        <th>Example 2</th>
+        <th>Example 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>The necessity for a persistent identifier (PID) begins when a researcher writes code. To make the code searchable, the researcher uploads their code to a repository and registers a DOI for their script. Now others can review and use the code, and cite it properly.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>Example 1</th>
+        <th>Example 2 &#9745;</th>
+        <th>Example 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>A workshop planning committee collaboratively authors a paper that summarizes the results of a workshop. They collect the ORCIDs of everyone who participated in the workshop, and include them in the paper. Finally, they publish in an academic journal that automatically assigns the paper a DOI.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>Example 1</th>
+        <th>Example 2</th>
+        <th>Example 3 &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>A community scientist attends an online conference and gives a short talk. They deposit their slides in an online repository, then create a DOI to enable easy sharing with colleagues and straightforward citation.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+</section>
+<section id="useful-open-science-tools">
+<h2>Useful Open Science Tools<a class="headerlink" href="#useful-open-science-tools" title="Permalink to this heading">#</a></h2>
+<section id="metadata">
+<h3>Metadata<a class="headerlink" href="#metadata" title="Permalink to this heading">#</a></h3>
+<p>Metadata are data that describe your data, either accompanying your data as a separate file or embedded in your data file. They are often used to provide a standard set of general information about a dataset (e.g., data temporal/spatial coverage or data provider information) to enable easy use and interpretation of the data.</p>
+<p>Metadata is essential to the implementation of FAIR Principles because it makes data searchable in an archive, provides context for future use, and presents a standard vocabulary.</p>
+<p>Metadata can be more readily shared than data - it usually does not contain restricted information and it is much smaller than the entire data set.</p>
+</section>
+<section id="purpose-of-metadata">
+<h3>Purpose of Metadata<a class="headerlink" href="#purpose-of-metadata" title="Permalink to this heading">#</a></h3>
+<p>Metadata can facilitate the assessment of dataset quality and data sharing by answering key questions, such as information about:</p>
+<ul class="simple">
+<li><p>How data were collected and processed.</p></li>
+<li><p>What variables/parameters are included in the dataset.</p></li>
+<li><p>What variables are and what variables are related to.</p></li>
+<li><p>Who collected the data (science team, organization, etc.).</p></li>
+<li><p>How and where to find the data (e.g., DOI).</p></li>
+<li><p>How to cite the data.</p></li>
+<li><p>Which spatio-temporal region/time the data covers.</p></li>
+<li><p>Any legal, guideline, or standard information about the data.</p></li>
+</ul>
+<p>Metadata enhances searchability and findability of the data by potentially allowing other machines to read and interpret datasets.</p>
+<p>According to  <a class="reference external" href="https://pitt.libguides.com/metadatadiscovery/metadata-standards">The University of Pittsburgh</a>, “A metadata standard is a high level document which establishes a common way of structuring and understanding data, and includes principles and implementation issues for utilizing the standard.”</p>
+<p>Many standards exist for metadata fields and structures to describe general data information. It is a best practice to use a standard that is commonly used in your domain, when applicable, or that is requested by your data repository. Examples of metadata standards for different domains include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cfconventions.org/">CF Metadata Conventions</a></p></li>
+<li><p><a class="reference external" href="https://community.wmo.int/en/activity-areas/wis/wis2-implementation">World Meteorological Organization WIS 2.0</a></p></li>
+<li><p><a class="reference external" href="https://genelab.nasa.gov/awg/members">GeneLab Working Group</a></p></li>
+</ul>
+</section>
+<section id="types-of-metadata">
+<h3>Types of Metadata<a class="headerlink" href="#types-of-metadata" title="Permalink to this heading">#</a></h3>
+<p>There are different types/categories of metadata addressing different purposes:</p>
+ <table>
+  <thead>
+    <tr>
+        <th>Descriptive Metadata &#9745;</th>
+        <th>Structural Metadata</th>
+        <th>Administrative Metadata</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>Descriptive metadata can contain information about the context and content of your data, such as variable definition, data limitation, measurement/ sampling description, abstract, title, and subject keywords.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+ <table>
+  <thead>
+    <tr>
+        <th>Descriptive Metadata</th>
+        <th>Structural Metadata &#9745;</th>
+        <th>Administrative Metadata</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>Structural metadata are used to describe the structure of the data (e.g., file format, the dataset hierarchy, and dimensions).</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+ <table>
+  <thead>
+    <tr>
+        <th>Descriptive Metadata</th>
+        <th>Structural Metadata</th>
+        <th>Administrative Metadata &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>Administrative metadata explains the information used to manage the data (e.g., when and how it was created, which software and the version of the software used in data creation).</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h3>
+<p>Documenting the production and management of your science benefits both you and those that might use your data, code, or results in the future. You are your own best collaborator. Documentation can save you from a headache should you need to reference or reuse your work in six months or attempt to recall meticulous details about your process later on. Properly documented research products increase their usability.</p>
+<p>Types of documentation include (many of which will be expanded upon later in this curriculum):</p>
+ <table>
+  <thead>
+    <tr>
+        <th>Data &#9745;</th>
+        <th>Software</th>
+        <th>Results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+        <p>Summary of the data (e.g., as a README file or user guide) that answers questions such as:</p>
+        <ul>
+            <li>What are known errors for these data?</li>
+            <li>How can this data be used?</li>
+            <li>How were the data collected?</li>
+        </ul>
+        <p>Associated publications – how did others use these data?</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>Data</th>
+        <th>Software &#9745;</th>
+        <th>Results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>README files: Basic installation and usage instructions.</p>
+            <p>Inline comments in code: Annotations on code components.</p>
+            <p>Release notes: What is new in this version?</p>
+            <p>Associated publications: How did others use this software?</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>Data</th>
+        <th>Software</th>
+        <th>Results &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">
+            <p>Associated publications: What was the research process?</p>
+            <p>Packages of data and software for regenerating results.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="repositories">
+<h3>Repositories<a class="headerlink" href="#repositories" title="Permalink to this heading">#</a></h3>
+<p>Repositories are storage locations for data, results, code and compiled software, providing the most common way to share and find each of these components. In general, you want to use a long term repository that will independently host and store your data making sure that it is both shared and preserved. Different kinds of repositories serve different purposes. For example, Zenodo acts as an archiving repository for individual version releases of data, software, and publications.</p>
+<p>Different types of repositories:</p>
+<ul class="simple">
+<li><p>General repositories</p></li>
+<li><p>Domain-specific repositories</p></li>
+<li><p>Institutional repositories</p></li>
+<li><p>National repositories</p></li>
+</ul>
+<p>Users should select repositories based on their needs. See the lessons in the rest of this module and Modules 3-5 for more details.</p>
+</section>
+<section id="pre-registration">
+<h3>Pre-registration<a class="headerlink" href="#pre-registration" title="Permalink to this heading">#</a></h3>
+<p>Pre-registration is the process by which a researcher documents their research plans in an open access format prior to the start of a project. This provides a locked, time-stamped proof of the origin of a concept. Pre-registration is currently more widely adopted by certain disciplines, particularly the social sciences.</p>
+<p>Types of Pre-Registration Include:</p>
+<table>
+  <thead>
+    <tr>
+        <th>Standard Pre-registration &#9745;</th>
+        <th>Registered Reports</th>
+        <th>Registered Replication Report</th>
+        <th>Sharing Grant Proposals</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="4">
+            <p>An investigator documents their plans in writing and submits them to a pre-registration service. This documents the researcher’s plans prior to undertaking the research, and provides investigators and reviewers with a way to distinguish a priori hypotheses from post-hoc exploratory analyses. The document may be kept private for some period of time, but is usually made public upon submission of the manuscript for publication.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>Standard Pre-registration</th>
+        <th>Registered Reports &#9745;</th>
+        <th>Registered Replication Report</th>
+        <th>Sharing Grant Proposals</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="4">
+            <p>An investigator writes a manuscript describing the motivation for a study and a detailed description of the methods, and submits it to a journal for peer review prior to undertaking the research. The manuscript is reviewed based on the importance of the research question and the quality of the methods. If accepted, the journal agrees to publish the paper regardless of the results, assuming that there are no problems with the implementation of the methods.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>Standard Pre-registration</th>
+        <th>Registered Reports</th>
+        <th>Registered Replication Report &#9745;</th>
+        <th>Sharing Grant Proposals</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="4">
+            <p>A type of registered report in which the investigators wish to attempt to replicate a particular published finding, usually involving multiple research sites.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+        <th>Standard Pre-registration</th>
+        <th>Registered Reports</th>
+        <th>Registered Replication Report</th>
+        <th>Sharing Grant Proposals &#9745;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="4">
+            <p>Another way to document and timestamp research plans and concepts is to share funded grant proposals publicly. This has the added benefit of making the funding process more transparent, and providing examples of successful grant proposals for other researchers, particularly those in their early career stage.</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section id="why-is-pre-registration-important">
+<h3>Why is Pre-Registration Important?<a class="headerlink" href="#why-is-pre-registration-important" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>It forces the researcher to plan and think through both why and how they are pursuing their research question.</p></li>
+<li><p>It provides the researcher with a way to determine whether a hypothesis was truly held a priori, versus relying upon memory.</p></li>
+<li><p>It forces the researcher to think through their analysis plan in more detail, potentially surfacing issues that could influence the design of the study.</p></li>
+<li><p>It helps prevent unethical manipulation of data analyses and project design to yield statistically relevant results.</p></li>
+<li><p>Helps prevent selective reporting of measures.</p></li>
+</ul>
+</section>
+<section id="when-can-should-one-pre-register-their-research">
+<h3>When Can/Should One Pre-Register Their Research?<a class="headerlink" href="#when-can-should-one-pre-register-their-research" title="Permalink to this heading">#</a></h3>
+<p>A planned research activity can be pre-registered at any point, as long as the particular activity being registered has not started. However, there are several points at which registration is most common:</p>
+<ul class="simple">
+<li><p>Prior to the collection of data for a project</p></li>
+<li><p>Prior to analysis of an existing or openly available dataset</p></li>
+</ul>
+<p>Source: <a class="reference external" href="https://poldrack.github.io/psych-open-science-guide/1_preregistration.html"> Registration — Stanford Psychology Guide to Doing Open Science (poldrack.github.io)</a></p>
+<p>A 2023 <a class="reference external" href="https://www.nature.com/articles/s41467-023-41111-1">Nature survey</a> on researcher attitudes towards open science practices found that about 88% of respondents favor sharing data or code online while only 58% support pre-registration. This moderate support for pre-registration among respondents suggests that awareness of its benefits and lingering concerns remain issues. In the next section, we introduce a method to strategize how to best implement open science from the beginning of a study to its end.</p>
+</section>
+</section>
+<section id="open-science-and-data-management-plans">
+<h2>Open Science and Data Management Plans<a class="headerlink" href="#open-science-and-data-management-plans" title="Permalink to this heading">#</a></h2>
+<p>To successfully use, make, and share science openly, we need an open science and data management plan (OSDMP).</p>
+<ul class="simple">
+<li><p>From day 1, establish a plan for management, preservation, and release of data, software, and results.</p></li>
+<li><p>This plan is your blueprint for open science - refer to your plan often to ensure you succeed in your goal of openness.</p></li>
+</ul>
+<p>We’ll discuss each component (data, software, &amp; results) when we cover each topic.</p>
+<p><strong>Note: Many funding opportunities (e.g., NASA ROSES) require an OSDMP as part of your proposal. For more information on NASA Science Mission Directorate’s (SMD’s) policies, please <a class="reference external" href="https://smd-cms.nasa.gov/wp-content/uploads/2023/07/smd-open-source-science-guidance-v2-20230407.pdf">see NASA Guidance on Management Plans</a> and <a class="reference external" href="https://smd-cms.nasa.gov/wp-content/uploads/2023/07/smd-open-source-science-guidance-v2-20230407.pdf">Open Source Science Guidance for Researchers.</a></strong></p>
+<section id="design-your-science-to-be-open">
+<h3>Design Your Science to be Open<a class="headerlink" href="#design-your-science-to-be-open" title="Permalink to this heading">#</a></h3>
+<p>Funding organizations and agencies around the world are beginning to require open science plans. In this curriculum, we will focus on the NASA Open Science and Data Management Plan. These plans are not unique to NASA. Knowing how to write one for NASA should prepare you for almost any funding opportunity.</p>
+<p>The OSDMP describes how the scientific information that will be produced from scientific activities will be managed and made openly available. Specifically, a plan should include sections on data management, software management, and publication sharing. If your study has other types of outputs, such as physical samples, hardware, or anything else, you should include those in the plan. An OSDMP helps researchers think about the details of how they plan to share results.</p>
+<p>A well written OSDMP can help you win funding because it demonstrates your skills at doing open science!</p>
+<img alt="../../../../_images/image24.png" src="../../../../_images/image24.png" />
+<p>Example sections to include in an OSDMP:</p>
+<ol class="arabic simple">
+<li><p>Data Management Plan (DMP)</p></li>
+<li><p>Software Management Plan (SMP)</p></li>
+<li><p>Publication sharing</p></li>
+<li><p>Other open science activities</p></li>
+<li><p>Roles and responsibilities</p></li>
+</ol>
+<p>The steps for each of these sections should include:</p>
+<ul class="simple">
+<li><p>What?</p>
+<ul>
+<li><p>Description of types of materials that will be
+produced</p></li>
+</ul>
+</li>
+<li><p>When?</p>
+<ul>
+<li><p>The schedule for archiving and sharing</p></li>
+</ul>
+</li>
+<li><p>Where?</p>
+<ul>
+<li><p>The repository(ies) and archives that will be
+used to share materials</p></li>
+</ul>
+</li>
+<li><p>How?</p>
+<ul>
+<li><p>The details of how to enable reuse of
+materials (eg. licensing, documentation,
+metadata)</p></li>
+</ul>
+</li>
+<li><p>Who?</p>
+<ul>
+<li><p>Roles and responsibilities of the team members</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="data-management-plan">
+<h3>Data Management Plan<a class="headerlink" href="#data-management-plan" title="Permalink to this heading">#</a></h3>
+<p>Every major research foundation and federal government agency now requires scientists to file a data management plan (DMP) along with their proposed research plan. Data and other elements such as code and publications have their own lifecycle and workflow, which need to be in the plan. DMPs are a critical aspect of open science and help keep other researchers informed and on track throughout the data management lifecycle.</p>
+<p>DMPs that are successful typically include a clear terminology about FAIR and CARE principles and how they will be applied.</p>
+<p>The data management lifecycle is typically circular. Research data are valuable and reusable long after the project’s financial support ends. Data reuse can extend beyond our own lifetimes. Therefore, when designing a project or supporting an existing corpus of data, we need to remain cognizant of what happens to the data after our own research interaction ends.</p>
+<p>Data management plans typically include the following:</p>
+<ul class="simple">
+<li><p>Descriptions of the data expected to be produced from the proposed activities, including types of data to be produced, the approximate amount of each data type expected, the machine-readable format of the data, data file format, and any applicable standards for the data or associated metadata.</p></li>
+<li><p>The repository (or repositories) that will be used to archive data and metadata arising from the activities and the schedule for making data publicly available.</p></li>
+<li><p>Description of data types that are subject to relevant laws, regulations, or policies that exclude them from data sharing requirements.</p></li>
+<li><p>Roles and responsibilities of project personnel who will ensure implementation of the data management plans.</p></li>
+</ul>
+</section>
+<section id="software-management-plan">
+<h3>Software Management Plan<a class="headerlink" href="#software-management-plan" title="Permalink to this heading">#</a></h3>
+<p>Software management plans describe how software will be managed, preserved, and released as part of the scientific process. This helps ensure transparency and reproducibility in the scientific process. Module 4 on Open Code shares more details about the importance of sharing code as part of the scientific process.</p>
+<p>General components of a software management plan:</p>
+<ul class="simple">
+<li><p>Description of the software.</p></li>
+<li><p>Repository(ies) and archive(s) in which software will be shared.</p></li>
+<li><p>Sharing guidelines.</p></li>
+<li><p>Personnel roles and responsibilities.</p></li>
+<li><p>Any community-specific information of note.</p></li>
+</ul>
+<p>At a minimum, a software management plan for SMD-funded research should include:</p>
+<ul class="simple">
+<li><p>Description of the software expected to be produced from the proposed activities, including types of software to be produced, how the software will be developed, and the addition of new features or updates to existing software. This can include the platforms used for development, project management, and community-based best practices to be included such as documentation, testing, dependencies, and versioning.</p></li>
+<li><p>The repository(ies) that will be used to archive software arising from the activities and the schedule for making the software publicly available.</p></li>
+<li><p>Description of software that are subject to relevant laws, regulations, or policies that exclude them from software sharing requirements.</p></li>
+<li><p>Roles and responsibilities of project personnel who will ensure implementation of the software management plan.</p></li>
+</ul>
+</section>
+<section id="open-science-plan">
+<h3>Open Science Plan<a class="headerlink" href="#open-science-plan" title="Permalink to this heading">#</a></h3>
+<p>The OSDMP should also describe other open processes as part of the plan. This includes the types of publications that are expected to be produced from the activities, including peer reviewed manuscripts, technical reports, conference materials, and books. The plan should also outline the methods expected to be used to make the publications publicly accessible.</p>
+<p>This section may also include a description of additional open science activities associated with the project. This may include:</p>
+<ul class="simple">
+<li><p>Holding scientific workshops and meetings openly to enable broad participation.</p></li>
+<li><p>Pre-registering research plans in advance of conducting scientific activities.</p></li>
+<li><p>Providing project personnel with open science training or enablement (if not described elsewhere in a proposal).</p></li>
+<li><p>Implementing practices that support the inclusion of broad, diverse communities in the scientific process as close to the start of research activities as possible (if not described elsewhere in a proposal).</p></li>
+<li><p>Integrating open science practices into citizen science activities.</p></li>
+<li><p>Contributions to or involvement in open-science communities.</p></li>
+</ul>
+</section>
+<section id="publications-plan">
+<h3>Publications Plan<a class="headerlink" href="#publications-plan" title="Permalink to this heading">#</a></h3>
+<p>A plan for publications is a crucial piece of the OSDMP. A publications plan should include the following features:</p>
+<ul class="simple">
+<li><p>Describes how results will be managed, preserved, and released - in other words, how you will communicate your findings.</p></li>
+<li><p>Includes plans for conference talks, whitepapers, peer reviews journal articles, books, and other such documents.</p></li>
+<li><p>Written in compliance with any rules and regulations within your organization, as well as from your funding source.</p></li>
+<li><p>As with the data and software plans, it serves as a foundational framework for your project from start to finish.</p></li>
+</ul>
+</section>
+<section id="examples-of-requirements-for-open-science-management-plans">
+<h3>Examples of Requirements for Open Science Management Plans<a class="headerlink" href="#examples-of-requirements-for-open-science-management-plans" title="Permalink to this heading">#</a></h3>
+<p>Globally, organizations and agencies are moving towards open science and beginning to require plans as part of funding. Here are just some of them:</p>
+<p><strong>USA</strong></p>
+<ul class="simple">
+<li><p><strong>NASA</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://science.nasa.gov/researchers/sara/faqs/osdmp/">Open Science and Data Management Plan</a></p></li>
+</ul>
+</li>
+<li><p><strong>NSF</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://new.nsf.gov/funding/data-management-plan#%3A~%3Atext%3DThe%20two-page%20data%20management%20plan%20is%20a%20required%2Coverview%20of%20requirements%20for%20the%20data%20management%20plan">Data Management Plan</a></p></li>
+</ul>
+</li>
+<li><p><strong>NIH</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://sharing.nih.gov/data-management-and-sharing-policy/planning-and-budgeting-for-data-management-and-sharing/writing-a-data-management-and-sharing-plan">Data Management and Sharing Plan</a></p></li>
+</ul>
+</li>
+<li><p><strong>NOAA</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://oceanexplorer.noaa.gov/about/funding-opps/media/fy23-data-management-plan.pdf">Data and Information Sharing Plan (DISP)</a></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>GLOBAL INSTITUTES</strong></p>
+<ul class="simple">
+<li><p><strong>Australian Research Council</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://www.arc.gov.au/about-arc/strategies/research-data-management">Data Management Plan</a></p></li>
+</ul>
+</li>
+<li><p><strong>EU Open Science Requirements</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://openscience.eu/Open-Science-in-Horizon-Europe">https://openscience.eu/Open-Science-in-Horizon-Europe</a></p></li>
+</ul>
+</li>
+<li><p><strong>UK Wellcome Trust</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://wellcome.org/grant-funding/guidance/how-complete-outputs-management-plan">(Output Management Plan)</a></p></li>
+</ul>
+</li>
+<li><p><strong>Korea’s National Research Foundation (NRF)</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://www.nrf.re.kr/cms/board/general/view?nts_no=124731&amp;menu_no=53&amp;nts_no&amp;search_type=ALL&amp;search_keyword=%EC%97%B0%EA%B5%AC%EB%8D%B0%EC%9D%B4%ED%84%B0&amp;page=90">DMP Guideline</a></p></li>
+</ul>
+</li>
+<li><p><strong>Japan Science &amp; Technology Agency (JST)</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://www.jst.go.jp/EN/about/openscience/guideline_openscience_en_r4.pdf">Open Access to Research Publications and Research Data Management</a></p></li>
+</ul>
+</li>
+</ul>
+<p>And remember, open science is nuanced! Although one of the tenants of open science is to share your products, not all products can or should be shared. How you share them may be specified by your organization or funding agency. As you embark on adopting open science for a project, consider if the subject and approach to your project will allow for sharing. Think about the following questions:</p>
+<ul class="simple">
+<li><p>Can the research products be shared?</p></li>
+<li><p>Who helped you obtain your data?</p></li>
+<li><p>Will they benefit from release?</p></li>
+<li><p>Who has responsibility and/authority for what happens with the data?</p></li>
+<li><p>Should the research products be shared?</p></li>
+</ul>
+<p>More details on how to write these plans for data, code, and results are in the following modules.</p>
+</section>
+</section>
+<section id="lesson-2-summary">
+<h2>Lesson 2: Summary<a class="headerlink" href="#lesson-2-summary" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, we learned:</p>
+<ul class="simple">
+<li><p>The definition of science tools, common examples, and which part of the scientific workflow they can support.</p></li>
+<li><p>The definition and purpose of persistent identifiers. The usefulness of ORCIDs and DOIs in the scientific process.</p></li>
+<li><p>Examples of useful and common open science tools such as metadata, documentation, repositories, and pre-registration.</p></li>
+<li><p>The steps for writing an open science and data management plan.</p></li>
+</ul>
+</section>
+<section id="lesson-2-knowledge-check">
+<h2>Lesson 2: Knowledge Check<a class="headerlink" href="#lesson-2-knowledge-check" title="Permalink to this heading">#</a></h2>
+<p>Answer the following questions to test what you have learned so far.</p>
+<p><em>Question</em></p>
+<p><strong>01/03</strong></p>
+<p>What can open science tools help with?</p>
+<ul class="simple">
+<li><p>Discovery</p></li>
+<li><p>Writing</p></li>
+<li><p>Outreach</p></li>
+<li><p>All of above</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>02/03</strong></p>
+<p>Complete the statement:</p>
+<p><em>Good, clear Metadata _____.</em></p>
+<p>Select all that apply.</p>
+<ul class="simple">
+<li><p>Improves findability</p></li>
+<li><p>Improves accessibility</p></li>
+<li><p>Improves interoperability</p></li>
+<li><p>Improves reusability</p></li>
+<li><p>Is a waste of time</p></li>
+</ul>
+<p><em>Question</em></p>
+<p><strong>03/03</strong></p>
+<p>Which are the components of a Software Management Plan? Select all that apply.</p>
+<ul class="simple">
+<li><p>Description of the software</p></li>
+<li><p>Repository(ies) in which software will be archived</p></li>
+<li><p>Sharing guidelines</p></li>
+<li><p>Personnel roles and responsibilities</p></li>
+<li><p>Any community-specific information of note</p></li>
+<li><p>Creating a logo</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files/open-science-101-v-1-0-0/Module_2/Lesson_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lesson_1/readme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesson 1: Introduction to the Process of Open Science</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lesson_3/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 3: Tools for Open Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-open-science-tools">Introduction to Open Science Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifiers">Persistent Identifiers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orcid">ORCID</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-object-identifiers-doi">Digital Object Identifiers (DOI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citations-using-dois">Citations Using DOIs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-2-1-find-and-resolve-a-doi">Activity 2.1: Find and Resolve a DOI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-pids-in-action">Examples of PIDs in Action</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-open-science-tools">Useful Open Science Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-metadata">Purpose of Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-metadata">Types of Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repositories">Repositories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-registration">Pre-registration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-pre-registration-important">Why is Pre-Registration Important?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-can-should-one-pre-register-their-research">When Can/Should One Pre-Register Their Research?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-and-data-management-plans">Open Science and Data Management Plans</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-science-to-be-open">Design Your Science to be Open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-management-plan">Data Management Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-management-plan">Software Management Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-plan">Open Science Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publications-plan">Publications Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-requirements-for-open-science-management-plans">Examples of Requirements for Open Science Management Plans</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-summary">Lesson 2: Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lesson-2-knowledge-check">Lesson 2: Knowledge Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
