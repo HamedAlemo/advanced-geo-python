@@ -64,6 +64,20 @@ GitHub requires authentication for any changes to a repo. The preferred method b
 2. Adding the key to your GitHub account: Follow [this step-by-step guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) to add your SSH key to your GitHub account. 
 
 
+## GitHub Education and GitHub Copilot for Students
+As a student you are eligible for GitHub Education benefits. This will give you access to a set of premium features on GitHub including free credits to use GitHub Copilot. 
+
+### Applying to GitHub Education
+1. Navigate to your [Education benefits](https://github.com/settings/education/benefits) settings.
+1. Under "GitHub Education", click **Start an application**.
+1. Complete the form, then click **Submit application**.
+
+### Access GitHub Copilot Student
+After your GitHub Education application was accepted: 
+1. Navigate to [Education benefits](https://github.com/settings/education/benefits) settings.
+2. Under "Free GitHub developer resources for students and teachers", click Learn more.
+1. Follow the prompts to activate Copilot Student, configuring the Copilot use policies to meet your needs.
+
 ## Get Started with a git repository
 Create a new directory, use `git init` to initiate git version control system:
 ```

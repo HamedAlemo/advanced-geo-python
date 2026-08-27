@@ -416,10 +416,15 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">2.3. Git and GitHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-on-your-computer">2.4. Configure git on Your Computer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-for-github">2.5. Authentication for GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.8. Working with an Existing GitHub Repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.9. Reverting to a Previous Commit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-education-and-github-copilot-for-students">2.6. GitHub Education and GitHub Copilot for Students</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-to-github-education">2.6.1. Applying to GitHub Education</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-github-copilot-student">2.6.2. Access GitHub Copilot Student</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.7. Get Started with a git repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.8. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.9. Working with an Existing GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.10. Reverting to a Previous Commit</a></li>
 </ul>
             </nav>
         </div>
@@ -488,8 +493,29 @@ document.write(`
 <li><p>Adding the key to your GitHub account: Follow <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">this step-by-step guide</a> to add your SSH key to your GitHub account.</p></li>
 </ol>
 </section>
+<section id="github-education-and-github-copilot-for-students">
+<h2><span class="section-number">2.6. </span>GitHub Education and GitHub Copilot for Students<a class="headerlink" href="#github-education-and-github-copilot-for-students" title="Permalink to this heading">#</a></h2>
+<p>As a student you are eligible for GitHub Education benefits. This will give you access to a set of premium features on GitHub including free credits to use GitHub Copilot.</p>
+<section id="applying-to-github-education">
+<h3><span class="section-number">2.6.1. </span>Applying to GitHub Education<a class="headerlink" href="#applying-to-github-education" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to your <a class="reference external" href="https://github.com/settings/education/benefits">Education benefits</a> settings.</p></li>
+<li><p>Under “GitHub Education”, click <strong>Start an application</strong>.</p></li>
+<li><p>Complete the form, then click <strong>Submit application</strong>.</p></li>
+</ol>
+</section>
+<section id="access-github-copilot-student">
+<h3><span class="section-number">2.6.2. </span>Access GitHub Copilot Student<a class="headerlink" href="#access-github-copilot-student" title="Permalink to this heading">#</a></h3>
+<p>After your GitHub Education application was accepted:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <a class="reference external" href="https://github.com/settings/education/benefits">Education benefits</a> settings.</p></li>
+<li><p>Under “Free GitHub developer resources for students and teachers”, click Learn more.</p></li>
+<li><p>Follow the prompts to activate Copilot Student, configuring the Copilot use policies to meet your needs.</p></li>
+</ol>
+</section>
+</section>
 <section id="get-started-with-a-git-repository">
-<h2><span class="section-number">2.6. </span>Get Started with a git repository<a class="headerlink" href="#get-started-with-a-git-repository" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.7. </span>Get Started with a git repository<a class="headerlink" href="#get-started-with-a-git-repository" title="Permalink to this heading">#</a></h2>
 <p>Create a new directory, use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> to initiate git version control system:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir my_project
 $ cd my_project
@@ -515,7 +541,7 @@ $ git init
 </figure>
 </section>
 <section id="push-changed-files-to-github">
-<h2><span class="section-number">2.7. </span>Push Changed Files to GitHub<a class="headerlink" href="#push-changed-files-to-github" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8. </span>Push Changed Files to GitHub<a class="headerlink" href="#push-changed-files-to-github" title="Permalink to this heading">#</a></h2>
 <p>To push your changes to your GitHub repository, you need to create a new repository on GitHub. You can do this using the following steps:</p>
 <ol class="arabic simple">
 <li><p>In the upper-right corner of any page, use the  drop-down menu, and select New repository.</p></li>
@@ -540,7 +566,7 @@ $ git push origin main
 </div>
 </section>
 <section id="working-with-an-existing-github-repository">
-<h2><span class="section-number">2.8. </span>Working with an Existing GitHub Repository<a class="headerlink" href="#working-with-an-existing-github-repository" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9. </span>Working with an Existing GitHub Repository<a class="headerlink" href="#working-with-an-existing-github-repository" title="Permalink to this heading">#</a></h2>
 <p>So far, we have talked about initializing a git repository and pushing that to GitHub. But you may need to start working on a project that already has a GitHub repository with content contributed by others. In this case, you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> commands as following.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> to create a <em>cloned</em> version of the GitHub repository on your local computer. You don’t need to create a directory for it. When you run the following command it will automatically create a directory in your current path, and <em>pull</em> the files, branches, and all the git history to your computer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:&lt;user&gt;/&lt;repository-name&gt;.git
@@ -553,7 +579,7 @@ $ git push origin main
 </div>
 </section>
 <section id="reverting-to-a-previous-commit">
-<h2><span class="section-number">2.9. </span>Reverting to a Previous Commit<a class="headerlink" href="#reverting-to-a-previous-commit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.10. </span>Reverting to a Previous Commit<a class="headerlink" href="#reverting-to-a-previous-commit" title="Permalink to this heading">#</a></h2>
 <p>Let’s say you have made some changes to an existing repository, and committed those to your target branch. Now, you notice a fault or mistake and you would like to revert to an older commit. You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> for this purpose. One of the easiest ways to do this is to find the commit number that you would like to revert to and use that in your <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> command.</p>
 <p>To get the list of all commits in your repository, you can use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command. The output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> will be a list of all changes, their commit number and any messages associated with those commits.</p>
 <p>Then you can use the following command:</p>
@@ -640,10 +666,15 @@ $ git push origin main
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">2.3. Git and GitHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-on-your-computer">2.4. Configure git on Your Computer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-for-github">2.5. Authentication for GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.6. Get Started with a git repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.7. Push Changed Files to GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.8. Working with an Existing GitHub Repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.9. Reverting to a Previous Commit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-education-and-github-copilot-for-students">2.6. GitHub Education and GitHub Copilot for Students</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-to-github-education">2.6.1. Applying to GitHub Education</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-github-copilot-student">2.6.2. Access GitHub Copilot Student</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.7. Get Started with a git repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.8. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.9. Working with an Existing GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.10. Reverting to a Previous Commit</a></li>
 </ul>
   </nav></div>
 
