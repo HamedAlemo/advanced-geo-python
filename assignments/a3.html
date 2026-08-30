@@ -1,0 +1,677 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment 3 &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/a3';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 4" href="a4.html" />
+    <link rel="prev" title="Assignment 2" href="a2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/04_jupyter.html">4. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/05_xarray_fundamentals.html">5. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/06_xarray_advanced.html">6. Advanced Xarray Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/07_landscape.html">7. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/08_crs.html">8. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09_crs_python.html">9. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10_docker.html">10. Intro to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11_earth_search_tutorial.html">11. Searching a STAC Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12_dask_intro.html">12. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13_stackstac.html">13. Scaling stackstac w Dask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/14_dask_dataframe.html">14. Into to Dask DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/15_raster.html">15. Review of Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/16_raster_analysis.html">16. Raster Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/17_raster_processing.html">17. Raster Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/18_vector.html">18. Review of Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/19_vector_analysis.html">19. Vector Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/20_dask_geopandas_intro.html">20. Intro to Dask-GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/21_scalable_vector_analysis.html">21. Scalable Vector Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/22_workflows_intro.html">22. Workflows in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/23_workflows_pseudocode.html">23. Writing Pseudocode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/24_workflows_best_practices.html">24. Workflow Best Practices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="a1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a2.html">Assignment 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a4.html">Assignment 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a5.html">Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a6.html">Assignment 6</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Fassignments/a3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/assignments/a3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Assignment 3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-inspect-10-pts">1) Open &amp; Inspect (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacetime-subsetting-units-10-pts">2) Space–Time Subsetting &amp; Units (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#climatology-monthly-means-anomalies-20-pts">3) Climatology, Monthly Means &amp; Anomalies (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-index-event-detection-15-pts">4) Rolling Index &amp; Event Detection (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-composites-15-pts">5) Spatial Composites (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-comparison-coarsen-vs-interpolate-20-pts">6) Grid Comparison: Coarsen vs. Interpolate (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-10-pts-trend-mapping">Optional (+10 pts): Trend Mapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-3">
+<h1>Assignment 3<a class="headerlink" href="#assignment-3" title="Permalink to this heading">#</a></h1>
+<p><strong>Due: Wednesday Oct 1st at 11:59 pm ET</strong></p>
+<section id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this heading">#</a></h2>
+<p>Use <em>Xarray</em> to analyze <em>multi‑dimensional weather/climate data</em>. You will work with a dataset, inspect its metadata, subset in <em>space and time</em>, compute <em>monthly means and climatologies</em>, derive <em>anomalies and rolling indices</em>, create <em>composite maps</em>, and compare <em>coarsen vs. interpolation</em>.</p>
+</section>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h2>
+<p>You should submit this assignment to your existing <code class="docutils literal notranslate"><span class="pre">geog213-assignments</span></code> or <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> GitHub repository under a new directory named <code class="docutils literal notranslate"><span class="pre">assignment-3/</span></code>.
+Your repository should follow all the principles of open and reproducible science you learned in Assignment 1 (including a README file with all the instructions to reproduce the results of your work). This will account for 10 pts.</p>
+</section>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
+<p><strong>NOAA ERSST v5</strong> — Extended Reconstructed Sea Surface Temperature (monthly, global; ~2° grid).</p>
+<ul class="simple">
+<li><p>OPeNDAP URL :<br />
+<code class="docutils literal notranslate"><span class="pre">http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/noaa.ersst.v5/sst.mnmean.nc</span></code><br />
+<em>(See <a class="reference internal" href="../lectures/06_xarray_advanced.html"><span class="doc std std-doc">Lecture 06</span></a> for usage context and examples.)</em></p></li>
+</ul>
+<p><strong>Access hint (not a skeleton):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="n">ersst_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/noaa.ersst.v5/sst.mnmean.nc&quot;</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">ersst_url</span><span class="p">,</span>
+    <span class="n">drop_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;time_bnds&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h2>
+<section id="open-inspect-10-pts">
+<h3>1) Open &amp; Inspect (10 pts)<a class="headerlink" href="#open-inspect-10-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open the ERSST dataset from OPeNDAP (above).</p></li>
+<li><p>Print a concise summary of the <em>Dataset</em> and the <code class="docutils literal notranslate"><span class="pre">sst</span></code> variable: dimensions, coordinates, and key attributes.</p></li>
+<li><p>In 3–5 sentences, explain how <code class="docutils literal notranslate"><span class="pre">dims</span></code>, <code class="docutils literal notranslate"><span class="pre">coords</span></code>, and <code class="docutils literal notranslate"><span class="pre">attrs</span></code> reflect the Xarray data model.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="spacetime-subsetting-units-10-pts">
+<h3>2) Space–Time Subsetting &amp; Units (10 pts)<a class="headerlink" href="#spacetime-subsetting-units-10-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Subset the dataset to <code class="docutils literal notranslate"><span class="pre">1982‑01</span></code> through <code class="docutils literal notranslate"><span class="pre">2024‑12</span></code>.</p></li>
+<li><p>Subset the <em>Niño‑3.4‑like</em> region: 5°S–5°N, 170°W–120°W.</p></li>
+<li><p>Confirm the SST units and note any relevant CF attributes (e.g., <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>, <code class="docutils literal notranslate"><span class="pre">long_name</span></code>, <code class="docutils literal notranslate"><span class="pre">missing_value</span></code>).</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="climatology-monthly-means-anomalies-20-pts">
+<h3>3) Climatology, Monthly Means &amp; Anomalies (20 pts)<a class="headerlink" href="#climatology-monthly-means-anomalies-20-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Compute a monthly climatology over 1982–2011 using <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>.</p></li>
+<li><p>Compute SST anomalies by subtracting the appropriate monthly climatology from each monthly field.</p></li>
+<li><p>Create two area‑weighted time series (averaged over the <em>Niño‑3.4‑like</em> region) by using cosine of the latitude as weights for each pixel and document your approach, and plot the time series in two separate plots:</p>
+<ul class="simple">
+<li><p>monthly mean SST</p></li>
+<li><p>monthly SST <em>anomalies</em></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="rolling-index-event-detection-15-pts">
+<h3>4) Rolling Index &amp; Event Detection (15 pts)<a class="headerlink" href="#rolling-index-event-detection-15-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Compute a 3‑month centered rolling mean of the area‑averaged anomalies (an ENSO‑style index).</p></li>
+<li><p>Identify contiguous warm events where the index is <code class="docutils literal notranslate"><span class="pre">+0.5 °C</span></code> above the mean for ≥ 3 consecutive months, and cold events where the index is <code class="docutils literal notranslate"><span class="pre">0.5 °C</span></code> below the mean for ≥ 3 consecutive months.</p></li>
+<li><p>Export your area‑averaged <em>monthly anomaly series</em> and <em>3‑month index</em> to <code class="docutils literal notranslate"><span class="pre">results/region_index.csv</span></code> (columns: <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">anomaly</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling_anomaly</span></code>).</p></li>
+<li><p>Report the top three warm (El Niño) and three cold (La Niña) events by peak magnitude, with start/end dates.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="spatial-composites-15-pts">
+<h3>5) Spatial Composites (15 pts)<a class="headerlink" href="#spatial-composites-15-pts" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Build composite anomaly maps: the mean of all anomaly months belonging to warm events and, separately, cold events.</p></li>
+<li><p>Plot both composites using the <em>same color scale</em>, with clear titles and colorbars.</p></li>
+<li><p>Save your warm and cold composite anomaly maps to NetCDF files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">results/composite_warm.nc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">results/composite_cold.nc</span></code></p></li>
+</ul>
+</li>
+<li><p>In 3–4 sentences, interpret the large‑scale patterns you see.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="grid-comparison-coarsen-vs-interpolate-20-pts">
+<h3>6) Grid Comparison: Coarsen vs. Interpolate (20 pts)<a class="headerlink" href="#grid-comparison-coarsen-vs-interpolate-20-pts" title="Permalink to this heading">#</a></h3>
+<p>ERSST is ~2° resolution. Compare two approaches to a coarser global 4° grid:</p>
+<ol class="arabic simple">
+<li><p><strong>Coarsening:</strong> use <code class="docutils literal notranslate"><span class="pre">coarsen(lat=2,</span> <span class="pre">lon=2).mean()</span></code> on your monthly anomaly fields to produce 4° anomalies.</p></li>
+<li><p><strong>Interpolation:</strong> construct a regular 4° target grid and produce a bilinearly interpolated anomaly field via <code class="docutils literal notranslate"><span class="pre">.interp()</span></code>.</p></li>
+<li><p>For a representative month (pick one), plot both maps side‑by‑side.</p></li>
+<li><p>Discuss pros/cons of the two methods, and how they differ.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="optional-10-pts-trend-mapping">
+<h3>Optional (+10 pts): Trend Mapping<a class="headerlink" href="#optional-10-pts-trend-mapping" title="Permalink to this heading">#</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">polyfit(dim='time',</span> <span class="pre">deg=1)</span></code>, estimate a <em>linear trend</em> (°C per decade) of <em>monthly SST anomalies</em> over 1982–2024. Plot the slope map and briefly comment on patterns and caveats.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="deliverables">
+<h2>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<p>Your <code class="docutils literal notranslate"><span class="pre">assignment-3/</span></code> directory should include the following in addition to license file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">notebooks/&lt;your_notebook&gt;.ipynb</span></code> — executed with figures rendered on GitHub</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">results/composite_warm.nc</span></code>, <code class="docutils literal notranslate"><span class="pre">results/composite_cold.nc</span></code>, <code class="docutils literal notranslate"><span class="pre">results/region_index.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">README.md</span></code> — Instructions to reproduce the code</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="a2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Assignment 2</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="a4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 4</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-inspect-10-pts">1) Open &amp; Inspect (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spacetime-subsetting-units-10-pts">2) Space–Time Subsetting &amp; Units (10 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#climatology-monthly-means-anomalies-20-pts">3) Climatology, Monthly Means &amp; Anomalies (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rolling-index-event-detection-15-pts">4) Rolling Index &amp; Event Detection (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-composites-15-pts">5) Spatial Composites (15 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-comparison-coarsen-vs-interpolate-20-pts">6) Grid Comparison: Coarsen vs. Interpolate (20 pts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-10-pts-trend-mapping">Optional (+10 pts): Trend Mapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
