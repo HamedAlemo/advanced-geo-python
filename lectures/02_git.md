@@ -91,6 +91,11 @@ To stage a file for addition to the repository use the following:
 ```
 $ git add <filename(s)>
 ```
+
+```{note}
+Always stage files explicitly by name, and **never use** `git add .` (which stages every changed file at once). Doing so makes it easy to accidentally commit secrets, large data files, or generated output, and it tends to bundle unrelated changes into a single commit. Run `git status` first to see exactly what has changed, then add only the files that belong in your next commit.
+```
+
 Then you need to *commit* the staged files to be added to the history of your repository:
 ```
 $ git commit -m "a brief and informative commit message"
@@ -108,6 +113,39 @@ align: center
 ---
 Modified files are staged using git add. Then, following git commit, all files in the staging area are included in snapshot and become part of the repository's history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014).
 ```
+
+## Ignoring Files with `.gitignore`
+
+Not every file in your project should be tracked by git. You will often have files that are generated, private, or simply too large to belong in your repository's history, for example your Pixi environment folder (`.pixi/`), Python caches (`__pycache__/`, `.ipynb_checkpoints/`), large datasets, and operating-system clutter like `.DS_Store` on macOS. Most importantly, you should **never commit secrets** such as passwords, API keys, or cloud credentials.
+
+Git lets you list these in a plain text file named `.gitignore`, placed at the root of your repository. Each line is a pattern; any file or directory matching a pattern is left untracked and will not show up in `git status` or be added by `git add`. Here is a simple example:
+
+```
+# Pixi environment (recreate it from pixi.toml + pixi.lock)
+.pixi/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data and outputs
+data/
+*.tif
+
+# Credentials — never commit these
+.env
+*.key
+
+# macOS
+.DS_Store
+```
+
+A few things to keep in mind:
+
+- The `.gitignore` file itself *should* be committed, so everyone working on the repository shares the same ignore rules.
+- `.gitignore` only affects files that are not *already* tracked. If you accidentally committed a file before ignoring it, remove it from tracking with `git rm --cached <filename>` and then commit that change.
+- You do not have to write these from scratch. GitHub maintains a collection of language- and tool-specific templates at [github/gitignore](https://github.com/github/gitignore), and can add one for you when you create a new repository.
 
 ## Push Changed Files to GitHub
 To push your changes to your GitHub repository, you need to create a new repository on GitHub. You can do this using the following steps:
