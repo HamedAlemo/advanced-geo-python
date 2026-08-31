@@ -133,6 +133,7 @@ After running this command, Pixi creates a few things in your project folder, in
 ```toml
 [workspace]
 name = "hello-world"
+version = "0.1.0"
 channels = ["conda-forge"]
 platforms = ["osx-arm64"]
 
@@ -143,7 +144,7 @@ platforms = ["osx-arm64"]
 
 Let's look at what these sections mean:
 
-- **`[workspace]`** holds general information about the project: its `name`, the `channels` where packages are downloaded from (`conda-forge` by default), and the `platforms` (operating systems) that the environment should support. **Note:** the value for `platforms` on your machine might be different depending on the type of machine/operating system you use. 
+- **`[workspace]`** holds general information about the project: its `name`; its `version` (the version of *your own* project, following semantic versioning — optional, and only important if you package your project for distribution, so you can leave it as is); the `channels` where packages are downloaded from (`conda-forge` by default); and the `platforms` (operating systems) that the environment should support. **Note:** the value for `platforms` on your machine might be different depending on the type of machine/operating system you use. 
 - **`[dependencies]`** is where your `conda-forge` packages will be listed. It's empty for now.
 - **`[tasks]`** is where you can define reusable commands. We will cover tasks below.
 
