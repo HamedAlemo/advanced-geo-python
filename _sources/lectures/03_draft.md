@@ -62,19 +62,6 @@ An environment management system enables you to set up a new, project specific s
 
 In this course, we will use [Pixi](https://pixi.sh/latest/) to manage our Python environments and packages. Pixi is a fast, modern, open-source package and environment management tool. It draws packages from the same ecosystem you may have heard of through Conda (the `conda-forge` community repository of 30,000+ packages), and it can also install packages from the Python Package Index ([PyPI](https://pypi.org/)) in the same project. This means you can manage all of your dependencies, whether they come from `conda-forge` or PyPI, from a single place.
 
-
-
-
-
-```{figure} https://pixi.prefix.dev/v0.27.1/assets/pixi.webp
----
-name: pixi
-class: bg-primary mb-1
-width: 700px
-align: center
----
-Pixi Logo (source: [Pixi Documentation](https://pixi.prefix.dev/))
-```
 We choose Pixi for a few reasons that map directly onto the goals of this course:
 
 - **Reproducibility by default.** Every time you change your dependencies, Pixi automatically writes a *lock file* (`pixi.lock`) that records the exact version of every package (and every dependency of every package) for each operating system. Anyone who has your project can recreate a byte-for-byte identical environment. You do not have to remember to pin versions by hand.
@@ -117,22 +104,22 @@ $ pixi --version
 
 ## Starting a New Project
 
-To create a new project, make a directory for it and run `pixi init` inside it. Let's create a new project:
+To create a new project, make a directory for it and run `pixi init` inside it. Let's create a project for our first assignment:
 ```
-$ mkdir hello-world
-$ cd hello-world
+$ mkdir g313-a1
+$ cd g313-a1
 $ pixi init
 ```
 
 You can also do both steps at once by passing the name to `pixi init`:
 ```
-$ pixi init hello-world
+$ pixi init g313-a1
 ```
 
 After running this command, Pixi creates a few things in your project folder, including a manifest file named `pixi.toml` and a `.gitignore`. If you open `pixi.toml`, it will look something like this:
 ```toml
 [workspace]
-name = "hello-world"
+name = "g313-a1"
 channels = ["conda-forge"]
 platforms = ["osx-arm64"]
 
@@ -143,13 +130,9 @@ platforms = ["osx-arm64"]
 
 Let's look at what these sections mean:
 
-- **`[workspace]`** holds general information about the project: its `name`, the `channels` where packages are downloaded from (`conda-forge` by default), and the `platforms` (operating systems) that the environment should support. **Note:** the value for `platforms` on your machine might be different depending on the type of machine/operating system you use. 
+- **`[workspace]`** holds general information about the project: its `name`, the `channels` where packages are downloaded from (`conda-forge` by default), and the `platforms` (operating systems) that the environment should support.
 - **`[dependencies]`** is where your `conda-forge` packages will be listed. It's empty for now.
 - **`[tasks]`** is where you can define reusable commands. We will cover tasks below.
-
-```{note}
-TOML stands for **Tom's Obvious, Minimal Language**, a widely used, human-readable format for configuration files.
-```
 
 ```{tip}
 The `.pixi/` folder that Pixi creates to store the actual installed environment can get large and is fully reproducible from the manifest and lock file. Pixi automatically adds it to your `.gitignore` so you don't commit it. The files you *do* commit to git are `pixi.toml` and `pixi.lock`.
@@ -159,14 +142,10 @@ The `.pixi/` folder that Pixi creates to store the actual installed environment 
 
 By default, Pixi records only the platform of the machine you ran `pixi init` on (for example `osx-arm64` for an Apple Silicon Mac). Because collaborators in this course use different operating systems, it is good practice to list all the platforms your project should support. You can edit the `platforms` line in `pixi.toml` to include the common ones:
 ```toml
-platforms = ["osx-arm64", "osx-64", "linux-64"]
+platforms = ["osx-arm64", "osx-64", "linux-64", "win-64"]
 ```
 
 Pixi will then solve and lock the environment for each of these platforms, so the exact same set of packages can be installed on any of them.
-
-```{note}
-If you are on Windows using WSL, as recommended in the Unix lecture, your platform is `linux-64` (not `win-64`). Even though the physical machine runs Windows, WSL is a Linux distribution, so the packages Pixi installs are Linux builds. This is why `win-64` does not appear in the list above.
-```
 
 ## Adding Packages
 
@@ -179,13 +158,13 @@ This one command does several things: it adds `numpy` to the `[dependencies]` se
 
 In order to make your results reproducible, it is a "best practice" to specify the version of the important packages you depend on. You can pin a version directly when adding a package:
 ```
-$ pixi add "numpy=2.5.2"
+$ pixi add "numpy=1.26.4"
 ```
 
 After adding a package, your `pixi.toml` will show it under `[dependencies]`:
 ```toml
 [dependencies]
-numpy = "2.5.2"
+numpy = "1.26.4"
 ```
 
 You can add multiple packages in a single command, and Pixi will find mutually compatible versions of all of them:
@@ -195,7 +174,7 @@ $ pixi add numpy pandas matplotlib
 
 It is also good practice to pin the Python version for your project, which you can do the same way:
 ```
-$ pixi add "python=3.13.*"
+$ pixi add "python=3.12"
 ```
 
 To see all the packages currently installed in your project's environment, use:
@@ -213,8 +192,8 @@ $ pixi add --pypi some-package
 These packages are listed in a separate `[pypi-dependencies]` section of your manifest so that it is always clear which packages come from `conda-forge` and which come from PyPI:
 ```toml
 [dependencies]
-python = "3.13.*"
-numpy = "2.5.2"
+python = "3.12.*"
+numpy = "1.26.4"
 
 [pypi-dependencies]
 some-package = "*"
@@ -222,22 +201,6 @@ some-package = "*"
 
 ```{tip}
 Prefer `conda-forge` packages (plain `pixi add`) when a package is available there, and reach for `--pypi` only when it is not. `conda-forge` packages include compiled dependencies (which is important for the geospatial libraries we use later in the course) that are built to work together.
-```
-
-## Manifest vs. Lock File: What to Pin
-
-A common question when starting a project is whether you should hand-write all of your packages and their versions into `pixi.toml`, or keep adding them with `pixi add`. In almost all cases, **use `pixi add`**. When you run `pixi add`, Pixi resolves a mutually compatible set of versions, records the exact result in `pixi.lock`, and installs it, all in one step. If you instead type packages directly into the manifest, nothing is resolved, locked, or installed until you run `pixi install`, and a typo or an impossible version combination surfaces later and less clearly. Hand-editing the manifest is the right move for the things that are *not* packages, such as adding `platforms`, `channels`, or `[tasks]`, or for loosening or tightening a version constraint you already have.
-
-This connects to the single most important idea about reproducibility in Pixi: the manifest and the lock file do different jobs.
-
-- The **manifest** (`pixi.toml`) records your *intent*: the packages you actually care about, with version constraints only as tight as you need.
-- The **lock file** (`pixi.lock`) records the *exact* resolved versions of everything, including every transitive dependency, for every platform.
-
-Because the lock file already guarantees exact reproducibility, you should **not** pin an exact version on every package in the manifest. Doing so makes the environment brittle and hard to update, for no reproducibility benefit, since the lock file was already capturing the exact versions. The good habit is to **pin selectively**: pin `python` and the few libraries whose version genuinely matters to your analysis, and let the resolver choose compatible versions for everything else.
-
-```{admonition} Rule of thumb
-:class: tip
-Add packages with `pixi add`, pin only what matters (for example `pixi add "python=3.13.*"` and a specific version for a key library), and rely on `pixi.lock`, committed to git, for exact reproducibility. Edit `pixi.toml` by hand for `platforms`, `channels`, and `[tasks]`.
 ```
 
 ## Working in Your Environment
@@ -278,7 +241,7 @@ $ pixi install
 
 ```{admonition} Why a lock file matters
 :class: tip
-The manifest (`pixi.toml`) records what you *asked for* (e.g. "numpy 2.5.2"). The lock file (`pixi.lock`) records what you actually *got*, all the way down: the exact version and build of numpy, and of every one of its dependencies, for every platform. Two people installing from the same lock file six months apart get identical environments. This is the core of a reproducible pipeline, and it is why we build the habit now.
+The manifest (`pixi.toml`) records what you *asked for* (e.g. "numpy 1.26.4"). The lock file (`pixi.lock`) records what you actually *got*, all the way down: the exact version and build of numpy, and of every one of its dependencies, for every platform. Two people installing from the same lock file six months apart get identical environments. This is the core of a reproducible pipeline, and it is why we build the habit now.
 ```
 
 ## Tasks
@@ -321,13 +284,9 @@ A good rule of thumb: if a package is something you `import` in your code, it be
 
 Pixi is the tool you will use in this course, but Conda has been the dominant environment manager in scientific Python for over a decade. You will encounter it constantly, in tutorials, in project READMEs, on high-performance computing clusters, in some of the linked resources for this course, and in our own Docker lecture later in the semester. This short section is so that you can *read and understand* Conda when you meet it. You do not need to use it for your assignments.
 
-```{note}
-If you do decide to install Conda (for example, to follow an external tutorial), we recommend **Miniconda**, the lightweight, bare-minimum distribution that includes Conda, Python, and a few core packages. You can download it from [this page](https://docs.conda.io/projects/miniconda/en/latest/).
-```
-
 Conda uses a **named-environment** model. Instead of a per-project folder, you create centrally stored environments that have names and can be activated from anywhere:
 ```
-$ conda create --name myenv python=3.13
+$ conda create --name myenv python=3.12
 $ conda activate myenv
 $ conda install numpy
 $ conda deactivate
@@ -341,9 +300,9 @@ name: myenv
 channels:
   - conda-forge
 dependencies:
-  - python=3.13
-  - numpy=2.5.2
-  - pandas=3.0.3
+  - python=3.12
+  - numpy=1.26.4
+  - pandas=2.0.3
 ```
 which someone recreates with:
 ```

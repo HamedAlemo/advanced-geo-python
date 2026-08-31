@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/02_git';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
+    <link rel="next" title="3. Python Environments" href="03_python-env.html" />
     <link rel="prev" title="1. Introduction to Shell and Bash" href="01_unix.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,6 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -422,9 +423,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.7. Get Started with a git repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.8. Push Changed Files to GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.9. Working with an Existing GitHub Repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.10. Reverting to a Previous Commit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-files-with-gitignore">2.8. Ignoring Files with <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.9. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.10. Working with an Existing GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.11. Reverting to a Previous Commit</a></li>
 </ul>
             </nav>
         </div>
@@ -527,6 +529,10 @@ $ git init
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add &lt;filename(s)&gt;
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Always stage files explicitly by name, and <strong>never use</strong> <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code> (which stages every changed file at once). Doing so makes it easy to accidentally commit secrets, large data files, or generated output, and it tends to bundle unrelated changes into a single commit. Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> first to see exactly what has changed, then add only the files that belong in your next commit.</p>
+</div>
 <p>Then you need to <em>commit</em> the staged files to be added to the history of your repository:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -m &quot;a brief and informative commit message&quot;
 </pre></div>
@@ -540,8 +546,39 @@ $ git init
 </figcaption>
 </figure>
 </section>
+<section id="ignoring-files-with-gitignore">
+<h2><span class="section-number">2.8. </span>Ignoring Files with <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code><a class="headerlink" href="#ignoring-files-with-gitignore" title="Permalink to this heading">#</a></h2>
+<p>Not every file in your project should be tracked by git. You will often have files that are generated, private, or simply too large to belong in your repository’s history, for example your Pixi environment folder (<code class="docutils literal notranslate"><span class="pre">.pixi/</span></code>), Python caches (<code class="docutils literal notranslate"><span class="pre">__pycache__/</span></code>, <code class="docutils literal notranslate"><span class="pre">.ipynb_checkpoints/</span></code>), large datasets, and operating-system clutter like <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code> on macOS. Most importantly, you should <strong>never commit secrets</strong> such as passwords, API keys, or cloud credentials.</p>
+<p>Git lets you list these in a plain text file named <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>, placed at the root of your repository. Each line is a pattern; any file or directory matching a pattern is left untracked and will not show up in <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> or be added by <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>. Here is a simple example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pixi environment (recreate it from pixi.toml + pixi.lock)</span>
+<span class="o">.</span><span class="n">pixi</span><span class="o">/</span>
+
+<span class="c1"># Python</span>
+<span class="n">__pycache__</span><span class="o">/</span>
+<span class="o">*.</span><span class="n">pyc</span>
+<span class="o">.</span><span class="n">ipynb_checkpoints</span><span class="o">/</span>
+
+<span class="c1"># Data and outputs</span>
+<span class="n">data</span><span class="o">/</span>
+<span class="o">*.</span><span class="n">tif</span>
+
+<span class="c1"># Credentials — never commit these</span>
+<span class="o">.</span><span class="n">env</span>
+<span class="o">*.</span><span class="n">key</span>
+
+<span class="c1"># macOS</span>
+<span class="o">.</span><span class="n">DS_Store</span>
+</pre></div>
+</div>
+<p>A few things to keep in mind:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file itself <em>should</em> be committed, so everyone working on the repository shares the same ignore rules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> only affects files that are not <em>already</em> tracked. If you accidentally committed a file before ignoring it, remove it from tracking with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rm</span> <span class="pre">--cached</span> <span class="pre">&lt;filename&gt;</span></code> and then commit that change.</p></li>
+<li><p>You do not have to write these from scratch. GitHub maintains a collection of language- and tool-specific templates at <a class="reference external" href="https://github.com/github/gitignore">github/gitignore</a>, and can add one for you when you create a new repository.</p></li>
+</ul>
+</section>
 <section id="push-changed-files-to-github">
-<h2><span class="section-number">2.8. </span>Push Changed Files to GitHub<a class="headerlink" href="#push-changed-files-to-github" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9. </span>Push Changed Files to GitHub<a class="headerlink" href="#push-changed-files-to-github" title="Permalink to this heading">#</a></h2>
 <p>To push your changes to your GitHub repository, you need to create a new repository on GitHub. You can do this using the following steps:</p>
 <ol class="arabic simple">
 <li><p>In the upper-right corner of any page, use the  drop-down menu, and select New repository.</p></li>
@@ -566,7 +603,7 @@ $ git push origin main
 </div>
 </section>
 <section id="working-with-an-existing-github-repository">
-<h2><span class="section-number">2.9. </span>Working with an Existing GitHub Repository<a class="headerlink" href="#working-with-an-existing-github-repository" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.10. </span>Working with an Existing GitHub Repository<a class="headerlink" href="#working-with-an-existing-github-repository" title="Permalink to this heading">#</a></h2>
 <p>So far, we have talked about initializing a git repository and pushing that to GitHub. But you may need to start working on a project that already has a GitHub repository with content contributed by others. In this case, you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> commands as following.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> to create a <em>cloned</em> version of the GitHub repository on your local computer. You don’t need to create a directory for it. When you run the following command it will automatically create a directory in your current path, and <em>pull</em> the files, branches, and all the git history to your computer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:&lt;user&gt;/&lt;repository-name&gt;.git
@@ -579,7 +616,7 @@ $ git push origin main
 </div>
 </section>
 <section id="reverting-to-a-previous-commit">
-<h2><span class="section-number">2.10. </span>Reverting to a Previous Commit<a class="headerlink" href="#reverting-to-a-previous-commit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.11. </span>Reverting to a Previous Commit<a class="headerlink" href="#reverting-to-a-previous-commit" title="Permalink to this heading">#</a></h2>
 <p>Let’s say you have made some changes to an existing repository, and committed those to your target branch. Now, you notice a fault or mistake and you would like to revert to an older commit. You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> for this purpose. One of the easiest ways to do this is to find the commit number that you would like to revert to and use that in your <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> command.</p>
 <p>To get the list of all commits in your repository, you can use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command. The output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> will be a list of all changes, their commit number and any messages associated with those commits.</p>
 <p>Then you can use the following command:</p>
@@ -635,11 +672,11 @@ $ git push origin main
       </div>
     </a>
     <a class="right-next"
-       href="../assignments/a1.html"
+       href="03_python-env.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignment 1</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Python Environments</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -672,9 +709,10 @@ $ git push origin main
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-a-git-repository">2.7. Get Started with a git repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.8. Push Changed Files to GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.9. Working with an Existing GitHub Repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.10. Reverting to a Previous Commit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-files-with-gitignore">2.8. Ignoring Files with <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-changed-files-to-github">2.9. Push Changed Files to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-an-existing-github-repository">2.10. Working with an Existing GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-to-a-previous-commit">2.11. Reverting to a Previous Commit</a></li>
 </ul>
   </nav></div>
 

@@ -61,7 +61,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/03_python-env';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/03_draft';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Assignment 1" href="../assignments/a1.html" />
@@ -290,7 +290,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/03_python-env.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/03_draft.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +320,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lectures/03_python-env.md" target="_blank"
+      <li><a href="../_sources/lectures/03_draft.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -429,12 +429,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pypi-packages">3.8.1. Installing PyPI Packages</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-vs-lock-file-what-to-pin">3.9. Manifest vs. Lock File: What to Pin</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-in-your-environment">3.10. Working in Your Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducing-an-environment">3.11. Reproducing an Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">3.12. Tasks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-tools">3.13. Global Tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-conda-in-the-wild">3.14. Reading Conda in the Wild</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-in-your-environment">3.9. Working in Your Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducing-an-environment">3.10. Reproducing an Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">3.11. Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-tools">3.12. Global Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-conda-in-the-wild">3.13. Reading Conda in the Wild</a></li>
 </ul>
             </nav>
         </div>
@@ -499,12 +498,6 @@ document.write(`
 <section id="pixi">
 <h2><span class="section-number">3.5. </span>Pixi<a class="headerlink" href="#pixi" title="Permalink to this heading">#</a></h2>
 <p>In this course, we will use <a class="reference external" href="https://pixi.sh/latest/">Pixi</a> to manage our Python environments and packages. Pixi is a fast, modern, open-source package and environment management tool. It draws packages from the same ecosystem you may have heard of through Conda (the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> community repository of 30,000+ packages), and it can also install packages from the Python Package Index (<a class="reference external" href="https://pypi.org/">PyPI</a>) in the same project. This means you can manage all of your dependencies, whether they come from <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> or PyPI, from a single place.</p>
-<figure class="align-center" id="id1">
-<a class="bg-primary mb-1 reference internal image-reference" href="https://pixi.prefix.dev/v0.27.1/assets/pixi.webp"><img alt="https://pixi.prefix.dev/v0.27.1/assets/pixi.webp" class="bg-primary mb-1" src="https://pixi.prefix.dev/v0.27.1/assets/pixi.webp" style="width: 700px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Pixi Logo (source: <a class="reference external" href="https://pixi.prefix.dev/">Pixi Documentation</a>)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
 <p>We choose Pixi for a few reasons that map directly onto the goals of this course:</p>
 <ul class="simple">
 <li><p><strong>Reproducibility by default.</strong> Every time you change your dependencies, Pixi automatically writes a <em>lock file</em> (<code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>) that records the exact version of every package (and every dependency of every package) for each operating system. Anyone who has your project can recreate a byte-for-byte identical environment. You do not have to remember to pin versions by hand.</p></li>
@@ -542,19 +535,19 @@ document.write(`
 </section>
 <section id="starting-a-new-project">
 <h2><span class="section-number">3.7. </span>Starting a New Project<a class="headerlink" href="#starting-a-new-project" title="Permalink to this heading">#</a></h2>
-<p>To create a new project, make a directory for it and run <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">init</span></code> inside it. Let’s create a new project:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir hello-world
-$ cd hello-world
+<p>To create a new project, make a directory for it and run <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">init</span></code> inside it. Let’s create a project for our first assignment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir g313-a1
+$ cd g313-a1
 $ pixi init
 </pre></div>
 </div>
 <p>You can also do both steps at once by passing the name to <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">init</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pixi init hello-world
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pixi init g313-a1
 </pre></div>
 </div>
 <p>After running this command, Pixi creates a few things in your project folder, including a manifest file named <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> and a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>. If you open <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, it will look something like this:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[workspace]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello-world&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;g313-a1&quot;</span>
 <span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;conda-forge&quot;</span><span class="p">]</span>
 <span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;osx-arm64&quot;</span><span class="p">]</span>
 
@@ -565,14 +558,10 @@ $ pixi init
 </div>
 <p>Let’s look at what these sections mean:</p>
 <ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">[workspace]</span></code></strong> holds general information about the project: its <code class="docutils literal notranslate"><span class="pre">name</span></code>, the <code class="docutils literal notranslate"><span class="pre">channels</span></code> where packages are downloaded from (<code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> by default), and the <code class="docutils literal notranslate"><span class="pre">platforms</span></code> (operating systems) that the environment should support. <strong>Note:</strong> the value for <code class="docutils literal notranslate"><span class="pre">platforms</span></code> on your machine might be different depending on the type of machine/operating system you use.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">[workspace]</span></code></strong> holds general information about the project: its <code class="docutils literal notranslate"><span class="pre">name</span></code>, the <code class="docutils literal notranslate"><span class="pre">channels</span></code> where packages are downloaded from (<code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> by default), and the <code class="docutils literal notranslate"><span class="pre">platforms</span></code> (operating systems) that the environment should support.</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">[dependencies]</span></code></strong> is where your <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> packages will be listed. It’s empty for now.</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">[tasks]</span></code></strong> is where you can define reusable commands. We will cover tasks below.</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TOML stands for <strong>Tom’s Obvious, Minimal Language</strong>, a widely used, human-readable format for configuration files.</p>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.pixi/</span></code> folder that Pixi creates to store the actual installed environment can get large and is fully reproducible from the manifest and lock file. Pixi automatically adds it to your <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> so you don’t commit it. The files you <em>do</em> commit to git are <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> and <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>.</p>
@@ -580,14 +569,10 @@ $ pixi init
 <section id="supporting-multiple-operating-systems">
 <h3><span class="section-number">3.7.1. </span>Supporting Multiple Operating Systems<a class="headerlink" href="#supporting-multiple-operating-systems" title="Permalink to this heading">#</a></h3>
 <p>By default, Pixi records only the platform of the machine you ran <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">init</span></code> on (for example <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> for an Apple Silicon Mac). Because collaborators in this course use different operating systems, it is good practice to list all the platforms your project should support. You can edit the <code class="docutils literal notranslate"><span class="pre">platforms</span></code> line in <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> to include the common ones:</p>
-<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;osx-arm64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;osx-64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;linux-64&quot;</span><span class="p">]</span>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;osx-arm64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;osx-64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;linux-64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;win-64&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Pixi will then solve and lock the environment for each of these platforms, so the exact same set of packages can be installed on any of them.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are on Windows using WSL, as recommended in the Unix lecture, your platform is <code class="docutils literal notranslate"><span class="pre">linux-64</span></code> (not <code class="docutils literal notranslate"><span class="pre">win-64</span></code>). Even though the physical machine runs Windows, WSL is a Linux distribution, so the packages Pixi installs are Linux builds. This is why <code class="docutils literal notranslate"><span class="pre">win-64</span></code> does not appear in the list above.</p>
-</div>
 </section>
 </section>
 <section id="adding-packages">
@@ -598,12 +583,12 @@ $ pixi init
 </div>
 <p>This one command does several things: it adds <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to the <code class="docutils literal notranslate"><span class="pre">[dependencies]</span></code> section of your <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, it resolves compatible versions of <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and all of its dependencies, it records those exact versions in <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, and it installs them into your project’s environment.</p>
 <p>In order to make your results reproducible, it is a “best practice” to specify the version of the important packages you depend on. You can pin a version directly when adding a package:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pixi add &quot;numpy=2.5.2&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pixi add &quot;numpy=1.26.4&quot;
 </pre></div>
 </div>
 <p>After adding a package, your <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> will show it under <code class="docutils literal notranslate"><span class="pre">[dependencies]</span></code>:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[dependencies]</span>
-<span class="n">numpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2.5.2&quot;</span>
+<span class="n">numpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.26.4&quot;</span>
 </pre></div>
 </div>
 <p>You can add multiple packages in a single command, and Pixi will find mutually compatible versions of all of them:</p>
@@ -611,7 +596,7 @@ $ pixi init
 </pre></div>
 </div>
 <p>It is also good practice to pin the Python version for your project, which you can do the same way:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pixi add &quot;python=3.13.*&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pixi add &quot;python=3.12&quot;
 </pre></div>
 </div>
 <p>To see all the packages currently installed in your project’s environment, use:</p>
@@ -626,8 +611,8 @@ $ pixi init
 </div>
 <p>These packages are listed in a separate <code class="docutils literal notranslate"><span class="pre">[pypi-dependencies]</span></code> section of your manifest so that it is always clear which packages come from <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> and which come from PyPI:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[dependencies]</span>
-<span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;3.13.*&quot;</span>
-<span class="n">numpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2.5.2&quot;</span>
+<span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;3.12.*&quot;</span>
+<span class="n">numpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.26.4&quot;</span>
 
 <span class="k">[pypi-dependencies]</span>
 <span class="n">some-package</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
@@ -639,22 +624,8 @@ $ pixi init
 </div>
 </section>
 </section>
-<section id="manifest-vs-lock-file-what-to-pin">
-<h2><span class="section-number">3.9. </span>Manifest vs. Lock File: What to Pin<a class="headerlink" href="#manifest-vs-lock-file-what-to-pin" title="Permalink to this heading">#</a></h2>
-<p>A common question when starting a project is whether you should hand-write all of your packages and their versions into <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, or keep adding them with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code>. In almost all cases, <strong>use <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code></strong>. When you run <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code>, Pixi resolves a mutually compatible set of versions, records the exact result in <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, and installs it, all in one step. If you instead type packages directly into the manifest, nothing is resolved, locked, or installed until you run <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">install</span></code>, and a typo or an impossible version combination surfaces later and less clearly. Hand-editing the manifest is the right move for the things that are <em>not</em> packages, such as adding <code class="docutils literal notranslate"><span class="pre">platforms</span></code>, <code class="docutils literal notranslate"><span class="pre">channels</span></code>, or <code class="docutils literal notranslate"><span class="pre">[tasks]</span></code>, or for loosening or tightening a version constraint you already have.</p>
-<p>This connects to the single most important idea about reproducibility in Pixi: the manifest and the lock file do different jobs.</p>
-<ul class="simple">
-<li><p>The <strong>manifest</strong> (<code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>) records your <em>intent</em>: the packages you actually care about, with version constraints only as tight as you need.</p></li>
-<li><p>The <strong>lock file</strong> (<code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>) records the <em>exact</em> resolved versions of everything, including every transitive dependency, for every platform.</p></li>
-</ul>
-<p>Because the lock file already guarantees exact reproducibility, you should <strong>not</strong> pin an exact version on every package in the manifest. Doing so makes the environment brittle and hard to update, for no reproducibility benefit, since the lock file was already capturing the exact versions. The good habit is to <strong>pin selectively</strong>: pin <code class="docutils literal notranslate"><span class="pre">python</span></code> and the few libraries whose version genuinely matters to your analysis, and let the resolver choose compatible versions for everything else.</p>
-<div class="tip admonition">
-<p class="admonition-title">Rule of thumb</p>
-<p>Add packages with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span></code>, pin only what matters (for example <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span> <span class="pre">&quot;python=3.13.*&quot;</span></code> and a specific version for a key library), and rely on <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, committed to git, for exact reproducibility. Edit <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> by hand for <code class="docutils literal notranslate"><span class="pre">platforms</span></code>, <code class="docutils literal notranslate"><span class="pre">channels</span></code>, and <code class="docutils literal notranslate"><span class="pre">[tasks]</span></code>.</p>
-</div>
-</section>
 <section id="working-in-your-environment">
-<h2><span class="section-number">3.10. </span>Working in Your Environment<a class="headerlink" href="#working-in-your-environment" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.9. </span>Working in Your Environment<a class="headerlink" href="#working-in-your-environment" title="Permalink to this heading">#</a></h2>
 <p>Once you have added your packages, there are two main ways to run code inside your project’s environment.</p>
 <p><strong>Run a single command</strong> with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span></code>. This executes a command inside the environment without changing your shell:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pixi run python my_script.py
@@ -674,7 +645,7 @@ $ pixi init
 </div>
 </section>
 <section id="reproducing-an-environment">
-<h2><span class="section-number">3.11. </span>Reproducing an Environment<a class="headerlink" href="#reproducing-an-environment" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.10. </span>Reproducing an Environment<a class="headerlink" href="#reproducing-an-environment" title="Permalink to this heading">#</a></h2>
 <p>This is where the reproducibility payoff arrives. Because your <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> (what you asked for) and <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code> (the exact resolved versions) are both stored in your project folder and committed to git, anyone can recreate your environment exactly.</p>
 <p>Suppose a collaborator wants to run your project. They clone the repository and run a single command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:&lt;user&gt;/g313-a1.git
@@ -685,11 +656,11 @@ $ pixi install
 <p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">install</span></code> reads the <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code> file and installs the exact same versions of every package that you had, for their operating system. There is no separate “environment file” to write and no versions to pin by hand, because the lock file already captured everything the moment you added your packages.</p>
 <div class="tip admonition">
 <p class="admonition-title">Why a lock file matters</p>
-<p>The manifest (<code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>) records what you <em>asked for</em> (e.g. “numpy 2.5.2”). The lock file (<code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>) records what you actually <em>got</em>, all the way down: the exact version and build of numpy, and of every one of its dependencies, for every platform. Two people installing from the same lock file six months apart get identical environments. This is the core of a reproducible pipeline, and it is why we build the habit now.</p>
+<p>The manifest (<code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>) records what you <em>asked for</em> (e.g. “numpy 1.26.4”). The lock file (<code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>) records what you actually <em>got</em>, all the way down: the exact version and build of numpy, and of every one of its dependencies, for every platform. Two people installing from the same lock file six months apart get identical environments. This is the core of a reproducible pipeline, and it is why we build the habit now.</p>
 </div>
 </section>
 <section id="tasks">
-<h2><span class="section-number">3.12. </span>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.11. </span>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h2>
 <p>Pixi lets you save commonly used commands as named <em>tasks</em> in your project, so you (and your collaborators) don’t have to remember long commands. This is similar to a simple script runner built into your project.</p>
 <p>You can add a task from the command line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pixi task add hello &quot;echo Hello from my project&quot;
@@ -707,7 +678,7 @@ $ pixi install
 <p>Tasks are useful for capturing the steps of your workflow, for example a task that runs your analysis script or a task that runs your tests. Because tasks live in the manifest that is committed to git, they document how your project is meant to be run.</p>
 </section>
 <section id="global-tools">
-<h2><span class="section-number">3.13. </span>Global Tools<a class="headerlink" href="#global-tools" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.12. </span>Global Tools<a class="headerlink" href="#global-tools" title="Permalink to this heading">#</a></h2>
 <p>Everything above installs packages <em>into a specific project</em>. Sometimes, however, you want a command-line tool available everywhere on your system, independent of any single project, for example a code formatter or a small utility. For this, Pixi provides <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pixi global install &lt;tool-name&gt;
 </pre></div>
@@ -719,14 +690,10 @@ $ pixi install
 </div>
 </section>
 <section id="reading-conda-in-the-wild">
-<h2><span class="section-number">3.14. </span>Reading Conda in the Wild<a class="headerlink" href="#reading-conda-in-the-wild" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.13. </span>Reading Conda in the Wild<a class="headerlink" href="#reading-conda-in-the-wild" title="Permalink to this heading">#</a></h2>
 <p>Pixi is the tool you will use in this course, but Conda has been the dominant environment manager in scientific Python for over a decade. You will encounter it constantly, in tutorials, in project READMEs, on high-performance computing clusters, in some of the linked resources for this course, and in our own Docker lecture later in the semester. This short section is so that you can <em>read and understand</em> Conda when you meet it. You do not need to use it for your assignments.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you do decide to install Conda (for example, to follow an external tutorial), we recommend <strong>Miniconda</strong>, the lightweight, bare-minimum distribution that includes Conda, Python, and a few core packages. You can download it from <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">this page</a>.</p>
-</div>
 <p>Conda uses a <strong>named-environment</strong> model. Instead of a per-project folder, you create centrally stored environments that have names and can be activated from anywhere:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name myenv python=3.13
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name myenv python=3.12
 $ conda activate myenv
 $ conda install numpy
 $ conda deactivate
@@ -738,9 +705,9 @@ $ conda deactivate
 <span class="nt">channels</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
 <span class="nt">dependencies</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.13</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">numpy=2.5.2</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas=3.0.3</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.12</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">numpy=1.26.4</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas=2.0.3</span>
 </pre></div>
 </div>
 <p>which someone recreates with:</p>
@@ -757,8 +724,7 @@ $ conda deactivate
 <p class="admonition-title">Tip</p>
 <p>If you’d like a quick reference, the <a class="reference external" href="https://pixi.sh/latest/">Pixi documentation</a> has a “Getting Started” guide and a full command reference. For Conda, this <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf">cheatsheet</a> covers the most common commands.</p>
 </div>
-<p>&nbsp;</p>
-</section>
+<p>&nbsp;</p></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -845,12 +811,11 @@ $ conda deactivate
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pypi-packages">3.8.1. Installing PyPI Packages</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-vs-lock-file-what-to-pin">3.9. Manifest vs. Lock File: What to Pin</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-in-your-environment">3.10. Working in Your Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducing-an-environment">3.11. Reproducing an Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">3.12. Tasks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-tools">3.13. Global Tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-conda-in-the-wild">3.14. Reading Conda in the Wild</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-in-your-environment">3.9. Working in Your Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducing-an-environment">3.10. Reproducing an Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">3.11. Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-tools">3.12. Global Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-conda-in-the-wild">3.13. Reading Conda in the Wild</a></li>
 </ul>
   </nav></div>
 
