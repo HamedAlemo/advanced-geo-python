@@ -269,8 +269,8 @@ This is where the reproducibility payoff arrives. Because your `pixi.toml` (what
 
 Suppose a collaborator wants to run your project. They clone the repository and run a single command:
 ```
-$ git clone git@github.com:<user>/g313-a1.git
-$ cd g313-a1
+$ git clone git@github.com:<user>/hello-world.git
+$ cd hello-world
 $ pixi install
 ```
 
