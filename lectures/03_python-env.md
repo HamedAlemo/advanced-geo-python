@@ -1,9 +1,9 @@
 # Python Environments
 
-In this lecture, you will learn about Python environments and how best to use them to create reproducible pipelines. 
+In this lecture, you will learn about Python environments and how best to use them to create reproducible pipelines.
 
 **Attribution**
-*The content of this lecture are modified from three excellent sources: [Python Packages for Earth Data Science](https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/) from Earth Lab CU Boulder; [Managing Python Environments](https://earth-env-data-science.github.io/lectures/environment/python_environments.html) from Columbia University; [Introduction to Conda for (Data) Scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/) from Software Carpentry; and [Managing a Development Environment](https://docs.descarteslabs.com/installation-conda.html) by Descartes Labs.*
+*The conceptual content of this lecture is modified from several excellent sources: [Python Packages for Earth Data Science](https://www.earthdatascience.org/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/) from Earth Lab CU Boulder; [Managing Python Environments](https://earth-env-data-science.github.io/lectures/environment/python_environments.html) from Columbia University; and [Introduction to Conda for (Data) Scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/) from Software Carpentry. The tooling sections are based on the [Pixi documentation](https://pixi.sh/latest/).*
 
 ## Background
 Python and nearly all of the software packages in the scientific python ecosystem are open-source. They are maintained and developed by a community of scientists and programmers, some of whose work is supported by universities, non-profits, and for-profit corporations. This work mostly happens in the open, via github and other online collaboration platforms.
@@ -25,11 +25,11 @@ A bit further into your programming career you may notice/have noticed that many
 
 Many packages are being further developed all the time, generating different versions of packages. During development it may happen that a function call changes and/or functionalities are added or removed. If one package can depend on another, this may create issues. Therefore it is not only important to know that e.g. `SciPy` depends on `NumPy` and `matplotlib`, but also that it depends on `NumPy` version >= 1.6 and `matplotlib` version >= 1.1. `NumPy` version 1.5 in this case would not be sufficient.
 
-This emphasizes the need for creating and recording environments (in virtual terms!) to run your Python code. 
+This emphasizes the need for creating and recording environments (in virtual terms!) to run your Python code.
 
 ## Environments
 
-When starting with programming we may not use many packages yet and the installation may be straightforward. But for most people, there comes a time when one version of a package or also the programming language is not enough anymore. You may find an older tool that depends on an older version of your programming language (e.g. Pyhton 2.7), but many of your other tools depend on a newer version (e.g. Python 3.6). You could now start up another computer or virtual machine to run the other version of the programming language, but this is not very handy, since you may want to use the tools together in a workflow later on. Here, environments are one solution to the problem. Nowadays there are several environment management systems following a similar idea: Instead of having to use multiple computers or virtual machines to run different versions of the same package, you can install packages in isolated environments.
+When starting with programming we may not use many packages yet and the installation may be straightforward. But for most people, there comes a time when one version of a package or also the programming language is not enough anymore. You may find an older tool that depends on an older version of your programming language (e.g. Python 2.7), but many of your other tools depend on a newer version (e.g. Python 3.6). You could now start up another computer or virtual machine to run the other version of the programming language, but this is not very handy, since you may want to use the tools together in a workflow later on. Here, environments are one solution to the problem. Nowadays there are several environment management systems following a similar idea: Instead of having to use multiple computers or virtual machines to run different versions of the same package, you can install packages in isolated environments.
 
 However, managing Python development environments can be tricky, especially if you are new to the language or less familiar with computer science concepts. In this course, we introduce tools to make it easy to manage and reproduce your Python environments on any machine (local computer/server/cloud).
 
@@ -40,7 +40,7 @@ class: bg-primary mb-1
 width: 500px
 align: center
 ---
-The complexity of Python environments as illustrated by [xkcd](https://xkcd.com/1987/). 
+The complexity of Python environments as illustrated by [xkcd](https://xkcd.com/1987/).
 ```
 
 ## Environment management
@@ -55,214 +55,309 @@ An environment management system solves a number of problems commonly encountere
 An environment management system enables you to set up a new, project specific software environment containing specific Python versions as well as the versions of additional packages and required dependencies that are all mutually compatible.
 
 - Environment management systems help resolve dependency issues by allowing you to use different versions of a package for different projects.
-- Make your projects self-contained and reproducible by capturing all package dependencies in a single requirements file.
+- Make your projects self-contained and reproducible by capturing all package dependencies in a single file.
 - Allow you to install packages on a host on which you do not have admin privileges.
 
+## Pixi
 
-## Conda
-
-[Conda](https://docs.conda.io/en/latest/) is an open-source package management system and environment management system that runs on Windows, macOS, and Linux. When you install one module using conda, such as JupyterLab, all of the required modules will also be downloaded and installed with compatible versions. It was created for Python programs but it can package and distribute software for any language (Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN)
-
-Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager because conda is also an environment manager. With just a few commands, you can set up a totally separate environment to run that different version of Python, while continuing to run your usual version of Python in your normal environment.
-
-There are multiple ways to install conda for Python, including [Anaconda Distribution](https://www.anaconda.com/download/) and [Miniconda Distribution](https://docs.conda.io/projects/miniconda/en/latest/). {numref}`miniconda-anaconda` shows the difference between Conda, Miniconda and Anaconda. Miniconda combines Conda with Python and a small number of core packages; Anaconda includes Miniconda as well as a large number of the most widely used Python packages (> 150).
-
-We recommend Miniconda, the most lightweight and bare-minimum approach to using conda. While the Anaconda distribution has a lot of packages pre-installed, they are not used all together in most of the projects. Therefore, it is optimal to install Miniconda and benefit from the Conda package and environment management systems but avoid installing too many unnecessary packages. 
+In this course, we will use [Pixi](https://pixi.sh/latest/) to manage our Python environments and packages. Pixi is a fast, modern, open-source package and environment management tool. It draws packages from the same ecosystem you may have heard of through Conda (the `conda-forge` community repository of 30,000+ packages), and it can also install packages from the Python Package Index ([PyPI](https://pypi.org/)) in the same project. This means you can manage all of your dependencies, whether they come from `conda-forge` or PyPI, from a single place.
 
 
-```{figure} ../lectures/figures/miniconda-vs-anaconda.png
+
+
+
+```{figure} https://pixi.prefix.dev/v0.27.1/assets/pixi.webp
 ---
-name: miniconda-anaconda
+name: pixi
 class: bg-primary mb-1
-width: 500px
+width: 700px
 align: center
 ---
-Conda vs. Miniconda vs. Anaconda [Source: [Planemo Documentation](https://planemo.readthedocs.io/en/latest/writing_advanced_cwl.html)] 
+Pixi Logo (source: [Pixi Documentation](https://pixi.prefix.dev/))
 ```
-## Installing Miniconda
-You can download the installer for Miniconda from [this page](https://docs.conda.io/projects/miniconda/en/latest/). Make sure to download the correct version depending on your OS and hardware. Follow the step on *[Quick command line install](https://docs.anaconda.com/miniconda/#quick-command-line-install)* to install Miniconda. 
+We choose Pixi for a few reasons that map directly onto the goals of this course:
 
-After finishing the installation, and opening a new terminal (or reloading it) you should see (base) at the start of your prompt in the terminal. This indicates that you are in the "base" Conda environment:
+- **Reproducibility by default.** Every time you change your dependencies, Pixi automatically writes a *lock file* (`pixi.lock`) that records the exact version of every package (and every dependency of every package) for each operating system. Anyone who has your project can recreate a byte-for-byte identical environment. You do not have to remember to pin versions by hand.
+- **One tool for `conda-forge` and PyPI packages.** No need to juggle two separate package managers or worry about them stepping on each other.
+- **It is fast.** Pixi resolves and installs environments quickly, which matters when you are iterating on a project or following along in class.
+- **Project-based environments.** Pixi keeps each project's environment inside the project's own folder. This fits naturally with how you already organize your work in git repositories.
+
+```{admonition} A note on Conda
+If you have used Python before, you may have encountered [Conda](https://docs.conda.io/en/latest/) (or Miniconda/Anaconda). Conda is a widely used package and environment manager, and it is still the most common tool you will see in scientific computing tutorials, documentation, and job settings. Pixi is built on top of the same `conda-forge` package ecosystem, so the packages you install are the same. Later in this lecture we include a short **"Reading Conda in the wild"** section so you can recognize and understand Conda when you come across it.
 ```
-(base) $
+
+### The project-based model
+
+The most important idea to understand about Pixi is that environments are tied to *projects*, not created as free-floating named environments on your system.
+
+When you start a new project, you run `pixi init` inside the project folder. Pixi creates a small manifest file that describes the project's dependencies, and it installs the environment into a hidden `.pixi/` folder inside that same project directory. Your environment lives *next to your code*, and the manifest that describes it lives *in your git repository*. To reproduce the environment on another machine, you simply get a copy of the project (for example by cloning the repository) and run one command.
+
+This is different from the older model, where you would create a single environment with a name (like `myenv`) that lives in a central location on your computer and is shared across every project. If you have seen `conda activate myenv` before, that is the named-environment model. Pixi's per-project model means each project is self-contained and there is no risk of one project's environment silently drifting because you updated a package for another project.
+
+## Installing Pixi
+
+You can install Pixi with a single command. Follow the latest instructions on the [Pixi installation page](https://pixi.sh/latest/installation/), which are summarized below.
+
+**macOS and Linux**
 ```
-*For simplicity, we avoid including the (base) environment name for any code block in this book.*
+$ curl -fsSL https://pixi.sh/install.sh | sh
+```
+
+**Windows** (in PowerShell)
+```
+$ iwr -useb https://pixi.sh/install.ps1 | iex
+```
+
+If you are on Windows and using Windows Subsystem for Linux (WSL), which we recommended in the Unix lecture, use the macOS/Linux command inside your WSL terminal.
+
+After installing, close and reopen your terminal so that the `pixi` command becomes available. You can confirm the installation by checking the version:
+```
+$ pixi --version
+```
+
+## Starting a New Project
+
+To create a new project, make a directory for it and run `pixi init` inside it. Let's create a new project:
+```
+$ mkdir hello-world
+$ cd hello-world
+$ pixi init
+```
+
+You can also do both steps at once by passing the name to `pixi init`:
+```
+$ pixi init hello-world
+```
+
+After running this command, Pixi creates a few things in your project folder, including a manifest file named `pixi.toml` and a `.gitignore`. If you open `pixi.toml`, it will look something like this:
+```toml
+[workspace]
+name = "hello-world"
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[dependencies]
+
+[tasks]
+```
+
+Let's look at what these sections mean:
+
+- **`[workspace]`** holds general information about the project: its `name`, the `channels` where packages are downloaded from (`conda-forge` by default), and the `platforms` (operating systems) that the environment should support. **Note:** the value for `platforms` on your machine might be different depending on the type of machine/operating system you use. 
+- **`[dependencies]`** is where your `conda-forge` packages will be listed. It's empty for now.
+- **`[tasks]`** is where you can define reusable commands. We will cover tasks below.
+
+```{note}
+TOML stands for **Tom's Obvious, Minimal Language**, a widely used, human-readable format for configuration files.
+```
+
+```{tip}
+The `.pixi/` folder that Pixi creates to store the actual installed environment can get large and is fully reproducible from the manifest and lock file. Pixi automatically adds it to your `.gitignore` so you don't commit it. The files you *do* commit to git are `pixi.toml` and `pixi.lock`.
+```
+
+### Supporting Multiple Operating Systems
+
+By default, Pixi records only the platform of the machine you ran `pixi init` on (for example `osx-arm64` for an Apple Silicon Mac). Because collaborators in this course use different operating systems, it is good practice to list all the platforms your project should support. You can edit the `platforms` line in `pixi.toml` to include the common ones:
+```toml
+platforms = ["osx-arm64", "osx-64", "linux-64"]
+```
+
+Pixi will then solve and lock the environment for each of these platforms, so the exact same set of packages can be installed on any of them.
+
+```{note}
+If you are on Windows using WSL, as recommended in the Unix lecture, your platform is `linux-64` (not `win-64`). Even though the physical machine runs Windows, WSL is a Linux distribution, so the packages Pixi installs are Linux builds. This is why `win-64` does not appear in the list above.
+```
+
+## Adding Packages
+
+To add a package to your project, use `pixi add` followed by the package name. For example, to add `NumPy`:
+```
+$ pixi add numpy
+```
+
+This one command does several things: it adds `numpy` to the `[dependencies]` section of your `pixi.toml`, it resolves compatible versions of `numpy` and all of its dependencies, it records those exact versions in `pixi.lock`, and it installs them into your project's environment.
+
+In order to make your results reproducible, it is a "best practice" to specify the version of the important packages you depend on. You can pin a version directly when adding a package:
+```
+$ pixi add "numpy=2.5.2"
+```
+
+After adding a package, your `pixi.toml` will show it under `[dependencies]`:
+```toml
+[dependencies]
+numpy = "2.5.2"
+```
+
+You can add multiple packages in a single command, and Pixi will find mutually compatible versions of all of them:
+```
+$ pixi add numpy pandas matplotlib
+```
+
+It is also good practice to pin the Python version for your project, which you can do the same way:
+```
+$ pixi add "python=3.13.*"
+```
+
+To see all the packages currently installed in your project's environment, use:
+```
+$ pixi list
+```
+
+### Installing PyPI Packages
+
+Some Python packages are published only on PyPI and not on `conda-forge`. Pixi can install these too, in the same project, by passing the `--pypi` flag:
+```
+$ pixi add --pypi some-package
+```
+
+These packages are listed in a separate `[pypi-dependencies]` section of your manifest so that it is always clear which packages come from `conda-forge` and which come from PyPI:
+```toml
+[dependencies]
+python = "3.13.*"
+numpy = "2.5.2"
+
+[pypi-dependencies]
+some-package = "*"
+```
+
+```{tip}
+Prefer `conda-forge` packages (plain `pixi add`) when a package is available there, and reach for `--pypi` only when it is not. `conda-forge` packages include compiled dependencies (which is important for the geospatial libraries we use later in the course) that are built to work together.
+```
+
+## Manifest vs. Lock File: What to Pin
+
+A common question when starting a project is whether you should hand-write all of your packages and their versions into `pixi.toml`, or keep adding them with `pixi add`. In almost all cases, **use `pixi add`**. When you run `pixi add`, Pixi resolves a mutually compatible set of versions, records the exact result in `pixi.lock`, and installs it, all in one step. If you instead type packages directly into the manifest, nothing is resolved, locked, or installed until you run `pixi install`, and a typo or an impossible version combination surfaces later and less clearly. Hand-editing the manifest is the right move for the things that are *not* packages, such as adding `platforms`, `channels`, or `[tasks]`, or for loosening or tightening a version constraint you already have.
+
+This connects to the single most important idea about reproducibility in Pixi: the manifest and the lock file do different jobs.
+
+- The **manifest** (`pixi.toml`) records your *intent*: the packages you actually care about, with version constraints only as tight as you need.
+- The **lock file** (`pixi.lock`) records the *exact* resolved versions of everything, including every transitive dependency, for every platform.
+
+Because the lock file already guarantees exact reproducibility, you should **not** pin an exact version on every package in the manifest. Doing so makes the environment brittle and hard to update, for no reproducibility benefit, since the lock file was already capturing the exact versions. The good habit is to **pin selectively**: pin `python` and the few libraries whose version genuinely matters to your analysis, and let the resolver choose compatible versions for everything else.
+
+```{admonition} Rule of thumb
+:class: tip
+Add packages with `pixi add`, pin only what matters (for example `pixi add "python=3.13.*"` and a specific version for a key library), and rely on `pixi.lock`, committed to git, for exact reproducibility. Edit `pixi.toml` by hand for `platforms`, `channels`, and `[tasks]`.
+```
+
+## Working in Your Environment
+
+Once you have added your packages, there are two main ways to run code inside your project's environment.
+
+**Run a single command** with `pixi run`. This executes a command inside the environment without changing your shell:
+```
+$ pixi run python my_script.py
+```
+
+**Start an interactive shell** inside the environment with `pixi shell`:
+```
+$ pixi shell
+```
+
+After running `pixi shell`, your terminal is now "inside" the project's environment, and any command you run (like `python`) uses the packages from that environment. To leave the environment, type:
+```
+$ exit
+```
+
+```{note}
+If you run `pixi run` or `pixi shell` and the environment has not been installed yet (for example right after cloning a project), Pixi will automatically install it first based on the manifest and lock file. You can also install it explicitly with `pixi install`.
+```
+
+## Reproducing an Environment
+
+This is where the reproducibility payoff arrives. Because your `pixi.toml` (what you asked for) and `pixi.lock` (the exact resolved versions) are both stored in your project folder and committed to git, anyone can recreate your environment exactly.
+
+Suppose a collaborator wants to run your project. They clone the repository and run a single command:
+```
+$ git clone git@github.com:<user>/g313-a1.git
+$ cd g313-a1
+$ pixi install
+```
+
+`pixi install` reads the `pixi.lock` file and installs the exact same versions of every package that you had, for their operating system. There is no separate "environment file" to write and no versions to pin by hand, because the lock file already captured everything the moment you added your packages.
+
+```{admonition} Why a lock file matters
+:class: tip
+The manifest (`pixi.toml`) records what you *asked for* (e.g. "numpy 2.5.2"). The lock file (`pixi.lock`) records what you actually *got*, all the way down: the exact version and build of numpy, and of every one of its dependencies, for every platform. Two people installing from the same lock file six months apart get identical environments. This is the core of a reproducible pipeline, and it is why we build the habit now.
+```
+
+## Tasks
+
+Pixi lets you save commonly used commands as named *tasks* in your project, so you (and your collaborators) don't have to remember long commands. This is similar to a simple script runner built into your project.
+
+You can add a task from the command line:
+```
+$ pixi task add hello "echo Hello from my project"
+```
+
+This adds an entry to the `[tasks]` section of your `pixi.toml`:
+```toml
+[tasks]
+hello = "echo Hello from my project"
+```
+
+You can then run the task by name:
+```
+$ pixi run hello
+```
+
+Tasks are useful for capturing the steps of your workflow, for example a task that runs your analysis script or a task that runs your tests. Because tasks live in the manifest that is committed to git, they document how your project is meant to be run.
+
+## Global Tools
+
+Everything above installs packages *into a specific project*. Sometimes, however, you want a command-line tool available everywhere on your system, independent of any single project, for example a code formatter or a small utility. For this, Pixi provides `pixi global`.
+
+```
+$ pixi global install <tool-name>
+```
+
+Each tool you install this way gets its own isolated environment, but its command is made available system-wide. This is the right tool for standalone command-line programs. It is *not* the right place for your project's analysis libraries (like `numpy` or `pandas`), which should always go into the project with `pixi add` so they are captured in that project's reproducible manifest and lock file.
 
 ```{warning}
-Conda has a default environment called base that include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment. Additional packages needed for a new project should always be installed into a newly created Conda environment.
+A good rule of thumb: if a package is something you `import` in your code, it belongs in the project (`pixi add`). If it is a standalone command-line tool you want available in any terminal, it can go in `pixi global`.
 ```
 
-## Creating Environments
-A Conda environment is an isolated workspace where you can install specific versions of Python and packages without affecting your system-wide Python installation. Each environment has its own set of packages, making it possible to have different versions of packages in different environments. This isolation is essential for avoiding conflicts and ensuring the reproducibility of your projects.
+## Reading Conda in the Wild
 
-To create a new Conda environment, use the `conda create` command. Here's the basic syntax:
+Pixi is the tool you will use in this course, but Conda has been the dominant environment manager in scientific Python for over a decade. You will encounter it constantly, in tutorials, in project READMEs, on high-performance computing clusters, in some of the linked resources for this course, and in our own Docker lecture later in the semester. This short section is so that you can *read and understand* Conda when you meet it. You do not need to use it for your assignments.
 
-```
-$ conda create --name myenv 
-```
-Replace *myenv* with the name you want to give to your environment, and use a name that reflects the project or assignment you will use this environment for. 
-
-If you wish, you can specify a particular version of Python for Conda to install when creating the environment. For example, to create an environment named "g313-a1" with Python 3.12, use the following command:
-
-```
-$ conda create --name g313-a1 python=3.12
+```{note}
+If you do decide to install Conda (for example, to follow an external tutorial), we recommend **Miniconda**, the lightweight, bare-minimum distribution that includes Conda, Python, and a few core packages. You can download it from [this page](https://docs.conda.io/projects/miniconda/en/latest/).
 ```
 
-## Activating and Deactivating Environments
-Once you've created an environment, you can activate it to start working within that isolated space. To activate an environment, use the `conda activate` command:
-
+Conda uses a **named-environment** model. Instead of a per-project folder, you create centrally stored environments that have names and can be activated from anywhere:
 ```
-$ conda activate g313-a1
-```
-
-When the environment is activated, your command prompt will display the environment name to indicate that you are working within it (e.g. `(g313-a1)username@hostname ~ $`).
-
-To deactivate the current environment and return to the base (system-wide) environment, use the `conda deactivate` command:
-
-```
-(g313-a1) $ conda deactivate
-```
-
-```{tip}
-To see all the environments on your system:
-
-    $ conda info --envs
-
-```
-
-If you want to permanently remove an environment and delete all the data associated with it:
-```
-$ conda remove --name my_environment --all
-```
-
-For extensive documentation on using environments, please see the [Conda documentation](https://conda.io/projects/conda/en/latest/user-guide/concepts/environments.html). 
-
-```{tip}
-
-You can avoid spelling out the full option for `conda` commands and use their first letter with a single `-`. 
-For example, the two following commands are the same:
-    
-    $ conda create --name myenv
-
-    $ conda create -n myenv
-    
-```
-
-## Installing Packages in an Environment
-After activating an environment, you can use `conda` to install packages specific to that environment. For example, to install the `NumPy` package into your "g313-a1" environment, use the following command:
-
-```
+$ conda create --name myenv python=3.13
+$ conda activate myenv
 $ conda install numpy
-```
-Conda will ensure that the package and its dependencies are installed in the active environment.
-
-If you list more than one package to be installed, Conda will download the most current, mutually compatible versions of the requested packages. 
-
-In order to make your results more reproducible and to make it easier for research colleagues to recreate your Conda environments on their machines it is a “best practice” to always explicitly specify the version number for each package that you install into an environment. If you are not sure exactly which version of a package you want to use, then you can use `conda search` to see what versions are available. For example, if you wanted to see which versions of `NumPy` were available, you would run the following.
-```
-$ conda search numpy
-```
-You can then update your `conda install` command as following to install `NumPy` version 1.26.4:
-```
-$ conda install numpy=1.26.4
+$ conda deactivate
 ```
 
-Finally, you can specify multiple packages and their version in the `conda create` command if you wish to install them when creating a new environment. For example, the following command will create a new environment called `scipy-env` and install four packages:
-```
-$ conda create --name scipy-env ipython=7.13 matplotlib=3.1 numpy=1.18 scipy=1.4
-```
+When a Conda environment is active, its name appears at the start of your prompt, for example `(myenv) $`. There is also a special `base` environment that is active by default.
 
-Another benefit of using Conda for package and environment management is that it allows you to install packages using `pip` too. Outside of the scientific python community, the most common way to install packages is to search for them on the official [PyPI](https://pypi.org/) index. Once you’ve found the package you want to install (you may have also just found it on github or elsewhere), you use the pip command from a the command line:
-
-```
-$ pip install <package-name>
-```
-This will fetch the source code, build it, and install it to wherever your `$PYTHONPATH` is set. This works in the vast majority of cases, particularly when the code you’re installing doesn’t have any compiled dependencies.
-
-If you can’t find a package on either PyPI or `conda-forge`, you can always install it directly from the source code. If the package is on github, pip already has an alias to do this for you:
-```
-$ pip install git+https://github.com/<user>/<package-name>.git
-```
-
-## Channels and Conda-Forge
-The packages that you install using the `conda` command are hosted on conda *[channels](https://conda.io/projects/conda/en/latest/user-guide/concepts/channels.html)*. From the conda docs:
-
-> Conda channels are the locations where packages are stored. They serve as the base for hosting and managing packages. Conda packages are downloaded from remote channels, which are URLs to directories containing conda packages. The `conda` command searches a set of channels. By default, packages are automatically downloaded and updated from the [default channel](https://repo.anaconda.com/pkgs/) which may require a paid license, as described in the [repository terms of service](https://www.anaconda.com/terms-of-service). The `conda-forge` channel is free for all to use. You can modify what remote channels are automatically searched. You might want to do this to maintain a private or internal channel. For details, see how to [modify your channel lists](https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#config-channels).
->
-> Conda-forge is a community channel made up of thousands of contributors. Conda-forge itself is analogous to PyPI but with a unified, automated build infrastructure and more peer review of recipes.
-
-The Anaconda channel terms of service clearly excludes all educational activities and all research activities at non-profit institutions from their definition of commercial usage. Even companies with fewer than 200 employees are excluded. The aim of the commercial paid license for Anaconda is to require large corporations which use the repository heavily to contribute financially to its maintenance and development. Without such contributions, Anaconda might not be able to sustain itself.
-
-The simple way to specify your preferred channel is to pass the `-c` option when you run `conda install`:
-
-```
-$ conda install -c conda-forge {package_name}
-```
-
-
-## Managing Environment Dependencies with `environment.yml`
-To ensure that your project can be easily reproduced on different systems, you can create an `environment.yml` file that lists all the dependencies for your project, including Python version and packages. Here's an example of an `environment.yml` file:
-
-```
-name: g313-a1
+Conda projects are often shared as an **`environment.yml`** file that lists the desired packages:
+```yaml
+name: myenv
 channels:
-  - defaults
+  - conda-forge
 dependencies:
-  - python=3.10 # Specify Python version
-  - numpy=1.25.2
-  - matplotlib=3.7.1
-  - pandas=2.0.3
+  - python=3.13
+  - numpy=2.5.2
+  - pandas=3.0.3
 ```
-
-You can create a Conda environment from this file using the following command:
+which someone recreates with:
 ```
 $ conda env create -f environment.yml
 ```
 
-This command will create an environment named "g313-a1" with the specified dependencies.
+The key differences from Pixi to keep in mind:
 
-**Note**: This command `conda env create` is different from `conda create`. If you are only passing `-f` to `conda` for creating a new environment, you need to use `conda env create`.
-
-## What about `pip`?
-`pip` is a package manager for Python that simplifies the process of installing, upgrading, and managing Python packages and dependencies. Its name is a recursive acronym for "Pip Installs Packages," emphasizing its primary function: installing packages.
-
-`pip` works by connecting to the Python Package Index ([PyPI](https://pypi.org/)), a repository that hosts a large collection of Python packages contributed by the open-source community. PyPI serves as the central hub where developers publish their Python packages. In most cases, pip comes pre-installed with Python.
-
-You can install packages using the `pip install` command as following:
-
-```
-$ pip install numpy==1.25.2
-```
-
-*Note the syntax difference for specifying package version in `pip install` (==) and `conda install` (=).*
-
-## Using `pip` with Conda
-To benefit from the strengths of both pip and Conda, you can use them together. Conda is a powerful environment management system that also serves as package management, but there might be cases that a package or a specific version of package is not available on Conda. In that case, you can use `pip` together with conda and install any required packages. By combining Conda and pip, you can create reproducible and isolated Python environments while benefiting from pip's extensive package ecosystem.
-
-The simplest way to use `pip` with conda, is creating a new conda environment, and activating it. Then run `pip install` in the new environment. In this case, `pip` will install the package(s) in the conda environment only, and not in your base environment. 
-
-You can also specify `pip` packages in your `environment.yml` file. Here is an example of such file:
-
-```
-name: my_env
-channels:
-  - defaults
-dependencies:
-  - python=3.10  
-
-  # Packages from Anaconda defaults channel
-  - numpy
-  - pandas
-  - scikit-learn
-
-  # Packages from pip
-  - pip:
-    - requests
-    - matplotlib
-```
+- Conda environments are named and centrally stored; Pixi environments are per-project and stored next to your code.
+- An `environment.yml` records what you *asked for* but does not, by itself, lock the exact resolved versions of every dependency across platforms the way Pixi's `pixi.lock` does. Reproducibility with Conda takes extra, manual care.
+- Conda draws packages from *channels*. The community `conda-forge` channel is free for everyone and is the one we (and Pixi) use. Note that Anaconda's *default* channel can require a paid license for large commercial users, though education and non-profit research use are excluded; using `conda-forge` avoids this concern entirely.
 
 ```{tip}
-Check out this Conda [cheatsheet](https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf) to look for some quick answers to your Conda related questions. 
+If you'd like a quick reference, the [Pixi documentation](https://pixi.sh/latest/) has a "Getting Started" guide and a full command reference. For Conda, this [cheatsheet](https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf) covers the most common commands.
 ```
 
 <p>&nbsp;</p>
