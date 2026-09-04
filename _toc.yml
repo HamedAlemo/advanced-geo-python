@@ -20,8 +20,8 @@ parts:
       title: Intro to Version Control and Git
     - file: lectures/03_python-env
       title: Python Environments
-    # - file: lectures/04_jupyter.md
-    #   title: Intro to JupyterLab
+    - file: lectures/04_jupyter.md
+      title: Intro to JupyterLab
     # - file: lectures/05_xarray_fundamentals
     #   title: Xarray Fundamentals
     # - file: lectures/06_xarray_advanced

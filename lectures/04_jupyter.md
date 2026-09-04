@@ -15,20 +15,21 @@ To Install JupyterLab, follow the steps below:
 $ pip install jupyterlab
 ```
 
-**Using Conda**
+**Using Pixi**
 
 ```
-$ conda install jupyterlab
+$ pixi add jupyterlab
 ```
 
-**Note:** You need to install JupyterLab in each environment that you need to use it. In most scientific projects, JupyterLab is always included in the `environment.yml`. At the end of this chapter you will learn how to install one instance of JupyterLab and use different conda environments from that instance. Just make sure you use the latest version to take advantage of all the new features. 
+**Note:** You need to install JupyterLab in each environment that you need to use it. 
+<!-- In most scientific projects, JupyterLab is always included in the `environment.yml`. At the end of this chapter you will learn how to install one instance of JupyterLab and use different conda environments from that instance. Just make sure you use the latest version to take advantage of all the new features.  -->
 
 ## Launching JupyterLab
 
-You can launch JupyterLab using the following command:
+You can launch JupyterLab using the following command if you are using pixi:
 
 ```
-$ jupyter lab
+$ pixi run jupyter lab
 ```
 
 This will open a new tab in your web browser, displaying the JupyterLab interface. 
@@ -73,7 +74,7 @@ The kernel is responsible for executing code within a notebook. You can choose d
 
 The JupyterLab documentation has detailed tutorials for [The JupyterLab Interface](https://jupyterlab.readthedocs.io/en/stable/user/interface.html), [Managing Kernels and Terminals](https://jupyterlab.readthedocs.io/en/stable/user/running.html), [Working with Terminals](https://jupyterlab.readthedocs.io/en/stable/user/terminal.html), [Notebooks](https://jupyterlab.readthedocs.io/en/stable/user/notebook.html), [Text Editor](https://jupyterlab.readthedocs.io/en/stable/user/file_editor.html), and [Working with Files](https://jupyterlab.readthedocs.io/en/stable/user/files.html).
 
-## Accessing Conda Environments from JupyterLab
+<!-- ## Accessing Conda Environments from JupyterLab
 
 When you run the `jupyter lab` command in your terminal, JupyterLab server will launch from the conda environment that was active in your terminal. For example, if you are in the `base` environment, the JupyterLab instance will be launched in `base` and all notebook will use the base environment by default. 
 
@@ -88,7 +89,7 @@ In order to use other conda environments in your JupyterLab instance, you have t
   - Make sure to install `ipykernel` in any other environment that you would like to be able to access inside JupyterLab
   ```
   $ conda install ipykernel
-  ```
+  ``` -->
 
 ## JupyterLab Shortcuts
 
