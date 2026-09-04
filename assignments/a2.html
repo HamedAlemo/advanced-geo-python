@@ -414,18 +414,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-create-your-assignments-repository-10-pts">Part 1: Create Your Assignments Repository (10 pts)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-a-reproducible-geospatial-tool-with-pixi-70-pts">Part 2: A Reproducible Geospatial Tool with Pixi (70 pts)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-create-your-assignments-repository-20-pts">Part 1: Create Your Assignments Repository (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-a-reproducible-geospatial-tool-with-pixi-80-pts">Part 2: A Reproducible Geospatial Tool with Pixi (80 pts)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-pixi-project">2.1 Initialize the Pixi project</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-distance-function">2.2 Write the distance function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-package-and-meet-the-lock-file">2.3 Add a package and meet the lock file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-package-and-review-the-lock-file">2.3 Add a package and review the lock file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-out-the-tool-one-commit-at-a-time">2.4 Build out the tool, one commit at a time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-pixi-task">2.5 Add a Pixi task</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-and-confirm">2.6 Push and confirm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prove-it-is-reproducible">2.7 Prove it is reproducible</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-undo-changes-in-a-git-repository-20-pts">Part 3: Undo Changes in a Git Repository (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-part-3-geodesic-distance">[Optional] Part 3. Geodesic Distance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
 </ul>
             </nav>
@@ -448,8 +448,8 @@ document.write(`
 <p>Throughout this assignment, stage your files <strong>explicitly by name</strong> (for example <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">distance.py</span></code>). <strong>Do not use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code></strong> As discussed in the Git lecture, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code> bundles unrelated changes together and makes it easy to accidentally commit generated files or secrets. Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> before every commit and add only the files that belong in that commit.</p>
 </div>
 <hr class="docutils" />
-<section id="part-1-create-your-assignments-repository-10-pts">
-<h2>Part 1: Create Your Assignments Repository (10 pts)<a class="headerlink" href="#part-1-create-your-assignments-repository-10-pts" title="Permalink to this heading">#</a></h2>
+<section id="part-1-create-your-assignments-repository-20-pts">
+<h2>Part 1: Create Your Assignments Repository (20 pts)<a class="headerlink" href="#part-1-create-your-assignments-repository-20-pts" title="Permalink to this heading">#</a></h2>
 <p>You will submit every assignment this semester to a single GitHub repository. Create it on GitHub first, then bring it down to your computer with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>.</p>
 <ol class="arabic simple">
 <li><p>On <a class="reference external" href="https://github.com/new">GitHub</a>, create a new <strong>private</strong> repository called <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code>. (Call it exactly like that. Do not vary the spelling, capitalization, or punctuation.) Initialize it with a README so there is something to clone.</p></li>
@@ -457,11 +457,10 @@ document.write(`
 <li><p>On your local machine, clone the repository.</p></li>
 <li><p>Edit <code class="docutils literal notranslate"><span class="pre">README.md</span></code> so it contains your name and one sentence describing what the repository is for. Stage it explicitly, commit, and push to GitHub.</p></li>
 </ol>
-<p><em>Push new commits to this repository whenever you are ready to hand in your assignments.</em></p>
 </section>
 <hr class="docutils" />
-<section id="part-2-a-reproducible-geospatial-tool-with-pixi-70-pts">
-<h2>Part 2: A Reproducible Geospatial Tool with Pixi (70 pts)<a class="headerlink" href="#part-2-a-reproducible-geospatial-tool-with-pixi-70-pts" title="Permalink to this heading">#</a></h2>
+<section id="part-2-a-reproducible-geospatial-tool-with-pixi-80-pts">
+<h2>Part 2: A Reproducible Geospatial Tool with Pixi (80 pts)<a class="headerlink" href="#part-2-a-reproducible-geospatial-tool-with-pixi-80-pts" title="Permalink to this heading">#</a></h2>
 <p>Everything for this assignment lives in a new directory named <code class="docutils literal notranslate"><span class="pre">assignment-2/</span></code> inside your <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository. Inside it you will create a Pixi project and build it up in small steps, committing after each step. <strong>Your grade is partially based on your commit history</strong>: we expect to see <em>at least six separate commits</em>, each with a clear, informative message, built up as you go (not one giant commit at the end).</p>
 <section id="initialize-the-pixi-project">
 <h3>2.1 Initialize the Pixi project<a class="headerlink" href="#initialize-the-pixi-project" title="Permalink to this heading">#</a></h3>
@@ -473,12 +472,13 @@ $ cd assignment-2
 </div>
 <p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> and confirm that the <code class="docutils literal notranslate"><span class="pre">.pixi/</span></code> folder does <strong>not</strong> appear as something to be tracked.</p>
 </li>
+<li><p>Add Python as a dependency to this project.</p></li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> and edit the <code class="docutils literal notranslate"><span class="pre">platforms</span></code> line so the project supports the operating systems used in this class:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;osx-arm64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;osx-64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;linux-64&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </li>
-<li><p>Make a commit with just the project scaffolding so far:</p></li>
+<li><p>Make a commit with just the project scaffolding so far.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -507,9 +507,9 @@ $ cd assignment-2
 <li><p>Commit <code class="docutils literal notranslate"><span class="pre">distance.py</span></code> (stage it explicitly).</p></li>
 </ol>
 </section>
-<section id="add-a-package-and-meet-the-lock-file">
-<h3>2.3 Add a package and meet the lock file<a class="headerlink" href="#add-a-package-and-meet-the-lock-file" title="Permalink to this heading">#</a></h3>
-<p>A single distance is not very interesting. Let’s expand your script to hold a list of three locations (name, latitude, longitude) and print a table of the distances between them. To format that table nicely, add the <a class="reference external" href="https://pypi.org/project/tabulate/"><code class="docutils literal notranslate"><span class="pre">tabulate</span></code></a> package from <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>:</p>
+<section id="add-a-package-and-review-the-lock-file">
+<h3>2.3 Add a package and review the lock file<a class="headerlink" href="#add-a-package-and-review-the-lock-file" title="Permalink to this heading">#</a></h3>
+<p>A single distance is not very interesting. Let’s expand your script to hold a list of three locations (name, latitude, longitude) and print a table of the distances between them. To format that table nicely, add the <a class="reference external" href="https://github.com/astanin/python-tabulate"><code class="docutils literal notranslate"><span class="pre">tabulate</span></code></a> package from <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>:</p>
 <ol class="arabic simple">
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">tabulate</span></code> as a dependency to your pixi environment.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>. You will see that both <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> (your intent) and <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code> (the exact resolved versions) have changed.</p></li>
@@ -524,13 +524,12 @@ $ cd assignment-2
 </section>
 <section id="build-out-the-tool-one-commit-at-a-time">
 <h3>2.4 Build out the tool, one commit at a time<a class="headerlink" href="#build-out-the-tool-one-commit-at-a-time" title="Permalink to this heading">#</a></h3>
-<p>Now add features to <code class="docutils literal notranslate"><span class="pre">distance.py</span></code> <strong>one at a time, committing after each feature</strong>. Add the following, as separate commits:</p>
+<p>Now add features to <code class="docutils literal notranslate"><span class="pre">distance.py</span></code> <em>one at a time, committing after each feature</em>. Add the following, as separate commits:</p>
 <ol class="arabic simple">
 <li><p><strong>More locations</strong> — grow your list to at least five places that mean something to you.</p></li>
 <li><p><strong>A “nearest neighbor” helper</strong> — a function that, given one location, reports which other location in your list is closest (and how far).</p></li>
 <li><p><strong>Miles as well as kilometers</strong> — let the tool report distances in both units (1 km ≈ 0.621371 miles).</p></li>
 </ol>
-<p>Each of these should be its own commit with a descriptive message (for example <code class="docutils literal notranslate"><span class="pre">&quot;Add</span> <span class="pre">nearest-neighbor</span> <span class="pre">lookup&quot;</span></code>). This is where you demonstrate the habit of small, focused commits.</p>
 </section>
 <section id="add-a-pixi-task">
 <h3>2.5 Add a Pixi task<a class="headerlink" href="#add-a-pixi-task" title="Permalink to this heading">#</a></h3>
@@ -545,14 +544,14 @@ $ pixi run distances
 <h3>2.6 Push and confirm<a class="headerlink" href="#push-and-confirm" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Push your work to GitHub. From now on, <strong>push after each new commit</strong> so your GitHub history reflects your work as it progresses.</p></li>
-<li><p>On GitHub, open the <code class="docutils literal notranslate"><span class="pre">assignment-2/</span></code> folder and confirm that <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, <code class="docutils literal notranslate"><span class="pre">distance.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> are all there — and that <code class="docutils literal notranslate"><span class="pre">.pixi/</span></code> is <strong>not</strong>.</p></li>
+<li><p>On GitHub, open the <code class="docutils literal notranslate"><span class="pre">assignment-2/</span></code> folder and confirm that <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, <code class="docutils literal notranslate"><span class="pre">distance.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> are all there — and that <code class="docutils literal notranslate"><span class="pre">.pixi/</span></code> is not.</p></li>
 </ol>
 </section>
 <section id="prove-it-is-reproducible">
 <h3>2.7 Prove it is reproducible<a class="headerlink" href="#prove-it-is-reproducible" title="Permalink to this heading">#</a></h3>
 <p>This is the payoff. Simulate a collaborator (or a grader) picking up your work on a clean machine:</p>
 <ol class="arabic">
-<li><p>Move to a different directory (for example your home directory) and clone a fresh copy of the whole repository under a new name, then move into the assignment folder:</p>
+<li><p>Move to a different directory (for example your home directory) and clone a fresh copy of the whole repository under a new name, then run the tool:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~
 $ git clone git@github.com:&lt;your-username&gt;/geog313-assignments.git geog313-clone
 $ cd geog313-clone/assignment-2
@@ -561,42 +560,23 @@ $ pixi run distances
 </pre></div>
 </div>
 </li>
-<li><p>Confirm that your tool runs correctly using <strong>only</strong> the files committed to GitHub. If it does not, something your project needs was not committed — fix it, commit, and push.</p></li>
+<li><p>Confirm that your tool runs correctly using only the files committed to GitHub. If it does not, something your project needs was not committed — fix it, commit, and push.</p></li>
 </ol>
-<div class="tip admonition">
-<p class="admonition-title">Optional (+5 pts): a library vs. your own math</p>
-<p>Add the <code class="docutils literal notranslate"><span class="pre">geopy</span></code> package (<code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">add</span> <span class="pre">geopy</span></code>) and compare your spherical haversine distance to <code class="docutils literal notranslate"><span class="pre">geopy.distance.geodesic</span></code>, which uses the WGS84 ellipsoid. Print both for one pair of points and note how much they differ. (We will return to <em>why</em> the shape of the Earth matters when we reach coordinate reference systems later in the course.) Remember to commit the manifest and lock-file changes.</p>
-</div>
 </section>
 </section>
-<hr class="docutils" />
-<section id="part-3-undo-changes-in-a-git-repository-20-pts">
-<h2>Part 3: Undo Changes in a Git Repository (20 pts)<a class="headerlink" href="#part-3-undo-changes-in-a-git-repository-20-pts" title="Permalink to this heading">#</a></h2>
-<p>It might happen that you commit new changes to your git repository, and later you decide to undo them. There are two options for undoing your changes, namely <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code>. In this exercise you will explore their differences, working inside your <code class="docutils literal notranslate"><span class="pre">assignment-2/</span></code> directory.</p>
-<ol class="arabic simple">
-<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">assignment-2/</span></code> directory.</p></li>
-<li><p>Create the following three files in the directory: <code class="docutils literal notranslate"><span class="pre">usage.md</span></code>, <code class="docutils literal notranslate"><span class="pre">cities.md</span></code>, and <code class="docutils literal notranslate"><span class="pre">notes.md</span></code>.</p></li>
-<li><p>Add and commit each of the three files to your git repository <strong>separately</strong> (the first commit for <code class="docutils literal notranslate"><span class="pre">usage.md</span></code>, the second for <code class="docutils literal notranslate"><span class="pre">cities.md</span></code>, the third for <code class="docutils literal notranslate"><span class="pre">notes.md</span></code>). Use a commit message that indicates which file is being added.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> to print the history of your commits. Note the ID associated with each commit.</p></li>
-</ol>
-<p>Now try two things:</p>
-<ol class="arabic simple" start="5">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span> <span class="pre">&lt;ID&gt;</span></code> to remove the changes associated with the commit that added <code class="docutils literal notranslate"><span class="pre">cities.md</span></code>. This command does not remove any changes committed <em>after</em> the commit ID you are using. Then inspect your files and run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to see what changed. Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span></code> to update your GitHub repository.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">&lt;ID&gt;</span></code> to remove <strong>all</strong> commits after a given commit ID cumulatively. Use it to remove all the commits you made <em>after</em> the commit that added <code class="docutils literal notranslate"><span class="pre">usage.md</span></code>. Inspect your files and run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to see what changed.</p></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> rewrites history. After a reset, pushing may require care because your local history no longer matches the remote. Read the messages git prints, and if you are unsure, stop and ask in office hours rather than force-pushing.</p>
-</div>
+<section id="optional-part-3-geodesic-distance">
+<h2>[Optional] Part 3. Geodesic Distance<a class="headerlink" href="#optional-part-3-geodesic-distance" title="Permalink to this heading">#</a></h2>
+<p>This section is optional, and if you successfully complete it you will get extra 10 points.</p>
+<p>Add the <code class="docutils literal notranslate"><span class="pre">geopy</span></code> package and compare your spherical haversine distance to <code class="docutils literal notranslate"><span class="pre">geopy.distance.geodesic</span></code>, which uses the WGS84 ellipsoid. Print both distances for one pair of points and note how much they differ. We will return to why the shape of the Earth matters when we reach coordinate reference systems later in the course.</p>
+<p>Remember to commit the manifest and lock file changes.</p>
 </section>
 <hr class="docutils" />
 <section id="deliverables">
 <h2>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
-<p>Everything is submitted to your <strong>private</strong> <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository (with <code class="docutils literal notranslate"><span class="pre">hamedalemo</span></code> and <code class="docutils literal notranslate"><span class="pre">dwgodwin</span></code> added as collaborators):</p>
+<p>Everything is submitted to your private <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository (with <code class="docutils literal notranslate"><span class="pre">hamedalemo</span></code> and <code class="docutils literal notranslate"><span class="pre">dwgodwin</span></code> added as collaborators):</p>
 <ul class="simple">
 <li><p>A root <code class="docutils literal notranslate"><span class="pre">README.md</span></code> with your name and a description of the repository.</p></li>
 <li><p>An <code class="docutils literal notranslate"><span class="pre">assignment-2/</span></code> directory containing <code class="docutils literal notranslate"><span class="pre">distance.py</span></code>, <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> with a commit history showing at least six meaningful, separate commits for the tool.</p></li>
-<li><p>Your <code class="docutils literal notranslate"><span class="pre">assignment-2/</span></code> directory should reflect the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span></code> exercise from Part 3.</p></li>
 </ul>
 <p>&nbsp;</p>
 </section>
@@ -669,18 +649,18 @@ $ pixi run distances
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-create-your-assignments-repository-10-pts">Part 1: Create Your Assignments Repository (10 pts)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-a-reproducible-geospatial-tool-with-pixi-70-pts">Part 2: A Reproducible Geospatial Tool with Pixi (70 pts)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-create-your-assignments-repository-20-pts">Part 1: Create Your Assignments Repository (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-a-reproducible-geospatial-tool-with-pixi-80-pts">Part 2: A Reproducible Geospatial Tool with Pixi (80 pts)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-pixi-project">2.1 Initialize the Pixi project</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-distance-function">2.2 Write the distance function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-package-and-meet-the-lock-file">2.3 Add a package and meet the lock file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-package-and-review-the-lock-file">2.3 Add a package and review the lock file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-out-the-tool-one-commit-at-a-time">2.4 Build out the tool, one commit at a time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-pixi-task">2.5 Add a Pixi task</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-and-confirm">2.6 Push and confirm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prove-it-is-reproducible">2.7 Prove it is reproducible</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-undo-changes-in-a-git-repository-20-pts">Part 3: Undo Changes in a Git Repository (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-part-3-geodesic-distance">[Optional] Part 3. Geodesic Distance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
 </ul>
   </nav></div>
