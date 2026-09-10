@@ -20,9 +20,9 @@ parts:
       title: Intro to Version Control and Git
     - file: lectures/03_python-env
       title: Python Environments
-    - file: lectures/00_working_with_genai_tools
+    - file: lectures/04_working_with_genai_tools
       title: Working with GenAI Tools
-    # - file: lectures/04_jupyter.md
+    # - file: lectures/05_jupyter.md
     #   title: Intro to JupyterLab
     # - file: lectures/05_xarray_fundamentals
     #   title: Xarray Fundamentals

@@ -1,7 +1,8 @@
 # Working with GenAI Tools
 
 **Attribution**
-*The content of this lecture is partially based on Simon Willison's Guide to [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/). It also includes concepts from documentation published by OpenAI and Anthropic and short educational content on LLMs from [3blue1brown](https://www.3blue1brown.com/lessons/mini-llm/). Generative AI assisted the development of the in class activity, but was not used to generate any of the text below.*
+*This lecture is developed by [Denys Godwin](https://dwgodwin.com/). The content of it is partially based on Simon Willison's Guide to [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/). It also includes concepts from documentation published by OpenAI and Anthropic and short educational content on LLMs from [3blue1brown](https://www.3blue1brown.com/lessons/mini-llm/). Generative AI assisted the development of the in class activity, but was not used to generate any of the text below.*
+
 
 In 2005, a "freestyle" chess tournament was held, pitting grandmasters, chess supercomputers, and human-computer teams against each other. The winning team was a pair of pretty good players who were REALLY good at augmenting their skills with a chess computer. 
 
@@ -98,7 +99,7 @@ Initially, LLMs would just immediately predict the next word in a sequence. Howe
 ---
 name: genai-svg-effort-matrix
 class: bg-primary mb-1
-width: 500px
+width: 600px
 align: center
 ---
 Comparison matrix of model and effort for generating SVGs. Number of input and output tokens and cost is shown below outputs. Source: [Simon Willison](https://simonw.substack.com/p/gpt-6-astra-claude-fable-51-and-yet)
