@@ -22,8 +22,8 @@ parts:
       title: Python Environments
     - file: lectures/04_working_with_genai_tools
       title: Working with GenAI Tools
-    # - file: lectures/05_jupyter.md
-    #   title: Intro to JupyterLab
+    - file: lectures/05_jupyter.md
+      title: Intro to JupyterLab
     # - file: lectures/05_xarray_fundamentals
     #   title: Xarray Fundamentals
     # - file: lectures/06_xarray_advanced
@@ -67,7 +67,7 @@ parts:
   - caption: Assignments
     chapters:
     - file: assignments/a1
-    # - file: assignments/a2
+    - file: assignments/a2
     # - file: assignments/a3 
     # - file: assignments/a4
     # - file: assignments/a5
