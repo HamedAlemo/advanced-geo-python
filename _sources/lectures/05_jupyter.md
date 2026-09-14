@@ -10,10 +10,6 @@
 
 To Install JupyterLab, follow the steps below:
 
-**Using `pip`**
-```
-$ pip install jupyterlab
-```
 
 **Using Pixi**
 
@@ -93,7 +89,7 @@ In order to use other conda environments in your JupyterLab instance, you have t
 
 ## JupyterLab Shortcuts
 
-There are several very useful and practical shortcuts for JupyterLab that improves your experience of working with it. You can see all of the default shortcuts after launching your JupyterLab byt navigating to Settings>Advanced Setting Editor>Keyboard Shortcuts. 
+There are several very useful and practical shortcuts for JupyterLab that improves your experience of working with it. You can see all of the default shortcuts after launching your JupyterLab by navigating to Settings>Advanced Setting Editor>Keyboard Shortcuts. 
 
 We will introduce some of the useful ones in the class. 
 
