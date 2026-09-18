@@ -24,10 +24,10 @@ parts:
       title: Working with GenAI Tools
     - file: lectures/05_jupyter.md
       title: Intro to JupyterLab
-    # - file: lectures/05_xarray_fundamentals
-    #   title: Xarray Fundamentals
-    # - file: lectures/06_xarray_advanced
-    #   title: Advanced Xarray Operations
+    - file: lectures/06_xarray_fundamentals
+      title: Xarray Fundamentals
+    - file: lectures/07_xarray_advanced
+      title: Advanced Xarray Operations
     # - file: lectures/07_landscape.md
     #   title: Geospatial Landscape
     # - file: lectures/08_crs
