@@ -32,8 +32,8 @@ parts:
       title: Review of CRS
     - file: lectures/09_crs_and_projections
       title: CRS and Projections in Python
-    # - file: lectures/07_landscape.md
-    #   title: Geospatial Landscape
+    - file: lectures/10_landscape.md
+      title: Geospatial Landscape
     # - file: lectures/10_docker.md
     #   title: Intro to Docker
     # - file: lectures/11_earth_search_tutorial
