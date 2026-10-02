@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Assignment 4 &#8212; Advanced Geospatial Analytics with Python</title>
+    <title>Assignment 5 &#8212; Advanced Geospatial Analytics with Python</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/a4';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/a5';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment 5" href="a5.html" />
-    <link rel="prev" title="Assignment 3" href="a3.html" />
+    <link rel="next" title="Open Science 101 Curriculum" href="../files/open-science-101-v-1-0-0/README.html" />
+    <link rel="prev" title="Assignment 4" href="a4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="a1.html">Assignment 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="a2.html">Assignment 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="a3.html">Assignment 3</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="a5.html">Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a4.html">Assignment 4</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 5</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
@@ -302,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Fassignments/a4.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Fassignments/a5.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +332,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/assignments/a4.md" target="_blank"
+      <li><a href="../_sources/assignments/a5.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -414,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Assignment 4</h1>
+    <h1>Assignment 5</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -424,18 +424,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-what-is-enso-and-why-these-functions">Background: what is ENSO, and why these functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-the-antimeridian-and-why-fiji">Background: the antimeridian, and why Fiji</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-layout">Project layout</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-reproducible-environment-10-pts">Part 1: Reproducible environment (10 pts)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-core-functionality-60-pts">Part 2: The core functionality (60 pts)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-the-agentic-extension-80-pts">Part 3: The agentic extension (80 pts)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-agents-md">3.1 Write your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-for-the-agent-to-add">3.2 Functions for the agent to add</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-notebook-visualize-and-export">3.3 In the notebook, visualize and export</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areas-of-interest">Areas of Interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-reproducible-environment-5-pts">Part 0: Reproducible environment (5 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-crs-core-by-hand-40-pts">Part 1: The CRS core, by hand (40 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-agentic-cloud-native-pipeline-30-pts">Part 2: The agentic cloud-native pipeline (30 pts)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-agents-md">2.1 Write your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-for-the-agent-to-add">2.2 Functions for the agent to add</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-notebook-run-and-visualize">2.3 In the notebook, run and visualize</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-tests-and-quality-assurance-30-pts">Part 4: Tests and quality assurance (30 pts)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-reflection-20-pts">Part 5: Reflection (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-tests-and-quality-assurance-15-pts">Part 3: Tests and quality assurance (15 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-reflection-10-pts">Part 4: Reflection (10 pts)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
 </ul>
             </nav>
@@ -448,154 +449,166 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="assignment-4">
-<h1>Assignment 4<a class="headerlink" href="#assignment-4" title="Permalink to this heading">#</a></h1>
-<p><strong>Due: Wednesday Sep 30th at 11:59 pm ET</strong></p>
-<div class="note admonition">
-<p class="admonition-title">An extended assignment</p>
-<p>This assignment spans two weeks and is worth double the weight of a regular assignment.
-Plan accordingly, commit your work incrementally, and do not leave it to the last day.</p>
-</div>
-<p>The goal of this assignment is to carry out a reproducible climate data analysis with Xarray in JupyterLab, and to do it the way a professional would: with your analysis logic written as reusable functions in a Python module, your notebook reserved for calling those functions and visualizing results, and an AI coding agent used to accelerate the harder half with your review and ownership.</p>
-<p>You will analyze sea surface temperature (SST) to characterize the El Niño–Southern Oscillation (ENSO) signal, building on the <em>Advanced Xarray Operations</em> lecture.</p>
-<section id="background-what-is-enso-and-why-these-functions">
-<h2>Background: what is ENSO, and why these functions?<a class="headerlink" href="#background-what-is-enso-and-why-these-functions" title="Permalink to this heading">#</a></h2>
-<p>The El Niño–Southern Oscillation (ENSO) is the largest source of year-to-year climate variability on Earth. Every few years the equatorial Pacific swings between a warm phase (El Niño) and a cool phase (La Niña), and because the tropical Pacific is so vast, those temperature swings reorganize rainfall, droughts, and storm tracks around the globe. Climatologists summarize the whole phenomenon with a single number: the average sea surface temperature anomaly in the <em>Niño-3.4 region</em> (5°S–5°N, 170°W–120°W). When that index stays above +0.5 °C for several months, it’s an El Niño event; below −0.5 °C, a La Niña.</p>
-<p>Every function you build in this assignment is a step toward computing and interpreting that index from raw SST. By the end, you will have rebuilt, from scratch, the core of how operational centers actually monitor ENSO.</p>
+  <section id="assignment-5">
+<h1>Assignment 5<a class="headerlink" href="#assignment-5" title="Permalink to this heading">#</a></h1>
+<p><strong>Due: Friday Oct 9th at 11:59 pm ET</strong></p>
+<p>The goal of this assignment is to build a small, reproducible, cloud-native workflow that goes from a point on the map to a measured, correctly projected result, using Sentinel-2 imagery over Fiji. The thread that holds every step together is getting the coordinate reference system (CRS) right. You will write the CRS core by hand, then use an AI coding agent to build the cloud-native half, and your main job on the agent’s work is to catch the places where the CRS is wrong.</p>
+<p>You will work at the 180 degree meridian (the antimeridian, or international date line), which is where CRS mistakes stop being subtle and become obvious.</p>
 <div class="tip admonition">
 <p class="admonition-title">What you are practicing</p>
 <ul class="simple">
-<li><p><strong>Xarray</strong>: the data model, selection, <code class="docutils literal notranslate"><span class="pre">groupby</span></code> climatologies, anomalies, weighted means, rolling indices, composites, <code class="docutils literal notranslate"><span class="pre">coarsen</span></code> vs. <code class="docutils literal notranslate"><span class="pre">interp</span></code>, and trends.</p></li>
-<li><p><strong>Reproducible environments</strong>: a pixi project and a notebook anyone can rerun.</p></li>
-<li><p><strong>Software structure</strong>: analysis functions in a module, notebooks for visualization only.</p></li>
-<li><p><strong>Agentic coding</strong>: using GitHub Copilot in Agent mode, guided by an <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code>.</p></li>
-<li><p><strong>Judgment &amp; QA</strong>: tests for your functions, and catching analysis the agent gets subtly wrong.</p></li>
+<li><p><strong>CRS fundamentals</strong>: datum, projection, units, and the EPSG, WKT, and PROJ representations.</p></li>
+<li><p><strong>Reprojection</strong> with PyProj and Shapely, and choosing an appropriate CRS for a measurement.</p></li>
+<li><p><strong>Cloud-native access</strong>: searching a STAC catalog and reading only the part of a COG you need over HTTP.</p></li>
+<li><p><strong>Judgment</strong>: recognizing a CRS bug in code that runs without error and returns a plausible-looking number.</p></li>
 </ul>
 </div>
 <div class="warning admonition">
-<p class="admonition-title">Notebook discipline</p>
-<p>As covered in the class, your notebook should not contain your analysis functions. Notebooks are for visualization and investigating the results. Every function you write (or the agent writes) should live in <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>, and your notebook imports them and uses them to explore and plot.</p>
+<p class="admonition-title">Notebooks are for visualization, not logic</p>
+<p>As in the previous assignment, your notebook must not contain your analysis functions. Every function you write, and every function the agent writes, lives in <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>. The notebook imports those functions and uses them to explore, measure, and plot.</p>
 </div>
-<p>All deliverables from this assignment should live in a new directory named <code class="docutils literal notranslate"><span class="pre">assignment-4/</span></code> in your <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository. Follow the same git discipline as previous assignments: stage explicitly by name (<em>never</em> <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code>), commit in small focused steps with clear messages, and push as you go. Read the whole assignment before you start, so you can take notes as you implement the code.</p>
+<p>All work lives in a new directory named <code class="docutils literal notranslate"><span class="pre">assignment-5/</span></code> in your <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository. Follow the same git discipline as before: stage files explicitly by name (never <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code>), commit in small focused steps with clear messages, and push as you go. Read the whole assignment before you start.</p>
+<hr class="docutils" />
+<section id="background-the-antimeridian-and-why-fiji">
+<h2>Background: the antimeridian, and why Fiji<a class="headerlink" href="#background-the-antimeridian-and-why-fiji" title="Permalink to this heading">#</a></h2>
+<p>A CRS does two jobs: it fixes a model of the Earth (the datum) and it defines how positions on that round Earth are written down, either as angles (longitude and latitude, as in EPSG:4326) or as projected coordinates in meters on a flat plane (as in a UTM zone). Most of the time you can measure distance or area badly by working in degrees and the answer is simply in the wrong units. At the antimeridian, something worse happens.</p>
+<p>Longitude in EPSG:4326 runs from -180 to +180, and those two values are the same physical line. A shape that crosses it, such as the Fiji archipelago, has vertices near +179 on one side and near -179 on the other. Software that treats longitude as an ordinary number sees those vertices as almost 360 degrees apart, so the bounding box and the area of the shape blow up to span most of the planet. The numbers are not just in the wrong units, they are describing the wrong shape.</p>
+<p>Fiji makes this concrete. The islands sit on the date line, so UTM zone 60S (which covers longitudes up to 180) meets UTM zone 1S (which begins just across 180). Picking the right CRS here is not automatic, and doing it wrong is easy to miss, which is exactly the point.</p>
 </section>
 <hr class="docutils" />
 <section id="project-layout">
 <h2>Project layout<a class="headerlink" href="#project-layout" title="Permalink to this heading">#</a></h2>
-<p>Your <code class="docutils literal notranslate"><span class="pre">assignment-4/</span></code> directory must follow this layout:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">assignment</span><span class="o">-</span><span class="mi">4</span><span class="o">/</span>
+<p>Your <code class="docutils literal notranslate"><span class="pre">assignment-5/</span></code> directory must follow this layout:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">assignment</span><span class="o">-</span><span class="mi">5</span><span class="o">/</span>
   <span class="n">pixi</span><span class="o">.</span><span class="n">toml</span>            <span class="n">environment</span><span class="p">,</span> <span class="n">dependencies</span><span class="p">,</span> <span class="ow">and</span> <span class="n">tasks</span>
   <span class="n">pixi</span><span class="o">.</span><span class="n">lock</span>            <span class="n">locked</span> <span class="n">versions</span> <span class="p">(</span><span class="n">managed</span> <span class="n">by</span> <span class="n">pixi</span><span class="p">)</span>
   <span class="o">.</span><span class="n">gitignore</span>
   <span class="n">src</span><span class="o">/</span>
     <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>        <span class="n">makes</span> <span class="n">src</span> <span class="n">an</span> <span class="n">importable</span> <span class="n">package</span>
-    <span class="n">utils</span><span class="o">.</span><span class="n">py</span>           <span class="n">ALL</span> <span class="n">analysis</span> <span class="n">functions</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">py</span>           <span class="nb">all</span> <span class="n">analysis</span> <span class="n">functions</span>
   <span class="n">notebooks</span><span class="o">/</span>
-    <span class="n">analysis</span><span class="o">.</span><span class="n">ipynb</span>     <span class="n">imports</span> <span class="kn">from</span> <span class="nn">src.utils</span><span class="p">;</span> <span class="n">explores</span> <span class="ow">and</span> <span class="n">plots</span> <span class="n">ONLY</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">ipynb</span>     <span class="n">imports</span> <span class="kn">from</span> <span class="nn">src.utils</span><span class="p">;</span> <span class="n">explores</span><span class="p">,</span> <span class="n">measures</span><span class="p">,</span> <span class="ow">and</span> <span class="n">plots</span> <span class="n">only</span>
   <span class="n">tests</span><span class="o">/</span>
-    <span class="n">test_utils</span><span class="o">.</span><span class="n">py</span>      <span class="n">tests</span> <span class="k">for</span> <span class="n">the</span> <span class="n">functions</span> <span class="ow">in</span> <span class="n">src</span><span class="o">/</span><span class="n">utils</span><span class="o">.</span><span class="n">py</span> <span class="k">as</span> <span class="n">needed</span>
-  <span class="n">results</span><span class="o">/</span>             <span class="n">exported</span> <span class="n">CSV</span> <span class="o">/</span> <span class="n">NetCDF</span> <span class="o">/</span> <span class="n">figures</span>
+    <span class="n">test_utils</span><span class="o">.</span><span class="n">py</span>      <span class="n">tests</span> <span class="k">for</span> <span class="n">the</span> <span class="n">functions</span> <span class="ow">in</span> <span class="n">src</span><span class="o">/</span><span class="n">utils</span><span class="o">.</span><span class="n">py</span>
+  <span class="n">results</span><span class="o">/</span>             <span class="n">exported</span> <span class="n">NDVI</span> <span class="n">raster</span><span class="p">,</span> <span class="n">figures</span><span class="p">,</span> <span class="ow">and</span> <span class="n">metadata</span>
   <span class="n">AGENTS</span><span class="o">.</span><span class="n">md</span>            <span class="n">guidance</span> <span class="k">for</span> <span class="n">the</span> <span class="n">agent</span>
   <span class="n">README</span><span class="o">.</span><span class="n">md</span>            <span class="n">what</span> <span class="n">this</span> <span class="ow">is</span> <span class="ow">and</span> <span class="n">how</span> <span class="n">to</span> <span class="n">reproduce</span> <span class="n">it</span>
   <span class="n">reflection</span><span class="o">.</span><span class="n">md</span>        <span class="n">your</span> <span class="n">written</span> <span class="n">reflection</span> <span class="p">(</span><span class="n">no</span> <span class="n">AI</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Run JupyterLab from the <code class="docutils literal notranslate"><span class="pre">assignment-4/</span></code> directory (<code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">jupyter</span> <span class="pre">lab</span></code>). With <code class="docutils literal notranslate"><span class="pre">src/__init__.py</span></code> in place you can then write <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">src.utils</span> <span class="pre">import</span> <span class="pre">...</span></code> in your notebook.</p>
-</div>
 </section>
 <hr class="docutils" />
-<section id="part-1-reproducible-environment-10-pts">
-<h2>Part 1: Reproducible environment (10 pts)<a class="headerlink" href="#part-1-reproducible-environment-10-pts" title="Permalink to this heading">#</a></h2>
+<section id="areas-of-interest">
+<h2>Areas of Interest<a class="headerlink" href="#areas-of-interest" title="Permalink to this heading">#</a></h2>
+<p>You do not need to download anything by hand. Use these two geometries, both in EPSG:4326, defined directly in your notebook.</p>
+<p>A date-line-crossing region over the main Fiji islands, used only for the CRS reasoning in Part 1. Build a polygon from these corners, in longitude, latitude order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">177.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">16.1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">178.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">16.1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">178.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">19.2</span><span class="p">),</span> <span class="p">(</span><span class="mf">177.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">19.2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A small analysis area of interest (AOI) over Taveuni, used for the imagery work in Part 2, given as a bounding box <code class="docutils literal notranslate"><span class="pre">(min_lon,</span> <span class="pre">min_lat,</span> <span class="pre">max_lon,</span> <span class="pre">max_lat)</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">179.85</span><span class="p">,</span> <span class="o">-</span><span class="mf">16.95</span><span class="p">,</span> <span class="mf">179.99</span><span class="p">,</span> <span class="o">-</span><span class="mf">16.80</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The AOI sits just west of 180, so it is squarely inside UTM zone 60S. Use its centroid as the search point where a single point is needed.</p>
+</section>
+<hr class="docutils" />
+<section id="part-0-reproducible-environment-5-pts">
+<h2>Part 0: Reproducible environment (5 pts)<a class="headerlink" href="#part-0-reproducible-environment-5-pts" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>From the root of your <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository, create the project <code class="docutils literal notranslate"><span class="pre">assignment-4</span></code> and initialize with pixi.</p></li>
+<li><p>From the root of your <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository, create the project <code class="docutils literal notranslate"><span class="pre">assignment-5</span></code> and initialize it with pixi.</p></li>
 <li><p>Set the platforms in <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> to <code class="docutils literal notranslate"><span class="pre">[&quot;osx-arm64&quot;,</span> <span class="pre">&quot;osx-64&quot;,</span> <span class="pre">&quot;linux-64&quot;]</span></code>.</p></li>
-<li><p>Add the following packages: <code class="docutils literal notranslate"><span class="pre">xarray=2026.7.*</span></code>, <code class="docutils literal notranslate"><span class="pre">pooch</span></code>, <code class="docutils literal notranslate"><span class="pre">netcdf4</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">jupyterlab</span></code></p></li>
-<li><p>Create the <code class="docutils literal notranslate"><span class="pre">src/</span></code>, <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code>, <code class="docutils literal notranslate"><span class="pre">tests/</span></code>, and <code class="docutils literal notranslate"><span class="pre">results/</span></code> structure above, add <code class="docutils literal notranslate"><span class="pre">src/__init__.py</span></code>, and write a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> that says what the project does and gives the command(s) for reproduction.</p></li>
+<li><p>Add these packages: <code class="docutils literal notranslate"><span class="pre">pystac-client</span></code>, <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code>, <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>, <code class="docutils literal notranslate"><span class="pre">pyproj</span></code>, <code class="docutils literal notranslate"><span class="pre">shapely</span></code>, <code class="docutils literal notranslate"><span class="pre">cartopy</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">jupyterlab</span></code>.</p></li>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">src/</span></code>, <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code>, <code class="docutils literal notranslate"><span class="pre">tests/</span></code>, and <code class="docutils literal notranslate"><span class="pre">results/</span></code> structure above, add <code class="docutils literal notranslate"><span class="pre">src/__init__.py</span></code>, and write a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> that says what the project does and gives the command(s) to reproduce it.</p></li>
 <li><p>Commit the scaffolding.</p></li>
 </ol>
 </section>
 <hr class="docutils" />
-<section id="part-2-the-core-functionality-60-pts">
-<h2>Part 2: The core functionality (60 pts)<a class="headerlink" href="#part-2-the-core-functionality-60-pts" title="Permalink to this heading">#</a></h2>
-<p><em>Do not use the agent for this part. You are strictly prohibited to use agentic coding for this part of the assignment.</em> Writing the core by hand is how you build the Xarray fluency you will need to judge the agent’s work in Part 2.</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>, write and document the following pure functions, then import and use them in <code class="docutils literal notranslate"><span class="pre">notebooks/analysis.ipynb</span></code>:</p>
-<ol class="arabic">
-<li><p><code class="docutils literal notranslate"><span class="pre">load_sst()</span></code>: retrieve the NOAA ERSST v6 monthly SST file reproducibly with <code class="docutils literal notranslate"><span class="pre">pooch</span></code> (pinned <code class="docutils literal notranslate"><span class="pre">known_hash</span></code>), open it with <code class="docutils literal notranslate"><span class="pre">xarray</span></code> dropping <code class="docutils literal notranslate"><span class="pre">time_bnds</span></code>, and return the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>. Use the source shown in Lecture 7:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/HamedAlemo/advanced-geo-python/main/files/noaa.ersst.v6/sst.mnmean.nc&quot;</span>
+<section id="part-1-the-crs-core-by-hand-40-pts">
+<h2>Part 1: The CRS core, by hand (40 pts)<a class="headerlink" href="#part-1-the-crs-core-by-hand-40-pts" title="Permalink to this heading">#</a></h2>
+<p><em>Do not use the agent for this part. You are strictly prohibited from using agentic coding here.</em> Writing the CRS core yourself is what lets you judge the agent’s work in Part 2.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>, write and document these functions, then import and use them in the notebook:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">describe_crs(crs)</span></code>: given an EPSG code or a PyProj CRS, return (or print) the same CRS in its EPSG, WKT, and PROJ forms, together with its units and datum.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm_epsg(lon,</span> <span class="pre">lat)</span></code>: return the EPSG code of the UTM zone that contains the given point, with the correct hemisphere. Your function must return 32760 for a point at longitude 179.9 and 32701 for a point at longitude -179.9 (both in the southern hemisphere).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reproject_geometry(geom,</span> <span class="pre">src_crs,</span> <span class="pre">dst_crs)</span></code>: reproject a Shapely geometry from one CRS to another using a PyProj <code class="docutils literal notranslate"><span class="pre">Transformer</span></code>. Pay attention to coordinate axis order.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shift_to_360(geom)</span></code>: return the geometry with its longitudes rewritten to the 0 to 360 convention (a longitude of -178.3 becomes 181.7), so that a shape crossing the antimeridian becomes contiguous.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">projected_area_km2(geom,</span> <span class="pre">target_crs)</span></code>: reproject a geometry to a projected (meter-based) CRS and return its area in square kilometers.</p></li>
+</ol>
+<p>In the notebook, use these functions to:</p>
+<ul>
+<li><p>Show <code class="docutils literal notranslate"><span class="pre">describe_crs</span></code> for EPSG:4326 and for EPSG:32760, and note the difference in units and the shared datum.</p></li>
+<li><p>Build the Fiji region polygon in EPSG:4326 and compute its bounding box and its area in square degrees. You should get a shape that spans almost the whole globe. Explain in one or two sentences what went wrong.</p></li>
+<li><p>Apply <code class="docutils literal notranslate"><span class="pre">shift_to_360</span></code> to the same region, recompute the bounding box, and confirm it is now only a few degrees wide.</p></li>
+<li><p>Reproject the contiguous region to an equal-area CRS centered on the date line and report its true area in square kilometers. Use this PROJ definition for the target CRS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="n">proj</span><span class="o">=</span><span class="n">laea</span> <span class="o">+</span><span class="n">lat_0</span><span class="o">=-</span><span class="mf">17.5</span> <span class="o">+</span><span class="n">lon_0</span><span class="o">=</span><span class="mi">180</span> <span class="o">+</span><span class="n">datum</span><span class="o">=</span><span class="n">WGS84</span> <span class="o">+</span><span class="n">units</span><span class="o">=</span><span class="n">m</span> <span class="o">+</span><span class="n">no_defs</span>
 </pre></div>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">subset_region(ds,</span> <span class="pre">lat_bounds,</span> <span class="pre">lon_bounds)</span></code>: subset <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> <code class="docutils literal notranslate"><span class="pre">ds</span></code> to a range of given lat/lon.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">monthly_climatology(da,</span> <span class="pre">baseline=(&quot;1991&quot;,</span> <span class="pre">&quot;2020&quot;))</span></code>: calculate the mean seasonal cycle for <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> <code class="docutils literal notranslate"><span class="pre">da</span></code> over a baseline period, using <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">anomalies(da,</span> <span class="pre">clim)</span></code>: calculate monthly anomalies for <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> <code class="docutils literal notranslate"><span class="pre">da</span></code> with respect to mean seasonal cycle <code class="docutils literal notranslate"><span class="pre">clim</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">area_weighted_mean(da)</span></code>: calculate <code class="docutils literal notranslate"><span class="pre">da</span></code>’s spatial mean weighted by the cosine of the latitude of the center of each pixel.</p></li>
-</ol>
-<p>In the notebook, use these to:</p>
-<ul class="simple">
-<li><p>Print a concise summary of the NOAA ERSST v6 monthly SST <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> and the <code class="docutils literal notranslate"><span class="pre">sst</span></code> variable, and in 3–5 sentences explain how <code class="docutils literal notranslate"><span class="pre">dims</span></code>, <code class="docutils literal notranslate"><span class="pre">coords</span></code>, and <code class="docutils literal notranslate"><span class="pre">attrs</span></code> reflect the Xarray data model, and confirm the SST units / relevant CF attributes.</p></li>
-<li><p>Produce two separate plots for the Niño-3.4 region (5°S–5°N, 170°W–120°W): the <em>area-weighted monthly mean SST</em>, and the <em>area-weighted monthly SST anomaly</em> time series.</p></li>
+<li><p>Report <code class="docutils literal notranslate"><span class="pre">utm_epsg</span></code> for the AOI centroid, note that it is zone 60S, and state which EPSG code a point just across 180 would get instead.</p></li>
+<li><p>In 3 to 5 sentences, explain why EPSG:4326 fails at the antimeridian, and why this is a problem with the shape and not only with the units.</p></li>
 </ul>
-<p>Commit <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code> and the current version of the notebook.</p>
+<p>Commit <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code> and the current notebook.</p>
 </section>
 <hr class="docutils" />
-<section id="part-3-the-agentic-extension-80-pts">
-<h2>Part 3: The agentic extension (80 pts)<a class="headerlink" href="#part-3-the-agentic-extension-80-pts" title="Permalink to this heading">#</a></h2>
-<p>Now use GitHub Copilot in Agent mode, guided by an <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code> you write, to add the more advanced analysis. The agent adds functions to <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>; your notebook imports them and visualizes the results. Review every change before accepting it; you own this code and this science.</p>
+<section id="part-2-the-agentic-cloud-native-pipeline-30-pts">
+<h2>Part 2: The agentic cloud-native pipeline (30 pts)<a class="headerlink" href="#part-2-the-agentic-cloud-native-pipeline-30-pts" title="Permalink to this heading">#</a></h2>
+<p>Now use GitHub Copilot in Agent mode, guided by an <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code> you write, to build the imagery pipeline. The agent adds functions to <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>; your notebook imports them and visualizes the results. Review every change before accepting it. You own this code and these numbers.</p>
 <section id="write-your-agents-md">
-<h3>3.1 Write your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code><a class="headerlink" href="#write-your-agents-md" title="Permalink to this heading">#</a></h3>
-<p>Before prompting the agent, write <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code>. It must, at minimum, tell the agent: this is a pixi-only project; all analysis functions go in <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>; the notebook is for visualization only; do not create new files or edit <code class="docutils literal notranslate"><span class="pre">reflection.md</span></code>; the domain rules (ERSST v6 via pooch, cosine-latitude weighting, 1991–2020 climatology baseline, units °C); run tests with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code>; and a definition of done. Commit it.</p>
+<h3>2.1 Write your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code><a class="headerlink" href="#write-your-agents-md" title="Permalink to this heading">#</a></h3>
+<p>Before prompting the agent, write <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code>. At a minimum it should tell the agent: this is a pixi-only project; all analysis functions go in <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code> and must be pure with no plotting; the notebook is for visualization only; do not create new files or edit <code class="docutils literal notranslate"><span class="pre">reflection.md</span></code>; the domain rules (Earth Search STAC API, the <code class="docutils literal notranslate"><span class="pre">sentinel-2-l2a</span></code> collection, the AOI is in EPSG:4326 and must be reprojected to each scene’s own CRS before any pixels are read, read only the AOI window and never the whole scene); run tests with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code>; and a definition of done. Commit it.</p>
 </section>
 <section id="functions-for-the-agent-to-add">
-<h3>3.2 Functions for the agent to add<a class="headerlink" href="#functions-for-the-agent-to-add" title="Permalink to this heading">#</a></h3>
+<h3>2.2 Functions for the agent to add<a class="headerlink" href="#functions-for-the-agent-to-add" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">rolling_index(anom_series,</span> <span class="pre">window=3)</span></code>: calculate centered rolling mean of the area-averaged anomalies (an ENSO-style index).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">detect_events(index,</span> <span class="pre">threshold=0.5,</span> <span class="pre">min_months=3)</span></code>: detect contiguous warm events (<code class="docutils literal notranslate"><span class="pre">index</span></code> ≥ +0.5 °C for ≥ 3 consecutive months) and cold events (<code class="docutils literal notranslate"><span class="pre">index</span></code> ≤ −0.5 °C for ≥ 3 consecutive months); return their start/end dates and peak magnitudes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">composite(anom_field,</span> <span class="pre">event_months)</span></code>: build spatial composite maps by taking the mean of an anomaly field (warm or cold events) over a set of event months.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">coarsen_to_4deg(field)</span></code> and <code class="docutils literal notranslate"><span class="pre">interp_to_4deg(field)</span></code>: create coarser (4°) anomaly maps from 2° anomalies using (<code class="docutils literal notranslate"><span class="pre">coarsen(...).mean()</span></code> and <code class="docutils literal notranslate"><span class="pre">.interp()</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">linear_trend(anom_field)</span></code>: calculate a per-pixel linear trend (°C per decade) via <code class="docutils literal notranslate"><span class="pre">polyfit(dim='time',</span> <span class="pre">deg=1)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">search_best_scene(point,</span> <span class="pre">date_range,</span> <span class="pre">max_cloud)</span></code>: search the Earth Search API (<code class="docutils literal notranslate"><span class="pre">https://earth-search.aws.element84.com/v1</span></code>) with <code class="docutils literal notranslate"><span class="pre">pystac-client</span></code> for <code class="docutils literal notranslate"><span class="pre">sentinel-2-l2a</span></code> items that intersect the point within the date range and below the cloud-cover limit, and return the least cloudy item.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clip_asset(item,</span> <span class="pre">asset_key,</span> <span class="pre">aoi_4326)</span></code>: reproject the AOI into the scene’s own CRS (its <code class="docutils literal notranslate"><span class="pre">proj:code</span></code>), open the named COG asset from its href with <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code>, and read only the AOI window, not the whole scene.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndvi(red,</span> <span class="pre">nir)</span></code>: compute the normalized difference vegetation index as a labeled array, handling nodata so the result stays within -1 and 1.</p></li>
 </ul>
 </section>
-<section id="in-the-notebook-visualize-and-export">
-<h3>3.3 In the notebook, visualize and export<a class="headerlink" href="#in-the-notebook-visualize-and-export" title="Permalink to this heading">#</a></h3>
+<section id="in-the-notebook-run-and-visualize">
+<h3>2.3 In the notebook, run and visualize<a class="headerlink" href="#in-the-notebook-run-and-visualize" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Plot the ENSO index time series with warm/cold events marked, and export the area-averaged monthly anomaly and 3-month index to <code class="docutils literal notranslate"><span class="pre">results/enso_index.csv</span></code> (columns <code class="docutils literal notranslate"><span class="pre">time,</span> <span class="pre">anomaly,</span> <span class="pre">rolling_anomaly</span></code>). Report the top three El Niño and three La Niña events by peak magnitude with start/end dates.</p></li>
-<li><p>Plot the warm and cold composite anomaly maps on the same color scale, and save them to <code class="docutils literal notranslate"><span class="pre">results/composite_warm.nc</span></code> and <code class="docutils literal notranslate"><span class="pre">results/composite_cold.nc</span></code>. Interpret the patterns in 3–4 sentences.</p></li>
-<li><p>Plot the 4° coarsen vs. interp fields side-by-side for one representative month and discuss the differences.</p></li>
-<li><p>Plot the trend map (°C per decade) as your headline figure, and comment on the pattern and its caveats.</p></li>
+<li><p>Search for a recent, low-cloud scene over the AOI and print the chosen scene’s id, date, cloud cover, and CRS.</p></li>
+<li><p>Clip the red and near-infrared assets to the AOI and compute NDVI.</p></li>
+<li><p>Show the cloud-native payoff: time reading the small AOI window against reading the full asset, and report both.</p></li>
+<li><p>Map NDVI with Cartopy, setting the projection’s <code class="docutils literal notranslate"><span class="pre">central_longitude</span></code> to 180 so the area near the date line renders correctly.</p></li>
+<li><p>Export the NDVI result to <code class="docutils literal notranslate"><span class="pre">results/ndvi.tif</span></code> and write a short <code class="docutils literal notranslate"><span class="pre">results/scene_metadata.json</span></code> recording the scene id, date, cloud cover, scene CRS, and the AOI true area in square kilometers from Part 1.</p></li>
 </ul>
+<div class="warning admonition">
+<p class="admonition-title">Own the CRS</p>
+<p>CRS bugs are the quiet kind: the code runs and prints a number. Watch for the agent clipping before it reprojects the AOI (an empty or wrong result), measuring area or distance in degrees, swapping longitude and latitude, or downloading a whole scene instead of a window. Document at least one such mistake you found and how you corrected it.</p>
+</div>
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-4-tests-and-quality-assurance-30-pts">
-<h2>Part 4: Tests and quality assurance (30 pts)<a class="headerlink" href="#part-4-tests-and-quality-assurance-30-pts" title="Permalink to this heading">#</a></h2>
-<p>Because your logic lives in <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>, it can be tested.</p>
+<section id="part-3-tests-and-quality-assurance-15-pts">
+<h2>Part 3: Tests and quality assurance (15 pts)<a class="headerlink" href="#part-3-tests-and-quality-assurance-15-pts" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pytest</span></code> to the project and define a <code class="docutils literal notranslate"><span class="pre">test</span></code> task so the suite runs with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code>.</p></li>
-<li><p>Write tests in <code class="docutils literal notranslate"><span class="pre">tests/test_utils.py</span></code> that check the functions on small synthetic inputs where you know the answer, for example: <code class="docutils literal notranslate"><span class="pre">area_weighted_mean</span></code> on a constant field returns that constant; anomalies over the baseline have (near) zero mean; <code class="docutils literal notranslate"><span class="pre">coarsen_to_4deg</span></code> returns the expected shape; <code class="docutils literal notranslate"><span class="pre">detect_events</span></code> finds a known event in a hand made series.</p></li>
-<li><p>The agent may help write tests, but <em>verify each test is meaningful</em>. It must actually fail if the function were wrong. Iterate until <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code> passes.</p></li>
+<li><p>Write tests in <code class="docutils literal notranslate"><span class="pre">tests/test_utils.py</span></code> on small inputs where you know the answer, including: <code class="docutils literal notranslate"><span class="pre">utm_epsg</span></code> returns 32760 at longitude 179.9 and 32701 at longitude -179.9 (southern hemisphere); <code class="docutils literal notranslate"><span class="pre">reproject_geometry</span></code> round-trips a point back to its starting coordinates within a small tolerance; <code class="docutils literal notranslate"><span class="pre">shift_to_360</span></code> rewrites a negative longitude correctly; and <code class="docutils literal notranslate"><span class="pre">ndvi</span></code> stays within -1 and 1 on a small test array.</p></li>
+<li><p>The agent may help write tests, but verify each test is meaningful: it must fail if the function were wrong. Iterate until <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code> passes.</p></li>
 </ol>
 </section>
 <hr class="docutils" />
-<section id="part-5-reflection-20-pts">
-<h2>Part 5: Reflection (20 pts)<a class="headerlink" href="#part-5-reflection-20-pts" title="Permalink to this heading">#</a></h2>
-<p>Write <code class="docutils literal notranslate"><span class="pre">reflection.md</span></code> yourself, <em>without AI assistance</em> (400–600 words):</p>
+<section id="part-4-reflection-10-pts">
+<h2>Part 4: Reflection (10 pts)<a class="headerlink" href="#part-4-reflection-10-pts" title="Permalink to this heading">#</a></h2>
+<p>Write <code class="docutils literal notranslate"><span class="pre">reflection.md</span></code> yourself, without AI assistance (300 to 500 words):</p>
 <ul class="simple">
-<li><p>Manual vs. agentic for data analysis: How did writing the Part 1 functions by hand compare to having the agent write the Part 2 functions? What did the agent do well, and what did you have to fix?</p></li>
-<li><p>Catching bad science: Describe the incorrect or misleading analysis the agent produced and how your own understanding let you catch it. Would you have caught it if you had not written Part 1 by hand?</p></li>
-<li><p>Context engineering: How did your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code> shape the agent’s behavior, and what would you tighten next time?</p></li>
+<li><p>The CRS mistake: describe the incorrect CRS handling the agent produced, how you noticed it, and how writing Part 1 by hand helped you catch it.</p></li>
+<li><p>Context engineering: how did your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code> shape the agent’s behavior, and what would you tighten next time?</p></li>
+<li><p>Cloud-native access: in one or two sentences, what did the windowed read versus full read timing show you, and why does it matter?</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="deliverables">
 <h2>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
-<p>Committed to your private <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository under <code class="docutils literal notranslate"><span class="pre">assignment-4/</span></code>, following the project layout above:</p>
+<p>Committed to your private <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository under <code class="docutils literal notranslate"><span class="pre">assignment-5/</span></code>, following the project layout above:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code> with all analysis functions; <code class="docutils literal notranslate"><span class="pre">src/__init__.py</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">notebooks/analysis.ipynb</span></code>: <em>executed, with all figures rendered on GitHub</em>, importing from <code class="docutils literal notranslate"><span class="pre">src.utils</span></code> and containing visualization/analysis only.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tests/test_utils.py</span></code>; <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code> passes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">results/enso_index.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">results/composite_warm.nc</span></code>, and <code class="docutils literal notranslate"><span class="pre">results/composite_cold.nc</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code> with all analysis functions, and <code class="docutils literal notranslate"><span class="pre">src/__init__.py</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notebooks/analysis.ipynb</span></code>, executed, with all figures rendered on GitHub, importing from <code class="docutils literal notranslate"><span class="pre">src.utils</span></code> and containing visualization and measurement only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/test_utils.py</span></code>, with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code> passing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">results/ndvi.tif</span></code> and <code class="docutils literal notranslate"><span class="pre">results/scene_metadata.json</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code>, <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, and <code class="docutils literal notranslate"><span class="pre">reflection.md</span></code> (written without AI).</p></li>
 <li><p>A commit history showing incremental, reviewed development.</p></li>
 </ul>
@@ -635,20 +648,20 @@ Plan accordingly, commit your work incrementally, and do not leave it to the las
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="a3.html"
+       href="a4.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Assignment 3</p>
+        <p class="prev-next-title">Assignment 4</p>
       </div>
     </a>
     <a class="right-next"
-       href="a5.html"
+       href="../files/open-science-101-v-1-0-0/README.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignment 5</p>
+        <p class="prev-next-title">Open Science 101 Curriculum</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -670,18 +683,19 @@ Plan accordingly, commit your work incrementally, and do not leave it to the las
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-what-is-enso-and-why-these-functions">Background: what is ENSO, and why these functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-the-antimeridian-and-why-fiji">Background: the antimeridian, and why Fiji</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-layout">Project layout</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-reproducible-environment-10-pts">Part 1: Reproducible environment (10 pts)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-core-functionality-60-pts">Part 2: The core functionality (60 pts)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-the-agentic-extension-80-pts">Part 3: The agentic extension (80 pts)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-agents-md">3.1 Write your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-for-the-agent-to-add">3.2 Functions for the agent to add</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-notebook-visualize-and-export">3.3 In the notebook, visualize and export</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areas-of-interest">Areas of Interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-reproducible-environment-5-pts">Part 0: Reproducible environment (5 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-crs-core-by-hand-40-pts">Part 1: The CRS core, by hand (40 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-agentic-cloud-native-pipeline-30-pts">Part 2: The agentic cloud-native pipeline (30 pts)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-agents-md">2.1 Write your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-for-the-agent-to-add">2.2 Functions for the agent to add</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-notebook-run-and-visualize">2.3 In the notebook, run and visualize</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-tests-and-quality-assurance-30-pts">Part 4: Tests and quality assurance (30 pts)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-reflection-20-pts">Part 5: Reflection (20 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-tests-and-quality-assurance-15-pts">Part 3: Tests and quality assurance (15 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-reflection-10-pts">Part 4: Reflection (10 pts)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
 </ul>
   </nav></div>
