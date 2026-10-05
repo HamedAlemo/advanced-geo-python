@@ -36,10 +36,10 @@ parts:
       title: Geospatial Landscape
     - file: lectures/11_earth_search_tutorial
       title: Searching a STAC Catalog
-    - file: lectures/12_dask_intro
+    - file: lectures/12_dask_array
       title: Intro to Dask & Dask Array
-    # - file: lectures/13_stackstac
-    #   title: Scaling stackstac w Dask
+    - file: lectures/13_stac_query_w_stackstac
+      title: Scaling stackstac w Dask
     # - file: lectures/14_dask_dataframe
     #   title: Into to Dask DataFrame
     # - file: lectures/15_raster
