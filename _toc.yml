@@ -42,10 +42,10 @@ parts:
       title: Scaling stackstac w Dask
     - file: lectures/14_dask_dataframe
       title: Into to Dask DataFrame
-    # - file: lectures/15_raster
-    #   title: Review of Raster Data
-    # - file: lectures/16_raster_analysis
-    #   title: Raster Data in Python
+    - file: lectures/15_raster
+      title: Review of Raster Data
+    - file: lectures/16_raster_analysis
+      title: Raster Data in Python
     # - file: lectures/17_raster_processing
     #   title: Raster Data Processing
     # - file: lectures/18_vector
