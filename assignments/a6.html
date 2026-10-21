@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment 6 &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/a6';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Open Science 101 Curriculum" href="../files/open-science-101-v-1-0-0/README.html" />
+    <link rel="prev" title="Assignment 5" href="a5.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lectures/01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/04_working_with_genai_tools.html">4. Working with GenAI Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/05_jupyter.html">5. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/06_xarray_fundamentals.html">6. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/07_xarray_advanced.html">7. Advanced Xarray Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/08_crs.html">8. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/09_crs_and_projections.html">9. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/10_landscape.html">10. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/11_earth_search_tutorial.html">11. Searching a STAC Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/12_dask_array.html">12. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/13_stac_query_w_stackstac.html">13. Scaling stackstac w Dask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/14_dask_dataframe.html">14. Into to Dask DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/15_raster.html">15. Review of Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/16_raster_analysis.html">16. Raster Data in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="a1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a2.html">Assignment 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a3.html">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a4.html">Assignment 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a5.html">Assignment 5</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 6</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Fassignments/a6.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/assignments/a6.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Assignment 6</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-why-dask-workflows-run-out-of-memory">Background: why Dask workflows run out of memory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicate-items-in-the-planetary-computer-catalog">Duplicate items in the Planetary Computer catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-digital-numbers-to-reflectance">From digital numbers to reflectance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-area-of-interest">Data and area of interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-layout">Project layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-memory-budget">The memory budget</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-reproducible-environment-5-pts">Part 0: Reproducible environment (5 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-imagery-time-series-by-hand-40-pts">Part 1: The imagery time series, by hand (40 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-agentic-precipitation-pipeline-25-pts">Part 2: The agentic precipitation pipeline (25 pts)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-agents-md">2.1 Write your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-for-the-agent-to-add">2.2 Functions for the agent to add</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-notebook-run-and-visualize">2.3 In the notebook, run and visualize</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-memory-report-10-pts">Part 3: Memory report (10 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-tests-and-quality-assurance-10-pts">Part 4: Tests and quality assurance (10 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-reflection-10-pts">Part 5: Reflection (10 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="assignment-6">
+<h1>Assignment 6<a class="headerlink" href="#assignment-6" title="Permalink to this heading">#</a></h1>
+<p><strong>Due: Friday Oct 30th at 11:59 pm ET</strong></p>
+<p>The goal of this assignment is to retrieve and analyze a seven-year time series from two very different kinds of big Earth data, and to do it within a fixed memory budget. You will build a satellite time series of reservoir water area from Sentinel-2 imagery with stackstac and Dask Array, retrieve daily precipitation records from NOAA’s GHCN-D archive with Dask DataFrame, and put the two together to ask a simple question: how did the surface area of Folsom Lake, California, change between 2019 and 2025, and how does that track with local precipitation?</p>
+<p>You will write the imagery pipeline by hand, then use an AI coding agent to build the precipitation half. As in the previous assignments, your main job on the agent’s work is to catch where it is wrong, and in this assignment “wrong” includes code that runs out of memory or quietly pulls far more data than it needs.</p>
+<div class="tip admonition">
+<p class="admonition-title">What you are practicing</p>
+<ul class="simple">
+<li><p><strong>Dask Array through stackstac</strong>: lazy stacks, chunks, and reducing before you compute.</p></li>
+<li><p><strong>STAC time-series retrieval</strong>: filtering a search, removing duplicate items, and requesting only the assets, resolution, and data type you need.</p></li>
+<li><p><strong>Dask DataFrame</strong>: lazy Parquet reads from S3, column selection, early filtering, <code class="docutils literal notranslate"><span class="pre">persist</span></code>, and <code class="docutils literal notranslate"><span class="pre">repartition</span></code>.</p></li>
+<li><p><strong>Memory discipline</strong>: estimating the size of a computation before running it, and measuring what it actually used.</p></li>
+<li><p><strong>Judgment</strong>: reviewing agent-written code for silent data errors and memory waste.</p></li>
+</ul>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Notebooks are for visualization, not logic</p>
+<p>As in the previous assignments, your notebook must not contain your analysis functions. Every function you write, and every function the agent writes, lives in <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>. The notebook imports those functions and uses them to explore, measure, and plot.</p>
+</div>
+<p>All work lives in a new directory named <code class="docutils literal notranslate"><span class="pre">assignment-6/</span></code> in your <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository. Follow the same git discipline as before: stage files explicitly by name (never <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code>), commit in small focused steps with clear messages, and push as you go. Read the whole assignment before you start, including the background on memory below.</p>
+<hr class="docutils" />
+<section id="background-why-dask-workflows-run-out-of-memory">
+<h2>Background: why Dask workflows run out of memory<a class="headerlink" href="#background-why-dask-workflows-run-out-of-memory" title="Permalink to this heading">#</a></h2>
+<p>Dask is lazy, so building a stack of 1,000 satellite scenes costs almost nothing. Memory problems show up only when the computation runs, and in practice they almost always come from one of three places.</p>
+<p>The first is data that is bigger than it needs to be before any computation starts. The size of a stackstac array is simply</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_time</span> <span class="n">x</span> <span class="n">n_band</span> <span class="n">x</span> <span class="n">n_y</span> <span class="n">x</span> <span class="n">n_x</span> <span class="n">x</span> <span class="n">bytes_per_value</span>
+</pre></div>
+</div>
+<p>and every term in that product is under your control. Duplicate items inflate <code class="docutils literal notranslate"><span class="pre">n_time</span></code>. Stacking every asset instead of the two or three you need inflates <code class="docutils literal notranslate"><span class="pre">n_band</span></code>. Reading at 10 m when 20 m is enough multiplies <code class="docutils literal notranslate"><span class="pre">n_y</span> <span class="pre">x</span> <span class="pre">n_x</span></code> by four. The stackstac default data type is <code class="docutils literal notranslate"><span class="pre">float64</span></code> (8 bytes per value), while <code class="docutils literal notranslate"><span class="pre">float32</span></code> (4 bytes) is more than enough precision for reflectance. These choices multiply, so together they can easily make the same analysis a hundred times larger.</p>
+<p>The second is bringing unreduced data back to your notebook. Calling <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>, <code class="docutils literal notranslate"><span class="pre">.values</span></code>, <code class="docutils literal notranslate"><span class="pre">.load()</span></code>, or <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> on a full stack asks Dask to assemble every pixel of every scene in the memory of your Python kernel. The pattern that scales is the opposite: reduce lazily (a mean, a sum, a count over <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>) and compute only the small result.</p>
+<p>The third is the cluster itself. Each time you run a cell that creates a <code class="docutils literal notranslate"><span class="pre">LocalCluster</span></code>, you start a new cluster with its own workers, and the old one keeps its memory until the kernel dies. A few re-runs on an 8 GB laptop is enough to exhaust it.</p>
+<section id="duplicate-items-in-the-planetary-computer-catalog">
+<h3>Duplicate items in the Planetary Computer catalog<a class="headerlink" href="#duplicate-items-in-the-planetary-computer-catalog" title="Permalink to this heading">#</a></h3>
+<p>Two features of the Planetary Computer <code class="docutils literal notranslate"><span class="pre">sentinel-2-l2a</span></code> collection make the first problem worse over our area of interest:</p>
+<ul class="simple">
+<li><p>Sentinel-2 is distributed in 110 km MGRS tiles that overlap their neighbors. Folsom Lake sits near the northern edge of tile <code class="docutils literal notranslate"><span class="pre">10SFH</span></code>, inside its overlap with tile <code class="docutils literal notranslate"><span class="pre">10SFJ</span></code>, so every acquisition is returned twice, once per tile.</p></li>
+<li><p>Some scenes have been reprocessed by ESA with a newer processing baseline, and the catalog keeps both versions. For most dates between February 2022 and December 2023 you will find, for each tile, the original item (baseline <code class="docutils literal notranslate"><span class="pre">04.00</span></code> or <code class="docutils literal notranslate"><span class="pre">05.09</span></code>) and a reprocessed one (baseline <code class="docutils literal notranslate"><span class="pre">05.10</span></code>) with the same acquisition time.</p></li>
+</ul>
+<p>As a result, a search over this AOI returns about two-thirds more items for 2023 than for 2024, even though the satellites observed the lake on the same schedule. Every item property you need to sort this out (<code class="docutils literal notranslate"><span class="pre">s2:mgrs_tile</span></code>, <code class="docutils literal notranslate"><span class="pre">s2:processing_baseline</span></code>, <code class="docutils literal notranslate"><span class="pre">eo:cloud_cover</span></code>) is in the item metadata; look at it before you stack anything.</p>
+</section>
+<section id="from-digital-numbers-to-reflectance">
+<h3>From digital numbers to reflectance<a class="headerlink" href="#from-digital-numbers-to-reflectance" title="Permalink to this heading">#</a></h3>
+<p>Sentinel-2 L2A pixels are stored as integer digital numbers (DN). Since processing baseline <code class="docutils literal notranslate"><span class="pre">04.00</span></code> (introduced on January 25th, 2022), ESA adds an offset of 1000 to every reflectance DN, so that</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reflectance</span> <span class="o">=</span> <span class="p">(</span><span class="n">DN</span> <span class="o">-</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10000</span>    <span class="k">for</span> <span class="n">baseline</span> <span class="o">&gt;=</span> <span class="mf">04.00</span>
+<span class="n">reflectance</span> <span class="o">=</span> <span class="n">DN</span> <span class="o">/</span> <span class="mi">10000</span>             <span class="k">for</span> <span class="n">baseline</span> <span class="o">&lt;</span>  <span class="mf">04.00</span>
+</pre></div>
+</div>
+<p>The Planetary Computer items do not carry this scale and offset in their metadata, so stackstac cannot apply it for you; you have to apply it yourself, scene by scene, based on each item’s <code class="docutils literal notranslate"><span class="pre">s2:processing_baseline</span></code>. Do not skip this because NDWI is a ratio: the ratio cancels the scale, but not the offset. Ignoring the offset shifts NDWI for every scene from 2022 on, and subtracting it from a scene that does not have it pushes dark water below zero reflectance and flips the sign of its NDWI. Your series will still look plausible at a glance.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-and-area-of-interest">
+<h2>Data and area of interest<a class="headerlink" href="#data-and-area-of-interest" title="Permalink to this heading">#</a></h2>
+<p>Area of interest (AOI), given as a bounding box <code class="docutils literal notranslate"><span class="pre">(min_lon,</span> <span class="pre">min_lat,</span> <span class="pre">max_lon,</span> <span class="pre">max_lat)</span></code> in EPSG:4326:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">-</span><span class="mf">121.18</span><span class="p">,</span> <span class="mf">38.69</span><span class="p">,</span> <span class="o">-</span><span class="mf">121.04</span><span class="p">,</span> <span class="mf">38.81</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This box covers Folsom Lake and lies entirely inside MGRS tile <code class="docutils literal notranslate"><span class="pre">10SFH</span></code>, which is in UTM zone 10N (EPSG:32610). Use the period January 1st, 2019 to December 31st, 2025 for the imagery. Folsom Lake’s surface area at full pool is about 11,450 acres (about 46 km²), which you will use as a sanity check.</p>
+<p>Imagery comes from the Microsoft Planetary Computer STAC API (<code class="docutils literal notranslate"><span class="pre">https://planetarycomputer.microsoft.com/api/stac/v1</span></code>), collection <code class="docutils literal notranslate"><span class="pre">sentinel-2-l2a</span></code>, as in Lecture 13. Its assets are named by band number: green is <code class="docutils literal notranslate"><span class="pre">B03</span></code>, near infrared is <code class="docutils literal notranslate"><span class="pre">B08</span></code>, and the Scene Classification Layer is <code class="docutils literal notranslate"><span class="pre">SCL</span></code>.</p>
+<p>Precipitation comes from the NOAA Global Historical Climatology Network Daily (GHCN-D) archive on AWS (<code class="docutils literal notranslate"><span class="pre">s3://noaa-ghcn-pds</span></code>, public, no account needed), which you used in Lecture 14. This time, use the Parquet copy rather than the CSVs, which is partitioned by year and by element:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span><span class="p">:</span><span class="o">//</span><span class="n">noaa</span><span class="o">-</span><span class="n">ghcn</span><span class="o">-</span><span class="n">pds</span><span class="o">/</span><span class="n">parquet</span><span class="o">/</span><span class="n">by_year</span><span class="o">/</span><span class="n">YEAR</span><span class="o">=</span><span class="mi">2023</span><span class="o">/</span><span class="n">ELEMENT</span><span class="o">=</span><span class="n">PRCP</span><span class="o">/*.</span><span class="n">parquet</span>
+</pre></div>
+</div>
+<p>Station locations are in <code class="docutils literal notranslate"><span class="pre">https://noaa-ghcn-pds.s3.amazonaws.com/ghcnd-stations.txt</span></code> (a fixed-width text file), and the format, units, and quality flags of every variable are documented in <code class="docutils literal notranslate"><span class="pre">https://noaa-ghcn-pds.s3.amazonaws.com/readme.txt</span></code>. Read the readme before you write any code that touches the values.</p>
+</section>
+<hr class="docutils" />
+<section id="project-layout">
+<h2>Project layout<a class="headerlink" href="#project-layout" title="Permalink to this heading">#</a></h2>
+<p>Your <code class="docutils literal notranslate"><span class="pre">assignment-6/</span></code> directory must follow this layout:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">assignment</span><span class="o">-</span><span class="mi">6</span><span class="o">/</span>
+  <span class="n">pixi</span><span class="o">.</span><span class="n">toml</span>            <span class="n">environment</span><span class="p">,</span> <span class="n">dependencies</span><span class="p">,</span> <span class="ow">and</span> <span class="n">tasks</span>
+  <span class="n">pixi</span><span class="o">.</span><span class="n">lock</span>            <span class="n">locked</span> <span class="n">versions</span> <span class="p">(</span><span class="n">managed</span> <span class="n">by</span> <span class="n">pixi</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">gitignore</span>
+  <span class="n">src</span><span class="o">/</span>
+    <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>        <span class="n">makes</span> <span class="n">src</span> <span class="n">an</span> <span class="n">importable</span> <span class="n">package</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">py</span>           <span class="nb">all</span> <span class="n">analysis</span> <span class="n">functions</span>
+  <span class="n">notebooks</span><span class="o">/</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">ipynb</span>     <span class="n">imports</span> <span class="kn">from</span> <span class="nn">src.utils</span><span class="p">;</span> <span class="n">explores</span><span class="p">,</span> <span class="n">measures</span><span class="p">,</span> <span class="ow">and</span> <span class="n">plots</span> <span class="n">only</span>
+  <span class="n">tests</span><span class="o">/</span>
+    <span class="n">test_utils</span><span class="o">.</span><span class="n">py</span>      <span class="n">tests</span> <span class="k">for</span> <span class="n">the</span> <span class="n">functions</span> <span class="ow">in</span> <span class="n">src</span><span class="o">/</span><span class="n">utils</span><span class="o">.</span><span class="n">py</span>
+  <span class="n">results</span><span class="o">/</span>             <span class="n">exported</span> <span class="n">tables</span> <span class="ow">and</span> <span class="n">figures</span>
+  <span class="n">AGENTS</span><span class="o">.</span><span class="n">md</span>            <span class="n">guidance</span> <span class="k">for</span> <span class="n">the</span> <span class="n">agent</span>
+  <span class="n">README</span><span class="o">.</span><span class="n">md</span>            <span class="n">what</span> <span class="n">this</span> <span class="ow">is</span> <span class="ow">and</span> <span class="n">how</span> <span class="n">to</span> <span class="n">reproduce</span> <span class="n">it</span>
+  <span class="n">reflection</span><span class="o">.</span><span class="n">md</span>        <span class="n">your</span> <span class="n">written</span> <span class="n">reflection</span> <span class="p">(</span><span class="n">no</span> <span class="n">AI</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="the-memory-budget">
+<h2>The memory budget<a class="headerlink" href="#the-memory-budget" title="Permalink to this heading">#</a></h2>
+<div class="important admonition">
+<p class="admonition-title">Your pipeline must run within 4 GiB</p>
+<p>Start exactly one Dask cluster per notebook, at the top, with this configuration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">LocalCluster</span>
+
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">LocalCluster</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">threads_per_worker</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">memory_limit</span><span class="o">=</span><span class="s2">&quot;2GiB&quot;</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+<p>This is deliberately smaller than most laptops, so that the assignment runs the same way for everyone. Run this cell once. If you need a fresh cluster, restart the kernel rather than re-running the cell, and end your notebook with <code class="docutils literal notranslate"><span class="pre">client.close()</span></code> and <code class="docutils literal notranslate"><span class="pre">cluster.close()</span></code>. Keep the Dask dashboard open while you work; the memory bars per worker will tell you immediately when something is wrong.</p>
+</div>
+<p>If a worker is paused, restarted, or killed (you will see warnings such as “Worker is at 80% memory usage” or a <code class="docutils literal notranslate"><span class="pre">KilledWorker</span></code> error), do not raise the memory limit. Go back to the size formula above and find which term is larger than it needs to be, or which cell is computing something unreduced.</p>
+</section>
+<hr class="docutils" />
+<section id="part-0-reproducible-environment-5-pts">
+<h2>Part 0: Reproducible environment (5 pts)<a class="headerlink" href="#part-0-reproducible-environment-5-pts" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>From the root of your <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository, create the project <code class="docutils literal notranslate"><span class="pre">assignment-6</span></code> and initialize it with pixi.</p></li>
+<li><p>Set the platforms in <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> to <code class="docutils literal notranslate"><span class="pre">[&quot;osx-arm64&quot;,</span> <span class="pre">&quot;osx-64&quot;,</span> <span class="pre">&quot;linux-64&quot;]</span></code>.</p></li>
+<li><p>Add these packages: <code class="docutils literal notranslate"><span class="pre">pystac-client</span></code>, <code class="docutils literal notranslate"><span class="pre">planetary-computer</span></code>, <code class="docutils literal notranslate"><span class="pre">stackstac</span></code>, <code class="docutils literal notranslate"><span class="pre">xarray</span></code>, <code class="docutils literal notranslate"><span class="pre">dask</span></code>, <code class="docutils literal notranslate"><span class="pre">distributed</span></code>, <code class="docutils literal notranslate"><span class="pre">bokeh</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">pyarrow</span></code>, <code class="docutils literal notranslate"><span class="pre">s3fs</span></code>, <code class="docutils literal notranslate"><span class="pre">pyproj</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">jupyterlab</span></code>.</p></li>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">src/</span></code>, <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code>, <code class="docutils literal notranslate"><span class="pre">tests/</span></code>, and <code class="docutils literal notranslate"><span class="pre">results/</span></code> structure above, add <code class="docutils literal notranslate"><span class="pre">src/__init__.py</span></code>, and write a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> that says what the project does and gives the command(s) to reproduce it.</p></li>
+<li><p>Commit the scaffolding.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="part-1-the-imagery-time-series-by-hand-40-pts">
+<h2>Part 1: The imagery time series, by hand (40 pts)<a class="headerlink" href="#part-1-the-imagery-time-series-by-hand-40-pts" title="Permalink to this heading">#</a></h2>
+<p><em>Do not use the agent for this part. You are strictly prohibited from using agentic coding here.</em> Writing the imagery pipeline yourself is what lets you judge the agent’s Dask code in Part 2.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>, write and document these functions. All of them must stay lazy: none of them may call <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>, <code class="docutils literal notranslate"><span class="pre">.values</span></code>, <code class="docutils literal notranslate"><span class="pre">.load()</span></code>, or <code class="docutils literal notranslate"><span class="pre">.persist()</span></code>.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">search_items(bbox,</span> <span class="pre">start,</span> <span class="pre">end,</span> <span class="pre">max_cloud)</span></code>: search the Planetary Computer with <code class="docutils literal notranslate"><span class="pre">pystac-client</span></code> for <code class="docutils literal notranslate"><span class="pre">sentinel-2-l2a</span></code> items that intersect <code class="docutils literal notranslate"><span class="pre">bbox</span></code> between <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code>, keeping only items with <code class="docutils literal notranslate"><span class="pre">eo:cloud_cover</span></code> below <code class="docutils literal notranslate"><span class="pre">max_cloud</span></code>. Do the cloud filtering in the search itself (with the <code class="docutils literal notranslate"><span class="pre">query</span></code> argument of <code class="docutils literal notranslate"><span class="pre">Client.search</span></code>), not after the items have been downloaded. Return the item collection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dedupe_items(items,</span> <span class="pre">mgrs_tile)</span></code>: keep only items from the given MGRS tile (for example <code class="docutils literal notranslate"><span class="pre">&quot;10SFH&quot;</span></code>, matched against <code class="docutils literal notranslate"><span class="pre">s2:mgrs_tile</span></code>), and for each acquisition date keep only the item with the highest <code class="docutils literal notranslate"><span class="pre">s2:processing_baseline</span></code>. The baseline is stored as a string such as <code class="docutils literal notranslate"><span class="pre">&quot;05.10&quot;</span></code>; compare it as a number. Return the reduced list of items.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to_reflectance(stack)</span></code>: convert a stack of DNs to surface reflectance, scene by scene, as described in the background section, leaving the <code class="docutils literal notranslate"><span class="pre">scl</span></code> band unchanged. stackstac exposes each item’s <code class="docutils literal notranslate"><span class="pre">s2:processing_baseline</span></code> as a coordinate along <code class="docutils literal notranslate"><span class="pre">time</span></code>; use it rather than a hard-coded date.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stack_items(items,</span> <span class="pre">assets,</span> <span class="pre">bbox,</span> <span class="pre">resolution=20,</span> <span class="pre">epsg=32610)</span></code>: build a lazy reflectance stack with <code class="docutils literal notranslate"><span class="pre">stackstac.stack</span></code> that contains only the requested <code class="docutils literal notranslate"><span class="pre">assets</span></code>, is clipped to <code class="docutils literal notranslate"><span class="pre">bbox</span></code> with <code class="docutils literal notranslate"><span class="pre">bounds_latlon</span></code>, uses the given <code class="docutils literal notranslate"><span class="pre">resolution</span></code> and <code class="docutils literal notranslate"><span class="pre">epsg</span></code>, and uses <code class="docutils literal notranslate"><span class="pre">dtype=&quot;float32&quot;</span></code> with a <code class="docutils literal notranslate"><span class="pre">float32</span></code> NaN <code class="docutils literal notranslate"><span class="pre">fill_value</span></code>. Pass <code class="docutils literal notranslate"><span class="pre">rescale=False</span></code>: the items have no scale or offset metadata to apply, and stackstac refuses <code class="docutils literal notranslate"><span class="pre">rescale=True</span></code> together with <code class="docutils literal notranslate"><span class="pre">float32</span></code>. Take <code class="docutils literal notranslate"><span class="pre">assets</span></code> as common band names (<code class="docutils literal notranslate"><span class="pre">&quot;green&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;nir&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;scl&quot;</span></code>), map them to the asset keys (<code class="docutils literal notranslate"><span class="pre">B03</span></code>, <code class="docutils literal notranslate"><span class="pre">B08</span></code>, <code class="docutils literal notranslate"><span class="pre">SCL</span></code>), label the <code class="docutils literal notranslate"><span class="pre">band</span></code> dimension with the common names, and return the result of <code class="docutils literal notranslate"><span class="pre">to_reflectance</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mask_clouds(stack,</span> <span class="pre">bad_classes=(0,</span> <span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">8,</span> <span class="pre">9,</span> <span class="pre">10))</span></code>: use the Scene Classification Layer (<code class="docutils literal notranslate"><span class="pre">scl</span></code>) to set every pixel whose class is in <code class="docutils literal notranslate"><span class="pre">bad_classes</span></code> to NaN in the remaining bands. These classes are no data, saturated or defective, cloud shadow, cloud medium probability, cloud high probability, and thin cirrus (see the <a class="reference external" href="https://sentiwiki.copernicus.eu/web/s2-processing#S2Processing-ClassificationMaskGeneration">SCL table</a>). Return the masked stack without the <code class="docutils literal notranslate"><span class="pre">scl</span></code> band.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndwi(stack)</span></code>: compute the normalized difference water index, <code class="docutils literal notranslate"><span class="pre">(green</span> <span class="pre">-</span> <span class="pre">nir)</span> <span class="pre">/</span> <span class="pre">(green</span> <span class="pre">+</span> <span class="pre">nir)</span></code>, as a labeled <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">water_area(ndwi,</span> <span class="pre">threshold=0.0)</span></code>: for each time step, return a lazy <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> with two variables: <code class="docutils literal notranslate"><span class="pre">water_km2</span></code>, the area in square kilometers of pixels with NDWI above <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, and <code class="docutils literal notranslate"><span class="pre">valid_fraction</span></code>, the fraction of AOI pixels that are not NaN. Derive the pixel area from the array’s coordinates, not from a hard-coded number.</p></li>
+</ol>
+<p>In the notebook, use these functions to:</p>
+<ul class="simple">
+<li><p>Start the cluster as specified in the memory budget section and print the dashboard link.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">search_items</span></code> for the AOI and period with <code class="docutils literal notranslate"><span class="pre">max_cloud=40</span></code>, then <code class="docutils literal notranslate"><span class="pre">dedupe_items</span></code> for tile <code class="docutils literal notranslate"><span class="pre">10SFH</span></code>. Print the number of items before and after, and a small table of how many of the original items came from each tile and each processing baseline. In two or three sentences, explain what would have gone wrong in the time series if you had stacked the duplicates.</p></li>
+<li><p>Build the stack with <code class="docutils literal notranslate"><span class="pre">stack_items</span></code> using only the assets you need (<code class="docutils literal notranslate"><span class="pre">green</span></code>, <code class="docutils literal notranslate"><span class="pre">nir</span></code>, <code class="docutils literal notranslate"><span class="pre">scl</span></code>, that is <code class="docutils literal notranslate"><span class="pre">B03</span></code>, <code class="docutils literal notranslate"><span class="pre">B08</span></code>, <code class="docutils literal notranslate"><span class="pre">SCL</span></code>). Show its repr, its size in GiB (<code class="docutils literal notranslate"><span class="pre">stack.nbytes</span> <span class="pre">/</span> <span class="pre">2**30</span></code>), its chunk size, and its number of chunks, all without computing it.</p></li>
+<li><p>Chain <code class="docutils literal notranslate"><span class="pre">mask_clouds</span></code>, <code class="docutils literal notranslate"><span class="pre">ndwi</span></code>, and <code class="docutils literal notranslate"><span class="pre">water_area</span></code>, then compute the result. This is the only <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> on imagery in the whole time series step, and the result is two short 1-D arrays.</p></li>
+<li><p>Drop scenes with <code class="docutils literal notranslate"><span class="pre">valid_fraction</span></code> below 0.9. Plot water area against time as points, with the dropped scenes shown in a different marker, and overlay the monthly median water area of the kept scenes.</p></li>
+<li><p>Pick the dates of the minimum and maximum water area, compute only those two NDWI scenes, and map them side by side with the water mask outlined. Look at the maps critically: if a scene is not believable, find out why from its metadata.</p></li>
+<li><p>Compare your maximum water area to the full-pool area of about 46 km² and explain any difference in two or three sentences.</p></li>
+<li><p>Export the per-scene results to <code class="docutils literal notranslate"><span class="pre">results/water_area_scenes.csv</span></code> (columns <code class="docutils literal notranslate"><span class="pre">time,</span> <span class="pre">water_km2,</span> <span class="pre">valid_fraction,</span> <span class="pre">kept</span></code>).</p></li>
+</ul>
+<p>Commit <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code> and the current notebook.</p>
+</section>
+<hr class="docutils" />
+<section id="part-2-the-agentic-precipitation-pipeline-25-pts">
+<h2>Part 2: The agentic precipitation pipeline (25 pts)<a class="headerlink" href="#part-2-the-agentic-precipitation-pipeline-25-pts" title="Permalink to this heading">#</a></h2>
+<p>Now use GitHub Copilot in Agent mode, guided by an <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code> you write, to retrieve the precipitation record. The agent adds functions to <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>; your notebook imports them and visualizes the results. Review every change before accepting it. You own this code and these numbers.</p>
+<section id="write-your-agents-md">
+<h3>2.1 Write your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code><a class="headerlink" href="#write-your-agents-md" title="Permalink to this heading">#</a></h3>
+<p>Before prompting the agent, write <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code>. At a minimum it should tell the agent: this is a pixi-only project; all analysis functions go in <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code> and must be pure with no plotting; the notebook is for visualization only; do not create new files or edit <code class="docutils literal notranslate"><span class="pre">reflection.md</span></code>; the domain rules (GHCN-D Parquet on <code class="docutils literal notranslate"><span class="pre">s3://noaa-ghcn-pds</span></code> read anonymously, read only the years and columns needed, units and quality flags as documented in the GHCN-D readme); the memory rules (the cluster configuration is fixed, functions must return lazy Dask objects unless their result is small by construction, never call <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> on unreduced data); run tests with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code>; and a definition of done. Commit it.</p>
+</section>
+<section id="functions-for-the-agent-to-add">
+<h3>2.2 Functions for the agent to add<a class="headerlink" href="#functions-for-the-agent-to-add" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">load_stations(url)</span></code>: read <code class="docutils literal notranslate"><span class="pre">ghcnd-stations.txt</span></code> into a pandas DataFrame with at least the station ID, latitude, longitude, and name. (This file is small, so pandas is fine here.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stations_within(stations,</span> <span class="pre">lon,</span> <span class="pre">lat,</span> <span class="pre">radius_km)</span></code>: return the stations within <code class="docutils literal notranslate"><span class="pre">radius_km</span></code> of a point, with a <code class="docutils literal notranslate"><span class="pre">distance_km</span></code> column, sorted by distance. Distances must be geodesic (use <code class="docutils literal notranslate"><span class="pre">pyproj.Geod</span></code>), not computed in degrees.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_ghcn(element,</span> <span class="pre">years)</span></code>: return a lazy Dask DataFrame of one element (for example <code class="docutils literal notranslate"><span class="pre">&quot;PRCP&quot;</span></code>) for the given years, read from the Parquet copy with <code class="docutils literal notranslate"><span class="pre">dd.read_parquet</span></code> and only the columns you need. Inspect the schema (<code class="docutils literal notranslate"><span class="pre">ddf.dtypes</span></code>) before relying on column names or types.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">daily_values(ddf,</span> <span class="pre">station_ids)</span></code>: filter to the given stations, drop observations that failed quality control, convert values to physical units, and parse dates. Return a lazy Dask DataFrame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">completeness(daily,</span> <span class="pre">start,</span> <span class="pre">end)</span></code>: for each station, the fraction of days between <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> with a valid observation. The result is one number per station, so it is fine to return it computed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">monthly_totals(daily_station,</span> <span class="pre">min_fraction=0.9)</span></code>: monthly precipitation totals in mm for one station, set to NaN for months in which fewer than <code class="docutils literal notranslate"><span class="pre">min_fraction</span></code> of days have a valid observation.</p></li>
+</ul>
+</section>
+<section id="in-the-notebook-run-and-visualize">
+<h3>2.3 In the notebook, run and visualize<a class="headerlink" href="#in-the-notebook-run-and-visualize" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Find all stations within 30 km of the AOI centroid and list them with their distances.</p></li>
+<li><p>Load <code class="docutils literal notranslate"><span class="pre">PRCP</span></code> for the years needed to cover October 2018 to December 2025 (you need October to December 2018 to complete the first water year, see below), and compute the completeness of every candidate station over that period. Choose the station you will use, and justify the choice in one or two sentences.</p></li>
+<li><p>Filter the daily data to that one station, <code class="docutils literal notranslate"><span class="pre">repartition</span></code> it to a single partition, and <code class="docutils literal notranslate"><span class="pre">persist</span></code> it, as in Lecture 14. Then compute monthly totals.</p></li>
+<li><p>Make a two-panel figure with a shared time axis: monthly precipitation (bars) on top and monthly median water area on the bottom.</p></li>
+<li><p>Aggregate both records by water year (October 1st to September 30th, so water year 2023 runs from October 2022 to September 2023): total precipitation, and maximum monthly water area. Scatter one against the other for the water years your imagery fully covers, and label the points by water year.</p></li>
+<li><p>In three to five sentences, interpret the relationship, and name at least two reasons why precipitation at a single station is an imperfect predictor of the area of this reservoir.</p></li>
+<li><p>Export the monthly table to <code class="docutils literal notranslate"><span class="pre">results/folsom_monthly.csv</span></code> (columns <code class="docutils literal notranslate"><span class="pre">month,</span> <span class="pre">water_km2_median,</span> <span class="pre">n_scenes,</span> <span class="pre">prcp_mm</span></code>).</p></li>
+</ul>
+<div class="warning admonition">
+<p class="admonition-title">Own the data and the memory</p>
+<p>These mistakes run without error and produce plausible-looking numbers, or they work on your machine today and crash on someone else’s tomorrow. Watch for the agent: reading the CSVs or a whole year’s archive when only a few columns of one element are needed; calling <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> on the full DataFrame, or calling it inside a loop instead of once (or once with <code class="docutils literal notranslate"><span class="pre">dask.compute</span></code>); trusting <code class="docutils literal notranslate"><span class="pre">head()</span></code> as if it represented the whole dataset (it looks only at the first partition); leaving precipitation in its stored units (check the readme); keeping values that failed quality control; computing distances in degrees; and treating missing days as zero precipitation. Document at least two such mistakes you found and how you corrected them.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-memory-report-10-pts">
+<h2>Part 3: Memory report (10 pts)<a class="headerlink" href="#part-3-memory-report-10-pts" title="Permalink to this heading">#</a></h2>
+<p>Add a section to the notebook that measures what your pipeline costs, and save the figure to <code class="docutils literal notranslate"><span class="pre">results/memory.png</span></code>.</p>
+<ol class="arabic">
+<li><p>Build, but do not compute, a naive version of the Part 1 stack: all items from a search with no cloud filter and no deduplication; the assets <code class="docutils literal notranslate"><span class="pre">coastal,</span> <span class="pre">blue,</span> <span class="pre">green,</span> <span class="pre">red,</span> <span class="pre">rededge1,</span> <span class="pre">rededge2,</span> <span class="pre">rededge3,</span> <span class="pre">nir,</span> <span class="pre">nir08,</span> <span class="pre">nir09,</span> <span class="pre">swir16,</span> <span class="pre">swir22,</span> <span class="pre">scl</span></code> (asset keys <code class="docutils literal notranslate"><span class="pre">B01</span></code> to <code class="docutils literal notranslate"><span class="pre">B12</span></code>, <code class="docutils literal notranslate"><span class="pre">B8A</span></code>, and <code class="docutils literal notranslate"><span class="pre">SCL</span></code>); <code class="docutils literal notranslate"><span class="pre">resolution=10</span></code>; and no <code class="docutils literal notranslate"><span class="pre">dtype</span></code> argument. Call <code class="docutils literal notranslate"><span class="pre">stackstac.stack</span></code> directly for this; there is no need to convert it to reflectance. Report its number of time steps, its size in GiB, and its number of chunks next to the same numbers for your Part 1 stack, in one small table.</p></li>
+<li><p>Wrap the Part 1 <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> and the Part 2 completeness computation in a <code class="docutils literal notranslate"><span class="pre">MemorySampler</span></code> from <code class="docutils literal notranslate"><span class="pre">distributed.diagnostics</span></code>, and plot both memory traces:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distributed.diagnostics</span> <span class="kn">import</span> <span class="n">MemorySampler</span>
+
+<span class="n">ms</span> <span class="o">=</span> <span class="n">MemorySampler</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">ms</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;water area&quot;</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">water</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">ms</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">align</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>In three to five sentences: which single choice reduced the size of the stack the most, how the peak cluster memory compares with the 4 GiB budget and with the size of the lazy stack, and why the same reduction would still succeed on the naive stack, which is many times larger than the whole cluster’s memory.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="part-4-tests-and-quality-assurance-10-pts">
+<h2>Part 4: Tests and quality assurance (10 pts)<a class="headerlink" href="#part-4-tests-and-quality-assurance-10-pts" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pytest</span></code> to the project and define a <code class="docutils literal notranslate"><span class="pre">test</span></code> task so the suite runs with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code>.</p></li>
+<li><p>Write tests in <code class="docutils literal notranslate"><span class="pre">tests/test_utils.py</span></code> on small synthetic inputs where you know the answer. Tests must not touch the network. Include at least: <code class="docutils literal notranslate"><span class="pre">ndwi</span></code> on a hand-made array with known values; <code class="docutils literal notranslate"><span class="pre">mask_clouds</span></code> sets a pixel of SCL class 9 to NaN and keeps a pixel of class 4; <code class="docutils literal notranslate"><span class="pre">water_area</span></code> returns the expected area and valid fraction for a small array with a known number of water pixels at 20 m; <code class="docutils literal notranslate"><span class="pre">dedupe_items</span></code> keeps the right item from a few hand-built <code class="docutils literal notranslate"><span class="pre">pystac.Item</span></code> objects that differ in tile and processing baseline; <code class="docutils literal notranslate"><span class="pre">to_reflectance</span></code> gives the same reflectance for two hand-made scenes of the same surface, one with baseline <code class="docutils literal notranslate"><span class="pre">03.00</span></code> and one with baseline <code class="docutils literal notranslate"><span class="pre">04.00</span></code> (DNs 1000 higher), and leaves <code class="docutils literal notranslate"><span class="pre">scl</span></code> unchanged; <code class="docutils literal notranslate"><span class="pre">stations_within</span></code> keeps a point 10 km away and drops one 50 km away; and <code class="docutils literal notranslate"><span class="pre">monthly_totals</span></code> converts units correctly and returns NaN for a month with too many missing days (build the input with <code class="docutils literal notranslate"><span class="pre">dd.from_pandas</span></code>).</p></li>
+<li><p>The agent may help write tests, but verify each test is meaningful: it must fail if the function were wrong. Iterate until <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code> passes.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="part-5-reflection-10-pts">
+<h2>Part 5: Reflection (10 pts)<a class="headerlink" href="#part-5-reflection-10-pts" title="Permalink to this heading">#</a></h2>
+<p>Write <code class="docutils literal notranslate"><span class="pre">reflection.md</span></code> yourself, without AI assistance (300 to 500 words):</p>
+<ul class="simple">
+<li><p>Memory: what did the memory report show you, and if you had to run the same analysis for every reservoir in California over 40 years, which parts of your pipeline would you change first?</p></li>
+<li><p>The agent’s mistakes: describe the incorrect data handling or memory waste the agent produced, how you noticed it, and how writing Part 1 by hand helped you catch it.</p></li>
+<li><p>Retrieval design: GHCN-D is also available partitioned by station (<code class="docutils literal notranslate"><span class="pre">parquet/by_station/</span></code>). For which step of Part 2 would the by-station layout have been cheaper, and for which step did you need the by-year layout? Also, what does the <code class="docutils literal notranslate"><span class="pre">valid_fraction</span></code> filter fail to protect you from?</p></li>
+<li><p>Context engineering: how did your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code> shape the agent’s behavior, and what would you tighten next time?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="deliverables">
+<h2>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<p>Committed to your private <code class="docutils literal notranslate"><span class="pre">geog313-assignments</span></code> repository under <code class="docutils literal notranslate"><span class="pre">assignment-6/</span></code>, following the project layout above:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">pixi.lock</span></code>, <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code> with all analysis functions, and <code class="docutils literal notranslate"><span class="pre">src/__init__.py</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notebooks/analysis.ipynb</span></code>, executed, with all figures rendered on GitHub, importing from <code class="docutils literal notranslate"><span class="pre">src.utils</span></code> and containing visualization and measurement only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/test_utils.py</span></code>, with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">test</span></code> passing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">results/water_area_scenes.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">results/folsom_monthly.csv</span></code>, and <code class="docutils literal notranslate"><span class="pre">results/memory.png</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code>, <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, and <code class="docutils literal notranslate"><span class="pre">reflection.md</span></code> (written without AI).</p></li>
+<li><p>A commit history showing incremental, reviewed development.</p></li>
+</ul>
+<p>&nbsp;</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="a5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Assignment 5</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../files/open-science-101-v-1-0-0/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Open Science 101 Curriculum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-why-dask-workflows-run-out-of-memory">Background: why Dask workflows run out of memory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicate-items-in-the-planetary-computer-catalog">Duplicate items in the Planetary Computer catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-digital-numbers-to-reflectance">From digital numbers to reflectance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-area-of-interest">Data and area of interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-layout">Project layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-memory-budget">The memory budget</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-reproducible-environment-5-pts">Part 0: Reproducible environment (5 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-imagery-time-series-by-hand-40-pts">Part 1: The imagery time series, by hand (40 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-agentic-precipitation-pipeline-25-pts">Part 2: The agentic precipitation pipeline (25 pts)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-your-agents-md">2.1 Write your <code class="docutils literal notranslate"><span class="pre">AGENTS.md</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-for-the-agent-to-add">2.2 Functions for the agent to add</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-the-notebook-run-and-visualize">2.3 In the notebook, run and visualize</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-memory-report-10-pts">Part 3: Memory report (10 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-tests-and-quality-assurance-10-pts">Part 4: Tests and quality assurance (10 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-reflection-10-pts">Part 5: Reflection (10 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
