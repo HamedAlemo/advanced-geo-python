@@ -12,24 +12,37 @@ If you use the book content and want to contribute to it, or simply want to repo
 
 ## Note to Developers
 
+### Setting up the environment
+
+This repository uses [pixi](https://pixi.sh) to manage its environment. All dependencies are defined in `pixi.toml` and pinned in `pixi.lock`.
+
+1. [Install pixi](https://pixi.sh/latest/#installation)
+2. Clone this repository and `cd` into it
+3. Run `pixi install` to create the environment
+
 ### Building the book
 
-If you'd like to develop and/or build the Advanced Geospatial Analytics with Python book, you should:
+The following tasks are defined in `pixi.toml` and can be run from anywhere inside the repository:
 
-1. Clone this repository
-2. Run `pip install -r requirements.txt` (it is recommended you do this within a virtual environment)
-3. (Optional) Edit the books source files located in the `advanced-geo-python/` directory
-4. Run `jupyter-book clean advanced-geo-python/` to remove any existing builds
-5. Run `jupyter-book build advanced-geo-python/`
+| Task | Command it runs | Description |
+| --- | --- | --- |
+| `pixi run clean` | `jupyter-book clean advanced-geo-python/` (from the parent directory) | Removes any existing builds |
+| `pixi run build` | `jupyter-book build --all advanced-geo-python/` (from the parent directory) | Builds the book |
+| `pixi run publish` | `ghp-import -n -p -f _build/html` (from the repository root) | Pushes the built HTML to the `gh-pages` branch |
 
-A fully-rendered HTML version of the book will be built in `advanced-geo-python/_build/html/`.
+A fully-rendered HTML version of the book will be built in `_build/html/`. Since `build` and `clean` run from the parent directory, the repository folder must keep its default name, `advanced-geo-python`.
 
 ### Hosting the book
 
-Please see the [Jupyter Book documentation](https://jupyterbook.org/publish/web.html) to discover options for deploying a book online using services such as GitHub, GitLab, or Netlify.
+The book is hosted on GitHub Pages from the `gh-pages` branch. To publish an update:
 
-For GitHub and GitLab deployment specifically, the [cookiecutter-jupyter-book](https://github.com/executablebooks/cookiecutter-jupyter-book) includes templates for, and information about, optional continuous integration (CI) workflow files to help easily and automatically deploy books online with GitHub or GitLab. For example, if you chose `github` for the `include_ci` cookiecutter option, your book template was created with a GitHub actions workflow file that, once pushed to GitHub, automatically renders and pushes your book to the `gh-pages` branch of your repo and hosts it on GitHub Pages when a push or pull request is made to the main branch.
+```bash
+pixi run clean
+pixi run build
+pixi run publish
+```
 
+See the [Jupyter Book documentation](https://jupyterbook.org/publish/web.html) for other deployment options.
 
 ## Credits
 

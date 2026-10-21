@@ -1,0 +1,20 @@
+[workspace]
+name = "advanced-geo-python"
+description = "Advanced Geospatial Analytics with Python (Jupyter Book)"
+authors = ["Hamed Alemohammad"]
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "osx-64", "linux-64", "win-64"]
+
+[dependencies]
+python = "3.12.*"
+jupyter-book = ">=1.0,<2"
+matplotlib = "*"
+numpy = "*"
+ghp-import = "*"
+
+[tasks]
+# jupyter-book commands run from the parent directory, targeting this repo folder
+build = { cmd = "jupyter-book build --all advanced-geo-python/", cwd = ".." }
+clean = { cmd = "jupyter-book clean advanced-geo-python/", cwd = ".." }
+# Push the built HTML to the gh-pages branch (run `pixi run build` first)
+publish = "ghp-import -n -p -f _build/html"
