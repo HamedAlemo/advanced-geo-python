@@ -22,14 +22,14 @@ Draft Syllabus for the course:
 |	7	|	10/5/26	|	Intro to Dask	|	Yes	|		|
 |	7	|	10/8/26	|	Intro to Dask DataFrame	|		|		|
 |	7	|	10/12/26	|	**Fall Break (No Classes)**	|		|		|
-|	8	|	10/15/26	|	Working with Raster Data in Python	|		|	Assignment 6	|
+|	8	|	10/15/26	|	Working with Raster Data in Python	|		|		|
 |	9	|	10/19/26	|	Scaling Raster Data Analytics	|	Yes	|		|
-|	9	|	10/22/26	|	Scaling Raster Data Analytics - Part 2	|		|	Assignment 7	|
-|	10	|	10/26/26	|	Working with Vector Data in Python	|	Yes	|		|
-|	10	|	10/29/26	|	Scaling Vector Data Analytics 	|		|	Assignment 8	|
-|	11	|	11/2/26	|	Data Visualization	|	Yes	|		|
-|	11	|	11/5/26	|	Geospatial Workflows	|		|		|
-|	12	|	11/9/26	|	Geospatial Workflows-2	|		|		|
+|	9	|	10/22/26	|	Scaling Raster Data Analytics - Part 2	|		|	Assignment 6	|
+|	10	|	10/26/26	|	Scaling Raster Data Analytics - Part 3	|	Yes	|		|
+|	10	|	10/29/26	|	Working with Vector Data in Python	|		|		|
+|	11	|	11/2/26	|	Scaling Vector Data Analytics 	|	Yes	|	Assignment 7	|
+|	11	|	11/5/26	|	Data Visualization	|		|		|
+|	12	|	11/9/26	|	Geospatial Workflows	|		|		|
 |	12	|	11/12/26	|	Projects Proposal Presentation	|		|		|
 |	13	|	11/16/26	|	Projects	|		|	*Proposals due*	|
 |	13	|	11/19/26	|	Projects	|		|		|
