@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>13. Query and Stack Imagery into a GIF Using stackstac and Dask &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/13_stac_query_w_stackstac';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="12. Introduction to Dask" href="12_dask_array.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -449,10 +460,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="query-and-stack-imagery-into-a-gif-using-stackstac-and-dask">
-<h1><span class="section-number">13. </span>Query and Stack Imagery into a GIF Using stackstac and Dask<a class="headerlink" href="#query-and-stack-imagery-into-a-gif-using-stackstac-and-dask" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">13. </span>Query and Stack Imagery into a GIF Using stackstac and Dask<a class="headerlink" href="#query-and-stack-imagery-into-a-gif-using-stackstac-and-dask" title="Link to this heading">#</a></h1>
 <p><strong>Attribution</strong>: This tutorial is developed based on the <a class="reference external" href="https://stackstac.readthedocs.io/en/latest/examples/gif.html">example</a> provided in the stackstac documentation.</p>
 <p>We’ll load all the <a class="reference external" href="https://planetarycomputer.microsoft.com/dataset/landsat-8-c2-l2">Landsat-8 (Collection 2, Level 2)</a> data that’s available from <a class="reference external" href="https://planetarycomputer.microsoft.com/">Microsoft’s Planetary Computer</a> over a small region on the coast of <a class="reference external" href="https://www.google.com/maps/place/Chatham,+MA/&#64;41.7498076,-70.2026227,10.73z/data=!4m13!1m7!3m6!1s0x89fb15440149e94d:0x1f9c0efa001cb20b!2sCape+Cod!3b1!8m2!3d41.6687897!4d-70.2962408!3m4!1s0x89fb142168afbe53:0x714436ec7d485a53!8m2!3d41.6821432!4d-69.9597359">Cape Cod</a>, Massachusetts, USA.</p>
 <p>Using nothing but standard xarray syntax, we’ll mask cloudy pixels with the Landsat QA band and reduce the data down to biannual median composites. We will use Dask to make this much faster.</p>
@@ -460,13 +471,13 @@ document.write(`
 <p>You can access this notebook on this <a class="reference external" href="https://github.com/HamedAlemo/dask-tutorial">GitHub repo</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask</span>
-<span class="kn">import</span> <span class="nn">pystac_client</span>
-<span class="kn">import</span> <span class="nn">planetary_computer</span>
-<span class="kn">import</span> <span class="nn">leafmap</span>
-<span class="kn">import</span> <span class="nn">geogif</span>
-<span class="kn">import</span> <span class="nn">stackstac</span>
-<span class="kn">from</span> <span class="nn">rasterio.errors</span> <span class="kn">import</span> <span class="n">RasterioIOError</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">dask</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pystac_client</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">planetary_computer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">leafmap</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geogif</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">stackstac</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">RasterioIOError</span>
 </pre></div>
 </div>
 </div>
@@ -474,7 +485,7 @@ document.write(`
 <p>Start your Dask cluster:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">LocalCluster</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dask.distributed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">LocalCluster</span>
 <span class="n">dask_cluster</span> <span class="o">=</span> <span class="n">LocalCluster</span><span class="p">()</span>
 <span class="n">dask_client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">dask_cluster</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dask_client</span><span class="o">.</span><span class="n">dashboard_link</span><span class="p">)</span>
@@ -486,14 +497,14 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-05 13:44:54,986 - tornado.application - ERROR - Uncaught exception GET /status/ws (127.0.0.1)
-HTTPServerRequest(protocol=&#39;http&#39;, host=&#39;127.0.0.1:8787&#39;, method=&#39;GET&#39;, uri=&#39;/status/ws&#39;, version=&#39;HTTP/1.1&#39;, remote_ip=&#39;127.0.0.1&#39;)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8787', method='GET', uri='/status/ws', version='HTTP/1.1', remote_ip='127.0.0.1')
 Traceback (most recent call last):
-  File &quot;/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/tornado/websocket.py&quot;, line 965, in _accept_connection
+  File "/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/tornado/websocket.py", line 965, in _accept_connection
     open_result = handler.open(*handler.open_args, **handler.open_kwargs)
-  File &quot;/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/tornado/web.py&quot;, line 3546, in wrapper
+  File "/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/tornado/web.py", line 3546, in wrapper
     return method(self, *args, **kwargs)
-  File &quot;/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/bokeh/server/views/ws.py&quot;, line 167, in open
-    raise ProtocolError(&quot;Token is expired. Configure the app with a larger value for --session-token-expiration if necessary&quot;)
+  File "/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/bokeh/server/views/ws.py", line 167, in open
+    raise ProtocolError("Token is expired. Configure the app with a larger value for --session-token-expiration if necessary")
 bokeh.protocol.exceptions.ProtocolError: Token is expired. Configure the app with a larger value for --session-token-expiration if necessary
 </pre></div>
 </div>
@@ -502,14 +513,14 @@ bokeh.protocol.exceptions.ProtocolError: Token is expired. Configure the app wit
 <p>Interactively pick the area of interest from a map. Just move the map around and re-run all cells to generate the timeseries somewhere else!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">leafmap</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">leafmap</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">41.64933994767867</span><span class="p">,</span> <span class="o">-</span><span class="mf">69.94438630063088</span><span class="p">],</span> <span class="n">zoom</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="s2">&quot;600px&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;700px&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">41.64933994767867</span><span class="p">,</span> <span class="o">-</span><span class="mf">69.94438630063088</span><span class="p">],</span> <span class="n">zoom</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="s2">"600px"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">"700px"</span><span class="p">)</span>
 <span class="n">m</span>
 </pre></div>
 </div>
@@ -525,12 +536,12 @@ bokeh.protocol.exceptions.ProtocolError: Token is expired. Configure the app wit
 </div>
 </div>
 <section id="search-for-stac-items">
-<h2><span class="section-number">13.1. </span>Search for STAC items<a class="headerlink" href="#search-for-stac-items" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.1. </span>Search for STAC items<a class="headerlink" href="#search-for-stac-items" title="Link to this heading">#</a></h2>
 <p>Use <a class="reference external" href="https://github.com/stac-utils/pystac-client">pystac-client</a> to connect to Microsoft’s STAC API endpoint and search for Landsat-8 scenes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stac_catalog</span> <span class="o">=</span> <span class="n">pystac_client</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-    <span class="s2">&quot;https://planetarycomputer.microsoft.com/api/stac/v1&quot;</span><span class="p">,</span>
+    <span class="s2">"https://planetarycomputer.microsoft.com/api/stac/v1"</span><span class="p">,</span>
     <span class="n">modifier</span> <span class="o">=</span> <span class="n">planetary_computer</span><span class="o">.</span><span class="n">sign_inplace</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
@@ -540,9 +551,9 @@ bokeh.protocol.exceptions.ProtocolError: Token is expired. Configure the app wit
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stac_search_results</span> <span class="o">=</span> <span class="n">stac_catalog</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-    <span class="n">collections</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;landsat-c2-l2&#39;</span><span class="p">],</span>
+    <span class="n">collections</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'landsat-c2-l2'</span><span class="p">],</span>
     <span class="n">bbox</span> <span class="o">=</span> <span class="n">aoi_bbox</span><span class="p">,</span>
-    <span class="n">datetime</span> <span class="o">=</span> <span class="s2">&quot;2014-01-01/2026-01-01&quot;</span>
+    <span class="n">datetime</span> <span class="o">=</span> <span class="s2">"2014-01-01/2026-01-01"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -552,7 +563,7 @@ bokeh.protocol.exceptions.ProtocolError: Token is expired. Configure the app wit
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_items</span> <span class="o">=</span> <span class="n">stac_search_results</span><span class="o">.</span><span class="n">item_collection</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">landsat_items</span><span class="p">)</span><span class="si">}</span><span class="s2"> scenes are returned from the STAC catalog query&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">landsat_items</span><span class="p">)</span><span class="si">}</span><span class="s2"> scenes are returned from the STAC catalog query"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -575,7 +586,7 @@ bokeh.protocol.exceptions.ProtocolError: Token is expired. Configure the app wit
 </div>
 </section>
 <section id="create-an-xarray-with-stacksatc">
-<h2><span class="section-number">13.2. </span>Create an xarray with stacksatc<a class="headerlink" href="#create-an-xarray-with-stacksatc" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span>Create an xarray with stacksatc<a class="headerlink" href="#create-an-xarray-with-stacksatc" title="Link to this heading">#</a></h2>
 <p>Let’s first look at the metadata recoded in the item <code class="docutils literal notranslate"><span class="pre">properties</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -584,28 +595,28 @@ bokeh.protocol.exceptions.ProtocolError: Token is expired. Configure the app wit
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;gsd&#39;: 30,
- &#39;created&#39;: &#39;2026-01-05T09:21:23.823240Z&#39;,
- &#39;sci:doi&#39;: &#39;10.5066/P9OGBGM6&#39;,
- &#39;datetime&#39;: &#39;2025-12-30T15:21:20.611904Z&#39;,
- &#39;platform&#39;: &#39;landsat-9&#39;,
- &#39;proj:shape&#39;: [7911, 7801],
- &#39;description&#39;: &#39;Landsat Collection 2 Level-2&#39;,
- &#39;instruments&#39;: [&#39;oli&#39;, &#39;tirs&#39;],
- &#39;eo:cloud_cover&#39;: 45.28,
- &#39;proj:transform&#39;: [30.0, 0.0, 314985.0, 0.0, -30.0, 4741515.0],
- &#39;view:off_nadir&#39;: 0,
- &#39;landsat:wrs_row&#39;: &#39;031&#39;,
- &#39;landsat:scene_id&#39;: &#39;LC90110312025364LGN00&#39;,
- &#39;landsat:wrs_path&#39;: &#39;011&#39;,
- &#39;landsat:wrs_type&#39;: &#39;2&#39;,
- &#39;view:sun_azimuth&#39;: 159.94669841,
- &#39;landsat:correction&#39;: &#39;L2SP&#39;,
- &#39;view:sun_elevation&#39;: 22.48823942,
- &#39;landsat:cloud_cover_land&#39;: 17.7,
- &#39;landsat:collection_number&#39;: &#39;02&#39;,
- &#39;landsat:collection_category&#39;: &#39;T1&#39;,
- &#39;proj:code&#39;: &#39;EPSG:32619&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'gsd': 30,
+ 'created': '2026-01-05T09:21:23.823240Z',
+ 'sci:doi': '10.5066/P9OGBGM6',
+ 'datetime': '2025-12-30T15:21:20.611904Z',
+ 'platform': 'landsat-9',
+ 'proj:shape': [7911, 7801],
+ 'description': 'Landsat Collection 2 Level-2',
+ 'instruments': ['oli', 'tirs'],
+ 'eo:cloud_cover': 45.28,
+ 'proj:transform': [30.0, 0.0, 314985.0, 0.0, -30.0, 4741515.0],
+ 'view:off_nadir': 0,
+ 'landsat:wrs_row': '031',
+ 'landsat:scene_id': 'LC90110312025364LGN00',
+ 'landsat:wrs_path': '011',
+ 'landsat:wrs_type': '2',
+ 'view:sun_azimuth': 159.94669841,
+ 'landsat:correction': 'L2SP',
+ 'view:sun_elevation': 22.48823942,
+ 'landsat:cloud_cover_land': 17.7,
+ 'landsat:collection_number': '02',
+ 'landsat:collection_category': 'T1',
+ 'proj:code': 'EPSG:32619'}
 </pre></div>
 </div>
 </div>
@@ -614,7 +625,7 @@ bokeh.protocol.exceptions.ProtocolError: Token is expired. Configure the app wit
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">landsat_items</span><span class="p">:</span>
-    <span class="n">item</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;proj:epsg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;proj:code&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">"proj:epsg"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">"proj:code"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -627,8 +638,8 @@ bokeh.protocol.exceptions.ProtocolError: Token is expired. Configure the app wit
     <span class="n">landsat_items</span><span class="p">,</span>
     <span class="n">bounds_latlon</span> <span class="o">=</span> <span class="n">aoi_bbox</span><span class="p">,</span>
     <span class="n">errors_as_nodata</span><span class="o">=</span><span class="p">(</span>
-        <span class="n">RasterioIOError</span><span class="p">(</span><span class="s2">&quot;HTTP response code: 404&quot;</span><span class="p">),</span> 
-        <span class="n">RasterioIOError</span><span class="p">(</span><span class="s2">&quot;.*not recognized as being in a supported file format&quot;</span><span class="p">),</span>
+        <span class="n">RasterioIOError</span><span class="p">(</span><span class="s2">"HTTP response code: 404"</span><span class="p">),</span> 
+        <span class="n">RasterioIOError</span><span class="p">(</span><span class="s2">".*not recognized as being in a supported file format"</span><span class="p">),</span>
     <span class="p">)</span>
 <span class="p">)</span>
 <span class="n">landsat_stack</span>
@@ -2575,7 +2586,7 @@ Coordinates: (12/17)
 <p>You can replace them using the <code class="docutils literal notranslate"><span class="pre">common_name</span></code> field:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_stack</span> <span class="o">=</span> <span class="n">landsat_stack</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">band</span> <span class="o">=</span> <span class="n">landsat_stack</span><span class="o">.</span><span class="n">common_name</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">landsat_stack</span><span class="o">.</span><span class="n">band</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;band&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_stack</span> <span class="o">=</span> <span class="n">landsat_stack</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">band</span> <span class="o">=</span> <span class="n">landsat_stack</span><span class="o">.</span><span class="n">common_name</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">landsat_stack</span><span class="o">.</span><span class="n">band</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"band"</span><span class="p">))</span>
 <span class="n">landsat_stack</span><span class="o">.</span><span class="n">band</span>
 </pre></div>
 </div>
@@ -3216,7 +3227,7 @@ Coordinates: (12/17)
 <p>See how much input data there is for just RGB. This is the amount of data we’ll end up processing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_stack</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_stack</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="p">[</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"green"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -4412,7 +4423,7 @@ Attributes:
 </div>
 </section>
 <section id="mask-cloudy-pixels-using-the-qa-band">
-<h2><span class="section-number">13.3. </span>Mask cloudy pixels using the QA band<a class="headerlink" href="#mask-cloudy-pixels-using-the-qa-band" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.3. </span>Mask cloudy pixels using the QA band<a class="headerlink" href="#mask-cloudy-pixels-using-the-qa-band" title="Link to this heading">#</a></h2>
 <p>Use the bit values of the Landsat-8 QA band to mask out bad pixels. We’ll mask pixels labeled as dilated cloud, cirrus, cloud, or cloud shadow. (By “mask”, we mean just replacing those pixels with NaNs).</p>
 <p>See page 14 on <a class="reference external" href="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/files/LSDS-1619_Landsat-8-9-C2-L2-ScienceProductGuide-v4.pdf">this PDF</a> for the data table describing which bit means what.</p>
 <div class="cell docutils container">
@@ -4427,14 +4438,14 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0b11110&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'0b11110'
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qa</span> <span class="o">=</span> <span class="n">landsat_stack</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="s2">&quot;qa_pixel&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;uint16&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qa</span> <span class="o">=</span> <span class="n">landsat_stack</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="s2">"qa_pixel"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint16"</span><span class="p">)</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="n">qa</span> <span class="o">&amp;</span> <span class="n">bitmask</span>  <span class="c1"># just look at those 4 bits</span>
 
 <span class="n">landsat_cloud_free_stack</span> <span class="o">=</span> <span class="n">landsat_stack</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># mask pixels where any one of those bits are set</span>
@@ -4444,8 +4455,8 @@ Attributes:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What&#39;s the typical interval between scenes?</span>
-<span class="n">landsat_cloud_free_stack</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What's the typical interval between scenes?</span>
+<span class="n">landsat_cloud_free_stack</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="s2">"time"</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -4455,13 +4466,13 @@ Attributes:
 </div>
 </section>
 <section id="make-biannual-median-composites">
-<h2><span class="section-number">13.4. </span>Make biannual median composites<a class="headerlink" href="#make-biannual-median-composites" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.4. </span>Make biannual median composites<a class="headerlink" href="#make-biannual-median-composites" title="Link to this heading">#</a></h2>
 <p>The Landsat-8 scenes appear to typically be 5-15 days apart. Let’s composite that down to a 6-month interval.</p>
 <p>Since the cloudy pixels we masked with NaNs will be ignored in the <code class="docutils literal notranslate"><span class="pre">median</span></code>, this should give us a decent cloud-free-ish image for each.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make biannual median composites (`2Q` means 2 quarters)</span>
-<span class="n">landsat_composites_stack</span> <span class="o">=</span> <span class="n">landsat_cloud_free_stack</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;2Q&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">landsat_composites_stack</span> <span class="o">=</span> <span class="n">landsat_cloud_free_stack</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">"2Q"</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="s2">"time"</span><span class="p">)</span>
 <span class="n">landsat_composites_stack</span>
 </pre></div>
 </div>
@@ -5290,7 +5301,7 @@ Attributes:
 <p>Pick the red-green-blue bands to make a true-color image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_rgb_stack</span> <span class="o">=</span> <span class="n">landsat_composites_stack</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_rgb_stack</span> <span class="o">=</span> <span class="n">landsat_composites_stack</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="p">[</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"green"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">])</span>
 <span class="n">landsat_rgb_stack</span>
 </pre></div>
 </div>
@@ -6082,14 +6093,14 @@ Attributes:
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_cleaned_stack</span> <span class="o">=</span> <span class="n">landsat_rgb_stack</span><span class="o">.</span><span class="n">ffill</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landsat_cleaned_stack</span> <span class="o">=</span> <span class="n">landsat_rgb_stack</span><span class="o">.</span><span class="n">ffill</span><span class="p">(</span><span class="s2">"time"</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="render-the-gif">
-<h2><span class="section-number">13.5. </span>Render the GIF<a class="headerlink" href="#render-the-gif" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.5. </span>Render the GIF<a class="headerlink" href="#render-the-gif" title="Link to this heading">#</a></h2>
 <p>Use <a class="reference external" href="https://geogif.readthedocs.io/en/latest/">GeoGIF</a> to turn the stack into an animation. We’ll use <a class="reference external" href="https://geogif.readthedocs.io/en/latest/api.html#dask-dgif">dgif</a> to render the GIF on the cluster, so there’s less data to send back. (GIFs are a lot smaller than NumPy arrays!)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6119,9 +6130,9 @@ Attributes:
   return self.func(*new_argspec, **kwargs)
 /Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/dask/_task_spec.py:767: RuntimeWarning: All-NaN slice encountered
   return self.func(*new_argspec, **kwargs)
-/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/stackstac/rio_reader.py:329: UserWarning: Error opening &#39;https://landsateuwest.blob.core.windows.net/landsat-c2/level-2/standard/oli-tirs/2022/011/031/LC08_L2SP_011031_20220520_20220525_02_T1/LC08_L2SP_011031_20220520_20220525_02_T1_QA_PIXEL.TIF?st=2026-10-04T17%3A44%3A59Z&amp;se=2026-10-05T18%3A29%3A59Z&amp;sp=rl&amp;sv=2025-07-05&amp;sr=c&amp;skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&amp;sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;skt=2026-10-05T14%3A52%3A56Z&amp;ske=2026-10-12T14%3A52%3A56Z&amp;sks=b&amp;skv=2025-07-05&amp;sig=Gwzrgk5No4XVfE48wKsWFw7LgRRLzqLUuVvjDxxgiTA%3D&#39;: RasterioIOError(&quot;&#39;/vsicurl/https://landsateuwest.blob.core.windows.net/landsat-c2/level-2/standard/oli-tirs/2022/011/031/LC08_L2SP_011031_20220520_20220525_02_T1/LC08_L2SP_011031_20220520_20220525_02_T1_QA_PIXEL.TIF?st=2026-10-04T17%3A44%3A59Z&amp;se=2026-10-05T18%3A29%3A59Z&amp;sp=rl&amp;sv=2025-07-05&amp;sr=c&amp;skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&amp;sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;skt=2026-10-05T14%3A52%3A56Z&amp;ske=2026-10-12T14%3A52%3A56Z&amp;sks=b&amp;skv=2025-07-05&amp;sig=Gwzrgk5No4XVfE48wKsWFw7LgRRLzqLUuVvjDxxgiTA%3D&#39; not recognized as being in a supported file format.&quot;)
+/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/stackstac/rio_reader.py:329: UserWarning: Error opening 'https://landsateuwest.blob.core.windows.net/landsat-c2/level-2/standard/oli-tirs/2022/011/031/LC08_L2SP_011031_20220520_20220525_02_T1/LC08_L2SP_011031_20220520_20220525_02_T1_QA_PIXEL.TIF?st=2026-10-04T17%3A44%3A59Z&amp;se=2026-10-05T18%3A29%3A59Z&amp;sp=rl&amp;sv=2025-07-05&amp;sr=c&amp;skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&amp;sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;skt=2026-10-05T14%3A52%3A56Z&amp;ske=2026-10-12T14%3A52%3A56Z&amp;sks=b&amp;skv=2025-07-05&amp;sig=Gwzrgk5No4XVfE48wKsWFw7LgRRLzqLUuVvjDxxgiTA%3D': RasterioIOError("'/vsicurl/https://landsateuwest.blob.core.windows.net/landsat-c2/level-2/standard/oli-tirs/2022/011/031/LC08_L2SP_011031_20220520_20220525_02_T1/LC08_L2SP_011031_20220520_20220525_02_T1_QA_PIXEL.TIF?st=2026-10-04T17%3A44%3A59Z&amp;se=2026-10-05T18%3A29%3A59Z&amp;sp=rl&amp;sv=2025-07-05&amp;sr=c&amp;skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&amp;sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;skt=2026-10-05T14%3A52%3A56Z&amp;ske=2026-10-12T14%3A52%3A56Z&amp;sks=b&amp;skv=2025-07-05&amp;sig=Gwzrgk5No4XVfE48wKsWFw7LgRRLzqLUuVvjDxxgiTA%3D' not recognized as being in a supported file format.")
   warnings.warn(msg)
-/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/stackstac/rio_reader.py:329: UserWarning: Error opening &#39;https://landsateuwest.blob.core.windows.net/landsat-c2/level-2/standard/oli-tirs/2022/012/031/LC08_L2SP_012031_20221103_20221114_02_T1/LC08_L2SP_012031_20221103_20221114_02_T1_SR_B3.TIF?st=2026-10-04T17%3A44%3A59Z&amp;se=2026-10-05T18%3A29%3A59Z&amp;sp=rl&amp;sv=2025-07-05&amp;sr=c&amp;skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&amp;sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;skt=2026-10-05T14%3A52%3A56Z&amp;ske=2026-10-12T14%3A52%3A56Z&amp;sks=b&amp;skv=2025-07-05&amp;sig=Gwzrgk5No4XVfE48wKsWFw7LgRRLzqLUuVvjDxxgiTA%3D&#39;: RasterioIOError(&quot;&#39;/vsicurl/https://landsateuwest.blob.core.windows.net/landsat-c2/level-2/standard/oli-tirs/2022/012/031/LC08_L2SP_012031_20221103_20221114_02_T1/LC08_L2SP_012031_20221103_20221114_02_T1_SR_B3.TIF?st=2026-10-04T17%3A44%3A59Z&amp;se=2026-10-05T18%3A29%3A59Z&amp;sp=rl&amp;sv=2025-07-05&amp;sr=c&amp;skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&amp;sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;skt=2026-10-05T14%3A52%3A56Z&amp;ske=2026-10-12T14%3A52%3A56Z&amp;sks=b&amp;skv=2025-07-05&amp;sig=Gwzrgk5No4XVfE48wKsWFw7LgRRLzqLUuVvjDxxgiTA%3D&#39; not recognized as being in a supported file format.&quot;)
+/Users/hamed/git-repos/dask-tutorial/.pixi/envs/default/lib/python3.13/site-packages/stackstac/rio_reader.py:329: UserWarning: Error opening 'https://landsateuwest.blob.core.windows.net/landsat-c2/level-2/standard/oli-tirs/2022/012/031/LC08_L2SP_012031_20221103_20221114_02_T1/LC08_L2SP_012031_20221103_20221114_02_T1_SR_B3.TIF?st=2026-10-04T17%3A44%3A59Z&amp;se=2026-10-05T18%3A29%3A59Z&amp;sp=rl&amp;sv=2025-07-05&amp;sr=c&amp;skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&amp;sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;skt=2026-10-05T14%3A52%3A56Z&amp;ske=2026-10-12T14%3A52%3A56Z&amp;sks=b&amp;skv=2025-07-05&amp;sig=Gwzrgk5No4XVfE48wKsWFw7LgRRLzqLUuVvjDxxgiTA%3D': RasterioIOError("'/vsicurl/https://landsateuwest.blob.core.windows.net/landsat-c2/level-2/standard/oli-tirs/2022/012/031/LC08_L2SP_012031_20221103_20221114_02_T1/LC08_L2SP_012031_20221103_20221114_02_T1_SR_B3.TIF?st=2026-10-04T17%3A44%3A59Z&amp;se=2026-10-05T18%3A29%3A59Z&amp;sp=rl&amp;sv=2025-07-05&amp;sr=c&amp;skoid=9c8ff44a-6a2c-4dfb-b298-1c9212f64d9a&amp;sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;skt=2026-10-05T14%3A52%3A56Z&amp;ske=2026-10-12T14%3A52%3A56Z&amp;sks=b&amp;skv=2025-07-05&amp;sig=Gwzrgk5No4XVfE48wKsWFw7LgRRLzqLUuVvjDxxgiTA%3D' not recognized as being in a supported file format.")
   warnings.warn(msg)
 </pre></div>
 </div>
@@ -6139,7 +6150,7 @@ Wall time: 13min 17s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;13.24 MiB&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'13.24 MiB'
 </pre></div>
 </div>
 </div>
@@ -6157,7 +6168,7 @@ Wall time: 13min 17s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;cape_cod.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"cape_cod.gif"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">landsat_gif</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6191,11 +6202,10 @@ Wall time: 13min 17s
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="12_dask_array.html"
@@ -6215,23 +6225,23 @@ Wall time: 13min 17s
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-stac-items">13.1. Search for STAC items</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-xarray-with-stacksatc">13.2. Create an xarray with stacksatc</a></li>
@@ -6259,6 +6269,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -6285,8 +6296,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

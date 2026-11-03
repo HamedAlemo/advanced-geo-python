@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>19. Geospatial Vector Data in Python &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/19_vector_analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="18. Review of Geospatial Vector Data" href="18_vector.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -463,16 +474,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="geospatial-vector-data-in-python">
-<h1><span class="section-number">19. </span>Geospatial Vector Data in Python<a class="headerlink" href="#geospatial-vector-data-in-python" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">19. </span>Geospatial Vector Data in Python<a class="headerlink" href="#geospatial-vector-data-in-python" title="Link to this heading">#</a></h1>
 <p><strong>Attribution</strong>: Parts of this tutorial are developed based on the content from the following great sources: <a class="reference external" href="https://carpentries-incubator.github.io/geospatial-python/07-vector-data-in-python.html">Vector data in Python</a>; and <a class="reference external" href="https://geopandas.org/en/stable/getting_started/introduction.html">Introduction to GeoPandas</a>.</p>
 <p>In this lecture, you will learn how to interact with geospatial vector data in Python. In this lecture, our focus is on smaller datasets, and in the next one we will learn how to handle large datasets for scalable analysis.</p>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">GeoPandas</span></code> package to open, manipulate and write vector datasets.</p>
 <p>You can access this notebook (with a pixi environment) on this <a class="reference external" href="https://github.com/HamedAlemo/vector-data-tutorial">GitHub repo</a>.</p>
 <section id="intro-to-geopandas">
-<h2><span class="section-number">19.1. </span>Intro to GeoPandas<a class="headerlink" href="#intro-to-geopandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.1. </span>Intro to GeoPandas<a class="headerlink" href="#intro-to-geopandas" title="Link to this heading">#</a></h2>
 <div>
     <center>
     <img src="https://carpentries-incubator.github.io/geospatial-python/fig/E07/pandas_geopandas_relation.png" width="900"/>
@@ -488,18 +499,18 @@ document.write(`
 Only one <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code> in a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> is considered the <em>active</em> geometry, which means that all geometric operations applied to a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> operate on the <em>active</em> column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="kn">from</span> <span class="nn">cartopy</span> <span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>
-<span class="kn">import</span> <span class="nn">geodatasets</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cartopy</span><span class="w"> </span><span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geodatasets</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="reading-files">
-<h2><span class="section-number">19.2. </span>Reading Files<a class="headerlink" href="#reading-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.2. </span>Reading Files<a class="headerlink" href="#reading-files" title="Link to this heading">#</a></h2>
 <p>In this section, we use the <code class="docutils literal notranslate"><span class="pre">geodatasets</span></code> package to find and fetch example spatial datasets. <code class="docutils literal notranslate"><span class="pre">geodatasets</span></code> contains an API on top of a JSON with metadata of externally hosted datasets containing geospatial information useful for illustrative and educational purposes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2483,7 +2494,7 @@ ul.xyz-collapsible {
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;ny.bb&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">"ny.bb"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2568,7 +2579,7 @@ ul.xyz-collapsible {
 <p>You can also select to read only parts of the data using the <code class="docutils literal notranslate"><span class="pre">bbox</span></code>, <code class="docutils literal notranslate"><span class="pre">rows</span></code> or <code class="docutils literal notranslate"><span class="pre">mask</span></code> argument:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_partial_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;ny.bb&quot;</span><span class="p">),</span> <span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_partial_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">"ny.bb"</span><span class="p">),</span> <span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2654,21 +2665,21 @@ Datum: North American Datum 1983
 </div>
 </section>
 <section id="writing-files">
-<h2><span class="section-number">19.3. </span>Writing Files<a class="headerlink" href="#writing-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.3. </span>Writing Files<a class="headerlink" href="#writing-files" title="Link to this heading">#</a></h2>
 <p>You can write any <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> to local disk and set the format using the <code class="docutils literal notranslate"><span class="pre">driver</span></code> argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;nybb.geojson&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GeoJSON&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">"nybb.geojson"</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">"GeoJSON"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="constructing-a-geodataframe-manually">
-<h2><span class="section-number">19.4. </span>Constructing a GeoDataFrame manually<a class="headerlink" href="#constructing-a-geodataframe-manually" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.4. </span>Constructing a GeoDataFrame manually<a class="headerlink" href="#constructing-a-geodataframe-manually" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Point</span>
 </pre></div>
 </div>
 </div>
@@ -2676,9 +2687,9 @@ Datum: North American Datum 1983
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">points_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)],</span>
-    <span class="s1">&#39;attribute1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-    <span class="s1">&#39;attribute2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]})</span>
+    <span class="s1">'geometry'</span><span class="p">:</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)],</span>
+    <span class="s1">'attribute1'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="s1">'attribute2'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]})</span>
 </pre></div>
 </div>
 </div>
@@ -2732,15 +2743,15 @@ Datum: North American Datum 1983
 </div>
 </section>
 <section id="creating-a-geodataframe-from-an-existing-dataframe">
-<h2><span class="section-number">19.5. </span>Creating a GeoDataFrame from an existing dataframe<a class="headerlink" href="#creating-a-geodataframe-from-an-existing-dataframe" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.5. </span>Creating a GeoDataFrame from an existing dataframe<a class="headerlink" href="#creating-a-geodataframe-from-an-existing-dataframe" title="Link to this heading">#</a></h2>
 <p>Let’s create a <code class="docutils literal notranslate"><span class="pre">pandas</span> <span class="pre">DataFrame</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;City&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Buenos Aires&#39;</span><span class="p">,</span> <span class="s1">&#39;Brasilia&#39;</span><span class="p">,</span> <span class="s1">&#39;Santiago&#39;</span><span class="p">,</span> <span class="s1">&#39;Bogota&#39;</span><span class="p">,</span> <span class="s1">&#39;Caracas&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;Country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Argentina&#39;</span><span class="p">,</span> <span class="s1">&#39;Brazil&#39;</span><span class="p">,</span> <span class="s1">&#39;Chile&#39;</span><span class="p">,</span> <span class="s1">&#39;Colombia&#39;</span><span class="p">,</span> <span class="s1">&#39;Venezuela&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;Latitude&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">34.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">15.78</span><span class="p">,</span> <span class="o">-</span><span class="mf">33.45</span><span class="p">,</span> <span class="mf">4.60</span><span class="p">,</span> <span class="mf">10.48</span><span class="p">],</span>
-     <span class="s1">&#39;Longitude&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">58.66</span><span class="p">,</span> <span class="o">-</span><span class="mf">47.91</span><span class="p">,</span> <span class="o">-</span><span class="mf">70.66</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.08</span><span class="p">,</span> <span class="o">-</span><span class="mf">66.86</span><span class="p">]})</span>
+    <span class="p">{</span><span class="s1">'City'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Buenos Aires'</span><span class="p">,</span> <span class="s1">'Brasilia'</span><span class="p">,</span> <span class="s1">'Santiago'</span><span class="p">,</span> <span class="s1">'Bogota'</span><span class="p">,</span> <span class="s1">'Caracas'</span><span class="p">],</span>
+     <span class="s1">'Country'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Argentina'</span><span class="p">,</span> <span class="s1">'Brazil'</span><span class="p">,</span> <span class="s1">'Chile'</span><span class="p">,</span> <span class="s1">'Colombia'</span><span class="p">,</span> <span class="s1">'Venezuela'</span><span class="p">],</span>
+     <span class="s1">'Latitude'</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">34.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">15.78</span><span class="p">,</span> <span class="o">-</span><span class="mf">33.45</span><span class="p">,</span> <span class="mf">4.60</span><span class="p">,</span> <span class="mf">10.48</span><span class="p">],</span>
+     <span class="s1">'Longitude'</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">58.66</span><span class="p">,</span> <span class="o">-</span><span class="mf">47.91</span><span class="p">,</span> <span class="o">-</span><span class="mf">70.66</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.08</span><span class="p">,</span> <span class="o">-</span><span class="mf">66.86</span><span class="p">]})</span>
 </pre></div>
 </div>
 </div>
@@ -2832,7 +2843,7 @@ Datum: North American Datum 1983
 </div>
 </section>
 <section id="working-with-attributes">
-<h2><span class="section-number">19.6. </span>Working with Attributes<a class="headerlink" href="#working-with-attributes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.6. </span>Working with Attributes<a class="headerlink" href="#working-with-attributes" title="Link to this heading">#</a></h2>
 <p>All the attributes that are defined in <code class="docutils literal notranslate"><span class="pre">shapely</span></code> for objects, are available in <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code>. When you retrieve these from a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> however, you should note that they will be calculated based on the <em>active</em> geometry column.</p>
 <p><code class="docutils literal notranslate"><span class="pre">area</span></code>: shape area (units of projection – see projections)</p>
 <p><code class="docutils literal notranslate"><span class="pre">bounds</span></code>: tuple of max and min coordinates on each axis for each shape</p>
@@ -2847,16 +2858,16 @@ Datum: North American Datum 1983
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;BoroCode&#39;, &#39;BoroName&#39;, &#39;Shape_Leng&#39;, &#39;Shape_Area&#39;, &#39;geometry&#39;],
-      dtype=&#39;str&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index(['BoroCode', 'BoroName', 'Shape_Leng', 'Shape_Area', 'geometry'],
+      dtype='str')
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;boundary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="o">.</span><span class="n">boundary</span>
-<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;boundary&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"boundary"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="o">.</span><span class="n">boundary</span>
+<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"boundary"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2873,8 +2884,8 @@ Name: boundary, dtype: geometry
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;centroid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="o">.</span><span class="n">centroid</span>
-<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;centroid&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"centroid"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="o">.</span><span class="n">centroid</span>
+<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"centroid"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2981,7 +2992,7 @@ Name: centroid, dtype: geometry
 </div>
 </section>
 <section id="applying-basic-methods">
-<h2><span class="section-number">19.7. </span>Applying Basic Methods<a class="headerlink" href="#applying-basic-methods" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.7. </span>Applying Basic Methods<a class="headerlink" href="#applying-basic-methods" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">distance()</span></code>: returns a <code class="docutils literal notranslate"><span class="pre">Series</span></code> with minimum distance from each entry to a sample point.</p>
 <p><code class="docutils literal notranslate"><span class="pre">centroid</span></code>: returns a <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code> of centroids</p>
 <p><code class="docutils literal notranslate"><span class="pre">representative_point()</span></code>: returns a <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code> of points that are guaranteed to be within each geometry. It does NOT return centroids.</p>
@@ -2990,9 +3001,9 @@ Name: centroid, dtype: geometry
 <p>We can measure the distance of each centroid from the first centroid location:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_point</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;centroid&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;distance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;centroid&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">first_point</span><span class="p">)</span>
-<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;distance&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_point</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"centroid"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"distance"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"centroid"</span><span class="p">]</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">first_point</span><span class="p">)</span>
+<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"distance"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -3009,7 +3020,7 @@ Name: distance, dtype: float64
 </div>
 </section>
 <section id="plotting-geopandas">
-<h2><span class="section-number">19.8. </span>Plotting GeoPandas<a class="headerlink" href="#plotting-geopandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.8. </span>Plotting GeoPandas<a class="headerlink" href="#plotting-geopandas" title="Link to this heading">#</a></h2>
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, if you call the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method of <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> it will plot the active geometry column of it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3018,7 +3029,7 @@ Name: distance, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Easting [US survey foot]&#39;, ylabel=&#39;Northing [US survey foot]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel='Easting [US survey foot]', ylabel='Northing [US survey foot]'&gt;
 </pre></div>
 </div>
 <img alt="../_images/8a6957e4f4c99b749decfa58574cd2c192393e33d05aeab65a828fb7b0d951f7.png" src="../_images/8a6957e4f4c99b749decfa58574cd2c192393e33d05aeab65a828fb7b0d951f7.png" />
@@ -3027,19 +3038,19 @@ Name: distance, dtype: float64
 <p>You can customize this and plot specific attributes of the <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>. In the following, we will calculate the <code class="docutils literal notranslate"><span class="pre">area</span></code> of each object in the <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> and plot it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;area&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="o">.</span><span class="n">area</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"area"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="o">.</span><span class="n">area</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;area&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">"area"</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Easting [US survey foot]&#39;, ylabel=&#39;Northing [US survey foot]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel='Easting [US survey foot]', ylabel='Northing [US survey foot]'&gt;
 </pre></div>
 </div>
 <img alt="../_images/0bdec92d8a3d55a6996404f2f39cd63412772324f22fca5a1165c2987d5ec772.png" src="../_images/0bdec92d8a3d55a6996404f2f39cd63412772324f22fca5a1165c2987d5ec772.png" />
@@ -3048,7 +3059,7 @@ Name: distance, dtype: float64
 <p>There is also an interactive way to plot the data using the <code class="docutils literal notranslate"><span class="pre">explore</span></code> function. This uses folium/leaflet.js to plot the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">explore</span><span class="p">(</span><span class="s2">&quot;area&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">explore</span><span class="p">(</span><span class="s2">"area"</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3296,7 +3307,7 @@ Name: distance, dtype: float64
 <p>Now, let’s set  the centroid of each borough as the <em>active</em> geometry of the <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">&quot;centroid&quot;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">"centroid"</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3308,7 +3319,7 @@ Name: distance, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Easting [US survey foot]&#39;, ylabel=&#39;Northing [US survey foot]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel='Easting [US survey foot]', ylabel='Northing [US survey foot]'&gt;
 </pre></div>
 </div>
 <img alt="../_images/e56da13bbbc37f685d8a3438d39c0c9d10d84296bfe8247ea5f49877f3a0b4a0.png" src="../_images/e56da13bbbc37f685d8a3438d39c0c9d10d84296bfe8247ea5f49877f3a0b4a0.png" />
@@ -3322,9 +3333,9 @@ Name: distance, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;BoroCode&#39;, &#39;BoroName&#39;, &#39;Shape_Leng&#39;, &#39;Shape_Area&#39;, &#39;geometry&#39;,
-       &#39;boundary&#39;, &#39;centroid&#39;, &#39;distance&#39;, &#39;area&#39;],
-      dtype=&#39;str&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index(['BoroCode', 'BoroName', 'Shape_Leng', 'Shape_Area', 'geometry',
+       'boundary', 'centroid', 'distance', 'area'],
+      dtype='str')
 </pre></div>
 </div>
 </div>
@@ -3348,7 +3359,7 @@ Name: centroid, dtype: geometry
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -3367,7 +3378,7 @@ Name: geometry, dtype: geometry
 <p>Let’s set the geometry back to its original column</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">&quot;geometry&quot;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nybb_gdf</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">"geometry"</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3376,12 +3387,12 @@ Name: geometry, dtype: geometry
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">nybb_gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">&quot;centroid&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">nybb_gdf</span><span class="p">[</span><span class="s2">"centroid"</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Easting [US survey foot]&#39;, ylabel=&#39;Northing [US survey foot]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel='Easting [US survey foot]', ylabel='Northing [US survey foot]'&gt;
 </pre></div>
 </div>
 <img alt="../_images/7ba6dd1213a916994ea0fd17cdeb995381a2ec6a4ec6328e7bbaf8531622d105.png" src="../_images/7ba6dd1213a916994ea0fd17cdeb995381a2ec6a4ec6328e7bbaf8531622d105.png" />
@@ -3389,12 +3400,12 @@ Name: geometry, dtype: geometry
 </div>
 </section>
 <section id="plotting-with-cartopy-and-geopandas">
-<h2><span class="section-number">19.9. </span>Plotting with CartoPy and GeoPandas<a class="headerlink" href="#plotting-with-cartopy-and-geopandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.9. </span>Plotting with CartoPy and GeoPandas<a class="headerlink" href="#plotting-with-cartopy-and-geopandas" title="Link to this heading">#</a></h2>
 <p>Let’s load another dataset, and plot it with both <code class="docutils literal notranslate"><span class="pre">GeoPandas</span></code> and <code class="docutils literal notranslate"><span class="pre">CartoPy</span></code>. Our goal is to use the features of <code class="docutils literal notranslate"><span class="pre">CartoPy</span></code> to create a better visualization of the data in a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>.</p>
 <p>We are going to also transform the projection of a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> to a different crs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_url</span><span class="p">(</span><span class="s2">&quot;naturalearth.land&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_url</span><span class="p">(</span><span class="s2">"naturalearth.land"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -3406,7 +3417,7 @@ Name: geometry, dtype: geometry
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Geodetic longitude [degree]&#39;, ylabel=&#39;Geodetic latitude [degree]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel='Geodetic longitude [degree]', ylabel='Geodetic latitude [degree]'&gt;
 </pre></div>
 </div>
 <img alt="../_images/53512753324eb12d707a7cde3185e05e71d69f5447a7f09a3c375697dac3ce02.png" src="../_images/53512753324eb12d707a7cde3185e05e71d69f5447a7f09a3c375697dac3ce02.png" />
@@ -3472,7 +3483,7 @@ Datum: World Geodetic System 1984 ensemble
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Easting [metre]&#39;, ylabel=&#39;Northing [metre]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel='Easting [metre]', ylabel='Northing [metre]'&gt;
 </pre></div>
 </div>
 <img alt="../_images/90148e5998f5b2ceb193c0d8462ceb6d4c61e2672e65ef24f01b23aaca5d412c.png" src="../_images/90148e5998f5b2ceb193c0d8462ceb6d4c61e2672e65ef24f01b23aaca5d412c.png" />
@@ -3481,8 +3492,8 @@ Datum: World Geodetic System 1984 ensemble
 <p>We could have done this with CartoPy as well now that our data is in a crs understandable to CartoPy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">target_crs</span><span class="p">})</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">land_gdf_ae</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">target_crs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">"projection"</span><span class="p">:</span> <span class="n">target_crs</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">land_gdf_ae</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">target_crs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3495,7 +3506,7 @@ Datum: World Geodetic System 1984 ensemble
 </div>
 </section>
 <section id="merging-data">
-<h2><span class="section-number">19.10. </span>Merging Data<a class="headerlink" href="#merging-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.10. </span>Merging Data<a class="headerlink" href="#merging-data" title="Link to this heading">#</a></h2>
 <p>We can merge different <code class="docutils literal notranslate"><span class="pre">GeoPandas</span></code> datasets using <strong>attribute joins</strong> or <strong>spatial joins</strong>.</p>
 <p>In <strong>attribute join</strong>, a <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code> or <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> is merged with a regular <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> or <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> based on common variables (this is similar to merging in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>).</p>
 <p>In a <strong>spatial join</strong>, observations from two <code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code> or <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> are combined based on their spatial relationships to one another.</p>
@@ -5482,17 +5493,17 @@ ul.xyz-collapsible {
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chicago</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;geoda.chicago_commpop&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chicago</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">"geoda.chicago_commpop"</span><span class="p">))</span>
 
-<span class="n">groceries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;geoda.groceries&quot;</span><span class="p">))</span>
-
-
-<span class="n">chicago_shapes</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[[</span><span class="s1">&#39;geometry&#39;</span><span class="p">,</span> <span class="s1">&#39;NID&#39;</span><span class="p">]]</span>
-
-<span class="n">chicago_names</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[[</span><span class="s1">&#39;community&#39;</span><span class="p">,</span> <span class="s1">&#39;NID&#39;</span><span class="p">]]</span>
+<span class="n">groceries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">geodatasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">"geoda.groceries"</span><span class="p">))</span>
 
 
-<span class="n">chicago</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[[</span><span class="s1">&#39;geometry&#39;</span><span class="p">,</span> <span class="s1">&#39;community&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">groceries</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">chicago_shapes</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[[</span><span class="s1">'geometry'</span><span class="p">,</span> <span class="s1">'NID'</span><span class="p">]]</span>
+
+<span class="n">chicago_names</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[[</span><span class="s1">'community'</span><span class="p">,</span> <span class="s1">'NID'</span><span class="p">]]</span>
+
+
+<span class="n">chicago</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[[</span><span class="s1">'geometry'</span><span class="p">,</span> <span class="s1">'community'</span><span class="p">]]</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">groceries</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -5658,7 +5669,7 @@ ul.xyz-collapsible {
 </div></div></div>
 </div>
 <section id="appending">
-<h3><span class="section-number">19.10.1. </span>Appending<a class="headerlink" href="#appending" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">19.10.1. </span>Appending<a class="headerlink" href="#appending" title="Link to this heading">#</a></h3>
 <p>To append <code class="docutils literal notranslate"><span class="pre">GeoDataFrames</span></code> use pandas <code class="docutils literal notranslate"><span class="pre">concat()</span></code>. Keep in mind, that concatenated geometry columns need to have the same CRS.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5692,13 +5703,14 @@ Name: geometry, Length: 225, dtype: geometry
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/92a905532c2ba43eddb9ca52ea53714456363128d1586358105870bbb93b028e.svg" src="../_images/92a905532c2ba43eddb9ca52ea53714456363128d1586358105870bbb93b028e.svg" /></div>
+<img alt="../_images/92a905532c2ba43eddb9ca52ea53714456363128d1586358105870bbb93b028e.svg" src="../_images/92a905532c2ba43eddb9ca52ea53714456363128d1586358105870bbb93b028e.svg" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">douglas</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[</span><span class="n">chicago</span><span class="o">.</span><span class="n">community</span> <span class="o">==</span> <span class="s1">&#39;DOUGLAS&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">douglas</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[</span><span class="n">chicago</span><span class="o">.</span><span class="n">community</span> <span class="o">==</span> <span class="s1">'DOUGLAS'</span><span class="p">]</span>
 
-<span class="n">oakland</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[</span><span class="n">chicago</span><span class="o">.</span><span class="n">community</span> <span class="o">==</span> <span class="s1">&#39;OAKLAND&#39;</span><span class="p">]</span>
+<span class="n">oakland</span> <span class="o">=</span> <span class="n">chicago</span><span class="p">[</span><span class="n">chicago</span><span class="o">.</span><span class="n">community</span> <span class="o">==</span> <span class="s1">'OAKLAND'</span><span class="p">]</span>
 
 <span class="n">douglas_oakland</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">douglas</span><span class="p">,</span> <span class="n">oakland</span><span class="p">])</span>
 
@@ -5746,7 +5758,7 @@ Name: geometry, Length: 225, dtype: geometry
 </div>
 </section>
 <section id="attribute-joins">
-<h3><span class="section-number">19.10.2. </span>Attribute Joins<a class="headerlink" href="#attribute-joins" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">19.10.2. </span>Attribute Joins<a class="headerlink" href="#attribute-joins" title="Link to this heading">#</a></h3>
 <p>Attribute joins are accomplished using the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> method. We will use <code class="docutils literal notranslate"><span class="pre">chicago_shapes</span></code> and <code class="docutils literal notranslate"><span class="pre">chicago_names</span></code> which both have the NID attribute:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5868,7 +5880,7 @@ Name: geometry, Length: 225, dtype: geometry
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chicago_shapes</span> <span class="o">=</span> <span class="n">chicago_shapes</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">chicago_names</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;NID&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chicago_shapes</span> <span class="o">=</span> <span class="n">chicago_shapes</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">chicago_names</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'NID'</span><span class="p">)</span>
 
 <span class="n">chicago_shapes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -5947,12 +5959,12 @@ Name: geometry, Length: 225, dtype: geometry
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chicago_shapes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;NID&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chicago_shapes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">"NID"</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Geodetic longitude [degree]&#39;, ylabel=&#39;Geodetic latitude [degree]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel='Geodetic longitude [degree]', ylabel='Geodetic latitude [degree]'&gt;
 </pre></div>
 </div>
 <img alt="../_images/08d6187105fcfd54a2c3766f2f7676effc3c3cbb328e6ad48f0f9c5410bd04ba.png" src="../_images/08d6187105fcfd54a2c3766f2f7676effc3c3cbb328e6ad48f0f9c5410bd04ba.png" />
@@ -5960,7 +5972,7 @@ Name: geometry, Length: 225, dtype: geometry
 </div>
 </section>
 <section id="spatial-joins">
-<h3><span class="section-number">19.10.3. </span>Spatial Joins<a class="headerlink" href="#spatial-joins" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">19.10.3. </span>Spatial Joins<a class="headerlink" href="#spatial-joins" title="Link to this heading">#</a></h3>
 <p>In a spatial join, two geometry objects are merged based on their spatial relationship to one another.</p>
 <p><code class="docutils literal notranslate"><span class="pre">GeoPandas</span></code> provides two spatial-join functions:</p>
 <ul class="simple">
@@ -5968,7 +5980,7 @@ Name: geometry, Length: 225, dtype: geometry
 <li><p><code class="docutils literal notranslate"><span class="pre">GeoDataFrame.sjoin_nearest()</span></code>: joins based on proximity, with the ability to set a maximum search radius.</p></li>
 </ul>
 <section id="binary-predicate-joins">
-<h4><span class="section-number">19.10.3.1. </span>Binary predicate joins<a class="headerlink" href="#binary-predicate-joins" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">19.10.3.1. </span>Binary predicate joins<a class="headerlink" href="#binary-predicate-joins" title="Link to this heading">#</a></h4>
 <p>Binary predicate joins are available via <code class="docutils literal notranslate"><span class="pre">GeoDataFrame.sjoin()</span></code> which has two core arguments: <code class="docutils literal notranslate"><span class="pre">how</span></code> and <code class="docutils literal notranslate"><span class="pre">predicate</span></code>.</p>
 <p><strong>predicate</strong></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">predicate</span></code> argument specifies how <code class="docutils literal notranslate"><span class="pre">GeoPandas</span></code> decides whether or not to join the attributes of one object to another, based on their geometric relationship. The default spatial index in <code class="docutils literal notranslate"><span class="pre">GeoPandas</span></code> currently supports the following values for <code class="docutils literal notranslate"><span class="pre">predicate</span></code> which are defined in the Shapely documentation:</p>
@@ -6159,12 +6171,12 @@ Name: geometry, Length: 225, dtype: geometry
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">chicago</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">groceries</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">groceries</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Easting [US survey foot]&#39;, ylabel=&#39;Northing [US survey foot]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel='Easting [US survey foot]', ylabel='Northing [US survey foot]'&gt;
 </pre></div>
 </div>
 <img alt="../_images/7f3088f0adec1b783e53cafd2e7c299ee786efde33d84968a8645b0c16d01ecd.png" src="../_images/7f3088f0adec1b783e53cafd2e7c299ee786efde33d84968a8645b0c16d01ecd.png" />
@@ -6173,7 +6185,7 @@ Name: geometry, Length: 225, dtype: geometry
 <p>Now, we will use the groceries <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> to find communities from the chicago <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> that <code class="docutils literal notranslate"><span class="pre">intersect</span></code> with the geometries of each grocery store:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groceries_with_community</span> <span class="o">=</span> <span class="n">groceries</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">chicago</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;within&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groceries_with_community</span> <span class="o">=</span> <span class="n">groceries</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">chicago</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"inner"</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">'within'</span><span class="p">)</span>
 <span class="n">groceries_with_community</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -6281,7 +6293,7 @@ Name: geometry, Length: 225, dtype: geometry
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">community_with_groceries</span> <span class="o">=</span> <span class="n">chicago</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">groceries</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;contains&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">community_with_groceries</span> <span class="o">=</span> <span class="n">chicago</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">groceries</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"inner"</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">'contains'</span><span class="p">)</span>
 <span class="n">community_with_groceries</span>
 </pre></div>
 </div>
@@ -6469,7 +6481,7 @@ Name: geometry, Length: 225, dtype: geometry
 <p><strong>Question:</strong> If we use <code class="docutils literal notranslate"><span class="pre">left</span></code> as the value for <code class="docutils literal notranslate"><span class="pre">how</span></code> in the <code class="docutils literal notranslate"><span class="pre">sjoin()</span></code> method, how will the result be different?</p>
 </section>
 <section id="nearest-joins">
-<h4><span class="section-number">19.10.3.2. </span>Nearest joins<a class="headerlink" href="#nearest-joins" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">19.10.3.2. </span>Nearest joins<a class="headerlink" href="#nearest-joins" title="Link to this heading">#</a></h4>
 <p>Proximity-based joins can be done via <code class="docutils literal notranslate"><span class="pre">GeoDataFrame.sjoin_nearest()</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">GeoDataFrame.sjoin_nearest()</span></code> shares the how argument with <code class="docutils literal notranslate"><span class="pre">GeoDataFrame.sjoin()</span></code>, and includes two additional arguments: <code class="docutils literal notranslate"><span class="pre">max_distance</span></code> and <code class="docutils literal notranslate"><span class="pre">distance_col</span></code>.</p>
 <p><strong>max_distance</strong></p>
@@ -6506,11 +6518,10 @@ Name: geometry, Length: 225, dtype: geometry
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="18_vector.html"
@@ -6530,23 +6541,23 @@ Name: geometry, Length: 225, dtype: geometry
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-geopandas">19.1. Intro to GeoPandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-files">19.2. Reading Files</a></li>
@@ -6588,6 +6599,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -6614,8 +6626,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

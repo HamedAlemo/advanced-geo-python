@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7. Xarray Interpolation, Groupby, Resample, Rolling, and Coarsen &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/07_xarray_advanced';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="6. Xarray Fundamentals" href="06_xarray_fundamentals.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -461,24 +472,24 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="xarray-interpolation-groupby-resample-rolling-and-coarsen">
-<h1><span class="section-number">7. </span>Xarray Interpolation, Groupby, Resample, Rolling, and Coarsen<a class="headerlink" href="#xarray-interpolation-groupby-resample-rolling-and-coarsen" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">7. </span>Xarray Interpolation, Groupby, Resample, Rolling, and Coarsen<a class="headerlink" href="#xarray-interpolation-groupby-resample-rolling-and-coarsen" title="Link to this heading">#</a></h1>
 <p><strong>Attribution</strong>: This notebook is a revision of the <a class="reference external" href="https://earth-env-data-science.github.io/lectures/xarray/xarray-part2.html">Xarray Interpolation, Groupby, Resample, Rolling, and Coarsen notebook</a> by Ryan Abernathey from <a class="reference external" href="https://earth-env-data-science.github.io/intro.html">An Introduction to Earth and Environmental Data Science</a>. Thanks to Aiyin Zhang for preparing this notebook.</p>
 <p>In this lesson, we cover some more advanced aspects of <code class="docutils literal notranslate"><span class="pre">xarray</span></code>.</p>
 <p>You can access this notebook (in a Docker image) on this <a class="reference external" href="https://github.com/HamedAlemo/xarray-tutorial">GitHub repo</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="interpolation">
-<h2><span class="section-number">7.1. </span>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.1. </span>Interpolation<a class="headerlink" href="#interpolation" title="Link to this heading">#</a></h2>
 <p>In the previous lesson on <code class="docutils literal notranslate"><span class="pre">xarray</span></code>, we learned how to select data based on its dimension coordinates and align data with dimension different coordinates.
 But what if we want to estimate the value of the data variables at <em>different coordinates</em>.
 This is where interpolation comes in.</p>
@@ -486,7 +497,7 @@ This is where interpolation comes in.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we write it out explicitly so we can see each point.</span>
 <span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">x_data</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x_data</span><span class="p">})</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">x_data</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">],</span> <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">'x'</span><span class="p">:</span> <span class="n">x_data</span><span class="p">})</span>
 <span class="n">f</span>
 </pre></div>
 </div>
@@ -1041,7 +1052,7 @@ Coordinates:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1623,13 +1634,13 @@ But what if we wanted to estimate the value at, say, 4.5?</p>
 <span class="g g-Whitespace">   </span><span class="mi">3642</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
 <span class="nn">File pandas/_libs/index.pyx:168,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-<span class="ne">--&gt; </span><span class="mi">168</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">168</span> <span class="s1">'Could not get source, probably due dynamically evaluated source code.'</span>
 
 <span class="nn">File pandas/_libs/index.pyx:176,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-<span class="ne">--&gt; </span><span class="mi">176</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">176</span> <span class="s1">'Could not get source, probably due dynamically evaluated source code.'</span>
 
 <span class="nn">File pandas/_libs/index_class_helper.pxi:70,</span> in <span class="ni">pandas._libs.index.Int64Engine._check_type</span><span class="nt">()</span>
-<span class="ne">---&gt; </span><span class="mi">70</span> <span class="s1">&#39;Could not get source, probably due dynamically evaluated source code.&#39;</span>
+<span class="ne">---&gt; </span><span class="mi">70</span> <span class="s1">'Could not get source, probably due dynamically evaluated source code.'</span>
 
 <span class="ne">KeyError</span>: 4.5
 
@@ -1642,8 +1653,8 @@ But what if we wanted to estimate the value at, say, 4.5?</p>
 <span class="g g-Whitespace">    </span><span class="mi">879</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
 <span class="nn">File ~/Desktop/xarray-tutorial/.pixi/envs/default/lib/python3.13/site-packages/pandas/core/indexes/base.py:3648,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3647</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="ne">-&gt; </span><span class="mi">3648</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3647</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
+<span class="ne">-&gt; </span><span class="mi">3648</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
 <span class="g g-Whitespace">   </span><span class="mi">3649</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">3650</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
 <span class="g g-Whitespace">   </span><span class="mi">3651</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
@@ -1658,16 +1669,16 @@ But what if we wanted to estimate the value at, say, 4.5?</p>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">f</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.5</span><span class="p">)</span>
 
 <span class="nn">File ~/Desktop/xarray-tutorial/.pixi/envs/default/lib/python3.13/site-packages/xarray/core/dataarray.py:1729,</span> in <span class="ni">DataArray.sel</span><span class="nt">(self, indexers, method, tolerance, drop, **indexers_kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1613</span> <span class="k">def</span> <span class="nf">sel</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1613</span> <span class="k">def</span><span class="w"> </span><span class="nf">sel</span><span class="p">(</span>
 <span class="g g-Whitespace">   </span><span class="mi">1614</span>     <span class="bp">self</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">1615</span>     <span class="n">indexers</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1619</span>     <span class="o">**</span><span class="n">indexers_kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">1620</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1621</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a new DataArray whose data is given by selecting index</span>
+<span class="g g-Whitespace">   </span><span class="mi">1621</span><span class="w">     </span><span class="sd">"""Return a new DataArray whose data is given by selecting index</span>
 <span class="g g-Whitespace">   </span><span class="mi">1622</span><span class="sd">     labels along the specified dimension(s).</span>
 <span class="g g-Whitespace">   </span><span class="mi">1623</span><span class="sd"> </span>
 <span class="sd">   (...)   1727     Dimensions without coordinates: points</span>
-<span class="g g-Whitespace">   </span><span class="mi">1728</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1728</span><span class="sd">     """</span>
 <span class="ne">-&gt; </span><span class="mi">1729</span>     <span class="n">ds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_to_temp_dataset</span><span class="p">()</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
 <span class="g g-Whitespace">   </span><span class="mi">1730</span>         <span class="n">indexers</span><span class="o">=</span><span class="n">indexers</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">1731</span>         <span class="n">drop</span><span class="o">=</span><span class="n">drop</span><span class="p">,</span>
@@ -1680,8 +1691,8 @@ But what if we wanted to estimate the value at, say, 4.5?</p>
 <span class="nn">File ~/Desktop/xarray-tutorial/.pixi/envs/default/lib/python3.13/site-packages/xarray/core/dataset.py:3073,</span> in <span class="ni">Dataset.sel</span><span class="nt">(self, indexers, method, tolerance, drop, **indexers_kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3069</span>             <span class="n">Tutorial</span> <span class="n">material</span> <span class="n">on</span> <span class="n">basics</span> <span class="n">of</span> <span class="n">indexing</span>
 <span class="g g-Whitespace">   </span><span class="mi">3070</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3071</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">3072</span><span class="s2">         indexers = either_dict_or_kwargs(indexers, indexers_kwargs, &quot;sel&quot;)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3071</span>         <span class="s2">"""</span>
+<span class="g g-Whitespace">   </span><span class="mi">3072</span><span class="s2">         indexers = either_dict_or_kwargs(indexers, indexers_kwargs, "sel")</span>
 <span class="ne">-&gt; </span><span class="mi">3073</span><span class="s2">         query_results = map_index_queries(</span>
 <span class="g g-Whitespace">   </span><span class="mi">3074</span><span class="s2">             self, indexers=indexers, method=method, tolerance=tolerance</span>
 <span class="g g-Whitespace">   </span><span class="mi">3075</span><span class="s2">         )</span>
@@ -1700,13 +1711,13 @@ But what if we wanted to estimate the value at, say, 4.5?</p>
 <span class="g g-Whitespace">    </span><span class="mi">878</span><span class="s2">             indexer = self.index.get_loc(label_value)</span>
 <span class="g g-Whitespace">    </span><span class="mi">879</span><span class="s2">         except KeyError as e:</span>
 <span class="ne">--&gt; </span><span class="mi">880</span><span class="s2">             raise KeyError(</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span><span class="s2">                 f&quot;not all values found in index </span><span class="si">{coord_name!r}</span><span class="s2">. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">882</span><span class="s2">                 &quot;Try setting the `method` keyword argument (example: method=&#39;nearest&#39;).&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span><span class="s2">                 f"not all values found in index </span><span class="si">{coord_name!r}</span><span class="s2">. "</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span><span class="s2">                 "Try setting the `method` keyword argument (example: method='nearest')."</span>
 <span class="g g-Whitespace">    </span><span class="mi">883</span><span class="s2">             ) from e</span>
-<span class="g g-Whitespace">    </span><span class="mi">885</span><span class="s2"> elif label_array.dtype.kind == &quot;b&quot;:</span>
+<span class="g g-Whitespace">    </span><span class="mi">885</span><span class="s2"> elif label_array.dtype.kind == "b":</span>
 <span class="g g-Whitespace">    </span><span class="mi">886</span><span class="s2">     indexer = label_array</span>
 
-<span class="ne">KeyError</span>: &quot;not all values found in index &#39;x&#39;. Try setting the `method` keyword argument (example: method=&#39;nearest&#39;).&quot;
+<span class="ne">KeyError</span>: "not all values found in index 'x'. Try setting the `method` keyword argument (example: method='nearest')."
 </pre></div>
 </div>
 </div>
@@ -2270,7 +2281,7 @@ Coordinates:
 There are different modes of interpolation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
@@ -2282,7 +2293,7 @@ There are different modes of interpolation.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'nearest'</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
@@ -2294,7 +2305,7 @@ There are different modes of interpolation.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'cubic'</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
@@ -2308,11 +2319,11 @@ There are different modes of interpolation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_new</span> <span class="o">=</span> <span class="n">x_data</span> <span class="o">+</span> <span class="mf">0.5</span>
-<span class="n">f_interp_linear</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_new</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
-<span class="n">f_interp_cubic</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_new</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;original&#39;</span><span class="p">)</span>
-<span class="n">f_interp_linear</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
-<span class="n">f_interp_cubic</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="n">f_interp_linear</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_new</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
+<span class="n">f_interp_cubic</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_new</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'cubic'</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'original'</span><span class="p">)</span>
+<span class="n">f_interp_linear</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
+<span class="n">f_interp_cubic</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'cubic'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2348,7 +2359,7 @@ More sophisticated treatment of spherical geometry requires another package such
 </div>
 </section>
 <section id="loading-data-from-netcdf-files">
-<h2><span class="section-number">7.2. </span>Loading Data from NetCDF Files<a class="headerlink" href="#loading-data-from-netcdf-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.2. </span>Loading Data from NetCDF Files<a class="headerlink" href="#loading-data-from-netcdf-files" title="Link to this heading">#</a></h2>
 <p>NetCDF (Network Common Data Format) is the most widely used format for distributing geoscience data. NetCDF is maintained by the <a class="reference external" href="https://www.unidata.ucar.edu/">Unidata</a> organization.</p>
 <p>Below we quote from the <a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/docs/faq.html#whatisit">NetCDF website</a>:</p>
 <blockquote>
@@ -2367,19 +2378,19 @@ More sophisticated treatment of spherical geometry requires another package such
 <p>Below we download and load some the NASA <a class="reference external" href="https://data.giss.nasa.gov/gistemp/">GISSTemp</a> global temperature anomaly dataset. The original file is located at https://data.giss.nasa.gov/pub/gistemp/gistemp1200_GHCNv4_ERSSTv5.nc.gz.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pooch</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pooch</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gis_temp_url</span> <span class="o">=</span> <span class="s1">&#39;https://data.giss.nasa.gov/pub/gistemp/gistemp1200_GHCNv4_ERSSTv5.nc.gz&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gis_temp_url</span> <span class="o">=</span> <span class="s1">'https://data.giss.nasa.gov/pub/gistemp/gistemp1200_GHCNv4_ERSSTv5.nc.gz'</span>
 
 <span class="n">gis_temp_file</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
     <span class="n">gis_temp_url</span><span class="p">,</span>
     <span class="n">processor</span><span class="o">=</span><span class="n">pooch</span><span class="o">.</span><span class="n">Decompress</span><span class="p">(),</span>
-    <span class="n">known_hash</span><span class="o">=</span><span class="s2">&quot;6a597332bcefbe0fbe5a6ce7677a9012fa766cc43cea291d6207c12db2fe0cc6&quot;</span>
+    <span class="n">known_hash</span><span class="o">=</span><span class="s2">"6a597332bcefbe0fbe5a6ce7677a9012fa766cc43cea291d6207c12db2fe0cc6"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -2993,7 +3004,7 @@ Attributes:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gis_temp</span><span class="o">.</span><span class="n">tempanomaly</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gis_temp</span><span class="o">.</span><span class="n">tempanomaly</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">'lon'</span><span class="p">,</span> <span class="s1">'lat'</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -3005,7 +3016,7 @@ Attributes:
 <p>Let’s visualize the temperature anomally for the grid near Worcester. (Worcester’s coordinates: latitude: 42.2626; longtitude: -71.8023)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gis_temp</span><span class="o">.</span><span class="n">tempanomaly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">42.2626</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">71.8023</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gis_temp</span><span class="o">.</span><span class="n">tempanomaly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">42.2626</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">71.8023</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'nearest'</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -3017,23 +3028,23 @@ Attributes:
 <p>Note that you need to define <code class="docutils literal notranslate"><span class="pre">method</span></code> since the corresponding values for Worcester latitude and longitude do not exist in the <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>’s coordinates.</p>
 </section>
 <section id="groupby">
-<h2><span class="section-number">7.3. </span>Groupby<a class="headerlink" href="#groupby" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.3. </span>Groupby<a class="headerlink" href="#groupby" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">xarray</span></code> copies <code class="docutils literal notranslate"><span class="pre">pandas'</span></code> very useful groupby functionality, enabling the “split / apply / combine” workflow on <code class="docutils literal notranslate"><span class="pre">xarray</span></code> <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>s and <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>s. In the first part of the lesson, we will learn to use groupby by analyzing sea-surface temperature data.</p>
 <p>First we load a dataset. We will use the <a class="reference external" href="https://www.ncei.noaa.gov/products/extended-reconstructed-sst">NOAA Extended Reconstructed Sea Surface Temperature (ERSST) v5</a> product, a widely used and trusted gridded compilation of historical data going back to 1854.</p>
 <p>Since the data is provided via an <a class="reference external" href="https://en.wikipedia.org/wiki/OPeNDAP">OPeNDAP</a> server, we can load it directly without downloading anything:</p>
 <p>The code to this would have been:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst_url</span> <span class="o">=</span> <span class="s1">&#39;https://psl.noaa.gov/thredds/fileServer/Datasets/noaa.ersst.v6/sst.mnmean.nc&#39;</span>
-<span class="n">noaa_sst</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">noaa_sst_url</span><span class="p">,</span> <span class="n">drop_variables</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time_bnds&#39;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst_url</span> <span class="o">=</span> <span class="s1">'https://psl.noaa.gov/thredds/fileServer/Datasets/noaa.ersst.v6/sst.mnmean.nc'</span>
+<span class="n">noaa_sst</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">noaa_sst_url</span><span class="p">,</span> <span class="n">drop_variables</span><span class="o">=</span><span class="p">[</span><span class="s1">'time_bnds'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Unfortunately, as of September 2026, NOAA is updating their data servers and the connection to retrieve the file breaks. This results in the xarray package not being able to retrieve the data. So, we have added the same NetCDF file to the course website for easy access.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/HamedAlemo/advanced-geo-python/main/files/noaa.ersst.v6/sst.mnmean.nc&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst_url</span> <span class="o">=</span> <span class="s1">'https://raw.githubusercontent.com/HamedAlemo/advanced-geo-python/main/files/noaa.ersst.v6/sst.mnmean.nc'</span>
 
 <span class="n">noaa_sst_file</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
     <span class="n">noaa_sst_url</span><span class="p">,</span>
-    <span class="n">known_hash</span><span class="o">=</span><span class="s2">&quot;ef61d97774bda4cc21324a8ce33059ac826101590c0da9911ec1ceb8bcf357b7&quot;</span>
+    <span class="n">known_hash</span><span class="o">=</span><span class="s2">"ef61d97774bda4cc21324a8ce33059ac826101590c0da9911ec1ceb8bcf357b7"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -3041,14 +3052,14 @@ Attributes:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">noaa_sst_file</span><span class="p">,</span> <span class="n">drop_variables</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time_bnds&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">noaa_sst_file</span><span class="p">,</span> <span class="n">drop_variables</span><span class="o">=</span><span class="p">[</span><span class="s1">'time_bnds'</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1960&#39;</span><span class="p">,</span> <span class="s1">&#39;2025&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">'1960'</span><span class="p">,</span> <span class="s1">'2025'</span><span class="p">))</span>
 <span class="n">noaa_sst</span>
 </pre></div>
 </div>
@@ -3648,7 +3659,7 @@ Attributes: (12/39)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">noaa_sst</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;2025-01-01&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">noaa_sst</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="s1">'2025-01-01'</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -4244,7 +4255,7 @@ Attributes:
 <p>The syntax of <code class="docutils literal notranslate"><span class="pre">xarray</span></code>’s groupby is almost identical to <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.
 We will first apply groupby to a single <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>.</p>
 <section id="split-step">
-<h3><span class="section-number">7.3.1. </span>Split Step<a class="headerlink" href="#split-step" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.3.1. </span>Split Step<a class="headerlink" href="#split-step" title="Link to this heading">#</a></h3>
 <p>The most important argument is <code class="docutils literal notranslate"><span class="pre">group</span></code>: this defines the unique values we will use to “split” the data for grouped analysis. We can pass either a <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> or a name of a variable in the dataset. Lets first use a <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>. Just like with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, we can use the time index to extract specific components of dates and times. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> uses a special syntax for this <code class="docutils literal notranslate"><span class="pre">.dt</span></code>, called the <code class="docutils literal notranslate"><span class="pre">DatetimeAccessor</span></code>.</p>
 <p>See a list of datatime properties you can access through .dt <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/timeseries.html#time-date-components">here</a></p>
 <div class="cell docutils container">
@@ -5559,7 +5570,7 @@ Attributes:
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;DataArrayGroupBy, grouped over 1 grouper(s), 12 groups in total:
-    &#39;month&#39;: UniqueGrouper(&#39;month&#39;), 12/12 groups with labels 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12&gt;
+    'month': UniqueGrouper('month'), 12/12 groups with labels 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12&gt;
 </pre></div>
 </div>
 </div>
@@ -5567,14 +5578,14 @@ Attributes:
 <p><code class="docutils literal notranslate"><span class="pre">xarray</span></code> also offers a more concise syntax when the variable you’re grouping on is already present in the dataset. This is identical to the previous line:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'time.month'</span><span class="p">)</span>
 <span class="n">gb</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;DataArrayGroupBy, grouped over 1 grouper(s), 12 groups in total:
-    &#39;month&#39;: UniqueGrouper(&#39;month&#39;), 12/12 groups with labels 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12&gt;
+    'month': UniqueGrouper('month'), 12/12 groups with labels 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12&gt;
 </pre></div>
 </div>
 </div>
@@ -6209,7 +6220,7 @@ Attributes:
 </div>
 </section>
 <section id="map-combine">
-<h3><span class="section-number">7.3.2. </span>Map &amp; Combine<a class="headerlink" href="#map-combine" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.3.2. </span>Map &amp; Combine<a class="headerlink" href="#map-combine" title="Link to this heading">#</a></h3>
 <p>Now that we have groups defined, it’s time to “apply” a calculation to the group. Like in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, these calculations can either be:</p>
 <ul class="simple">
 <li><p><em>aggregation</em>: reduces the size of the group</p></li>
@@ -6229,11 +6240,11 @@ Attributes:
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
 gb.map(
-    func: <span class=" -Color -Color-Yellow">&#39;Callable[..., DataArray]&#39;</span>,
-    args: <span class=" -Color -Color-Yellow">&#39;tuple[Any, ...]&#39;</span> = (),
-    shortcut: <span class=" -Color -Color-Yellow">&#39;bool | None&#39;</span> = <span class=" -Color -Color-Bold -Color-Bold-C28">None</span>,
-    **kwargs: <span class=" -Color -Color-Yellow">&#39;Any&#39;</span>,
-) -&gt; <span class=" -Color -Color-Yellow">&#39;DataArray&#39;</span>
+    func: <span class=" -Color -Color-Yellow">'Callable[..., DataArray]'</span>,
+    args: <span class=" -Color -Color-Yellow">'tuple[Any, ...]'</span> = (),
+    shortcut: <span class=" -Color -Color-Yellow">'bool | None'</span> = <span class=" -Color -Color-Bold -Color-Bold-C28">None</span>,
+    **kwargs: <span class=" -Color -Color-Yellow">'Any'</span>,
+) -&gt; <span class=" -Color -Color-Yellow">'DataArray'</span>
 <span class=" -Color -Color-Red">Docstring:</span>
 Apply a function to each array in the group and concatenate them
 together into a new array.
@@ -6282,11 +6293,11 @@ applied : DataArray
 </div>
 </div>
 <section id="aggregations">
-<h4><span class="section-number">7.3.2.1. </span>Aggregations<a class="headerlink" href="#aggregations" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">7.3.2.1. </span>Aggregations<a class="headerlink" href="#aggregations" title="Link to this heading">#</a></h4>
 <p>Like <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">xarray</span></code>’s groupby object has many built-in aggregation operations (e.g. <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">std</span></code>, etc):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst_mm</span> <span class="o">=</span> <span class="n">gb</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst_mm</span> <span class="o">=</span> <span class="n">gb</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'time'</span><span class="p">)</span>
 <span class="n">sst_mm</span>
 </pre></div>
 </div>
@@ -7525,8 +7536,8 @@ Attributes:
 <p>Because we specified no extra arguments (like <code class="docutils literal notranslate"><span class="pre">axis</span></code>) the function was applied over all space and time dimensions. This is not what we wanted. Instead, we could define a custom function. This function takes a single argument –the group dataset– and returns a new dataset to be combined:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">time_mean</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">time_mean</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'time'</span><span class="p">)</span>
 
 <span class="n">sst_mm</span> <span class="o">=</span> <span class="n">gb</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">time_mean</span><span class="p">)</span>
 <span class="n">sst_mm</span>
@@ -8211,7 +8222,7 @@ Attributes:
 <p><em>Zonal Mean Climatology</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst_mm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst_mm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'lon'</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -8234,15 +8245,15 @@ Attributes:
 </div>
 </section>
 <section id="transformations">
-<h4><span class="section-number">7.3.2.2. </span>Transformations<a class="headerlink" href="#transformations" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">7.3.2.2. </span>Transformations<a class="headerlink" href="#transformations" title="Link to this heading">#</a></h4>
 <p>Now we want to <em>remove</em> this climatology from the dataset, to examine the residual, called the <em>anomaly</em>, which is the interesting part from a climate perspective.
 Removing the seasonal climatology is a perfect example of a transformation: it operates over a group, but doesn’t change the size of the dataset. Here is one way to code it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_time_mean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_time_mean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'time'</span><span class="p">)</span>
 
-<span class="n">ds_anom</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">remove_time_mean</span><span class="p">)</span>
+<span class="n">ds_anom</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'time.month'</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">remove_time_mean</span><span class="p">)</span>
 <span class="n">ds_anom</span>
 </pre></div>
 </div>
@@ -8886,8 +8897,8 @@ Attributes: (12/39)
 This concept is easiest explained with an example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span>
-<span class="n">ds_anom</span> <span class="o">=</span> <span class="n">gb</span> <span class="o">-</span> <span class="n">gb</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'time.month'</span><span class="p">)</span>
+<span class="n">ds_anom</span> <span class="o">=</span> <span class="n">gb</span> <span class="o">-</span> <span class="n">gb</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'time'</span><span class="p">)</span>
 <span class="n">ds_anom</span>
 </pre></div>
 </div>
@@ -9540,7 +9551,7 @@ Attributes: (12/39)
 <p><em>Difference between Jan. 1 2024 and Jan. 1 1960</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ds_anom</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">ds_anom</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1960-01-01&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ds_anom</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">'2024-01-01'</span><span class="p">)</span> <span class="o">-</span> <span class="n">ds_anom</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">'1960-01-01'</span><span class="p">))</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -9553,9 +9564,9 @@ Attributes: (12/39)
 </section>
 </section>
 <section id="grouby-related-resample-rolling-coarsen">
-<h2><span class="section-number">7.4. </span>Grouby-Related: Resample, Rolling, Coarsen<a class="headerlink" href="#grouby-related-resample-rolling-coarsen" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.4. </span>Grouby-Related: Resample, Rolling, Coarsen<a class="headerlink" href="#grouby-related-resample-rolling-coarsen" title="Link to this heading">#</a></h2>
 <section id="resample">
-<h3><span class="section-number">7.4.1. </span>Resample<a class="headerlink" href="#resample" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.4.1. </span>Resample<a class="headerlink" href="#resample" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://docs.xarray.dev/en/v2023.10.1/generated/xarray.Dataset.resample.html">Resample</a> in <code class="docutils literal notranslate"><span class="pre">xarray</span></code> is nearly identical to <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.
 <strong>It can be applied only to time-index dimensions.</strong> Here we compute the five-year mean.
 It is effectively a group-by operation, and uses the same basic syntax.
@@ -9563,7 +9574,7 @@ Note that resampling changes the length of the the output array.</p>
 <p>See the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/timeseries.html#offset-aliases">list</a> of string aliases for time series frequencies</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_anom_resample</span> <span class="o">=</span> <span class="n">ds_anom</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;5YE&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_anom_resample</span> <span class="o">=</span> <span class="n">ds_anom</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">'5YE'</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'time'</span><span class="p">)</span>
 <span class="n">ds_anom_resample</span>
 </pre></div>
 </div>
@@ -10206,8 +10217,8 @@ Attributes: (12/39)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ds_anom</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;monthly&#39;</span><span class="p">)</span>
-<span class="n">ds_anom_resample</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;resampled&#39;</span><span class="p">)</span>
+<span class="n">ds_anom</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'monthly'</span><span class="p">)</span>
+<span class="n">ds_anom_resample</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'resampled'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -10220,8 +10231,8 @@ Attributes: (12/39)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="p">(</span><span class="n">ds_anom_resample</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span> <span class="o">-</span>
- <span class="n">ds_anom_resample</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1965-01-01&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="p">(</span><span class="n">ds_anom_resample</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">'2015-01-01'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'nearest'</span><span class="p">)</span> <span class="o">-</span>
+ <span class="n">ds_anom_resample</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">'1965-01-01'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'nearest'</span><span class="p">))</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -10232,7 +10243,7 @@ Attributes: (12/39)
 </div>
 </section>
 <section id="rolling">
-<h3><span class="section-number">7.4.2. </span>Rolling<a class="headerlink" href="#rolling" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.4.2. </span>Rolling<a class="headerlink" href="#rolling" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://docs.xarray.dev/en/v2023.10.1/generated/xarray.Dataset.rolling.html#xarray.Dataset.rolling">Rolling</a> is also similar to <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.
 It does not change the length of arrays.
 Instead, it allows a moving window to be applied to the data at each point.</p>
@@ -10878,9 +10889,9 @@ Attributes: (12/39)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ds_anom</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;monthly anom&#39;</span><span class="p">)</span>
-<span class="n">ds_anom_resample</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;5 year resample&#39;</span><span class="p">)</span>
-<span class="n">ds_anom_rolling</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;12 month rolling mean&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ds_anom</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'monthly anom'</span><span class="p">)</span>
+<span class="n">ds_anom_resample</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'5 year resample'</span><span class="p">)</span>
+<span class="n">ds_anom_rolling</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'12 month rolling mean'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -10893,14 +10904,14 @@ Attributes: (12/39)
 </section>
 </section>
 <section id="coarsen">
-<h2><span class="section-number">7.5. </span>Coarsen<a class="headerlink" href="#coarsen" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.5. </span>Coarsen<a class="headerlink" href="#coarsen" title="Link to this heading">#</a></h2>
 <p>Coarsen is a simple way to reduce the size of your data along one or more axes.
 It is very similar to <code class="docutils literal notranslate"><span class="pre">resample</span></code> when operating on time dimensions; the key difference is that coarsen only operates on fixed blocks of data, irrespective of the coordinate values, while resample actually looks at the coordinates to figure out, e.g. what month a particular data point is in.</p>
 <p>For regularly-spaced monthly data beginning in January, the following should be equivalent to annual resampling.
 However, results would be different for irregularly-spaced data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst</span><span class="o">.</span><span class="n">coarsen</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="s1">&#39;exact&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_sst</span><span class="o">.</span><span class="n">coarsen</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="s1">'exact'</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -11569,8 +11580,8 @@ Attributes: (12/39)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">ds_coarse</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">coarsen</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">&#39;pad&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">ds_coarse</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ds_coarse</span> <span class="o">=</span> <span class="n">noaa_sst</span><span class="o">.</span><span class="n">coarsen</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">'pad'</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ds_coarse</span><span class="o">.</span><span class="n">sst</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'k'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -11607,11 +11618,10 @@ Attributes: (12/39)
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="06_xarray_fundamentals.html"
@@ -11631,23 +11641,23 @@ Attributes: (12/39)
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">7.1. Interpolation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data-from-netcdf-files">7.2. Loading Data from NetCDF Files</a></li>
@@ -11687,6 +11697,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -11713,8 +11724,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

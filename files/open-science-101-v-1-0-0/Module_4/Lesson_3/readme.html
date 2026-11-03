@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Lesson 3: Making Open Code &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/clipboard.min.js"></script>
-    <script src="../../../../_static/copybutton.js"></script>
-    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Lesson 2: Using Open Code" href="../Lesson_2/readme.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../../../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 4: Open Code</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 4: Open Code</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -480,12 +491,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="lesson-3-making-open-code">
-<h1>Lesson 3: Making Open Code<a class="headerlink" href="#lesson-3-making-open-code" title="Permalink to this heading">#</a></h1>
+<h1>Lesson 3: Making Open Code<a class="headerlink" href="#lesson-3-making-open-code" title="Link to this heading">#</a></h1>
 <section id="navigation">
-<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a href="#overview">Overview</a></p></li>
 <li><p><a href="#learning-objectives">Learning Objectives</a></p></li>
@@ -499,11 +510,11 @@ document.write(`
 </ul>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In this lesson, you will learn about the practical steps to make code openly accessible. Large volume and well-established software have different needs than an incipient project. For example, a script written to create a simple plot has different requirements than a software package that models the Earth’s climate. The size of a research team can also determine the steps required to make code open access. This lesson covers the process to make code usable to other researchers through documentation, considerations around licenses, and software development best practices.</p>
 </section>
 <section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>After completing this lesson, you should be able to:</p>
 <ul class="simple">
 <li><p>Describe the key considerations when planning a new open software project.</p></li>
@@ -514,7 +525,7 @@ document.write(`
 </ul>
 </section>
 <section id="how-do-we-plan-for-making-code">
-<h2>How do We Plan for Making Code?<a class="headerlink" href="#how-do-we-plan-for-making-code" title="Permalink to this heading">#</a></h2>
+<h2>How do We Plan for Making Code?<a class="headerlink" href="#how-do-we-plan-for-making-code" title="Link to this heading">#</a></h2>
 <p>Code is written to solve a challenge. This can range from producing a plot, to data processing Earth observations, to modeling the Universe. The challenges associated with writing code can range in difficulty, from simpler tasks such as the use of spreadsheets to more complex activities such as the creation of extensive libraries and use of high performance or cloud computing. Code can be developed as an individual, team, or a community. Once written, code might be used for decades or never again.</p>
 <p>When starting a research project, it is useful to answer the following questions:</p>
 <ol class="arabic simple">
@@ -533,7 +544,7 @@ document.write(`
 <p>It might take more time to start a new project, or it might take more time to integrate someone else’s code than writing your own. You will have to make that call.</p>
 <p>We looked for existing code, and though we found a few things that were close we decided in the end our needs were unique enough - we’re starting a new project!</p>
 <section id="starting-a-new-project">
-<h3>Starting a New Project<a class="headerlink" href="#starting-a-new-project" title="Permalink to this heading">#</a></h3>
+<h3>Starting a New Project<a class="headerlink" href="#starting-a-new-project" title="Link to this heading">#</a></h3>
 <p>When starting a new project, the key things to consider are:</p>
 <ol class="arabic simple">
 <li><p>Define the project scope, its primary features and any limitations, and the intended audience.</p></li>
@@ -544,7 +555,7 @@ document.write(`
 <p>Who will be working on the project? What are some of the development best practices? How will you share it openly? How will it be licensed?</p>
 </section>
 <section id="organizing-a-project">
-<h3>Organizing a Project<a class="headerlink" href="#organizing-a-project" title="Permalink to this heading">#</a></h3>
+<h3>Organizing a Project<a class="headerlink" href="#organizing-a-project" title="Link to this heading">#</a></h3>
 <img alt="../../../../_images/image353.png" src="../../../../_images/image353.png" />
 <p>Source: https://xkcd.com/1459/</p>
 <hr class="docutils" />
@@ -579,7 +590,7 @@ document.write(`
 </section>
 </section>
 <section id="importance-of-version-control">
-<h2>Importance of Version Control<a class="headerlink" href="#importance-of-version-control" title="Permalink to this heading">#</a></h2>
+<h2>Importance of Version Control<a class="headerlink" href="#importance-of-version-control" title="Link to this heading">#</a></h2>
 <p>Your code will change significantly over the lifetime of your project. Just as we appreciate the ability to track earlier versions of documents or versions created by different people, inevitably someone will want to be able to revert, compare, and synthesize changes in code.</p>
 <p>The most popular tool for version control is git. Git is a system that tracks changes in computer files, similar to Google Docs or SharePoint but more applicable to code script. Git is usually used in conjunction with a version control platform such as GitHub, Gitlab, or Bitbucket. These tools were covered in Module 2.2.</p>
 <p>Version control enables the following:</p>
@@ -597,12 +608,12 @@ document.write(`
 </ul>
 </section>
 <section id="describing-our-code-to-others">
-<h2>Describing Our Code to Others<a class="headerlink" href="#describing-our-code-to-others" title="Permalink to this heading">#</a></h2>
+<h2>Describing Our Code to Others<a class="headerlink" href="#describing-our-code-to-others" title="Link to this heading">#</a></h2>
 <section id="readme">
-<h3>README<a class="headerlink" href="#readme" title="Permalink to this heading">#</a></h3>
+<h3>README<a class="headerlink" href="#readme" title="Link to this heading">#</a></h3>
 <p>The first stop for a user when they approach a new project should be the README file. Aptly named, this file contains orientation information that will help a user understand a project’s purpose, provides examples of how it can be used, and lists other important information that the creator deems pertinent.</p>
 <p>At the minimum, a README should contain the name of the project and a very short paragraph of what the software is. Two to three sentences in a plain-language style that does not assume who is reading it. It’s the elevator pitch for the project.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -617,6 +628,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>In addition, the following information is helpful to add to the README especially if they are not listed elsewhere:</p>
 <ul class="simple">
 <li><p>A list of any code dependencies the software has, e.g. “Numpy, kitten-rng, and human- readable must be installed to run this software.”</p></li>
@@ -628,18 +640,18 @@ document.write(`
 <p>As seen in these examples, README files can be useful for a <a class="reference external" href="https://github.com/granttremblay/Tremblay2018_Code">collection of scripts supporting a publication</a> or an <a class="reference external" href="https://github.com/MillionConcepts/lhorizon">extensively developed software package</a>.</p>
 </section>
 <section id="contributor-guidelines">
-<h3>Contributor Guidelines<a class="headerlink" href="#contributor-guidelines" title="Permalink to this heading">#</a></h3>
+<h3>Contributor Guidelines<a class="headerlink" href="#contributor-guidelines" title="Link to this heading">#</a></h3>
 <p>The <em>CONTRIBUTING.md</em> file gives information about how to contribute to the project. It details how the contribution process works and what type of contributions are needed. While not every project has a <em>CONTRIBUTING.md</em> file, the existence of one is a clear indicator that contributions are welcomed.</p>
 <p>You’ll need to decide for yourself when your project has progressed enough to consider inviting contributors. When it has, create a document called CONTRIBUTING at the top level of your report.</p>
 <p>The <a class="reference external" href="https://github.com/astropy/astropy/blob/main/CONTRIBUTING.md">Astropy contributing guidelines</a> and <a class="reference external" href="https://numpy.org/devdocs/dev/index.html">Numpy contributing guidelines</a> provide two examples.</p>
 <p><strong>Bonus Tip: Even if you are developing your code publicly, this does not mean you have to accept contributions from others or maintain your code forever. The contributing guidelines or README are good places to indicate what your expectations are for your code. This can clarify that the code is not maintained or not accepting contributions.</strong></p>
 </section>
 <section id="code-of-conduct">
-<h3>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this heading">#</a></h3>
+<h3>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">#</a></h3>
 <p>The code of conduct sets ground rules for participants’ behavior and helps to facilitate a friendly, welcoming environment. While not every project has a CODE_OF_CONDUCT file, its presence signals that this is a welcoming project to contribute to.</p>
 </section>
 <section id="code-documentation">
-<h3>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this heading">#</a></h3>
+<h3>Code Documentation<a class="headerlink" href="#code-documentation" title="Link to this heading">#</a></h3>
 <p><strong>Code Level Documentation for the Developer</strong></p>
 <p>Your software should be documented within the source code. Each function should have comments at the start that briefly state, in plain language, what the function is for. This is not only for other developers, but yourself a week later when you forgot what you wrote.</p>
 <blockquote>
@@ -655,14 +667,14 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="code-level-documentation-for-the-user">
-<h3>Code Level Documentation for the User<a class="headerlink" href="#code-level-documentation-for-the-user" title="Permalink to this heading">#</a></h3>
+<h3>Code Level Documentation for the User<a class="headerlink" href="#code-level-documentation-for-the-user" title="Link to this heading">#</a></h3>
 <p>If you are developing code that you expect others to use, produce a manual on how to use the code. As code constantly develops, it is much easier to document while or even before you write any code.</p>
 <p>If you write your documentation within the code itself, there are pieces of software that can then extract it, format it, and present it as a polished manual. Examples of documentation generated from the code can be seen for <a class="reference external" href="https://docs.astropy.org/en/latest/">Astropy</a> or <a class="reference external" href="https://numpy.org/doc/stable/">NumPy</a>.</p>
 <p>They look fancy, but very similar too. These sites were completely generated from comments and documents written in the source code. Different from the comments written for developers of the code above, these comments were written specifically for the audience of external users of the code: the manual.</p>
 <p>While there are multiple software packages for automatic documentation generation, the most commonly used ones are <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> for Python and <a class="reference external" href="https://www.doxygen.nl/index.html">D</a><a class="reference external" href="https://www.doxygen.nl/index.html">oxygen</a> for most everything else. <a class="reference external" href="https://www.markdownguide.org/">M</a><a class="reference external" href="https://www.markdownguide.org/">arkdown</a> is also a popular choice for the formatting language for documentation.</p>
 </section>
 <section id="programming-and-documenting">
-<h3>Programming and Documenting<a class="headerlink" href="#programming-and-documenting" title="Permalink to this heading">#</a></h3>
+<h3>Programming and Documenting<a class="headerlink" href="#programming-and-documenting" title="Link to this heading">#</a></h3>
 <p><strong>Establishing a Development Environment</strong> - Establishing an appropriate development environment will help you write good, clean code and will help you maintain the project as it evolves.</p>
 <ul class="simple">
 <li><p>Configure any necessary tools for writing the code. Perhaps an IDE (Integrated Development Environment) or text editor. Some popular examples include VS Code, Pycharm, R Studio, Xcode.</p></li>
@@ -675,9 +687,9 @@ document.write(`
 </section>
 </section>
 <section id="what-license-should-we-choose-for-our-code">
-<h2>What License Should We Choose for Our Code?<a class="headerlink" href="#what-license-should-we-choose-for-our-code" title="Permalink to this heading">#</a></h2>
+<h2>What License Should We Choose for Our Code?<a class="headerlink" href="#what-license-should-we-choose-for-our-code" title="Link to this heading">#</a></h2>
 <section id="licensing-considerations-when-using-open-software">
-<h3>Licensing Considerations when Using Open Software<a class="headerlink" href="#licensing-considerations-when-using-open-software" title="Permalink to this heading">#</a></h3>
+<h3>Licensing Considerations when Using Open Software<a class="headerlink" href="#licensing-considerations-when-using-open-software" title="Link to this heading">#</a></h3>
 <img alt="../../../../_images/image130.png" src="../../../../_images/image130.png" />
 <p>Open-source software licenses are the basis for how scientists use, make, and share code and software. Understanding some of the nuances of these licenses is important because it will affect how your project can license and share code.</p>
 <p>A software license is a legal document that states the rights of the developer and user of a piece of software.</p>
@@ -692,7 +704,7 @@ document.write(`
 </ul>
 </section>
 <section id="some-common-types-of-software-license">
-<h3>Some Common Types of Software License<a class="headerlink" href="#some-common-types-of-software-license" title="Permalink to this heading">#</a></h3>
+<h3>Some Common Types of Software License<a class="headerlink" href="#some-common-types-of-software-license" title="Link to this heading">#</a></h3>
 <p><em>Click ‘+’ to travel more information.</em></p>
 <img alt="../../../../_images/commonsoftwarelicenses.png" src="../../../../_images/commonsoftwarelicenses.png" />
 <p><strong>Public Domain</strong></p>
@@ -713,7 +725,7 @@ document.write(`
 <p>For software, the license is shared in a file called LICENSE at the top of the repository. It’s a standard location people will know to look at. It’s not bad practice to put a one line version of the license at the top of each file of code as well, with a pointer to where one could find the full license.</p>
 </section>
 <section id="types-of-open-source-software-licenses">
-<h3>Types of Open-Source Software Licenses<a class="headerlink" href="#types-of-open-source-software-licenses" title="Permalink to this heading">#</a></h3>
+<h3>Types of Open-Source Software Licenses<a class="headerlink" href="#types-of-open-source-software-licenses" title="Link to this heading">#</a></h3>
 <p>There are two main types of open-source licenses. Permissive and protective (sometimes referred to as copy-left). The difference in these types of licenses is primarily related to the type of license users of the code are allowed to apply to their derivative works.</p>
 <table>
   <thead>
@@ -748,7 +760,7 @@ document.write(`
 </table>
 </section>
 <section id="common-licenses-for-open-software">
-<h3>Common Licenses for Open Software<a class="headerlink" href="#common-licenses-for-open-software" title="Permalink to this heading">#</a></h3>
+<h3>Common Licenses for Open Software<a class="headerlink" href="#common-licenses-for-open-software" title="Link to this heading">#</a></h3>
 <p>Some of the most popular licenses used in open software are:</p>
 <table>
   <thead>
@@ -791,7 +803,7 @@ document.write(`
 <p>For more information on different types of licenses please refer to the <a class="reference external" href="https://opensource.org/licenses/category">Open Source Initiative OSI</a>.</p>
 </section>
 <section id="activity-3-1-licenses">
-<h3>Activity 3.1: Licenses<a class="headerlink" href="#activity-3-1-licenses" title="Permalink to this heading">#</a></h3>
+<h3>Activity 3.1: Licenses<a class="headerlink" href="#activity-3-1-licenses" title="Link to this heading">#</a></h3>
 <p>In this activity, you are asked to answer whether the following statements are true or false.</p>
 <p><strong>Statement 1:</strong></p>
 <p>A software license states the rights of the developer and user for a piece of software.</p>
@@ -820,17 +832,17 @@ document.write(`
 </section>
 </section>
 <section id="programming-best-practices">
-<h2>Programming Best Practices<a class="headerlink" href="#programming-best-practices" title="Permalink to this heading">#</a></h2>
+<h2>Programming Best Practices<a class="headerlink" href="#programming-best-practices" title="Link to this heading">#</a></h2>
 <p>In this section, some best practices in development are provided including on code review, testing, security, and accessibility. These best practices will improve the quality of code, reproducibility of results, and security of a project. Combined, these actions help improve the robustness of open access code and help to meet the unique challenges that can arise with multiple contributors and revisions that occur over an extended period of time.</p>
 <section id="code-review">
-<h3>Code Review<a class="headerlink" href="#code-review" title="Permalink to this heading">#</a></h3>
+<h3>Code Review<a class="headerlink" href="#code-review" title="Link to this heading">#</a></h3>
 <p>Code benefits from peer review in the same way as science. Having someone else read over your code and test it is one of the best ways to improve the quality of the code.</p>
 <p>Many version control platforms have built in tools that enable developers to review, comment, and iterate on each other’s code. These can be done in the open and allow anyone to comment.</p>
 <p>Here is a great example of the discussion that can happen when the original creator of an algorithm <a class="reference external" href="https://github.com/astropy/astropy/pull/4301">comments on a python implementation made by a first time contributor to the Astropy project</a>. The open and constructive discussion led to a better implementation of the algorithm along with possible future improvements.</p>
 <p>Software packages can be reviewed as their own products as well. Many scientific publications now accept papers focused on software. There are entities like <a class="reference external" href="https://www.pyopensci.org/">PyOpenSci</a> and the <a class="reference external" href="https://joss.theoj.org/">Journal of Open Source Software</a> that provide open peer review of scientific packages. See more details about JOSS in the next lesson on sharing your code.</p>
 </section>
 <section id="testing">
-<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">#</a></h3>
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h3>
 <p>A proven method to evaluate the reproducibility of your software is through testing. There are many types of testing that range from testing the smallest testable parts of a code to verifying if a code works as whole under different scenarios. Code testing can include a wide range of different techniques. The following lesson section provides only a brief introduction to the topic.</p>
 <p>The main objective of code testing is to evaluate if a code does what its authors intended it to do. Comprehensively testing code can be very difficult as it involves testing the code for generating expected outputs as well as for failing when it should.</p>
 <table>
@@ -903,7 +915,7 @@ document.write(`
 </table>
 </section>
 <section id="minimizing-the-risk-of-security-vulnerabilities">
-<h3>Minimizing the Risk of Security Vulnerabilities<a class="headerlink" href="#minimizing-the-risk-of-security-vulnerabilities" title="Permalink to this heading">#</a></h3>
+<h3>Minimizing the Risk of Security Vulnerabilities<a class="headerlink" href="#minimizing-the-risk-of-security-vulnerabilities" title="Link to this heading">#</a></h3>
 <p>Whether using open source, closed source, or commercial software, it is important to consider the security risks inherent in the development of software.</p>
 <ul class="simple">
 <li><p>Ensure minimal, DRY (Don’t repeat yourself) code (easier to maintain and fix).</p></li>
@@ -946,7 +958,7 @@ document.write(`
 </table>
 </section>
 <section id="creating-fair-software">
-<h3>Creating FAIR Software<a class="headerlink" href="#creating-fair-software" title="Permalink to this heading">#</a></h3>
+<h3>Creating FAIR Software<a class="headerlink" href="#creating-fair-software" title="Link to this heading">#</a></h3>
 <table>
   <thead>
     <tr>
@@ -1017,9 +1029,9 @@ document.write(`
 </table>
 </section>
 <section id="additional-helpful-tips">
-<h3>Additional Helpful Tips<a class="headerlink" href="#additional-helpful-tips" title="Permalink to this heading">#</a></h3>
+<h3>Additional Helpful Tips<a class="headerlink" href="#additional-helpful-tips" title="Link to this heading">#</a></h3>
 <p>Here are some further suggestions on how to make your code more accessible, reproducible, and transparent:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -1049,10 +1061,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="lesson-3-summary">
-<h2>Lesson 3: Summary<a class="headerlink" href="#lesson-3-summary" title="Permalink to this heading">#</a></h2>
+<h2>Lesson 3: Summary<a class="headerlink" href="#lesson-3-summary" title="Link to this heading">#</a></h2>
 <p>In this lesson, you learned:</p>
 <ul class="simple">
 <li><p>Planning a new project requires programmers to have a clearly defined purpose, recognize any resource limitations, and envision a data management plan.</p></li>
@@ -1064,7 +1077,7 @@ document.write(`
 <p>In addition to learning how to Share your Code in the next lesson, you will also have some opportunities to put this lesson into practice.</p>
 </section>
 <section id="lesson-3-knowledge-check">
-<h2>Lesson 3: Knowledge Check<a class="headerlink" href="#lesson-3-knowledge-check" title="Permalink to this heading">#</a></h2>
+<h2>Lesson 3: Knowledge Check<a class="headerlink" href="#lesson-3-knowledge-check" title="Link to this heading">#</a></h2>
 <p>Answer the following questions to test what you have learned so far.</p>
 <p><em>Question</em></p>
 <p><strong>01/05</strong></p>
@@ -1141,11 +1154,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../Lesson_2/readme.html"
@@ -1165,23 +1177,23 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
@@ -1240,6 +1252,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -1266,8 +1279,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

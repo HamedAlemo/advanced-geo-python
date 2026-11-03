@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2. Introduction to Version Control and Git &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/02_git';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="1. Introduction to Shell and Bash" href="01_unix.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -459,32 +470,33 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="introduction-to-version-control-and-git">
-<h1><span class="section-number">2. </span>Introduction to Version Control and Git<a class="headerlink" href="#introduction-to-version-control-and-git" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Introduction to Version Control and Git<a class="headerlink" href="#introduction-to-version-control-and-git" title="Link to this heading">#</a></h1>
 <p>In this lecture, you will learn what version control is and how to use git and GitHub for version control.</p>
 <p><strong>Attribution</strong>
 <em>The content of this lecture are modified from three excellent sources: <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/">Git and GitHub</a> from Earth Lab CU Boulder; <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_git.html">Intro to Unix</a> from Columbia University; and <a class="reference external" href="https://swcarpentry.github.io/git-novice/">Version Control with Git</a> from Software Carpentry.</em></p>
 <hr class="docutils" />
 <section id="what-is-version-control">
-<h2><span class="section-number">2.1. </span>What is Version Control?<a class="headerlink" href="#what-is-version-control" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>What is Version Control?<a class="headerlink" href="#what-is-version-control" title="Link to this heading">#</a></h2>
 <p>A version control system maintains a record of changes to code and other content. It also allows us to revert changes to a previous point in time.</p>
 </section>
 <section id="why-version-control">
-<h2><span class="section-number">2.2. </span>Why Version Control?<a class="headerlink" href="#why-version-control" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>Why Version Control?<a class="headerlink" href="#why-version-control" title="Link to this heading">#</a></h2>
 <p>The following figure is one reason you need version control:</p>
 <figure class="align-center" id="date-version-control">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/final-doc-phd-comics.gif"><img alt="../_images/final-doc-phd-comics.gif" class="bg-primary mb-1" src="../_images/final-doc-phd-comics.gif" style="width: 500px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/final-doc-phd-comics.gif"><img alt="../_images/final-doc-phd-comics.gif" class="bg-primary mb-1" src="../_images/final-doc-phd-comics.gif" style="width: 500px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Appending a date and number to version control. Source: “Piled Higher and Deeper” by Jorge Cham on <a class="reference external" href="http://phdcomics.com/comics/archive/phd101212s.gif">www.phdcomics.com</a>.</span><a class="headerlink" href="#date-version-control" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Appending a date and number to version control. Source: “Piled Higher and Deeper” by Jorge Cham on <a class="reference external" href="http://phdcomics.com/comics/archive/phd101212s.gif">www.phdcomics.com</a>.</span><a class="headerlink" href="#date-version-control" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Version control is a powerful way to organize, back up, and share your research computing code with collaborators. A Version control system keeps track of a set of files and saves snapshots (i.e. versions, commits) of the files at any point in time. Using version control allows you to confidently make changes to your code (and any other files), with the ability to roll back to any previous state.</p>
 <p>Version control also allows you to share code with collaborators, make simultaneous edits, and merge your changes in a systematic, controlled way. There are different ways that a version control system can help you. Checkout the section on <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/version-control/">“How Version Control Systems Work”</a> on 	Earth Lab’s course.</p>
 </section>
 <section id="git-and-github">
-<h2><span class="section-number">2.3. </span>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Git and GitHub<a class="headerlink" href="#git-and-github" title="Link to this heading">#</a></h2>
 <p>In this course, we will be using <a class="reference external" href="https://git-scm.com/">git</a> for version control. Git is a distributed version control system that you can use locally on your computer, or through <a class="reference external" href="https://github.com/">GitHub</a> and GitLab. In this course, we will also use GitHub for assignments and projects.</p>
 <p>If you do not have a GitHub account, you need a create one <a class="reference external" href="https://github.com/">here</a> (it’s free).</p>
 <div class="admonition note">
@@ -498,20 +510,20 @@ document.write(`
 <p>If git is installed, you will get an output with the version of git installed. Otherwise, you need to install git following the instructions <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
 </section>
 <section id="configure-git-on-your-computer">
-<h2><span class="section-number">2.4. </span>Configure git on Your Computer<a class="headerlink" href="#configure-git-on-your-computer" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4. </span>Configure git on Your Computer<a class="headerlink" href="#configure-git-on-your-computer" title="Link to this heading">#</a></h2>
 <p>The first time that you use git on a computer, you will need to configure your GitHub.com username and email address. This information will be used to document who made changes to files in git. It is important to use the same email address and username that you setup on GitHub.com.</p>
 <p>You can set your Github.com username in the terminal by typing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name &quot;username&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name "username"
 </pre></div>
 </div>
 <p>Next, you can set the email for your Github.com account by typing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.email &quot;email@email.com&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.email "email@email.com"
 </pre></div>
 </div>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">--global</span></code> configuration option, you are telling git to use these settings for all git repositories that you work with on your computer. Note that you only have to configure these settings one time on your computer.</p>
 </section>
 <section id="authentication-for-github">
-<h2><span class="section-number">2.5. </span>Authentication for GitHub<a class="headerlink" href="#authentication-for-github" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.5. </span>Authentication for GitHub<a class="headerlink" href="#authentication-for-github" title="Link to this heading">#</a></h2>
 <p>GitHub requires authentication for any changes to a repo. The preferred method by GitHub is using a SSH key. Setting up SSH involves two steps:</p>
 <ol class="arabic simple">
 <li><p>Creating the key itself locally on your computer: Follow <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">these step</a> to generate a new SSH key on your computer and add it to ssh-agent.</p></li>
@@ -519,10 +531,10 @@ document.write(`
 </ol>
 </section>
 <section id="github-education-and-github-copilot-for-students">
-<h2><span class="section-number">2.6. </span>GitHub Education and GitHub Copilot for Students<a class="headerlink" href="#github-education-and-github-copilot-for-students" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.6. </span>GitHub Education and GitHub Copilot for Students<a class="headerlink" href="#github-education-and-github-copilot-for-students" title="Link to this heading">#</a></h2>
 <p>As a student you are eligible for GitHub Education benefits. This will give you access to a set of premium features on GitHub including free credits to use GitHub Copilot.</p>
 <section id="applying-to-github-education">
-<h3><span class="section-number">2.6.1. </span>Applying to GitHub Education<a class="headerlink" href="#applying-to-github-education" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.6.1. </span>Applying to GitHub Education<a class="headerlink" href="#applying-to-github-education" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Navigate to your <a class="reference external" href="https://github.com/settings/education/benefits">Education benefits</a> settings.</p></li>
 <li><p>Under “GitHub Education”, click <strong>Start an application</strong>.</p></li>
@@ -530,7 +542,7 @@ document.write(`
 </ol>
 </section>
 <section id="access-github-copilot-student">
-<h3><span class="section-number">2.6.2. </span>Access GitHub Copilot Student<a class="headerlink" href="#access-github-copilot-student" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.6.2. </span>Access GitHub Copilot Student<a class="headerlink" href="#access-github-copilot-student" title="Link to this heading">#</a></h3>
 <p>After your GitHub Education application was accepted:</p>
 <ol class="arabic simple">
 <li><p>Navigate to <a class="reference external" href="https://github.com/settings/education/benefits">Education benefits</a> settings.</p></li>
@@ -540,7 +552,7 @@ document.write(`
 </section>
 </section>
 <section id="get-started-with-a-git-repository">
-<h2><span class="section-number">2.7. </span>Get Started with a git repository<a class="headerlink" href="#get-started-with-a-git-repository" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.7. </span>Get Started with a git repository<a class="headerlink" href="#get-started-with-a-git-repository" title="Link to this heading">#</a></h2>
 <p>Create a new directory, use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> to initiate git version control system:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir my_project
 $ cd my_project
@@ -557,20 +569,21 @@ $ git init
 <p>Always stage files explicitly by name, and <strong>never use</strong> <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code> (which stages every changed file at once). Doing so makes it easy to accidentally commit secrets, large data files, or generated output, and it tends to bundle unrelated changes into a single commit. Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> first to see exactly what has changed, then add only the files that belong in your next commit.</p>
 </div>
 <p>Then you need to <em>commit</em> the staged files to be added to the history of your repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -m &quot;a brief and informative commit message&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -m "a brief and informative commit message"
 </pre></div>
 </div>
 <p>The commit message should be brief but indicative of what changes are being committed. It’s important to stage and commit your changes in a way that it does not contain several unrelated changes to your code. For example, if you are making changes to different modules of your code, make sure to commit them separately, so if you need to revert one of the changes it’s easy to do so.</p>
 <p>The following figure gives you a nice perspective on how staging and committing works:</p>
 <figure class="align-center" id="git-add-commit">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/git-add-commit.png"><img alt="../_images/git-add-commit.png" class="bg-primary mb-1" src="../_images/git-add-commit.png" style="width: 500px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/git-add-commit.png"><img alt="../_images/git-add-commit.png" class="bg-primary mb-1" src="../_images/git-add-commit.png" style="width: 500px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Modified files are staged using git add. Then, following git commit, all files in the staging area are included in snapshot and become part of the repository’s history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014).</span><a class="headerlink" href="#git-add-commit" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Modified files are staged using git add. Then, following git commit, all files in the staging area are included in snapshot and become part of the repository’s history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014).</span><a class="headerlink" href="#git-add-commit" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="ignoring-files-with-gitignore">
-<h2><span class="section-number">2.8. </span>Ignoring Files with <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code><a class="headerlink" href="#ignoring-files-with-gitignore" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.8. </span>Ignoring Files with <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code><a class="headerlink" href="#ignoring-files-with-gitignore" title="Link to this heading">#</a></h2>
 <p>Not every file in your project should be tracked by git. You will often have files that are generated, private, or simply too large to belong in your repository’s history, for example your Pixi environment folder (<code class="docutils literal notranslate"><span class="pre">.pixi/</span></code>), Python caches (<code class="docutils literal notranslate"><span class="pre">__pycache__/</span></code>, <code class="docutils literal notranslate"><span class="pre">.ipynb_checkpoints/</span></code>), large datasets, and operating-system clutter like <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code> on macOS. Most importantly, you should <strong>never commit secrets</strong> such as passwords, API keys, or cloud credentials.</p>
 <p>Git lets you list these in a plain text file named <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>, placed at the root of your repository. Each line is a pattern; any file or directory matching a pattern is left untracked and will not show up in <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> or be added by <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>. Here is a simple example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pixi environment (recreate it from pixi.toml + pixi.lock)</span>
@@ -601,7 +614,7 @@ $ git init
 </ul>
 </section>
 <section id="push-changed-files-to-github">
-<h2><span class="section-number">2.9. </span>Push Changed Files to GitHub<a class="headerlink" href="#push-changed-files-to-github" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.9. </span>Push Changed Files to GitHub<a class="headerlink" href="#push-changed-files-to-github" title="Link to this heading">#</a></h2>
 <p>To push your changes to your GitHub repository, you need to create a new repository on GitHub. You can do this using the following steps:</p>
 <ol class="arabic simple">
 <li><p>In the upper-right corner of any page, use the  drop-down menu, and select New repository.</p></li>
@@ -614,9 +627,10 @@ $ git init
 </div>
 <p>Now that you have created your repository on GitHub, you need to copy it’s URL and add it to your local git repository. Open your repository on GitHub and click on the green <code class="docutils literal notranslate"><span class="pre">Code</span></code> button and copy the SSH url (see the following figure).</p>
 <figure class="align-center" id="git-url">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/git-url.png"><img alt="../_images/git-url.png" class="bg-primary mb-1" src="../_images/git-url.png" style="width: 500px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/git-url.png"><img alt="../_images/git-url.png" class="bg-primary mb-1" src="../_images/git-url.png" style="width: 500px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Accessing the URL of a GitHub repository.</span><a class="headerlink" href="#git-url" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Accessing the URL of a GitHub repository.</span><a class="headerlink" href="#git-url" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Lastly, you need to add the URL to your local repository and push the changes to GitHub:</p>
@@ -626,7 +640,7 @@ $ git push origin main
 </div>
 </section>
 <section id="working-with-an-existing-github-repository">
-<h2><span class="section-number">2.10. </span>Working with an Existing GitHub Repository<a class="headerlink" href="#working-with-an-existing-github-repository" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.10. </span>Working with an Existing GitHub Repository<a class="headerlink" href="#working-with-an-existing-github-repository" title="Link to this heading">#</a></h2>
 <p>So far, we have talked about initializing a git repository and pushing that to GitHub. But you may need to start working on a project that already has a GitHub repository with content contributed by others. In this case, you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> commands as following.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> to create a <em>cloned</em> version of the GitHub repository on your local computer. You don’t need to create a directory for it. When you run the following command it will automatically create a directory in your current path, and <em>pull</em> the files, branches, and all the git history to your computer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:&lt;user&gt;/&lt;repository-name&gt;.git
@@ -639,7 +653,7 @@ $ git push origin main
 </div>
 </section>
 <section id="reverting-to-a-previous-commit">
-<h2><span class="section-number">2.11. </span>Reverting to a Previous Commit<a class="headerlink" href="#reverting-to-a-previous-commit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.11. </span>Reverting to a Previous Commit<a class="headerlink" href="#reverting-to-a-previous-commit" title="Link to this heading">#</a></h2>
 <p>Let’s say you have made some changes to an existing repository, and committed those to your target branch. Now, you notice a fault or mistake and you would like to revert to an older commit. You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> for this purpose. One of the easiest ways to do this is to find the commit number that you would like to revert to and use that in your <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> command.</p>
 <p>To get the list of all commits in your repository, you can use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command. The output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> will be a list of all changes, their commit number and any messages associated with those commits.</p>
 <p>Then you can use the following command:</p>
@@ -679,11 +693,10 @@ $ git push origin main
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_unix.html"
@@ -703,23 +716,23 @@ $ git push origin main
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-version-control">2.1. What is Version Control?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-version-control">2.2. Why Version Control?</a></li>
@@ -757,6 +770,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -783,8 +797,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

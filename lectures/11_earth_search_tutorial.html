@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>11. Tutorial for Searching a STAC Catalog &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/11_earth_search_tutorial';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="10. The Landscape of Geospatial Data and Tools" href="10_landscape.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -448,10 +459,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="tutorial-for-searching-a-stac-catalog">
-<h1><span class="section-number">11. </span>Tutorial for Searching a STAC Catalog<a class="headerlink" href="#tutorial-for-searching-a-stac-catalog" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Tutorial for Searching a STAC Catalog<a class="headerlink" href="#tutorial-for-searching-a-stac-catalog" title="Link to this heading">#</a></h1>
 <p>In this tutorial you will learn how to connect to a STAC API and search various datasets available for query. You will also search for specific items using a range of query parameters.</p>
 <p>We will use the <a class="reference external" href="https://www.element84.com/earth-search/">Earth Search API</a> developed by Element84 for satellite datasets available on AWS S3 Storage (note that only those datasets that have a STAC catalog are served through this API).
 You can access the STAC catalog of the API <a class="reference external" href="https://earth-search.aws.element84.com/v1">here</a>.</p>
@@ -460,14 +471,14 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 <p><em><strong>Attribution</strong></em>: Parts of this notebook are inspired by the great tutorial on <strong>Access satellite imagery using Python</strong> (<a class="reference external" href="https://carpentries-incubator.github.io/geospatial-python/instructor/05-access-data.html#search-a-stac-catalog">link</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pystac_client</span> <span class="kn">import</span> <span class="n">Client</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pystac_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://earth-search.aws.element84.com/v1&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_url</span> <span class="o">=</span> <span class="s2">"https://earth-search.aws.element84.com/v1"</span>
 </pre></div>
 </div>
 </div>
@@ -480,7 +491,7 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 </div>
 </div>
 <section id="find-collections">
-<h2><span class="section-number">11.1. </span>Find Collections<a class="headerlink" href="#find-collections" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Find Collections<a class="headerlink" href="#find-collections" title="Link to this heading">#</a></h2>
 <p>First, we would like to see what collections are available from this API.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -513,7 +524,7 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 <p>In order to get more information about a specific collection, you can use <code class="docutils literal notranslate"><span class="pre">get_collection</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1_collection</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span><span class="s2">&quot;sentinel-1-grd&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1_collection</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span><span class="s2">"sentinel-1-grd"</span><span class="p">)</span>
 <span class="n">s1_collection</span>
 </pre></div>
 </div>
@@ -3734,18 +3745,18 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 </div>
 </section>
 <section id="search-items">
-<h2><span class="section-number">11.2. </span>Search Items<a class="headerlink" href="#search-items" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>Search Items<a class="headerlink" href="#search-items" title="Link to this heading">#</a></h2>
 <p>Let’s use Leafmap to select a point where we are interested to find a satellite imagery</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">leafmap</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">leafmap</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">42.250809</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.822833</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;800px&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">42.250809</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.822833</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">"800px"</span><span class="p">)</span>
 <span class="n">m</span>
 </pre></div>
 </div>
@@ -3757,9 +3768,9 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">user_rois</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">point</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">user_rois</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">user_rois</span><span class="p">[</span><span class="s1">'features'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'geometry'</span><span class="p">]</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">point</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;Point&quot;</span><span class="p">,</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">71.822833</span><span class="p">,</span> <span class="mf">42.250809</span><span class="p">))</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"Point"</span><span class="p">,</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">71.822833</span><span class="p">,</span> <span class="mf">42.250809</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -3771,7 +3782,7 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;type&#39;: &#39;Point&#39;, &#39;coordinates&#39;: (-71.822833, 42.250809)}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'type': 'Point', 'coordinates': (-71.822833, 42.250809)}
 </pre></div>
 </div>
 </div>
@@ -3780,7 +3791,7 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_results</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sentinel-2-l2a&quot;</span><span class="p">],</span>
+    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">"sentinel-2-l2a"</span><span class="p">],</span>
     <span class="n">intersects</span><span class="o">=</span><span class="n">point</span><span class="p">,</span>
     <span class="n">max_items</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
 <span class="p">)</span>
@@ -16005,7 +16016,7 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;type&#39;: &#39;Polygon&#39;, &#39;coordinates&#39;: [[[-71.79583317399545, 42.40787811617334], [-72.10397819686874, 41.42729413407573], [-71.2944491287618, 41.4040441194201], [-71.23687622798481, 42.390872073839105], [-71.79583317399545, 42.40787811617334]]]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'type': 'Polygon', 'coordinates': [[[-71.79583317399545, 42.40787811617334], [-72.10397819686874, 41.42729413407573], [-71.2944491287618, 41.4040441194201], [-71.23687622798481, 42.390872073839105], [-71.79583317399545, 42.40787811617334]]]}
 </pre></div>
 </div>
 </div>
@@ -16013,8 +16024,8 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 <p>We can now use the item’s geometry and confirm that the returned scene intersects with our point of interest. But leafmap requires the geometry of a polygon to be in GeoJSON format. The following function will convert the geometry information from a STAC item to GeoJSON:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stac_geom_to_geojson</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">stac_geom_to_geojson</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    This function receives a STAC item metadata, and returns a valid geojson dictionary</span>
 <span class="sd">    containing the geometry of the STAC item.</span>
 <span class="sd">    Args:</span>
@@ -16022,23 +16033,23 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 <span class="sd">    Return:</span>
 <span class="sd">        geojson: A GeoJSON dictionary containing the geometry of input STAC item</span>
 <span class="sd">        </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">item</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span>
+<span class="sd">    """</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="s1">'coordinates'</span><span class="p">]</span>
     <span class="n">geojson</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FeatureCollection"</span><span class="p">,</span>
+      <span class="s2">"features"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{},</span>
-          <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[],</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+          <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"Feature"</span><span class="p">,</span>
+          <span class="s2">"properties"</span><span class="p">:</span> <span class="p">{},</span>
+          <span class="s2">"geometry"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"coordinates"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">""</span>
           <span class="p">}</span>
         <span class="p">}</span>
       <span class="p">]</span>
     <span class="p">}</span>
-    <span class="n">geojson</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;geometry&quot;</span><span class="p">][</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span>
-    <span class="n">geojson</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;geometry&quot;</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>   
+    <span class="n">geojson</span><span class="p">[</span><span class="s2">"features"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"geometry"</span><span class="p">][</span><span class="s2">"coordinates"</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="s1">'coordinates'</span><span class="p">]</span>
+    <span class="n">geojson</span><span class="p">[</span><span class="s2">"features"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"geometry"</span><span class="p">][</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span>   
 
     <span class="k">return</span> <span class="n">geojson</span>
 </pre></div>
@@ -16057,15 +16068,15 @@ You can access the STAC catalog of the API <a class="reference external" href="h
 </div>
 </section>
 <section id="query-metadata">
-<h2><span class="section-number">11.3. </span>Query Metadata<a class="headerlink" href="#query-metadata" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Query Metadata<a class="headerlink" href="#query-metadata" title="Link to this heading">#</a></h2>
 <p>Items in STAC catalog have much more metadata (in addition to location) that you can query and only return results that match your query parameters.
 Let’s use the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> property and only search for scenes in 2024:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sentinel-2-l2a&quot;</span><span class="p">],</span>
+    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">"sentinel-2-l2a"</span><span class="p">],</span>
     <span class="n">intersects</span><span class="o">=</span><span class="n">point</span><span class="p">,</span>
-    <span class="n">datetime</span><span class="o">=</span><span class="s2">&quot;2024-01-01/2024-09-30&quot;</span>
+    <span class="n">datetime</span><span class="o">=</span><span class="s2">"2024-01-01/2024-09-30"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -16087,10 +16098,10 @@ Let’s use the <code class="docutils literal notranslate"><span class="pre">dat
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sentinel-2-l2a&quot;</span><span class="p">],</span>
+    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">"sentinel-2-l2a"</span><span class="p">],</span>
     <span class="n">intersects</span><span class="o">=</span><span class="n">point</span><span class="p">,</span>
-    <span class="n">datetime</span><span class="o">=</span><span class="s2">&quot;2024-01-01/2024-09-30&quot;</span><span class="p">,</span>
-    <span class="n">query</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eo:cloud_cover&lt;5&quot;</span><span class="p">],</span>
+    <span class="n">datetime</span><span class="o">=</span><span class="s2">"2024-01-01/2024-09-30"</span><span class="p">,</span>
+    <span class="n">query</span><span class="o">=</span><span class="p">[</span><span class="s2">"eo:cloud_cover&lt;5"</span><span class="p">],</span>
     <span class="n">max_items</span><span class="o">=</span><span class="mi">10</span>
 <span class="p">)</span>
 </pre></div>
@@ -16113,11 +16124,11 @@ Let’s use the <code class="docutils literal notranslate"><span class="pre">dat
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sentinel-2-l2a&quot;</span><span class="p">],</span>
+    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s2">"sentinel-2-l2a"</span><span class="p">],</span>
     <span class="n">intersects</span><span class="o">=</span><span class="n">point</span><span class="p">,</span>
-    <span class="n">datetime</span><span class="o">=</span><span class="s2">&quot;2024-01-01/2024-09-30&quot;</span><span class="p">,</span>
-    <span class="n">query</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eo:cloud_cover&lt;5&quot;</span><span class="p">],</span>
-    <span class="n">sortby</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;+properties.eo:cloud_cover&quot;</span><span class="p">],</span>
+    <span class="n">datetime</span><span class="o">=</span><span class="s2">"2024-01-01/2024-09-30"</span><span class="p">,</span>
+    <span class="n">query</span><span class="o">=</span><span class="p">[</span><span class="s2">"eo:cloud_cover&lt;5"</span><span class="p">],</span>
+    <span class="n">sortby</span><span class="o">=</span><span class="p">[</span><span class="s2">"+properties.eo:cloud_cover"</span><span class="p">],</span>
     <span class="n">max_items</span><span class="o">=</span><span class="mi">10</span>
 <span class="p">)</span>
 </pre></div>
@@ -16146,7 +16157,7 @@ Let’s use the <code class="docutils literal notranslate"><span class="pre">dat
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;eo:cloud_cover&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">"eo:cloud_cover"</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -16168,18 +16179,18 @@ Let’s use the <code class="docutils literal notranslate"><span class="pre">dat
 <p>You can also save the results of the search into a JSON file if you need it later on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="o">.</span><span class="n">save_object</span><span class="p">(</span><span class="s2">&quot;search.json&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="o">.</span><span class="n">save_object</span><span class="p">(</span><span class="s2">"search.json"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="access-assets">
-<h2><span class="section-number">11.4. </span>Access Assets<a class="headerlink" href="#access-assets" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Access Assets<a class="headerlink" href="#access-assets" title="Link to this heading">#</a></h2>
 <p>Next, we will use the assets of the returned items and retrieve the actual scene.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Let&#39;s look at the fourth item:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Let's look at the fourth item:</span>
 <span class="n">selected_item</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -16194,7 +16205,7 @@ Let’s use the <code class="docutils literal notranslate"><span class="pre">dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;aot&#39;, &#39;blue&#39;, &#39;coastal&#39;, &#39;granule_metadata&#39;, &#39;green&#39;, &#39;nir&#39;, &#39;nir08&#39;, &#39;nir09&#39;, &#39;red&#39;, &#39;rededge1&#39;, &#39;rededge2&#39;, &#39;rededge3&#39;, &#39;scl&#39;, &#39;swir16&#39;, &#39;swir22&#39;, &#39;thumbnail&#39;, &#39;tileinfo_metadata&#39;, &#39;visual&#39;, &#39;wvp&#39;, &#39;aot-jp2&#39;, &#39;blue-jp2&#39;, &#39;coastal-jp2&#39;, &#39;green-jp2&#39;, &#39;nir-jp2&#39;, &#39;nir08-jp2&#39;, &#39;nir09-jp2&#39;, &#39;red-jp2&#39;, &#39;rededge1-jp2&#39;, &#39;rededge2-jp2&#39;, &#39;rededge3-jp2&#39;, &#39;scl-jp2&#39;, &#39;swir16-jp2&#39;, &#39;swir22-jp2&#39;, &#39;visual-jp2&#39;, &#39;wvp-jp2&#39;])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys(['aot', 'blue', 'coastal', 'granule_metadata', 'green', 'nir', 'nir08', 'nir09', 'red', 'rededge1', 'rededge2', 'rededge3', 'scl', 'swir16', 'swir22', 'thumbnail', 'tileinfo_metadata', 'visual', 'wvp', 'aot-jp2', 'blue-jp2', 'coastal-jp2', 'green-jp2', 'nir-jp2', 'nir08-jp2', 'nir09-jp2', 'red-jp2', 'rededge1-jp2', 'rededge2-jp2', 'rededge3-jp2', 'scl-jp2', 'swir16-jp2', 'swir22-jp2', 'visual-jp2', 'wvp-jp2'])
 </pre></div>
 </div>
 </div>
@@ -16202,7 +16213,7 @@ Let’s use the <code class="docutils literal notranslate"><span class="pre">dat
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">assets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">asset</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">asset</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -16249,7 +16260,7 @@ wvp-jp2: Water vapour (WVP)
 <p>Each asset has a link which can be accessed from the <code class="docutils literal notranslate"><span class="pre">href</span></code> property. This can be a HTTP URL or a link to S3 for this STAC catalog. For example, let’s look at the link for the thumbnail of the scene.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">assets</span><span class="p">[</span><span class="s2">&quot;thumbnail&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">assets</span><span class="p">[</span><span class="s2">"thumbnail"</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -16262,17 +16273,17 @@ wvp-jp2: Water vapour (WVP)
 <p>Since this is a HTTP link, we can use Python requests package to load the image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">img_data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">assets</span><span class="p">[</span><span class="s2">&quot;thumbnail&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="n">img_data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">assets</span><span class="p">[</span><span class="s2">"thumbnail"</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="nn">io</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">img_data</span><span class="p">)))</span>
 </pre></div>
@@ -16288,14 +16299,14 @@ wvp-jp2: Water vapour (WVP)
 <p>Now, let’s load one of the COG assets into memory. This is a large scene, and we don’t necessary want to load all the data at once. There are various packages to do this. Here we will use <a class="reference external" href="https://corteva.github.io/rioxarray/stable/"><code class="docutils literal notranslate"><span class="pre">rioxarray</span></code></a> which is a wrapper around xarray package with specific geospatial functionality added with integration with <a class="reference external" href="https://rasterio.readthedocs.io/en/stable/index.html"><code class="docutils literal notranslate"><span class="pre">rasterio</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rioxarray</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nir_href</span> <span class="o">=</span> <span class="n">assets</span><span class="p">[</span><span class="s2">&quot;nir&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">href</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nir_href</span> <span class="o">=</span> <span class="n">assets</span><span class="p">[</span><span class="s2">"nir"</span><span class="p">]</span><span class="o">.</span><span class="n">href</span>
 <span class="n">nir</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">nir_href</span><span class="p">)</span>
 <span class="n">nir</span>
 </pre></div>
@@ -16801,14 +16812,14 @@ When you run any function on <code class="docutils literal notranslate"><span cl
 <p>First, let’s plot part of the <code class="docutils literal notranslate"><span class="pre">nir</span></code> array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">nir</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span><span class="mi">6200</span><span class="p">:</span><span class="mi">7000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">nir</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span><span class="mi">6200</span><span class="p">:</span><span class="mi">7000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -16823,8 +16834,8 @@ When you run any function on <code class="docutils literal notranslate"><span cl
 <p>We can actually time the operation of plotting the whole scene vs the small portion we selected, and see the efficiency of using this approach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -n 5 -r 1
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">nir</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span><span class="mi">6200</span><span class="p">:</span><span class="mi">7000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%timeit</span> -n 5 -r 1
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">nir</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span><span class="mi">6200</span><span class="p">:</span><span class="mi">7000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -16837,8 +16848,8 @@ When you run any function on <code class="docutils literal notranslate"><span cl
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -n 5 -r 1
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">nir</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%timeit</span> -n 5 -r 1
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">nir</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -16852,7 +16863,7 @@ When you run any function on <code class="docutils literal notranslate"><span cl
 <p>Lastly, you can save this array into a GeoTIFF file as following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nir</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span><span class="mi">6200</span><span class="p">:</span><span class="mi">7000</span><span class="p">]</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">to_raster</span><span class="p">(</span><span class="s2">&quot;nir_subset.tif&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nir</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span><span class="mi">6200</span><span class="p">:</span><span class="mi">7000</span><span class="p">]</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">to_raster</span><span class="p">(</span><span class="s2">"nir_subset.tif"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -16885,11 +16896,10 @@ When you run any function on <code class="docutils literal notranslate"><span cl
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="10_landscape.html"
@@ -16909,23 +16919,23 @@ When you run any function on <code class="docutils literal notranslate"><span cl
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-collections">11.1. Find Collections</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-items">11.2. Search Items</a></li>
@@ -16952,6 +16962,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -16978,8 +16989,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

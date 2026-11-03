@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Lesson 3: Making Open Results &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/clipboard.min.js"></script>
-    <script src="../../../../_static/copybutton.js"></script>
-    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_5/Lesson_3/readme';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Lesson 2: Using Open Results" href="../Lesson_2/readme.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../../../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -476,12 +487,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="lesson-3-making-open-results">
-<h1>Lesson 3: Making Open Results<a class="headerlink" href="#lesson-3-making-open-results" title="Permalink to this heading">#</a></h1>
+<h1>Lesson 3: Making Open Results<a class="headerlink" href="#lesson-3-making-open-results" title="Link to this heading">#</a></h1>
 <section id="navigation">
-<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a href="#how-to-make-open-results">How to Make Open Results</a></p></li>
 <li><p><a href="#role-of-contributors-in-open-science">Role of Contributors in Open Science</a></p></li>
@@ -492,11 +503,11 @@ document.write(`
 </ul>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In Lesson 2 you learned how to use other’s results. In this lesson, we focus on making open results. We will start by discussing what it means to make reproducible results. Having earlier in the course discussed the computational reproducibility practices in open software, in this lesson, we specifically emphasize the importance of collaborations in making those results open and reproducible. This begins with acknowledging that the scientific results are not made by single individuals. We will then teach how to ensure equitable, fair, and successful collaborations when making your open results that acknowledge all contributions. Once you’ve planned the rules of engagement, we will provide you with ways to ensure that your reporting and publication abide by open results principles and combat the reproducibility crisis.</p>
 </section>
 <section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>After completing this lesson, you should be able to:</p>
 <ul class="simple">
 <li><p>Identify approaches to make different types of open results.</p></li>
@@ -506,9 +517,9 @@ document.write(`
 </ul>
 </section>
 <section id="how-to-make-open-results">
-<h2>How to Make Open Results<a class="headerlink" href="#how-to-make-open-results" title="Permalink to this heading">#</a></h2>
+<h2>How to Make Open Results<a class="headerlink" href="#how-to-make-open-results" title="Link to this heading">#</a></h2>
 <section id="capturing-the-research-process-accurately-in-the-making-of-results">
-<h3>Capturing the Research Process Accurately in the Making of Results<a class="headerlink" href="#capturing-the-research-process-accurately-in-the-making-of-results" title="Permalink to this heading">#</a></h3>
+<h3>Capturing the Research Process Accurately in the Making of Results<a class="headerlink" href="#capturing-the-research-process-accurately-in-the-making-of-results" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p>I am aware of the reproducibility crisis and how open science can help combat it. What practical ways can I apply to my research outputs to make open results? How can I ensure that the results I share can be reproduced by others? How can I publish scientiﬁc publications that do not add to, but combat the reproducibility crisis?</p>
 </div></blockquote>
@@ -516,16 +527,16 @@ document.write(`
 <p>In Lesson 1, we identified different research components that can be considered open results at various stages of research. In this lesson, we want to specifically explain what processes are involved in making them.</p>
 </section>
 <section id="case-study-open-results-from-distributed-multi-team-event-horizon-telescope-collaboration-ehtc">
-<h3>Case Study: Open Results from Distributed Multi-Team Event Horizon Telescope Collaboration (EHTC)<a class="headerlink" href="#case-study-open-results-from-distributed-multi-team-event-horizon-telescope-collaboration-ehtc" title="Permalink to this heading">#</a></h3>
+<h3>Case Study: Open Results from Distributed Multi-Team Event Horizon Telescope Collaboration (EHTC)<a class="headerlink" href="#case-study-open-results-from-distributed-multi-team-event-horizon-telescope-collaboration-ehtc" title="Link to this heading">#</a></h3>
 <p><strong>Example:</strong> Capturing results on activities ranging from collaboration to observations, image generation to interpretation.</p>
 <p>In 2017, the Event Horizon Telescope targeted supermassive black holes with the largest apparent event horizons: M87, and Sgr A* in the Galactic Center on four separate days. This distributed collaboration led to the multi-petabyte yield of data that allowed astronomers to unveil the first image of a black hole providing the strongest visual evidence of their existence. The <a class="reference external" href="https://eventhorizontelescope.org/">EHTC website</a> provides information about research projects, scientific methods, instruments, press and media resources (such as blog posts, news articles and YouTube videos), as well as events, data, proposals and publications. This project shows large-scale and high-impact work that applies open practices in making their results. Different kinds of outputs shared under this project can be mapped to different stages of the research process and the teams involved in creating them.</p>
 </section>
 <section id="making-results-and-crediting-contributors-fairly-at-different-stages-of-research">
-<h3>Making Results and Crediting Contributors Fairly at Different Stages of Research<a class="headerlink" href="#making-results-and-crediting-contributors-fairly-at-different-stages-of-research" title="Permalink to this heading">#</a></h3>
+<h3>Making Results and Crediting Contributors Fairly at Different Stages of Research<a class="headerlink" href="#making-results-and-crediting-contributors-fairly-at-different-stages-of-research" title="Link to this heading">#</a></h3>
 <p>The case studies listed above highlight that results associated with a project are more than a publication. By understanding how open results are created in different projects, we can gain deep insights into the processes for making them. With that goal, the rest of this lesson describes the process of making results into three parts: 1) making all types of research outputs; 2) recognizing all contributors; and 3) combining outputs for scientific reporting and publications.</p>
 </section>
 <section id="making-all-types-of-research-outputs">
-<h3>Making All Types of Research Outputs<a class="headerlink" href="#making-all-types-of-research-outputs" title="Permalink to this heading">#</a></h3>
+<h3>Making All Types of Research Outputs<a class="headerlink" href="#making-all-types-of-research-outputs" title="Link to this heading">#</a></h3>
 <p>New ways of working with creative approaches for collaboration and communication in research have opened up opportunities to engage with the broader research communities by sharing scientific outcomes as they develop, rather than at the end through summary articles. A range of research components are created throughout the research lifecycle that can be shared openly. For example, resources created in a scientific project include, but are not limited to the following:</p>
 <table>
   <thead>
@@ -634,7 +645,7 @@ document.write(`
 <p>You have already come across some of these in the previous lessons, and hopefully, you could already identify which of these or additional outputs you are generating in your work. To make them part of your open results, it’s important that they are shared openly with appropriate licensing and documentation so that others can read, investigate and when possible, reuse or build upon them.</p>
 </section>
 <section id="making-open-and-reproducible-results">
-<h3>Making Open and Reproducible Results<a class="headerlink" href="#making-open-and-reproducible-results" title="Permalink to this heading">#</a></h3>
+<h3>Making Open and Reproducible Results<a class="headerlink" href="#making-open-and-reproducible-results" title="Link to this heading">#</a></h3>
 <p>Open science ultimately informs our decisions as scientists and guides the selection of approaches that contribute to making our results open at different stages. One of the main purposes of open results is to ensure research reproducibility, often explained through definitions such as the following by <a class="reference external" href="https://www.annualreviews.org/doi/10.1146/annurev-statistics-010814-020127">Stodden (2015)</a>:</p>
 <img alt="../../../../_images/stoddenquote.jpg" src="../../../../_images/stoddenquote.jpg" />
 <p>“Reproducibility is a researcher’s ability to obtain the same results in a published article using the raw data and code used in the original study.”</p>
@@ -645,7 +656,7 @@ document.write(`
 <p>Approaches for making open results should integrate reproducible tools and methods, such as version control, continuous integration, containerisation, code review, code testing and documentation. Furthermore, to extend the reproducibility beyond computational aspects of research, reporting and documentation for different types of outputs and decisions should also be supplied transparently.</p>
 </section>
 <section id="how-to-make-different-types-of-open-results">
-<h3>How to Make Different Types of Open Results<a class="headerlink" href="#how-to-make-different-types-of-open-results" title="Permalink to this heading">#</a></h3>
+<h3>How to Make Different Types of Open Results<a class="headerlink" href="#how-to-make-different-types-of-open-results" title="Link to this heading">#</a></h3>
 <p>Sharing different types of results as early as possible not only helps you find solutions faster, but also helps your science be more reproducible because that openness helps you understand how to communicate your methodologies and your findings more clearly to others. Here we provide some easy places to start creating your results openly.</p>
 <table>
   <thead>
@@ -719,24 +730,24 @@ document.write(`
 <p>More ways to communicate your work can be found in a <a class="reference external" href="https://the-turing-way.netlify.app/communication/communication">guide for communication</a> in The Turing Way.</p>
 </section>
 <section id="maintaining-ethical-standards">
-<h3>Maintaining Ethical Standards<a class="headerlink" href="#maintaining-ethical-standards" title="Permalink to this heading">#</a></h3>
+<h3>Maintaining Ethical Standards<a class="headerlink" href="#maintaining-ethical-standards" title="Link to this heading">#</a></h3>
 <p>Open science, as learned in the Ethos of Open Science, should maintain the highest ethical standards. This can be enabled through the involvement of diverse contributors in the development of scientific outcomes. Participatory approaches allow multiple perspectives and expertise to be integrated into research from the start and ensure that peer review happens for all outputs in an iterative manner, not just for the articles at the end.</p>
 <p>In making and planning to share open results, you can apply the “as open as possible, as closed as necessary” principle. This means, protecting sensitive information, managing data protection practices where necessary and not carelessly sharing sensitive data or people’s private information that can be misused. Online repositories, such as GitHub and GitLab, allow online interaction in addition to serving the technical purpose of version control and content hosting. For example, you can use <a class="reference external" href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues">issues</a> and <a class="reference external" href="https://docs.github.com/en/github-ae%40latest/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board">a project board</a> to communicate what is happening in a project at any given point. The use of <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">Pull Requests</a> signals an invitation for peer review on the new development of code or other content. Thanks to a number of reusable templates you don’t have to set up repositories from scratch. For example, you can directly use a <a class="reference external" href="https://github.com/the-turing-way/reproducible-project-template">template for reproducible research projects</a>.</p>
 </section>
 </section>
 <section id="role-of-contributors-in-open-science">
-<h2>Role of Contributors in Open Science<a class="headerlink" href="#role-of-contributors-in-open-science" title="Permalink to this heading">#</a></h2>
+<h2>Role of Contributors in Open Science<a class="headerlink" href="#role-of-contributors-in-open-science" title="Link to this heading">#</a></h2>
 <p>Collaboration is central to all scientific research. The positive impact of collaboration is achieved when diverse contributors are supported to combine a range of skills, perspectives and resources together to work towards a shared goal. Projects that apply open and reproducible approaches, make it easier for diverse contributors to be involved and get recognized for their contributions while supporting the development of solutions that they can all benefit from.</p>
 <p>Involving and recognizing the roles of all contributors in making open results is an important part of open science, which we will discuss next.</p>
 <section id="ehtc-case-study-recognizing-all-contributors">
-<h3>EHTC Case Study: Recognizing All Contributors<a class="headerlink" href="#ehtc-case-study-recognizing-all-contributors" title="Permalink to this heading">#</a></h3>
+<h3>EHTC Case Study: Recognizing All Contributors<a class="headerlink" href="#ehtc-case-study-recognizing-all-contributors" title="Link to this heading">#</a></h3>
 <img alt="../../../../_images/image52.jpeg" src="../../../../_images/image52.jpeg" />
 <p>A map of the EHT. Stations active in 2017 and 2018 are shown with connecting lines and labeled in yellow, sites in commission are labeled in green, and legacy sites are labeled in red. From Paper II (Figure 1). IOPscience. https://iopscience.iop.org/journal/2041-8205/page/Focus_on_EHT</p>
 <hr class="docutils" />
 <p>The Event Horizon Telescope (EHT) team involved 200 members from 59 institutes in 20 countries, from undergraduates to senior members of the field. They used an array that included eight radio telescopes at six geographic locations across the USA, Latin America, Europe and the South Pole. All collaborators were located in different geographic locations, had access to different instruments, collected data generated from telescopes in different locations and applied skills from across different teams to create groundbreaking results. Each contributor was acknowledged across different communication channels and given authorships in publications. EHTC also supports the “critical, independent analysis and interpretation” of their published results to facilitate transparency, rigor, and reproducibility (<a class="reference external" href="https://eventhorizontelescope.org/blog/imaging-reanalyses-eht-data">EHTC website</a>).</p>
 </section>
 <section id="making-open-results-starts-with-contributors">
-<h3>Making Open Results Starts with Contributors!<a class="headerlink" href="#making-open-results-starts-with-contributors" title="Permalink to this heading">#</a></h3>
+<h3>Making Open Results Starts with Contributors!<a class="headerlink" href="#making-open-results-starts-with-contributors" title="Link to this heading">#</a></h3>
 <p>Making different research components and preparing to share them as open results involve a range of activities. Behind these activities are the contributors who engage in various responsibilities that include, but are not limited to:</p>
 <ul class="simple">
 <li><p>Conceptualizing the idea</p></li>
@@ -757,7 +768,7 @@ document.write(`
 <p>Developing contribution guidelines and contributor agreements requires collaboratively defining what is considered contributions in your project, who among the current contributors will get authorship, who will get acknowledged as a contributor, what is the significance of the order in which authors are listed in a scientific publication, and who makes these decisions. Ensuring that all collaborators understand and agree to these guidelines before beginning the project is also important.</p>
 </section>
 <section id="contributors-and-authorship">
-<h3>Contributors and Authorship<a class="headerlink" href="#contributors-and-authorship" title="Permalink to this heading">#</a></h3>
+<h3>Contributors and Authorship<a class="headerlink" href="#contributors-and-authorship" title="Link to this heading">#</a></h3>
 <p>First and foremost, you must ensure that anyone who has contributed to the research project has their contributions recognized. With that shared understanding, in this lesson, you will explore what those recognitions as contributors or authors in your research project might look like.</p>
 <p>Let’s first define contributor and author roles.</p>
 <table>
@@ -792,7 +803,7 @@ document.write(`
 </table>
 </section>
 <section id="are-all-authors-contributors-and-vice-versa">
-<h3>Are All Authors Contributors and Vice Versa?<a class="headerlink" href="#are-all-authors-contributors-and-vice-versa" title="Permalink to this heading">#</a></h3>
+<h3>Are All Authors Contributors and Vice Versa?<a class="headerlink" href="#are-all-authors-contributors-and-vice-versa" title="Link to this heading">#</a></h3>
 <p>An author is a contributor who actively carries out one or several of the tasks listed above (<a class="reference external" href="https://oir.nih.gov/sourcebook/ethical-conduct/authorship-guidelines-resources/authorship-resources">National Institute of Health - NIH</a> and <a class="reference external" href="https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html">ICMJE</a>). All authors are contributors, but all contributors may not be authors, for example, someone serving as a mentor, trainer or infrastructure maintainer. Ideally, all contributors are given the opportunity to author research outputs.</p>
 <p>Given the importance traditionally placed on authorship in scientific publication and the fuzziness of the definitions (that often contain relative terms such as “substantial” or “extensive” leaving too much room for interpretation), it is not surprising that determining who amongst the contributors gets to be an author can lead to biased or unfair decisions, disputes between contributors, or at the very least leave someone resentful and feeling unappreciated.</p>
 <p>There is no single approach for recognizing contributors as authors, but here is what you should consider:</p>
@@ -830,7 +841,7 @@ document.write(`
 <p>Clear communication about roles and responsibilities early in the project, and guidelines for how credit will be determined, can help mitigate some of these issues.</p>
 </section>
 <section id="diverse-role-of-contributors">
-<h3>Diverse Role of Contributors<a class="headerlink" href="#diverse-role-of-contributors" title="Permalink to this heading">#</a></h3>
+<h3>Diverse Role of Contributors<a class="headerlink" href="#diverse-role-of-contributors" title="Link to this heading">#</a></h3>
 <p>It is important to set a reference for each research team/project about different kinds of responsibilities and opportunities available for different contributors and how each of them are acknowledged. <a class="reference external" href="https://credit.niso.org/">CRediT Taxonomy</a> represents roles typically played by contributors to research in creating scholarly output. Below, we provide a table with research roles that extends the CRediT taxonomy to include broader contributorship (<a class="reference external" href="https://zenodo.org/record/8403386">Sharan, 2022</a>). Using this as a starting point, open dialogue and discussion among team members can be facilitated to set a shared understanding and agreement about diverse roles of contributors including authorship of publications. The distinction between contribution types can help set clear expectations about responsibilities and how they can be recognized in a project.</p>
 <table>
 <colgroup>
@@ -929,12 +940,12 @@ document.write(`
 </section>
 </section>
 <section id="how-to-give-open-recognition">
-<h2>How to Give Open Recognition<a class="headerlink" href="#how-to-give-open-recognition" title="Permalink to this heading">#</a></h2>
+<h2>How to Give Open Recognition<a class="headerlink" href="#how-to-give-open-recognition" title="Link to this heading">#</a></h2>
 <p>To openly and fairly recognize all contributors, their names with the types of contributions they made should be listed in the project documentation. In manuscripts, it is a common practice to mention contributors’ roles under the ‘acknowledgement’ section, such as using CRedIT or similar taxonomy as provided in the table above. All contributors should be encouraged to provide ORCiDs associated with their names to make them identifiable.</p>
 <p>Contribution statements in documentation and manuscripts can specify who did what in the official results. This is great for transparency. It is also a great way to guard against unfair power dynamics. Details about contribution type shows explicitly who works on which parts of results, and makes it easy to give fair authorship. For example: <em>“Pierro Asara: review and editing (equal). Kerys Jones: Conceptualization (lead); writing – original draft (lead); formal analysis (lead); writing – review and editing (equal). Elisha Roberto: Software (lead); writing – review and editing (equal). Hebei Wang: Methodology (lead); writing – review and editing (equal). Jinnie Wu: Conceptualization (supporting); Writing – original draft (supporting); Writing – review and editing (equal).”</em></p>
 <p>If a GitHub repository and website exist, a dedicated page should be created to list and recognize all contributors. If someone minorly contributed to the paper, code or data, you could add them as an author or contributor to the GitHub and Zenodo releases respectively. Engaged collaborators and contributors not already involved in making research outputs should be given the opportunity to contribute to open results such as through presentation, posters, talks, blogs, podcasts, data, software as well as articles.</p>
 <section id="activity-3-1-draft-a-contribution-guideline">
-<h3>Activity 3.1: Draft a Contribution Guideline<a class="headerlink" href="#activity-3-1-draft-a-contribution-guideline" title="Permalink to this heading">#</a></h3>
+<h3>Activity 3.1: Draft a Contribution Guideline<a class="headerlink" href="#activity-3-1-draft-a-contribution-guideline" title="Link to this heading">#</a></h3>
 <img alt="../../../../_images/image211.png" src="../../../../_images/image211.png" />
 <p>A standalone contribution guideline should be created for each open project, even when that means reusing an existing draft that the research team has used in another project.</p>
 <p>Note that this is different from “contributing” guidelines that describe “how” to contribute (for example on code repositories). Contribution guidelines should describe contribution types and ways to acknowledge them as discussed above.</p>
@@ -956,19 +967,19 @@ document.write(`
 </section>
 </section>
 <section id="combining-open-results-for-scientific-reporting-and-publications">
-<h2>Combining Open Results for Scientific Reporting and Publications<a class="headerlink" href="#combining-open-results-for-scientific-reporting-and-publications" title="Permalink to this heading">#</a></h2>
+<h2>Combining Open Results for Scientific Reporting and Publications<a class="headerlink" href="#combining-open-results-for-scientific-reporting-and-publications" title="Link to this heading">#</a></h2>
 <p>Scientific publications have traditionally remained one of the most popular modes of reporting and publication. Over the last decade, it has become a standard practice to submit pre-peer reviewed manuscripts on preprint servers (such as <a class="reference external" href="https://arxiv.org/">arXiv</a>) to speed access to research before the peer-reviewed journal articles are published (discussed in Lesson 2). The publication system has also evolved massively. Journal articles are no longer about writing overview and summary of research, but can be used to share articles on software, data, education materials and more.</p>
 <section id="ehtc-case-study-capturing-results-on-activities-ranging-from-collaboration-to-observations-image-generation-to-interpretation">
-<h3>EHTC Case Study: Capturing Results on Activities Ranging From Collaboration to Observations, Image Generation to Interpretation<a class="headerlink" href="#ehtc-case-study-capturing-results-on-activities-ranging-from-collaboration-to-observations-image-generation-to-interpretation" title="Permalink to this heading">#</a></h3>
+<h3>EHTC Case Study: Capturing Results on Activities Ranging From Collaboration to Observations, Image Generation to Interpretation<a class="headerlink" href="#ehtc-case-study-capturing-results-on-activities-ranging-from-collaboration-to-observations-image-generation-to-interpretation" title="Link to this heading">#</a></h3>
 <img alt="../../../../_images/image531.jpeg" src="../../../../_images/image531.jpeg" />
 <p>The polarized image of the M87 black hole shadow as observed on 2017 April 11 by the EHT (left panel) and an image from the EHT Model Library with a MAD magnetic configuration (right pane), with a list of papers describing different sets of results.</p>
 <hr class="docutils" />
-<p>Across <a class="reference external" href="https://arxiv.org/search/astro-ph?searchtype=author&amp;query=Event%2BHorizon%2BTelescope%2BCollaboration">several preprints</a> and <a class="reference external" href="https://iopscience.iop.org/journal/2041-8205/page/Focus_on_EHT">eight peer-reviewed letters</a>, EHTC presented open results issued from different teams on instrumentation, observation, algorithm, software, modeling, and data management, providing the full scope of the project and the conclusions drawn to date.</p>
+<p>Across <a class="reference external" href="https://arxiv.org/search/astro-ph?searchtype=author&amp;amp;query=Event%2BHorizon%2BTelescope%2BCollaboration">several preprints</a> and <a class="reference external" href="https://iopscience.iop.org/journal/2041-8205/page/Focus_on_EHT">eight peer-reviewed letters</a>, EHTC presented open results issued from different teams on instrumentation, observation, algorithm, software, modeling, and data management, providing the full scope of the project and the conclusions drawn to date.</p>
 <p>Open results such as reports, publications, code, white papers, press releases, blog posts, videos, TED talks and social media posts add to the comprehensive repertoire of open results supported by EHTC. Resources are centralized on the <a class="reference external" href="https://eventhorizontelescope.org/">EHTC website</a>, <a class="reference external" href="https://github.com/eventhorizontelescope">GitHub organization</a> and <a class="reference external" href="https://www.youtube.com/%40ehtelescope">YouTube channel</a> among others to provide easy access to all open results.</p>
 <p>It’s important to highlight that their efforts have led to independent reanalysis and regeneration of black hole images. Specifically, <a class="reference external" href="https://arxiv.org/abs/2205.10267">Patel et. al. (2022)</a> not only reproduced the original finding, but also contributed additional documentation, code, and a computational environment as open-source containerized software package to ensure future testing. Some of the original authors reviewed this work and <a class="reference external" href="https://quarxiv.authorea.com/users/557984/articles/607408-review-reproducibility-of-the-first-image-of-a-black-hole-in-the-galaxy-m87-from-the-event-horizon-telescope-eht-collaboration">made their comments also available online</a> (Authorea).</p>
 </section>
 <section id="how-do-i-connect-open-results-to-make-reproducible-publications">
-<h3>How Do I Connect Open Results to Make Reproducible Publications<a class="headerlink" href="#how-do-i-connect-open-results-to-make-reproducible-publications" title="Permalink to this heading">#</a></h3>
+<h3>How Do I Connect Open Results to Make Reproducible Publications<a class="headerlink" href="#how-do-i-connect-open-results-to-make-reproducible-publications" title="Link to this heading">#</a></h3>
 <p>If not considered from the start, it can become challenging to ensure result reproducibility at the publication stage. Assuming that you have maintained open results considering their reproducibility, you can start assembling them to connect with the final reporting and publication with appropriate references to previous studies.</p>
 <ul class="simple">
 <li><p>Before writing your manuscript, assess each output to make sure that appropriate license is attached for reuse, documentation has been provided and contributors are clearly listed. You can decide to create a version of the record and point to a permanent identifier such as via Zenodo so that the link never breaks when sharing them on a public repository (such as GitLab/GitHub) or manuscripts with a visible list of contributors.</p></li>
@@ -986,7 +997,7 @@ document.write(`
 </section>
 </section>
 <section id="lesson-3-summary">
-<h2>Lesson 3: Summary<a class="headerlink" href="#lesson-3-summary" title="Permalink to this heading">#</a></h2>
+<h2>Lesson 3: Summary<a class="headerlink" href="#lesson-3-summary" title="Link to this heading">#</a></h2>
 <p>The steps that we highlight to make open results are not intractable. In fact, the steps we have highlighted are things we can do on a regular basis to ensure that all research artifacts can be shared later as open and reproducible results. In this lesson we learned:</p>
 <ul class="simple">
 <li><p>Approaches for making open results.</p></li>
@@ -996,7 +1007,7 @@ document.write(`
 </ul>
 </section>
 <section id="lesson-3-knowledge-check">
-<h2>Lesson 3: Knowledge Check<a class="headerlink" href="#lesson-3-knowledge-check" title="Permalink to this heading">#</a></h2>
+<h2>Lesson 3: Knowledge Check<a class="headerlink" href="#lesson-3-knowledge-check" title="Link to this heading">#</a></h2>
 <p>Answer the following questions to test what you have learned so far.</p>
 <p><em>Question</em></p>
 <p><strong>01/02</strong></p>
@@ -1052,11 +1063,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../Lesson_2/readme.html"
@@ -1076,23 +1086,23 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
@@ -1147,6 +1157,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -1173,8 +1184,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

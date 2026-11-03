@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Lesson 5: From Theory to Practice &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/clipboard.min.js"></script>
-    <script src="../../../../_static/copybutton.js"></script>
-    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Lesson 4: Sharing Open Code" href="../Lesson_4/readme.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../../../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../README.html">Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 4: Open Code</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../readme.html">OS101 Module 4: Open Code</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -482,12 +493,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="lesson-5-from-theory-to-practice">
-<h1>Lesson 5: From Theory to Practice<a class="headerlink" href="#lesson-5-from-theory-to-practice" title="Permalink to this heading">#</a></h1>
+<h1>Lesson 5: From Theory to Practice<a class="headerlink" href="#lesson-5-from-theory-to-practice" title="Link to this heading">#</a></h1>
 <section id="navigation">
-<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this heading">#</a></h2>
+<h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a href="#overview">Overview</a></p></li>
 <li><p><a href="#learning-objectives">Learning Objectives</a></p></li>
@@ -502,11 +513,11 @@ document.write(`
 </ul>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>This lesson ties the concepts of open access software development to the operation of a software management plan. The lesson also introduces you to the community aspect of open software. It begins with a discussion on writing software management plans, then continues with information on how to connect with open software communities. This information is contextualized with an introduction to the benefits of a software community and the roles involved in these groups. A list of communities is also presented, and you are asked to explore and engage with some of them. The lesson wraps up with helpful suggestions to contribute to open software and additional resources.</p>
 </section>
 <section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>After completing this lesson, you should be able to:</p>
 <ul class="simple">
 <li><p>Recall the definition of a software management plan, potentially as part of an open science and data management plan, and where to find helpful resources.</p></li>
@@ -514,7 +525,7 @@ document.write(`
 </ul>
 </section>
 <section id="open-science-and-data-management-plans">
-<h2>Open Science and Data Management Plans<a class="headerlink" href="#open-science-and-data-management-plans" title="Permalink to this heading">#</a></h2>
+<h2>Open Science and Data Management Plans<a class="headerlink" href="#open-science-and-data-management-plans" title="Link to this heading">#</a></h2>
 <img alt="../../../../_images/codebg.jpg" src="../../../../_images/codebg.jpg" />
 <p>“A NASA Open Science and Data Management Plan (OSDMP) describes how the scientific information that will be produced from NASA-funded scientific activities will be managed and made openly available. The OSDMP should include sections on data management, software management, and publication sharing.”</p>
 <p><strong><a class="reference external" href="https://science.nasa.gov/researchers/sara/faqs/">https://science.nasa.gov/researchers/sara/faqs/</a></strong></p>
@@ -528,7 +539,7 @@ document.write(`
 <li><p>Roles and responsibilities</p></li>
 </ul>
 <section id="recall-the-steps-for-an-smp-from-the-previous-lessons">
-<h3>Recall the steps for an SMP from the previous lessons<a class="headerlink" href="#recall-the-steps-for-an-smp-from-the-previous-lessons" title="Permalink to this heading">#</a></h3>
+<h3>Recall the steps for an SMP from the previous lessons<a class="headerlink" href="#recall-the-steps-for-an-smp-from-the-previous-lessons" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>What:</strong> Description of management, preservation, and release of software.</p></li>
 <li><p><strong>When:</strong> The schedule for software archiving and sharing.</p></li>
@@ -540,11 +551,11 @@ document.write(`
 </section>
 </section>
 <section id="how-do-we-plan-for-making-our-code-open">
-<h2>How Do We Plan for Making our Code Open?<a class="headerlink" href="#how-do-we-plan-for-making-our-code-open" title="Permalink to this heading">#</a></h2>
+<h2>How Do We Plan for Making our Code Open?<a class="headerlink" href="#how-do-we-plan-for-making-our-code-open" title="Link to this heading">#</a></h2>
 <section id="should-a-software-or-data-management-plan-be-written">
-<h3>Should a Software or Data Management Plan be Written?<a class="headerlink" href="#should-a-software-or-data-management-plan-be-written" title="Permalink to this heading">#</a></h3>
+<h3>Should a Software or Data Management Plan be Written?<a class="headerlink" href="#should-a-software-or-data-management-plan-be-written" title="Link to this heading">#</a></h3>
 <p>If you are planning a project that requires a data management plan, writing that plan is a good first step. There is a threshold above which you should write a software/data management plan. “Software” here means scientifically or technically relevant computer programs as both source code and executable software.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -559,11 +570,12 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>Perhaps your project does not fit into these categories. For example, if your aim is for your results to be reproduced by others then writing a SMP is your discretion.</p>
 <p>The following material assumes that you have met the threshold and are writing a data/software management plan.</p>
 </section>
 <section id="pen-to-paper-getting-started-writing-a-plan">
-<h3>Pen to Paper: Getting Started Writing a Plan<a class="headerlink" href="#pen-to-paper-getting-started-writing-a-plan" title="Permalink to this heading">#</a></h3>
+<h3>Pen to Paper: Getting Started Writing a Plan<a class="headerlink" href="#pen-to-paper-getting-started-writing-a-plan" title="Link to this heading">#</a></h3>
 <p>If you are applying for funding, it is almost guaranteed that there will be specific data management requirements detailed in the funding opportunity. For example, the funder may require a certain license or use of a specific repository. Make sure to cross reference your plan with these requirements.</p>
 <p><strong>Examples of Software Management Plans</strong></p>
 <ul class="simple">
@@ -581,21 +593,21 @@ document.write(`
 </ul>
 </section>
 <section id="funding-agencies">
-<h3>Funding Agencies<a class="headerlink" href="#funding-agencies" title="Permalink to this heading">#</a></h3>
+<h3>Funding Agencies<a class="headerlink" href="#funding-agencies" title="Link to this heading">#</a></h3>
 <p>Scientific funding agencies generally solicit peer reviews to support funding decisions. These reviews explicitly or implicitly evaluate related open software. Community participation is necessary to arrive at consensus regarding community standards for funding.</p>
 <p>For example: <a class="reference external" href="https://science.nasa.gov/spd-41">NASA policy</a> explicitly states that “funded software should follow best practices in the relevant open source and research communities.”</p>
 </section>
 <section id="established-open-software-policies-of-professional-societies">
-<h3>Established Open Software Policies of Professional Societies<a class="headerlink" href="#established-open-software-policies-of-professional-societies" title="Permalink to this heading">#</a></h3>
+<h3>Established Open Software Policies of Professional Societies<a class="headerlink" href="#established-open-software-policies-of-professional-societies" title="Link to this heading">#</a></h3>
 <p>Professional societies such as AAAS, AGU, AAS, etc., influence funding agency policies and directly influence the policies surrounding software used to generate publications. It is important to engage with the community via consensus papers and professional societies to guide policy decisions regarding open source software in science.</p>
 <p>Science/AAAS explicitly states that “In general, all computer code central to the findings being reported should be available to readers to ensure reproducibility.”</p>
 </section>
 <section id="institutions">
-<h3>Institutions<a class="headerlink" href="#institutions" title="Permalink to this heading">#</a></h3>
+<h3>Institutions<a class="headerlink" href="#institutions" title="Link to this heading">#</a></h3>
 <p>The individual institutions where we work impose highly variable restrictions on open source software due to security, privacy, intellectual property, commercial, or other concerns which do not necessarily align with the ethos of open science. It is important to engage with the institutional community to facilitate the movement toward policies that facilitate open source software as a foundation of open science.</p>
 </section>
 <section id="activity-5-1-writing-an-smp">
-<h3>Activity 5.1: Writing an SMP<a class="headerlink" href="#activity-5-1-writing-an-smp" title="Permalink to this heading">#</a></h3>
+<h3>Activity 5.1: Writing an SMP<a class="headerlink" href="#activity-5-1-writing-an-smp" title="Link to this heading">#</a></h3>
 <p>In this activity, review the SMP below and think about these questions:</p>
 <ul class="simple">
 <li><p>What kinds of software does the SMP describe?</p></li>
@@ -609,7 +621,7 @@ document.write(`
 <li><p>Are there things in the example plan that you would add or be more specific about?</p></li>
 </ul>
 <section id="example-software-management-plan">
-<h4>Example Software Management Plan<a class="headerlink" href="#example-software-management-plan" title="Permalink to this heading">#</a></h4>
+<h4>Example Software Management Plan<a class="headerlink" href="#example-software-management-plan" title="Link to this heading">#</a></h4>
 <p><strong>1. Expected Software Types</strong></p>
 <p>We will use established simulation models to conduct initial simulations for this work. These simulation models are written in Fortran and developed over the last decade. While not publicly available, they are available for the project to use (private communication). The simulation models will lead to the generation of output files as described in the Data Management Plan (DMP). We will develop analysis software in Python to analyze the model output files, which will enable the development of derived data products, maps, and figures. Development of the Python analysis software will be shared on a GitHub repository.</p>
 <p><strong>2. Development of Analysis Software</strong></p>
@@ -624,10 +636,10 @@ document.write(`
 </section>
 </section>
 <section id="engage-and-build-communities">
-<h2>Engage and Build Communities<a class="headerlink" href="#engage-and-build-communities" title="Permalink to this heading">#</a></h2>
+<h2>Engage and Build Communities<a class="headerlink" href="#engage-and-build-communities" title="Link to this heading">#</a></h2>
 <p>Open software communities are social learning spaces where individuals come together to learn a new skill, exchange knowledge and experiences, and then apply what they’ve learned from the community in their day-to-day work.</p>
 <section id="communities-offer">
-<h3>Communities offer:<a class="headerlink" href="#communities-offer" title="Permalink to this heading">#</a></h3>
+<h3>Communities offer:<a class="headerlink" href="#communities-offer" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A low entry point for learning and improving your use of software in research.</p></li>
 <li><p>An opportunity to share individual experiences, identify common hurdles, and iteratively enhance knowledge and resolve problems.</p></li>
@@ -636,7 +648,7 @@ document.write(`
 </ul>
 </section>
 <section id="connect-with-communities">
-<h3>Connect with Communities<a class="headerlink" href="#connect-with-communities" title="Permalink to this heading">#</a></h3>
+<h3>Connect with Communities<a class="headerlink" href="#connect-with-communities" title="Link to this heading">#</a></h3>
 <p>Here are some communities that can help you get started:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pydata.org/">PyData</a></p></li>
@@ -658,14 +670,14 @@ document.write(`
 <p><a class="reference external" href="https://the-turing-way.netlify.app/collaboration/new-community.html">CLICK TO LEARN</a></p>
 </section>
 <section id="activity-5-2-browse-through-some-of-the-communities-of-practice">
-<h3>Activity 5.2: Browse Through Some of the Communities of Practice<a class="headerlink" href="#activity-5-2-browse-through-some-of-the-communities-of-practice" title="Permalink to this heading">#</a></h3>
+<h3>Activity 5.2: Browse Through Some of the Communities of Practice<a class="headerlink" href="#activity-5-2-browse-through-some-of-the-communities-of-practice" title="Link to this heading">#</a></h3>
 <img alt="../../../../_images/lightbulb1.png" src="../../../../_images/lightbulb1.png" />
 <ul class="simple">
 <li><p>Find and browse through the websites associated with two communities of practice listed on the previous section “Connecting with Communities”.</p></li>
 <li><p>Identify at least two points of entry for engagement, e.g., an upcoming event (virtual or in person), how you could contribute, forums, etc.</p></li>
 </ul>
 <section id="key-takeaways-browse-through-some-of-the-communities-of-practice">
-<h4>Key takeaways: Browse through some of the communities of practice<a class="headerlink" href="#key-takeaways-browse-through-some-of-the-communities-of-practice" title="Permalink to this heading">#</a></h4>
+<h4>Key takeaways: Browse through some of the communities of practice<a class="headerlink" href="#key-takeaways-browse-through-some-of-the-communities-of-practice" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>There are many opportunities to engage with communities working on open software.</p></li>
 <li><p>Engaging with open software communities can enrich and improve your software.</p></li>
@@ -674,10 +686,10 @@ document.write(`
 </section>
 </section>
 <section id="contribute-to-open-source-software">
-<h2>Contribute to Open-Source Software<a class="headerlink" href="#contribute-to-open-source-software" title="Permalink to this heading">#</a></h2>
+<h2>Contribute to Open-Source Software<a class="headerlink" href="#contribute-to-open-source-software" title="Link to this heading">#</a></h2>
 <p>Contributing to open software provides many advantages and opens doors to a number of rewarding opportunities. There are few other industries that can boast the massive number of global contributions like the open-source community can. Contributing to open source software is a great way to improve your coding skills and to document your work while growing your community.</p>
 <p>There are several types of contributing to open software. Not all of them require writing actual code:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -710,11 +722,12 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="additional-resources">
-<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h2>
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
 <section id="references-and-guides">
-<h3>References and Guides<a class="headerlink" href="#references-and-guides" title="Permalink to this heading">#</a></h3>
+<h3>References and Guides<a class="headerlink" href="#references-and-guides" title="Link to this heading">#</a></h3>
 <p>In addition to the resources listed elsewhere in this training, the below community resources are excellent sources of information about Open Software.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://zenodo.org/record/7662732">OpenSciency</a></p></li>
@@ -728,7 +741,7 @@ document.write(`
 </ul>
 </section>
 <section id="additional-training">
-<h3>Additional Training<a class="headerlink" href="#additional-training" title="Permalink to this heading">#</a></h3>
+<h3>Additional Training<a class="headerlink" href="#additional-training" title="Link to this heading">#</a></h3>
 <p>In addition to the resources listed elsewhere in this training, the below resources represent additional training on Open Source Software.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://software-carpentry.org/lessons/">Software Carpentries</a></p></li>
@@ -736,7 +749,7 @@ document.write(`
 </ul>
 </section>
 <section id="a-journal-with-thousands-of-open-source-research-software-success-stories">
-<h3>A Journal with Thousands of Open-Source Research Software Success Stories<a class="headerlink" href="#a-journal-with-thousands-of-open-source-research-software-success-stories" title="Permalink to this heading">#</a></h3>
+<h3>A Journal with Thousands of Open-Source Research Software Success Stories<a class="headerlink" href="#a-journal-with-thousands-of-open-source-research-software-success-stories" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://joss.theoj.org/">The Journal of Open Source Software</a> has presented a venue for enhancing the quality and minimizing the effort of publishing open source research software:</p>
 <ul class="simple">
 <li><p>Peer-reviewed, open source “journal” covering open source research software published via GitHub.</p></li>
@@ -746,7 +759,7 @@ document.write(`
 </section>
 </section>
 <section id="lesson-5-summary">
-<h2>Lesson 5: Summary<a class="headerlink" href="#lesson-5-summary" title="Permalink to this heading">#</a></h2>
+<h2>Lesson 5: Summary<a class="headerlink" href="#lesson-5-summary" title="Link to this heading">#</a></h2>
 <p>In this lesson, you learned:</p>
 <ul class="simple">
 <li><p>When a SMP should be written and that your funding organization or institution may have rules around how you develop and share your code.</p></li>
@@ -755,7 +768,7 @@ document.write(`
 </ul>
 </section>
 <section id="lesson-5-knowledge-check">
-<h2>Lesson 5: Knowledge Check<a class="headerlink" href="#lesson-5-knowledge-check" title="Permalink to this heading">#</a></h2>
+<h2>Lesson 5: Knowledge Check<a class="headerlink" href="#lesson-5-knowledge-check" title="Link to this heading">#</a></h2>
 <p>Answer the following questions to test what you have learned so far.</p>
 <p><em>Question</em></p>
 <p><strong>01/02</strong></p>
@@ -777,7 +790,7 @@ document.write(`
 </ul>
 </section>
 <section id="open-code-summary">
-<h2>Open Code Summary<a class="headerlink" href="#open-code-summary" title="Permalink to this heading">#</a></h2>
+<h2>Open Code Summary<a class="headerlink" href="#open-code-summary" title="Link to this heading">#</a></h2>
 <p>Congratulations! Now you should be able to:</p>
 <ul class="simple">
 <li><p>Explain what open source software means, including the software development cycle, the benefits of open software, and some common limitations and how they are addressed.</p></li>
@@ -814,11 +827,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../Lesson_4/readme.html"
@@ -838,23 +850,23 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
@@ -915,6 +927,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -941,8 +954,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

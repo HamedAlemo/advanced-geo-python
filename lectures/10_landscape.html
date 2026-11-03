@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>10. The Landscape of Geospatial Data and Tools &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/10_landscape';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="9. Working with CRS and Projections in Python" href="09_crs_and_projections.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -461,18 +472,19 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="the-landscape-of-geospatial-data-and-tools">
-<h1><span class="section-number">10. </span>The Landscape of Geospatial Data and Tools<a class="headerlink" href="#the-landscape-of-geospatial-data-and-tools" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">10. </span>The Landscape of Geospatial Data and Tools<a class="headerlink" href="#the-landscape-of-geospatial-data-and-tools" title="Link to this heading">#</a></h1>
 <p>This section provides an overview of the geospatial analytics landscape, including datasets, data formats, platforms, cloud repositories and Python packages. The goal of this introductory section is to familiarize you with the rapidly evolving landscape for geospatial analytics.</p>
 <section id="background">
-<h2><span class="section-number">10.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.1. </span>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
 <p>The geospatial sector has been evolving rapidly in recent years. We can summarize the drivers of these changes in three categories:</p>
 <figure class="align-center" id="change-drivers">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/change-drivers.png"><img alt="../_images/change-drivers.png" class="bg-primary mb-1" src="../_images/change-drivers.png" style="width: 300px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/change-drivers.png"><img alt="../_images/change-drivers.png" class="bg-primary mb-1" src="../_images/change-drivers.png" style="width: 300px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.1 </span><span class="caption-text">Drivers of change in geospatial technology.</span><a class="headerlink" href="#change-drivers" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.1 </span><span class="caption-text">Drivers of change in geospatial technology.</span><a class="headerlink" href="#change-drivers" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic">
@@ -480,15 +492,17 @@ document.write(`
 <p>Earth Observation (EO) satellites were historically launched and operated by government agencies such as NASA, USGS, ESA, JAXA, ISRO, and others. While a few commercial companies started operating EO satellites in the early 2000s, their scope was still very limited. In the last decade, however, advances in smallsat and cubesat technologies have allowed a large number of commercial companies to enter the market and launch new satellite constellations. This boom in commercial EO includes satellites that do not carry multispectral sensors, and instead carry synthetic aperture radar (SAR), light detection and ranging (Lidar), or hyperspectral sensors.</p>
 <p><a class="reference internal" href="#esds-archive"><span class="std std-numref">Fig. 10.2</span></a> shows the growing archive of NASA satellite mission data as an example, and <a class="reference internal" href="#maxar-umbra"><span class="std std-numref">Fig. 10.3</span></a> shows collocated SAR and optical imagery.</p>
 <figure class="align-center" id="esds-archive">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/nasa-archive-growth-projection-fy2026.png"><img alt="../_images/nasa-archive-growth-projection-fy2026.png" class="bg-primary mb-1" src="../_images/nasa-archive-growth-projection-fy2026.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/nasa-archive-growth-projection-fy2026.png"><img alt="../_images/nasa-archive-growth-projection-fy2026.png" class="bg-primary mb-1" src="../_images/nasa-archive-growth-projection-fy2026.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.2 </span><span class="caption-text">Growing archive of NASA satellite mission data [source <a class="reference external" href="https://www.earthdata.nasa.gov/">NASA Earth Data</a>]</span><a class="headerlink" href="#esds-archive" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.2 </span><span class="caption-text">Growing archive of NASA satellite mission data [source <a class="reference external" href="https://www.earthdata.nasa.gov/">NASA Earth Data</a>]</span><a class="headerlink" href="#esds-archive" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="maxar-umbra">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/maxar-umbra.png"><img alt="../_images/maxar-umbra.png" class="bg-primary mb-1" src="../_images/maxar-umbra.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/maxar-umbra.png"><img alt="../_images/maxar-umbra.png" class="bg-primary mb-1" src="../_images/maxar-umbra.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.3 </span><span class="caption-text">Collocated SAR and optical imagery provided by Umbra and Maxar. [source: <a class="reference external" href="https://umbra.space/blog/maxar-secures-dedicated-access-to-umbras-sar-constellation">Umbra</a>]</span><a class="headerlink" href="#maxar-umbra" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.3 </span><span class="caption-text">Collocated SAR and optical imagery provided by Umbra and Maxar. [source: <a class="reference external" href="https://umbra.space/blog/maxar-secures-dedicated-access-to-umbras-sar-constellation">Umbra</a>]</span><a class="headerlink" href="#maxar-umbra" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
@@ -512,11 +526,11 @@ document.write(`
 <p>In the following sections, we will learn more about the geospatial technology landscape, and in particular the data formats and Python packages that make it possible to use and manipulate geospatial data.</p>
 </section>
 <section id="cloud-native-data-formats">
-<h2><span class="section-number">10.2. </span>Cloud-Native Data Formats<a class="headerlink" href="#cloud-native-data-formats" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.2. </span>Cloud-Native Data Formats<a class="headerlink" href="#cloud-native-data-formats" title="Link to this heading">#</a></h2>
 <p>Geospatial data is broadly categorized as vectors and rasters. With the changes described in the previous section, the file formats used to store and access these data have evolved too. Consider a similar example: back in the day you would buy or rent a DVD, CD or even a cassette to watch a movie on your TV at home. Nowadays, you simply log into a website or app and “stream” the same content (often with higher image quality). Geospatial data is going through a similar change. You don’t want to download all the satellite images for your application; rather, you want to access them where they are stored and load only the portions of the data you need for your analysis.</p>
 <p>In this section we first look at what makes a format “cloud-optimized”, then review the landscape of formats, and finally take a closer look at the three formats you will use most often in this course: <strong>Cloud Optimized GeoTIFF (COG)</strong>, <strong>Zarr</strong> and <strong>GeoParquet</strong>.</p>
 <section id="what-makes-a-format-cloud-optimized">
-<h3><span class="section-number">10.2.1. </span>What makes a format cloud-optimized?<a class="headerlink" href="#what-makes-a-format-cloud-optimized" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.1. </span>What makes a format cloud-optimized?<a class="headerlink" href="#what-makes-a-format-cloud-optimized" title="Link to this heading">#</a></h3>
 <p>Large public geospatial datasets are increasingly stored on <strong>cloud object storage</strong> such as Amazon S3, Google Cloud Storage or Azure Blob Storage. Object storage is cheap and effectively unlimited, and each file (an <em>object</em>) is reached through a URL. It also supports a simple but powerful feature of the HTTP protocol: the <strong>range request</strong>. Instead of asking the server for the whole file, a client can ask for a specific range of bytes, for example <code class="docutils literal notranslate"><span class="pre">Range:</span> <span class="pre">bytes=0-16383</span></code>.</p>
 <p>A format is <strong>cloud-optimized</strong> when its internal organization lets a client get what it needs with a few small range requests. In practice this comes down to three ingredients:</p>
 <ol class="arabic simple">
@@ -526,23 +540,24 @@ document.write(`
 </ol>
 <p>Many cloud-optimized formats add a fourth, optional ingredient: <strong>overviews</strong> (also called multiscales or pyramids), which are lower-resolution copies of the data used for fast visualization.</p>
 <figure class="align-center" id="cng-anatomy">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/cng-anatomy.png"><img alt="../_images/cng-anatomy.png" class="bg-primary mb-1" src="../_images/cng-anatomy.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/cng-anatomy.png"><img alt="../_images/cng-anatomy.png" class="bg-primary mb-1" src="../_images/cng-anatomy.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.4 </span><span class="caption-text">Anatomy of a cloud-optimized file. The client first reads the small metadata/index block, then requests only the chunks it needs using HTTP range requests.</span><a class="headerlink" href="#cng-anatomy" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.4 </span><span class="caption-text">Anatomy of a cloud-optimized file. The client first reads the small metadata/index block, then requests only the chunks it needs using HTTP range requests.</span><a class="headerlink" href="#cng-anatomy" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>You can see a range request in action with a single line of <code class="docutils literal notranslate"><span class="pre">curl</span></code> or Python. The example below requests only the first 1,024 bytes of a large COG hosted on S3 (this is the same OpenAerialMap image we use in the class demo). The server answers with status code <code class="docutils literal notranslate"><span class="pre">206</span> <span class="pre">Partial</span> <span class="pre">Content</span></code> instead of <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>-1023<span class="w"> </span>-o<span class="w"> </span>first_kb.bin<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code} %{size_download}\n&quot;</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>-1023<span class="w"> </span>-o<span class="w"> </span>first_kb.bin<span class="w"> </span>-w<span class="w"> </span><span class="s2">"%{http_code} %{size_download}\n"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>https://oin-hotosm-temp.s3.us-east-1.amazonaws.com/6ab2355ff8028de22430be88/0/6ab2355ff8028de22430be89.tif
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://oin-hotosm-temp.s3.us-east-1.amazonaws.com/6ab2355ff8028de22430be88/0/6ab2355ff8028de22430be89.tif&quot;</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Range&quot;</span><span class="p">:</span> <span class="s2">&quot;bytes=0-1023&quot;</span><span class="p">})</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://oin-hotosm-temp.s3.us-east-1.amazonaws.com/6ab2355ff8028de22430be88/0/6ab2355ff8028de22430be89.tif"</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Range"</span><span class="p">:</span> <span class="s2">"bytes=0-1023"</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>   <span class="c1"># 206 -&gt; Partial Content</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>  <span class="c1"># 1024 bytes, not the whole file</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>   <span class="c1"># b&#39;II*\x00&#39; -&gt; the TIFF &quot;magic number&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>   <span class="c1"># b'II*\x00' -&gt; the TIFF "magic number"</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -551,15 +566,16 @@ document.write(`
 </div>
 </section>
 <section id="the-format-landscape">
-<h3><span class="section-number">10.2.2. </span>The format landscape<a class="headerlink" href="#the-format-landscape" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.2. </span>The format landscape<a class="headerlink" href="#the-format-landscape" title="Link to this heading">#</a></h3>
 <p><a class="reference internal" href="#cng-formats"><span class="std std-numref">Fig. 10.5</span></a> shows traditional and cloud-optimized formats for various data types, and the table below summarizes the landscape as of 2026. We will cover the three formats in bold in detail. The rest are good to know about, and you will likely come across them in your projects.</p>
 <figure class="align-center" id="cng-formats">
-<a class="bg-primary mb-1 reference internal image-reference" href="https://guide.cloudnativegeo.org/images/cogeo-formats-table.png"><img alt="https://guide.cloudnativegeo.org/images/cogeo-formats-table.png" class="bg-primary mb-1" src="https://guide.cloudnativegeo.org/images/cogeo-formats-table.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="https://guide.cloudnativegeo.org/images/cogeo-formats-table.png"><img alt="https://guide.cloudnativegeo.org/images/cogeo-formats-table.png" class="bg-primary mb-1" src="https://guide.cloudnativegeo.org/images/cogeo-formats-table.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.5 </span><span class="caption-text">Cloud optimized geospatial formats. [source: <a class="reference external" href="https://guide.cloudnativegeo.org/">CNG Guide</a>]</span><a class="headerlink" href="#cng-formats" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.5 </span><span class="caption-text">Cloud optimized geospatial formats. [source: <a class="reference external" href="https://guide.cloudnativegeo.org/">CNG Guide</a>]</span><a class="headerlink" href="#cng-formats" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Data type</p></th>
 <th class="head"><p>Traditional formats</p></th>
@@ -610,9 +626,10 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="traditional-formats-a-quick-review">
-<h3><span class="section-number">10.2.3. </span>Traditional formats: a quick review<a class="headerlink" href="#traditional-formats-a-quick-review" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.3. </span>Traditional formats: a quick review<a class="headerlink" href="#traditional-formats-a-quick-review" title="Link to this heading">#</a></h3>
 <p>Before looking at the cloud-optimized formats, let’s briefly review the traditional formats you are likely familiar with.</p>
 <p><strong>Rasters and arrays</strong></p>
 <ul class="simple">
@@ -628,7 +645,7 @@ document.write(`
 </ul>
 </section>
 <section id="cloud-optimized-geotiff-cog">
-<h3><span class="section-number">10.2.4. </span>Cloud Optimized GeoTIFF (COG)<a class="headerlink" href="#cloud-optimized-geotiff-cog" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.4. </span>Cloud Optimized GeoTIFF (COG)<a class="headerlink" href="#cloud-optimized-geotiff-cog" title="Link to this heading">#</a></h3>
 <p>A Cloud Optimized GeoTIFF is, according to its <a class="reference external" href="https://www.cogeo.org/">definition</a>, <em>a regular GeoTIFF file, aimed at being hosted on a HTTP file server, with an internal organization that enables more efficient workflows on the cloud. It does this by leveraging the ability of clients issuing HTTP GET range requests to ask for just the parts of a file they need.</em> Because a COG is still a valid GeoTIFF, any software that reads GeoTIFFs can read a COG. COG was adopted as an official <a class="reference external" href="https://www.ogc.org/standards/ogc-cloud-optimized-geotiff/">OGC standard</a> in 2023.</p>
 <p>A COG has three properties that map directly onto the three ingredients above:</p>
 <ul class="simple">
@@ -637,19 +654,20 @@ document.write(`
 <li><p><strong>Header first</strong>: The header and the image file directories (IFDs), which record the byte offset and size of every tile, are placed at the beginning of the file, followed by the overviews (coarsest first) and finally the full-resolution tiles.</p></li>
 </ul>
 <figure class="align-center" id="cog-layout">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/cog-layout.png"><img alt="../_images/cog-layout.png" class="bg-primary mb-1" src="../_images/cog-layout.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/cog-layout.png"><img alt="../_images/cog-layout.png" class="bg-primary mb-1" src="../_images/cog-layout.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.6 </span><span class="caption-text">Internal organization of a COG: an image pyramid of tiles (left) and the order of bytes in the file (right).</span><a class="headerlink" href="#cog-layout" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.6 </span><span class="caption-text">Internal organization of a COG: an image pyramid of tiles (left) and the order of bytes in the file (right).</span><a class="headerlink" href="#cog-layout" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Reading a COG over the network.</strong> <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> (built on GDAL) can open a COG directly from a URL and read only a window, or a downsampled version that is served from the overviews:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rasterio</span>
-<span class="kn">from</span> <span class="nn">rasterio.windows</span> <span class="kn">import</span> <span class="n">Window</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.windows</span><span class="w"> </span><span class="kn">import</span> <span class="n">Window</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://oin-hotosm-temp.s3.us-east-1.amazonaws.com/6ab2355ff8028de22430be88/0/6ab2355ff8028de22430be89.tif&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://oin-hotosm-temp.s3.us-east-1.amazonaws.com/6ab2355ff8028de22430be88/0/6ab2355ff8028de22430be89.tif"</span>
 
 <span class="c1"># Recommended GDAL settings for reading COGs over HTTP</span>
-<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">Env</span><span class="p">(</span><span class="n">GDAL_DISABLE_READDIR_ON_OPEN</span><span class="o">=</span><span class="s2">&quot;EMPTY_DIR&quot;</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">Env</span><span class="p">(</span><span class="n">GDAL_DISABLE_READDIR_ON_OPEN</span><span class="o">=</span><span class="s2">"EMPTY_DIR"</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>          <span class="c1"># look for tiled=True, blockxsize/blockysize, compress</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">overviews</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>     <span class="c1"># overview decimation factors, e.g. [2, 4, 8, 16]</span>
@@ -671,8 +689,8 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># rasterio: write with the COG driver</span>
-<span class="n">profile</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">driver</span><span class="o">=</span><span class="s2">&quot;COG&quot;</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="s2">&quot;deflate&quot;</span><span class="p">,</span> <span class="n">blocksize</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;output_cog.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">profile</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+<span class="n">profile</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">driver</span><span class="o">=</span><span class="s2">"COG"</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="s2">"deflate"</span><span class="p">,</span> <span class="n">blocksize</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"output_cog.tif"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="o">**</span><span class="n">profile</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
     <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -680,12 +698,13 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 <p><strong>Limitation.</strong> A COG stores a single 2D image (with one or more bands). A time series is therefore stored as many separate COG files, and we need a catalog (STAC) to find them and a tool to stack them into a data cube. For data that is naturally multidimensional, such as climate model output with time, height and many variables, Zarr is a better fit.</p>
 </section>
 <section id="zarr">
-<h3><span class="section-number">10.2.5. </span>Zarr<a class="headerlink" href="#zarr" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.5. </span>Zarr<a class="headerlink" href="#zarr" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://zarr.dev/">Zarr</a> is a format for the storage of chunked, compressed, N-dimensional arrays, inspired by HDF5 and netCDF. From the <a class="reference external" href="https://zarr-specs.readthedocs.io/en/latest/v3/core/index.html">Zarr specification</a>: <em>The primary motivation for the development of Zarr is to address this challenge by enabling the storage of large multidimensional arrays in a way that is compatible with parallel and/or distributed computing applications.</em> Zarr maps naturally onto Xarray’s data model: an Xarray <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> is stored as a Zarr <strong>group</strong>, and each variable is stored as a Zarr <strong>array</strong>.</p>
 <figure class="align-center" id="id1">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/zarr.png"><img alt="../_images/zarr.png" class="bg-primary mb-1" src="../_images/zarr.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/zarr.png"><img alt="../_images/zarr.png" class="bg-primary mb-1" src="../_images/zarr.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.7 </span><span class="caption-text">Zarr data format used for storing n-dimensional arrays. An n-dimensional array is a great data model for dynamic phenomena. [source: <a class="reference external" href="https://kpegion.github.io/AOES-CLIM-WorkingWithData/figures/">Working with Climate Data</a>]</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.7 </span><span class="caption-text">Zarr data format used for storing n-dimensional arrays. An n-dimensional array is a great data model for dynamic phenomena. [source: <a class="reference external" href="https://kpegion.github.io/AOES-CLIM-WorkingWithData/figures/">Working with Climate Data</a>]</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The key difference from COG (and from netCDF/HDF5) is that a Zarr dataset is <strong>not a single file</strong>. It is a <em>store</em> of many small objects, identified by keys:</p>
@@ -695,9 +714,10 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 </ul>
 <p>This layout works very well with object storage: there is no single big file to coordinate, and many workers (for example Dask workers, which we will cover later) can read and write different chunks in parallel.</p>
 <figure class="align-center" id="zarr-layout">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/zarr-layout.png"><img alt="../_images/zarr-layout.png" class="bg-primary mb-1" src="../_images/zarr-layout.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/zarr-layout.png"><img alt="../_images/zarr-layout.png" class="bg-primary mb-1" src="../_images/zarr-layout.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.8 </span><span class="caption-text">A Zarr v3 array: the logical array and its chunks (left), how it is laid out as key/value objects in a store (middle), and sharding, which packs many chunks into a single object with an index (right).</span><a class="headerlink" href="#zarr-layout" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.8 </span><span class="caption-text">A Zarr v3 array: the logical array and its chunks (left), how it is laid out as key/value objects in a store (middle), and sharding, which packs many chunks into a single object with an index (right).</span><a class="headerlink" href="#zarr-layout" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Zarr version 3.</strong> The Zarr v3 specification was finalized in 2023, and <code class="docutils literal notranslate"><span class="pre">zarr-python</span></code> 3.0 was released in January 2025. Two changes are worth knowing:</p>
@@ -706,49 +726,49 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 <li><p><strong>Sharding</strong>: When chunks are small, a dataset can have millions of objects, which is slow to list and manage. Sharding packs many chunks into one object (a <em>shard</em>) with an index at the end, so readers can still fetch individual chunks with range requests.</p></li>
 </ul>
 <p><strong>Try it yourself.</strong> Write a small Xarray dataset to Zarr and look inside the store:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 
-<span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;MS&quot;</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">"2020-01-01"</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">"MS"</span><span class="p">)</span>
 <span class="n">lat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">89.5</span><span class="p">,</span> <span class="mf">89.5</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">179.5</span><span class="p">,</span> <span class="mf">179.5</span><span class="p">,</span> <span class="mi">360</span><span class="p">)</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;sst&quot;</span><span class="p">:</span> <span class="p">((</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">360</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">))},</span>
-    <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">lat</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">lon</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"sst"</span><span class="p">:</span> <span class="p">((</span><span class="s2">"time"</span><span class="p">,</span> <span class="s2">"lat"</span><span class="p">,</span> <span class="s2">"lon"</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">360</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">))},</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">"time"</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s2">"lat"</span><span class="p">:</span> <span class="n">lat</span><span class="p">,</span> <span class="s2">"lon"</span><span class="p">:</span> <span class="n">lon</span><span class="p">},</span>
 <span class="p">)</span>
 
 <span class="c1"># one chunk = one time step x half of the globe in each direction</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">to_zarr</span><span class="p">(</span><span class="s2">&quot;sst_demo.zarr&quot;</span><span class="p">,</span> <span class="n">zarr_format</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">consolidated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-           <span class="n">encoding</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sst&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;chunks&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">)}})</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">to_zarr</span><span class="p">(</span><span class="s2">"sst_demo.zarr"</span><span class="p">,</span> <span class="n">zarr_format</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"w"</span><span class="p">,</span> <span class="n">consolidated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+           <span class="n">encoding</span><span class="o">=</span><span class="p">{</span><span class="s2">"sst"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"chunks"</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">)}})</span>
 
-<span class="k">def</span> <span class="nf">describe_store</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="s2">&quot;sst&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">describe_store</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="s2">"sst"</span><span class="p">):</span>
     <span class="n">store</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;metadata documents:&quot;</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">store</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">store</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;zarr.json&quot;</span><span class="p">)))</span>
-    <span class="n">objects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">store</span> <span class="o">/</span> <span class="n">var</span> <span class="o">/</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">is_file</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">objects</span><span class="p">),</span> <span class="s2">&quot;data objects for&quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="s2">&quot;e.g.&quot;</span><span class="p">,</span> <span class="n">objects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">store</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"metadata documents:"</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">store</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">store</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"zarr.json"</span><span class="p">)))</span>
+    <span class="n">objects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">store</span> <span class="o">/</span> <span class="n">var</span> <span class="o">/</span> <span class="s2">"c"</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*"</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">is_file</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">objects</span><span class="p">),</span> <span class="s2">"data objects for"</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="s2">"e.g."</span><span class="p">,</span> <span class="n">objects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">store</span><span class="p">))</span>
 
-<span class="n">describe_store</span><span class="p">(</span><span class="s2">&quot;sst_demo.zarr&quot;</span><span class="p">)</span>
+<span class="n">describe_store</span><span class="p">(</span><span class="s2">"sst_demo.zarr"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Open <code class="docutils literal notranslate"><span class="pre">sst_demo.zarr/sst/zarr.json</span></code> in JupyterLab and find the <code class="docutils literal notranslate"><span class="pre">shape</span></code>, <code class="docutils literal notranslate"><span class="pre">chunk_grid</span></code> and <code class="docutils literal notranslate"><span class="pre">codecs</span></code> entries. Can you explain why 96 objects were written for <code class="docutils literal notranslate"><span class="pre">sst</span></code>? Now rewrite the dataset with sharding and count the objects again:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">to_zarr</span><span class="p">(</span><span class="s2">&quot;sst_sharded.zarr&quot;</span><span class="p">,</span> <span class="n">zarr_format</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">consolidated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-           <span class="n">encoding</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sst&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;chunks&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span> <span class="s2">&quot;shards&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">360</span><span class="p">)}})</span>
-<span class="n">describe_store</span><span class="p">(</span><span class="s2">&quot;sst_sharded.zarr&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">to_zarr</span><span class="p">(</span><span class="s2">"sst_sharded.zarr"</span><span class="p">,</span> <span class="n">zarr_format</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"w"</span><span class="p">,</span> <span class="n">consolidated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+           <span class="n">encoding</span><span class="o">=</span><span class="p">{</span><span class="s2">"sst"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"chunks"</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span> <span class="s2">"shards"</span><span class="p">:</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">360</span><span class="p">)}})</span>
+<span class="n">describe_store</span><span class="p">(</span><span class="s2">"sst_sharded.zarr"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Chunking decides what is fast.</strong> The chunk shape is chosen when the data is written, and it determines which questions are cheap to answer. For example, Google’s analysis-ready ERA5 reanalysis on Google Cloud (hourly, global, with hundreds of variables) is stored with one time step per chunk:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span>
-    <span class="s2">&quot;gs://gcp-public-data-arco-era5/ar/full_37-1h-0p25deg-chunk-1.zarr-v3&quot;</span><span class="p">,</span>
+    <span class="s2">"gs://gcp-public-data-arco-era5/ar/full_37-1h-0p25deg-chunk-1.zarr-v3"</span><span class="p">,</span>
     <span class="n">chunks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">storage_options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s2">&quot;anon&quot;</span><span class="p">),</span>   <span class="c1"># public data, no credentials needed (requires gcsfs)</span>
+    <span class="n">storage_options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s2">"anon"</span><span class="p">),</span>   <span class="c1"># public data, no credentials needed (requires gcsfs)</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>   <span class="c1"># opening only reads metadata: no data has been downloaded yet</span>
 
-<span class="n">t2m</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;2m_temperature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;2020-07-01T12:00&quot;</span><span class="p">)</span>   <span class="c1"># one global map</span>
+<span class="n">t2m</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">"2m_temperature"</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">"2020-07-01T12:00"</span><span class="p">)</span>   <span class="c1"># one global map</span>
 <span class="n">t2m</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>   <span class="c1"># reads a single chunk (a few MB)</span>
 </pre></div>
 </div>
@@ -760,7 +780,7 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 </div>
 </section>
 <section id="geoparquet">
-<h3><span class="section-number">10.2.6. </span>GeoParquet<a class="headerlink" href="#geoparquet" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.6. </span>GeoParquet<a class="headerlink" href="#geoparquet" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://parquet.apache.org/">Apache Parquet</a> is a columnar file format for tabular data that is used everywhere in data science and data engineering. <a class="reference external" href="https://geoparquet.org/">GeoParquet</a> builds on Parquet by adding interoperable geospatial types (points, lines, polygons) and the metadata needed to interpret them. It has become the cloud-optimized format of choice for large vector datasets.</p>
 <p>A Parquet file has three properties that make it cloud-optimized:</p>
 <ul class="simple">
@@ -770,44 +790,46 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 </ul>
 <p>GeoParquet adds a <code class="docutils literal notranslate"><span class="pre">geo</span></code> metadata entry to the footer that records which column holds the geometry, its encoding (Well-Known Binary, WKB, or native GeoArrow encodings), and its coordinate reference system. Since <strong>GeoParquet 1.1</strong> (2024), a file can also include a <strong>bounding box (“covering”) column</strong> with the <code class="docutils literal notranslate"><span class="pre">xmin</span></code>, <code class="docutils literal notranslate"><span class="pre">ymin</span></code>, <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, <code class="docutils literal notranslate"><span class="pre">ymax</span></code> of every feature. Together with the row-group statistics, this lets a reader skip most of a file for a spatial query. This works best when the rows are sorted spatially (for example along a Hilbert curve), so that nearby features end up in the same row group.</p>
 <figure class="align-center" id="geoparquet-layout">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/geoparquet-layout.png"><img alt="../_images/geoparquet-layout.png" class="bg-primary mb-1" src="../_images/geoparquet-layout.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/geoparquet-layout.png"><img alt="../_images/geoparquet-layout.png" class="bg-primary mb-1" src="../_images/geoparquet-layout.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.9 </span><span class="caption-text">Inside a GeoParquet file: row groups and column chunks, with the footer holding the schema, geo metadata and statistics. A spatial query reads the footer, skips row groups using the bounding box statistics, and fetches only the columns it needs.</span><a class="headerlink" href="#geoparquet-layout" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.9 </span><span class="caption-text">Inside a GeoParquet file: row groups and column chunks, with the footer holding the schema, geo metadata and statistics. A spatial query reads the footer, skips row groups using the bounding box statistics, and fetches only the columns it needs.</span><a class="headerlink" href="#geoparquet-layout" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="geoparquet-query">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/geoparquet-query.png"><img alt="../_images/geoparquet-query.png" class="bg-primary mb-1" src="../_images/geoparquet-query.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/geoparquet-query.png"><img alt="../_images/geoparquet-query.png" class="bg-primary mb-1" src="../_images/geoparquet-query.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10.10 </span><span class="caption-text">Schematic of a query in GeoParquet. The query window shown as the red rectangle only overlaps with the bounding box of part1.parquet and part2.parquet, so the query engine can safely skip scanning part3.parquet and part4.parquet, reducing the I/O cost and answer the query faster. [source <a class="reference external" href="https://wherobots.com/blog/spatial-data-geoparquet-and-apache-sedona/">Wherobots blog</a>]</span><a class="headerlink" href="#geoparquet-query" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.10 </span><span class="caption-text">Schematic of a query in GeoParquet. The query window shown as the red rectangle only overlaps with the bounding box of part1.parquet and part2.parquet, so the query engine can safely skip scanning part3.parquet and part4.parquet, reducing the I/O cost and answer the query faster. [source <a class="reference external" href="https://wherobots.com/blog/spatial-data-geoparquet-and-apache-sedona/">Wherobots blog</a>]</span><a class="headerlink" href="#geoparquet-query" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Native geospatial types in Parquet.</strong> In 2025, <code class="docutils literal notranslate"><span class="pre">GEOMETRY</span></code> and <code class="docutils literal notranslate"><span class="pre">GEOGRAPHY</span></code> were added as native logical types to the Parquet format itself, including bounding box statistics. This means that engines that are not specifically geospatial (for example Apache Arrow, DuckDB and table formats such as Apache Iceberg) can now understand geometry columns. GeoParquet and the native types are converging, so expect to see both over the next few years. See <a class="reference external" href="https://parquet.apache.org/blog/2026/02/13/native-geospatial-types-in-apache-parquet/">this post</a> for more details.</p>
 <p><strong>Try it yourself.</strong> Write a GeoDataFrame to GeoParquet with a bounding box column, inspect the file, and read back a small area:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="kn">import</span> <span class="nn">pyarrow.parquet</span> <span class="k">as</span> <span class="nn">pq</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow.parquet</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pq</span>
 
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100_000</span>
 <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;crop&quot;</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;wheat&quot;</span><span class="p">,</span> <span class="s2">&quot;maize&quot;</span><span class="p">,</span> <span class="s2">&quot;grass&quot;</span><span class="p">,</span> <span class="s2">&quot;potato&quot;</span><span class="p">],</span> <span class="n">n</span><span class="p">),</span>
-     <span class="s2">&quot;area_ha&quot;</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">n</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">"crop"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"wheat"</span><span class="p">,</span> <span class="s2">"maize"</span><span class="p">,</span> <span class="s2">"grass"</span><span class="p">,</span> <span class="s2">"potato"</span><span class="p">],</span> <span class="n">n</span><span class="p">),</span>
+     <span class="s2">"area_ha"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">n</span><span class="p">)},</span>
     <span class="n">geometry</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">50.7</span><span class="p">,</span> <span class="mf">53.5</span><span class="p">,</span> <span class="n">n</span><span class="p">)),</span>
-    <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">,</span>
+    <span class="n">crs</span><span class="o">=</span><span class="s2">"EPSG:4326"</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="c1"># sort rows spatially so that nearby features share row groups</span>
 <span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">gdf</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">hilbert_distance</span><span class="p">()</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>
-<span class="n">gdf</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">&quot;fields.parquet&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">write_covering_bbox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">row_group_size</span><span class="o">=</span><span class="mi">10_000</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">"fields.parquet"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">write_covering_bbox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">row_group_size</span><span class="o">=</span><span class="mi">10_000</span><span class="p">)</span>
 
-<span class="n">pf</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">ParquetFile</span><span class="p">(</span><span class="s2">&quot;fields.parquet&quot;</span><span class="p">)</span>
+<span class="n">pf</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">ParquetFile</span><span class="p">(</span><span class="s2">"fields.parquet"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pf</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>                                         <span class="c1"># number of rows and row groups</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pf</span><span class="o">.</span><span class="n">schema_arrow</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="sa">b</span><span class="s2">&quot;geo&quot;</span><span class="p">])[</span><span class="s2">&quot;columns&quot;</span><span class="p">][</span><span class="s2">&quot;geometry&quot;</span><span class="p">][</span><span class="s2">&quot;encoding&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pf</span><span class="o">.</span><span class="n">schema_arrow</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="sa">b</span><span class="s2">"geo"</span><span class="p">])[</span><span class="s2">"columns"</span><span class="p">][</span><span class="s2">"geometry"</span><span class="p">][</span><span class="s2">"encoding"</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pf</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">row_group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>                  <span class="c1"># statistics of a bbox column</span>
 
 <span class="c1"># read only two columns, only for a small bounding box</span>
-<span class="n">subset</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;fields.parquet&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;crop&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">],</span>
+<span class="n">subset</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">"fields.parquet"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"crop"</span><span class="p">,</span> <span class="s2">"geometry"</span><span class="p">],</span>
                           <span class="n">bbox</span><span class="o">=</span><span class="p">(</span><span class="mf">4.8</span><span class="p">,</span> <span class="mf">52.3</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">52.4</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">subset</span><span class="p">))</span>
 </pre></div>
@@ -817,26 +839,26 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 <p><code class="docutils literal notranslate"><span class="pre">gpd.read_parquet(...,</span> <span class="pre">bbox=...)</span></code> only works if the file has a bounding box covering column (GeoParquet 1.1) or uses the native point encoding. For older files, read the data and filter it with <code class="docutils literal notranslate"><span class="pre">.cx[]</span></code> or a spatial join instead.</p>
 </div>
 <p><strong>Querying GeoParquet on the cloud with DuckDB.</strong> <a class="reference external" href="https://duckdb.org/">DuckDB</a> is an in-process SQL engine that can query Parquet files directly over HTTP, reading only the columns and row groups it needs. The example below uses the Dutch part of the <a class="reference external" href="https://source.coop/cholmes/eurocrops">EuroCrops</a> field boundary dataset hosted on Source Cooperative (about 128 MB):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">duckdb</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">duckdb</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://data.source.coop/cholmes/eurocrops/geoparquet-projected/NL_2020_EC21.parquet&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://data.source.coop/cholmes/eurocrops/geoparquet-projected/NL_2020_EC21.parquet"</span>
 
-<span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DESCRIBE SELECT * FROM &#39;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>   <span class="c1"># reads only the footer</span>
+<span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DESCRIBE SELECT * FROM '</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>   <span class="c1"># reads only the footer</span>
 
-<span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">"""</span>
 <span class="s2">    SELECT EC_hcat_n AS crop, count(*) AS n_fields</span>
-<span class="s2">    FROM &#39;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&#39;</span>
+<span class="s2">    FROM '</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">'</span>
 <span class="s2">    GROUP BY crop</span>
 <span class="s2">    ORDER BY n_fields DESC</span>
 <span class="s2">    LIMIT 10</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>   <span class="c1"># reads only one column</span>
+<span class="s2">"""</span><span class="p">)</span>   <span class="c1"># reads only one column</span>
 </pre></div>
 </div>
 <p><strong>When not to use GeoParquet.</strong> GeoParquet is designed for analysis of large datasets. For editing data, small datasets on your laptop, or streaming a few features to a web map, GeoPackage, GeoJSON, FlatGeobuf or PMTiles are often better choices.</p>
 </section>
 <section id="which-format-when">
-<h3><span class="section-number">10.2.7. </span>Which format when?<a class="headerlink" href="#which-format-when" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<h3><span class="section-number">10.2.7. </span>Which format when?<a class="headerlink" href="#which-format-when" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>If you have…</p></th>
 <th class="head"><p>…and you want to…</p></th>
@@ -874,9 +896,10 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="common-pitfalls">
-<h3><span class="section-number">10.2.8. </span>Common pitfalls<a class="headerlink" href="#common-pitfalls" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.8. </span>Common pitfalls<a class="headerlink" href="#common-pitfalls" title="Link to this heading">#</a></h3>
 <p>Being cloud-optimized is not a guarantee of good performance:</p>
 <ul class="simple">
 <li><p><strong>Chunk size matters.</strong> Very small chunks mean too many requests, and very large chunks mean reading far more data than you need. A few megabytes per chunk (compressed) is a common starting point.</p></li>
@@ -888,14 +911,14 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 </section>
 </section>
 <section id="open-access-data">
-<h2><span class="section-number">10.3. </span>Open-Access Data<a class="headerlink" href="#open-access-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.3. </span>Open-Access Data<a class="headerlink" href="#open-access-data" title="Link to this heading">#</a></h2>
 <p>Geospatial data has gone through major changes in terms of access policy over the last two decades. These changes, which have mostly resulted in more open and free data, have been a push for technology development.</p>
 <p><strong>Note</strong>: Open-access does not by definition mean free. Open-access refers to the license of the data, which allows anyone to access it (sometimes limited to certain uses, such as non-commercial). Open-access is an attribute of the data and does not say whether the data is free or paid.</p>
 <p>One of the best examples of a free data policy is Landsat. Landsat data was not free until 2008, when the US Geological Survey (USGS) made the archive accessible for free. This resulted in a substantial increase in Landsat downloads and an expansion of applications and geospatial tools (check out <a class="reference external" href="https://doi.org/10.1016/j.rse.2019.02.016">this paper</a> for more details). Later, hosting Landsat data on AWS (starting in 2015) was one of the early experiments that motivated the development of cloud-optimized formats such as COG.</p>
 <p>In recent years, there have been numerous developments to support the publication and sharing of free datasets. These include investments by government agencies in data portals, grants to private institutions to do so, and commercial companies that have allocated some of their resources to developing and publishing open and free data.</p>
 </section>
 <section id="spatiotemporal-asset-catalog-stac">
-<h2><span class="section-number">10.4. </span>SpatioTemporal Asset Catalog (STAC)<a class="headerlink" href="#spatiotemporal-asset-catalog-stac" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.4. </span>SpatioTemporal Asset Catalog (STAC)<a class="headerlink" href="#spatiotemporal-asset-catalog-stac" title="Link to this heading">#</a></h2>
 <p>The STAC specification is a common language to describe geospatial information, so it can more easily be worked with, indexed, and discovered. At its core, the SpatioTemporal Asset Catalog (STAC) specification provides a common structure for describing and cataloging spatiotemporal assets.</p>
 <p>A <em>spatiotemporal asset</em> is any file that represents information about the Earth captured in a certain space and time.</p>
 <p>STAC is intentionally designed to be simple, flexible, and extensible. STAC is a network of JSON files that reference other JSON files, with each JSON file adhering to a specific core specification depending on which STAC component it is describing. This core JSON format can also be customized to fit differing needs, making the STAC specification highly flexible and adaptable. Check out <a class="reference external" href="https://stacspec.org/en/tutorials/intro-to-stac/">this</a> Intro to STAC guide to learn more about it.</p>
@@ -904,7 +927,7 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 <p>Another simple-to-use tool for STAC is <a class="reference external" href="https://radiantearth.github.io/stac-browser/#/">STAC Browser</a>. It retrieves a static catalog or a STAC API so you can browse it on the web.</p>
 </section>
 <section id="cloud-data-repositories">
-<h2><span class="section-number">10.5. </span>Cloud Data Repositories<a class="headerlink" href="#cloud-data-repositories" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.5. </span>Cloud Data Repositories<a class="headerlink" href="#cloud-data-repositories" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Microsoft Planetary Computer</strong> (<a class="reference external" href="https://planetarycomputer.microsoft.com/">link</a>): A STAC API and a large catalog of open datasets (Sentinel, Landsat, climate data, and more) hosted on Azure, mostly as COG and Zarr. Microsoft also offers Planetary Computer Pro, a managed service for hosting your own geospatial data.</p></li>
 <li><p><strong>Earth on AWS</strong> (<a class="reference external" href="https://aws.amazon.com/earth/">link</a>) and the <a class="reference external" href="https://registry.opendata.aws/">Registry of Open Data on AWS</a>: Hosts many open datasets, including Sentinel-2 COGs searchable through Element 84’s <a class="reference external" href="https://element84.com/earth-search/">Earth Search</a> STAC API, which we will use in the next lectures.</p></li>
@@ -915,7 +938,7 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 </ul>
 </section>
 <section id="python-landscape">
-<h2><span class="section-number">10.6. </span>Python Landscape<a class="headerlink" href="#python-landscape" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.6. </span>Python Landscape<a class="headerlink" href="#python-landscape" title="Link to this heading">#</a></h2>
 <p>Below are the main Python packages for geospatial data, grouped by what they do. Many of them are built on top of a few core C/C++ libraries (GDAL, PROJ and GEOS).</p>
 <p><strong>Core libraries</strong></p>
 <ul class="simple">
@@ -958,7 +981,7 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 </ul>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">10.7. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.7. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Gentemann, C. L., et al. (2021). “Science Storms the Cloud”. <em>AGU Advances</em>, 2, e2020AV000354. <a class="reference external" href="https://doi.org/10.1029/2020AV000354">https://doi.org/10.1029/2020AV000354</a></p></li>
 <li><p>Abernathey, R. P., et al. (2021). “Cloud-Native Repositories for Big Scientific Data”. <em>Computing in Science &amp; Engineering</em>, 23(2), 26-35. <a class="reference external" href="https://ieeexplore.ieee.org/document/9354557/">link</a></p></li>
@@ -996,11 +1019,10 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="09_crs_and_projections.html"
@@ -1020,23 +1042,23 @@ rio<span class="w"> </span>cogeo<span class="w"> </span>validate<span class="w">
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">10.1. Background</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-native-data-formats">10.2. Cloud-Native Data Formats</a><ul class="nav section-nav flex-column">
@@ -1076,6 +1098,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -1102,8 +1125,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

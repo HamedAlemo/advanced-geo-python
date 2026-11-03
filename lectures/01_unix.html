@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1. Introduction to Shell and Bash &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/01_unix';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Policies" href="../docs/policies.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -462,21 +473,21 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="introduction-to-shell-and-bash">
-<h1><span class="section-number">1. </span>Introduction to Shell and Bash<a class="headerlink" href="#introduction-to-shell-and-bash" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Introduction to Shell and Bash<a class="headerlink" href="#introduction-to-shell-and-bash" title="Link to this heading">#</a></h1>
 <p>This lectures covers an introduction to Unix file system, and Shell/Bash commands.</p>
 <p><strong>Attribution</strong>
 <em>The content of this lecture are modified from three excellent sources: <a class="reference external" href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/open-reproducible-science/bash/">Introduction to Bash (Shell)</a> from Earth Lab CU Boulder; <a class="reference external" href="https://earth-env-data-science.github.io/lectures/environment/intro_to_unix.html">Intro to Unix</a> from Columbia University; and <a class="reference external" href="https://swcarpentry.github.io/shell-novice/">The Unix Shell</a> from Software Carpentry.</em></p>
 <hr class="docutils" />
 <section id="background">
-<h2><span class="section-number">1.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1. </span>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
 <p>We interact with computers in many different ways, such as through a keyboard and mouse, touch screen interfaces, or using speech recognition systems. The most widely used way to interact with personal computers is called a graphical user interface (GUI). With a GUI, we give instructions by clicking a mouse and using menu-driven interactions.</p>
 <p>While the visual aid of a GUI makes it intuitive to learn, this way of delivering instructions to a computer scales very poorly and it is not reproducible. Imagine the following task: for a literature search, you have to copy the third line of one thousand text files in one thousand different directories and paste it into a single file. Using a GUI, you would not only be clicking at your desk for several hours, but you could potentially also commit an error in the process of completing this repetitive task. This is where we take advantage of the Unix shell. The Unix shell is both a command-line interface (CLI) and a scripting language, allowing such repetitive tasks to be done automatically and fast. With the proper commands, the shell can repeat tasks with or without some modification as many times as we want. Using the shell, the task in the literature example can be accomplished in seconds.</p>
 </section>
 <section id="the-shell">
-<h2><span class="section-number">1.2. </span>The Shell<a class="headerlink" href="#the-shell" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>The Shell<a class="headerlink" href="#the-shell" title="Link to this heading">#</a></h2>
 <p>Shell is the primary program that computers use to receive code (i.e. commands) and return information produced by executing these commands (i.e. output). These commands can be entered via a Terminal, which you will work with in this course.</p>
 <p>Using a Shell helps you:</p>
 <ul class="simple">
@@ -490,7 +501,7 @@ document.write(`
 <p>The most popular Unix shell is Bash (the Bourne Again SHell — so-called because it’s derived from a shell written by Stephen Bourne). Bash is the default shell on most modern implementations of Unix and in most packages that provide Unix-like tools for Windows. Note that ‘Git Bash’ is a piece of software that enables Windows users to use a Bash like interface when interacting with Git.</p>
 </section>
 <section id="terminal-sessions-on-your-computer">
-<h2><span class="section-number">1.3. </span>Terminal Sessions On Your Computer<a class="headerlink" href="#terminal-sessions-on-your-computer" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>Terminal Sessions On Your Computer<a class="headerlink" href="#terminal-sessions-on-your-computer" title="Link to this heading">#</a></h2>
 <p>The terminal program that you use to run <code class="docutils literal notranslate"><span class="pre">Bash</span></code> commands will vary depending upon your computer’s operating system.</p>
 <p><strong>Mac (OS X)</strong></p>
 <p>You can use the program called Terminal, which uses the Bash implementation of Shell and is installed natively on the Mac OS.</p>
@@ -503,13 +514,14 @@ document.write(`
 <p>To enable WSL on windows, follow the steps outlined <a class="reference external" href="https://learn.microsoft.com/en-us/windows/wsl/install">here</a>. The default Ubuntu distribution works well with the content of this course, and you do not need to change it.</p>
 </section>
 <section id="home-directory">
-<h2><span class="section-number">1.4. </span>Home Directory<a class="headerlink" href="#home-directory" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.4. </span>Home Directory<a class="headerlink" href="#home-directory" title="Link to this heading">#</a></h2>
 <p>To understand what a “home directory” is, let’s have a look at how the file system as a whole is organized. For the sake of this example, check the following figure that illustrates the file system on Hamed’s computer. After this illustration, you’ll be learning commands to explore your own filesystem, which will be constructed in a similar way, but not be exactly identical.</p>
 <p>On most Unix computers, the filesystem looks like something this:</p>
 <figure class="align-center" id="unix">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/unix_files.png"><img alt="../_images/unix_files.png" class="bg-primary mb-1" src="../_images/unix_files.png" style="width: 500px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/unix_files.png"><img alt="../_images/unix_files.png" class="bg-primary mb-1" src="../_images/unix_files.png" style="width: 500px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Hamed’s file system tree</span><a class="headerlink" href="#unix" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Hamed’s file system tree</span><a class="headerlink" href="#unix" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The filesystem looks like an upside down tree. The top most directory is the <strong>root directory</strong> that holds everything else. We refer to it using a slash character, <code class="docutils literal notranslate"><span class="pre">/</span></code>, on its own; this character is the leading slash in <code class="docutils literal notranslate"><span class="pre">/Users/hamed</span></code>.</p>
@@ -521,10 +533,10 @@ document.write(`
 </div>
 </section>
 <section id="bash-commands-to-navigate-files-and-directories">
-<h2><span class="section-number">1.5. </span>Bash Commands to Navigate Files and Directories<a class="headerlink" href="#bash-commands-to-navigate-files-and-directories" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5. </span>Bash Commands to Navigate Files and Directories<a class="headerlink" href="#bash-commands-to-navigate-files-and-directories" title="Link to this heading">#</a></h2>
 <p>Now, let’s review some of the useful bash commands to navigate and manipulate files and directories in your filesystem.</p>
 <section id="print-a-list-of-files-and-subdirectories-ls">
-<h3><span class="section-number">1.5.1. </span>Print a List of Files and Subdirectories (<code class="docutils literal notranslate"><span class="pre">ls</span></code>)<a class="headerlink" href="#print-a-list-of-files-and-subdirectories-ls" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.1. </span>Print a List of Files and Subdirectories (<code class="docutils literal notranslate"><span class="pre">ls</span></code>)<a class="headerlink" href="#print-a-list-of-files-and-subdirectories-ls" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">ls</span></code> prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. Here is the output of running <code class="docutils literal notranslate"><span class="pre">ls</span></code> inside the directory of this book on a local computer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls
 </pre></div>
@@ -563,7 +575,7 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">../</span></code> directory in the output of <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-aF</span></code> is a special directory name meaning “the directory containing this one” or simply the <strong>parent</strong> of the current directory. You will learn in the following how to navigate to the parent directory.</p>
 </section>
 <section id="print-current-working-directory-pwd">
-<h3><span class="section-number">1.5.2. </span>Print Current Working Directory (<code class="docutils literal notranslate"><span class="pre">pwd</span></code>)<a class="headerlink" href="#print-current-working-directory-pwd" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.2. </span>Print Current Working Directory (<code class="docutils literal notranslate"><span class="pre">pwd</span></code>)<a class="headerlink" href="#print-current-working-directory-pwd" title="Link to this heading">#</a></h3>
 <p>To print the name of the current working directory, use the command <code class="docutils literal notranslate"><span class="pre">pwd</span></code>. This commands prints the full path to the directory (meaning that you can see the parent directory).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
 </pre></div>
@@ -573,7 +585,7 @@ document.write(`
 </div>
 </section>
 <section id="change-current-working-directory-cd">
-<h3><span class="section-number">1.5.3. </span>Change Current Working Directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>)<a class="headerlink" href="#change-current-working-directory-cd" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.3. </span>Change Current Working Directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>)<a class="headerlink" href="#change-current-working-directory-cd" title="Link to this heading">#</a></h3>
 <p>The command to change locations is <code class="docutils literal notranslate"><span class="pre">cd</span></code> followed by a directory name to change our working directory. <code class="docutils literal notranslate"><span class="pre">cd</span></code> stands for “change directory”.</p>
 <p>Let’s say we are inside the directory of this book, and we want to move to the <code class="docutils literal notranslate"><span class="pre">lectures</span></code> directory we saw above. We can use the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd lectures
@@ -596,14 +608,14 @@ document.write(`
 </div>
 </section>
 <section id="create-a-new-directory-mkdir">
-<h3><span class="section-number">1.5.4. </span>Create a New Directory (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>)<a class="headerlink" href="#create-a-new-directory-mkdir" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.4. </span>Create a New Directory (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>)<a class="headerlink" href="#create-a-new-directory-mkdir" title="Link to this heading">#</a></h3>
 <p>To create a new directory you can use <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> followed by the name you would like to give the new directory. If you only give a name, the new directory will be created in the current directory. You can also give the <strong>absolute path</strong> to <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> to create a new directory anywhere on your file system. The following command will create a new directory in Hamed’s home directory named <code class="docutils literal notranslate"><span class="pre">new-directory</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir /Users/hamed/new-directory/
 </pre></div>
 </div>
 </section>
 <section id="create-a-new-file-using-a-single-command-touch">
-<h3><span class="section-number">1.5.5. </span>Create a New File Using a Single Command (<code class="docutils literal notranslate"><span class="pre">touch</span></code>)<a class="headerlink" href="#create-a-new-file-using-a-single-command-touch" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.5. </span>Create a New File Using a Single Command (<code class="docutils literal notranslate"><span class="pre">touch</span></code>)<a class="headerlink" href="#create-a-new-file-using-a-single-command-touch" title="Link to this heading">#</a></h3>
 <p>You can create a new empty file using the single command <code class="docutils literal notranslate"><span class="pre">touch</span></code>. This command was originally created to manage the timestamps of files. However, if a file does not already exist, then the command will make the file.</p>
 <p>This is an incredibly useful way to quickly and programmatically create a new empty file that can be populated at a later time. Here is an example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ touch samples.txt
@@ -611,12 +623,12 @@ document.write(`
 </div>
 </section>
 <section id="edit-a-file-using-vim">
-<h3><span class="section-number">1.5.6. </span>Edit a File Using Vim<a class="headerlink" href="#edit-a-file-using-vim" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.6. </span>Edit a File Using Vim<a class="headerlink" href="#edit-a-file-using-vim" title="Link to this heading">#</a></h3>
 <p>There are various editors that you can use to edit a file in Bash. These are very useful if you need to edit text in a plain text file, or in HTML, LaTex or other markup languages. While these editors might not seem as easy to use as other standard GUI-based editors initially, they can help you become very productive over the long run.</p>
 <p>In this course, we are going to use Vim as editor. Vim can have a steep learning curve, and you do not need to learn all the commands in the beginning. Start with navigating between the <em>command mode</em> and the <em>insert mode</em>, edit the text and save it to the file. We will practice these commands in the class. For a complete introduction to Vim commands check out <a class="reference external" href="https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim">A Beginner’s Guide to Vim</a> on Linux Foundation blog.</p>
 </section>
 <section id="copy-a-file-cp">
-<h3><span class="section-number">1.5.7. </span>Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)<a class="headerlink" href="#copy-a-file-cp" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.7. </span>Copy a File (<code class="docutils literal notranslate"><span class="pre">cp</span></code>)<a class="headerlink" href="#copy-a-file-cp" title="Link to this heading">#</a></h3>
 <p>You can copy a specific file to a new directory using the command <code class="docutils literal notranslate"><span class="pre">cp</span></code> followed by the name of the file you want to copy and the name of the directory to where you want to copy the file. The names can be relative path or absolute path.</p>
 <p>For example, to copy the file  <code class="docutils literal notranslate"><span class="pre">samples.txt</span></code> from the current directory to <code class="docutils literal notranslate"><span class="pre">/Users/hamed/documents/</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp samples.txt /Users/hamed/documents/
@@ -624,7 +636,7 @@ document.write(`
 </div>
 </section>
 <section id="copy-a-directory-and-its-contents-cp-r">
-<h3><span class="section-number">1.5.8. </span>Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#copy-a-directory-and-its-contents-cp-r" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.8. </span>Copy a Directory and Its Contents (<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#copy-a-directory-and-its-contents-cp-r" title="Link to this heading">#</a></h3>
 <p>To copy a directory and all its content to a new directory, you need to use the flag <code class="docutils literal notranslate"><span class="pre">-r</span></code> (meaning recursive) with <code class="docutils literal notranslate"><span class="pre">cp</span></code>.</p>
 <p>For example, to copy the directory <code class="docutils literal notranslate"><span class="pre">documents</span></code> (and all its content) from Hamed’s home directory to <code class="docutils literal notranslate"><span class="pre">/Users/hamed/projects/</span></code> you can run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp -r /Users/hamed/documents/ /Users/hamed/projects/
@@ -632,7 +644,7 @@ document.write(`
 </div>
 </section>
 <section id="delete-a-file-rm">
-<h3><span class="section-number">1.5.9. </span>Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)<a class="headerlink" href="#delete-a-file-rm" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.9. </span>Delete a File (<code class="docutils literal notranslate"><span class="pre">rm</span></code>)<a class="headerlink" href="#delete-a-file-rm" title="Link to this heading">#</a></h3>
 <p>To delete a specific file, you can use the command <code class="docutils literal notranslate"><span class="pre">rm</span></code> (abbreviated for remove) followed by the name of the file you want to delete.</p>
 <p>For example, you can delete the <code class="docutils literal notranslate"><span class="pre">samples.txt</span></code> file under the current directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm samples.txt
@@ -640,7 +652,7 @@ document.write(`
 </div>
 </section>
 <section id="delete-a-directory-rm-r">
-<h3><span class="section-number">1.5.10. </span>Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#delete-a-directory-rm-r" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.5.10. </span>Delete a Directory (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>)<a class="headerlink" href="#delete-a-directory-rm-r" title="Link to this heading">#</a></h3>
 <p>To delete a directory and all its content (be careful when using this command as Unix doesn’t have a trash bin), you can use the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag with <code class="docutils literal notranslate"><span class="pre">rm</span></code>.</p>
 <p>For example, the following command will delete the <code class="docutils literal notranslate"><span class="pre">projects</span></code> directory and all its content from the current directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm -r projects/
@@ -649,7 +661,7 @@ document.write(`
 </section>
 </section>
 <section id="getting-help">
-<h2><span class="section-number">1.6. </span>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6. </span>Getting help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
 <p>Every command in bash has multiple options that you can pass to change the output. There are two ways to find out what options are available:</p>
 <ol class="arabic simple">
 <li><p>Pass <code class="docutils literal notranslate"><span class="pre">--help</span></code> to any command:</p></li>
@@ -691,11 +703,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../docs/policies.html"
@@ -715,23 +726,23 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1.1. Background</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shell">1.2. The Shell</a></li>
@@ -772,6 +783,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -798,8 +810,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

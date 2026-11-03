@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6. Xarray Fundamentals &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/06_xarray_fundamentals';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="5. JupyterLab for Interactive Computing" href="05_jupyter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -463,23 +474,23 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="xarray-fundamentals">
-<h1><span class="section-number">6. </span>Xarray Fundamentals<a class="headerlink" href="#xarray-fundamentals" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Xarray Fundamentals<a class="headerlink" href="#xarray-fundamentals" title="Link to this heading">#</a></h1>
 <p><strong>Attribution</strong>: This notebook is a revision of the <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Fundamentals <a class="reference external" href="https://earth-env-data-science.github.io/lectures/xarray/xarray.html">notebook</a> by Ryan Abernathy from <a class="reference external" href="https://earth-env-data-science.github.io/intro.html">An Introduction to Earth and Environmental Data Science</a>.</p>
 <p>You can access this notebook in this <a class="reference external" href="https://github.com/HamedAlemo/xarray-tutorial">GitHub repo</a>.</p>
 <p>Xarray is a Python library for working with n-dimensional data. An n-dimensional array is a great data model for dynamic phenomena like weather and climate data.</p>
 <p>Here is an example <code class="docutils literal notranslate"><span class="pre">xarray</span></code> data structure for a weather forecast dataset (source: <a class="reference external" href="https://davidfastovich.com/post/xarray_intro/">David Fastovich</a>)</p>
 <p align="center"><img src="https://github.com/HamedAlemo/advanced-geo-python/blob/main/lectures/figures/xarray.png?raw=true" width="600"></p><section id="xarray-data-structures">
-<h2><span class="section-number">6.1. </span>Xarray data structures<a class="headerlink" href="#xarray-data-structures" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>Xarray data structures<a class="headerlink" href="#xarray-data-structures" title="Link to this heading">#</a></h2>
 <p>Like Pandas, xarray has two fundamental data structures:</p>
 <ul class="simple">
 <li><p>a <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>, which holds a single multi-dimensional variable and its coordinates</p></li>
 <li><p>a <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>, which holds multiple variables that potentially share the same coordinates</p></li>
 </ul>
 <section id="dataarray">
-<h3><span class="section-number">6.1.1. </span>DataArray<a class="headerlink" href="#dataarray" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.1.1. </span>DataArray<a class="headerlink" href="#dataarray" title="Link to this heading">#</a></h3>
 <p>A <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> has four essential attributes:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">values</span></code>: a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> holding the array’s values</p></li>
@@ -490,9 +501,9 @@ document.write(`
 <p>Let’s start by constructing some DataArrays manually</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
@@ -955,7 +966,7 @@ Dimensions without coordinates: dim_0</pre><div class='xr-wrap' style='display:n
 <p>A simple DataArray without dimensions or coordinates isn’t much use. We can add a dimension name…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">])</span>
 <span class="n">da</span>
 </pre></div>
 </div>
@@ -1412,8 +1423,8 @@ Dimensions without coordinates: x</pre><div class='xr-wrap' style='display:none'
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-                  <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span>
-                  <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]})</span>
+                  <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">],</span>
+                  <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">'x'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]})</span>
 <span class="n">da</span>
 </pre></div>
 </div>
@@ -1877,7 +1888,7 @@ In fact, under the hood, <code class="docutils literal notranslate"><span class=
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Indexes:
-    x        Index([10, 20, 30, 40, 50], dtype=&#39;int64&#39;, name=&#39;x&#39;)
+    x        Index([10, 20, 30, 40, 50], dtype='int64', name='x')
 </pre></div>
 </div>
 </div>
@@ -1885,7 +1896,7 @@ In fact, under the hood, <code class="docutils literal notranslate"><span class=
 <p><code class="docutils literal notranslate"><span class="pre">xarray</span></code> has built-in plotting, like <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1898,7 +1909,7 @@ In fact, under the hood, <code class="docutils literal notranslate"><span class=
 </div>
 </section>
 <section id="multidimensional-dataarray">
-<h3><span class="section-number">6.1.2. </span>Multidimensional DataArray<a class="headerlink" href="#multidimensional-dataarray" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.1.2. </span>Multidimensional DataArray<a class="headerlink" href="#multidimensional-dataarray" title="Link to this heading">#</a></h3>
 <p>If we are just dealing with 1D data, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">xarray</span></code> have very similar capabilities. <code class="docutils literal notranslate"><span class="pre">xarray</span></code>’s real potential comes with multidimensional data.</p>
 <p>In this example, we use real data from ocean profiling floats. <a class="reference external" href="https://www.aoml.noaa.gov/argo/">ARGO</a> floats are autonomous robotic instruments that collect <em>Temperature, Salinity, and Pressure</em> data from the ocean. ARGO floats collect one “profile” (a set of measurements at different depths or “levels”).</p>
 <div>
@@ -1912,22 +1923,22 @@ In fact, under the hood, <code class="docutils literal notranslate"><span class=
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pooch</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/HamedAlemo/advanced-geo-python/raw/refs/heads/main/files/float_data_4901412.zip&quot;</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">processor</span><span class="o">=</span><span class="n">pooch</span><span class="o">.</span><span class="n">Unzip</span><span class="p">(),</span> <span class="n">known_hash</span><span class="o">=</span><span class="s2">&quot;2a703c720302c682f1662181d329c9f22f9f10e1539dc2d6082160a469165009&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pooch</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://github.com/HamedAlemo/advanced-geo-python/raw/refs/heads/main/files/float_data_4901412.zip"</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">processor</span><span class="o">=</span><span class="n">pooch</span><span class="o">.</span><span class="n">Unzip</span><span class="p">(),</span> <span class="n">known_hash</span><span class="o">=</span><span class="s2">"2a703c720302c682f1662181d329c9f22f9f10e1539dc2d6082160a469165009"</span><span class="p">)</span>
 <span class="n">files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 <span class="n">files</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/P.npy&#39;,
- &#39;/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/S.npy&#39;,
- &#39;/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/T.npy&#39;,
- &#39;/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/date.npy&#39;,
- &#39;/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/lat.npy&#39;,
- &#39;/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/levels.npy&#39;,
- &#39;/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/lon.npy&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/P.npy',
+ '/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/S.npy',
+ '/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/T.npy',
+ '/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/date.npy',
+ '/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/lat.npy',
+ '/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/levels.npy',
+ '/Users/hamed/Library/Caches/pooch/6d802b1e083b1a058f3fbf91228d7758-float_data_4901412.zip.unzip/float_data/lon.npy']
 </pre></div>
 </div>
 </div>
@@ -1951,9 +1962,9 @@ If this seems repetitive and inefficient, <em>that’s the point!</em>
 <p>Let’s look at the shape of some of the variables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Salinity shape is:&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Levels shape is:&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date shape is:&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Salinity shape is:"</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Levels shape is:"</span><span class="p">,</span> <span class="n">levels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Date shape is:"</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1969,9 +1980,9 @@ Date shape is: (75,)
 <p>Let’s organize the data and coordinates of the salinity variable into a DataArray.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da_salinity</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">],</span>
-                           <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">levels</span><span class="p">,</span>
-                                   <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">},)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da_salinity</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">'level'</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">],</span>
+                           <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">'level'</span><span class="p">:</span> <span class="n">levels</span><span class="p">,</span>
+                                   <span class="s1">'date'</span><span class="p">:</span> <span class="n">date</span><span class="p">},)</span>
 <span class="n">da_salinity</span>
 </pre></div>
 </div>
@@ -2601,8 +2612,8 @@ Coordinates:
 <p>Attributes can be used to store metadata. What metadata should you store? The <a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html#_description_of_the_data">CF Conventions</a> are a great resource for thinking about climate metadata. Below we define two of the required CF-conventions attributes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da_salinity</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;PSU&#39;</span>
-<span class="n">da_salinity</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;standard_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_water_salinity&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da_salinity</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'units'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'PSU'</span>
+<span class="n">da_salinity</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'standard_name'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'sea_water_salinity'</span>
 <span class="n">da_salinity</span>
 </pre></div>
 </div>
@@ -3221,7 +3232,7 @@ Attributes:
 </div>
 </section>
 <section id="datasets">
-<h3><span class="section-number">6.1.3. </span>Datasets<a class="headerlink" href="#datasets" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.1.3. </span>Datasets<a class="headerlink" href="#datasets" title="Link to this heading">#</a></h3>
 <p>A <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> holds many <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>s which potentially can share coordinates. In analogy to pandas:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.Series : pandas.Dataframe :: xarray.DataArray : xarray.Dataset
 </pre></div>
@@ -3244,13 +3255,13 @@ Attributes:
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
     <span class="n">data_vars</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;salinity&#39;</span><span class="p">:</span>    <span class="p">((</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">),</span> <span class="n">S</span><span class="p">),</span>
-        <span class="s1">&#39;temperature&#39;</span><span class="p">:</span> <span class="p">((</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">),</span> <span class="n">T</span><span class="p">),</span>
-        <span class="s1">&#39;pressure&#39;</span><span class="p">:</span>    <span class="p">((</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">),</span> <span class="n">P</span><span class="p">)</span>
+        <span class="s1">'salinity'</span><span class="p">:</span>    <span class="p">((</span><span class="s1">'level'</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">),</span> <span class="n">S</span><span class="p">),</span>
+        <span class="s1">'temperature'</span><span class="p">:</span> <span class="p">((</span><span class="s1">'level'</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">),</span> <span class="n">T</span><span class="p">),</span>
+        <span class="s1">'pressure'</span><span class="p">:</span>    <span class="p">((</span><span class="s1">'level'</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">),</span> <span class="n">P</span><span class="p">)</span>
     <span class="p">},</span>
     <span class="n">coords</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">levels</span><span class="p">,</span>
-        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span>
+        <span class="s1">'level'</span><span class="p">:</span> <span class="n">levels</span><span class="p">,</span>
+        <span class="s1">'date'</span><span class="p">:</span> <span class="n">date</span>
     <span class="p">}</span>
 <span class="p">)</span>
 <span class="n">argo</span>
@@ -3871,7 +3882,7 @@ Data variables:
 <p>What about lon and lat? We forgot them in the creation process, but we can add them after the fact.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lon</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">'lon'</span><span class="p">]</span> <span class="o">=</span> <span class="n">lon</span>
 <span class="n">argo</span>
 </pre></div>
 </div>
@@ -4525,9 +4536,9 @@ Data variables:
 <p>That was not quite right…we want lon to have dimension <code class="docutils literal notranslate"><span class="pre">date</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">argo</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span>
-<span class="n">argo</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
-<span class="n">argo</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">argo</span><span class="p">[</span><span class="s1">'lon'</span><span class="p">]</span>
+<span class="n">argo</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">'lon'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+<span class="n">argo</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
 <span class="n">argo</span>
 </pre></div>
 </div>
@@ -5166,7 +5177,7 @@ Data variables:
 </div>
 </section>
 <section id="coordinates-vs-data-variables">
-<h3><span class="section-number">6.1.4. </span>Coordinates vs. Data Variables<a class="headerlink" href="#coordinates-vs-data-variables" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.1.4. </span>Coordinates vs. Data Variables<a class="headerlink" href="#coordinates-vs-data-variables" title="Link to this heading">#</a></h3>
 <p>Data variables can be modified through arithmetic operations or other functions. Coordinates are always kept the same.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5814,7 +5825,7 @@ Data variables:
 </section>
 </section>
 <section id="selecting-data-indexing">
-<h2><span class="section-number">6.2. </span>Selecting Data (Indexing)<a class="headerlink" href="#selecting-data-indexing" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Selecting Data (Indexing)<a class="headerlink" href="#selecting-data-indexing" title="Link to this heading">#</a></h2>
 <p>We can always use regular <code class="docutils literal notranslate"><span class="pre">numpy</span></code> indexing and slicing on <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8249,7 +8260,7 @@ Coordinates:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="s1">&#39;2012-10-22&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="s1">'2012-10-22'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8797,7 +8808,7 @@ Coordinates:
 <p>We can improve the plot by using the <code class="docutils literal notranslate"><span class="pre">yincrease</span></code> argument, and setting the variable that will be plotted on <code class="docutils literal notranslate"><span class="pre">y</span></code> axis:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="s1">&#39;2012-10-22&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="n">yincrease</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="s1">'2012-10-22'</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">'level'</span><span class="p">,</span> <span class="n">yincrease</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8811,7 +8822,7 @@ Coordinates:
 <p><code class="docutils literal notranslate"><span class="pre">.sel()</span></code> also supports slicing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2012-10-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2012-12-01&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">'2012-10-01'</span><span class="p">,</span> <span class="s1">'2012-12-01'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -9365,7 +9376,7 @@ Coordinates:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2012-10-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2012-12-01&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">'2012-10-01'</span><span class="p">,</span> <span class="s1">'2012-12-01'</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -9379,7 +9390,7 @@ Coordinates:
 <p><code class="docutils literal notranslate"><span class="pre">.sel()</span></code> also works on the whole Dataset</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="s1">&#39;2012-10-22&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="s1">'2012-10-22'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9970,7 +9981,7 @@ Data variables:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="s1">&#39;2012-12-22&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="s1">'2012-12-22'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -10441,7 +10452,7 @@ Data variables:
 </div>
 </section>
 <section id="computation">
-<h2><span class="section-number">6.3. </span>Computation<a class="headerlink" href="#computation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>Computation<a class="headerlink" href="#computation" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">xarray</span></code> <code class="docutils literal notranslate"><span class="pre">DataArrays</span></code> and <code class="docutils literal notranslate"><span class="pre">Datasets</span></code> work seamlessly with arithmetic operators and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -10475,9 +10486,9 @@ Data variables:
 </div>
 </section>
 <section id="broadcasting-aligment-and-combining-data">
-<h2><span class="section-number">6.4. </span>Broadcasting, Aligment, and Combining Data<a class="headerlink" href="#broadcasting-aligment-and-combining-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>Broadcasting, Aligment, and Combining Data<a class="headerlink" href="#broadcasting-aligment-and-combining-data" title="Link to this heading">#</a></h2>
 <section id="broadcasting">
-<h3><span class="section-number">6.4.1. </span>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.4.1. </span>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h3>
 <p>Broadcasting arrays in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is a nightmare. It is much easier when the data axes are labeled!</p>
 <p>This is a useless calculation, but it illustrates how performing an operation on arrays with different coordinates will result in automatic broadcasting.</p>
 <div class="cell docutils container">
@@ -12186,7 +12197,7 @@ Coordinates:
 </div>
 </section>
 <section id="alignment">
-<h3><span class="section-number">6.4.2. </span>Alignment<a class="headerlink" href="#alignment" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.4.2. </span>Alignment<a class="headerlink" href="#alignment" title="Link to this heading">#</a></h3>
 <p>If you try to perform operations on <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>s that share a dimension name, <code class="docutils literal notranslate"><span class="pre">xarray</span></code> will try to <em>align</em> them first.
 This works nearly identically to <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, except that there can be multiple dimensions to align over.</p>
 <p>To see how alignment works, we will create some subsets of our original data.</p>
@@ -12657,7 +12668,7 @@ Coordinates:
 <p>We can override this behavior by manually aligning the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sa_surf_outer</span><span class="p">,</span> <span class="n">sa_mid_outer</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">sa_surf</span><span class="p">,</span> <span class="n">sa_mid</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sa_surf_outer</span><span class="p">,</span> <span class="n">sa_mid_outer</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">sa_surf</span><span class="p">,</span> <span class="n">sa_mid</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">)</span>
 <span class="n">sa_surf_outer</span>
 </pre></div>
 </div>
@@ -13751,7 +13762,7 @@ Coordinates:
 </div>
 </section>
 <section id="combing-data-concat-and-merge">
-<h3><span class="section-number">6.4.3. </span>Combing Data: Concat and Merge<a class="headerlink" href="#combing-data-concat-and-merge" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.4.3. </span>Combing Data: Concat and Merge<a class="headerlink" href="#combing-data-concat-and-merge" title="Link to this heading">#</a></h3>
 <p>The ability to combine many smaller arrays into a single big <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> is one of the main advantages of <code class="docutils literal notranslate"><span class="pre">xarray</span></code>.
 To take advantage of this, we need to learn two operations that help us combine data:</p>
 <ul class="simple">
@@ -13761,7 +13772,7 @@ To take advantage of this, we need to learn two operations that help us combine 
 <p>First let’s look at <code class="docutils literal notranslate"><span class="pre">concat</span></code>. Let’s re-combine the subset data from the previous step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sa_surf_mid</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sa_surf</span><span class="p">,</span> <span class="n">sa_mid</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;level&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sa_surf_mid</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sa_surf</span><span class="p">,</span> <span class="n">sa_mid</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">'level'</span><span class="p">)</span>
 <span class="n">sa_surf_mid</span>
 </pre></div>
 </div>
@@ -15496,7 +15507,7 @@ Coordinates:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sa_surf_mid</span><span class="o">.</span><span class="n">level</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sa_surf_mid</span><span class="o">.</span><span class="n">level</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -15510,14 +15521,14 @@ Coordinates:
 <p>We can also <code class="docutils literal notranslate"><span class="pre">concat</span></code> data along a <em>new</em> dimension, e.g.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sa_concat_new</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sa_surf</span><span class="p">,</span> <span class="n">sa_mid</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;newdim&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sa_concat_new</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sa_surf</span><span class="p">,</span> <span class="n">sa_mid</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">'newdim'</span><span class="p">)</span>
 <span class="n">sa_concat_new</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9h/7b1mvghj5nb_m84xcynqwjch0000gn/T/ipykernel_7284/1237396314.py:1: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;level&#39; (&#39;level&#39;,) The recommendation is to set join explicitly for this case.
-  sa_concat_new = xr.concat([sa_surf, sa_mid], dim=&#39;newdim&#39;)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9h/7b1mvghj5nb_m84xcynqwjch0000gn/T/ipykernel_7284/1237396314.py:1: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'level' ('level',) The recommendation is to set join explicitly for this case.
+  sa_concat_new = xr.concat([sa_surf, sa_mid], dim='newdim')
 </pre></div>
 </div>
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
@@ -16797,7 +16808,7 @@ We can specify the join options in <code class="docutils literal notranslate"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9h/7b1mvghj5nb_m84xcynqwjch0000gn/T/ipykernel_7284/446608960.py:1: FutureWarning: In a future version of xarray the default value for join will change from join=&#39;outer&#39; to join=&#39;exact&#39;. This change will result in the following ValueError: cannot be aligned with join=&#39;exact&#39; because index/labels/sizes are not equal along these coordinates (dimensions): &#39;level&#39; (&#39;level&#39;,) The recommendation is to set join explicitly for this case.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/9h/7b1mvghj5nb_m84xcynqwjch0000gn/T/ipykernel_7284/446608960.py:1: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'level' ('level',) The recommendation is to set join explicitly for this case.
   xr.merge([
 </pre></div>
 </div>
@@ -17424,7 +17435,7 @@ Data variables:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span>
     <span class="n">argo</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)),</span>
     <span class="n">argo</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="p">],</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">join</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -18044,7 +18055,7 @@ Data variables:
 </section>
 </section>
 <section id="reductions">
-<h2><span class="section-number">6.5. </span>Reductions<a class="headerlink" href="#reductions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.5. </span>Reductions<a class="headerlink" href="#reductions" title="Link to this heading">#</a></h2>
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, we can reduce <code class="docutils literal notranslate"><span class="pre">xarray</span></code> <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>s along any number of axes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -19159,7 +19170,7 @@ Coordinates:
 <p>However, instead of performing reductions on axes (as in <code class="docutils literal notranslate"><span class="pre">numpy</span></code>), we can perform them on dimensions. This turns out to be a huge convenience:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo_mean</span> <span class="o">=</span> <span class="n">argo</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo_mean</span> <span class="o">=</span> <span class="n">argo</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'date'</span><span class="p">)</span>
 <span class="n">argo_mean</span>
 </pre></div>
 </div>
@@ -19677,7 +19688,7 @@ Data variables:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo_mean</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="n">yincrease</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo_mean</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">'level'</span><span class="p">,</span> <span class="n">yincrease</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -19690,8 +19701,8 @@ Data variables:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo_std</span> <span class="o">=</span> <span class="n">argo</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
-<span class="n">argo_std</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="n">yincrease</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">argo_std</span> <span class="o">=</span> <span class="n">argo</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'date'</span><span class="p">)</span>
+<span class="n">argo_std</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">'level'</span><span class="p">,</span> <span class="n">yincrease</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -19703,14 +19714,14 @@ Data variables:
 </div>
 </div>
 <section id="weighted-reductions">
-<h3><span class="section-number">6.5.1. </span>Weighted Reductions<a class="headerlink" href="#weighted-reductions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.5.1. </span>Weighted Reductions<a class="headerlink" href="#weighted-reductions" title="Link to this heading">#</a></h3>
 <p>Sometimes we want to perform a reduction (e.g. a mean) where we assign different weight factors to each point in the array.
 <code class="docutils literal notranslate"><span class="pre">xarray</span></code> supports this via <a class="reference external" href="http://xarray.pydata.org/en/stable/user-guide/computation.html#weighted-array-reductions">weighted array reductions</a>.</p>
 <p>As a toy example, imagine we want to weight values in the upper ocean more than the lower ocean.
 We could imagine creating a weight array exponentially proportional to pressure as following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_pressure</span> <span class="o">=</span> <span class="n">argo</span><span class="o">.</span><span class="n">pressure</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_pressure</span> <span class="o">=</span> <span class="n">argo</span><span class="o">.</span><span class="n">pressure</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'date'</span><span class="p">)</span>
 <span class="n">p0</span> <span class="o">=</span> <span class="mi">250</span>
 <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">mean_pressure</span> <span class="o">/</span> <span class="n">p0</span><span class="p">)</span>
 <span class="n">weights</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -19727,7 +19738,7 @@ We could imagine creating a weight array exponentially proportional to pressure 
 <p>The weighted mean over the <code class="docutils literal notranslate"><span class="pre">level</span></code> dimensions is calculated as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_weighted_mean</span> <span class="o">=</span> <span class="n">argo</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;level&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_weighted_mean</span> <span class="o">=</span> <span class="n">argo</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'level'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -19735,8 +19746,8 @@ We could imagine creating a weight array exponentially proportional to pressure 
 <p>Comparing to the unweighted mean, we see the difference:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_weighted_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span>
-<span class="n">argo</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;level&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;unweighted&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_weighted_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'weighted'</span><span class="p">)</span>
+<span class="n">argo</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">'level'</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'unweighted'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -19777,11 +19788,10 @@ We could imagine creating a weight array exponentially proportional to pressure 
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="05_jupyter.html"
@@ -19801,23 +19811,23 @@ We could imagine creating a weight array exponentially proportional to pressure 
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray-data-structures">6.1. Xarray data structures</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataarray">6.1.1. DataArray</a></li>
@@ -19859,6 +19869,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -19885,8 +19896,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

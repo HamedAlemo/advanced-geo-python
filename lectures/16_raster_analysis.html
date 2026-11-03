@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>16. Geospatial Raster Data in Python &#8212; Advanced Geospatial Analytics with Python</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/16_raster_analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="15. Review of Raster Data" href="15_raster.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -200,43 +212,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -250,14 +262,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -266,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -382,7 +399,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -395,26 +412,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -459,23 +470,23 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="geospatial-raster-data-in-python">
-<h1><span class="section-number">16. </span>Geospatial Raster Data in Python<a class="headerlink" href="#geospatial-raster-data-in-python" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">16. </span>Geospatial Raster Data in Python<a class="headerlink" href="#geospatial-raster-data-in-python" title="Link to this heading">#</a></h1>
 <p><strong>Attribution</strong>: <em>Parts of this tutorial are developed based on the content from the following great sources: Parts of this tutorial are developed based on the content from the following great sources: <a class="reference external" href="https://pythongis.org/part2/chapter-07/nb/01-reading-raster.html">Introduction to Python for Geographic Data AnalysisIntroduction to Python for Geographic Data Analysis</a>; <a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/">Introduction to Raster Data in PythonIntroduction to Raster Data in Python</a>; and <a class="reference external" href="https://carpentries-incubator.github.io/geospatial-python/index.html">Introduction to Geospatial Raster and Vector Data with PythonIntroduction to Geospatial Raster and Vector Data with Python</a></em></p>
 <p>The purpose of this lecture is to learn <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> and <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> for loading and working with raster data.</p>
 <p>You can access this notebook on this <a class="reference external" href="https://github.com/HamedAlemo/raster-data-tutorial">GitHub repo</a>.</p>
 <section id="find-a-satellite-scene">
-<h2><span class="section-number">16.1. </span>Find a Satellite Scene<a class="headerlink" href="#find-a-satellite-scene" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.1. </span>Find a Satellite Scene<a class="headerlink" href="#find-a-satellite-scene" title="Link to this heading">#</a></h2>
 <p>First, Let’s find a Sentinel-2 scene to work with. We will use the <code class="docutils literal notranslate"><span class="pre">PySTAC</span></code> client to retrieve the latest cloud free scene across Clark University campus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pystac_client</span>
-<span class="kn">import</span> <span class="nn">planetary_computer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pystac_client</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">planetary_computer</span>
 
-<span class="k">def</span> <span class="nf">retrieve_latest_stac_item</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">collection</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">pc_flag</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span> 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">retrieve_latest_stac_item</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">collection</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">pc_flag</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span> 
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    This function retrieves the latest STAC item from a STAC API</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -487,7 +498,7 @@ document.write(`
 <span class="sd">    point : dict</span>
 <span class="sd">       A GeoJOSN Point feature with coordinates of the target point for API search</span>
 <span class="sd">    pc_flag : boolean</span>
-<span class="sd">        A boolean flag to specify whether the STAC API is Microsoft&#39;s planetary computer API. Default is set to False.</span>
+<span class="sd">        A boolean flag to specify whether the STAC API is Microsoft's planetary computer API. Default is set to False.</span>
 <span class="sd">    query : list</span>
 <span class="sd">        A list of query parameters for STAC API. Default is set to None. </span>
 
@@ -496,7 +507,7 @@ document.write(`
 <span class="sd">    items : Generator</span>
 <span class="sd">        The STAC item that has the latest date of acquisition given all the query parameters. </span>
 <span class="sd">        </span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">pc_flag</span><span class="p">:</span>
         <span class="n">modifier</span> <span class="o">=</span> <span class="n">planetary_computer</span><span class="o">.</span><span class="n">sign_inplace</span>
     <span class="k">else</span><span class="p">:</span>
@@ -511,7 +522,7 @@ document.write(`
         <span class="n">collections</span> <span class="o">=</span> <span class="p">[</span><span class="n">collection</span><span class="p">],</span>
         <span class="n">intersects</span> <span class="o">=</span> <span class="n">point</span><span class="p">,</span>
         <span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="p">,</span>
-        <span class="n">sortby</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-properties.datetime&quot;</span><span class="p">],</span>
+        <span class="n">sortby</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"-properties.datetime"</span><span class="p">],</span>
         <span class="n">max_items</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="p">)</span>
     <span class="n">item</span> <span class="o">=</span> <span class="n">search_results</span><span class="o">.</span><span class="n">item_collection</span><span class="p">()</span>
@@ -524,18 +535,18 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A point in Clark campus:</span>
-<span class="n">point</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;Point&quot;</span><span class="p">,</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">71.822833</span><span class="p">,</span> <span class="mf">42.250809</span><span class="p">))</span>
+<span class="n">point</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"Point"</span><span class="p">,</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">71.822833</span><span class="p">,</span> <span class="mf">42.250809</span><span class="p">))</span>
 
 <span class="c1"># Query parameters for low cloud cover and high missing pixels.</span>
-<span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eo:cloud_cover&lt;5&quot;</span><span class="p">,</span> <span class="s2">&quot;s2:nodata_pixel_percentage&gt;20&quot;</span><span class="p">]</span>
+<span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"eo:cloud_cover&lt;5"</span><span class="p">,</span> <span class="s2">"s2:nodata_pixel_percentage&gt;20"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="n">retrieve_latest_stac_item</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://earth-search.aws.element84.com/v1&quot;</span><span class="p">,</span>
-                                 <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;sentinel-2-l2a&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="n">retrieve_latest_stac_item</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s2">"https://earth-search.aws.element84.com/v1"</span><span class="p">,</span>
+                                 <span class="n">collection</span> <span class="o">=</span> <span class="s2">"sentinel-2-l2a"</span><span class="p">,</span>
                                  <span class="n">point</span> <span class="o">=</span> <span class="n">point</span><span class="p">,</span> 
                                  <span class="n">query</span> <span class="o">=</span> <span class="n">query</span>
                                 <span class="p">)</span>      
@@ -546,15 +557,15 @@ document.write(`
 <p>(Note that we also added <code class="docutils literal notranslate"><span class="pre">s2:nodata_pixel_percentage</span></code> to our query parameters to find scenes that have some missing pixels. We want to use these to demonstrate how you would handle missing data later on)</p>
 </section>
 <section id="working-with-rasterio">
-<h2><span class="section-number">16.2. </span>Working with Rasterio<a class="headerlink" href="#working-with-rasterio" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.2. </span>Working with Rasterio<a class="headerlink" href="#working-with-rasterio" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://rasterio.readthedocs.io/en/stable/">Rasterio</a> is a highly useful module for raster processing which you can use for reading and writing several different raster formats in Python. <code class="docutils literal notranslate"><span class="pre">Rasterio</span></code> is based on <a class="reference external" href="https://gdal.org/index.html">GDAL</a> and Python automatically registers all known GDAL drivers for reading supported formats when importing the module.</p>
 <section id="read-the-metadata">
-<h3><span class="section-number">16.2.1. </span>Read the Metadata<a class="headerlink" href="#read-the-metadata" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.2.1. </span>Read the Metadata<a class="headerlink" href="#read-the-metadata" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rasterio</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -562,7 +573,7 @@ document.write(`
 <p>Let’s open the <code class="docutils literal notranslate"><span class="pre">nir</span></code> band of the first item:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">&quot;nir&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">"nir"</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -584,13 +595,13 @@ document.write(`
 <p>You can retrieve the metadata of this raster as following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CRS of the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transform of the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">transform</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Width of the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Height of the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of bands in the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bounds of the scene are:&quot;</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The no data values for all channels are:&quot;</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">nodatavals</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"CRS of the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Transform of the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">transform</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Width of the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Height of the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of bands in the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Bounds of the scene are:"</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The no data values for all channels are:"</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">nodatavals</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -612,14 +623,14 @@ The no data values for all channels are: (0.0,)
 <p>Alternatively, you can retrieve all metadata of the scene using the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All metadata of the scene:&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"All metadata of the scene:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">worcester_nir</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All metadata of the scene:
-{&#39;driver&#39;: &#39;GTiff&#39;, &#39;dtype&#39;: &#39;uint16&#39;, &#39;nodata&#39;: 0.0, &#39;width&#39;: 10980, &#39;height&#39;: 10980, &#39;count&#39;: 1, &#39;crs&#39;: CRS.from_wkt(&#39;PROJCS[&quot;WGS 84 / UTM zone 18N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-75],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32618&quot;]]&#39;), &#39;transform&#39;: Affine(10.0, 0.0, 699960.0,
+{'driver': 'GTiff', 'dtype': 'uint16', 'nodata': 0.0, 'width': 10980, 'height': 10980, 'count': 1, 'crs': CRS.from_wkt('PROJCS["WGS 84 / UTM zone 18N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-75],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","32618"]]'), 'transform': Affine(10.0, 0.0, 699960.0,
        0.0, -10.0, 4700040.0)}
 </pre></div>
 </div>
@@ -627,11 +638,11 @@ The no data values for all channels are: (0.0,)
 </div>
 </section>
 <section id="exercise-1">
-<h3><span class="section-number">16.2.2. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.2.2. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
 <p>You can retrieve the same metadata from the STAC item properties. Write a code that prints the same metadata as printed in the previous cell but using the STAC item properties:</p>
 </section>
 <section id="get-band-data">
-<h3><span class="section-number">16.2.3. </span>Get Band Data<a class="headerlink" href="#get-band-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.2.3. </span>Get Band Data<a class="headerlink" href="#get-band-data" title="Link to this heading">#</a></h3>
 <p>You can read the data from one or multiple bands using the <code class="docutils literal notranslate"><span class="pre">read</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -676,11 +687,11 @@ The no data values for all channels are: (0.0,)
 <p>This data type is a 16-bit unsigned integer. Unsigned integer is always equal to or greater than zero but signed integer can store negative values too. For example, an unsigned 16-bit integer can store 2^16 (=65,536) values ranging from 0 to 65,535.</p>
 </section>
 <section id="visualize-band-data">
-<h3><span class="section-number">16.2.4. </span>Visualize Band Data<a class="headerlink" href="#visualize-band-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.2.4. </span>Visualize Band Data<a class="headerlink" href="#visualize-band-data" title="Link to this heading">#</a></h3>
 <p>Let’s now visualize this band. We can use the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function from <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rasterio</span> <span class="kn">import</span> <span class="n">plot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rasterio</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot</span>
 </pre></div>
 </div>
 </div>
@@ -714,12 +725,12 @@ The no data values for all channels are: (0.0,)
 </div>
 </section>
 <section id="closing-the-file">
-<h3><span class="section-number">16.2.5. </span>Closing the File<a class="headerlink" href="#closing-the-file" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">16.2.5. </span>Closing the File<a class="headerlink" href="#closing-the-file" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">rasterio.open()</span></code> keeps a connection to the file open until you close it. Above, we kept <code class="docutils literal notranslate"><span class="pre">worcester_nir</span></code> open across several cells so we could explore it step by step. Once you are done with it, close it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is the file closed?&quot;</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Is the file closed?"</span><span class="p">,</span> <span class="n">worcester_nir</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -732,12 +743,12 @@ The no data values for all channels are: (0.0,)
 <p>In practice, the recommended way is to use a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement (a <em>context manager</em>). The file is opened at the start of the block and closed automatically at the end, even if an error happens inside it. Anything you need later (data, metadata) should be saved to variables inside the block:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">&quot;nir&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CRS of the scene is:&quot;</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">"nir"</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"CRS of the scene is:"</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
     <span class="n">nir</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">nir_transform</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">transform</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is the file closed?&quot;</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Is the file closed?"</span><span class="p">,</span> <span class="n">src</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -765,19 +776,19 @@ Is the file closed? True
 </section>
 </section>
 <section id="working-with-rioxarray">
-<h2><span class="section-number">16.3. </span>Working with Rioxarray<a class="headerlink" href="#working-with-rioxarray" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.3. </span>Working with Rioxarray<a class="headerlink" href="#working-with-rioxarray" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> is a package based on the popular <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> package for working with rasters and <code class="docutils literal notranslate"><span class="pre">xarray</span></code> for working with multi-dimensional arrays. <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> extends <code class="docutils literal notranslate"><span class="pre">xarray</span></code> by providing top-level functions (e.g. the <code class="docutils literal notranslate"><span class="pre">open_rasterio</span></code> function to open raster datasets) and by adding a set of methods to the main objects of the xarray package (the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> and the <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>). These additional methods are made available via the <code class="docutils literal notranslate"><span class="pre">rio</span></code> accessor and become available from <code class="docutils literal notranslate"><span class="pre">xarray</span></code> objects after importing <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code>.</p>
 <p>We can implement the steps we carried out with <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> in the previous section using <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> as following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rioxarray</span> <span class="k">as</span> <span class="nn">rxr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rxr</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir_xr</span> <span class="o">=</span> <span class="n">rxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">&quot;nir&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir_xr</span> <span class="o">=</span> <span class="n">rxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">"nir"</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1352,13 +1363,13 @@ Attributes:
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>, we can inspect the attributes of the raster. They can be accessed from the <code class="docutils literal notranslate"><span class="pre">rio</span></code> accessor like <code class="docutils literal notranslate"><span class="pre">.rio.crs</span></code>, <code class="docutils literal notranslate"><span class="pre">.rio.nodata</span></code>, and <code class="docutils literal notranslate"><span class="pre">.rio.bounds()</span></code>, which contain the metadata for the file we opened.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CRS of the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transform of the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">transform</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Width of the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Height of the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of bands in the scene is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bounds of the scene are:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">bounds</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The no data values for all channels are:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">nodata</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"CRS of the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Transform of the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">transform</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Width of the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Height of the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of bands in the scene is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Bounds of the scene are:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">bounds</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The no data values for all channels are:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">nodata</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1414,11 +1425,11 @@ The no data values for all channels are: 0
 <p>You can also use built-in <code class="docutils literal notranslate"><span class="pre">xarray</span></code> functions to calculate statistics of the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Min of the data is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Max of the data is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean of the data is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Std of the data is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;25th, and 75th quantiles of the data are:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Min of the data is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Max of the data is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Mean of the data is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Std of the data is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"25th, and 75th quantiles of the data are:"</span><span class="p">,</span> <span class="n">worcester_nir_xr</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1436,7 +1447,7 @@ Std of the data is: 1677.6593953594893
 <p>To avoid this, you need to open the file appropriately as required by <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> to mask those pixels:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir_xr_masked</span> <span class="o">=</span> <span class="n">rxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">&quot;nir&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir_xr_masked</span> <span class="o">=</span> <span class="n">rxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">"nir"</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1444,11 +1455,11 @@ Std of the data is: 1677.6593953594893
 <p>Now let’s recalculate the stats:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Min of the data is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Max of the data is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean of the data is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Std of the data is:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;25th, and 75th quantiles of the data are:&quot;</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Min of the data is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Max of the data is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Mean of the data is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Std of the data is:"</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"25th, and 75th quantiles of the data are:"</span><span class="p">,</span> <span class="n">worcester_nir_xr_masked</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1471,24 +1482,24 @@ Std of the data is: 1135.4767
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;crs_wkt&#39;: &#39;PROJCS[&quot;WGS 84 / UTM zone 18N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-75],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32618&quot;]]&#39;,
- &#39;semi_major_axis&#39;: 6378137.0,
- &#39;semi_minor_axis&#39;: 6356752.314245179,
- &#39;inverse_flattening&#39;: 298.257223563,
- &#39;reference_ellipsoid_name&#39;: &#39;WGS 84&#39;,
- &#39;longitude_of_prime_meridian&#39;: 0.0,
- &#39;prime_meridian_name&#39;: &#39;Greenwich&#39;,
- &#39;geographic_crs_name&#39;: &#39;WGS 84&#39;,
- &#39;horizontal_datum_name&#39;: &#39;World Geodetic System 1984&#39;,
- &#39;projected_crs_name&#39;: &#39;WGS 84 / UTM zone 18N&#39;,
- &#39;grid_mapping_name&#39;: &#39;transverse_mercator&#39;,
- &#39;latitude_of_projection_origin&#39;: 0.0,
- &#39;longitude_of_central_meridian&#39;: -75.0,
- &#39;false_easting&#39;: 500000.0,
- &#39;false_northing&#39;: 0.0,
- &#39;scale_factor_at_central_meridian&#39;: 0.9996,
- &#39;spatial_ref&#39;: &#39;PROJCS[&quot;WGS 84 / UTM zone 18N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-75],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32618&quot;]]&#39;,
- &#39;GeoTransform&#39;: &#39;699960.0 10.0 0.0 4700040.0 0.0 -10.0&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'crs_wkt': 'PROJCS["WGS 84 / UTM zone 18N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-75],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","32618"]]',
+ 'semi_major_axis': 6378137.0,
+ 'semi_minor_axis': 6356752.314245179,
+ 'inverse_flattening': 298.257223563,
+ 'reference_ellipsoid_name': 'WGS 84',
+ 'longitude_of_prime_meridian': 0.0,
+ 'prime_meridian_name': 'Greenwich',
+ 'geographic_crs_name': 'WGS 84',
+ 'horizontal_datum_name': 'World Geodetic System 1984',
+ 'projected_crs_name': 'WGS 84 / UTM zone 18N',
+ 'grid_mapping_name': 'transverse_mercator',
+ 'latitude_of_projection_origin': 0.0,
+ 'longitude_of_central_meridian': -75.0,
+ 'false_easting': 500000.0,
+ 'false_northing': 0.0,
+ 'scale_factor_at_central_meridian': 0.9996,
+ 'spatial_ref': 'PROJCS["WGS 84 / UTM zone 18N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-75],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","32618"]]',
+ 'GeoTransform': '699960.0 10.0 0.0 4700040.0 0.0 -10.0'}
 </pre></div>
 </div>
 </div>
@@ -1509,11 +1520,11 @@ Std of the data is: 1135.4767
 </div>
 </section>
 <section id="working-with-multi-band-data">
-<h2><span class="section-number">16.4. </span>Working with Multi-Band Data<a class="headerlink" href="#working-with-multi-band-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.4. </span>Working with Multi-Band Data<a class="headerlink" href="#working-with-multi-band-data" title="Link to this heading">#</a></h2>
 <p>So far we looked into a single band raster, i.e. the <code class="docutils literal notranslate"><span class="pre">nir</span></code> band of a Sentinel-2 scene. However, one may also want to visualize the true-color overview of the region. This is provided as a multi-band raster in the STAC item.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_overview</span> <span class="o">=</span> <span class="n">rxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s1">&#39;visual&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">,</span> <span class="n">overview_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_overview</span> <span class="o">=</span> <span class="n">rxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s1">'visual'</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">,</span> <span class="n">overview_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">worcester_overview</span>
 </pre></div>
 </div>
@@ -2094,12 +2105,12 @@ Attributes:
 </div>
 </section>
 <section id="clipping-a-raster">
-<h2><span class="section-number">16.5. </span>Clipping a Raster<a class="headerlink" href="#clipping-a-raster" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.5. </span>Clipping a Raster<a class="headerlink" href="#clipping-a-raster" title="Link to this heading">#</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">.rio.clip()</span></code> function to clip your raster.</p>
 <p>Let’s define a geometry for clipping:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">box</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">box</span>
 
 <span class="n">min_x</span> <span class="o">=</span> <span class="mi">760000</span>
 <span class="n">min_y</span> <span class="o">=</span> <span class="mi">4620000</span>
@@ -3288,7 +3299,7 @@ Attributes:
 <p>You can also use the built-in <code class="docutils literal notranslate"><span class="pre">xarray.sel()</span></code> method to select values for specific values across each coordinate. For example, we can select the value as following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_overview</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">761000</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">4630000</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_overview</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">761000</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">4630000</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"nearest"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3852,12 +3863,12 @@ Attributes:
 <p>The argument <code class="docutils literal notranslate"><span class="pre">method</span></code> is needed when the provided <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are not the actual value present in the requested coordinate. <code class="docutils literal notranslate"><span class="pre">Xarray</span></code> will use the <code class="docutils literal notranslate"><span class="pre">method</span></code> to interpolate the values and find the corresponding value for the requested coordinate.</p>
 </section>
 <section id="handling-large-rasters">
-<h2><span class="section-number">16.6. </span>Handling Large Rasters<a class="headerlink" href="#handling-large-rasters" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.6. </span>Handling Large Rasters<a class="headerlink" href="#handling-large-rasters" title="Link to this heading">#</a></h2>
 <p>When using <code class="docutils literal notranslate"><span class="pre">xarray.open_rasterio</span></code> (and in general any open_dataset function in <code class="docutils literal notranslate"><span class="pre">xarray</span></code> the data is loaded from the underlying datastore in memory as NumPy arrays by default.</p>
 <p>But you may want to avoid this if you are working with a very large dataset. To do that, you can either pass the <code class="docutils literal notranslate"><span class="pre">cache</span> <span class="pre">=</span> <span class="pre">False</span></code> argument to <code class="docutils literal notranslate"><span class="pre">xarray.open_rasterio</span></code> or specify the chunks argument to use Dask.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir_xr_not_cached</span> <span class="o">=</span> <span class="n">rxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">&quot;nir&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">,</span> <span class="n">cache</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir_xr_not_cached</span> <span class="o">=</span> <span class="n">rxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assets</span><span class="p">[</span><span class="s2">"nir"</span><span class="p">]</span><span class="o">.</span><span class="n">href</span><span class="p">,</span> <span class="n">cache</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3865,7 +3876,7 @@ Attributes:
 <p>From here, you can work with the <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> as before and <code class="docutils literal notranslate"><span class="pre">xarray</span></code> will only load the parts of <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> that you request. For example, if you use <code class="docutils literal notranslate"><span class="pre">sel</span></code> to retrieve a value, it will only read that part of the <code class="docutils literal notranslate"><span class="pre">DataArray</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir_xr_not_cached</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">761000</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">4630000</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worcester_nir_xr_not_cached</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">761000</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">4630000</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"nearest"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4428,7 +4439,7 @@ Attributes:
 </div>
 </section>
 <section id="writing-data-to-disk">
-<h2><span class="section-number">16.7. </span>Writing Data to Disk<a class="headerlink" href="#writing-data-to-disk" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.7. </span>Writing Data to Disk<a class="headerlink" href="#writing-data-to-disk" title="Link to this heading">#</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">.rio.to_raster</span></code> function to write a <code class="docutils literal notranslate"><span class="pre">rioxarray.DataArray</span></code> to disk. Let’s write the clipped version of our multi-band imagery to disk:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4440,15 +4451,15 @@ Attributes:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This notebook lives in `notebooks/`, so the `output` folder is one level up in the repository root</span>
-<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;../output&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">worcester_clipped</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">to_raster</span><span class="p">(</span><span class="s2">&quot;../output/worcester_clipped.tif&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">"../output"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">worcester_clipped</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">to_raster</span><span class="p">(</span><span class="s2">"../output/worcester_clipped.tif"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="exercise-2">
-<h2><span class="section-number">16.8. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">16.8. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h2>
 <p>Question: What do <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> represent? Are they the center coordinates of each pixel, or the edge?</p>
 </section>
 </section>
@@ -4478,11 +4489,10 @@ Attributes:
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="15_raster.html"
@@ -4502,23 +4512,23 @@ Attributes:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-satellite-scene">16.1. Find a Satellite Scene</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-rasterio">16.2. Working with Rasterio</a><ul class="nav section-nav flex-column">
@@ -4556,6 +4566,7 @@ By Hamed Alemohammad
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026.
@@ -4582,8 +4593,8 @@ By Hamed Alemohammad
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
