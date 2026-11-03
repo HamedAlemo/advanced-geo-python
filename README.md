@@ -26,11 +26,11 @@ The following tasks are defined in `pixi.toml` and can be run from anywhere insi
 
 | Task | Command it runs | Description |
 | --- | --- | --- |
-| `pixi run clean` | `jupyter-book clean advanced-geo-python/` (from the parent directory) | Removes any existing builds |
-| `pixi run build` | `jupyter-book build --all advanced-geo-python/` (from the parent directory) | Builds the book |
-| `pixi run publish` | `ghp-import -n -p -f _build/html` (from the repository root) | Pushes the built HTML to the `gh-pages` branch |
+| `pixi run clean` | `jupyter-book clean .` | Removes any existing builds |
+| `pixi run build` | `jupyter-book build --all .` | Builds the book |
+| `pixi run publish` | `ghp-import -n -p -f _build/html` | Pushes the built HTML to the `gh-pages` branch |
 
-A fully-rendered HTML version of the book will be built in `_build/html/`. Since `build` and `clean` run from the parent directory, the repository folder must keep its default name, `advanced-geo-python`.
+A fully-rendered HTML version of the book will be built in `_build/html/`.
 
 ### Hosting the book
 
