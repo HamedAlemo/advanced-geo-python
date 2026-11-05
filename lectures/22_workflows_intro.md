@@ -15,11 +15,11 @@ To begin you need to clarify the question(s) or challenge(s) that you need to ad
 
 In this chapter, we will use the example of calculating a time series of normalized difference vegetation index (NDVI) to investigate ecological processes and changes.
 
-NDVI is usually used to study changes due to a disturbance such as a flood or a fire. But NDVI can also be used to understand seasonality - when an area begins to “green-up” or grow after the winter cold period and “brown down” when vegetation in an area begins to die back in an area (usually in the fall and winter).  You can calculate NDVI for each month of the year (or even for several years) to understand seasonality in a particular study area. 
+NDVI is usually used to study changes due to a disturbance such as a flood or a fire. But NDVI can also be used to understand seasonality - when vegetation in an area begins to “green-up” or grow once conditions allow it (after the winter cold in temperate regions, or after the rainy season begins in dry climates) and “brown down” when vegetation begins to die back.  You can calculate NDVI for each month of the year (or even for several years) to understand seasonality in a particular study area. 
 
-Different areas in different parts of the world have different seasonal patterns. For example, the NEON <a href="https://www.neonscience.org/field-sites/field-sites-map/SJER" target="_blank">San Joaquin Experimental Range (SJER)</a> in California has an early green-up date on average, a short growing season due to hot temperatures and lack of precipitation and an early brown down. In contrast, the NEON <a href="https://www.neonscience.org/field-sites/field-sites-map/HARV" target="_blank">Harvard Forest (HARV)</a> site in Massachusetts has a longer growing season and a later green-up period.   
+Different areas in different parts of the world have different seasonal patterns. For example, the NEON <a href="https://www.neonscience.org/field-sites/field-sites-map/SJER" target="_blank">San Joaquin Experimental Range (SJER)</a> in central California has a Mediterranean climate: its grasses and oaks green up with the onset of winter rains, reach peak greenness in early spring, and brown down by late spring as the soil dries out during the hot, dry summer. In contrast, the NEON <a href="https://www.neonscience.org/field-sites/field-sites-map/HARV" target="_blank">Harvard Forest (HARV)</a> site in Massachusetts is a temperate deciduous forest that greens up in late spring (around May), stays green through the summer, and browns down in the fall.   
 
-These two sites are ideal for comparisons of NDVI to identify differences in seasonality across sites and will be used as the study areas for the data workflow challenge. 
+Because their seasonal cycles are nearly opposite, these two sites are ideal for comparisons of NDVI to identify differences in seasonality across sites and will be used as the study areas for the data workflow challenge. 
 
 Changes in seasonality can be important indicators of ecological change. For example, if green-up begins earlier, such that fruit or seed resources become available sooner than average, animals that forage on the fruits in the spring must either migrate earlier to use these resources, or miss out on them if they do not adjust migration behavior. This phenomenon is referred to as a phenological mismatch.
 
@@ -33,18 +33,20 @@ As you want to explore seasonal patterns of “green-up” and “brown down”,
 
 What data do you select for your analysis? Consider temporal frequency of data collection and spatial resolution. 
 
-For example, NAIP is collected every other year, so it is unlikely to provide good information on seasonality. 
+For example, NAIP is collected only every two to three years, and only during the leaf-on growing season, so it cannot capture seasonal changes. 
 
-In contrast, MODIS and Landsat may be more useful, because they are collected on daily and bi-monthly frequencies, respectively. 
+In contrast, MODIS and Landsat may be more useful. MODIS images most of the Earth every day, while each Landsat satellite revisits a location every 16 days (every 8 days with Landsat 8 and 9 combined). 
 
-In terms of resolution, MODIS pixels could be too large depending on the size of your study site. Perhaps Landsat has an ideal combination of temporal frequency, resolution and spatial coverage.
+In terms of resolution, MODIS pixels (250 m for the red and near-infrared bands) could be too large depending on the size of your study site, while Landsat pixels are 30 m. Also note that the Terra and Aqua satellites that carry MODIS reach the end of their missions in 2027, and NASA recommends VIIRS products as the successor for long-term records. Perhaps Landsat has an ideal combination of temporal frequency, resolution and spatial coverage, and it is the dataset we will use in this chapter.
+
+Denser alternatives are also worth knowing about: Sentinel-2 observes a location every 5 days at 10 m resolution, and the Harmonized Landsat Sentinel-2 (HLS) product combines both missions at 30 m to observe a location every 2 to 3 days. More frequent observations are especially helpful in cloudy places, where many scenes are unusable.
 
 
 ## Design Your Workflow
 
 Next it is time to design the workflow to create the output(s) that will address your question or challenge. 
 
-To use the NDVI time series to understand seasonality, it can be helpful to create a plot that shows the NDVI values for each month for a site.  In addition, you may want to produce some output files (e.g. CSV files) that you can share with others who may be interested in creating their own visualizations. You need to understand your users needs to better design the requirements for your output. 
+To use the NDVI time series to understand seasonality, it can be helpful to create a plot that shows the NDVI values for each month for a site.  In addition, you may want to produce some output files (e.g. CSV files) that you can share with others who may be interested in creating their own visualizations. You need to understand your users' needs to better design the requirements for your output. 
 
 For the NDVI time series challenge, you will design a workflow that has two outputs:
 
@@ -55,7 +57,7 @@ Once you know your outputs, you can work backwards to determine the data and ste
 
 The design process can feel difficult, so it can be helpful to begin the design of the workflow using words (not code), a process known as pseudocoding. With pseudocode, you list out the inputs and outputs of the workflows and then identify the analytical steps needed to create the outputs from the inputs.
 
-Next lecture walks you through the pseudocoding process, so that you can use this method to easily design data workflows and more toward automating these workflows. 
+Next lecture walks you through the pseudocoding process, so that you can use this method to easily design data workflows and move toward automating these workflows. 
 
 
 ## Implement Your Workflow
@@ -67,10 +69,15 @@ Try to write code that is clear, efficient, well documented and expressive. Reme
 Thus, your aim should be to write code that is readable, reproducible, and efficient. Be sure to: 
 
 1. Use clear, expressive names for objects, files, etc. Ask yourself if someone reading your code could guess what is contained in that object or file based on the name. 
-2. Use reproducible paths for input data and writing outputs (e.g. use `os.path.join()` to define paths, include code to create needed directories, etc).   
-3. Writing custom functions for repetitive tasks in your workflows.
-4. Including checks (i.e. tests) in your code to ensure that it is doing what you think is! 
+2. Use reproducible paths for input data and writing outputs (e.g. use `os.path.join()` or the more modern `pathlib.Path` to define paths, include code to create needed directories, etc).   
+3. Write custom functions for repetitive tasks in your workflows.
+4. Include checks (i.e. tests) in your code to ensure that it is doing what you think it is! 
 
-We reviewed some of these topics in our lecture on reproducible science, and more programming specific best practices are introduced in [Data Workflow Best Practices](../lectures/24_workflows_best_practices.ipynb).
+We reviewed some of these topics in our lectures on [Python Environments](03_python-env.md) and the assignment based on [NASA Open Science 101 module](../files/open-science-101-v-1-0-0/README.md), and more programming specific best practices are introduced in [Data Workflow Best Practices](../lectures/24_workflows_best_practices.ipynb).
+
+```{admonition} With an AI agent
+:class: note
+The steps in this lecture are the part of the work you cannot hand to an AI coding agent. An agent can write code to calculate NDVI in seconds, but it does not know that NAIP is collected only in the growing season, that your users want a csv file, or that SJER and HARV should have nearly opposite seasonal cycles. Write these decisions down: the question, the data and why it fits, the exact outputs, and any constraints. This is the content of the `AGENTS.md` file from [Working with GenAI Tools](04_working_with_genai_tools.md). The agent reads it at the start of every session, which keeps it working on your problem instead of one it guessed. You will write one for this workflow in the [lab](25_agentic_workflow_lab.md).
+```
 
 <p>&nbsp;</p>
