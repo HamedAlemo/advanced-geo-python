@@ -72,6 +72,7 @@ parts:
     - file: assignments/a4
     - file: assignments/a5
     - file: assignments/a6
+    - file: assignments/a7
   - caption: NASA Open Science 101
     chapters:
     - file: files/open-science-101-v-1-0-0/README
