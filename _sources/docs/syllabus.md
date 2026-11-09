@@ -31,8 +31,8 @@ Draft Syllabus for the course:
 |	11	|	11/5/26	|	Geospatial Workflows	|		|		|
 |	12	|	11/9/26	|	Data Visualization	|	Yes	|		|
 |	12	|	11/12/26	|	Projects Proposal Presentation	|		|		|
-|	13	|	11/16/26	|	Projects	|		|		|
-|	13	|	11/19/26	|	Projects	|		|	*Proposals due*	|
+|	13	|	11/16/26	|	**GIS Week Lecture (required attendance)**	|		|		|
+|	13	|	11/19/26	|	**No Classes (Work on Project Proposals)**	|		|	*Proposals due*	|
 |	14	|	11/23/26	|	Projects	|		|		|
 |	14	|	11/26/26	|	**Thanksgiving Break (No Classes)**	|		|		|
 |	15	|	11/30/26	|	Projects	|		|		|
