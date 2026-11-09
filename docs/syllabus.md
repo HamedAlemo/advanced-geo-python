@@ -5,7 +5,6 @@ There will be 9 assignments during the semester, and students can join office ho
 
 Draft Syllabus for the course:
 
-
 |	**Week**	|	**Date**	|	**Topic**	|	**Quiz**	|	**Assignment**	|
 |	--------	|	--------	|	----------------------------------------------------------------	|	-----------	|	-----------	|
 |	1	|	8/24/26	|	Workflows for Open Reproducible Science	|		|	Assignment 1	|
@@ -29,17 +28,16 @@ Draft Syllabus for the course:
 |	10	|	10/26/26	|	Scaling Raster Data Analytics - Part 3	|	Yes	|		|
 |	10	|	10/29/26	|	Working with Vector Data in Python	|		|		|
 |	11	|	11/2/26	|	Scaling Vector Data Analytics 	|		|	Assignment 7	|
-|	11	|	11/5/26	|	Data Visualization	|		|		|
-|	12	|	11/9/26	|	Geospatial Workflows	|	Yes	|		|
+|	11	|	11/5/26	|	Geospatial Workflows	|		|		|
+|	12	|	11/9/26	|	Data Visualization	|	Yes	|		|
 |	12	|	11/12/26	|	Projects Proposal Presentation	|		|		|
-|	13	|	11/16/26	|	Projects	|		|		|
-|	13	|	11/19/26	|	Projects	|		|	*Proposals due*	|
+|	13	|	11/16/26	|	**GIS Week Lecture (required attendance)**	|		|		|
+|	13	|	11/19/26	|	**No Classes (Work on Project Proposals)**	|		|	*Proposals due*	|
 |	14	|	11/23/26	|	Projects	|		|		|
 |	14	|	11/26/26	|	**Thanksgiving Break (No Classes)**	|		|		|
 |	15	|	11/30/26	|	Projects	|		|		|
 |	15	|	12/3/26	|	Projects	|		|		|
 |	16	|	12/7/26	|	Projects	|		|		|
-
 
 Assignments will be released on the Thursday of the week (with the exception of Assignment 1), and are due the following week at 11:59pm ET on Wednesday. For example, for the assignment that will be released during the 3rd week of the class the submission deadline is on Wednesday at 11:59 pm during the 4th week. 
 

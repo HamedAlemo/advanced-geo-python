@@ -64,6 +64,10 @@ parts:
       title: Workflow Best Practices
     - file: lectures/25_agentic_workflow_lab
       title: "Lab: Workflows with an AI Agent"
+    - file: lectures/26_visualization_principles
+      title: Communicating with Maps and Visualizations
+    - file: lectures/27_visualization_in_python
+      title: Geospatial Visualization in Python
   - caption: Assignments
     chapters:
     - file: assignments/a1
