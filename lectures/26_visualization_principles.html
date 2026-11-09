@@ -1,0 +1,1007 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>26. Communicating with Maps and Visualizations &#8212; Advanced Geospatial Analytics with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/26_visualization_principles';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="27. Geospatial Visualization in Python" href="27_visualization_in_python.html" />
+    <link rel="prev" title="25. Lab: Building a Data Workflow with an AI Agent" href="25_agentic_workflow_lab.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Geospatial Analytics with Python - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Advanced Geospatial Analytics with Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEOG 213/313: Advanced Geospatial Analytics with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/assessment.html">Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/policies.html">Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_unix.html">1. Intro to Unix and Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_git.html">2. Intro to Version Control and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python-env.html">3. Python Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_working_with_genai_tools.html">4. Working with GenAI Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_jupyter.html">5. Intro to JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_xarray_fundamentals.html">6. Xarray Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_xarray_advanced.html">7. Advanced Xarray Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_crs.html">8. Review of CRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_crs_and_projections.html">9. CRS and Projections in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_landscape.html">10. Geospatial Landscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_earth_search_tutorial.html">11. Searching a STAC Catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_dask_array.html">12. Intro to Dask &amp; Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_stac_query_w_stackstac.html">13. Scaling stackstac w Dask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dask_dataframe.html">14. Into to Dask DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_raster.html">15. Review of Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_raster_analysis.html">16. Raster Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_raster_processing.html">17. Raster Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_vector.html">18. Review of Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_vector_analysis.html">19. Vector Data in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_dask_geopandas_intro.html">20. Intro to Dask-GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_scalable_vector_analysis.html">21. Scalable Vector Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_workflows_intro.html">22. Workflows in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_workflows_pseudocode.html">23. Writing Pseudocode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_workflows_best_practices.html">24. Workflow Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_agentic_workflow_lab.html">25. Lab: Workflows with an AI Agent</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">26. Communicating with Maps and Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_visualization_in_python.html">27. Geospatial Visualization in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a1.html">Assignment 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a2.html">Assignment 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a3.html">Assignment 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a4.html">Assignment 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a5.html">Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a6.html">Assignment 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/a7.html">Assignment 7</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NASA Open Science 101</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/README.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/readme.html">OS101 Module 1: The Ethos of Open Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_1/readme.html">Lesson 1: What is Open Science?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_2/readme.html">Lesson 2: Why is Open Science Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_3/readme.html">Lesson 3: How to do Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_4/readme.html">Lesson 4: When Not to be Open</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_1/Lesson_5/readme.html">Lesson 5: Planning for Open Science: From Theory to Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/readme.html">OS101 Module 2: Open Tools and Resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_1/readme.html">Lesson 1: Introduction to the Process of Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_2/readme.html">Lesson 2: General Tools for Open Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_3/readme.html">Lesson 3: Tools for Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_4/readme.html">Lesson 4: Tools for Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_2/Lesson_5/readme.html">Lesson 5: Tools for Open Results</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/readme.html">OS101 Module 3: Open Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_1/readme.html">Lesson 1: Introduction to Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_2/readme.html">Lesson 2: Using Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_3/readme.html">Lesson 3: Making Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_4/readme.html">Lesson 4: Sharing Open Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_3/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/readme.html">OS101 Module 4: Open Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_1/readme.html">Lesson 1: Introduction to Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_2/readme.html">Lesson 2: Using Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_3/readme.html">Lesson 3: Making Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_4/readme.html">Lesson 4: Sharing Open Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_4/Lesson_5/readme.html">Lesson 5: From Theory to Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../files/open-science-101-v-1-0-0/Module_5/readme.html">OS101 Module 5: Open Results</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/HamedAlemo/advanced-geo-python/issues/new?title=Issue%20on%20page%20%2Flectures/26_visualization_principles.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/26_visualization_principles.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Communicating with Maps and Visualizations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-or-explain">26.1. Explore or Explain?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-that-apply-to-every-figure">26.2. Principles that Apply to Every Figure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maps-have-extra-rules">26.3. Maps Have Extra Rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#match-the-map-type-to-the-data">26.3.1. Match the map type to the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalize-before-you-make-a-choropleth">26.3.2. Normalize before you make a choropleth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classify-thoughtfully">26.3.3. Classify thoughtfully</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-projection-on-purpose">26.3.4. Choose the projection on purpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#include-the-map-elements-your-reader-needs">26.3.5. Include the map elements your reader needs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#color">26.4. Color</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-the-rainbow">26.4.1. Why not the rainbow?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-visualization-landscape">26.5. The Python Visualization Landscape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-maps-and-figures">26.5.1. Static maps and figures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-maps">26.5.2. Interactive maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lonboard">26.5.3. Lonboard</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-data-versus-serving-tiles">26.6. Visualizing Data versus Serving Tiles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-tile">26.6.1. What is a tile?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmtiles">26.6.2. PMTiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-approach-should-i-use">26.6.3. Which approach should I use?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">26.7. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">26.8. Further Reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="communicating-with-maps-and-visualizations">
+<h1><span class="section-number">26. </span>Communicating with Maps and Visualizations<a class="headerlink" href="#communicating-with-maps-and-visualizations" title="Link to this heading">#</a></h1>
+<p>Throughout this course you have searched, loaded, processed and scaled geospatial data. In almost every project, the last step is the one other people actually see: a figure or a map. A good visualization lets your audience see the pattern you found in seconds. A poor one hides it, or worse, shows a pattern that is not in the data.</p>
+<p>In this lecture we review a few principles of visual communication (most of them apply to any chart, not only maps), take a close look at color, survey the Python packages available for geospatial visualization, and discuss the difference between visualizing data and serving map tiles, including the PMTiles format. In the <a class="reference internal" href="27_visualization_in_python.html"><span class="std std-doc">hands-on notebook</span></a> you will apply each of these ideas in code.</p>
+<hr class="docutils" />
+<section id="explore-or-explain">
+<h2><span class="section-number">26.1. </span>Explore or Explain?<a class="headerlink" href="#explore-or-explain" title="Link to this heading">#</a></h2>
+<p>Before choosing a chart type or a color, ask who the figure is for.</p>
+<ul class="simple">
+<li><p>Exploratory visualization is for you. You make many quick plots, often interactive, to understand the data, find errors and form hypotheses. Speed and interactivity matter more than polish.</p></li>
+<li><p>Explanatory visualization is for an audience. You make one figure that carries one message. Every element on it should support that message, and anything that does not should be removed.</p></li>
+</ul>
+<p>Most bad figures in papers and reports are exploratory plots that were never turned into explanatory ones: default colors, axis labels with variable names such as <code class="docutils literal notranslate"><span class="pre">pop_est</span></code>, no units, and a legend nobody can read.</p>
+</section>
+<section id="principles-that-apply-to-every-figure">
+<h2><span class="section-number">26.2. </span>Principles that Apply to Every Figure<a class="headerlink" href="#principles-that-apply-to-every-figure" title="Link to this heading">#</a></h2>
+<p>These principles are not specific to maps. They apply equally to a line chart of an NDVI time series or a bar chart of accuracy per land cover class.</p>
+<ol class="arabic simple">
+<li><p>One figure, one message. If you cannot state the message in one sentence, the figure is probably trying to do too much. Split it.</p></li>
+<li><p>Choose the encoding by how precisely it must be read. People compare positions along a common scale most accurately, followed by lengths, angles, areas, and finally color intensity (<a class="reference external" href="https://doi.org/10.1080/01621459.1984.10478080">Cleveland and McGill, 1984</a>). Color is the least precise encoding, yet a map uses it for its main variable. That is a reason to use color carefully, and a reason to add a chart next to your map when exact comparison matters.</p></li>
+<li><p>A map is not always the answer. If location is not part of the message, a sorted bar chart or a scatter plot is often clearer than a choropleth map. Ask yourself whether the spatial pattern is the point.</p></li>
+<li><p>Label everything a reader needs, in plain words: a title that states the finding, axis labels or a legend with units, the data source and date. Replace variable names such as <code class="docutils literal notranslate"><span class="pre">pop_est</span></code> with “Population (millions)”.</p></li>
+<li><p>Use the same scale when panels are compared. Two maps side by side with different color ranges invite the reader to compare colors that mean different things. In Matplotlib this means setting the same <code class="docutils literal notranslate"><span class="pre">vmin</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax</span></code> on every panel and adding a single shared colorbar.</p></li>
+<li><p>Be honest about the data range. Clipping outliers (for example, the <code class="docutils literal notranslate"><span class="pre">robust=True</span></code> option in Xarray plotting uses the 2nd and 98th percentiles) can reveal structure, but say that you did it, and use a colorbar with extended ends so readers know values continue beyond it.</p></li>
+<li><p>Design for everyone. Around 8% of men and 0.5% of women have some form of color vision deficiency, most often red-green. Your figure will also be projected on washed-out screens and printed in grayscale.</p></li>
+</ol>
+</section>
+<section id="maps-have-extra-rules">
+<h2><span class="section-number">26.3. </span>Maps Have Extra Rules<a class="headerlink" href="#maps-have-extra-rules" title="Link to this heading">#</a></h2>
+<p>Maps add a few decisions that charts do not have.</p>
+<section id="match-the-map-type-to-the-data">
+<h3><span class="section-number">26.3.1. </span>Match the map type to the data<a class="headerlink" href="#match-the-map-type-to-the-data" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Data</p></th>
+<th class="head"><p>Typical map type</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rates or ratios for areas</p></td>
+<td><p>Choropleth (filled polygons)</p></td>
+<td><p>Population density by country</p></td>
+</tr>
+<tr class="row-odd"><td><p>Counts or totals at locations</p></td>
+<td><p>Proportional symbols</p></td>
+<td><p>City population as circle size</p></td>
+</tr>
+<tr class="row-even"><td><p>Continuous fields</p></td>
+<td><p>Raster or contour (isarithmic) map</p></td>
+<td><p>Elevation, temperature, NDVI</p></td>
+</tr>
+<tr class="row-odd"><td><p>Categories</p></td>
+<td><p>Qualitative colors</p></td>
+<td><p>Land cover classes</p></td>
+</tr>
+<tr class="row-even"><td><p>Movement between places</p></td>
+<td><p>Flow or arc map</p></td>
+<td><p>Commuting, migration, trade</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="normalize-before-you-make-a-choropleth">
+<h3><span class="section-number">26.3.2. </span>Normalize before you make a choropleth<a class="headerlink" href="#normalize-before-you-make-a-choropleth" title="Link to this heading">#</a></h3>
+<p>A choropleth colors areas, so the reader’s eye is drawn to large areas. If you color areas by a total count (people, cases, hectares of cropland), large units will look important simply because they are large and contain more of everything. Map rates instead: people per km², cases per 100,000 people, percent of area under cropland. Show counts with proportional symbols. <a class="reference internal" href="#viz-counts-vs-rates"><span class="std std-numref">Fig. 26.1</span></a> shows the same data mapped both ways.</p>
+<figure class="align-center" id="viz-counts-vs-rates">
+<a class="reference internal image-reference" href="../_images/viz-counts-vs-rates.png"><img alt="../_images/viz-counts-vs-rates.png" src="../_images/viz-counts-vs-rates.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.1 </span><span class="caption-text">Left: a choropleth of total population is dominated by the two largest countries. Right: population density (people per km², computed in an equal-area projection) shows the actual pattern. Data: Natural Earth.</span><a class="headerlink" href="#viz-counts-vs-rates" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="classify-thoughtfully">
+<h3><span class="section-number">26.3.3. </span>Classify thoughtfully<a class="headerlink" href="#classify-thoughtfully" title="Link to this heading">#</a></h3>
+<p>A choropleth can be unclassed (a continuous color ramp) or classed (values grouped into 4 to 7 classes, each with one color). Classes are easier to read and to match with the legend, but the class breaks you choose change the map. The <code class="docutils literal notranslate"><span class="pre">mapclassify</span></code> package, used by GeoPandas through the <code class="docutils literal notranslate"><span class="pre">scheme=</span></code> argument, implements the common schemes:</p>
+<ul class="simple">
+<li><p>Equal interval: classes of equal width. Simple to explain, but with skewed data almost every unit falls in the first class.</p></li>
+<li><p>Quantiles: each class holds the same number of units. Every color appears equally often, but very different values can share a class.</p></li>
+<li><p>Natural breaks (Fisher-Jenks): breaks placed where they minimize the variance within classes. A good default for skewed data.</p></li>
+</ul>
+<p><a class="reference internal" href="#viz-classification"><span class="std std-numref">Fig. 26.2</span></a> shows how much the message changes with the scheme. Always look at a histogram of your data before you choose, and state the scheme in the legend or caption.</p>
+<figure class="align-center" id="viz-classification">
+<a class="reference internal image-reference" href="../_images/viz-classification.png"><img alt="../_images/viz-classification.png" src="../_images/viz-classification.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.2 </span><span class="caption-text">The same population density data in five classes using three classification schemes. The histograms show where each scheme places its class breaks (vertical lines).</span><a class="headerlink" href="#viz-classification" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="choose-the-projection-on-purpose">
+<h3><span class="section-number">26.3.4. </span>Choose the projection on purpose<a class="headerlink" href="#choose-the-projection-on-purpose" title="Link to this heading">#</a></h3>
+<p>You learned in the <a class="reference internal" href="08_crs.html"><span class="std std-doc">CRS lectures</span></a> that every projection distorts something. For maps that compare areas (choropleths, density maps), use an equal-area projection such as Equal Earth (EPSG:8857) for the world or an Albers equal-area projection for a country. Web Mercator (EPSG:3857), the projection of almost every web map, preserves shapes locally but makes Greenland look as large as Africa, which is about 14 times bigger. Also compute areas and densities in an equal-area CRS, never in degrees.</p>
+</section>
+<section id="include-the-map-elements-your-reader-needs">
+<h3><span class="section-number">26.3.5. </span>Include the map elements your reader needs<a class="headerlink" href="#include-the-map-elements-your-reader-needs" title="Link to this heading">#</a></h3>
+<p>A title that states the message, a legend with units, the data source and date, and the CRS. Add a scale bar for local and regional maps (a scale bar is misleading on a world map because scale varies across it) and a north arrow only when north is not up.</p>
+</section>
+</section>
+<section id="color">
+<h2><span class="section-number">26.4. </span>Color<a class="headerlink" href="#color" title="Link to this heading">#</a></h2>
+<p>Color is the main channel of most maps, and also the one most often misused. A colormap (or color palette) maps a data value to a color. The first question is what kind of data you have, as summarized in <a class="reference internal" href="#viz-colormap-choice"><span class="std std-numref">Fig. 26.3</span></a>.</p>
+<figure class="align-center" id="viz-colormap-choice">
+<a class="reference internal image-reference" href="../_images/viz-colormap-choice.png"><img alt="../_images/viz-colormap-choice.png" src="../_images/viz-colormap-choice.png" style="width: 750px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.3 </span><span class="caption-text">Choosing the type of colormap from the type of data.</span><a class="headerlink" href="#viz-colormap-choice" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Sequential colormaps go from light to dark (or dark to light) and are used for ordered data from low to high, such as elevation, NDVI or density.</p></li>
+<li><p>Diverging colormaps have a neutral light color in the middle and two hues at the ends. They are for data with a meaningful midpoint: zero change, an anomaly, a difference between two dates. Center the colormap on that midpoint (<code class="docutils literal notranslate"><span class="pre">center=0</span></code> in Xarray, or <code class="docutils literal notranslate"><span class="pre">matplotlib.colors.TwoSlopeNorm</span></code>).</p></li>
+<li><p>Qualitative colormaps use distinct hues with similar lightness, with no implied order. They are for categories such as land cover classes. Keep the number of categories small (about 8 or fewer) and use a colorblind-safe set such as Okabe-Ito.</p></li>
+<li><p>Cyclic colormaps start and end at the same color. They are for values that wrap around: aspect, wind direction, day of year, phase.</p></li>
+</ul>
+<figure class="align-center" id="viz-palette-types">
+<a class="reference internal image-reference" href="../_images/viz-palette-types.png"><img alt="../_images/viz-palette-types.png" src="../_images/viz-palette-types.png" style="width: 650px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.4 </span><span class="caption-text">One example of each colormap type: batlow, vik and romaO from the <a class="reference external" href="https://www.fabiocrameri.ch/colourmaps/">Scientific Colour Maps</a>, and the Okabe-Ito qualitative palette.</span><a class="headerlink" href="#viz-palette-types" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="why-not-the-rainbow">
+<h3><span class="section-number">26.4.1. </span>Why not the rainbow?<a class="headerlink" href="#why-not-the-rainbow" title="Link to this heading">#</a></h3>
+<p>The rainbow colormap (<code class="docutils literal notranslate"><span class="pre">jet</span></code> in Matplotlib and MATLAB, and the default in both until around 2015) is still everywhere in remote sensing and climate science. It looks vivid, but it misrepresents data in several ways (<a class="reference external" href="https://doi.org/10.1109/MCG.2007.323435">Borland and Taylor, 2007</a>; <a class="reference external" href="https://doi.org/10.1038/s41467-020-19160-7">Crameri et al., 2020</a>):</p>
+<ol class="arabic simple">
+<li><p>Its lightness goes up and then down. Our eyes read order mostly from lightness, and in <code class="docutils literal notranslate"><span class="pre">jet</span></code> the brightest colors (cyan and yellow) sit in the middle of the data range, not at an end. A reader cannot tell from the colors alone whether red means more or less than cyan.</p></li>
+<li><p>It creates boundaries that are not in the data. Lightness changes fast in some parts of the colormap (around cyan and yellow) and barely at all in others (the long green band). Smooth data looks like it has sharp edges, and real gradients disappear inside the green.</p></li>
+<li><p>It fails for readers with color vision deficiency, where the reds and greens collapse into similar colors.</p></li>
+<li><p>It fails in grayscale, where high and low values print as the same gray.</p></li>
+</ol>
+<p><a class="reference internal" href="#viz-rainbow-vs-batlow"><span class="std std-numref">Fig. 26.5</span></a> shows the same elevation data in <code class="docutils literal notranslate"><span class="pre">jet</span></code> and in the perceptually uniform <code class="docutils literal notranslate"><span class="pre">batlow</span></code>. In the grayscale versions, the <code class="docutils literal notranslate"><span class="pre">jet</span></code> map has its highest ridges printed darker than mid-slopes, while <code class="docutils literal notranslate"><span class="pre">batlow</span></code> keeps the order of elevations.</p>
+<figure class="align-center" id="viz-rainbow-vs-batlow">
+<a class="reference internal image-reference" href="../_images/viz-rainbow-vs-batlow.png"><img alt="../_images/viz-rainbow-vs-batlow.png" src="../_images/viz-rainbow-vs-batlow.png" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.5 </span><span class="caption-text">A digital elevation model shown with <code class="docutils literal notranslate"><span class="pre">jet</span></code> and <code class="docutils literal notranslate"><span class="pre">batlow</span></code> (top), and the perceived lightness of each map, which is roughly what a grayscale print shows (bottom). Data: Matplotlib sample DEM.</span><a class="headerlink" href="#viz-rainbow-vs-batlow" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>You can see the problem directly by plotting the perceived lightness of each colormap from its lowest to its highest value (<a class="reference internal" href="#viz-lightness-profiles"><span class="std std-numref">Fig. 26.6</span></a>). A good sequential colormap has lightness that changes steadily in one direction. <code class="docutils literal notranslate"><span class="pre">turbo</span></code>, an improved rainbow released by Google in 2019, is smoother than <code class="docutils literal notranslate"><span class="pre">jet</span></code> but its lightness still rises and falls, so it has the same order problem.</p>
+<figure class="align-center" id="viz-lightness-profiles">
+<a class="reference internal image-reference" href="../_images/viz-lightness-profiles.png"><img alt="../_images/viz-lightness-profiles.png" src="../_images/viz-lightness-profiles.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.6 </span><span class="caption-text">Perceived lightness (J’ in the CAM02-UCS color space) across five colormaps. Only viridis, batlow and cividis change monotonically.</span><a class="headerlink" href="#viz-lightness-profiles" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="viz-cvd">
+<a class="reference internal image-reference" href="../_images/viz-cvd.png"><img alt="../_images/viz-cvd.png" src="../_images/viz-cvd.png" style="width: 650px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.7 </span><span class="caption-text">Simulated appearance of jet and batlow for viewers with the two most common forms of color vision deficiency.</span><a class="headerlink" href="#viz-cvd" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>So what should you use instead?</p>
+<ul class="simple">
+<li><p>For sequential data: <code class="docutils literal notranslate"><span class="pre">viridis</span></code> (the Matplotlib default since version 2.0), <code class="docutils literal notranslate"><span class="pre">cividis</span></code> (optimized for color vision deficiency by <a class="reference external" href="https://doi.org/10.1371/journal.pone.0199239">Nuñez et al., 2018</a>), or <code class="docutils literal notranslate"><span class="pre">batlow</span></code> from the Scientific Colour Maps.</p></li>
+<li><p>For diverging data: <code class="docutils literal notranslate"><span class="pre">vik</span></code>, <code class="docutils literal notranslate"><span class="pre">roma</span></code> or <code class="docutils literal notranslate"><span class="pre">bam</span></code> from the Scientific Colour Maps, or ColorBrewer’s <code class="docutils literal notranslate"><span class="pre">RdBu</span></code> and <code class="docutils literal notranslate"><span class="pre">BrBG</span></code>.</p></li>
+<li><p>For classed choropleths: the ColorBrewer palettes (for example <code class="docutils literal notranslate"><span class="pre">YlGnBu</span></code>, <code class="docutils literal notranslate"><span class="pre">OrRd</span></code>), which were designed for maps with a small number of classes. Use the <a class="reference external" href="https://colorbrewer2.org/">ColorBrewer website</a> to check whether a palette is colorblind safe and print friendly.</p></li>
+<li><p>For categories: Okabe-Ito or Matplotlib’s <code class="docutils literal notranslate"><span class="pre">tab10</span></code>, and keep the number of classes small.</p></li>
+</ul>
+<p>In Python, <code class="docutils literal notranslate"><span class="pre">cmcrameri</span></code> provides the Scientific Colour Maps, <code class="docutils literal notranslate"><span class="pre">cmocean</span></code> provides colormaps designed for oceanography, and <code class="docutils literal notranslate"><span class="pre">colorcet</span></code> provides a large set of perceptually uniform maps. All of them work with Matplotlib, GeoPandas and Xarray.</p>
+<div class="tip admonition">
+<p class="admonition-title">A rule of thumb</p>
+<p>If your data are ordered (low to high), your colors must be ordered by lightness. If you could not sort the colors in your legend from light to dark without looking at the numbers, choose another colormap.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="the-python-visualization-landscape">
+<h2><span class="section-number">26.5. </span>The Python Visualization Landscape<a class="headerlink" href="#the-python-visualization-landscape" title="Link to this heading">#</a></h2>
+<p>There are many Python packages for geospatial visualization, and they overlap a lot. A useful way to organize them is by output (a static figure or an interactive map) and by how much data they can handle.</p>
+<section id="static-maps-and-figures">
+<h3><span class="section-number">26.5.1. </span>Static maps and figures<a class="headerlink" href="#static-maps-and-figures" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Use it for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Matplotlib</p></td>
+<td><p>The foundation for static figures in Python. Everything below draws on it.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GeoPandas <code class="docutils literal notranslate"><span class="pre">.plot()</span></code></p></td>
+<td><p>Quick maps of GeoDataFrames, including classed choropleths through <code class="docutils literal notranslate"><span class="pre">scheme=</span></code> (powered by <code class="docutils literal notranslate"><span class="pre">mapclassify</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p>Xarray <code class="docutils literal notranslate"><span class="pre">.plot()</span></code></p></td>
+<td><p>Rasters and gridded data, with built-in support for <code class="docutils literal notranslate"><span class="pre">robust=True</span></code>, <code class="docutils literal notranslate"><span class="pre">center=0</span></code> and faceting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cartopy</p></td>
+<td><p>Publication maps with projections, coastlines and gridlines, especially for global and climate data.</p></td>
+</tr>
+<tr class="row-even"><td><p>contextily</p></td>
+<td><p>Adding a web basemap (tiles) behind a GeoPandas plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cmcrameri</span></code>, <code class="docutils literal notranslate"><span class="pre">cmocean</span></code>, <code class="docutils literal notranslate"><span class="pre">colorcet</span></code></p></td>
+<td><p>Scientific colormaps.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="interactive-maps">
+<h3><span class="section-number">26.5.2. </span>Interactive maps<a class="headerlink" href="#interactive-maps" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>How it works</p></th>
+<th class="head"><p>Good for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>folium / GeoPandas <code class="docutils literal notranslate"><span class="pre">.explore()</span></code></p></td>
+<td><p>Leaflet.js; sends data to the browser as GeoJSON</p></td>
+<td><p>Small datasets (up to tens of thousands of simple features), quick looks, standalone HTML</p></td>
+</tr>
+<tr class="row-odd"><td><p>ipyleaflet</p></td>
+<td><p>Leaflet.js as a Jupyter widget</p></td>
+<td><p>Small datasets with two-way interaction with Python</p></td>
+</tr>
+<tr class="row-even"><td><p>leafmap</p></td>
+<td><p>One API over several backends (folium, ipyleaflet, MapLibre, Lonboard, and others)</p></td>
+<td><p>Teaching, quick exploration, COGs and STAC items, PMTiles</p></td>
+</tr>
+<tr class="row-odd"><td><p>maplibre (py-maplibregl)</p></td>
+<td><p>MapLibre GL JS bindings</p></td>
+<td><p>Vector tiles, PMTiles, 3D buildings and terrain</p></td>
+</tr>
+<tr class="row-even"><td><p>Lonboard</p></td>
+<td><p>deck.gl on the GPU, fed with GeoArrow and GeoParquet</p></td>
+<td><p>Large vector datasets (millions of features) in a notebook, COGs and raster PMTiles</p></td>
+</tr>
+<tr class="row-odd"><td><p>pydeck, kepler.gl</p></td>
+<td><p>deck.gl bindings and the kepler.gl application</p></td>
+<td><p>Data exploration and storytelling in the browser</p></td>
+</tr>
+<tr class="row-even"><td><p>hvPlot / GeoViews + Datashader</p></td>
+<td><p>Rasterizes data on the server before sending an image</p></td>
+<td><p>Data larger than browser memory, such as billions of points</p></td>
+</tr>
+<tr class="row-odd"><td><p>Plotly</p></td>
+<td><p>General interactive charts, including maps</p></td>
+<td><p>Dashboards and figures that mix maps and charts</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You do not need to learn all of them. A good starting set for this course is GeoPandas and Xarray for static figures, <code class="docutils literal notranslate"><span class="pre">.explore()</span></code> for a quick interactive look at small data, and Lonboard when your data gets large.</p>
+</section>
+<section id="lonboard">
+<h3><span class="section-number">26.5.3. </span>Lonboard<a class="headerlink" href="#lonboard" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://developmentseed.org/lonboard/">Lonboard</a> is a Python library from Development Seed for fast, interactive visualization of large geospatial data in Jupyter. It is built on <a class="reference external" href="https://deck.gl/">deck.gl</a>, a JavaScript library that draws maps on the GPU. Version 0.17, released in October 2026, is the current release as of this lecture.</p>
+<p>Why is it fast? Most interactive mapping libraries convert your GeoDataFrame to GeoJSON text, send that text to the browser, and parse it there. That is slow to write, large to transfer and slow to read. Lonboard instead converts your data to <a class="reference external" href="https://geoarrow.org/">GeoArrow</a>, sends it as compressed GeoParquet, and hands the binary arrays almost directly to the GPU. You learned about Arrow and GeoParquet in the <a class="reference internal" href="21_scalable_vector_analysis.html"><span class="std std-doc">scalable vector analysis</span></a> lecture; Lonboard uses the same ideas for visualization. The result is that a few million points or polygons can be rendered interactively on a laptop.</p>
+<p>Things worth knowing:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">viz(gdf)</span></code> creates a map from a GeoDataFrame in one line and picks the layer type for you.</p></li>
+<li><p>For control over styling, create layers yourself: <code class="docutils literal notranslate"><span class="pre">ScatterplotLayer</span></code> for points, <code class="docutils literal notranslate"><span class="pre">PathLayer</span></code> for lines, <code class="docutils literal notranslate"><span class="pre">PolygonLayer</span></code> for polygons, plus <code class="docutils literal notranslate"><span class="pre">H3HexagonLayer</span></code>, <code class="docutils literal notranslate"><span class="pre">HeatmapLayer</span></code>, <code class="docutils literal notranslate"><span class="pre">ArcLayer</span></code>, <code class="docutils literal notranslate"><span class="pre">TripsLayer</span></code> and others. Each takes per-feature colors and sizes as NumPy arrays, which you build with <code class="docutils literal notranslate"><span class="pre">lonboard.colormap.apply_continuous_cmap</span></code> or <code class="docutils literal notranslate"><span class="pre">apply_categorical_cmap</span></code>. You can pass any Matplotlib colormap, so the color advice above applies directly.</p></li>
+<li><p>Since 2026, the <code class="docutils literal notranslate"><span class="pre">RasterLayer</span></code> can display Cloud-Optimized GeoTIFFs (through the <code class="docutils literal notranslate"><span class="pre">async-geotiff</span></code> library, version 0.16) and raster PMTiles (<code class="docutils literal notranslate"><span class="pre">RasterLayer.from_pmtiles</span></code>, version 0.14), with reprojection done in the browser.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Map.to_html(&quot;map.html&quot;)</span></code> saves a standalone HTML file you can share.</p></li>
+<li><p>Limits: Lonboard draws every feature you give it, so the ceiling is the memory of the viewer’s GPU. If your Python session is remote (JupyterHub, Colab), all the data must be downloaded to your browser first. For data larger than that, you need Datashader or tiles.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="visualizing-data-versus-serving-tiles">
+<h2><span class="section-number">26.6. </span>Visualizing Data versus Serving Tiles<a class="headerlink" href="#visualizing-data-versus-serving-tiles" title="Link to this heading">#</a></h2>
+<p>When you call <code class="docutils literal notranslate"><span class="pre">gdf.explore()</span></code> or Lonboard’s <code class="docutils literal notranslate"><span class="pre">viz()</span></code>, the whole dataset travels from Python to your browser, and the browser draws all of it. That works well in a notebook, up to a point. It does not work for a map of every building on Earth that thousands of people will open on their phones. Web maps solve this problem with tiles. <a class="reference internal" href="#viz-data-vs-tiles"><span class="std std-numref">Fig. 26.8</span></a> contrasts the two approaches.</p>
+<figure class="align-center" id="viz-data-vs-tiles">
+<a class="reference internal image-reference" href="../_images/viz-data-vs-tiles.png"><img alt="../_images/viz-data-vs-tiles.png" src="../_images/viz-data-vs-tiles.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.8 </span><span class="caption-text">Two ways to get geospatial data onto a screen.</span><a class="headerlink" href="#viz-data-vs-tiles" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="what-is-a-tile">
+<h3><span class="section-number">26.6.1. </span>What is a tile?<a class="headerlink" href="#what-is-a-tile" title="Link to this heading">#</a></h3>
+<p>A web map splits the world (in Web Mercator) into a pyramid of square tiles (<a class="reference internal" href="#viz-tile-pyramid"><span class="std std-numref">Fig. 26.9</span></a>). At zoom level 0 one tile covers the whole world. Each zoom level splits every tile into four, so zoom level z has 4^z tiles. Each tile has an address z/x/y, and a map client builds URLs such as <code class="docutils literal notranslate"><span class="pre">https://.../{z}/{x}/{y}.png</span></code> to request only the tiles that cover the screen at the current zoom. The number of tiles on screen stays roughly constant no matter how large the dataset is.</p>
+<figure class="align-center" id="viz-tile-pyramid">
+<a class="reference internal image-reference" href="../_images/viz-tile-pyramid.png"><img alt="../_images/viz-tile-pyramid.png" src="../_images/viz-tile-pyramid.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.9 </span><span class="caption-text">The tile pyramid used by web maps.</span><a class="headerlink" href="#viz-tile-pyramid" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>There are two kinds of tiles:</p>
+<ul class="simple">
+<li><p>Raster tiles are images (PNG, JPEG or WebP). The styling is baked in when the tiles are made. Satellite basemaps and rendered imagery are raster tiles.</p></li>
+<li><p>Vector tiles (usually in the Mapbox Vector Tile format, MVT) contain geometries and attributes, and the browser styles them. You can change colors without rebuilding the tiles, labels stay sharp, and they are usually smaller than images.</p></li>
+</ul>
+<p>Tiles can be made ahead of time (pre-rendered) or on the fly. Dynamic tilers such as <a class="reference external" href="https://developmentseed.org/titiler/">TiTiler</a> read a Cloud-Optimized GeoTIFF and return the tile for each request, which is how STAC browsers and the Planetary Computer show imagery without storing tiles.</p>
+<p>Two properties of vector tiles matter for you as an analyst. First, geometries are clipped at tile edges, simplified at low zoom levels, and their coordinates are rounded to a grid inside each tile (typically 4096 by 4096). Second, small features are often dropped at low zoom levels so tiles stay small. Tiles are a format for display, not for analysis. Keep your analysis in GeoParquet, COG or Zarr, and create tiles from those files when you need to publish a map.</p>
+</section>
+<section id="pmtiles">
+<h3><span class="section-number">26.6.2. </span>PMTiles<a class="headerlink" href="#pmtiles" title="Link to this heading">#</a></h3>
+<p>Traditionally, serving tiles meant running a tile server, or uploading millions of small tile files to cloud storage, or storing them in an MBTiles (SQLite) file that still needs a server to answer requests. <a class="reference external" href="https://docs.protomaps.com/pmtiles/">PMTiles</a>, created by the Protomaps project, is a single-file archive for a whole tile pyramid that needs no server at all.</p>
+<p>The trick is the same one used by Cloud-Optimized GeoTIFFs: HTTP range requests. A PMTiles file starts with a 127-byte header followed by a root directory, and the specification requires both to fit in the first 16 KB of the file. A client reads those bytes in one request, looks up where the tiles it needs are stored, and then requests only those byte ranges (<a class="reference internal" href="#viz-pmtiles-anatomy"><span class="std std-numref">Fig. 26.10</span></a>). Tiles are ordered along a Hilbert curve, so tiles that are near each other on the map are near each other in the file and can be fetched in one request.</p>
+<figure class="align-center" id="viz-pmtiles-anatomy">
+<a class="reference internal image-reference" href="../_images/viz-pmtiles-anatomy.png"><img alt="../_images/viz-pmtiles-anatomy.png" src="../_images/viz-pmtiles-anatomy.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 26.10 </span><span class="caption-text">Inside a PMTiles archive. A client reads the header and root directory, then fetches only the byte ranges of the tiles it needs.</span><a class="headerlink" href="#viz-pmtiles-anatomy" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In practice this means you can host a map of any size by uploading one file to S3, Cloudflare R2, Source Cooperative, or any web server that supports range requests, and pointing MapLibre, Leaflet or OpenLayers at it. To work with PMTiles:</p>
+<ul class="simple">
+<li><p>Create vector PMTiles with <a class="reference external" href="https://github.com/felt/tippecanoe">tippecanoe</a> (version 2.17 or later writes <code class="docutils literal notranslate"><span class="pre">.pmtiles</span></code> directly, and it is the best tool for large data because it generalizes features at low zoom levels), or with GDAL 3.8 or later, which includes a PMTiles driver. That means <code class="docutils literal notranslate"><span class="pre">gdf.to_file(&quot;out.pmtiles&quot;,</span> <span class="pre">driver=&quot;PMTiles&quot;)</span></code> works from GeoPandas for small and medium datasets.</p></li>
+<li><p>Create raster PMTiles with <code class="docutils literal notranslate"><span class="pre">rio-pmtiles</span></code> or convert existing MBTiles with the <code class="docutils literal notranslate"><span class="pre">pmtiles</span></code> command line tool.</p></li>
+<li><p>Inspect any PMTiles file, local or remote, at <a class="reference external" href="https://pmtiles.io/">pmtiles.io</a>.</p></li>
+<li><p>Read PMTiles in Python with the <code class="docutils literal notranslate"><span class="pre">pmtiles</span></code> package, display vector PMTiles with <code class="docutils literal notranslate"><span class="pre">leafmap.maplibregl</span></code>, and raster PMTiles with Lonboard’s <code class="docutils literal notranslate"><span class="pre">RasterLayer.from_pmtiles</span></code>.</p></li>
+</ul>
+</section>
+<section id="which-approach-should-i-use">
+<h3><span class="section-number">26.6.3. </span>Which approach should I use?<a class="headerlink" href="#which-approach-should-i-use" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Situation</p></th>
+<th class="head"><p>Approach</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Exploring your own data in a notebook, up to a few million features</p></td>
+<td><p>Send the data: GeoPandas <code class="docutils literal notranslate"><span class="pre">.explore()</span></code> for small data, Lonboard for large data</p></td>
+</tr>
+<tr class="row-odd"><td><p>A figure for a paper, report or slide</p></td>
+<td><p>A static map with Matplotlib, GeoPandas or Xarray</p></td>
+</tr>
+<tr class="row-even"><td><p>Data larger than your browser can hold</p></td>
+<td><p>Aggregate first (H3 hexagons, Datashader), or build tiles</p></td>
+</tr>
+<tr class="row-odd"><td><p>A map many people will open on the web</p></td>
+<td><p>Tiles: PMTiles for vector data or pre-rendered imagery, a dynamic tiler for COGs</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2><span class="section-number">26.7. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Decide whether a figure is for exploring or for explaining, and give every explanatory figure one message.</p></li>
+<li><p>Map rates, not counts, in choropleths; choose classification and projection on purpose; label units, sources and dates.</p></li>
+<li><p>Pick the colormap from the type of data. For ordered data, lightness must change in one direction: use viridis, cividis or batlow, never a rainbow.</p></li>
+<li><p>Use static figures for publications, folium or <code class="docutils literal notranslate"><span class="pre">.explore()</span></code> for small interactive maps, and Lonboard for large data in notebooks.</p></li>
+<li><p>Notebook visualization sends all the data to the browser. Web maps send tiles. PMTiles packs a whole tile pyramid into one file that can be served from static storage.</p></li>
+</ul>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">26.8. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Crameri, Shephard and Heron (2020), <a class="reference external" href="https://doi.org/10.1038/s41467-020-19160-7">The misuse of colour in science communication</a>, and the <a class="reference external" href="https://www.fabiocrameri.ch/colourmaps/">Scientific Colour Maps</a>.</p></li>
+<li><p>Matplotlib’s guide on <a class="reference external" href="https://matplotlib.org/stable/users/explain/colors/colormaps.html">choosing colormaps</a>.</p></li>
+<li><p>Claus Wilke, <a class="reference external" href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization</a>, free online.</p></li>
+<li><p><a class="reference external" href="https://colorbrewer2.org/">ColorBrewer</a> by Cynthia Brewer.</p></li>
+<li><p><a class="reference external" href="https://developmentseed.org/lonboard/">Lonboard documentation</a> and its <a class="reference external" href="https://developmentseed.org/lonboard/latest/alternatives/">comparison with other libraries</a>.</p></li>
+<li><p><a class="reference external" href="https://guide.cloudnativegeo.org/pmtiles/intro.html">PMTiles in the Cloud-Native Geospatial Guide</a> and the <a class="reference external" href="https://docs.protomaps.com/">Protomaps documentation</a>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="25_agentic_workflow_lab.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">25. </span>Lab: Building a Data Workflow with an AI Agent</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="27_visualization_in_python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">27. </span>Geospatial Visualization in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-or-explain">26.1. Explore or Explain?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-that-apply-to-every-figure">26.2. Principles that Apply to Every Figure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maps-have-extra-rules">26.3. Maps Have Extra Rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#match-the-map-type-to-the-data">26.3.1. Match the map type to the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalize-before-you-make-a-choropleth">26.3.2. Normalize before you make a choropleth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classify-thoughtfully">26.3.3. Classify thoughtfully</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-projection-on-purpose">26.3.4. Choose the projection on purpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#include-the-map-elements-your-reader-needs">26.3.5. Include the map elements your reader needs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#color">26.4. Color</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-the-rainbow">26.4.1. Why not the rainbow?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-visualization-landscape">26.5. The Python Visualization Landscape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-maps-and-figures">26.5.1. Static maps and figures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-maps">26.5.2. Interactive maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lonboard">26.5.3. Lonboard</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-data-versus-serving-tiles">26.6. Visualizing Data versus Serving Tiles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-tile">26.6.1. What is a tile?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmtiles">26.6.2. PMTiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-approach-should-i-use">26.6.3. Which approach should I use?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">26.7. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">26.8. Further Reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hamed Alemohammad
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
